@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2. 介绍 &mdash; AudioQualityTuningGuide master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="3. 回声消除调试" href="3_Echo_Cancellation_Debugging.html" />
+    <link rel="prev" title="1. 声明" href="1_disclaimer.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> AudioQualityTuningGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="2_Introduction.html#">2. 介绍</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_Introduction.html#id2">2.1. 概述</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3_Echo_Cancellation_Debugging.html">3. 回声消除调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_FAQ.html">4. 常见问题：</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_VQE_Algorithm_Function_Introduction.html">5. VQE算法功能介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_Block_Diagram.html">6. Block Diagram:</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">AudioQualityTuningGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">2. </span>介绍</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/2_Introduction.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">2. </span>介绍<a class="headerlink" href="2_Introduction.html#id1" title="永久链接至标题">¶</a></h1>
+<section id="id2">
+<h2><span class="section-number">2.1. </span>概述<a class="headerlink" href="2_Introduction.html#id2" title="永久链接至标题">¶</a></h2>
+<div class="line-block">
+<div class="line">VQE(Voice Quality Enhancemen:语音音质增强模块)模块内包含</div>
+<div class="line">AGC(Auto Gain Control:自动增益控制),</div>
+<div class="line">ANR(Audio Noise Reduction:语音降躁),</div>
+<div class="line">AEC(Acoustic Echo Cancelling:听觉回声消除)</div>
+<div class="line">三大子功能, 主要用于收音时为满足客户端在不同产品形式及不同使用状况下, 能给予单纯麦克风收音外较佳的声音质量。</div>
+<div class="line">VQE使用音频基础主要为语音,因此取样率主要支持8kHz, 16Khz人声语音频信号。</div>
+<div class="line">本文主要讲解AEC调试部分。</div>
+</div>
+<p><strong>[听觉回声消除的作用]：</strong></p>
+<a class="reference internal image-reference" href="_images/Introd002.png"><img alt="_images/Introd002.png" src="_images/Introd002.png" style="width: 6.26806in; height: 3.34514in;" /></a>
+<p>如图所示，远端app会将麦克风录制的人声x(n)发送给sophgo,sophgo 会将数据传输给vqe的同时喇叭播放数据。</p>
+<p>近端麦克风会将录制的人声y(n)和喇叭播放的经过空气传播后的x’(n)混合在一起发送给sophgo,x’(n)则是需要消除的回声。</p>
+<p>vqe的输入是x’(n)和y(n)的混合信号，再加上参考信号x(n)，vqe的输出是消除回声后对y(n) agc,anr处理后的信号。</p>
+<p>Audio Input的声音内容就是ain_record.pcm文件的内容。</p>
+<p>注意：sophgo 有两种封装，一种是QFN封装，一种是BGA封装。QFN封装参考信号x(n)是在芯片内部做回连，BGA封装参考信号x(n)是在芯片外部做回连。</p>
+<p><strong>[算法基础要求]：</strong></p>
+<p>录音要求</p>
+<ul class="simple">
+<li><p>采样率只支持8kHz或者16kHz，播放和录音参数要求一致。</p></li>
+<li><p>AGC/ANR 仅支持单声道, 不支持立体声 。</p></li>
+<li><p>AEC需使用双声道录音( 左声道为mic录取的近端声, 右声道为远端发送过来的声音)。</p></li>
+<li><p>采样位深16位(enBitwidth = AUDIO_BIT_WIDTH_16)。</p></li>
+<li><p>录取到的 <strong>左右声道不能失真</strong> （如：波形太大消顶，mic和speak质量不佳，pcb模拟电路被干扰等导致的失真）。</p></li>
+<li><p>左声道mic录取到的近端人的声音幅度要比录取到喇叭的声音大（远端声音），否则会影响算法处理效果。</p></li>
+<li><p><strong>右声道参考信号幅度</strong> 要比左声道mic录取的声音中的远端声音大，否则会影响算法处理效果。</p></li>
+</ul>
+<p>正常的波形图（mic通道和参考信号通道波形都适中，没有失真，没有底噪干扰等）：</p>
+<img alt="_images/image2.png" src="_images/image2.png" />
+<p><strong>如下面的波形图是不行的</strong></p>
+<img alt="_images/image3.png" src="_images/image3.png" />
+<dl>
+<dt>调整方法：</dt><dd><ol class="arabic simple">
+<li><p>把ADCR通道的gain减小。QFN封装的建议设置成1，BGA的封装自行减小。</p></li>
+<li><p>如果第一步进行了还是出现消顶失真，则把Audio Output的gain减小。</p></li>
+</ol>
+<p>注：参考信号的幅度受对方发来的原始数据幅度，Audio Output的gain，ADC R的gain共同影响。</p>
+</dd>
+</dl>
+<p>硬件要求</p>
+<ul class="simple">
+<li><p>板端硬件有mic 组件。</p></li>
+<li><p>板端硬件有speaker可供播放出声。</p></li>
+<li><p>板子有AEC回路: speaker声音硬件回采到录音的右声道（ADC_R），没有受到干扰。</p></li>
+</ul>
+<p>整机结构要求</p>
+<ul class="simple">
+<li><p>MIC要有单独的音腔设计并密封，MIC要有外带防震橡胶套，防震效果要好。</p></li>
+<li><p>MIC拾音朝向最好与喇叭方向相反。</p></li>
+<li><p>喇叭要有单独的音腔设计，要有橡胶减振，防震效果要好。</p></li>
+<li><p>MIC 和喇叭的距离越远越好，两者的成的角度要保证声音耦合小。</p></li>
+</ul>
+<p><strong>[理想调试环境需求]</strong></p>
+<ol class="arabic simple">
+<li><p>要使用客户完整的样机, 样机尽可能结构密封。</p></li>
+<li><p>所使用的 mic &amp; spk 必须在客户完整样机内。</p></li>
+<li><p>调适适当的ADC/DAC gain level, 确保mic in(收音)及ref in(播音回路)的稳定性。</p></li>
+<li><p>先确认没有 pop noise 或 circuit noise 或讯号不连续的干扰之后, 再开始抓正确的speech pattern。</p></li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="1_disclaimer.html" class="btn btn-neutral float-left" title="1. 声明" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="3_Echo_Cancellation_Debugging.html" class="btn btn-neutral float-right" title="3. 回声消除调试" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

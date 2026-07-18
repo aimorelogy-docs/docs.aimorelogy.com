@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV184x 外围设备驱动使用手册 &mdash; PeripheralDriver master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="1. 声明" href="1_disclaimer.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html#" class="icon icon-home"> PeripheralDriver
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Ethernet_Operation_Guide.html">2. Ethernet 操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_USB_Operation_Guide.html">3. USB操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_SD_MMC_Card_Operation_Guide.html">4. SD/MMC 卡操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_I2C_Operation_Guide.html">5. I2C 操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_SPI_Operation_Guide.html">6. SPI 操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_GPIO_Operation_Guide.html">7. GPIO操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_UART_Operation_Guide.html">8. UART 操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_Watchdog_Operation_Guide.html">9. Watchdog 操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_PWM_Operation_Guide.html">10. PWM 操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_ADC_Operation_Guide.html">11. ADC 操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_CVI_PINMUX_Operation_Guide.html">12. CVI PINMUX 操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_DMA_mem_to_mem_Operation_Guide.html">13. DMA 操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_Thermal_Control_Operation_Guide.html">14. 温控策略与测试操作指南</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html#">PeripheralDriver</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html#" class="icon icon-home"></a> &raquo;</li>
+      <li>CV184x 外围设备驱动使用手册</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cv184x">
+<h1>CV184x 外围设备驱动使用手册<a class="headerlink" href="index.html#cv184x" title="永久链接至标题">¶</a></h1>
+<p><strong>修订记录</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 14%" />
+<col style="width: 68%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Revision</p></th>
+<th class="head"><p>Date</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1.0.0</p></td>
+<td><p>2025/03/12</p></td>
+<td><p>Initial version</p></td>
+</tr>
+<tr class="row-odd"><td><p>1.0.1</p></td>
+<td><p>2025/07/08</p></td>
+<td><p>Add CVI_PINMUX_Operation_Guide</p></td>
+</tr>
+<tr class="row-even"><td><p>1.0.2</p></td>
+<td><p>2026/04/28</p></td>
+<td><p>Update PWM/ADC/I2C/SPI/GPIO/UART/Watchdog operation guides</p></td>
+</tr>
+</tbody>
+</table>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Ethernet_Operation_Guide.html">2. Ethernet 操作指南</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_Ethernet_Operation_Guide.html#id1">2.1. 操作示例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Ethernet_Operation_Guide.html#ipv6">2.2. IPv6说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Ethernet_Operation_Guide.html#ieee-802-3x">2.3. IEEE 802.3x流控功能</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_Ethernet_Operation_Guide.html#id2">2.3.1. 流控功能描述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Ethernet_Operation_Guide.html#id3">2.3.2. 流控功能配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Ethernet_Operation_Guide.html#ethtool">2.3.3. ethtool配置接口流控功能</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3_USB_Operation_Guide.html">3. USB操作指南</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3_USB_Operation_Guide.html#id1">3.1. 操作准备</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_USB_Operation_Guide.html#uboot">3.2. Uboot操作过程</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3_USB_Operation_Guide.html#ubootusb-host">3.2.1. Uboot下USB Host配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_USB_Operation_Guide.html#ubootu">3.2.2. Uboot下U盘</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3_USB_Operation_Guide.html#linux-host">3.3. linux Host</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3_USB_Operation_Guide.html#usb-2-0-host">3.3.1. USB 2.0 Host 操作过程</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3_USB_Operation_Guide.html#linux-device">3.4. linux Device</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3_USB_Operation_Guide.html#id2">3.4.1. 操作准备</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_USB_Operation_Guide.html#switch-gpio">3.4.2. 切换 switch GPIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_USB_Operation_Guide.html#device">3.4.3. Device 作为存储设备的操作指南</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_USB_Operation_Guide.html#id3">3.4.4. Device 作为终端设备的操作指南</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_USB_Operation_Guide.html#device-adb">3.4.5. Device 作为 ADB 设备的操作指南</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_USB_Operation_Guide.html#device-rndis">3.4.6. Device 作为 RNDIS 设备的操作指南</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3_USB_Operation_Guide.html#id4">3.5. 操作中需注意问题</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="4_SD_MMC_Card_Operation_Guide.html">4. SD/MMC 卡操作指南</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="4_SD_MMC_Card_Operation_Guide.html#id1">4.1. 操作准备</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_SD_MMC_Card_Operation_Guide.html#id2">4.2. 操作过程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_SD_MMC_Card_Operation_Guide.html#id3">4.3. 操作示例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="4_SD_MMC_Card_Operation_Guide.html#u-boot-sd">4.3.1. U-Boot 下操作 SD 卡</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_SD_MMC_Card_Operation_Guide.html#linux-sd">4.3.2. Linux 下操作 SD 卡</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="4_SD_MMC_Card_Operation_Guide.html#id4">4.4. 操作中需要注意的问题</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="5_I2C_Operation_Guide.html">5. I2C 操作指南</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="5_I2C_Operation_Guide.html#id1">5.1. 操作准备</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="5_I2C_Operation_Guide.html#id2">5.1.1. 切换引脚（将引脚复用到 I2C 功能）</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="5_I2C_Operation_Guide.html#id3">5.2. 操作过程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_I2C_Operation_Guide.html#id4">5.3. 接口速率设置说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_I2C_Operation_Guide.html#i2c-i2c-tools">5.4. I2C 读写命令示例（i2c-tools）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_I2C_Operation_Guide.html#gpio-i2c-i2c-2">5.5. GPIO 模拟 I2C（以 I2C-2 为例）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_I2C_Operation_Guide.html#i2c-recovery">5.6. I2C Recovery 配置说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_I2C_Operation_Guide.html#id5">5.7. 内核态 I2C 读写程序示例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_I2C_Operation_Guide.html#id6">5.8. 用户态 I2C 读写程序示例</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="6_SPI_Operation_Guide.html">6. SPI 操作指南</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="6_SPI_Operation_Guide.html#id1">6.1. 操作准备</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="6_SPI_Operation_Guide.html#spi-dma">6.1.1. 使能内核 SPI 与 DMA 配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_SPI_Operation_Guide.html#spi1">6.1.2. 在设备树中将 SPI1 使能</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_SPI_Operation_Guide.html#id2">6.1.3. SPI1 引脚切换</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="6_SPI_Operation_Guide.html#id3">6.2. 操作过程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_SPI_Operation_Guide.html#id4">6.3. SPI 环回测试</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_SPI_Operation_Guide.html#id5">6.4. 操作示例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_SPI_Operation_Guide.html#id6">6.5. 内核态 SPI 读写程序示例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_SPI_Operation_Guide.html#id7">6.6. 用户态 SPI 读写程序示例</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="7_GPIO_Operation_Guide.html">7. GPIO操作指南</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="7_GPIO_Operation_Guide.html#id1">7.1. 操作准备</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7_GPIO_Operation_Guide.html#id2">7.2. 操作流程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7_GPIO_Operation_Guide.html#id3">7.3. 操作示例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="7_GPIO_Operation_Guide.html#id4">7.3.1. GPIO命令行操作示例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_GPIO_Operation_Guide.html#id5">7.3.2. 内核态GPIO操作示例</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="7_GPIO_Operation_Guide.html#id6">7.3.2.1. 头文件与宏定义</a></li>
+<li class="toctree-l4"><a class="reference internal" href="7_GPIO_Operation_Guide.html#id7">7.3.2.2. 中断回调函数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="7_GPIO_Operation_Guide.html#id8">7.3.2.3. 模块初始化（GPIO 读写 + 中断注册）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="7_GPIO_Operation_Guide.html#id9">7.3.2.4. 模块卸载（资源释放）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="7_GPIO_Operation_Guide.html#id10">7.3.2.5. 模块声明</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="7_GPIO_Operation_Guide.html#id11">7.3.3. 用户态GPIO操作示例</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="8_UART_Operation_Guide.html">8. UART 操作指南</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="8_UART_Operation_Guide.html#id1">8.1. 操作准备</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="8_UART_Operation_Guide.html#id2">8.1.1. 内核要求</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_UART_Operation_Guide.html#id3">8.1.2. 设备树中使能 UART</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_UART_Operation_Guide.html#uart-dma">8.1.3. UART 使用 DMA 时的设备树配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_UART_Operation_Guide.html#id4">8.1.4. 引脚复用</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="8_UART_Operation_Guide.html#id5">8.2. 操作流程</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="8_UART_Operation_Guide.html#id6">8.2.1. UART 环回测试</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_UART_Operation_Guide.html#id7">8.2.2. UART 串口通信（终端收发）</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="8_UART_Operation_Guide.html#id8">8.3. UART 扩展操作（常用 / 排障 / 高级）</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="8_UART_Operation_Guide.html#id9">8.3.1. 常用扩展操作（基础功能补充）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_UART_Operation_Guide.html#id10">8.3.2. 排障类操作（解决串口异常）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_UART_Operation_Guide.html#id11">8.3.3. 高级配置操作（适配特殊场景）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_UART_Operation_Guide.html#id12">8.3.4. UART 扩展操作小结</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="8_UART_Operation_Guide.html#uart-3m">8.4. UART 特定波特率输出（以 3M 为例）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="8_UART_Operation_Guide.html#id13">8.5. 用户态程序开发示例</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="9_Watchdog_Operation_Guide.html">9. Watchdog 操作指南</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="9_Watchdog_Operation_Guide.html#id1">9.1. 操作准备</a></li>
+<li class="toctree-l2"><a class="reference internal" href="9_Watchdog_Operation_Guide.html#id2">9.2. 操作流程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="9_Watchdog_Operation_Guide.html#id3">9.3. 操作示例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="9_Watchdog_Operation_Guide.html#id4">9.3.1. 打开 Watchdog 并立即喂狗</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Watchdog_Operation_Guide.html#id5">9.3.2. 设置超时时间</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Watchdog_Operation_Guide.html#keepalive">9.3.3. 喂狗（Keepalive）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Watchdog_Operation_Guide.html#id6">9.3.4. 获取当前超时时间</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Watchdog_Operation_Guide.html#id7">9.3.5. 获取剩余时间</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Watchdog_Operation_Guide.html#watchdog-magic-close">9.3.6. 关闭 Watchdog（Magic Close）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Watchdog_Operation_Guide.html#id8">9.3.7. 完整用户态程序示例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Watchdog_Operation_Guide.html#id9">9.3.8. 命令行快速示例</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="10_PWM_Operation_Guide.html">10. PWM 操作指南</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="10_PWM_Operation_Guide.html#id1">10.1. 操作准备</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_PWM_Operation_Guide.html#id2">10.2. 操作流程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_PWM_Operation_Guide.html#id3">10.3. 操作示例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="10_PWM_Operation_Guide.html#id4">10.3.1. 命令行操作示例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_PWM_Operation_Guide.html#id5">10.3.2. 最高与最低频率操作示例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_PWM_Operation_Guide.html#id6">10.3.3. 用户态程序示例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_PWM_Operation_Guide.html#id7">10.3.4. 运行方式说明</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="11_ADC_Operation_Guide.html">11. ADC 操作指南</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="11_ADC_Operation_Guide.html#id1">11.1. 操作准备</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_ADC_Operation_Guide.html#id2">11.2. 操作流程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_ADC_Operation_Guide.html#id3">11.3. 操作示例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="11_ADC_Operation_Guide.html#saradc0-1">11.3.1. 读取 SARADC0 通道 1 并换算电压</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_ADC_Operation_Guide.html#saradc0-3-rtc-saradc0-10">11.3.2. SARADC0 通道 3 与 RTC_SARADC0 通道 10 读取示例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_ADC_Operation_Guide.html#id4">11.3.3. 内核态 ADC 读写示例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_ADC_Operation_Guide.html#id5">11.3.4. 用户态 ADC 读写示例</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="12_CVI_PINMUX_Operation_Guide.html">12. CVI PINMUX 操作指南</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="12_CVI_PINMUX_Operation_Guide.html#id1">12.1. 操作准备</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12_CVI_PINMUX_Operation_Guide.html#id2">12.2. 操作流程</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="12_CVI_PINMUX_Operation_Guide.html#u-boot-pinmux">12.2.1. U-Boot 下 Pinmux 配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="12_CVI_PINMUX_Operation_Guide.html#pinmux-cvi-pinmux">12.2.2. 内核下 Pinmux 配置（cvi_pinmux 工具）</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="12_CVI_PINMUX_Operation_Guide.html#ephy-gpio-spi">12.3. ephy 引脚切换为 GPIO 或 SPI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="12_CVI_PINMUX_Operation_Guide.html#gpio">12.3.1. 切换为 GPIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="12_CVI_PINMUX_Operation_Guide.html#spi">12.3.2. 切换为 SPI</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="13_DMA_mem_to_mem_Operation_Guide.html">13. DMA 操作指南</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="13_DMA_mem_to_mem_Operation_Guide.html#dev-to-mem">13.1. dev-to-mem操作指南</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="13_DMA_mem_to_mem_Operation_Guide.html#id1">13.1.1. 内核要求</a></li>
+<li class="toctree-l3"><a class="reference internal" href="13_DMA_mem_to_mem_Operation_Guide.html#id2">13.1.2. 驱动说明</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="13_DMA_mem_to_mem_Operation_Guide.html#mem-to-mem">13.2. mem-to-mem操作指南</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="13_DMA_mem_to_mem_Operation_Guide.html#menuconfig">13.2.1. 配置并打开内核 menuconfig</a></li>
+<li class="toctree-l3"><a class="reference internal" href="13_DMA_mem_to_mem_Operation_Guide.html#id3">13.2.2. 编译内核（含模块）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="13_DMA_mem_to_mem_Operation_Guide.html#id4">13.2.3. 加载与设备节点</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="13_DMA_mem_to_mem_Operation_Guide.html#id5">13.3. 用户态测试</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="13_DMA_mem_to_mem_Operation_Guide.html#id6">13.3.1. 完整测试代码</a></li>
+<li class="toctree-l3"><a class="reference internal" href="13_DMA_mem_to_mem_Operation_Guide.html#id7">13.3.2. 编译说明</a></li>
+<li class="toctree-l3"><a class="reference internal" href="13_DMA_mem_to_mem_Operation_Guide.html#id8">13.3.3. 测试内容说明</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="13_DMA_mem_to_mem_Operation_Guide.html#ioctl">13.4. ioctl 接口</a></li>
+<li class="toctree-l2"><a class="reference internal" href="13_DMA_mem_to_mem_Operation_Guide.html#dma-mem-to-mem">13.5. 如何验证为 DMA mem-to-mem</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="13_DMA_mem_to_mem_Operation_Guide.html#id9">13.5.1. 看内核日志</a></li>
+<li class="toctree-l3"><a class="reference internal" href="13_DMA_mem_to_mem_Operation_Guide.html#cpu">13.5.2. 看 CPU 占用</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="14_Thermal_Control_Operation_Guide.html">14. 温控策略与测试操作指南</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="14_Thermal_Control_Operation_Guide.html#id2">14.1. 操作准备</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14_Thermal_Control_Operation_Guide.html#id3">14.2. 操作流程</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="14_Thermal_Control_Operation_Guide.html#cpu-tpu">14.2.1. 查看 CPU/TPU 时钟</a></li>
+<li class="toctree-l3"><a class="reference internal" href="14_Thermal_Control_Operation_Guide.html#id4">14.2.2. 查看当前温度</a></li>
+<li class="toctree-l3"><a class="reference internal" href="14_Thermal_Control_Operation_Guide.html#trip">14.2.3. 温控策略（与 trip 对应关系）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="14_Thermal_Control_Operation_Guide.html#hysteresis">14.2.4. 迟滞（hysteresis）说明</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="14_Thermal_Control_Operation_Guide.html#id5">14.3. 操作示例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="14_Thermal_Control_Operation_Guide.html#id6">14.3.1. 模拟温度测试步骤</a></li>
+<li class="toctree-l3"><a class="reference internal" href="14_Thermal_Control_Operation_Guide.html#id7">14.3.2. 基线</a></li>
+<li class="toctree-l3"><a class="reference internal" href="14_Thermal_Control_Operation_Guide.html#c">14.3.3. 模拟到 90°C（应进入第一档降频）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="14_Thermal_Control_Operation_Guide.html#id8">14.3.4. 模拟到 100°C（应进入第二档降频）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="14_Thermal_Control_Operation_Guide.html#id9">14.3.5. 模拟降到 95°C（有迟滞，频率应保持第二档不变）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="14_Thermal_Control_Operation_Guide.html#id10">14.3.6. 模拟降到 94°C（低于迟滞退档边界，应升回第一档或高档，视策略而定）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="14_Thermal_Control_Operation_Guide.html#c-critical">14.3.7. 模拟到 120°C（触发 critical，强制关机）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="14_Thermal_Control_Operation_Guide.html#id11">14.3.8. 在设备树中修改温控阈值、关机温度与迟滞</a></li>
+<li class="toctree-l3"><a class="reference internal" href="14_Thermal_Control_Operation_Guide.html#id12">14.3.9. 板级覆盖示例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="14_Thermal_Control_Operation_Guide.html#id13">14.4. 相关文件索引</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="1_disclaimer.html" class="btn btn-neutral float-right" title="1. 声明" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2025, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

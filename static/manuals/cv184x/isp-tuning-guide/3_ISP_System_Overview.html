@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3. ISP 系统概述 &mdash; ISPTuningGuide master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="4. 图像质量调优整体概述" href="4_Overview_of_Image_Quality_Tuning.html" />
+    <link rel="prev" title="2. PQ调优文档关系说明" href="2_PQ_Tuning_Text_Files_Relationship_Description.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> ISPTuningGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_PQ_Tuning_Text_Files_Relationship_Description.html">2. PQ调优文档关系说明</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="3_ISP_System_Overview.html#">3. ISP 系统概述</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3_ISP_System_Overview.html#id1">3.1. 功能简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_ISP_System_Overview.html#id2">3.2. 功能框图</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_ISP_System_Overview.html#id4">3.3. 各模块简介</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html">4. 图像质量调优整体概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_Module_Function.html">5. 模块功能</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ISPTuningGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">3. </span>ISP 系统概述</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/3_ISP_System_Overview.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="isp">
+<h1><span class="section-number">3. </span>ISP 系统概述<a class="headerlink" href="3_ISP_System_Overview.html#isp" title="永久链接至标题">¶</a></h1>
+<section id="id1">
+<h2><span class="section-number">3.1. </span>功能简介<a class="headerlink" href="3_ISP_System_Overview.html#id1" title="永久链接至标题">¶</a></h2>
+<p>ISP系统支持标准的图像处理功能，包括坏点校正、镜头阴影校正、自动曝光、自动白平衡、自动对焦、Demosaic等基本功能，也支持降噪、WDR和DRC等高级处理功能。</p>
+<p>ISP主要支持的图像处理功能如下:</p>
+<ul class="simple">
+<li><p>裁剪 (Crop)</p></li>
+<li><p>黑电平校正 (BLC)</p></li>
+<li><p>宽动态功能 (WDR)</p></li>
+<li><p>静态与动态坏点校正 (DPC)</p></li>
+<li><p>串扰去除 (CrossTalk Removal)</p></li>
+<li><p>Bayer降噪 (BNR)</p></li>
+<li><p>镜头阴影校正 (LSC)</p></li>
+<li><p>动态范围压缩 (DRC)</p></li>
+<li><p>Demosaic处理</p></li>
+<li><p>紫边校正 (PFR)</p></li>
+<li><p>颜色校正 (CCM)</p></li>
+<li><p>Gamma校正</p></li>
+<li><p>自动去雾处理 (Dehaze)</p></li>
+<li><p>颜色三维查表增强 (CLUT)</p></li>
+<li><p>支持局部对比度增强 (LDCI)</p></li>
+<li><p>整体对比度增强 (DCI)</p></li>
+<li><p>图像锐化 (Sharpen)</p></li>
+<li><p>3D降噪 (3DNR)</p></li>
+<li><p>色噪处理 (CNR)</p></li>
+<li><p>自动曝光 (AE)</p></li>
+<li><p>自动对焦 (AF)</p></li>
+<li><p>自动白平衡 (AWB)</p></li>
+<li><p>3A相关统计信息输出</p></li>
+<li><p>支持亮度着色</p></li>
+</ul>
+</section>
+<section id="id2">
+<h2><span class="section-number">3.2. </span>功能框图<a class="headerlink" href="3_ISP_System_Overview.html#id2" title="永久链接至标题">¶</a></h2>
+<p>ISP的整体结构图如 <a class="reference internal" href="3_ISP_System_Overview.html#id3"><span class="std std-numref">图 3.1</span></a> 所示。本文档的接下来章节内容会介绍各模块的功能、模块 (BLC、LSC、AWB、CCM和CLUT) 的参数标定方法和图像质量调试方法。</p>
+<figure class="align-default" id="id3">
+<a class="reference internal image-reference" href="_images/ISPSys002.png"><img alt="_images/ISPSys002.png" src="_images/ISPSys002.png" style="width: 4.82292in; height: 8.78007in;" /></a>
+<figcaption>
+<p><span class="caption-number">图 3.1 </span><span class="caption-text">ISP整体结构图</span><a class="headerlink" href="3_ISP_System_Overview.html#id3" title="永久链接至图片">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="id4">
+<h2><span class="section-number">3.3. </span>各模块简介<a class="headerlink" href="3_ISP_System_Overview.html#id4" title="永久链接至标题">¶</a></h2>
+<p>本文档的接下来章节内容会介绍各模块的功能和图像质量调试方法。ISP各模块功能简介如 <a class="reference internal" href="3_ISP_System_Overview.html#id5"><span class="std std-numref">表 3.1</span></a> 所示。</p>
+<table class="colwidths-given longtable docutils align-default" id="id5">
+<caption><span class="caption-number">表 3.1 </span><span class="caption-text">ISP各模块功能</span><a class="headerlink" href="3_ISP_System_Overview.html#id5" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>模块名称</p></th>
+<th class="head"><p>功能</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Crop</p></td>
+<td><p>对输入图像实现裁剪的功能。</p></td>
+</tr>
+<tr class="row-odd"><td><p>BLC</p></td>
+<td><p>黑电平校正。</p></td>
+</tr>
+<tr class="row-even"><td><p>WDR</p></td>
+<td><p>多帧合成的宽动态功能。</p></td>
+</tr>
+<tr class="row-odd"><td><p>DPC</p></td>
+<td><p>实现对静态坏点和动态坏点的检测和校正功能。</p></td>
+</tr>
+<tr class="row-even"><td><p>CrossTalkRemoval</p></td>
+<td><p>校正Gr和Gb两个通道的不平衡现象。</p></td>
+</tr>
+<tr class="row-odd"><td><p>BNR</p></td>
+<td><p>实现在Bayer domain的图像去噪功能。</p></td>
+</tr>
+<tr class="row-even"><td><p>LSC</p></td>
+<td><p>提供镜头阴影校正。</p></td>
+</tr>
+<tr class="row-odd"><td><p>DRC</p></td>
+<td><p>调整图像的动态范围，使之能在显示设备上的显示效果与人眼视觉感受一致。</p></td>
+</tr>
+<tr class="row-even"><td><p>Demosaic</p></td>
+<td><p>将Bayer格式的raw图像转成RGB图像。</p></td>
+</tr>
+<tr class="row-odd"><td><p>PFR</p></td>
+<td><p>实现图像去紫边功能，改善图像边缘的紫边现象。</p></td>
+</tr>
+<tr class="row-even"><td><p>CCM</p></td>
+<td><p>使用3x3矩阵来校正颜色。</p></td>
+</tr>
+<tr class="row-odd"><td><p>Gamma</p></td>
+<td><p>根据伽马曲线调整图像整体亮度。</p></td>
+</tr>
+<tr class="row-even"><td><p>Dehaze</p></td>
+<td><p>针对有雾霾的场景实现去雾功能，改善图像的对比度和清晰度。</p></td>
+</tr>
+<tr class="row-odd"><td><p>CLUT</p></td>
+<td><p>利用3D LUT实现复杂的颜色调整功能，包括亮度调整和饱和度调整等。</p></td>
+</tr>
+<tr class="row-even"><td><p>CSC</p></td>
+<td><p>通过3x3矩阵和矢量偏移量将RGB图像转成YUV图像。</p></td>
+</tr>
+<tr class="row-odd"><td><p>LDCI</p></td>
+<td><p>基于对图像分块统计的方法，增强图像的局部对比度，同时可调节滤波参数，来调整局部对比度增强的局部范围。</p></td>
+</tr>
+<tr class="row-even"><td><p>DCI</p></td>
+<td><p>基于直方图均衡的方法来提高整体图像的对比度和暗区的细节。</p></td>
+</tr>
+<tr class="row-odd"><td><p>Sharpen</p></td>
+<td><p>实现图像的锐化功能，增加图像清晰度。</p></td>
+</tr>
+<tr class="row-even"><td><p>3DNR</p></td>
+<td><p>通过时域滤波去除图像中的噪声，保持图像细节，并降低编码码率。</p></td>
+</tr>
+<tr class="row-odd"><td><p>CNR</p></td>
+<td><p>提供图像去除色噪的功能，减少图像的色斑等现象。</p></td>
+</tr>
+<tr class="row-even"><td><p>CA</p></td>
+<td><p>提供饱和度调整和热成像上色功能。</p></td>
+</tr>
+<tr class="row-odd"><td><p>CA_Lite</p></td>
+<td><p>提供饱和度调整功能。</p></td>
+</tr>
+<tr class="row-even"><td><p>AE</p></td>
+<td><p>提供自动曝光的信息统计给软件来调节Sensor实现自动曝光功能。</p></td>
+</tr>
+<tr class="row-odd"><td><p>AWB</p></td>
+<td><p>提供全局与区域的统计信息给软件来调节Sensor实现自动白平衡功能。</p></td>
+</tr>
+<tr class="row-even"><td><p>AF</p></td>
+<td><p>该模块输出图像清晰度相关的统计信息，软件基于统计信息完成自动对焦功能。</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="2_PQ_Tuning_Text_Files_Relationship_Description.html" class="btn btn-neutral float-left" title="2. PQ调优文档关系说明" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="4_Overview_of_Image_Quality_Tuning.html" class="btn btn-neutral float-right" title="4. 图像质量调优整体概述" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

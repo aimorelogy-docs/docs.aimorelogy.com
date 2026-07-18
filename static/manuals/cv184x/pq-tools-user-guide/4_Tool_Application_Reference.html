@@ -1,0 +1,1417 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4. 工具应用参考 &mdash; PQToolsUserGuide master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="5. FAQ" href="5_FAQ.html" />
+    <link rel="prev" title="3. 界面及功能说明" href="3_Interface_and_Function_Description.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> PQToolsUserGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Overview.html">2. 概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Interface_and_Function_Description.html">3. 界面及功能说明</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="4_Tool_Application_Reference.html#">4. 工具应用参考</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="4_Tool_Application_Reference.html#id2">4.1. 工具的参数如何导入导出?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="4_Tool_Application_Reference.html#id3">4.1.1. 使用工具导入导出参数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Tool_Application_Reference.html#id4">4.1.2. 使用库导入导出图像质量参数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Tool_Application_Reference.html#api">4.1.3. API参考</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="4_Tool_Application_Reference.html#cvi-bin-getbintotallen">4.1.3.1. CVI_BIN_GetBinTotalLen</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Tool_Application_Reference.html#cvi-bin-exportbindata">4.1.3.2. CVI_BIN_ExportBinData</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Tool_Application_Reference.html#cvi-bin-importbindata">4.1.3.3. CVI_BIN_ImportBinData</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Tool_Application_Reference.html#cvi-bin-getsingleispbinlen">4.1.3.4. CVI_BIN_GetSingleISPBinLen</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Tool_Application_Reference.html#cvi-bin-exportsingleispbindata">4.1.3.5. CVI_BIN_ExportSingleISPBinData</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Tool_Application_Reference.html#cvi-bin-saveparamtobin">4.1.3.6. CVI_BIN_SaveParamToBin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Tool_Application_Reference.html#cvi-bin-loadparamfrombin">4.1.3.7. CVI_BIN_LoadParamFromBin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Tool_Application_Reference.html#cvi-bin-loadparamfrombinex">4.1.3.8. CVI_BIN_LoadParamFromBinEx</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Tool_Application_Reference.html#cvi-bin-setbinname">4.1.3.9. CVI_BIN_SetBinName</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Tool_Application_Reference.html#cvi-bin-getbinname">4.1.3.10. CVI_BIN_GetBinName</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Tool_Application_Reference.html#cvi-bin-getbinextraattr">4.1.3.11. CVI_BIN_GetBinExtraAttr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Tool_Application_Reference.html#cvi-isp-bin-setbypassparams">4.1.3.12. CVI_ISP_BIN_SetBypassParams</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Tool_Application_Reference.html#cvi-isp-bin-getbypassparams">4.1.3.13. CVI_ISP_BIN_GetBypassParams</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Tool_Application_Reference.html#id18">4.1.3.14. 错误码1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Tool_Application_Reference.html#id20">4.1.3.15. 错误码2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="5_FAQ.html">5. FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PQToolsUserGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">4. </span>工具应用参考</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/4_Tool_Application_Reference.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">4. </span>工具应用参考<a class="headerlink" href="4_Tool_Application_Reference.html#id1" title="永久链接至标题">¶</a></h1>
+<section id="id2">
+<h2><span class="section-number">4.1. </span>工具的参数如何导入导出?<a class="headerlink" href="4_Tool_Application_Reference.html#id2" title="永久链接至标题">¶</a></h2>
+<section id="id3">
+<h3><span class="section-number">4.1.1. </span>使用工具导入导出参数<a class="headerlink" href="4_Tool_Application_Reference.html#id3" title="永久链接至标题">¶</a></h3>
+<p>CviPQ Tool支持在PC端的json格式配置文件导入和导出，并且支持将工具的参数固化到板端。</p>
+<p>如果用户想要导出或导入CviPQ Tool的参数文件，可参考章节 <a class="reference internal" href="2_Overview.html#id12"><span class="std std-ref">2.4.3.1.</span></a> 和 <a class="reference internal" href="2_Overview.html#id14"><span class="std std-ref">2.4.3.2.</span></a> 的说明进行操作。</p>
+<p>如果用户想要将参数导入到板端或者从板端导出到PC端进行备份，请使用二进制实用工具（Bin Utility工具）进行操作。具体的操作说明如下：</p>
+<ul class="simple">
+<li><p>导入导出板端参数的BIN文件</p></li>
+</ul>
+<p>在已连接到板端的情况下，点击菜单栏中的Bin Utility，即可打开二进制实用工具窗口，如 <a class="reference internal" href="4_Tool_Application_Reference.html#fig11"><span class="std std-ref">图</span></a> 所示：</p>
+<figure class="align-default" id="id22">
+<span id="fig11"></span><a class="reference internal image-reference" href="_images/fig1.png"><img alt="_images/fig1.png" src="_images/fig1.png" style="width: 3.27083in; height: 2.63305in;" /></a>
+<figcaption>
+<p><span class="caption-number">图 4.1 </span><span class="caption-text">二进制实用工具</span><a class="headerlink" href="4_Tool_Application_Reference.html#id22" title="永久链接至图片">¶</a></p>
+</figcaption>
+</figure>
+<p>在Bin Import Export群组里有两个按钮，分别点击按钮可完成如下操作：</p>
+<ul class="simple">
+<li><p>导入参数bin文件到板端：点击“Import Bin File”在弹出的打开文件对话框中选择需要导入的正确参数bin文件，当工具完成发送文件到板端时，参数会立即生效。</p></li>
+<li><p>导出板端参数bin文件：点击bin type下拉框选择导出类型，然后点击“Export Bin File”在弹出的保存文件对话框中选择一个保存路径，工具会将板端上选中类型的参数保存在指定的路径。</p></li>
+<li><p>将参数配置固化到Flash</p></li>
+</ul>
+<p>在Bin Fix群组内填写作者、描述信息和时间信息后，可点击“Fix Bin to Flash”向板端发送指令，将当前板端的参数信息写入到Flash中。</p>
+</section>
+<section id="id4">
+<h3><span class="section-number">4.1.2. </span>使用库导入导出图像质量参数<a class="headerlink" href="4_Tool_Application_Reference.html#id4" title="永久链接至标题">¶</a></h3>
+<p>板端工具提供导入导出参数库文件，以下两种方式可根据自己的需要进行选择。<strong>注意：以下接口必须在调用CVI_ISP_Init接口之后才能调用。</strong></p>
+<ol class="arabic simple">
+<li><p>获取和保存所有模块bin数据(ISP x、VPSS、VO等)：</p></li>
+</ol>
+<ul class="simple">
+<li><p><a class="reference internal" href="4_Tool_Application_Reference.html#cvi-bin-getbintotallen"><span class="std std-ref">CVI_BIN_GetBinTotalLen</span></a>: 获取bin数据的总长度；</p></li>
+<li><p><a class="reference internal" href="4_Tool_Application_Reference.html#cvi-bin-exportbindata"><span class="std std-ref">CVI_BIN_ExportBinData</span></a>: 导出所有模块bin数据；</p></li>
+<li><p><a class="reference internal" href="4_Tool_Application_Reference.html#cvi-bin-importbindata"><span class="std std-ref">CVI_BIN_ImportBinData</span></a>: 导入bin数据，会根据bin中的模块数据和当前的所有模块进行匹配，将所有符合条件的数据导入；</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p>获取和保存单个模块bin数据(ISP x、VPSS、VO等)：</p></li>
+</ol>
+<ul class="simple">
+<li><p><a class="reference internal" href="4_Tool_Application_Reference.html#cvi-bin-getsingleispbinlen"><span class="std std-ref">CVI_BIN_GetSingleISPBinLen</span></a>: 获取某个模块的bin数据的长度；</p></li>
+<li><p><a class="reference internal" href="4_Tool_Application_Reference.html#cvi-bin-exportsingleispbindata"><span class="std std-ref">CVI_BIN_ExportSingleISPBinData</span></a>: 导出单个模块bin数据；</p></li>
+<li><p><a class="reference internal" href="4_Tool_Application_Reference.html#cvi-bin-saveparamtobin"><span class="std std-ref">CVI_BIN_SaveParamToBin</span></a>: 导出所有模块bin数据；</p></li>
+<li><p><a class="reference internal" href="4_Tool_Application_Reference.html#cvi-bin-loadparamfrombin"><span class="std std-ref">CVI_BIN_LoadParamFromBin</span></a>: 导入单个模块bin数据；</p></li>
+<li><p><a class="reference internal" href="4_Tool_Application_Reference.html#cvi-bin-loadparamfrombinex"><span class="std std-ref">CVI_BIN_LoadParamFromBinEx</span></a>: 导入单个模块bin(含输入buf长度)数据；</p></li>
+</ul>
+<p>可参考推荐使用流程，如下图所示。</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/fig2.png"><img alt="_images/fig2.png" src="_images/fig2.png" style="width: 6.26806in; height: 4.77083in;" /></a>
+</figure>
+<p>其他相关接口API：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="4_Tool_Application_Reference.html#cvi-bin-setbinname"><span class="std std-ref">CVI_BIN_SetBinName</span></a>: 设置PQBin存放的路径和文件名；</p></li>
+<li><p><a class="reference internal" href="4_Tool_Application_Reference.html#cvi-bin-getbinname"><span class="std std-ref">CVI_BIN_GetBinName</span></a>: 获取PQBin存放的路径和文件名；</p></li>
+<li><p><a class="reference internal" href="4_Tool_Application_Reference.html#cvi-bin-getbinextraattr"><span class="std std-ref">CVI_BIN_GetBinExtraAttr</span></a>: 获取bin头数据信息；</p></li>
+<li><p><a class="reference internal" href="4_Tool_Application_Reference.html#cvi-isp-bin-setbypassparams"><span class="std std-ref">CVI_ISP_BIN_SetBypassParams</span></a>: 设置bin加载时参数的失效与否，默认都生效；</p></li>
+<li><p><a class="reference internal" href="4_Tool_Application_Reference.html#cvi-isp-bin-getbypassparams"><span class="std std-ref">CVI_ISP_BIN_GetBypassParams</span></a>: 获取bin加载时参数的生效信息；</p></li>
+</ul>
+</section>
+<section id="api">
+<h3><span class="section-number">4.1.3. </span>API参考<a class="headerlink" href="4_Tool_Application_Reference.html#api" title="永久链接至标题">¶</a></h3>
+<section id="cvi-bin-getbintotallen">
+<span id="id5"></span><h4><span class="section-number">4.1.3.1. </span>CVI_BIN_GetBinTotalLen<a class="headerlink" href="4_Tool_Application_Reference.html#cvi-bin-getbintotallen" title="永久链接至标题">¶</a></h4>
+<p>【描述】</p>
+<p>获取bin数据的总长度。</p>
+<p>【语法】</p>
+<p>CVI_U32 CVI_BIN_GetBinTotalLen(void);</p>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>无</p></td>
+<td><p>无</p></td>
+<td><p>无</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CVI_U32</p></td>
+<td><p>bin文件的总长度</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_bin.h</p></li>
+<li><p>库文件：libcvi_bin.so，libcvi_bin_isp.so</p></li>
+</ul>
+<p>【注意】</p>
+<p>此函数必须在调用 <a class="reference internal" href="4_Tool_Application_Reference.html#cvi-bin-exportbindata"><span class="std std-ref">CVI_BIN_ExportBinData</span></a> 接口前调用。</p>
+<p>【举例】</p>
+<p>CVI_U32 u32BinLen = 0;</p>
+<p>u32BinLen = CVI_BIN_GetBinTotalLen();</p>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="4_Tool_Application_Reference.html#cvi-bin-exportbindata">CVI_BIN_ExportBinData</a></p></li>
+</ul>
+</section>
+<section id="cvi-bin-exportbindata">
+<span id="id6"></span><h4><span class="section-number">4.1.3.2. </span>CVI_BIN_ExportBinData<a class="headerlink" href="4_Tool_Application_Reference.html#cvi-bin-exportbindata" title="永久链接至标题">¶</a></h4>
+<p>【描述】</p>
+<p>导出所有模块bin数据。</p>
+<p>【语法】</p>
+<p>CVI_S32 CVI_BIN_ExportBinData(CVI_U8*pu8Buffer, CVI_U32 u32DataLength);</p>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>pu8Buffer</p></td>
+<td><p>保存pqbin资料的buffer</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32DataLength</p></td>
+<td><p>pqbin资料的总长度</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,其值请参见 <a class="reference internal" href="4_Tool_Application_Reference.html#id18"><span class="std std-ref">错误码1</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_bin.h</p></li>
+<li><p>库文件：libcvi_bin.so，libcvi_bin_isp.so</p></li>
+</ul>
+<p>【注意】</p>
+<blockquote>
+<div><p>调用此函数必须先调用 <a class="reference internal" href="4_Tool_Application_Reference.html#cvi-bin-getbintotallen"><span class="std std-ref">CVI_BIN_GetBinTotalLen</span></a> 函数，获取数据的大小，否则可能出现内存问题。</p>
+</div></blockquote>
+<p>【举例】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_SUCCESS</span><span class="p">;</span><span class="w"></span>
+
+<span class="n">CVI_BIN_HEADER</span><span class="w"> </span><span class="n">header</span><span class="p">;</span><span class="w"></span>
+
+<span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32BinLen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">u32TempLen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+
+<span class="n">CVI_U8</span><span class="w"> </span><span class="o">*</span><span class="n">pBuffer</span><span class="p">;</span><span class="w"></span>
+
+<span class="n">memset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">header</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">CVI_BIN_HEADER</span><span class="p">));</span><span class="w"></span>
+
+<span class="n">u32BinLen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_BIN_GetBinTotalLen</span><span class="p">();</span><span class="w"></span>
+
+<span class="n">pBuffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">CVI_U8</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="n">u32BinLen</span><span class="p">);</span><span class="w"></span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pBuffer</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="n">ISP_DAEMON_DEBUG</span><span class="p">(</span><span class="n">LOG_ALERT</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;malloc err!</span><span class="se">\\</span><span class="s">n&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="k">return</span><span class="w"> </span><span class="n">CVI_FAILURE</span><span class="p">;</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
+
+<span class="n">header</span><span class="p">.</span><span class="n">extraInfo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">binExtra</span><span class="p">;</span><span class="w"></span>
+
+<span class="n">memcpy</span><span class="p">(</span><span class="n">pBuffer</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">header</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">CVI_BIN_HEADER</span><span class="p">));</span><span class="w"></span>
+
+<span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_BIN_ExportBinData</span><span class="p">(</span><span class="n">pBuffer</span><span class="p">,</span><span class="w"> </span><span class="n">u32BinLen</span><span class="p">);</span><span class="w"></span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">CVI_SUCCESS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="n">ISP_DAEMON_DEBUG_EX</span><span class="p">(</span><span class="n">LOG_ALERT</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;CVI_BIN_ExportBinData err(%#x)!</span><span class="se">\\</span><span class="s">n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ret</span><span class="p">);</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="n">u32TempLen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fwrite</span><span class="p">(</span><span class="n">pBuffer</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">u32BinLen</span><span class="p">,</span><span class="w"> </span><span class="n">fp</span><span class="p">);</span><span class="w"></span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">u32TempLen</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">u32BinLen</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="n">ISP_DAEMON_DEBUG</span><span class="p">(</span><span class="n">LOG_ALERT</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;writeIspRegToBin fail</span><span class="se">\\</span><span class="s">n&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_FAILURE</span><span class="p">;</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pBuffer</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="n">free</span><span class="p">(</span><span class="n">pBuffer</span><span class="p">);</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
+
+<span class="n">ISP_DAEMON_UNUSED</span><span class="p">(</span><span class="n">numDevice</span><span class="p">);</span><span class="w"></span>
+
+<span class="k">return</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【相关主题】</p>
+<p>无</p>
+</section>
+<section id="cvi-bin-importbindata">
+<span id="id7"></span><h4><span class="section-number">4.1.3.3. </span>CVI_BIN_ImportBinData<a class="headerlink" href="4_Tool_Application_Reference.html#cvi-bin-importbindata" title="永久链接至标题">¶</a></h4>
+<p>【描述】</p>
+<p>导入所有模块bin数据，会根据bin中的模块数据和当前所有的模块进行匹配，将所有符合条件的数据导入。</p>
+<p>【语法】</p>
+<p>CVI_S32 CVI_BIN_ImportBinData(CVI_U8*pu8Buffer, CVI_U32 u32DataLength);</p>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>pu8Buffer</p></td>
+<td><p>Bin的内存空间</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32DataLength</p></td>
+<td><p>Bin大小</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，其值请参见 <a class="reference internal" href="4_Tool_Application_Reference.html#id20"><span class="std std-ref">错误码2</span></a></p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_bin.h</p></li>
+<li><p>库文件：libcvi_bin.so libcvi_bin_isp.so</p></li>
+</ul>
+<p>【注意】</p>
+<p>无</p>
+<p>【举例】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_SUCCESS</span><span class="p">;</span><span class="w"></span>
+
+<span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">fp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"></span>
+
+<span class="n">CVI_U8</span><span class="w"> </span><span class="o">*</span><span class="n">buf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">;</span><span class="w"></span>
+
+<span class="n">CVI_CHAR</span><span class="w"> </span><span class="n">binName</span><span class="p">[</span><span class="n">BIN_FILE_LENGTH</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+
+<span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32TempLen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">u32FileSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+
+<span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_BIN_GetBinName</span><span class="p">(</span><span class="n">binName</span><span class="p">);</span><span class="w"></span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">CVI_SUCCESS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="n">CVI_TRACE_SYS</span><span class="p">(</span><span class="n">CVI_DBG_WARN</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;GetBinName(%s) fail</span><span class="se">\\</span><span class="s">n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">binName</span><span class="p">);</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
+
+<span class="n">fp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">((</span><span class="k">const</span><span class="w"> </span><span class="n">CVI_CHAR</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">binName</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;rb&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">fp</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="n">CVI_TRACE_SYS</span><span class="p">(</span><span class="n">CVI_DBG_WARN</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Can&#39;t find bin(%s)</span><span class="se">\\</span><span class="s">n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">binName</span><span class="p">);</span><span class="w"></span>
+
+<span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_FAILURE</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">goto</span><span class="w"> </span><span class="n">ERROR_HANDLER</span><span class="p">;</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="n">CVI_TRACE_SYS</span><span class="p">(</span><span class="n">CVI_DBG_WARN</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Bin exist (%s)</span><span class="se">\\</span><span class="s">n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">binName</span><span class="p">);</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
+
+<span class="n">getFileSize</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">u32FileSize</span><span class="p">);</span><span class="w"></span>
+
+<span class="n">buf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">CVI_U8</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="n">u32FileSize</span><span class="p">);</span><span class="w"></span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">buf</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_FAILURE</span><span class="p">;</span><span class="w"></span>
+
+<span class="n">CVI_TRACE_SYS</span><span class="p">(</span><span class="n">CVI_DBG_WARN</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Allocate memory fail</span><span class="se">\\</span><span class="s">n&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="k">goto</span><span class="w"> </span><span class="n">ERROR_HANDLER</span><span class="p">;</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
+
+<span class="n">u32TempLen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fread</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="n">u32FileSize</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">fp</span><span class="p">);</span><span class="w"></span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">u32TempLen</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="n">CVI_TRACE_SYS</span><span class="p">(</span><span class="n">CVI_DBG_WARN</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;read data to buff fail!</span><span class="se">\\</span><span class="s">n&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_FAILURE</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">goto</span><span class="w"> </span><span class="n">ERROR_HANDLER</span><span class="p">;</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
+
+<span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_BIN_ImportBinData</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="n">CVI_U32</span><span class="p">)</span><span class="n">u32FileSize</span><span class="p">);</span><span class="w"></span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">CVI_SUCCESS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="n">CVI_TRACE_SYS</span><span class="p">(</span><span class="n">CVI_DBG_WARN</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;CVI_BIN_ImportBinData error! value:(0x%x)</span><span class="se">\\</span><span class="s">n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ret</span><span class="p">);</span><span class="w"></span>
+
+<span class="k">goto</span><span class="w"> </span><span class="n">ERROR_HANDLER</span><span class="p">;</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
+
+<span class="nl">ERROR_HANDLER</span><span class="p">:</span><span class="w"></span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">fp</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="n">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">);</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">buf</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="n">free</span><span class="p">(</span><span class="n">buf</span><span class="p">);</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">return</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【相关主题】</p>
+<p>无</p>
+</section>
+<section id="cvi-bin-getsingleispbinlen">
+<span id="id8"></span><h4><span class="section-number">4.1.3.4. </span>CVI_BIN_GetSingleISPBinLen<a class="headerlink" href="4_Tool_Application_Reference.html#cvi-bin-getsingleispbinlen" title="永久链接至标题">¶</a></h4>
+<p>【描述】</p>
+<p>获取某个模块的bin数据的长度。</p>
+<p>【语法】</p>
+<p>CVI_S32 CVI_BIN_GetSingleISPBinLen(enum CVI_BIN_SECTION_ID id);</p>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>id</p></td>
+<td><p>模块ID</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CVI_U32</p></td>
+<td><p>某个模块的bin文件长度</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_bin.h</p></li>
+<li><p>库文件：libcvi_bin.so，libcvi_bin_isp.so</p></li>
+</ul>
+<p>【注意】</p>
+<p>此函数必须在调用 <a class="reference internal" href="4_Tool_Application_Reference.html#cvi-bin-exportsingleispbindata"><span class="std std-ref">CVI_BIN_ExportSingleISPBinData</span></a> 接口前调用。</p>
+<p>【举例】</p>
+<p>CVI_U32 u32BinLen = 0;</p>
+<p>enum CVI_BIN_SECTION_ID id = CVI_BIN_ID_ISP0;</p>
+<p>u32BinLen = CVI_BIN_GetBinTotalLen(id);</p>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="4_Tool_Application_Reference.html#cvi-bin-exportsingleispbindata">CVI_BIN_ExportSingleISPBinData</a></p></li>
+</ul>
+</section>
+<section id="cvi-bin-exportsingleispbindata">
+<span id="id9"></span><h4><span class="section-number">4.1.3.5. </span>CVI_BIN_ExportSingleISPBinData<a class="headerlink" href="4_Tool_Application_Reference.html#cvi-bin-exportsingleispbindata" title="永久链接至标题">¶</a></h4>
+<p>【描述】</p>
+<p>导出单个模块的bin数据。</p>
+<p>【语法】</p>
+<p>CVI_BIN_ExportSingleISPBinData(enum CVI_BIN_SECTION_ID id, CVI_U8*pu8Buffer, CVI_U32 u32DataLength);</p>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>id</p></td>
+<td><p>模块ID</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pu8Buffer</p></td>
+<td><p>保存pqbin资料的buffer</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>u32DataLength</p></td>
+<td><p>pqbin资料的总长度</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,其值请参见 <a class="reference internal" href="4_Tool_Application_Reference.html#id18"><span class="std std-ref">错误码1</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_bin.h</p></li>
+<li><p>库文件：libcvi_bin.so，libcvi_bin_isp.so</p></li>
+</ul>
+<p>【注意】</p>
+<blockquote>
+<div><p>调用此函数必须先调用 <a class="reference internal" href="4_Tool_Application_Reference.html#cvi-bin-getsingleispbinlen"><span class="std std-ref">CVI_BIN_GetSingleISPBinLen</span></a> 函数，获取数据的大小，否则可能出现内存问题。</p>
+</div></blockquote>
+<p>【举例】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_SUCCESS</span><span class="p">;</span><span class="w"></span>
+
+<span class="n">CVI_BIN_HEADER</span><span class="w"> </span><span class="n">header</span><span class="p">;</span><span class="w"></span>
+
+<span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32BinLen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">u32TempLen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+
+<span class="n">CVI_U8</span><span class="w"> </span><span class="o">*</span><span class="n">pBuffer</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">enum</span><span class="w"> </span><span class="n">CVI_BIN_SECTION_ID</span><span class="w"> </span><span class="n">id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_BIN_ID_ISP0</span><span class="p">;</span><span class="w"></span>
+
+<span class="n">memset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">header</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">CVI_BIN_HEADER</span><span class="p">));</span><span class="w"></span>
+
+<span class="n">u32BinLen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_BIN_GetSingleISPBinLen</span><span class="p">(</span><span class="n">id</span><span class="p">);</span><span class="w"></span>
+
+<span class="n">pBuffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">CVI_U8</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="n">u32BinLen</span><span class="p">);</span><span class="w"></span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pBuffer</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="n">ISP_DAEMON_DEBUG</span><span class="p">(</span><span class="n">LOG_ALERT</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;malloc err!</span><span class="se">\\</span><span class="s">n&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="k">return</span><span class="w"> </span><span class="n">CVI_FAILURE</span><span class="p">;</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
+
+<span class="n">header</span><span class="p">.</span><span class="n">extraInfo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">*</span><span class="n">binExtra</span><span class="p">;</span><span class="w"></span>
+
+<span class="n">memcpy</span><span class="p">(</span><span class="n">pBuffer</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">header</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">CVI_BIN_HEADER</span><span class="p">));</span><span class="w"></span>
+
+<span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_BIN_ExportSingleISPBinData</span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">pBuffer</span><span class="p">,</span><span class="w"> </span><span class="n">u32BinLen</span><span class="p">);</span><span class="w"></span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">CVI_SUCCESS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="n">ISP_DAEMON_DEBUG_EX</span><span class="p">(</span><span class="n">LOG_ALERT</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;CVI_BIN_ExportBinData err(%#x)!</span><span class="se">\\</span><span class="s">n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ret</span><span class="p">);</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="n">u32TempLen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fwrite</span><span class="p">(</span><span class="n">pBuffer</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">u32BinLen</span><span class="p">,</span><span class="w"> </span><span class="n">fp</span><span class="p">);</span><span class="w"></span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">u32TempLen</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">u32BinLen</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="n">ISP_DAEMON_DEBUG</span><span class="p">(</span><span class="n">LOG_ALERT</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;writeIspRegToBin fail</span><span class="se">\\</span><span class="s">n&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_FAILURE</span><span class="p">;</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pBuffer</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="n">free</span><span class="p">(</span><span class="n">pBuffer</span><span class="p">);</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
+
+<span class="n">ISP_DAEMON_UNUSED</span><span class="p">(</span><span class="n">numDevice</span><span class="p">);</span><span class="w"></span>
+
+<span class="k">return</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【相关主题】</p>
+<p>无</p>
+</section>
+<section id="cvi-bin-saveparamtobin">
+<span id="id10"></span><h4><span class="section-number">4.1.3.6. </span>CVI_BIN_SaveParamToBin<a class="headerlink" href="4_Tool_Application_Reference.html#cvi-bin-saveparamtobin" title="永久链接至标题">¶</a></h4>
+<p>【描述】</p>
+<p>导出单个模块的bin数据</p>
+<p>【语法】</p>
+<p>CVI_S32 CVI_BIN_SaveParamToBin(FILE*fp, CVI_BIN_EXTRA_S*extraInfo);</p>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>fp</p></td>
+<td><p>PQBin文件指针</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>extraInfo</p></td>
+<td><p>PQBin 信息和描述</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,其值请参见 <a class="reference internal" href="4_Tool_Application_Reference.html#id18"><span class="std std-ref">错误码1</span></a></p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_bin.h</p></li>
+<li><p>库文件：libcvi_bin.so，libcvi_bin_isp.so</p></li>
+</ul>
+<p>【注意】</p>
+<p>无</p>
+<p>【举例】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_BIN_EXTRA_S</span><span class="w"> </span><span class="n">BinExtra</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="s">&quot;User&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="s">&quot;test-default&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="s">&quot;2021-04-19&quot;</span><span class="p">,</span><span class="w"></span>
+
+<span class="p">};</span><span class="w"></span>
+
+<span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">fd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="n">TEST_BIN</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;wb&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">fd</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="n">ISP_DEBUG</span><span class="p">(</span><span class="n">LOG_ERR</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Open file failed</span><span class="se">\\</span><span class="s">n&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
+
+<span class="n">CVI_BIN_SaveParamToBin</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">BinExtra</span><span class="p">);</span><span class="w"></span>
+
+<span class="n">fclose</span><span class="p">(</span><span class="n">fd</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【相关主题】</p>
+<p>无</p>
+</section>
+<section id="cvi-bin-loadparamfrombin">
+<span id="id11"></span><h4><span class="section-number">4.1.3.7. </span>CVI_BIN_LoadParamFromBin<a class="headerlink" href="4_Tool_Application_Reference.html#cvi-bin-loadparamfrombin" title="永久链接至标题">¶</a></h4>
+<p>【描述】</p>
+<p>导入单个模块bin数据。</p>
+<p>【语法】</p>
+<p>CVI_S32 CVI_BIN_LoadParamFromBin(enum CVI_BIN_SECTION_ID id, CVI_U8*buf);</p>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>id</p></td>
+<td><p>模块ID</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>buf</p></td>
+<td><p>PQBin的数据内容</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="4_Tool_Application_Reference.html#id20"><span class="std std-ref">错误码2</span></a></p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_bin.h</p></li>
+<li><p>库文件：libcvi_bin.so，libcvi_bin_isp.so</p></li>
+</ul>
+<p>【注意】</p>
+<p>须先将PQBin从数据读到缓存内存空间，再呼叫此函数式。此 API 的功能之后会由 <a class="reference internal" href="4_Tool_Application_Reference.html#cvi-bin-loadparamfrombinex"><span class="std std-ref">CVI_BIN_LoadParamFromBinEx</span></a> 所取代 , 建议改用。</p>
+<p>【举例】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_FAILURE</span><span class="p">;</span><span class="w"></span>
+
+<span class="n">CVI_U32</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+
+<span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">fp</span><span class="p">;</span><span class="w"></span>
+
+<span class="n">ISP_DEBUG</span><span class="p">(</span><span class="n">LOG_DEBUG</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;try load default value from bin %s</span><span class="se">\\</span><span class="s">n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">TEST_BIN</span><span class="p">);</span><span class="w"></span>
+
+<span class="n">fp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="n">TEST_BIN</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;rb&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">fp</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="n">ISP_DEBUG</span><span class="p">(</span><span class="n">LOG_WARNING</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Cant find bin(%s)</span><span class="se">\\</span><span class="s">n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">TEST_BIN</span><span class="p">);</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="n">ISP_DEBUG</span><span class="p">(</span><span class="n">LOG_INFO</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Bin exist (%s)</span><span class="se">\\</span><span class="s">n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">TEST_BIN</span><span class="p">);</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
+
+<span class="n">fseek</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="w"> </span><span class="mf">0L</span><span class="p">,</span><span class="w"> </span><span class="n">SEEK_END</span><span class="p">);</span><span class="w"></span>
+
+<span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ftell</span><span class="p">(</span><span class="n">fp</span><span class="p">);</span><span class="w"></span>
+
+<span class="n">rewind</span><span class="p">(</span><span class="n">fp</span><span class="p">);</span><span class="w"></span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">size</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="c1">// allocate buffer</span>
+
+<span class="n">CVI_U8</span><span class="w"> </span><span class="o">*</span><span class="n">binBuffer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">malloc</span><span class="p">(</span><span class="n">size</span><span class="p">);</span><span class="w"></span>
+
+<span class="n">fread</span><span class="p">(</span><span class="n">binBuffer</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">fp</span><span class="p">);</span><span class="w"></span>
+
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_BIN_ID_MIN</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">idx</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">CVI_BIN_ID_MAX</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">idx</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="n">result</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_BIN_LoadParamFromBin</span><span class="p">((</span><span class="k">enum</span><span class="w"> </span><span class="n">CVI_BIN_SECTION_ID</span><span class="p">)</span><span class="n">idx</span><span class="p">,</span><span class="w"> </span><span class="n">binBuffer</span><span class="p">);</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
+
+<span class="c1">// free buffer</span>
+
+<span class="n">free</span><span class="p">(</span><span class="n">binBuffer</span><span class="p">);</span><span class="w"></span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">result</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">CVI_SUCCESS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="n">ISP_DEBUG</span><span class="p">(</span><span class="n">LOG_DEBUG</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;load default value from bin %s</span><span class="se">\\</span><span class="s">n&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">TEST_BIN</span><span class="p">);</span><span class="w"></span>
+
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【相关主题】</p>
+<blockquote>
+<div><p><a class="reference internal" href="4_Tool_Application_Reference.html#cvi-bin-loadparamfrombinex"><span class="std std-ref">CVI_BIN_LoadParamFromBinEx</span></a></p>
+</div></blockquote>
+</section>
+<section id="cvi-bin-loadparamfrombinex">
+<span id="id12"></span><h4><span class="section-number">4.1.3.8. </span>CVI_BIN_LoadParamFromBinEx<a class="headerlink" href="4_Tool_Application_Reference.html#cvi-bin-loadparamfrombinex" title="永久链接至标题">¶</a></h4>
+<p>【描述】</p>
+<p>同 <a class="reference internal" href="4_Tool_Application_Reference.html#cvi-bin-loadparamfrombin"><span class="std std-ref">CVI_BIN_LoadParamFromBin</span></a> 。</p>
+<p>【语法】</p>
+<p>CVI_S32 CVI_BIN_LoadParamFromBin(enum CVI_BIN_SECTION_ID id, CVI_U8*buf, CVI_U32 u32DataLength);</p>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>id</p></td>
+<td><p>模块ID</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>buf</p></td>
+<td><p>PQBin的数据内容</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>u32DataLength</p></td>
+<td><p>buf的大小</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="4_Tool_Application_Reference.html#id20"><span class="std std-ref">错误码2</span></a></p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_bin.h</p></li>
+<li><p>库文件：libcvi_bin.so，libcvi_bin_isp.so</p></li>
+</ul>
+<p>【注意】</p>
+<p>同 <a class="reference internal" href="4_Tool_Application_Reference.html#cvi-bin-loadparamfrombin"><span class="std std-ref">CVI_BIN_LoadParamFromBin</span></a> 。</p>
+<p>【举例】</p>
+<p>请参考 <a class="reference internal" href="4_Tool_Application_Reference.html#cvi-bin-loadparamfrombin"><span class="std std-ref">CVI_BIN_LoadParamFromBin</span></a> ，注意的是：需将buf的大小传入。</p>
+</section>
+<section id="cvi-bin-setbinname">
+<span id="id13"></span><h4><span class="section-number">4.1.3.9. </span>CVI_BIN_SetBinName<a class="headerlink" href="4_Tool_Application_Reference.html#cvi-bin-setbinname" title="永久链接至标题">¶</a></h4>
+<p>【描述】</p>
+<p>设置PQBin存放的路径和文件名。</p>
+<p>【语法】</p>
+<p>CVI_S32 CVI_BIN_SetBinName(WDR_MODE_E wdrMode, const CVI_CHAR *binName);</p>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>wdrMode</p></td>
+<td><p>Sensor wdr mode</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>binName</p></td>
+<td><p>设定和wdr mode对应pqbin的路径和文件名</p>
+<p>例如”/mnt/data/cvi_sdr_bin”</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见错误码。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_bin.h</p></li>
+<li><p>库文件：libcvi_bin.so，libcvi_bin_isp.so</p></li>
+</ul>
+<p>【注意】</p>
+<p>无</p>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="4_Tool_Application_Reference.html#cvi-bin-getbinname"><span class="std std-ref">CVI_BIN_GetBinName</span></a></p>
+</section>
+<section id="cvi-bin-getbinname">
+<span id="id14"></span><h4><span class="section-number">4.1.3.10. </span>CVI_BIN_GetBinName<a class="headerlink" href="4_Tool_Application_Reference.html#cvi-bin-getbinname" title="永久链接至标题">¶</a></h4>
+<p>【描述】</p>
+<p>获取PQBin存放的路径和文件名。</p>
+<p>【语法】</p>
+<p>CVI_S32 CVI_BIN_GetBinName(CVI_CHAR*binName);</p>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>binName</p></td>
+<td><p>pqbin路径和文件名</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见错误码。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_bin.h</p></li>
+<li><p>库文件：libcvi_bin.so，libcvi_bin_isp.so</p></li>
+</ul>
+<p>【注意】</p>
+<p>无</p>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="4_Tool_Application_Reference.html#cvi-bin-setbinname"><span class="std std-ref">CVI_BIN_SetBinName</span></a></p>
+</section>
+<section id="cvi-bin-getbinextraattr">
+<span id="id15"></span><h4><span class="section-number">4.1.3.11. </span>CVI_BIN_GetBinExtraAttr<a class="headerlink" href="4_Tool_Application_Reference.html#cvi-bin-getbinextraattr" title="永久链接至标题">¶</a></h4>
+<p>【描述】</p>
+<p>获取bin头数据信息。</p>
+<p>【语法】</p>
+<p>CVI_S32 CVI_BIN_GetBinExtraAttr(FILE*fp, CVI_BIN_EXTRA_S*extraInfo)</p>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>fp</p></td>
+<td><p>PQBin文件指针</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>extraInfo</p></td>
+<td><p>bin头信息的内存空间</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_bin.h</p></li>
+<li><p>库文件：libcvi_bin.so，libcvi_bin_isp.so</p></li>
+</ul>
+<p>【注意】</p>
+<p>无</p>
+<p>【举例】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_BIN_EXTRA_S</span><span class="w"> </span><span class="n">BinExtraAttr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{};</span><span class="w"></span>
+
+<span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">fd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="s">&quot;/mnt/data/bin/cvi_sdr_bin&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;rb&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="n">CVI_BIN_GetBinExtraAttr</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">BinExtraAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【相关主题】</p>
+<p>无</p>
+</section>
+<section id="cvi-isp-bin-setbypassparams">
+<span id="id16"></span><h4><span class="section-number">4.1.3.12. </span>CVI_ISP_BIN_SetBypassParams<a class="headerlink" href="4_Tool_Application_Reference.html#cvi-isp-bin-setbypassparams" title="永久链接至标题">¶</a></h4>
+<p>【描述】</p>
+<p>设置bin加载时参数的失效与否，默认都生效。</p>
+<p>【语法】</p>
+<p>CVI_S32 CVI_ISP_BIN_SetBypassParams(enum CVI_BIN_SECTION_ID id, ISP_BIN_BYPASS_U * ispBinBypass)</p>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>id</p></td>
+<td><p>模块id</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>ispBinBypass</p></td>
+<td><p>bin参数生效信息</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>失败</p></td>
+</tr>
+<tr class="row-even"><td><p>0xCB000013</p></td>
+<td><p>id错误</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_bin.h</p></li>
+<li><p>库文件：libcvi_bin.so，libcvi_bin_isp.so</p></li>
+</ul>
+<p>【注意】</p>
+<p>无</p>
+<p>【举例】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_SUCCESS</span><span class="p">;</span><span class="w"></span>
+
+<span class="n">ISP_BIN_BYPASS_U</span><span class="w"> </span><span class="n">ispBinBypass</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">};</span><span class="w"></span>
+
+<span class="n">ispBinBypass</span><span class="p">.</span><span class="n">bitBypassFrameRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_TRUE</span><span class="p">;</span><span class="w"></span>
+
+<span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_ISP_BIN_SetBypassParams</span><span class="p">(</span><span class="n">CVI_BIN_ID_ISP0</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">ispBinBypass</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【相关主题】</p>
+<p>无</p>
+</section>
+<section id="cvi-isp-bin-getbypassparams">
+<span id="id17"></span><h4><span class="section-number">4.1.3.13. </span>CVI_ISP_BIN_GetBypassParams<a class="headerlink" href="4_Tool_Application_Reference.html#cvi-isp-bin-getbypassparams" title="永久链接至标题">¶</a></h4>
+<p>【描述】</p>
+<p>设置bin加载时参数的失效与否，默认都生效。</p>
+<p>【语法】</p>
+<p>CVI_S32 CVI_ISP_BIN_GetBypassParams(enum CVI_BIN_SECTION_ID id, ISP_BIN_BYPASS_U * ispBinBypass)</p>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>id</p></td>
+<td><p>模块id</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>ispBinBypass</p></td>
+<td><p>bin参数生效信息</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>失败</p></td>
+</tr>
+<tr class="row-even"><td><p>0xCB000013</p></td>
+<td><p>id错误</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_bin.h</p></li>
+<li><p>库文件：libcvi_bin.so，libcvi_bin_isp.so</p></li>
+</ul>
+<p>【注意】</p>
+<p>无</p>
+<p>【举例】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_SUCCESS</span><span class="p">;</span><span class="w"></span>
+
+<span class="n">ISP_BIN_BYPASS_U</span><span class="w"> </span><span class="n">ispBinBypass</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">};</span><span class="w"></span>
+
+<span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_ISP_BIN_GetBypassParams</span><span class="p">(</span><span class="n">CVI_BIN_ID_ISP0</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">ispBinBypass</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【相关主题】</p>
+<p>无</p>
+</section>
+<section id="id18">
+<span id="id19"></span><h4><span class="section-number">4.1.3.14. </span>错误码1<a class="headerlink" href="4_Tool_Application_Reference.html#id18" title="永久链接至标题">¶</a></h4>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>接口返回值</p></th>
+<th class="head"><p>含义</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0xCB000001</p></td>
+<td><p>入参指针为空</p></td>
+</tr>
+<tr class="row-odd"><td><p>0xCB000003</p></td>
+<td><p>未分配到内存空间</p></td>
+</tr>
+<tr class="row-even"><td><p>0xCB00000B</p></td>
+<td><p>json压缩失败</p></td>
+</tr>
+<tr class="row-odd"><td><p>0xCB00000D</p></td>
+<td><p>输入的buffer空间不足</p></td>
+</tr>
+<tr class="row-even"><td><p>0xCB00000F</p></td>
+<td><p>更新参数到PQbin文件失败</p></td>
+</tr>
+<tr class="row-odd"><td><p>0xCB000012</p></td>
+<td><p>创建json句柄失败</p></td>
+</tr>
+<tr class="row-even"><td><p>0xCB000013</p></td>
+<td><p>输入的模块id无效</p></td>
+</tr>
+<tr class="row-odd"><td><p>0xCB000014</p></td>
+<td><p>从文件中读参数失败</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id20">
+<span id="id21"></span><h4><span class="section-number">4.1.3.15. </span>错误码2<a class="headerlink" href="4_Tool_Application_Reference.html#id20" title="永久链接至标题">¶</a></h4>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>接口返回值</p></th>
+<th class="head"><p>含义</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0xCB000001</p></td>
+<td><p>入参指针为空</p></td>
+</tr>
+<tr class="row-odd"><td><p>0xCB000003</p></td>
+<td><p>未分配到内存空间</p></td>
+</tr>
+<tr class="row-even"><td><p>0xCB000006</p></td>
+<td><p>输入buf的大小为0</p></td>
+</tr>
+<tr class="row-odd"><td><p>0xCB000008</p></td>
+<td><p>PQbin中的数据有异常</p></td>
+</tr>
+<tr class="row-even"><td><p>0xCB00000C</p></td>
+<td><p>json解压缩失败</p></td>
+</tr>
+<tr class="row-odd"><td><p>0xCB00000F</p></td>
+<td><p>更新参数到PQbin文件失败</p></td>
+</tr>
+<tr class="row-even"><td><p>0xCB000010</p></td>
+<td><p>无法找到bin文件</p></td>
+</tr>
+<tr class="row-odd"><td><p>0xCB000011</p></td>
+<td><p>当前PQbin文件中json参数是无效的</p></td>
+</tr>
+<tr class="row-even"><td><p>0xCB000012</p></td>
+<td><p>创建json句柄失败</p></td>
+</tr>
+<tr class="row-odd"><td><p>0xCB000013</p></td>
+<td><p>输入的模块id无效</p></td>
+</tr>
+<tr class="row-even"><td><p>0xCB000014</p></td>
+<td><p>从文件中读参数失败</p></td>
+</tr>
+<tr class="row-odd"><td><p>0xCB000015</p></td>
+<td><p>当前所用的PQbin文件是无效的</p></td>
+</tr>
+<tr class="row-even"><td><p>0xCB000016</p></td>
+<td><p>Sensor数目超出PQbin文件指定的数目</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="3_Interface_and_Function_Description.html" class="btn btn-neutral float-left" title="3. 界面及功能说明" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="5_FAQ.html" class="btn btn-neutral float-right" title="5. FAQ" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2025, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

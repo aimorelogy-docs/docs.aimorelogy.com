@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>19. SHARPEN &mdash; ISPDevelopmentReference master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="20. PRESHARPEN" href="20_PreSharpen.html" />
+    <link rel="prev" title="18. DEMOSAIC" href="18_Demosaic.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> ISPDevelopmentReference
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Preface.html">2. 概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_System_Control.html">3. 系统控制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_AE.html">4. AE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_AWB.html">5. AWB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_AF.html">6. AF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_IMP.html">7. IMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_BlackLevel.html">8. BLC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_DPC.html">9. DPC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_LSC.html">10. LSC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_RLSC.html">11. RLSC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_CCM.html">12. CCM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_Noise_Profile.html">13. Noise profile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_BNR.html">14. BNR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15_CNR.html">15. CNR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="16_TNR.html">16. TNR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="17_Crosstalk.html">17. Crosstalk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18_Demosaic.html">18. DEMOSAIC</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="19_Sharpen.html#">19. SHARPEN</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="19_Sharpen.html#id1">19.1. 功能描述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="19_Sharpen.html#api">19.2. API 参考</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="19_Sharpen.html#cvi-isp-setsharpenattr">19.2.1. CVI_ISP_SetSharpenAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="19_Sharpen.html#cvi-isp-getsharpenattr">19.2.2. CVI_ISP_GetSharpenAttr</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="19_Sharpen.html#id2">19.3. 数据类型</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="19_Sharpen.html#isp-sharpen-manual-attr-s">19.3.1. ISP_SHARPEN_MANUAL_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="19_Sharpen.html#isp-sharpen-auto-attr-s">19.3.2. ISP_SHARPEN_AUTO_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="19_Sharpen.html#isp-sharpen-attr-s">19.3.3. ISP_SHARPEN_ATTR_S</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="20_PreSharpen.html">20. PRESHARPEN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21_RGB_Gamma.html">21. RGBGAMMA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="22_DCI.html">22. DCI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="23_LDCI.html">23. LDCI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="24_ColorTone.html">24. ColorTone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="25_Saturation.html">25. Saturation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="26_PFR.html">26. PFR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="27_FSHDR.html">27. FSHDR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="28_DRC.html">28. DRC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="29_Mono.html">29. MONO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="30_YCONTRAST.html">30. YCONTRAST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="31_CA.html">31. CA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="32_CA2.html">32. CA2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="33_CLUT.html">33. CLUT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="34_CSC.html">34. CSC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="35_VC.html">35. VC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="36_Statistical_Information.html">36. 统计讯息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="37_Query_Internal_Status_Messages.html">37. 查询内部状态消息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="38_Debug.html">38. Debug</a></li>
+<li class="toctree-l1"><a class="reference internal" href="39_Error_Code.html">39. 错误码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="40_3A_Development_User_Guide_Overview.html">40. 3A 开发指南概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="41_3A_Development_User_Guide.html">41. 3A 开发用户指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="42_Developer_Guide.html">42. 开发者指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="43_Appendix.html">43. 附录</a></li>
+<li class="toctree-l1"><a class="reference internal" href="44_Abbreviations.html">44. 缩略语</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ISPDevelopmentReference</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">19. </span>SHARPEN</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/19_Sharpen.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sharpen">
+<h1><span class="section-number">19. </span>SHARPEN<a class="headerlink" href="19_Sharpen.html#sharpen" title="永久链接至标题">¶</a></h1>
+<section id="id1">
+<h2><span class="section-number">19.1. </span>功能描述<a class="headerlink" href="19_Sharpen.html#id1" title="永久链接至标题">¶</a></h2>
+<p>此模块用于增强图像清晰度，位于3DNR之后，主要锐化图像中的大边缘。</p>
+</section>
+<section id="api">
+<h2><span class="section-number">19.2. </span>API 参考<a class="headerlink" href="19_Sharpen.html#api" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="19_Sharpen.html#cvi-isp-setsharpenattr">CVI_ISP_SetSharpenAttr</a> ： 设置Sharpen 参数属性</p></li>
+<li><p><a class="reference internal" href="19_Sharpen.html#cvi-isp-getsharpenattr">CVI_ISP_GetSharpenAttr</a> ： 获取Sharpen 参数属性</p></li>
+</ul>
+<section id="cvi-isp-setsharpenattr">
+<h3><span class="section-number">19.2.1. </span>CVI_ISP_SetSharpenAttr<a class="headerlink" href="19_Sharpen.html#cvi-isp-setsharpenattr" title="永久链接至标题">¶</a></h3>
+<p>【描述】</p>
+<blockquote>
+<div><p>设置Sharpen 参数属性</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_SetSharpenAttr</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ISP_SHARPEN_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstSharpenAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>VI_PIPE 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstSharpenAttr</p></td>
+<td><p>Sharpen 参数属性</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，其值为 <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件: cvi_isp.h, cvi_comm_isp.h</p></li>
+<li><p>库文件: libisp.so</p></li>
+</ul>
+<p>【注意】</p>
+<p>无</p>
+<p>【举例】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="n">ISP_SHARPEN_ATTR_S</span><span class="w"> </span><span class="n">stAttr</span><span class="p">;</span><span class="w"></span>
+<span class="n">CVI_ISP_GetSharpenAttr</span><span class="p">(</span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">stAttr</span><span class="p">);</span><span class="w"></span>
+<span class="n">stAttr</span><span class="p">.</span><span class="n">enOpType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OP_TYPE_AUTO</span><span class="p">;</span><span class="w"></span>
+<span class="n">CVI_ISP_SetSharpenAttr</span><span class="p">(</span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">stAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="19_Sharpen.html#cvi-isp-getsharpenattr">CVI_ISP_GetSharpenAttr</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-getsharpenattr">
+<h3><span class="section-number">19.2.2. </span>CVI_ISP_GetSharpenAttr<a class="headerlink" href="19_Sharpen.html#cvi-isp-getsharpenattr" title="永久链接至标题">¶</a></h3>
+<p>【描述】</p>
+<p>获取Sharpen 参数属性</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_GetSharpenAttr</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ISP_SHARPEN_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstSharpenAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>VI_PIPE 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstSharpenAttr</p></td>
+<td><p>Sharpen 参数属性</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，其值为 <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件: cvi_isp.h, cvi_comm_isp.h</p></li>
+<li><p>库文件: libisp.so</p></li>
+</ul>
+<p>【注意】</p>
+<p>无</p>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="19_Sharpen.html#cvi-isp-setsharpenattr">CVI_ISP_SetSharpenAttr</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id2">
+<h2><span class="section-number">19.3. </span>数据类型<a class="headerlink" href="19_Sharpen.html#id2" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="19_Sharpen.html#isp-sharpen-manual-attr-s">ISP_SHARPEN_MANUAL_ATTR_S</a> ： 定义手动Sharpen 参数属性</p></li>
+<li><p><a class="reference internal" href="19_Sharpen.html#isp-sharpen-auto-attr-s">ISP_SHARPEN_AUTO_ATTR_S</a> ： 定义自动Sharpen 参数属性</p></li>
+<li><p><a class="reference internal" href="19_Sharpen.html#isp-sharpen-attr-s">ISP_SHARPEN_ATTR_S</a> ： 定义Sharpen 参数属性</p></li>
+</ul>
+<section id="isp-sharpen-manual-attr-s">
+<h3><span class="section-number">19.3.1. </span>ISP_SHARPEN_MANUAL_ATTR_S<a class="headerlink" href="19_Sharpen.html#isp-sharpen-manual-attr-s" title="永久链接至标题">¶</a></h3>
+<p>【说明】</p>
+<p>定义手动Sharpen 参数属性</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_SHARPEN_MANUAL_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">EE1CoringThr</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">NoiseBase</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">EE2BalanceRatio</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">EE2SharpStr</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">EE2CoringThr</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">OverShootRatio</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">UnderShootRatio</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">EE1BlendWgt</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 8]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">EE1FlatThr</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 2047]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">EE1EdgeThr</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 2047]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">EE1FlatRegionStr</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">EE1EdgeRegionStr</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">EE1MotionStr</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">EE1StaticStr</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">EE1TransStr</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">NoiseLut</span><span class="p">[</span><span class="mi">17</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">HueShtCtrl</span><span class="p">[</span><span class="mi">33</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 63]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">SatShtGainIn</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">SatShtGainOut</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 128]*/</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_SHARPEN_MANUAL_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>EE1CoringThr</p></td>
+<td><p>待完善</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>NoiseBase</p></td>
+<td><p>待完善</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>EE2BalanceRatio</p></td>
+<td><p>待完善</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>EE2SharpStr</p></td>
+<td><p>待完善</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>EE2CoringThr</p></td>
+<td><p>待完善</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>OverShootRatio</p></td>
+<td><p>白边抑制。值越小，白边抑制程度越大。</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>UnderShootRatio</p></td>
+<td><p>黑边抑制。值越小，黑边抑制程度越大。</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>EE1BlendWgt</p></td>
+<td><p>待完善</p>
+<p>取值范围： [0, 8]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>EE1FlatThr</p></td>
+<td><p>待完善</p>
+<p>取值范围： [0, 2047]</p>
+<p>数据类型： CVI_U16</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>EE1EdgeThr</p></td>
+<td><p>待完善</p>
+<p>取值范围： [0, 2047]</p>
+<p>数据类型： CVI_U16</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>EE1FlatRegionStr</p></td>
+<td><p>待完善</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>EE1EdgeRegionStr</p></td>
+<td><p>待完善</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>EE1MotionStr</p></td>
+<td><p>待完善</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>EE1StaticStr</p></td>
+<td><p>待完善</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>EE1TransStr</p></td>
+<td><p>待完善</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>NoiseLut</p></td>
+<td><p>噪声强度设定。根据亮度不同，设置不同的噪声强度。噪声强度越大，锐化强度越小。</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>HueShtCtrl</p></td>
+<td><p>基于指定的色彩做边缘增强</p>
+<p>取值范围： [0, 63]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SatShtGainIn</p></td>
+<td><p>基于指定的饱和度做边缘增强，此为输入节点，输入饱和度。</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>SatShtGainOut</p></td>
+<td><p>基于指定的饱和度做边缘增强，此为输出节点，输出对应饱和度的边缘强度。</p>
+<p>取值范围： [0, 128]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="19_Sharpen.html#cvi-isp-setsharpenattr">CVI_ISP_SetSharpenAttr</a></p></li>
+<li><p><a class="reference internal" href="19_Sharpen.html#cvi-isp-getsharpenattr">CVI_ISP_GetSharpenAttr</a></p></li>
+</ul>
+</section>
+<section id="isp-sharpen-auto-attr-s">
+<h3><span class="section-number">19.3.2. </span>ISP_SHARPEN_AUTO_ATTR_S<a class="headerlink" href="19_Sharpen.html#isp-sharpen-auto-attr-s" title="永久链接至标题">¶</a></h3>
+<p>【说明】</p>
+<p>定义自动Sharpen 参数属性</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_SHARPEN_AUTO_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">EE1CoringThr</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">NoiseBase</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">EE2BalanceRatio</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">EE2SharpStr</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">EE2CoringThr</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">OverShootRatio</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">UnderShootRatio</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">EE1BlendWgt</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 8]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">EE1FlatThr</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 2047]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">EE1EdgeThr</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 2047]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">EE1FlatRegionStr</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">EE1EdgeRegionStr</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">EE1MotionStr</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">EE1StaticStr</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">EE1TransStr</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">NoiseLut</span><span class="p">[</span><span class="mi">17</span><span class="p">][</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">HueShtCtrl</span><span class="p">[</span><span class="mi">33</span><span class="p">][</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 63]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">SatShtGainIn</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">SatShtGainOut</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 128]*/</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_SHARPEN_AUTO_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>EE1CoringThr</p></td>
+<td><p>待完善</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>NoiseBase</p></td>
+<td><p>待完善</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>EE2BalanceRatio</p></td>
+<td><p>待完善</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>EE2SharpStr</p></td>
+<td><p>待完善</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>EE2CoringThr</p></td>
+<td><p>待完善</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>OverShootRatio</p></td>
+<td><p>白边抑制。值越小，白边抑制程度越大。</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>UnderShootRatio</p></td>
+<td><p>黑边抑制。值越小，黑边抑制程度越大。</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>EE1BlendWgt</p></td>
+<td><p>待完善</p>
+<p>取值范围： [0, 8]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>EE1FlatThr</p></td>
+<td><p>待完善</p>
+<p>取值范围： [0, 2047]</p>
+<p>数据类型： CVI_U16</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>EE1EdgeThr</p></td>
+<td><p>待完善</p>
+<p>取值范围： [0, 2047]</p>
+<p>数据类型： CVI_U16</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>EE1FlatRegionStr</p></td>
+<td><p>待完善</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>EE1EdgeRegionStr</p></td>
+<td><p>待完善</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>EE1MotionStr</p></td>
+<td><p>待完善</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>EE1StaticStr</p></td>
+<td><p>待完善</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>EE1TransStr</p></td>
+<td><p>待完善</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>NoiseLut</p></td>
+<td><p>噪声强度设定。根据亮度不同，设置不同的噪声强度。噪声强度越大，锐化强度越小。</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>HueShtCtrl</p></td>
+<td><p>基于指定的色彩做边缘增强</p>
+<p>取值范围： [0, 63]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SatShtGainIn</p></td>
+<td><p>基于指定的饱和度做边缘增强，此为输入节点，输入饱和度。</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>SatShtGainOut</p></td>
+<td><p>基于指定的饱和度做边缘增强，此为输出节点，输出对应饱和度的边缘强度。</p>
+<p>取值范围： [0, 128]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="19_Sharpen.html#cvi-isp-setsharpenattr">CVI_ISP_SetSharpenAttr</a></p></li>
+<li><p><a class="reference internal" href="19_Sharpen.html#cvi-isp-getsharpenattr">CVI_ISP_GetSharpenAttr</a></p></li>
+</ul>
+</section>
+<section id="isp-sharpen-attr-s">
+<h3><span class="section-number">19.3.3. </span>ISP_SHARPEN_ATTR_S<a class="headerlink" href="19_Sharpen.html#isp-sharpen-attr-s" title="永久链接至标题">¶</a></h3>
+<p>【说明】</p>
+<p>定义Sharpen 参数属性</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_SHARPEN_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">Enable</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">ISP_OP_TYPE_E</span><span class="w"> </span><span class="n">enOpType</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">UpdateInterval</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[1, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">TuningMode</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 7]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">MotionEn</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">SatShtCtrlEn</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">ISP_EE_FILTER_SIZE_TYPE_E</span><span class="w"> </span><span class="n">enFilterType</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">ISP_EE_WEIGHT_SRC_TYPE_E</span><span class="w"> </span><span class="n">EE1SrcType</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">ISP_SHARPEN_MANUAL_ATTR_S</span><span class="w"> </span><span class="n">stManual</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">ISP_SHARPEN_AUTO_ATTR_S</span><span class="w"> </span><span class="n">stAuto</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_SHARPEN_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Enable</p></td>
+<td><p>模块使能开关</p>
+<p>取值范围： [0, 1]</p>
+<p>数据类型： CVI_BOOL</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>enOpType</p></td>
+<td><p>工作类型</p>
+<p>OP_TYPE_AUTO：自动模式</p>
+<p>OP_TYPE_MANUAL：手动模式</p>
+<p>数据类型： ISP_OP_TYPE_E</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>UpdateInterval</p></td>
+<td><p>影响参数更新间隔,值越大画面变化越慢,效能越好。</p>
+<p>取值范围： [1, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>TuningMode</p></td>
+<td><p>输出调试方案，辅助调节参数</p>
+<p>0=normal; 1=EdgeEnergy; 2=EdgeWeight; 3=Enhance; 4=ReguinClass; 5=Edgevalue, 6=EdgeNoRefine</p>
+<p>取值范围： [0, 7]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>MotionEn</p></td>
+<td><p>根据运动状态不同，调整锐化强度的使能开关</p>
+<p>取值范围： [0, 1]</p>
+<p>数据类型： CVI_BOOL</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SatShtCtrlEn</p></td>
+<td><p>由饱和度调整边缘增强的使能</p>
+<p>取值范围： [0, 1]</p>
+<p>数据类型： CVI_BOOL</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>enFilterType</p></td>
+<td><p>Filter SIZE 类型</p>
+<p>OP_TYPE_3x3: 3x3 核;</p>
+<p>OP_TYPE_5x5: 5x5 核;</p>
+<p>数据类型： ISP_EE_FILTER_SIZE_TYPE_E</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>EE1SrcType</p></td>
+<td><p>WEIGHT SRC 类型</p>
+<p>数据类型： ISP_EE_WEIGHT_SRC_TYPE_E</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>stManual</p></td>
+<td><p>手动参数</p></td>
+</tr>
+<tr class="row-odd"><td><p>stAuto</p></td>
+<td><p>自动参数</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="19_Sharpen.html#cvi-isp-setsharpenattr">CVI_ISP_SetSharpenAttr</a></p></li>
+<li><p><a class="reference internal" href="19_Sharpen.html#cvi-isp-getsharpenattr">CVI_ISP_GetSharpenAttr</a></p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="18_Demosaic.html" class="btn btn-neutral float-left" title="18. DEMOSAIC" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="20_PreSharpen.html" class="btn btn-neutral float-right" title="20. PRESHARPEN" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2025, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

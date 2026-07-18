@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4. SD/MMC 卡操作指南 &mdash; PeripheralDriver master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="5. I2C 操作指南" href="5_I2C_Operation_Guide.html" />
+    <link rel="prev" title="3. USB操作指南" href="3_USB_Operation_Guide.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> PeripheralDriver
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Ethernet_Operation_Guide.html">2. Ethernet 操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_USB_Operation_Guide.html">3. USB操作指南</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="4_SD_MMC_Card_Operation_Guide.html#">4. SD/MMC 卡操作指南</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="4_SD_MMC_Card_Operation_Guide.html#id1">4.1. 操作准备</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_SD_MMC_Card_Operation_Guide.html#id2">4.2. 操作过程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_SD_MMC_Card_Operation_Guide.html#id3">4.3. 操作示例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="4_SD_MMC_Card_Operation_Guide.html#u-boot-sd">4.3.1. U-Boot 下操作 SD 卡</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_SD_MMC_Card_Operation_Guide.html#linux-sd">4.3.2. Linux 下操作 SD 卡</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="4_SD_MMC_Card_Operation_Guide.html#id4">4.4. 操作中需要注意的问题</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="5_I2C_Operation_Guide.html">5. I2C 操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_SPI_Operation_Guide.html">6. SPI 操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_GPIO_Operation_Guide.html">7. GPIO操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_UART_Operation_Guide.html">8. UART 操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_Watchdog_Operation_Guide.html">9. Watchdog 操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_PWM_Operation_Guide.html">10. PWM 操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_ADC_Operation_Guide.html">11. ADC 操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_CVI_PINMUX_Operation_Guide.html">12. CVI PINMUX 操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_DMA_mem_to_mem_Operation_Guide.html">13. DMA 操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_Thermal_Control_Operation_Guide.html">14. 温控策略与测试操作指南</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PeripheralDriver</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">4. </span>SD/MMC 卡操作指南</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/4_SD_MMC_Card_Operation_Guide.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sd-mmc">
+<h1><span class="section-number">4. </span>SD/MMC 卡操作指南<a class="headerlink" href="4_SD_MMC_Card_Operation_Guide.html#sd-mmc" title="永久链接至标题">¶</a></h1>
+<section id="id1">
+<h2><span class="section-number">4.1. </span>操作准备<a class="headerlink" href="4_SD_MMC_Card_Operation_Guide.html#id1" title="永久链接至标题">¶</a></h2>
+<ol class="arabic">
+<li><p>使用SDK 发布的 U-boot 和 kernel。</p></li>
+<li><div class="line-block">
+<div class="line">文件系统：</div>
+<div class="line">对于SD/MMC卡来说，SDK仅支持FAT文件系统，支持可读可写。</div>
+<div class="line">启动至kernel后需挂载至/mnt/sd目录或根据项目需求的目录即可。</div>
+</div>
+</li>
+<li><p>可透过fdisk工具实现分区的工作。</p></li>
+<li><p>CV184x SD 支持 2.0与3.0：</p></li>
+</ol>
+<p>目前 CV184x SD/MMC卡仅支持3.3V VDDIO，使用者需注意。</p>
+</section>
+<section id="id2">
+<h2><span class="section-number">4.2. </span>操作过程<a class="headerlink" href="4_SD_MMC_Card_Operation_Guide.html#id2" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>默认 SD/MMC 相关驱动模块已全部编入内核，不需再额外执行加载命令。</p></li>
+<li><p>插入卡片上电启动，可以在 U-Boot 下，通过 fat 相关指令查看卡片内容。
+启动平台至 kernel 后，会自动扫描 SD 卡识别产生相应节点：<code class="docutils literal notranslate"><span class="pre">/dev/mmcblk0</span></code> 和 <code class="docutils literal notranslate"><span class="pre">/dev/mmcblk0p1</span></code>。</p></li>
+<li><p>U-Boot 下卡片不支持热插拔操作，kernel 下支持热插拔。在 kernel 下插入 SD 卡，就可以对 SD 卡进行相关的操作。具体操作请参见下文”操作示例”。</p></li>
+</ul>
+</section>
+<section id="id3">
+<h2><span class="section-number">4.3. </span>操作示例<a class="headerlink" href="4_SD_MMC_Card_Operation_Guide.html#id3" title="永久链接至标题">¶</a></h2>
+<section id="u-boot-sd">
+<h3><span class="section-number">4.3.1. </span>U-Boot 下操作 SD 卡<a class="headerlink" href="4_SD_MMC_Card_Operation_Guide.html#u-boot-sd" title="永久链接至标题">¶</a></h3>
+<p>SD/MMC 在 U-Boot 下仅支持 FAT 文件系统，且不支持热插拔，须在启动 U-Boot 前插入 SD 卡。</p>
+<p>步骤1：扫描 SD/MMC 总线</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mmc rescan
+</pre></div>
+</div>
+<p>步骤2：确认 SD 卡是否被正确识别</p>
+<p><code class="docutils literal notranslate"><span class="pre">mmc</span> <span class="pre">rescan</span></code> 成功后，需逐一确认设备是否存在以及分区表是否正确，否则后续 <code class="docutils literal notranslate"><span class="pre">fatls</span></code> 会报 <code class="docutils literal notranslate"><span class="pre">Couldn't</span> <span class="pre">find</span> <span class="pre">partition</span> <span class="pre">mmc</span> <span class="pre">0:1</span></code>。</p>
+<p><strong>a. 查看已识别的 MMC 设备列表</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mmc list
+</pre></div>
+</div>
+<p>输出示例：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mmc</span><span class="o">@</span><span class="mi">04300000</span><span class="p">:</span> <span class="mi">0</span> <span class="p">(</span><span class="n">SD</span><span class="p">)</span>
+<span class="n">mmc</span><span class="o">@</span><span class="mi">04310000</span><span class="p">:</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>确认 SD 卡所在设备号（上例中设备 0 为 SD 卡）。</p>
+<p><strong>b. 设置当前设备并查看分区表</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mmc dev <span class="m">0</span>            <span class="c1"># 切换到 SD 卡设备（设备号以 mmc list 输出为准）</span>
+mmc info             <span class="c1"># 查看设备信息（容量、速率等）</span>
+mmc part             <span class="c1"># 列出分区表，确认分区号是否存在</span>
+</pre></div>
+</div>
+<p>输出示例：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Partition</span> <span class="n">Map</span> <span class="k">for</span> <span class="n">MMC</span> <span class="n">device</span> <span class="mi">0</span>  <span class="o">--</span>   <span class="n">Partition</span> <span class="n">Type</span><span class="p">:</span> <span class="n">DOS</span>
+
+<span class="n">Part</span>    <span class="n">Start</span> <span class="n">Sector</span>    <span class="n">Num</span> <span class="n">Sectors</span>     <span class="n">UUID</span>            <span class="n">Type</span>
+  <span class="mi">1</span>     <span class="mi">2048</span>            <span class="mi">61407232</span>        <span class="mi">00000000</span><span class="o">-</span><span class="mi">01</span>     <span class="mi">0</span><span class="n">c</span> <span class="n">Boot</span>
+</pre></div>
+</div>
+<p>上例中分区号为 1（Part 列），类型 0c 表示 FAT32（LBA）。如果 <code class="docutils literal notranslate"><span class="pre">mmc</span> <span class="pre">part</span></code> 无输出，表示 SD 卡尚未分区，需要先在 Linux 或 Windows 下分区并格式化为 FAT32。</p>
+<p><strong>c. 根据分区表中的实际分区号确认操作对象</strong></p>
+<p>如果 <code class="docutils literal notranslate"><span class="pre">mmc</span> <span class="pre">part</span></code> 输出显示分区号为 1，则后续命令使用 <code class="docutils literal notranslate"><span class="pre">mmc</span> <span class="pre">0:1</span></code>；若为其他编号（如 2），则需相应替换为 <code class="docutils literal notranslate"><span class="pre">mmc</span> <span class="pre">0:2</span></code>。</p>
+<p>步骤3：查看 SD 卡内的文件（FAT）</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>fatls mmc <span class="m">0</span>:1 /
+</pre></div>
+</div>
+<p>其中 <code class="docutils literal notranslate"><span class="pre">0</span></code> 为 <code class="docutils literal notranslate"><span class="pre">mmc</span> <span class="pre">list</span></code> 确认的设备号，<code class="docutils literal notranslate"><span class="pre">1</span></code> 为 <code class="docutils literal notranslate"><span class="pre">mmc</span> <span class="pre">part</span></code> 确认的分区号。</p>
+<p>步骤4：将文件读入内存</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>fatload mmc <span class="m">0</span>:1 0x82000000 filename.bin
+</pre></div>
+</div>
+<p>步骤5：从内存写入文件到 SD 卡</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>fatwrite mmc <span class="m">0</span>:1 0x82000000 newfile.bin 0x100000
+</pre></div>
+</div>
+<p>其中 <code class="docutils literal notranslate"><span class="pre">0x82000000</span></code> 为加载地址，<code class="docutils literal notranslate"><span class="pre">0x100000</span></code> 为写入字节数，请按实际环境修改。</p>
+</section>
+<section id="linux-sd">
+<h3><span class="section-number">4.3.2. </span>Linux 下操作 SD 卡<a class="headerlink" href="4_SD_MMC_Card_Operation_Guide.html#linux-sd" title="永久链接至标题">¶</a></h3>
+<p>步骤1：检查分区</p>
+<p>插入 SD 卡后，检查是否产生设备节点：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ls /dev/mmcblk0*
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>若显示 <code class="docutils literal notranslate"><span class="pre">/dev/mmcblk0</span></code> 但没有对应分区（如 <code class="docutils literal notranslate"><span class="pre">mmcblk0p1</span></code>），表示 SD 卡尚未分区或格式化。</p></li>
+<li><p>若有 <code class="docutils literal notranslate"><span class="pre">/dev/mmcblk0p1</span></code>，表示已分区，可跳过步骤 2 直接挂载。</p></li>
+</ul>
+<p>步骤2：分区与格式化（若 SD 卡尚未分区）</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 创建分区（按提示操作）</span>
+fdisk /dev/mmcblk0
+
+<span class="c1"># 格式化为 FAT32</span>
+mkdosfs -F <span class="m">32</span> /dev/mmcblk0p1
+</pre></div>
+</div>
+<p>步骤3：挂载</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mount /dev/mmcblk0p1 /mnt/sd
+</pre></div>
+</div>
+<p>步骤4：读写文件</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 查看 SD 卡内容</span>
+ls /mnt/sd
+
+<span class="c1"># 从 SD 卡复制文件到本地（读）</span>
+cp /mnt/sd/data.bin ./
+
+<span class="c1"># 从本地复制文件到 SD 卡（写）</span>
+cp ./data.bin /mnt/sd/
+
+<span class="c1"># 同步写入并卸载</span>
+sync
+umount /mnt/sd
+</pre></div>
+</div>
+</section>
+</section>
+<section id="id4">
+<h2><span class="section-number">4.4. </span>操作中需要注意的问题<a class="headerlink" href="4_SD_MMC_Card_Operation_Guide.html#id4" title="永久链接至标题">¶</a></h2>
+<ol class="arabic">
+<li><p>需确保SD卡与卡槽硬件脚位接触良好，如若接触不良，有可能会出现检测错误或读写数据错误相关错误信息，并导致读写失败。</p></li>
+<li><p>每次插入 SD 卡后，都需要做一次挂载操作，才能读写 SD 卡；如果SD 卡已经挂载到文件系统，拔卡前则必须做一次卸载（umount）操作，否则有可能在下次插入SD卡后看不到SD卡分区。另，异常拔卡亦需要进行卸载动作。</p></li>
+<li><p>必须确保 SD 卡已经创建分区，并将该分区格式化为 FAT或FAT32文件系统（LINUX下通过 fdisk命令，Windows下使用磁盘管理工具）。</p></li>
+<li><p>在正常操作过程中不能进行的操作：</p>
+<ul>
+<li><p>读写 SD 卡时不要拔卡，否则会打印一些异常信息，并且可能会导致卡中文件或文件系统被破坏。</p></li>
+<li><p>若当前目录是处于挂载目录之下如/mnt/sd 时，则无法进行卸载操作，必须离开当前目录如/mnt/sd，才能进行卸载操作。</p></li>
+<li><p>系统中读写挂载目录的进程没有完全结束前，不能进行卸载操作，必须完全结束操作挂载目录的任务才能正常卸载。</p></li>
+<li><p>在操作过程中出现异常时的操作：</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>如果因为读写数据或其它不明原因导致文件系统被破坏，读写SD卡时可能会出现文件系统错误信息，这时需要进行卸载操作，拔卡，再次插卡并挂载，才能再次正常读写 SD 卡。</p></li>
+<li><p>因为SD卡的注册，检测/注销过程需要一定的时间，因此拔卡后若再快速地插入卡，有可能会出现检测不到SD卡的现象。</p></li>
+<li><p>如果在测试过程中异常拔卡，使用者需要按 ctrl+c 以回退出到kernel shell 下，否则会一直不停地打印异常信息。</p></li>
+<li><p>SD 卡上有一个以上的分区时，可以通过挂载操作切换挂载不同的分区，但最后需确认挂载操作的次数与卸载操作次数相等，才能确保完全卸载所有的挂载分区。</p></li>
+</ol>
+</div></blockquote>
+</li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="3_USB_Operation_Guide.html" class="btn btn-neutral float-left" title="3. USB操作指南" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="5_I2C_Operation_Guide.html" class="btn btn-neutral float-right" title="5. I2C 操作指南" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2025, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

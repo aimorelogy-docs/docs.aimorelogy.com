@@ -1,0 +1,2793 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>6. AF &mdash; ISPDevelopmentReference master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="7. IMP" href="7_IMP.html" />
+    <link rel="prev" title="5. AWB" href="5_AWB.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> ISPDevelopmentReference
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Preface.html">2. 概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_System_Control.html">3. 系统控制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_AE.html">4. AE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_AWB.html">5. AWB</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="6_AF.html#">6. AF</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="6_AF.html#id1">6.1. 概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_AF.html#id2">6.2. 重要概念</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_AF.html#id3">6.3. 功能描述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_AF.html#api">6.4. API 参考</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="6_AF.html#id4">6.4.1. AF 库接口</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#cvi-af-register">6.4.1.1. CVI_AF_Register</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#cvi-af-unregister">6.4.1.2. CVI_AF_UnRegister</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#cvi-af-motor-register">6.4.1.3. CVI_AF_MOTOR_Register</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#cvi-af-motor-unregister">6.4.1.4. CVI_AF_MOTOR_UnRegister</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="6_AF.html#id5">6.4.2. AF 控制模块</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#cvi-isp-afautofocus">6.4.2.1. CVI_ISP_AFAutoFocus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#cvi-isp-afgetfv">6.4.2.2. CVI_ISP_AFGetFv</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#cvi-isp-setafattr">6.4.2.3. CVI_ISP_SetAFAttr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#cvi-isp-getafattr">6.4.2.4. CVI_ISP_GetAFAttr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#cvi-isp-setafvcmattr">6.4.2.5. CVI_ISP_SetAFVcmAttr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#cvi-isp-getafvcmattr">6.4.2.6. CVI_ISP_GetAFVcmAttr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#cvi-isp-setafstatisticsconfig">6.4.2.7. CVI_ISP_SetAFStatisticsConfig</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#cvi-isp-getafstatisticsconfig">6.4.2.8. CVI_ISP_GetAFStatisticsConfig</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#cvi-isp-setafzonefocusattr">6.4.2.9. CVI_ISP_SetAFZoneFocusAttr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#cvi-isp-getafzonefocusattr">6.4.2.10. CVI_ISP_GetAFZoneFocusAttr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#cvi-isp-afqueryfocusinfo">6.4.2.11. CVI_ISP_AFQueryFocusInfo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#cvi-isp-afsetfocus">6.4.2.12. CVI_ISP_AFSetFocus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#cvi-isp-afsetfocusspeed">6.4.2.13. CVI_ISP_AFSetFocusSpeed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#cvi-isp-afsetzoom">6.4.2.14. CVI_ISP_AFSetZoom</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#cvi-isp-afsetzoomspeed">6.4.2.15. CVI_ISP_AFSetZoomSpeed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#cvi-af-getmotorcb">6.4.2.16. CVI_AF_GetMotorCB</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="6_AF.html#id6">6.5. 数据类型</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="6_AF.html#id7">6.5.1. 枚举类型</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#af-status">6.5.1.1. AF_STATUS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#af-direction">6.5.1.2. AF_DIRECTION</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#af-chasingfocus-mode">6.5.1.3. AF_CHASINGFOCUS_MODE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#af-manual-type">6.5.1.4. AF_MANUAL_TYPE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#isp-af-motor-speed-e">6.5.1.5. ISP_AF_MOTOR_SPEED_E</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#af-motor-type">6.5.1.6. AF_MOTOR_TYPE</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="6_AF.html#id8">6.5.2. 结构体类型</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#isp-focus-attr-s">6.5.2.1. ISP_FOCUS_ATTR_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#isp-focus-q-info-s">6.5.2.2. ISP_FOCUS_Q_INFO_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#isp-focus-manual-attr-s">6.5.2.3. ISP_FOCUS_MANUAL_ATTR_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#isp-af-vcm-attr-s">6.5.2.4. ISP_AF_VCM_ATTR_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#isp-af-zone-focus-attr-s">6.5.2.5. ISP_AF_ZONE_FOCUS_ATTR_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#isp-af-zoom-focus-tab">6.5.2.6. ISP_AF_ZOOM_FOCUS_TAB</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#isp-af-len-info-s">6.5.2.7. ISP_AF_LEN_INFO_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#isp-af-motor-func-s">6.5.2.8. ISP_AF_MOTOR_FUNC_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#isp-focus-statistics-cfg-s">6.5.2.9. ISP_FOCUS_STATISTICS_CFG_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#isp-af-cfg-s">6.5.2.10. ISP_AF_CFG_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#isp-af-crop-s">6.5.2.11. ISP_AF_CROP_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#isp-focus-zone-s">6.5.2.12. ISP_FOCUS_ZONE_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#isp-af-statistics-s">6.5.2.13. ISP_AF_STATISTICS_S</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="7_IMP.html">7. IMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_BlackLevel.html">8. BLC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_DPC.html">9. DPC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_LSC.html">10. LSC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_RLSC.html">11. RLSC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_CCM.html">12. CCM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_Noise_Profile.html">13. Noise profile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_BNR.html">14. BNR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15_CNR.html">15. CNR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="16_TNR.html">16. TNR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="17_Crosstalk.html">17. Crosstalk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18_Demosaic.html">18. DEMOSAIC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19_Sharpen.html">19. SHARPEN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="20_PreSharpen.html">20. PRESHARPEN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21_RGB_Gamma.html">21. RGBGAMMA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="22_DCI.html">22. DCI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="23_LDCI.html">23. LDCI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="24_ColorTone.html">24. ColorTone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="25_Saturation.html">25. Saturation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="26_PFR.html">26. PFR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="27_FSHDR.html">27. FSHDR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="28_DRC.html">28. DRC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="29_Mono.html">29. MONO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="30_YCONTRAST.html">30. YCONTRAST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="31_CA.html">31. CA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="32_CA2.html">32. CA2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="33_CLUT.html">33. CLUT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="34_CSC.html">34. CSC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="35_VC.html">35. VC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="36_Statistical_Information.html">36. 统计讯息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="37_Query_Internal_Status_Messages.html">37. 查询内部状态消息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="38_Debug.html">38. Debug</a></li>
+<li class="toctree-l1"><a class="reference internal" href="39_Error_Code.html">39. 错误码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="40_3A_Development_User_Guide_Overview.html">40. 3A 开发指南概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="41_3A_Development_User_Guide.html">41. 3A 开发用户指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="42_Developer_Guide.html">42. 开发者指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="43_Appendix.html">43. 附录</a></li>
+<li class="toctree-l1"><a class="reference internal" href="44_Abbreviations.html">44. 缩略语</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ISPDevelopmentReference</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">6. </span>AF</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/6_AF.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="af">
+<h1><span class="section-number">6. </span>AF<a class="headerlink" href="6_AF.html#af" title="永久链接至标题">¶</a></h1>
+<section id="id1">
+<h2><span class="section-number">6.1. </span>概述<a class="headerlink" href="6_AF.html#id1" title="永久链接至标题">¶</a></h2>
+<p>CVI AF 模块实现的功能是：
+根据硬件统计信息模块输出的图像清晰度值 FV (Focus Value)，通过自动对焦算法找到最佳对焦位置，并控制对焦马达移动到该位置，以获得最清晰的图像。</p>
+<p>AF 算法采用三段式对焦搜索策略：首先确定对焦方向，然后以较大步长进行粗搜索找到 FV 峰值附近区域，最后以小步长进行精确定位。同时支持追焦（变焦后自动重新对焦）、实时追焦（检测画面变化自动重新对焦）、齿隙补偿等功能。</p>
+<p>AF 模块的工作需要马达驱动的支持，客户需实现马达控制回调函数并注册到 AF 模块中。</p>
+</section>
+<section id="id2">
+<h2><span class="section-number">6.2. </span>重要概念<a class="headerlink" href="6_AF.html#id2" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>清晰度值（FV, Focus Value）：通过分析图像的高频分量来表征图像清晰度。图像越清晰，FV 值越大。</p></li>
+<li><p>对焦搜索三阶段：AF 算法将对焦过程分为三个阶段——初始步长搜索（InitStep）、粗搜索（FindStep）、精定位（LocateStep）。</p></li>
+<li><p>追焦（Chasing Focus）：当镜头变焦导致对焦位置偏移时，根据 Zoom-Focus 查找表自动调整对焦位置以恢复清晰图像。</p></li>
+<li><p>实时追焦（Real-Time Focus）：通过持续监测 FV 值和亮度变化，在检测到画面变化时自动触发重新对焦。</p></li>
+<li><p>齿隙补偿（Backlash）：马达正反转切换时存在机械间隙，AF 算法通过反向预走一定步长来消除该间隙的影响。</p></li>
+<li><p>变焦对焦追踪表（Zoom-Focus Table）：记录不同变焦位置对应的最佳对焦位置范围，共 9 个采样点，用于变焦时快速估算对焦位置。</p></li>
+<li><p>VCM（Voice Coil Motor）：音圈马达，通过电流驱动镜头移动，无机械齿隙。</p></li>
+<li><p>步进马达（Stepper Motor）：通过步进驱动的马达，存在机械齿隙需补偿。</p></li>
+</ul>
+</section>
+<section id="id3">
+<h2><span class="section-number">6.3. </span>功能描述<a class="headerlink" href="6_AF.html#id3" title="永久链接至标题">¶</a></h2>
+<p>AF 模块主要由 ISP 硬件统计信息模块和 AF 控制算法两部分组成。</p>
+<p>ISP 硬件统计信息模块负责对输入图像进行滤波处理并统计每个区块的高频分量值，提供 H0、H1、V0 三种滤波器的统计结果以及高亮点计数（HlCnt）。</p>
+<p>AF 控制算法采用有限状态机实现，主要流程包括：马达归位初始化、触发对焦、方向检测、粗搜索、精定位、对焦完成。此外还支持追焦（Chasing Focus）、实时对焦（Real-Time Focus）以及马达方向切换时的齿隙补偿。</p>
+</section>
+<section id="api">
+<h2><span class="section-number">6.4. </span>API 参考<a class="headerlink" href="6_AF.html#api" title="永久链接至标题">¶</a></h2>
+<section id="id4">
+<h3><span class="section-number">6.4.1. </span>AF 库接口<a class="headerlink" href="6_AF.html#id4" title="永久链接至标题">¶</a></h3>
+<p>所有 AF 库接口都只是针对 CVI AF 库，如果客户自己实现 AF 库，不需要关注这些接口，且无法使用这些接口。</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#cvi-af-register">CVI_AF_Register</a> ：向 ISP 注册 AF 库。</p></li>
+<li><p><a class="reference internal" href="6_AF.html#cvi-af-unregister">CVI_AF_UnRegister</a> ：向 ISP 反注册 AF 库。</p></li>
+<li><p><a class="reference internal" href="6_AF.html#cvi-af-motor-register">CVI_AF_MOTOR_Register</a> ：注册马达控制回调函数。</p></li>
+<li><p><a class="reference internal" href="6_AF.html#cvi-af-motor-unregister">CVI_AF_MOTOR_UnRegister</a> ：反注册马达控制回调函数。</p></li>
+</ul>
+<section id="cvi-af-register">
+<h4><span class="section-number">6.4.1.1. </span>CVI_AF_Register<a class="headerlink" href="6_AF.html#cvi-af-register" title="永久链接至标题">¶</a></h4>
+<p>【描述】</p>
+<p>向 ISP 注册 AF 库。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_AF_Register</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ALG_LIB_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstAfLib</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstAfLib</p></td>
+<td><p>AF 算法库结构体指针</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_af.h</p></li>
+</ul>
+<p>【注意】</p>
+<p>无。</p>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#cvi-af-unregister">CVI_AF_UnRegister</a></p></li>
+</ul>
+</section>
+<section id="cvi-af-unregister">
+<h4><span class="section-number">6.4.1.2. </span>CVI_AF_UnRegister<a class="headerlink" href="6_AF.html#cvi-af-unregister" title="永久链接至标题">¶</a></h4>
+<p>【描述】</p>
+<p>向 ISP 反注册 AF 库。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_AF_UnRegister</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ALG_LIB_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstAfLib</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstAfLib</p></td>
+<td><p>AF 算法库结构体指针</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_af.h</p></li>
+</ul>
+<p>【注意】</p>
+<p>无。</p>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#cvi-af-register">CVI_AF_Register</a></p></li>
+</ul>
+</section>
+<section id="cvi-af-motor-register">
+<h4><span class="section-number">6.4.1.3. </span>CVI_AF_MOTOR_Register<a class="headerlink" href="6_AF.html#cvi-af-motor-register" title="永久链接至标题">¶</a></h4>
+<p>【描述】</p>
+<p>注册马达控制回调函数。客户需要实现马达控制相关的回调函数，包括马达初始化、正转、反转、速度设置、镜头信息获取等。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_AF_MOTOR_Register</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ISP_AF_MOTOR_FUNC_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstAfMotorCb</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstAfMotorCb</p></td>
+<td><p>马达控制回调函数结构体指针</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_af.h</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>该函数必须在调用 AF 算法之前注册。</p></li>
+<li><p>客户需实现 ISP_AF_MOTOR_FUNC_S 中的所有回调函数，包括 pfn_af_motor_init、pfn_af_motor_deinit、pfn_af_set_focus_in、pfn_af_set_focus_out、pfn_af_set_focus_speed、pfn_af_set_zoom_in、pfn_af_set_zoom_out、pfn_af_set_zoom_speed、pfn_af_set_zoom_focus、pfn_af_get_len_info。</p></li>
+<li><p>pfn_af_get_len_info 回调需正确返回镜头的硬件特性信息，包括对焦范围、变焦范围、齿隙值、最大速度等。</p></li>
+</ul>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#cvi-af-motor-unregister">CVI_AF_MOTOR_UnRegister</a></p></li>
+<li><p><a class="reference internal" href="6_AF.html#isp-af-motor-func-s">ISP_AF_MOTOR_FUNC_S</a></p></li>
+</ul>
+</section>
+<section id="cvi-af-motor-unregister">
+<h4><span class="section-number">6.4.1.4. </span>CVI_AF_MOTOR_UnRegister<a class="headerlink" href="6_AF.html#cvi-af-motor-unregister" title="永久链接至标题">¶</a></h4>
+<p>【描述】</p>
+<p>反注册马达控制回调函数。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_AF_MOTOR_UnRegister</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ISP_AF_MOTOR_FUNC_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstAfMotorCb</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstAfMotorCb</p></td>
+<td><p>马达控制回调函数结构体指针</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_af.h</p></li>
+</ul>
+<p>【注意】</p>
+<p>无。</p>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#cvi-af-motor-register">CVI_AF_MOTOR_Register</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id5">
+<h3><span class="section-number">6.4.2. </span>AF 控制模块<a class="headerlink" href="6_AF.html#id5" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-afautofocus">CVI_ISP_AFAutoFocus</a> ：触发自动对焦。</p></li>
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-afgetfv">CVI_ISP_AFGetFv</a> ：获取当前帧的 FV 值。</p></li>
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-setafattr">CVI_ISP_SetAFAttr</a> / <a class="reference internal" href="6_AF.html#cvi-isp-getafattr">CVI_ISP_GetAFAttr</a> ：设置/获取 AF 属性。</p></li>
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-setafvcmattr">CVI_ISP_SetAFVcmAttr</a> / <a class="reference internal" href="6_AF.html#cvi-isp-getafvcmattr">CVI_ISP_GetAFVcmAttr</a> ：设置/获取 VCM 镜头属性。</p></li>
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-setafstatisticsconfig">CVI_ISP_SetAFStatisticsConfig</a> / <a class="reference internal" href="6_AF.html#cvi-isp-getafstatisticsconfig">CVI_ISP_GetAFStatisticsConfig</a> ：设置/获取 AF 统计信息配置。</p></li>
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-setafzonefocusattr">CVI_ISP_SetAFZoneFocusAttr</a> / <a class="reference internal" href="6_AF.html#cvi-isp-getafzonefocusattr">CVI_ISP_GetAFZoneFocusAttr</a> ：设置/获取 ROI 对焦区域属性。</p></li>
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-afqueryfocusinfo">CVI_ISP_AFQueryFocusInfo</a> ：查询对焦状态信息。</p></li>
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-afsetfocus">CVI_ISP_AFSetFocus</a> / <a class="reference internal" href="6_AF.html#cvi-isp-afsetfocusspeed">CVI_ISP_AFSetFocusSpeed</a> ：手动对焦控制。</p></li>
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-afsetzoom">CVI_ISP_AFSetZoom</a> / <a class="reference internal" href="6_AF.html#cvi-isp-afsetzoomspeed">CVI_ISP_AFSetZoomSpeed</a> ：手动变焦控制。</p></li>
+<li><p><a class="reference internal" href="6_AF.html#cvi-af-getmotorcb">CVI_AF_GetMotorCB</a> ：获取马达控制回调函数指针。</p></li>
+</ul>
+<section id="cvi-isp-afautofocus">
+<h4><span class="section-number">6.4.2.1. </span>CVI_ISP_AFAutoFocus<a class="headerlink" href="6_AF.html#cvi-isp-afautofocus" title="永久链接至标题">¶</a></h4>
+<p>【描述】</p>
+<p>触发自动对焦。调用此函数后 AF 算法开始执行三段式对焦搜索（方向检测 → 粗搜索 → 精定位）。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_AFAutoFocus</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe 号</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_af.h</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>调用前需确保 AF 已正确初始化并注册了马达回调。</p></li>
+<li><p>对焦过程中 AE 会被暂时挂起（锁定曝光），对焦完成后自动恢复。</p></li>
+</ul>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-afgetfv">CVI_ISP_AFGetFv</a></p></li>
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-afqueryfocusinfo">CVI_ISP_AFQueryFocusInfo</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-afgetfv">
+<h4><span class="section-number">6.4.2.2. </span>CVI_ISP_AFGetFv<a class="headerlink" href="6_AF.html#cvi-isp-afgetfv" title="永久链接至标题">¶</a></h4>
+<p>【描述】</p>
+<p>获取当前帧的 AF 清晰度值（Focus Value）。FV 值越大表示图像越清晰。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_AFGetFv</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_U32</span><span class="w"> </span><span class="o">*</span><span class="n">pFv</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pFv</p></td>
+<td><p>指向 FV 值的指针</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_af.h</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>FV 值需要在垂直消隐期间获取，建议配合 <code class="docutils literal notranslate"><span class="pre">CVI_ISP_GetVDTimeOut</span></code> 使用以获取同步的统计值。</p></li>
+</ul>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-afautofocus">CVI_ISP_AFAutoFocus</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-setafattr">
+<h4><span class="section-number">6.4.2.3. </span>CVI_ISP_SetAFAttr<a class="headerlink" href="6_AF.html#cvi-isp-setafattr" title="永久链接至标题">¶</a></h4>
+<p>【描述】</p>
+<p>设置 AF 算法控制参数。包括使能开关、工作模式、搜索步长、追焦配置、比率阈值等。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_SetAFAttr</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ISP_FOCUS_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstFocusAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstFocusAttr</p></td>
+<td><p>AF 属性结构体指针</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_af.h</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>修改 AF 属性时若 AF 正在运行，新参数将在当前对焦周期结束后生效。</p></li>
+<li><p>u8RunInterval 取值范围为 [0x1, 0x10]。</p></li>
+<li><p>三个步长参数（u8InitStep/u8FindStep/u8LocateStep）取值范围均为 [0x1, 0xFF]。</p></li>
+<li><p>比率参数（DiffRatio 系列）基于 AF_RATIO_BASE (1024) 计算。</p></li>
+</ul>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-getafattr">CVI_ISP_GetAFAttr</a></p></li>
+<li><p><a class="reference internal" href="6_AF.html#isp-focus-attr-s">ISP_FOCUS_ATTR_S</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-getafattr">
+<h4><span class="section-number">6.4.2.4. </span>CVI_ISP_GetAFAttr<a class="headerlink" href="6_AF.html#cvi-isp-getafattr" title="永久链接至标题">¶</a></h4>
+<p>【描述】</p>
+<p>获取当前 AF 算法控制参数。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_GetAFAttr</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ISP_FOCUS_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstFocusAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstFocusAttr</p></td>
+<td><p>AF 属性结构体指针</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_af.h</p></li>
+</ul>
+<p>【注意】</p>
+<p>无。</p>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-setafattr">CVI_ISP_SetAFAttr</a></p></li>
+<li><p><a class="reference internal" href="6_AF.html#isp-focus-attr-s">ISP_FOCUS_ATTR_S</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-setafvcmattr">
+<h4><span class="section-number">6.4.2.5. </span>CVI_ISP_SetAFVcmAttr<a class="headerlink" href="6_AF.html#cvi-isp-setafvcmattr" title="永久链接至标题">¶</a></h4>
+<p>【描述】</p>
+<p>设置 VCM 镜头标定属性，包括无限远位置、最近对焦位置和中点位置。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_SetAFVcmAttr</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ISP_AF_VCM_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstVCMAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstVCMAttr</p></td>
+<td><p>VCM 属性结构体指针</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_af.h</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>这些值需要通过实际标定获得。建议使用 AF_ENTER_CAILB_FLOW 标定工具中的 AF_RANGE_OFFSET_CALIB 模式获取。</p></li>
+<li><p>u32InfinitePos 表示无限远（远处物体清晰对焦）时的镜头位置。</p></li>
+<li><p>u32MacroPos 表示最近对焦（微距）时的镜头位置。</p></li>
+<li><p>u32MediumPos 表示中间位置的镜头位置。</p></li>
+</ul>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-getafvcmattr">CVI_ISP_GetAFVcmAttr</a></p></li>
+<li><p><a class="reference internal" href="6_AF.html#isp-af-vcm-attr-s">ISP_AF_VCM_ATTR_S</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-getafvcmattr">
+<h4><span class="section-number">6.4.2.6. </span>CVI_ISP_GetAFVcmAttr<a class="headerlink" href="6_AF.html#cvi-isp-getafvcmattr" title="永久链接至标题">¶</a></h4>
+<p>【描述】</p>
+<p>获取 VCM 镜头标定属性。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_GetAFVcmAttr</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ISP_AF_VCM_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstVCMAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstVCMAttr</p></td>
+<td><p>VCM 属性结构体指针</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_af.h</p></li>
+</ul>
+<p>【注意】</p>
+<p>无。</p>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-setafvcmattr">CVI_ISP_SetAFVcmAttr</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-setafstatisticsconfig">
+<h4><span class="section-number">6.4.2.7. </span>CVI_ISP_SetAFStatisticsConfig<a class="headerlink" href="6_AF.html#cvi-isp-setafstatisticsconfig" title="永久链接至标题">¶</a></h4>
+<p>【描述】</p>
+<p>设置 AF 硬件统计信息配置，包括滤波器系数、窗口大小、裁剪区域、权重表等。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_SetAFStatisticsConfig</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ISP_FOCUS_STATISTICS_CFG_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstAfStatCfg</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstAfStatCfg</p></td>
+<td><p>AF 统计信息配置结构体指针</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_af.h</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>统计区域大小建议设置为 17（水平）x 15（垂直）。</p></li>
+<li><p>裁剪区域的 X 坐标范围为 [0x8, 图像宽度-8]，Y 坐标范围为 [0x2, 图像高度-2]。</p></li>
+<li><p>权重表大小为 15 x 17，每个权重值取值范围为 [0x0, 0xF]。</p></li>
+<li><p>FIR 滤波器系数需要根据镜头光学特性进行调整。参考配置可参见 3A 开发用户指南 中的 FV 计算参考代码。</p></li>
+</ul>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-getafstatisticsconfig">CVI_ISP_GetAFStatisticsConfig</a></p></li>
+<li><p><a class="reference internal" href="6_AF.html#isp-focus-statistics-cfg-s">ISP_FOCUS_STATISTICS_CFG_S</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-getafstatisticsconfig">
+<h4><span class="section-number">6.4.2.8. </span>CVI_ISP_GetAFStatisticsConfig<a class="headerlink" href="6_AF.html#cvi-isp-getafstatisticsconfig" title="永久链接至标题">¶</a></h4>
+<p>【描述】</p>
+<p>获取 AF 硬件统计信息配置。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_GetAFStatisticsConfig</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ISP_FOCUS_STATISTICS_CFG_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstAfStatCfg</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstAfStatCfg</p></td>
+<td><p>AF 统计信息配置结构体指针</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_af.h</p></li>
+</ul>
+<p>【注意】</p>
+<p>无。</p>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-setafstatisticsconfig">CVI_ISP_SetAFStatisticsConfig</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-setafzonefocusattr">
+<h4><span class="section-number">6.4.2.9. </span>CVI_ISP_SetAFZoneFocusAttr<a class="headerlink" href="6_AF.html#cvi-isp-setafzonefocusattr" title="永久链接至标题">¶</a></h4>
+<p>【描述】</p>
+<p>设置 ROI 对焦区域属性。可指定对焦区域的坐标、大小和权重，用于局部区域对焦。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_SetAFZoneFocusAttr</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ISP_AF_ZONE_FOCUS_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstAfZoneFocusAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstAfZoneFocusAttr</p></td>
+<td><p>ROI 对焦区域属性结构体指针</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_af.h</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>enable 为 CVI_FALSE 时使用全局权重表进行对焦。</p></li>
+<li><p>u8ZoneWeight 取值范围为 [0, 255]。</p></li>
+</ul>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-getafzonefocusattr">CVI_ISP_GetAFZoneFocusAttr</a></p></li>
+<li><p><a class="reference internal" href="6_AF.html#isp-af-zone-focus-attr-s">ISP_AF_ZONE_FOCUS_ATTR_S</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-getafzonefocusattr">
+<h4><span class="section-number">6.4.2.10. </span>CVI_ISP_GetAFZoneFocusAttr<a class="headerlink" href="6_AF.html#cvi-isp-getafzonefocusattr" title="永久链接至标题">¶</a></h4>
+<p>【描述】</p>
+<p>获取 ROI 对焦区域属性。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_GetAFZoneFocusAttr</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ISP_AF_ZONE_FOCUS_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstAfZoneFocusAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstAfZoneFocusAttr</p></td>
+<td><p>ROI 对焦区域属性结构体指针</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_af.h</p></li>
+</ul>
+<p>【注意】</p>
+<p>无。</p>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-setafzonefocusattr">CVI_ISP_SetAFZoneFocusAttr</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-afqueryfocusinfo">
+<h4><span class="section-number">6.4.2.11. </span>CVI_ISP_AFQueryFocusInfo<a class="headerlink" href="6_AF.html#cvi-isp-afqueryfocusinfo" title="永久链接至标题">¶</a></h4>
+<p>【描述】</p>
+<p>查询 AF 算法运行状态信息，包括当前对焦状态、FV 值、马达位置和速度等。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_AFQueryFocusInfo</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ISP_FOCUS_Q_INFO_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstFocusQInfo</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstFocusQInfo</p></td>
+<td><p>对焦状态信息结构体指针</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_af.h</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>可用于调试和监控 AF 算法运行状态。</p></li>
+<li><p>eStatus 字段反映当前 AF 状态机的状态。</p></li>
+</ul>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#isp-focus-q-info-s">ISP_FOCUS_Q_INFO_S</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-afsetfocus">
+<h4><span class="section-number">6.4.2.12. </span>CVI_ISP_AFSetFocus<a class="headerlink" href="6_AF.html#cvi-isp-afsetfocus" title="永久链接至标题">¶</a></h4>
+<p>【描述】</p>
+<p>设置对焦马达移动方向和步长，用于手动对焦模式。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_AFSetFocus</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">direct</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">step</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>direct</p></td>
+<td><p>移动方向，CVI_TRUE 为 FAR（远），CVI_FALSE 为 NEAR（近）</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>step</p></td>
+<td><p>移动步长</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_af.h</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>该函数在手动对焦模式下使用，自动对焦过程中不建议调用。</p></li>
+</ul>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-afsetfocusspeed">CVI_ISP_AFSetFocusSpeed</a></p></li>
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-afsetzoom">CVI_ISP_AFSetZoom</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-afsetfocusspeed">
+<h4><span class="section-number">6.4.2.13. </span>CVI_ISP_AFSetFocusSpeed<a class="headerlink" href="6_AF.html#cvi-isp-afsetfocusspeed" title="永久链接至标题">¶</a></h4>
+<p>【描述】</p>
+<p>设置对焦马达移动速度。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_AFSetFocusSpeed</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ISP_AF_MOTOR_SPEED_E</span><span class="w"> </span><span class="n">eSpeed</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>eSpeed</p></td>
+<td><p>马达速度: 4X / 2X / 1X / 半速</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_af.h</p></li>
+</ul>
+<p>【注意】</p>
+<p>无。</p>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-afsetfocus">CVI_ISP_AFSetFocus</a></p></li>
+<li><p><a class="reference internal" href="6_AF.html#isp-af-motor-speed-e">ISP_AF_MOTOR_SPEED_E</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-afsetzoom">
+<h4><span class="section-number">6.4.2.14. </span>CVI_ISP_AFSetZoom<a class="headerlink" href="6_AF.html#cvi-isp-afsetzoom" title="永久链接至标题">¶</a></h4>
+<p>【描述】</p>
+<p>设置变焦马达移动方向和步长。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_AFSetZoom</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">direct</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">step</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>direct</p></td>
+<td><p>移动方向</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>step</p></td>
+<td><p>移动步长</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_af.h</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>变焦操作可能触发追焦（若 bChasingFocus 已使能）。</p></li>
+</ul>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-afsetzoomspeed">CVI_ISP_AFSetZoomSpeed</a></p></li>
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-afsetfocus">CVI_ISP_AFSetFocus</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-afsetzoomspeed">
+<h4><span class="section-number">6.4.2.15. </span>CVI_ISP_AFSetZoomSpeed<a class="headerlink" href="6_AF.html#cvi-isp-afsetzoomspeed" title="永久链接至标题">¶</a></h4>
+<p>【描述】</p>
+<p>设置变焦马达移动速度，一般不需要设置。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_AFSetZoomSpeed</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ISP_AF_MOTOR_SPEED_E</span><span class="w"> </span><span class="n">eSpeed</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>eSpeed</p></td>
+<td><p>马达速度: 4X / 2X / 1X / 半速</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_af.h</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>该函数一般不需要调用，使用默认速度即可。</p></li>
+</ul>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-afsetzoom">CVI_ISP_AFSetZoom</a></p></li>
+<li><p><a class="reference internal" href="6_AF.html#isp-af-motor-speed-e">ISP_AF_MOTOR_SPEED_E</a></p></li>
+</ul>
+</section>
+<section id="cvi-af-getmotorcb">
+<h4><span class="section-number">6.4.2.16. </span>CVI_AF_GetMotorCB<a class="headerlink" href="6_AF.html#cvi-af-getmotorcb" title="永久链接至标题">¶</a></h4>
+<p>【描述】</p>
+<p>获取马达控制回调函数指针。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">ISP_AF_MOTOR_FUNC_S</span><span class="w"> </span><span class="o">*</span><span class="nf">CVI_AF_GetMotorCB</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe 号</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>非 NULL</p></td>
+<td><p>马达控制回调函数指针。</p></td>
+</tr>
+<tr class="row-odd"><td><p>NULL</p></td>
+<td><p>失败，未注册或 ViPipe 无效。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_af.h</p></li>
+</ul>
+<p>【注意】</p>
+<p>无。</p>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#cvi-af-motor-register">CVI_AF_MOTOR_Register</a></p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="id6">
+<h2><span class="section-number">6.5. </span>数据类型<a class="headerlink" href="6_AF.html#id6" title="永久链接至标题">¶</a></h2>
+<section id="id7">
+<h3><span class="section-number">6.5.1. </span>枚举类型<a class="headerlink" href="6_AF.html#id7" title="永久链接至标题">¶</a></h3>
+<section id="af-status">
+<h4><span class="section-number">6.5.1.1. </span>AF_STATUS<a class="headerlink" href="6_AF.html#af-status" title="永久链接至标题">¶</a></h4>
+<p>【说明】</p>
+<p>定义 AF 算法状态机状态。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_AF_STATUS</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_NOT_INIT</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_INIT_POSITION</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_INIT</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_TRIGGER_FOCUS</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_DETECT_DIRECTION</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_SERACH_BEST_POS</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_LOCATE_BEST_POS</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_FOCUSED</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_REVERSE_DIRECTION</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_CHASING_FOCUS</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">AF_STATUS</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AF_NOT_INIT</p></td>
+<td><p>未初始化状态。</p></td>
+</tr>
+<tr class="row-odd"><td><p>AF_INIT_POSITION</p></td>
+<td><p>初始位置，马达归位阶段。将对焦/变焦马达移动到物理边界进行复位。</p></td>
+</tr>
+<tr class="row-even"><td><p>AF_INIT</p></td>
+<td><p>空闲状态。等待对焦触发，处理外部变焦/对焦命令。</p></td>
+</tr>
+<tr class="row-odd"><td><p>AF_TRIGGER_FOCUS</p></td>
+<td><p>触发对焦。挂起 AE，开始对焦搜索。</p></td>
+</tr>
+<tr class="row-even"><td><p>AF_DETECT_DIRECTION</p></td>
+<td><p>方向检测。移动对焦镜头并监测 FV 值趋势以确定最佳搜索方向。</p></td>
+</tr>
+<tr class="row-odd"><td><p>AF_SERACH_BEST_POS</p></td>
+<td><p>粗搜索。以较大步长进行对焦搜索，跟踪最大 FV 值。</p></td>
+</tr>
+<tr class="row-even"><td><p>AF_LOCATE_BEST_POS</p></td>
+<td><p>精定位。以较小步长进行精细搜索，确认峰值位置。</p></td>
+</tr>
+<tr class="row-odd"><td><p>AF_FOCUSED</p></td>
+<td><p>对焦完成。搜索结束，恢复 AE，更新稳定 FV 值。</p></td>
+</tr>
+<tr class="row-even"><td><p>AF_REVERSE_DIRECTION</p></td>
+<td><p>方向反转。处理马达方向切换时的齿隙补偿。</p></td>
+</tr>
+<tr class="row-odd"><td><p>AF_CHASING_FOCUS</p></td>
+<td><p>追焦。变焦后根据 Zoom-Focus 查找表快速重新寻找焦点。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<ul class="simple">
+<li><p>AF_STATUS 主要用于 ISP_FOCUS_Q_INFO_S 的 eStatus 字段，反映 AF 当前运行状态。</p></li>
+</ul>
+<p>【相关数据类型及接口】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#isp-focus-q-info-s">ISP_FOCUS_Q_INFO_S</a></p></li>
+</ul>
+</section>
+<section id="af-direction">
+<h4><span class="section-number">6.5.1.2. </span>AF_DIRECTION<a class="headerlink" href="6_AF.html#af-direction" title="永久链接至标题">¶</a></h4>
+<p>【说明】</p>
+<p>定义对焦马达移动方向。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_AF_DIRECTION</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_DIR_NEAR</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_DIR_FAR</span><span class="p">,</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">AF_DIRECTION</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AF_DIR_NEAR</p></td>
+<td><p>近处方向。马达向近距离方向移动镜头。</p></td>
+</tr>
+<tr class="row-odd"><td><p>AF_DIR_FAR</p></td>
+<td><p>远处方向。马达向远距离方向移动镜头。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#isp-focus-attr-s">ISP_FOCUS_ATTR_S</a></p></li>
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-afsetfocus">CVI_ISP_AFSetFocus</a></p></li>
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-afsetzoom">CVI_ISP_AFSetZoom</a></p></li>
+</ul>
+</section>
+<section id="af-chasingfocus-mode">
+<h4><span class="section-number">6.5.1.3. </span>AF_CHASINGFOCUS_MODE<a class="headerlink" href="6_AF.html#af-chasingfocus-mode" title="永久链接至标题">¶</a></h4>
+<p>【说明】</p>
+<p>定义追焦模式类型。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_AF_CHASINGFOCUS_MODE</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_CHASINGFOCUS_FAST_MODE</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_CHASINGFOCUS_NORMAL_MODE</span><span class="p">,</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">AF_CHASINGFOCUS_MODE</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AF_CHASINGFOCUS_FAST_MODE</p></td>
+<td><p>快速追焦模式。以更快的速度重新对焦，适合动态场景。</p></td>
+</tr>
+<tr class="row-odd"><td><p>AF_CHASINGFOCUS_NORMAL_MODE</p></td>
+<td><p>普通追焦模式。标准速度重新对焦。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#isp-focus-attr-s">ISP_FOCUS_ATTR_S</a></p></li>
+</ul>
+</section>
+<section id="af-manual-type">
+<h4><span class="section-number">6.5.1.4. </span>AF_MANUAL_TYPE<a class="headerlink" href="6_AF.html#af-manual-type" title="永久链接至标题">¶</a></h4>
+<p>【说明】</p>
+<p>定义手动操作类型。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_AF_MANUAL_TYPE</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">OP_TYPE_ZOOM</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">OP_TYPE_FOCUS</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">OP_TYPE_AUTO_FOCUS</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">OP_TYPE_ZOOM_POS</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">OP_TYPE_FOCUS_POS</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">OP_TYPE_AF_BUTT</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">AF_MANUAL_TYPE</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>OP_TYPE_ZOOM</p></td>
+<td><p>手动变焦操作。</p></td>
+</tr>
+<tr class="row-odd"><td><p>OP_TYPE_FOCUS</p></td>
+<td><p>手动对焦操作。</p></td>
+</tr>
+<tr class="row-even"><td><p>OP_TYPE_AUTO_FOCUS</p></td>
+<td><p>自动对焦操作。</p></td>
+</tr>
+<tr class="row-odd"><td><p>OP_TYPE_ZOOM_POS</p></td>
+<td><p>设置变焦位置。</p></td>
+</tr>
+<tr class="row-even"><td><p>OP_TYPE_FOCUS_POS</p></td>
+<td><p>设置对焦位置。</p></td>
+</tr>
+<tr class="row-odd"><td><p>OP_TYPE_AF_BUTT</p></td>
+<td><p>边界值，表示有效类型的数量。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#isp-focus-manual-attr-s">ISP_FOCUS_MANUAL_ATTR_S</a></p></li>
+</ul>
+</section>
+<section id="isp-af-motor-speed-e">
+<h4><span class="section-number">6.5.1.5. </span>ISP_AF_MOTOR_SPEED_E<a class="headerlink" href="6_AF.html#isp-af-motor-speed-e" title="永久链接至标题">¶</a></h4>
+<p>【说明】</p>
+<p>定义 AF 马达速度等级。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_ISP_AF_MOTOR_SPEED_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_MOTOR_SPEED_4X</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_MOTOR_SPEED_2X</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_MOTOR_SPEED_1X</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_MOTOR_SPEED_HALF</span><span class="p">,</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_AF_MOTOR_SPEED_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AF_MOTOR_SPEED_4X</p></td>
+<td><p>4 倍速度。最高速度等级。</p></td>
+</tr>
+<tr class="row-odd"><td><p>AF_MOTOR_SPEED_2X</p></td>
+<td><p>2 倍速度。</p></td>
+</tr>
+<tr class="row-even"><td><p>AF_MOTOR_SPEED_1X</p></td>
+<td><p>1 倍速度。标准速度。</p></td>
+</tr>
+<tr class="row-odd"><td><p>AF_MOTOR_SPEED_HALF</p></td>
+<td><p>半速。最低速度等级。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-afsetfocusspeed">CVI_ISP_AFSetFocusSpeed</a></p></li>
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-afsetzoomspeed">CVI_ISP_AFSetZoomSpeed</a></p></li>
+<li><p><a class="reference internal" href="6_AF.html#isp-focus-q-info-s">ISP_FOCUS_Q_INFO_S</a></p></li>
+</ul>
+</section>
+<section id="af-motor-type">
+<h4><span class="section-number">6.5.1.6. </span>AF_MOTOR_TYPE<a class="headerlink" href="6_AF.html#af-motor-type" title="永久链接至标题">¶</a></h4>
+<p>【说明】</p>
+<p>定义马达类型。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_AF_MOTOR_TYPE</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_MOTOR_STEPPER</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_MOTOR_VCM</span><span class="p">,</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">AF_MOTOR_TYPE</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AF_MOTOR_STEPPER</p></td>
+<td><p>步进马达。通过步进驱动，存在机械齿隙需补偿。</p></td>
+</tr>
+<tr class="row-odd"><td><p>AF_MOTOR_VCM</p></td>
+<td><p>音圈马达（Voice Coil Motor）。通过电流驱动，无机械齿隙。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<ul class="simple">
+<li><p>马达类型通过 pfn_af_get_len_info 回调中的 ISP_AF_LEN_INFO_S 返回。</p></li>
+<li><p>VCM 镜头齿隙补偿为 1 帧震动补偿，步进马达需根据实际测量设置 focus_backlash。</p></li>
+</ul>
+<p>【相关数据类型及接口】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#isp-af-len-info-s">ISP_AF_LEN_INFO_S</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id8">
+<h3><span class="section-number">6.5.2. </span>结构体类型<a class="headerlink" href="6_AF.html#id8" title="永久链接至标题">¶</a></h3>
+<section id="isp-focus-attr-s">
+<h4><span class="section-number">6.5.2.1. </span>ISP_FOCUS_ATTR_S<a class="headerlink" href="6_AF.html#isp-focus-attr-s" title="永久链接至标题">¶</a></h4>
+<p>【说明】</p>
+<p>定义 AF 主配置属性。包含 AF 使能、工作模式、搜索步长、追焦配置、比率阈值、手动对焦等参数。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_FOCUS_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bEnable</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8DebugMode</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">ISP_OP_TYPE_E</span><span class="w"> </span><span class="n">enOpType</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8RunInterval</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bRealTimeFocus</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bChasingFocus</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bReFocus</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bMixHlc</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8RtFocusStableFrm</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16RtMaxDiffFvRatio</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16MaxDiffFvRatio</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16MaxDiffLumaRatio</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16DetectDiffRatio</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16SearchDiffRatio</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16LocalDiffRatio</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8InitStep</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8FindStep</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8LocateStep</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_DIRECTION</span><span class="w"> </span><span class="n">enInitDir</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16MaxRotateCnt</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_CHASINGFOCUS_MODE</span><span class="w"> </span><span class="n">enChasingFocusMode</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">ISP_FOCUS_MANUAL_ATTR_S</span><span class="w"> </span><span class="n">stManual</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_FOCUS_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>bEnable</p></td>
+<td><p>AF 使能。为 CVI_TRUE 时使能 AF，为 CVI_FALSE 时不使能。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u8DebugMode</p></td>
+<td><p>调试模式。用于设置 AF 调试等级。</p></td>
+</tr>
+<tr class="row-even"><td><p>enOpType</p></td>
+<td><p>操作类型。自动或手动对焦模式切换。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u8RunInterval</p></td>
+<td><p>AF 算法运行帧间隔。取值范围为 [0x1, 0x10]。</p></td>
+</tr>
+<tr class="row-even"><td><p>bRealTimeFocus</p></td>
+<td><p>实时对焦使能。为 CVI_TRUE 时开启实时追焦，检测到画面变化自动重新对焦。</p></td>
+</tr>
+<tr class="row-odd"><td><p>bChasingFocus</p></td>
+<td><p>追焦使能。为 CVI_TRUE 时开启变焦追焦，变焦后自动根据 Zoom-Focus 查找表调整对焦位置。</p></td>
+</tr>
+<tr class="row-even"><td><p>bReFocus</p></td>
+<td><p>重新对焦使能。为 CVI_TRUE 时画面变化后自动重新对焦。</p></td>
+</tr>
+<tr class="row-odd"><td><p>bMixHlc</p></td>
+<td><p>混合高亮点掩码使能。使用 HlCnt 信息抑制光源对 FV 值的影响。</p></td>
+</tr>
+<tr class="row-even"><td><p>u8RtFocusStableFrm</p></td>
+<td><p>实时对焦稳定帧数。FV 变化持续超过此帧数后触发追焦。取值范围为 [0x1, 0xFF]，默认值为 5。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16RtMaxDiffFvRatio</p></td>
+<td><p>实时对焦最大 FV 差异比例。基于 AF_RATIO_BASE (1024)。取值范围为 [0x400, 0x1000]。</p></td>
+</tr>
+<tr class="row-even"><td><p>u16MaxDiffFvRatio</p></td>
+<td><p>最大 FV 差异比例。用于检测画面是否发生显著变化。取值范围为 [0x400, 0x4000]。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16MaxDiffLumaRatio</p></td>
+<td><p>最大亮度差异比例。用于亮度变化检测。取值范围为 [0x400, 0x1000]。</p></td>
+</tr>
+<tr class="row-even"><td><p>u16DetectDiffRatio</p></td>
+<td><p>方向检测差异比例。用于判断方向检测阶段 FV 变化是否显著。取值范围为 [0x400, 0x1000]。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16SearchDiffRatio</p></td>
+<td><p>搜索差异比例。用于粗搜索阶段判断是否已越过 FV 峰值。取值范围为 [0x400, 0x1000]。</p></td>
+</tr>
+<tr class="row-even"><td><p>u16LocalDiffRatio</p></td>
+<td><p>定位差异比例。用于精定位阶段确认峰值。取值范围为 [0x400, 0x1000]。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u8InitStep</p></td>
+<td><p>初始搜索步长。对焦搜索第一阶段使用的马达移动步长。取值范围为 [0x1, 0xFF]。</p></td>
+</tr>
+<tr class="row-even"><td><p>u8FindStep</p></td>
+<td><p>精确搜索步长。对焦搜索第二阶段（粗搜索）使用的马达移动步长。取值范围为 [0x1, 0xFF]。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u8LocateStep</p></td>
+<td><p>定位步长。对焦搜索第三阶段（精定位）使用的马达移动步长。取值范围为 [0x1, 0xFF]。</p></td>
+</tr>
+<tr class="row-even"><td><p>enInitDir</p></td>
+<td><p>初始搜索方向。对焦搜索开始时的马达移动方向（NEAR 或 FAR）。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16MaxRotateCnt</p></td>
+<td><p>最大复位次数。马达复位（归位到物理边界）的最大重试次数。取值范围为 [0x400, 0x4000]。</p></td>
+</tr>
+<tr class="row-even"><td><p>enChasingFocusMode</p></td>
+<td><p>追焦模式。快速模式或普通模式。</p></td>
+</tr>
+<tr class="row-odd"><td><p>stManual</p></td>
+<td><p>手动对焦属性。包含手动操作类型、方向、步长和位置。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<ul class="simple">
+<li><p>所有比率参数均以 AF_RATIO_BASE (1024) 为基准。例如 u16DetectDiffRatio = 1024 表示 100% 的差异阈值。</p></li>
+<li><p>三个步长参数（InitStep/FindStep/LocateStep）应根据镜头特性调整。步进马达建议 InitStep=16, FindStep=8, LocateStep=2；VCM 镜头可适当减小。</p></li>
+</ul>
+<p>【相关数据类型及接口】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-setafattr">CVI_ISP_SetAFAttr</a></p></li>
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-getafattr">CVI_ISP_GetAFAttr</a></p></li>
+<li><p><a class="reference internal" href="6_AF.html#isp-focus-manual-attr-s">ISP_FOCUS_MANUAL_ATTR_S</a></p></li>
+</ul>
+</section>
+<section id="isp-focus-q-info-s">
+<h4><span class="section-number">6.5.2.2. </span>ISP_FOCUS_Q_INFO_S<a class="headerlink" href="6_AF.html#isp-focus-q-info-s" title="永久链接至标题">¶</a></h4>
+<p>【说明】</p>
+<p>定义 AF 查询信息/运行时状态。用于获取 AF 当前运行状态、FV 值、马达位置等信息。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_AF_Q_INFO_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_STATUS</span><span class="w"> </span><span class="n">eStatus</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32PreFv</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32CurFv</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32MaxFv</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8PreLuma</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8CurLuma</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_DIRECTION</span><span class="w"> </span><span class="n">eZoomDir</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16ZoomStep</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16ZoomPos</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_DIRECTION</span><span class="w"> </span><span class="n">eFocusDir</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16FocusStep</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16FocusPos</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16MaxFvPos</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16ZoomMinPos</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16ZoomMaxPos</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16FocusMinPos</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16FocusMaxPos</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">ISP_AF_MOTOR_SPEED_E</span><span class="w"> </span><span class="n">eZoomSpeed</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">ISP_AF_MOTOR_SPEED_E</span><span class="w"> </span><span class="n">eFocusSpeed</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_FOCUS_Q_INFO_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>eStatus</p></td>
+<td><p>当前 AF 状态。反映 AF_STATUS 枚举值。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32PreFv</p></td>
+<td><p>上一帧 FV 值。</p></td>
+</tr>
+<tr class="row-even"><td><p>u32CurFv</p></td>
+<td><p>当前帧 FV 值。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32MaxFv</p></td>
+<td><p>搜索过程中记录的最大 FV 值。</p></td>
+</tr>
+<tr class="row-even"><td><p>u8PreLuma</p></td>
+<td><p>上一帧平均亮度。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u8CurLuma</p></td>
+<td><p>当前帧平均亮度。</p></td>
+</tr>
+<tr class="row-even"><td><p>eZoomDir</p></td>
+<td><p>当前变焦移动方向。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16ZoomStep</p></td>
+<td><p>当前变焦步长。</p></td>
+</tr>
+<tr class="row-even"><td><p>u16ZoomPos</p></td>
+<td><p>当前变焦位置。</p></td>
+</tr>
+<tr class="row-odd"><td><p>eFocusDir</p></td>
+<td><p>当前对焦移动方向。</p></td>
+</tr>
+<tr class="row-even"><td><p>u16FocusStep</p></td>
+<td><p>当前对焦步长。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16FocusPos</p></td>
+<td><p>当前对焦位置。</p></td>
+</tr>
+<tr class="row-even"><td><p>u16MaxFvPos</p></td>
+<td><p>最大 FV 值对应的对焦位置（最佳对焦点）。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16ZoomMinPos</p></td>
+<td><p>变焦最小位置。</p></td>
+</tr>
+<tr class="row-even"><td><p>u16ZoomMaxPos</p></td>
+<td><p>变焦最大位置。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16FocusMinPos</p></td>
+<td><p>对焦最小位置。</p></td>
+</tr>
+<tr class="row-even"><td><p>u16FocusMaxPos</p></td>
+<td><p>对焦最大位置。</p></td>
+</tr>
+<tr class="row-odd"><td><p>eZoomSpeed</p></td>
+<td><p>当前变焦马达速度。</p></td>
+</tr>
+<tr class="row-even"><td><p>eFocusSpeed</p></td>
+<td><p>当前对焦马达速度。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-afqueryfocusinfo">CVI_ISP_AFQueryFocusInfo</a></p></li>
+<li><p><a class="reference internal" href="6_AF.html#af-status">AF_STATUS</a></p></li>
+<li><p><a class="reference internal" href="6_AF.html#isp-af-motor-speed-e">ISP_AF_MOTOR_SPEED_E</a></p></li>
+</ul>
+</section>
+<section id="isp-focus-manual-attr-s">
+<h4><span class="section-number">6.5.2.3. </span>ISP_FOCUS_MANUAL_ATTR_S<a class="headerlink" href="6_AF.html#isp-focus-manual-attr-s" title="永久链接至标题">¶</a></h4>
+<p>【说明】</p>
+<p>定义手动对焦属性。用于手动对焦模式下的参数配置。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_FOCUS_MANUAL_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_MANUAL_TYPE</span><span class="w"> </span><span class="n">enManualOpType</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_DIRECTION</span><span class="w"> </span><span class="n">enManualDir</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16ManualStep</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16ManualPos</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_FOCUS_MANUAL_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>enManualOpType</p></td>
+<td><p>手动操作类型。变焦、对焦、自动对焦等。取值范围参见 <a class="reference internal" href="6_AF.html#af-manual-type">AF_MANUAL_TYPE</a> 。</p></td>
+</tr>
+<tr class="row-odd"><td><p>enManualDir</p></td>
+<td><p>手动操作方向。NEAR 或 FAR。取值范围参见 <a class="reference internal" href="6_AF.html#af-direction">AF_DIRECTION</a> 。</p></td>
+</tr>
+<tr class="row-even"><td><p>u16ManualStep</p></td>
+<td><p>手动操作步长。取值范围为 [0x0, 0x400]。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16ManualPos</p></td>
+<td><p>手动操作目标位置。取值范围为 [0x0, 0x8000]。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#isp-focus-attr-s">ISP_FOCUS_ATTR_S</a></p></li>
+<li><p><a class="reference internal" href="6_AF.html#af-manual-type">AF_MANUAL_TYPE</a></p></li>
+</ul>
+</section>
+<section id="isp-af-vcm-attr-s">
+<h4><span class="section-number">6.5.2.4. </span>ISP_AF_VCM_ATTR_S<a class="headerlink" href="6_AF.html#isp-af-vcm-attr-s" title="永久链接至标题">¶</a></h4>
+<p>【说明】</p>
+<p>定义 VCM 镜头标定属性。用于记录镜头的无限远位置、最近对焦位置和中点位置。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_AF_VCM_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32InfinitePos</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32MacroPos</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32MediumPos</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_AF_VCM_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>u32InfinitePos</p></td>
+<td><p>无限远位置。远处物体清晰对焦时的镜头位置，单位为步（step）。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32MacroPos</p></td>
+<td><p>最近对焦位置。微距拍摄时的镜头位置，单位为步（step）。</p></td>
+</tr>
+<tr class="row-even"><td><p>u32MediumPos</p></td>
+<td><p>中点位置。无限远和最近对焦之间的中间位置，单位为步（step）。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<ul class="simple">
+<li><p>这些值需要通过实际标定获得。建议使用标定工具 AF_ENTER_CAILB_FLOW 中的 AF_RANGE_OFFSET_CALIB 模式。</p></li>
+<li><p>标定完成后，AF 算法利用这些值确定对焦搜索的合理范围。</p></li>
+</ul>
+<p>【相关数据类型及接口】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-setafvcmattr">CVI_ISP_SetAFVcmAttr</a></p></li>
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-getafvcmattr">CVI_ISP_GetAFVcmAttr</a></p></li>
+</ul>
+</section>
+<section id="isp-af-zone-focus-attr-s">
+<h4><span class="section-number">6.5.2.5. </span>ISP_AF_ZONE_FOCUS_ATTR_S<a class="headerlink" href="6_AF.html#isp-af-zone-focus-attr-s" title="永久链接至标题">¶</a></h4>
+<p>【说明】</p>
+<p>定义 ROI 对焦区域属性。用于指定局部对焦区域的坐标、大小和权重。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_AF_ZONE_FOCUS_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">enable</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8ZoneWeight</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32ZoneX</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32ZoneY</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32ZoneWidth</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32ZoneHeight</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_AF_ZONE_FOCUS_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>enable</p></td>
+<td><p>使能开关。为 CVI_TRUE 时启用 ROI 对焦区域，为 CVI_FALSE 时使用全局权重表。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u8ZoneWeight</p></td>
+<td><p>区域权重。取值范围为 [0, 255]。</p></td>
+</tr>
+<tr class="row-even"><td><p>u32ZoneX</p></td>
+<td><p>区域 X 坐标（左上角）。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32ZoneY</p></td>
+<td><p>区域 Y 坐标（左上角）。</p></td>
+</tr>
+<tr class="row-even"><td><p>u32ZoneWidth</p></td>
+<td><p>区域宽度。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32ZoneHeight</p></td>
+<td><p>区域高度。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<ul class="simple">
+<li><p>ROI 对焦区域可用于实现点击对焦等功能，用户指定画面中某区域后 AF 将优先对该区域进行对焦。</p></li>
+</ul>
+<p>【相关数据类型及接口】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-setafzonefocusattr">CVI_ISP_SetAFZoneFocusAttr</a></p></li>
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-getafzonefocusattr">CVI_ISP_GetAFZoneFocusAttr</a></p></li>
+</ul>
+</section>
+<section id="isp-af-zoom-focus-tab">
+<h4><span class="section-number">6.5.2.6. </span>ISP_AF_ZOOM_FOCUS_TAB<a class="headerlink" href="6_AF.html#isp-af-zoom-focus-tab" title="永久链接至标题">¶</a></h4>
+<p>【说明】</p>
+<p>定义 Zoom-Focus 查找表单个表项。记录特定变焦位置对应的对焦位置范围。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_AF_ZOOM_FOCUS_TAB</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">zoom_pos</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">focus_pos_min</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">focus_pos_max</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_AF_ZOOM_FOCUS_TAB</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>zoom_pos</p></td>
+<td><p>变焦位置。</p></td>
+</tr>
+<tr class="row-odd"><td><p>focus_pos_min</p></td>
+<td><p>该变焦位置下对焦位置的最小值。</p></td>
+</tr>
+<tr class="row-even"><td><p>focus_pos_max</p></td>
+<td><p>该变焦位置下对焦位置的最大值。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<ul class="simple">
+<li><p>Zoom-Focus 表共 ZOOM_FOCUS_TAB_SIZE (9) 个表项，覆盖整个变焦范围。</p></li>
+<li><p>该表通过标定工具 AF_ZOOM_FOCUS_TABLE_CALIB 模式生成，在不同变焦位置记录最佳对焦位置范围。</p></li>
+<li><p>追焦时使用线性插值在表项之间估算对焦位置。</p></li>
+</ul>
+<p>【相关数据类型及接口】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#isp-af-len-info-s">ISP_AF_LEN_INFO_S</a></p></li>
+</ul>
+</section>
+<section id="isp-af-len-info-s">
+<h4><span class="section-number">6.5.2.7. </span>ISP_AF_LEN_INFO_S<a class="headerlink" href="6_AF.html#isp-af-len-info-s" title="永久链接至标题">¶</a></h4>
+<p>【说明】</p>
+<p>定义镜头硬件特性信息。通过马达驱动回调 pfn_af_get_len_info 提供，包含镜头的机械和电气特性参数。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_AF_LEN_INFO_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">ISP_AF_ZOOM_FOCUS_TAB</span><span class="w"> </span><span class="n">zoom_focus_table</span><span class="p">[</span><span class="n">ZOOM_FOCUS_TAB_SIZE</span><span class="p">];</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">focus_range</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">zoom_range</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">focus_offset</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">zoom_offset</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">focus_backlash</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">zoom_backlash</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">focus_max_speed</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">zoom_max_speed</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">focus_time_cost_one_step</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">zoom_time_cost_one_step</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">focus_max_step</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">zoom_max_step</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_MOTOR_TYPE</span><span class="w"> </span><span class="n">motor_type</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_AF_LEN_INFO_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>zoom_focus_table</p></td>
+<td><p>Zoom-Focus 查找表。共 9 个表项，记录变焦位置与对焦位置范围的映射关系。</p></td>
+</tr>
+<tr class="row-odd"><td><p>focus_range</p></td>
+<td><p>对焦移动范围，单位为步（step）。</p></td>
+</tr>
+<tr class="row-even"><td><p>zoom_range</p></td>
+<td><p>变焦移动范围，单位为步（step）。</p></td>
+</tr>
+<tr class="row-odd"><td><p>focus_offset</p></td>
+<td><p>对焦偏移量，单位为步（step）。表示镜头到达边界后仍有模糊的距离。</p></td>
+</tr>
+<tr class="row-even"><td><p>zoom_offset</p></td>
+<td><p>变焦偏移量，单位为步（step）。</p></td>
+</tr>
+<tr class="row-odd"><td><p>focus_backlash</p></td>
+<td><p>对焦齿隙值，硬件限制，单位为步（step）。马达反向运动时需预走的补偿步长。</p></td>
+</tr>
+<tr class="row-even"><td><p>zoom_backlash</p></td>
+<td><p>变焦齿隙值，硬件限制，单位为步（step）。</p></td>
+</tr>
+<tr class="row-odd"><td><p>focus_max_speed</p></td>
+<td><p>对焦最大速度。该值作为 MOTOR_SPEED_4X 的实际速度。</p></td>
+</tr>
+<tr class="row-even"><td><p>zoom_max_speed</p></td>
+<td><p>变焦最大速度。该值作为 MOTOR_SPEED_4X 的实际速度。</p></td>
+</tr>
+<tr class="row-odd"><td><p>focus_time_cost_one_step</p></td>
+<td><p>对焦单步时间成本，单位为微秒（us）。</p></td>
+</tr>
+<tr class="row-even"><td><p>zoom_time_cost_one_step</p></td>
+<td><p>变焦单步时间成本，单位为微秒（us）。</p></td>
+</tr>
+<tr class="row-odd"><td><p>focus_max_step</p></td>
+<td><p>对焦最大步数。</p></td>
+</tr>
+<tr class="row-even"><td><p>zoom_max_step</p></td>
+<td><p>变焦最大步数。</p></td>
+</tr>
+<tr class="row-odd"><td><p>motor_type</p></td>
+<td><p>马达类型。步进马达或 VCM。参见 <a class="reference internal" href="6_AF.html#af-motor-type">AF_MOTOR_TYPE</a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<ul class="simple">
+<li><p>该结构体由马达驱动回调函数 pfn_af_get_len_info 填充，客户需正确实现该回调。</p></li>
+<li><p>focus_backlash 和 zoom_backlash 可通过标定工具 AF_BACK_LASH_CALIB 模式测量。</p></li>
+<li><p>focus_time_cost_one_step 和 zoom_time_cost_one_step 可通过标定工具 AF_ONE_STEP_TIME_COST_CALIB 模式测量。</p></li>
+</ul>
+<p>【相关数据类型及接口】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#isp-af-motor-func-s">ISP_AF_MOTOR_FUNC_S</a></p></li>
+<li><p><a class="reference internal" href="6_AF.html#isp-af-zoom-focus-tab">ISP_AF_ZOOM_FOCUS_TAB</a></p></li>
+<li><p><a class="reference internal" href="6_AF.html#af-motor-type">AF_MOTOR_TYPE</a></p></li>
+</ul>
+</section>
+<section id="isp-af-motor-func-s">
+<h4><span class="section-number">6.5.2.8. </span>ISP_AF_MOTOR_FUNC_S<a class="headerlink" href="6_AF.html#isp-af-motor-func-s" title="永久链接至标题">¶</a></h4>
+<p>【说明】</p>
+<p>定义马达控制回调函数集合。客户需实现所有回调函数以驱动对焦/变焦马达。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_AF_MOTOR_CTL_FUNC_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_S32</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">pfn_af_motor_init</span><span class="p">)(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_S32</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">pfn_af_motor_deinit</span><span class="p">)(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_S32</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">pfn_af_set_zoom_in</span><span class="p">)(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">step</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_S32</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">pfn_af_set_zoom_out</span><span class="p">)(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">step</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_S32</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">pfn_af_set_zoom_speed</span><span class="p">)(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">speed</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_S32</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">pfn_af_set_focus_in</span><span class="p">)(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">step</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_S32</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">pfn_af_set_focus_out</span><span class="p">)(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">step</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_S32</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">pfn_af_set_focus_speed</span><span class="p">)(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">speed</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_S32</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">pfn_af_set_zoom_focus</span><span class="p">)(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">AF_DIRECTION</span><span class="w"> </span><span class="n">eDirz</span><span class="p">,</span><span class="w"> </span><span class="n">AF_DIRECTION</span><span class="w"> </span><span class="n">eDirf</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">zoomStep</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">focusStep</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_S32</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">pfn_af_get_len_info</span><span class="p">)(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ISP_AF_LEN_INFO_S</span><span class="w"> </span><span class="o">*</span><span class="n">info</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_AF_MOTOR_FUNC_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>pfn_af_motor_init</p></td>
+<td><p>马达初始化回调。用于初始化马达硬件和状态。</p></td>
+</tr>
+<tr class="row-odd"><td><p>pfn_af_motor_deinit</p></td>
+<td><p>马达反初始化回调。用于释放马达资源。</p></td>
+</tr>
+<tr class="row-even"><td><p>pfn_af_set_zoom_in</p></td>
+<td><p>设置变焦马达向内移动指定步长。</p></td>
+</tr>
+<tr class="row-odd"><td><p>pfn_af_set_zoom_out</p></td>
+<td><p>设置变焦马达向外移动指定步长。</p></td>
+</tr>
+<tr class="row-even"><td><p>pfn_af_set_zoom_speed</p></td>
+<td><p>设置变焦马达速度等级。</p></td>
+</tr>
+<tr class="row-odd"><td><p>pfn_af_set_focus_in</p></td>
+<td><p>设置对焦马达向内移动指定步长。</p></td>
+</tr>
+<tr class="row-even"><td><p>pfn_af_set_focus_out</p></td>
+<td><p>设置对焦马达向外移动指定步长。</p></td>
+</tr>
+<tr class="row-odd"><td><p>pfn_af_set_focus_speed</p></td>
+<td><p>设置对焦马达速度等级。</p></td>
+</tr>
+<tr class="row-even"><td><p>pfn_af_set_zoom_focus</p></td>
+<td><p>同时设置变焦和对焦马达的移动方向和步长。用于实现变焦和对焦同时运动。</p></td>
+</tr>
+<tr class="row-odd"><td><p>pfn_af_get_len_info</p></td>
+<td><p>获取镜头硬件特性信息。需填充 ISP_AF_LEN_INFO_S 结构体。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<ul class="simple">
+<li><p>所有回调函数都必须正确实现，否则 AF 算法无法正常工作。</p></li>
+<li><p>通过 CVI_AF_MOTOR_Register 注册到 AF 模块。</p></li>
+<li><p>pfn_af_set_zoom_focus 回调用于实现变焦和对焦的联动，可在变焦过程中同时调整对焦位置。</p></li>
+</ul>
+<p>【相关数据类型及接口】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#cvi-af-motor-register">CVI_AF_MOTOR_Register</a></p></li>
+<li><p><a class="reference internal" href="6_AF.html#isp-af-len-info-s">ISP_AF_LEN_INFO_S</a></p></li>
+</ul>
+</section>
+<section id="isp-focus-statistics-cfg-s">
+<h4><span class="section-number">6.5.2.9. </span>ISP_FOCUS_STATISTICS_CFG_S<a class="headerlink" href="6_AF.html#isp-focus-statistics-cfg-s" title="永久链接至标题">¶</a></h4>
+<p>【说明】</p>
+<p>定义 AF 硬件统计信息配置。包含滤波器配置、窗口大小、权重表等参数。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define AF_WEIGHT_ZONE_ROW    15</span>
+<span class="cp">#define AF_WEIGHT_ZONE_COLUMN 17</span>
+<span class="cp">#define FIR_H_GAIN_NUM (5)</span>
+<span class="cp">#define FIR_V_GAIN_NUM (3)</span>
+
+<span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_FOCUS_STATISTICS_CFG_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">ISP_AF_CFG_S</span><span class="w"> </span><span class="n">stConfig</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">ISP_AF_H_PARAM_S</span><span class="w"> </span><span class="n">stHParam_FIR0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">ISP_AF_H_PARAM_S</span><span class="w"> </span><span class="n">stHParam_FIR1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">ISP_AF_V_PARAM_S</span><span class="w"> </span><span class="n">stVParam_FIR</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">au8Weight</span><span class="p">[</span><span class="n">AF_WEIGHT_ZONE_ROW</span><span class="p">][</span><span class="n">AF_WEIGHT_ZONE_COLUMN</span><span class="p">];</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_FOCUS_STATISTICS_CFG_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>stConfig</p></td>
+<td><p>AF 基础配置。包含使能、窗口大小、低通滤波系数、裁剪区域、高通滤波 coting 值等。参见 <a class="reference internal" href="6_AF.html#isp-af-cfg-s">ISP_AF_CFG_S</a> 。</p></td>
+</tr>
+<tr class="row-odd"><td><p>stHParam_FIR0</p></td>
+<td><p>水平方向 FIR 滤波器 0 参数（高通滤波器）。5 抽头系数。参见 <code class="docutils literal notranslate"><span class="pre">ISP_AF_H_PARAM_S</span></code> 。</p></td>
+</tr>
+<tr class="row-even"><td><p>stHParam_FIR1</p></td>
+<td><p>水平方向 FIR 滤波器 1 参数（高通滤波器）。5 抽头系数。参见 <code class="docutils literal notranslate"><span class="pre">ISP_AF_H_PARAM_S</span></code> 。</p></td>
+</tr>
+<tr class="row-odd"><td><p>stVParam_FIR</p></td>
+<td><p>垂直方向 FIR 滤波器参数（高通滤波器）。3 抽头系数。参见 <code class="docutils literal notranslate"><span class="pre">ISP_AF_V_PARAM_S</span></code> 。</p></td>
+</tr>
+<tr class="row-even"><td><p>au8Weight</p></td>
+<td><p>区块权重表。大小为 15 x 17，每个权重取值范围为 [0x0, 0xF]。用于对不同区域的 FV 值进行加权。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<ul class="simple">
+<li><p>统计区域大小建议设置为 17（水平）x 15（垂直），与权重表大小一致。</p></li>
+<li><p>FIR 滤波器系数需要根据镜头光学特性调整。</p></li>
+<li><p>参考配置可参见 3A 开发用户指南 中的 FV 计算参考代码。</p></li>
+</ul>
+<p>【相关数据类型及接口】</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">CVI_ISP_SetAFStatisticsConfig</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CVI_ISP_GetAFStatisticsConfig</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ISP_AF_CFG_S</span></code></p></li>
+</ul>
+</section>
+<section id="isp-af-cfg-s">
+<h4><span class="section-number">6.5.2.10. </span>ISP_AF_CFG_S<a class="headerlink" href="6_AF.html#isp-af-cfg-s" title="永久链接至标题">¶</a></h4>
+<p>【说明】</p>
+<p>定义 AF 统计基础配置。包含使能、窗口大小、滤波配置、裁剪区域、高亮点阈值等。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_AF_CFG_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bEnable</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16Hwnd</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16Vwnd</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8HFltShift</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_S8</span><span class="w"> </span><span class="n">s8HVFltLpCoeff</span><span class="p">[</span><span class="n">FIR_H_GAIN_NUM</span><span class="p">];</span><span class="w"></span>
+<span class="w">    </span><span class="n">ISP_AF_RAW_CFG_S</span><span class="w"> </span><span class="n">stRawCfg</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">ISP_AF_PRE_FILTER_CFG_S</span><span class="w"> </span><span class="n">stPreFltCfg</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">ISP_AF_CROP_S</span><span class="w"> </span><span class="n">stCrop</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">H0FltCoring</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">H1FltCoring</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">V0FltCoring</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16HighLumaTh</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8ThLow</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8ThHigh</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8GainLow</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8GainHigh</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8SlopLow</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8SlopHigh</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_AF_CFG_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>bEnable</p></td>
+<td><p>使能开关。为 CVI_TRUE 时使能 AF 统计。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16Hwnd</p></td>
+<td><p>水平方向区块窗口数量。取值范围为 [0x2, 0x11]（即 2~17）。</p></td>
+</tr>
+<tr class="row-even"><td><p>u16Vwnd</p></td>
+<td><p>垂直方向区块窗口数量。取值范围为 [0x2, 0xF]（即 2~15）。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u8HFltShift</p></td>
+<td><p>水平滤波移位量。取值范围为 [0x0, 0xF]。</p></td>
+</tr>
+<tr class="row-even"><td><p>s8HVFltLpCoeff</p></td>
+<td><p>水平/垂直低通 FIR 滤波系数。5 抽头，取值范围为 [0x0, 0x1F]。</p></td>
+</tr>
+<tr class="row-odd"><td><p>stRawCfg</p></td>
+<td><p>RAW 域前处理配置。包含 PreGamma 使能和 256 项 Gamma 查找表。</p></td>
+</tr>
+<tr class="row-even"><td><p>stPreFltCfg</p></td>
+<td><p>预滤波配置。用于消除椒盐噪声对统计值的影响。</p></td>
+</tr>
+<tr class="row-odd"><td><p>stCrop</p></td>
+<td><p>图像裁剪配置。用于限定 AF 统计的区域范围。参见 <a class="reference internal" href="6_AF.html#isp-af-crop-s">ISP_AF_CROP_S</a> 。</p></td>
+</tr>
+<tr class="row-even"><td><p>H0FltCoring</p></td>
+<td><p>H0 滤波器 Coring 值。用于去除小幅度噪声。取值范围为 [0x0, 0xFF]。</p></td>
+</tr>
+<tr class="row-odd"><td><p>H1FltCoring</p></td>
+<td><p>H1 滤波器 Coring 值。取值范围为 [0x0, 0xFF]。</p></td>
+</tr>
+<tr class="row-even"><td><p>V0FltCoring</p></td>
+<td><p>V0 滤波器 Coring 值。取值范围为 [0x0, 0xFF]。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16HighLumaTh</p></td>
+<td><p>高亮点亮度阈值。用于抑制光源对 FV 值的影响。取值范围为 [0x0, 0xFF]。</p></td>
+</tr>
+<tr class="row-even"><td><p>u8ThLow</p></td>
+<td><p>低阈值。用于增益和斜率计算。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u8ThHigh</p></td>
+<td><p>高阈值。用于增益和斜率计算。</p></td>
+</tr>
+<tr class="row-even"><td><p>u8GainLow</p></td>
+<td><p>低增益值。取值范围为 [0x0, 0xFE]。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u8GainHigh</p></td>
+<td><p>高增益值。取值范围为 [0x0, 0xFE]。</p></td>
+</tr>
+<tr class="row-even"><td><p>u8SlopLow</p></td>
+<td><p>低斜率值。取值范围为 [0x0, 0xF]。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u8SlopHigh</p></td>
+<td><p>高斜率值。取值范围为 [0x0, 0xF]。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<ul class="simple">
+<li><p>AF 窗口 X 区域必须在 [0x8 ~ 图像 xsize - 8] 之间，Y 区域必须在 [0x2 ~ 图像 ysize - 2] 之间。</p></li>
+</ul>
+<p>【相关数据类型及接口】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#isp-focus-statistics-cfg-s">ISP_FOCUS_STATISTICS_CFG_S</a></p></li>
+<li><p><a class="reference internal" href="6_AF.html#isp-af-crop-s">ISP_AF_CROP_S</a></p></li>
+</ul>
+</section>
+<section id="isp-af-crop-s">
+<h4><span class="section-number">6.5.2.11. </span>ISP_AF_CROP_S<a class="headerlink" href="6_AF.html#isp-af-crop-s" title="永久链接至标题">¶</a></h4>
+<p>【说明】</p>
+<p>定义 AF 统计信息输入图像裁剪配置。用户可通过 X、Y、W、H 来限定 AF 统计区域。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_AF_CROP_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bEnable</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16X</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16Y</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16W</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16H</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_AF_CROP_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>bEnable</p></td>
+<td><p>使能开关。为 CVI_TRUE 时启用裁剪。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16X</p></td>
+<td><p>裁剪区域 X 起始坐标。取值范围为 [0x8, 0xFFF]。</p></td>
+</tr>
+<tr class="row-even"><td><p>u16Y</p></td>
+<td><p>裁剪区域 Y 起始坐标。取值范围为 [0x2, 0xFFF]。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16W</p></td>
+<td><p>裁剪区域宽度。取值范围为 [0x110, 0xFFF]。</p></td>
+</tr>
+<tr class="row-even"><td><p>u16H</p></td>
+<td><p>裁剪区域高度。取值范围为 [0xF0, 0xFFF]。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<ul class="simple">
+<li><p>X 坐标最小值为 0x8，Y 坐标最小值为 0x2，这是硬件限制。</p></li>
+<li><p>裁剪区域不能超出图像有效区域。</p></li>
+</ul>
+<p>【相关数据类型及接口】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#isp-af-cfg-s">ISP_AF_CFG_S</a></p></li>
+</ul>
+</section>
+<section id="isp-focus-zone-s">
+<h4><span class="section-number">6.5.2.12. </span>ISP_FOCUS_ZONE_S<a class="headerlink" href="6_AF.html#isp-focus-zone-s" title="永久链接至标题">¶</a></h4>
+<p>【说明】</p>
+<p>定义单个区块的 AF 统计信息输出。包含高通滤波值和高亮点计数。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_FOCUS_ZONE_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16HlCnt</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U64</span><span class="w"> </span><span class="n">u64h0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U64</span><span class="w"> </span><span class="n">u64h1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32v0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_FOCUS_ZONE_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>u16HlCnt</p></td>
+<td><p>高亮点像素计数。用于检测窗口中的过曝亮点数量，辅助判断光源对焦的影响。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u64h0</p></td>
+<td><p>水平方向 FIR 滤波器 0 的输出累积值。</p></td>
+</tr>
+<tr class="row-even"><td><p>u64h1</p></td>
+<td><p>水平方向 FIR 滤波器 1 的输出累积值。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32v0</p></td>
+<td><p>垂直方向 FIR 滤波器的输出累积值。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ISP_FE_FOCUS_STATISTICS_S</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ISP_AF_STATISTICS_S</span></code></p></li>
+</ul>
+</section>
+<section id="isp-af-statistics-s">
+<h4><span class="section-number">6.5.2.13. </span>ISP_AF_STATISTICS_S<a class="headerlink" href="6_AF.html#isp-af-statistics-s" title="永久链接至标题">¶</a></h4>
+<p>【说明】</p>
+<p>定义 AF 统计信息数据结构。封装前端（FE）AF 统计输出。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_AF_STATISTICS_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">ISP_FE_FOCUS_STATISTICS_S</span><span class="w"> </span><span class="n">stFEAFStat</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_AF_STATISTICS_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>stFEAFStat</p></td>
+<td><p>前端 AF 统计信息。包含 15 x 17 区块的度量数据。参见 <code class="docutils literal notranslate"><span class="pre">ISP_FE_FOCUS_STATISTICS_S</span></code> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<ul class="simple">
+<li><p>该数据结构在 ISP 运行时由硬件自动更新，用户通过 CVI_ISP_GetFocusStatistics 获取。</p></li>
+<li><p>目前 AF 只支持 Bayer 域的统计信息。</p></li>
+</ul>
+<p>【相关数据类型及接口】</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">CVI_ISP_GetFocusStatistics</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ISP_FOCUS_ZONE_S</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ISP_FE_FOCUS_STATISTICS_S</span></code></p></li>
+</ul>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="5_AWB.html" class="btn btn-neutral float-left" title="5. AWB" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="7_IMP.html" class="btn btn-neutral float-right" title="7. IMP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2025, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

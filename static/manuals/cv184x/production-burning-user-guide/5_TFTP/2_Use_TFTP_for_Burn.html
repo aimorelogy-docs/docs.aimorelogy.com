@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5.2. 烧写固件到Flash &mdash; ProductionBurningUserGuide master 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="../_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/qrious.js"></script>
+    <script src="../_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="6. 烧录器烧录" href="../6_Burner.html" />
+    <link rel="prev" title="5.1. 使用 TFTP 加载固件到DDR" href="1_Use_TFTP_for_Load.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> ProductionBurningUserGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_Overview.html">2. 概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_Cvi_Download_Tool(USB&amp;UART).html">3. USB烧录/UART烧录</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_SD.html">4. SD卡烧录</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../5_TFTP.html">5. TFTP烧录</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="1_Use_TFTP_for_Load.html">5.1. 使用 TFTP 加载固件到DDR</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="2_Use_TFTP_for_Burn.html#">5.2. 烧写固件到Flash</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_Use_TFTP_for_Burn.html#id1">5.2.1. 烧写前准备</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Use_TFTP_for_Burn.html#id2">5.2.2. 烧写固件</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../6_Burner.html">6. 烧录器烧录</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ProductionBurningUserGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../5_TFTP.html"><span class="section-number">5. </span>TFTP烧录</a> &raquo;</li>
+      <li><span class="section-number">5.2. </span>烧写固件到Flash</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="../_sources/5_TFTP/2_Use_TFTP_for_Burn.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="flash">
+<h1><span class="section-number">5.2. </span>烧写固件到Flash<a class="headerlink" href="2_Use_TFTP_for_Burn.html#flash" title="永久链接至标题">¶</a></h1>
+<section id="id1">
+<h2><span class="section-number">5.2.1. </span>烧写前准备<a class="headerlink" href="2_Use_TFTP_for_Burn.html#id1" title="永久链接至标题">¶</a></h2>
+<ol class="arabic simple">
+<li><p>查看加载进来的固件的大小</p>
+<ul class="simple">
+<li><p>在使用TFTP加载固件到DDR时，可以从打印中看到文件的大小</p></li>
+</ul>
+</li>
+</ol>
+<a class="reference internal image-reference" href="../_images/image7.png"><img alt="../_images/image7.png" src="../_images/image7.png" style="width: 70%;" /></a>
+<ol class="arabic simple" start="2">
+<li><p>查看每个固件在Flash中的偏移地址</p>
+<ul class="simple">
+<li><p>使用U-BOOT的printenv命令可以查看这部分信息，或者打开SDK/u-boot-2021.10/include/cvipart.h，此文件内也包含了这部分信息</p></li>
+</ul>
+</li>
+</ol>
+<a class="reference internal image-reference" href="../_images/image8.png"><img alt="../_images/image8.png" src="../_images/image8.png" style="width: 70%;" /></a>
+<a class="reference internal image-reference" href="../_images/image9.png"><img alt="../_images/image9.png" src="../_images/image9.png" style="width: 70%;" /></a>
+</section>
+<section id="id2">
+<h2><span class="section-number">5.2.2. </span>烧写固件<a class="headerlink" href="2_Use_TFTP_for_Burn.html#id2" title="永久链接至标题">¶</a></h2>
+<ol class="arabic simple">
+<li><p>从上述内存地址把固件加载到emmc指定块位置</p></li>
+</ol>
+<ul class="simple">
+<li><p>写文件进emmc 时需要注意，文件大小的单位为“块”，即实际大小/块大小512，请对齐后再进行emmc 操作</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>    <span class="c1"># 1. 清空ddr对应区域，并加载文件到ddr</span>
+<span class="linenos"> 2</span>    <span class="c1"># 2. 写fip.bin到emmc boot0分区,</span>
+<span class="linenos"> 3</span>    <span class="c1">#    fip.bin 在boot分区，其他文件在user分区；选择 emmc 并切换到 boot 分区</span>
+<span class="linenos"> 4</span>    mmc dev <span class="m">0</span> <span class="m">1</span>
+<span class="linenos"> 5</span>    <span class="c1">#    写fip.bin进flash，参数为DDR地址，flash地址，文件大小</span>
+<span class="linenos"> 6</span>    mmc write 0x82000000 0x0 0x800
+<span class="linenos"> 7</span>    <span class="c1">#    对fip.bin进行双备份</span>
+<span class="linenos"> 8</span>    mmc write 0x82000000 0x800 0x800
+<span class="linenos"> 9</span>    <span class="c1"># 3. 写其他文件到emmc boot0分区</span>
+<span class="linenos">10</span>    <span class="c1">#    选择 emmc 并切换到 user 分区</span>
+<span class="linenos">11</span>    mmc dev <span class="m">0</span> <span class="m">0</span>
+<span class="linenos">12</span>    <span class="c1"># 写yoc.bin</span>
+<span class="linenos">13</span>    mmc write 0x82100000 0x0 0xc00
+<span class="linenos">14</span>    <span class="c1"># 写boot.emmc</span>
+<span class="linenos">15</span>    mmc write 0x82280000 0x1800 0x1800
+<span class="linenos">16</span>    <span class="c1"># 写rootfs.emmc</span>
+<span class="linenos">17</span>    mmc write 0x82580000 0x5d00 0x4000
+<span class="linenos">18</span>    <span class="c1"># 写cfg.emmc</span>
+<span class="linenos">19</span>    mmc write 0x82d80000 0x3c500 0x5000
+<span class="linenos">20</span>    <span class="c1"># 写system.emmc</span>
+<span class="linenos">21</span>    mmc write 0x83780000 0x28500 0x2800
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>从上述内存地址把固件加载到spinand指定位置</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>    <span class="c1"># 使用mtd 命令也可以查看当前spinand 分区情况</span>
+<span class="linenos">2</span>    mtd
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/image10.png"><img alt="../_images/image10.png" src="../_images/image10.png" style="width: 70%;" /></a>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>    <span class="c1"># 擦除fip.bin</span>
+<span class="linenos"> 2</span>    nand erase.part fip
+<span class="linenos"> 3</span>    <span class="c1"># 写fip 要使用cvi_sd_update 其他的使用nand write</span>
+<span class="linenos"> 4</span>    <span class="c1"># cvi_sd_update 可以对fip.bin 做双备份</span>
+<span class="linenos"> 5</span>    cvi_sd_update 0x82000000 spinand fip
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span>    <span class="c1"># 擦除yoc.bin</span>
+<span class="linenos"> 8</span>    nand erase.part 2nd
+<span class="linenos"> 9</span>    <span class="c1"># 写yoc.bin offset和size要按照 page size 对齐，单位为字节</span>
+<span class="linenos">10</span>    nand write 0x82100000 2nd 0x180000
+<span class="linenos">11</span>    <span class="c1"># 擦除boot.spinand</span>
+<span class="linenos">12</span>    nand erase.part BOOT
+<span class="linenos">13</span>    <span class="c1"># 写boot.spinand</span>
+<span class="linenos">14</span>    nand write 0x82280000 BOOT 0x300000
+<span class="linenos">15</span>    <span class="c1"># 擦除rootfs.pinand</span>
+<span class="linenos">16</span>    nand erase.part ROOTFS
+<span class="linenos">17</span>    <span class="c1"># 写rootfs.spinand</span>
+<span class="linenos">18</span>    nand write 0x82580000 ROOTFS 0x800000
+<span class="linenos">19</span>    <span class="c1"># 擦除cfg.spinand</span>
+<span class="linenos">20</span>    nand erase.part CFG
+<span class="linenos">21</span>    <span class="c1"># 写cfg.spinand</span>
+<span class="linenos">22</span>    nand write 0x82d80000 CFG 0xA00000
+<span class="linenos">23</span>    <span class="c1"># 擦除system.spinand</span>
+<span class="linenos">24</span>    nand erase.part SYSTEM
+<span class="linenos">25</span>    <span class="c1"># 写system.spinand</span>
+<span class="linenos">26</span>    nand write 0x83780000 SYSTEM 0x300000
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>从上述内存地址把固件加载到spinor指定位置</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>    <span class="c1"># 探测并初始化 SPI-NOR</span>
+<span class="linenos"> 2</span>    sf probe
+<span class="linenos"> 3</span>    <span class="c1"># 擦除flash，不然无法写入，以16MB容量为例，0x0是起始地址，16M = 0x1000000</span>
+<span class="linenos"> 4</span>    sf erase 0x0 0x1000000
+<span class="linenos"> 5</span>    <span class="c1"># 根据printenv命令得到的信息将DDR的数据写入Flash，按page 对齐。单位为字节。</span>
+<span class="linenos"> 6</span>    <span class="c1"># 写fip.bin</span>
+<span class="linenos"> 7</span>    sf write 0x82000000 0x0 0x100000
+<span class="linenos"> 8</span>    <span class="c1"># 写yoc.bin</span>
+<span class="linenos"> 9</span>    sf write 0x82100000 0x200000 0x100000
+<span class="linenos">10</span>    <span class="c1"># 写boot.spinor</span>
+<span class="linenos">11</span>    sf write 0x82280000 0x300000 0x300000
+<span class="linenos">12</span>    <span class="c1"># 写rootfs.spinor</span>
+<span class="linenos">13</span>    sf write 0x82580000 0x640000 0x480000
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="1_Use_TFTP_for_Load.html" class="btn btn-neutral float-left" title="5.1. 使用 TFTP 加载固件到DDR" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../6_Burner.html" class="btn btn-neutral float-right" title="6. 烧录器烧录" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,2002 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5. AWB &mdash; ISPDevelopmentReference master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="6. AF" href="6_AF.html" />
+    <link rel="prev" title="4. AE" href="4_AE.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> ISPDevelopmentReference
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Preface.html">2. 概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_System_Control.html">3. 系统控制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_AE.html">4. AE</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="5_AWB.html#">5. AWB</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="5_AWB.html#id1">5.1. 概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_AWB.html#id2">5.2. 重要概念</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_AWB.html#id3">5.3. 功能描述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_AWB.html#api">5.4. API参考</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="5_AWB.html#id5">5.4.1. AWB库接口</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="5_AWB.html#cvi-awb-register">5.4.1.1. CVI_AWB_Register</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_AWB.html#cvi-awb-unregister">5.4.1.2. CVI_AWB_UnRegister</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_AWB.html#cvi-awb-sensorregcallback">5.4.1.3. CVI_AWB_SensorRegCallBack</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_AWB.html#cvi-awb-sensorunregcallback">5.4.1.4. CVI_AWB_SensorUnRegCallBack</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="5_AWB.html#id6">5.4.2. AWB 控制模块</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="5_AWB.html#cvi-isp-setwbattr">5.4.2.1. CVI_ISP_SetWBAttr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_AWB.html#cvi-isp-getwbattr">5.4.2.2. CVI_ISP_GetWBAttr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_AWB.html#cvi-isp-setawbattrex">5.4.2.3. CVI_ISP_SetAWBAttrEx</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_AWB.html#cvi-isp-getawbattrex">5.4.2.4. CVI_ISP_GetAWBAttrEx</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_AWB.html#cvi-isp-querywbinfo">5.4.2.5. CVI_ISP_QueryWBInfo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_AWB.html#cvi-isp-setawblogpath">5.4.2.6. CVI_ISP_SetAWBLogPath</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_AWB.html#cvi-isp-setawblogname">5.4.2.7. CVI_ISP_SetAWBLogName</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_AWB.html#cvi-isp-getgrayworldawbinfo">5.4.2.8. CVI_ISP_GetGrayWorldAwbInfo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="5_AWB.html#id7">5.5. 数据类型</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="5_AWB.html#register">5.5.1. Register</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_AWB.html#wb">5.5.2. WB</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="5_AWB.html#isp-mwb-attr-s">5.5.2.1. ISP_MWB_ATTR_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_AWB.html#isp-awb-ct-limit-attr-s">5.5.2.2. ISP_AWB_CT_LIMIT_ATTR_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_AWB.html#isp-awb-alg-e">5.5.2.3. ISP_AWB_ALG_E</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_AWB.html#isp-awb-attr-s">5.5.2.4. ISP_AWB_ATTR_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_AWB.html#isp-awb-alg-type-e">5.5.2.5. ISP_AWB_ALG_TYPE_E</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_AWB.html#isp-awb-cbcr-track-attr-s">5.5.2.6. ISP_AWB_CBCR_TRACK_ATTR_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_AWB.html#isp-awb-lum-histgram-attr-s">5.5.2.7. ISP_AWB_LUM_HISTGRAM_ATTR_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_AWB.html#isp-wb-attr-s">5.5.2.8. ISP_WB_ATTR_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_AWB.html#isp-awb-attr-ex-s">5.5.2.9. ISP_AWB_ATTR_EX_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_AWB.html#isp-awb-extra-lightsource-info-s">5.5.2.10. ISP_AWB_EXTRA_LIGHTSOURCE_INFO_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_AWB.html#isp-awb-in-out-attr-s">5.5.2.11. ISP_AWB_IN_OUT_ATTR_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_AWB.html#isp-awb-multi-ls-type-e">5.5.2.12. ISP_AWB_MULTI_LS_TYPE_E</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_AWB.html#isp-awb-indoor-outdoor-status-e">5.5.2.13. ISP_AWB_INDOOR_OUTDOOR_STATUS_E</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_AWB.html#isp-wb-info-s">5.5.2.14. ISP_WB_INFO_S</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="6_AF.html">6. AF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_IMP.html">7. IMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_BlackLevel.html">8. BLC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_DPC.html">9. DPC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_LSC.html">10. LSC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_RLSC.html">11. RLSC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_CCM.html">12. CCM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_Noise_Profile.html">13. Noise profile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_BNR.html">14. BNR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15_CNR.html">15. CNR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="16_TNR.html">16. TNR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="17_Crosstalk.html">17. Crosstalk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18_Demosaic.html">18. DEMOSAIC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19_Sharpen.html">19. SHARPEN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="20_PreSharpen.html">20. PRESHARPEN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21_RGB_Gamma.html">21. RGBGAMMA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="22_DCI.html">22. DCI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="23_LDCI.html">23. LDCI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="24_ColorTone.html">24. ColorTone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="25_Saturation.html">25. Saturation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="26_PFR.html">26. PFR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="27_FSHDR.html">27. FSHDR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="28_DRC.html">28. DRC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="29_Mono.html">29. MONO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="30_YCONTRAST.html">30. YCONTRAST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="31_CA.html">31. CA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="32_CA2.html">32. CA2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="33_CLUT.html">33. CLUT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="34_CSC.html">34. CSC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="35_VC.html">35. VC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="36_Statistical_Information.html">36. 统计讯息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="37_Query_Internal_Status_Messages.html">37. 查询内部状态消息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="38_Debug.html">38. Debug</a></li>
+<li class="toctree-l1"><a class="reference internal" href="39_Error_Code.html">39. 错误码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="40_3A_Development_User_Guide_Overview.html">40. 3A 开发指南概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="41_3A_Development_User_Guide.html">41. 3A 开发用户指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="42_Developer_Guide.html">42. 开发者指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="43_Appendix.html">43. 附录</a></li>
+<li class="toctree-l1"><a class="reference internal" href="44_Abbreviations.html">44. 缩略语</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ISPDevelopmentReference</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">5. </span>AWB</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/5_AWB.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="awb">
+<h1><span class="section-number">5. </span>AWB<a class="headerlink" href="5_AWB.html#awb" title="永久链接至标题">¶</a></h1>
+<section id="id1">
+<h2><span class="section-number">5.1. </span>概述<a class="headerlink" href="5_AWB.html#id1" title="永久链接至标题">¶</a></h2>
+<p>色温随可见光的光谱成分变化而变化，在低色温光源下，白色物体偏红，在高色温光源下，白色物体偏蓝。人眼可根据大脑的记忆判断，识别物体的真实颜色， AWB 算法功能是降低外界光源对物体真实颜色的影响，使得我们采集的颜色信息转变为在理想日光光源下的无偏色信息</p>
+</section>
+<section id="id2">
+<h2><span class="section-number">5.2. </span>重要概念<a class="headerlink" href="5_AWB.html#id2" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>色温：色温是按绝对黑体来定义的， 光源的辐射在可见区和绝对黑体的辐射完全相同时，此时黑体的温度就称此光源的色温。</p></li>
+<li><p>白平衡： 在不同色温的光源下，白色在传感器中的响应会偏蓝或偏红。白平衡算法通过调整R, G, B 三个颜色通道的强度，使白色真实呈现。</p></li>
+</ul>
+</section>
+<section id="id3">
+<h2><span class="section-number">5.3. </span>功能描述<a class="headerlink" href="5_AWB.html#id3" title="永久链接至标题">¶</a></h2>
+<p>AWB 模块有硬件的 WB 信息统计模块及 AWB 策略控制算法 firmware 两部分组成。</p>
+<p>ISP的 WB 信息统计模块判断 sensor 输出的每个像素是否满足用户设定的白点条件，计算所有满足条件的像素的 R、 G、 B 三个颜色通道平均值。</p>
+<p>其支持将图像分成 M*N（M 行 N 列）区域，统计每个区域的 R、 G、 B 均值以及参与统计的白点个数，也支持输出整幅图像的 R、 G、 B 均值以及参与统计的白点个数。</p>
+<p>AWB 工作原理如 <a class="reference internal" href="5_AWB.html#id4"><span class="std std-numref">图 5.1</span></a> 所示</p>
+<figure class="align-center" id="id4">
+<img alt="_images/AWB002.png" src="_images/AWB002.png" />
+<figcaption>
+<p><span class="caption-number">图 5.1 </span><span class="caption-text">AWB 工作原理图</span><a class="headerlink" href="5_AWB.html#id4" title="永久链接至图片">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="api">
+<h2><span class="section-number">5.4. </span>API参考<a class="headerlink" href="5_AWB.html#api" title="永久链接至标题">¶</a></h2>
+<section id="id5">
+<h3><span class="section-number">5.4.1. </span>AWB库接口<a class="headerlink" href="5_AWB.html#id5" title="永久链接至标题">¶</a></h3>
+<p>所有 AWB 库接口都只是针对 CVI AWB 库，如果客户自己实现 AWB 库，不需要管这些接口，同时也无法使用这些接口。</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="5_AWB.html#cvi-awb-register">CVI_AWB_Register</a> ：向 ISP 注册 AWB 库。</p></li>
+<li><p><a class="reference internal" href="5_AWB.html#cvi-awb-unregister">CVI_AWB_UnRegister</a> ：向 ISP 注销 AWB 库。</p></li>
+<li><p><a class="reference internal" href="5_AWB.html#cvi-awb-sensorregcallback">CVI_AWB_SensorRegCallBack</a> : AWB 库提供的 sensor 注册的回调接口</p></li>
+<li><p><a class="reference internal" href="5_AWB.html#cvi-awb-sensorunregcallback">CVI_AWB_SensorUnRegCallBack</a> : AWB库提供的 sensor 注消的回调接口</p></li>
+</ul>
+<section id="cvi-awb-register">
+<h4><span class="section-number">5.4.1.1. </span>CVI_AWB_Register<a class="headerlink" href="5_AWB.html#cvi-awb-register" title="永久链接至标题">¶</a></h4>
+<p>【描述】</p>
+<p>向 ISP 注册 AWB 库。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_AWB_Register</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ALG_LIB_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstAwbLib</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstAwbLib</p></td>
+<td><p>AWB 算法库结构体指针</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_awb.h</p></li>
+<li><p>库文件：libawb.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>该接口调用了 ISP 库提供的 AWB 注册回调接口 CVI_ISP_AWBLibRegCallBack ，以实现 AWB 向 ISP 库注册的功能。</p></li>
+<li><p>此接口不支持多进程操作。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无。</p>
+<p>【相关主题】</p>
+<p>无。</p>
+</section>
+<section id="cvi-awb-unregister">
+<h4><span class="section-number">5.4.1.2. </span>CVI_AWB_UnRegister<a class="headerlink" href="5_AWB.html#cvi-awb-unregister" title="永久链接至标题">¶</a></h4>
+<p>【描述】</p>
+<p>向 ISP 反注册 AWB 库。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_AWB_UnRegister</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ALG_LIB_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstAwbLib</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstAwbLib</p></td>
+<td><p>AWB 算法库结构体指针</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_awb.h</p></li>
+<li><p>库文件：libawb.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>该接口调用了 ISP 库提供的 AWB 反注册回调接口 CVI_ISP_AWBLibUnRegCallBack ，以实现 AWB 向 ISP 库反注册的功能。</p></li>
+<li><p>此接口不支持多进程操作。</p></li>
+<li><p>此接口在双系统 SDK 的 linux 侧暂不支持。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无。</p>
+<p>【相关主题】</p>
+<p>无。</p>
+</section>
+<section id="cvi-awb-sensorregcallback">
+<h4><span class="section-number">5.4.1.3. </span>CVI_AWB_SensorRegCallBack<a class="headerlink" href="5_AWB.html#cvi-awb-sensorregcallback" title="永久链接至标题">¶</a></h4>
+<p>【描述】</p>
+<p>AWB 库提供的 sensor 注册的回调接口。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_AWB_SensorRegCallBack</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ALG_LIB_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstAwbLib</span><span class="p">,</span><span class="w"> </span><span class="n">ISP_SNS_ATTR_INFO_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstSnsAttrInfo</span><span class="p">,</span><span class="w"> </span><span class="n">AWB_SENSOR_REGISTER_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstRegister</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstAeLib</p></td>
+<td><p>AWB 算法库结构体指针</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>pstSnsAttrInfo</p></td>
+<td><p>向 AWB 注册的 Sensor 的属性</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstRegister</p></td>
+<td><p>Sensor 注册结构体指针</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_awb.h</p></li>
+<li><p>库文件：libawb.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>SensorId 是 sensor 库中自定义的值，主要用于校对向 ISP 注册的 sensor 和向 3A 注册的 sensor 是否为同一个 sensor。</p></li>
+<li><p>AWB 通过 sensor     注册的一系列回调接口，获取差异化的初始化参数，并控制sensor。</p></li>
+<li><p>此接口不支持多进程操作。</p></li>
+</ul>
+<figure class="align-center" id="awb-sensor">
+<img alt="_images/AWB004.png" src="_images/AWB004.png" />
+<figcaption>
+<p><span class="caption-number">图 5.2 </span><span class="caption-text">AWB 库与 sensor 库间的接口</span><a class="headerlink" href="5_AWB.html#awb-sensor" title="永久链接至图片">¶</a></p>
+</figcaption>
+</figure>
+<p>【举例】</p>
+<p>无。</p>
+<p>【相关主题】</p>
+<p>无。</p>
+</section>
+<section id="cvi-awb-sensorunregcallback">
+<h4><span class="section-number">5.4.1.4. </span>CVI_AWB_SensorUnRegCallBack<a class="headerlink" href="5_AWB.html#cvi-awb-sensorunregcallback" title="永久链接至标题">¶</a></h4>
+<p>【描述】</p>
+<p>AWB 库提供的 sensor 反注册的回调接口。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_AWB_SensorUnRegCallBack</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ALG_LIB_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstAwbLib</span><span class="p">,</span><span class="w"> </span><span class="n">SENSOR_ID</span><span class="w"> </span><span class="n">SensorId</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstAwbLib</p></td>
+<td><p>AWB 算法库结构体指针</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>SensorId</p></td>
+<td><p>向 AWB 反注册的 Sensor 的 Id</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_awb.h</p></li>
+<li><p>库文件：libawb.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>SensorId 是 sensor 库中自定义的值，主要用于校对向 ISP 注册的     sensor 和向 3A 注册的 sensor 是否为同一个 sensor。</p></li>
+<li><p>此接口不支持多进程操作。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无。</p>
+<p>【相关主题】</p>
+<p>无。</p>
+</section>
+</section>
+<section id="id6">
+<h3><span class="section-number">5.4.2. </span>AWB 控制模块<a class="headerlink" href="5_AWB.html#id6" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="5_AWB.html#cvi-isp-setwbattr">CVI_ISP_SetWBAttr</a> ：设置白平衡属性。</p></li>
+<li><p><a class="reference internal" href="5_AWB.html#cvi-isp-getwbattr">CVI_ISP_GetWBAttr</a> ：获取白平衡属性。</p></li>
+<li><p><a class="reference internal" href="5_AWB.html#cvi-isp-setawbattrex">CVI_ISP_SetAWBAttrEx</a> ：设置白平衡扩展属性。</p></li>
+<li><p><a class="reference internal" href="5_AWB.html#cvi-isp-getawbattrex">CVI_ISP_GetAWBAttrEx</a> ：获取白平衡扩展属性。</p></li>
+<li><p><a class="reference internal" href="5_AWB.html#cvi-isp-querywbinfo">CVI_ISP_QueryWBINfo</a> ：获取当前白平衡增益系数，检测色温，饱和度值，颜色校正矩阵系数。</p></li>
+<li><p><a class="reference internal" href="5_AWB.html#cvi-isp-setawblogpath">CVI_ISP_SetAWBLogPath</a> ：使用CVI Awb lib 时,存放AWB 调试日志的路径。</p></li>
+<li><p><a class="reference internal" href="5_AWB.html#cvi-isp-setawblogname">CVI_ISP_SetAWBLogName</a> ：使用CVI Awb lib 时,存放AWB 调试日志的名称。</p></li>
+<li><p><a class="reference internal" href="5_AWB.html#cvi-isp-getgrayworldawbinfo">CVI_ISP_GetGrayWorldAwbInfo</a> ：获取灰世界WB信息。</p></li>
+</ul>
+<section id="cvi-isp-setwbattr">
+<h4><span class="section-number">5.4.2.1. </span>CVI_ISP_SetWBAttr<a class="headerlink" href="5_AWB.html#cvi-isp-setwbattr" title="永久链接至标题">¶</a></h4>
+<p>【描述】</p>
+<p>设置白平衡属性。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_SetWBAttr</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ISP_WB_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstWBAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstWBAttr</p></td>
+<td><p>白平衡属性结构体指针</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_awb.h</p></li>
+<li><p>库文件：libawb.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>白平衡控制类型为自动时， AWB 算法自动调节白平衡系数。</p></li>
+<li><p>白平衡控制类型为手动时， AWB 算法失效，需自行设定 Rgain、 Ggain、     Bgain。</p></li>
+<li><p>环境色温、照度会影响白点的分布范围，CVI AWB     算法在运行过程中，会根据环境参数自动刷新 AWB Byaer     域统计信息的白点参数。用户希望在 CVI AWB 算法运行时修改 AWB统计参数，需要调用 CVI_ISP_SetWBAttr接口，关闭统计参数自动刷新功能。用户关闭统计参数自动刷新功能，到    ISP 收到配置并响应，有 2帧的延时。因此，用户设置后需要等待 2帧时间再修改 AWB 统计参数。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无。</p>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="5_AWB.html#cvi-isp-getwbattr">CVI_ISP_GetWBAttr</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-getwbattr">
+<h4><span class="section-number">5.4.2.2. </span>CVI_ISP_GetWBAttr<a class="headerlink" href="5_AWB.html#cvi-isp-getwbattr" title="永久链接至标题">¶</a></h4>
+<p>【描述】</p>
+<p>获取白平衡属性。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_GetWBAttr</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ISP_WB_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstWBAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstWBAttr</p></td>
+<td><p>白平衡属性结构体指针</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_awb.h</p></li>
+<li><p>库文件：libawb.a</p></li>
+</ul>
+<p>【注意】</p>
+<p>无。</p>
+<p>【举例】</p>
+<p>无。</p>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="5_AWB.html#cvi-isp-setwbattr">CVI_ISP_SetWBAttr</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-setawbattrex">
+<h4><span class="section-number">5.4.2.3. </span>CVI_ISP_SetAWBAttrEx<a class="headerlink" href="5_AWB.html#cvi-isp-setawbattrex" title="永久链接至标题">¶</a></h4>
+<p>【描述】</p>
+<p>设置白平衡扩展属性。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_SetAWBAttrEx</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ISP_AWB_ATTR_EX_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstAWBAttrEx</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>PstAWBAttrEx</p></td>
+<td><p>扩展白平衡属性结构体指针</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_awb.h</p></li>
+<li><p>库文件：libawb.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>当 CVI_ISP_SetWBAttr 接口成员 pstWBAttr-&gt;enAlgType 为 AWB_ALG_ADVANCE时，此接口才有效。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无。</p>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="5_AWB.html#cvi-isp-getawbattrex">CVI_ISP_GetAWBAttrEx</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-getawbattrex">
+<h4><span class="section-number">5.4.2.4. </span>CVI_ISP_GetAWBAttrEx<a class="headerlink" href="5_AWB.html#cvi-isp-getawbattrex" title="永久链接至标题">¶</a></h4>
+<p>【描述】</p>
+<p>获取白平衡扩展属性。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_GetAWBAttrEx</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ISP_AWB_ATTR_EX_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstAWBAttrEx</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstAWBAttrEx</p></td>
+<td><p>扩返回展白平衡属性结构体指针</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_awb.h</p></li>
+<li><p>库文件：libawb.a</p></li>
+</ul>
+<p>【注意】</p>
+<p>无。</p>
+<p>【举例】</p>
+<p>无。</p>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="5_AWB.html#cvi-isp-setawbattrex">CVI_ISP_SetAWBAttrEx</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-querywbinfo">
+<h4><span class="section-number">5.4.2.5. </span>CVI_ISP_QueryWBInfo<a class="headerlink" href="5_AWB.html#cvi-isp-querywbinfo" title="永久链接至标题">¶</a></h4>
+<p>【描述】</p>
+<p>获取当前白平衡增益系数、检测色温、饱和度值、颜色校正矩阵系数。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_QueryWBInfo</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ISP_WB_INFO_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstWBInfo</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>PstWBInfo</p></td>
+<td><p>颜色相关状态参数</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_awb.h</p></li>
+<li><p>库文件：libawb.a</p></li>
+</ul>
+<p>【注意】</p>
+<p>无。</p>
+<p>【举例】</p>
+<p>无。</p>
+<p>【相关主题】</p>
+<p>无。</p>
+</section>
+<section id="cvi-isp-setawblogpath">
+<h4><span class="section-number">5.4.2.6. </span>CVI_ISP_SetAWBLogPath<a class="headerlink" href="5_AWB.html#cvi-isp-setawblogpath" title="永久链接至标题">¶</a></h4>
+<p>【描述】</p>
+<p>使用CVI Awb lib 时，存放AWB 调试日志的路径。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">CVI_ISP_SetAWBLogPath</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">szPath</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>szPath</p></td>
+<td><p>调试日志路径</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_awb.h</p></li>
+<li><p>库文件：libawb.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>默认路径为 /var/log</p></li>
+</ul>
+<p>【举例】</p>
+<p>无。</p>
+<p>【相关主题】</p>
+<p>无。</p>
+</section>
+<section id="cvi-isp-setawblogname">
+<h4><span class="section-number">5.4.2.7. </span>CVI_ISP_SetAWBLogName<a class="headerlink" href="5_AWB.html#cvi-isp-setawblogname" title="永久链接至标题">¶</a></h4>
+<p>【描述】</p>
+<p>使用CVI Awb lib 时,存放AWB 调试日志的档名。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">CVI_ISP_SetAWBLogName</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">szName</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>szName</p></td>
+<td><p>文件名</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_awb.h</p></li>
+<li><p>库文件：libawb.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>预设文件名为AwbLog0.txt</p></li>
+</ul>
+<p>【举例】</p>
+<p>无。</p>
+<p>【相关主题】</p>
+<p>无。</p>
+</section>
+<section id="cvi-isp-getgrayworldawbinfo">
+<h4><span class="section-number">5.4.2.8. </span>CVI_ISP_GetGrayWorldAwbInfo<a class="headerlink" href="5_AWB.html#cvi-isp-getgrayworldawbinfo" title="永久链接至标题">¶</a></h4>
+<p>【描述】</p>
+<p>获取灰度世界WB信息。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_GetGrayWorldAwbInfo</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_U16</span><span class="w"> </span><span class="o">*</span><span class="n">pRgain</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_U16</span><span class="w"> </span><span class="o">*</span><span class="n">pBgain</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pRgain</p></td>
+<td><p>R通道增益</p></td>
+<td><p>输出</p></td>
+</tr>
+<tr class="row-even"><td><p>pBgain</p></td>
+<td><p>B通道增益</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_awb.h</p></li>
+<li><p>库文件：libawb.a</p></li>
+</ul>
+<p>【注意】</p>
+<p>无。</p>
+<p>【举例】</p>
+<p>无。</p>
+<p>【相关主题】</p>
+<p>无。</p>
+</section>
+</section>
+</section>
+<section id="id7">
+<h2><span class="section-number">5.5. </span>数据类型<a class="headerlink" href="5_AWB.html#id7" title="永久链接至标题">¶</a></h2>
+<section id="register">
+<h3><span class="section-number">5.5.1. </span>Register<a class="headerlink" href="5_AWB.html#register" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p>AWB_SENSOR_REGISTER_S ：定义 sensor 注册结构体。</p></li>
+<li><p>AWB_SENSOR_EXP_FUNC_S ：定义 sensor 回调函数结构体。</p></li>
+<li><p>AWB_SENSOR_DEFAULT_S ：定义 AWB 算法库的初始化参数结构体。</p></li>
+<li><p>AWB_SPEC_SENSOR_DEFAULT_S ：定义 SPECAWB 算法的初始化参数结构体。</p></li>
+<li><p>AWB_AGC_TABLE_S ： 定义饱和度初始化参数结构体。</p></li>
+<li><p>AWB_CCM_TAB_S ： 定义不同色温下自动颜色校正矩阵系数。</p></li>
+<li><p>AWB_CCM_S ： 定义 CCM 颜色校正矩阵属性。</p></li>
+</ul>
+</section>
+<section id="wb">
+<h3><span class="section-number">5.5.2. </span>WB<a class="headerlink" href="5_AWB.html#wb" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="5_AWB.html#isp-awb-attr-s">ISP_AWB_ATTR_S</a> ：定义 ISP 自动白平衡属性。</p></li>
+<li><p><a class="reference internal" href="5_AWB.html#isp-awb-cbcr-track-attr-s">ISP_AWB_CBCR_TRACK_ATTR_S</a> ： 定义 Bayer 域统计信息的联动参数。</p></li>
+<li><p><a class="reference internal" href="5_AWB.html#isp-awb-lum-histgram-attr-s">ISP_AWB_LUM_HISTGRAM_ATTR_S</a> ： 定义白平衡的亮度直方图统计参数。</p></li>
+<li><p><a class="reference internal" href="5_AWB.html#isp-awb-alg-e">ISP_AWB_ALG_E</a> ：定义白平衡的计算方式属性。</p></li>
+<li><p><a class="reference internal" href="5_AWB.html#isp-awb-ct-limit-attr-s">ISP_AWB_CT_LIMIT_ATTR_S</a> ：定义白平衡的增益范围限制属性。</p></li>
+<li><p><a class="reference internal" href="5_AWB.html#isp-mwb-attr-s">ISP_MWB_ATTR_S</a> ：定义 ISP 手动白平衡属性。</p></li>
+<li><p><a class="reference internal" href="5_AWB.html#isp-wb-attr-s">ISP_WB_ATTR_S</a> ：定义白平衡属性。</p></li>
+<li><p><a class="reference internal" href="5_AWB.html#isp-awb-alg-type-e">ISP_AWB_ALG_TYPE_E</a> ：定义AWB算法属性。</p></li>
+<li><p><a class="reference internal" href="5_AWB.html#isp-awb-attr-ex-s">ISP_AWB_ATTR_EX_S</a> ：定义自动白平衡扩展属性。</p></li>
+<li><p><a class="reference internal" href="5_AWB.html#isp-awb-extra-lightsource-info-s">ISP_AWB_EXTRA_LIGHTSOURCE_INFO_S</a> ：定义独立光源点的信息。</p></li>
+<li><p><a class="reference internal" href="5_AWB.html#isp-awb-in-out-attr-s">ISP_AWB_IN_OUT_ATTR_S</a> ：对场景作室内外的判定。</p></li>
+<li><p><a class="reference internal" href="5_AWB.html#isp-awb-multi-ls-type-e">ISP_AWB_MULTI_LS_TYPE_E</a> ：定义混合光源下的 AWB 策略类型。</p></li>
+<li><p><a class="reference internal" href="5_AWB.html#isp-awb-indoor-outdoor-status-e">ISP_AWB_INDOOR_OUTDOOR_STATUS_E</a> ：定义AWB室内室外状态。</p></li>
+<li><p><a class="reference internal" href="5_AWB.html#isp-wb-info-s">ISP_WB_INFO_S</a> ：定义白平衡、饱和度、颜色校正信息。</p></li>
+</ul>
+<section id="isp-mwb-attr-s">
+<h4><span class="section-number">5.5.2.1. </span>ISP_MWB_ATTR_S<a class="headerlink" href="5_AWB.html#isp-mwb-attr-s" title="永久链接至标题">¶</a></h4>
+<p>【说明】</p>
+<p>定义手动WB</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_MWB_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16Rgain</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16Grgain</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16Gbgain</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16Bgain</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_MWB_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>u16Rgain</p></td>
+<td><p>MWB 时的R 通道增益</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16Grgain</p></td>
+<td><p>MWB 时的Gr 通道增益</p></td>
+</tr>
+<tr class="row-even"><td><p>u16Grgain</p></td>
+<td><p>MWB 时的Gb 通道增益</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16Bgain</p></td>
+<td><p>MWB 时的B 通道增益</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<ul class="simple">
+<li><p>RGB通道增益一倍为0x400</p></li>
+</ul>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="isp-awb-ct-limit-attr-s">
+<h4><span class="section-number">5.5.2.2. </span>ISP_AWB_CT_LIMIT_ATTR_S<a class="headerlink" href="5_AWB.html#isp-awb-ct-limit-attr-s" title="永久链接至标题">¶</a></h4>
+<p>【说明】</p>
+<p>定义白平衡的增益范围限制属性</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_AWB_CT_LIMIT_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bEnable</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">ISP_OP_TYPE_E</span><span class="w"> </span><span class="n">enOpType</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16HighRgLimit</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16HighBgLimit</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16LowRgLimit</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16LowBgLimit</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_AWB_CT_LIMIT_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>bEnable</p></td>
+<td><p>白平衡的增益范围限制开关</p></td>
+</tr>
+<tr class="row-odd"><td><p>enOpType</p></td>
+<td><p>自动或手动设定自平衡的增益范围</p></td>
+</tr>
+<tr class="row-even"><td><p>u16HighRgLimit</p></td>
+<td><p>手动模式下高色温下的最大R增益</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16HighBgLimit</p></td>
+<td><p>手动模式下高色温下的最小B增益</p></td>
+</tr>
+<tr class="row-even"><td><p>u16LowRgLimit</p></td>
+<td><p>手动模式下低色温下的最小R增益</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16LowBgLimit</p></td>
+<td><p>手动模式下低色温下的最大B增益</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<ul class="simple">
+<li><p>自动模式下AWB算法会自己计算上下限增益值,当切换为手动模式时,会使用上述四个R.B 增益的限制值</p></li>
+<li><p>一倍增益为0x400</p></li>
+</ul>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="isp-awb-alg-e">
+<h4><span class="section-number">5.5.2.3. </span>ISP_AWB_ALG_E<a class="headerlink" href="5_AWB.html#isp-awb-alg-e" title="永久链接至标题">¶</a></h4>
+<p>【说明】</p>
+<p>定义AWB 算法类别</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_ISP_AWB_ALG_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">ALG_AWB</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">ALG_AWB_SPEC</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">ALG_BUTT</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_AWB_ALG_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AWB</p></td>
+<td><p>一般 AWB 算法返回</p></td>
+</tr>
+<tr class="row-odd"><td><p>ALG_AWB_SPEC</p></td>
+<td><p>基于 machine learning 的 AWB   算法，目前不支持。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="isp-awb-attr-s">
+<h4><span class="section-number">5.5.2.4. </span>ISP_AWB_ATTR_S<a class="headerlink" href="5_AWB.html#isp-awb-attr-s" title="永久链接至标题">¶</a></h4>
+<p>【说明】</p>
+<p>定义自动WB属性</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_AWB_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bEnable</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16RefColorTemp</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">au16StaticWB</span><span class="p">[</span><span class="n">ISP_BAYER_CHN_NUM</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">as32CurvePara</span><span class="p">[</span><span class="n">AWB_CURVE_PARA_NUM</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="n">ISP_AWB_ALG_TYPE_E</span><span class="w"> </span><span class="n">enAlgType</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8RGStrength</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8BGStrength</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16Speed</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16ZoneSel</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16HighColorTemp</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16LowColorTemp</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">ISP_AWB_CT_LIMIT_ATTR_S</span><span class="w"> </span><span class="n">stCTLimit</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bShiftLimitEn</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16ShiftLimit</span><span class="p">[</span><span class="n">AWB_CURVE_BOUND_NUM</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bGainNormEn</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bNaturalCastEn</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">ISP_AWB_CBCR_TRACK_ATTR_S</span><span class="w"> </span><span class="n">stCbCrTrack</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">ISP_AWB_LUM_HISTGRAM_ATTR_S</span><span class="w"> </span><span class="n">stLumaHist</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bAWBZoneWtEn</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">au8ZoneWt</span><span class="p">[</span><span class="n">AWB_ZONE_ORIG_ROW</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">AWB_ZONE_ORIG_COLUMN</span><span class="p">];</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_AWB_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>bEnable</p></td>
+<td><p>自动白平衡算法开关</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16RefColorTemp</p></td>
+<td><p>静态  白平衡的光源色温值,建议为5000K灯源</p></td>
+</tr>
+<tr class="row-even"><td><p>au16StaticWB</p></td>
+<td><p>静态白平衡系数，由AWB 标定工具给出。返回</p>
+<p>取值范围：[0, 0x3FFF]。</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>as32CurvePara</p></td>
+<td><p>CurvePara[0-2] 普朗克曲线系数，由AWB
+标定工具给出。普朗克曲线描绘白色块返回
+在不同色温的标准光源下的颜色表现。
+CurvePara[3-5] 色温曲线系数，由AWB标定工具给出。色温曲线描 绘
+白色块的颜色表现与色温的对应关系。</p></td>
+</tr>
+<tr class="row-even"><td><p>enAlgType</p></td>
+<td><p>AWB算法类别选择, AWB_ALG_LOWCOST,AWB_ALG_ADVANCE两种
+ISP_AWB_ATTR_EX_S 扩展属性只有在AWB_ALG_ADVANCE才有作用</p></td>
+</tr>
+<tr class="row-odd"><td><p>u8RGStrength</p></td>
+<td><p>自动白平衡R通道校准强度。</p>
+<p>取值范围：[0, 255]</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>u8BGStrength</p></td>
+<td><p>自动白平衡B通道校准强度。</p>
+<p>取值范围：[0, 255]</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>u16Speed</p></td>
+<td><p>自动白平衡算法收敛速度。</p>
+<p>取值范围：[0, 4095]</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>u16ZoneSel</p></td>
+<td><p>参数  为0或255时,采用近似灰世界的白平衡算 法,其他值则为进行分类筛选,提升精度</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16HighColorTemp</p></td>
+<td><p>自动白平衡算法的色温上限。</p>
+<p>取值范围：[8000, 10000]</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>u16LowColorTemp</p></td>
+<td><p>自动白平衡算法的色温下限。</p>
+<p>取值范围：[0x0, u8HighColorTemp)</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>stCTLimit</p></td>
+<td><p>手动或自动限制白平衡增益值</p></td>
+</tr>
+<tr class="row-even"><td><p>bShiftLimitEn</p></td>
+<td><p>AWB超过类白点范围的增益映像回白点范围的开关</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16ShiftLimit</p></td>
+<td><p>AWB 计算白点范围参数</p></td>
+</tr>
+<tr class="row-even"><td><p>bGainNormEn</p></td>
+<td><p>对 RGB   通道增益进行返回   限制，可以改善低色温、低照度场景的  信噪比,预设开启</p></td>
+</tr>
+<tr class="row-odd"><td><p>bNaturalCastEn</p></td>
+<td><p>低色温下AWB风格喜好开关。预设关闭</p></td>
+</tr>
+<tr class="row-even"><td><p>stCbCrTrack</p></td>
+<td><p>AWB统计范围与ISO的连动参数</p></td>
+</tr>
+<tr class="row-odd"><td><p>stLumaHist</p></td>
+<td><p>AWB亮度与权重参数</p></td>
+</tr>
+<tr class="row-even"><td><p>bAWBZoneWtEn</p></td>
+<td><p>画面分区权重开关,预设为关闭</p></td>
+</tr>
+<tr class="row-odd"><td><p>au8ZoneWt</p></td>
+<td><p>32x32画面权重,取值范围[0,0xFF]      (尚未实作)返回</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="isp-awb-alg-type-e">
+<h4><span class="section-number">5.5.2.5. </span>ISP_AWB_ALG_TYPE_E<a class="headerlink" href="5_AWB.html#isp-awb-alg-type-e" title="永久链接至标题">¶</a></h4>
+<p>【说明】</p>
+<p>定义AWB算法属性</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_ISP_AWB_ALG_TYPE_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">AWB_ALG_LOWCOST</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">AWB_ALG_ADVANCE</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">AWB_ALG_BUTT</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_AWB_ALG_TYPE_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AWB_ALG_LOWCOST</p></td>
+<td><p>简易低运算量的AWB算法</p></td>
+</tr>
+<tr class="row-odd"><td><p>AWB_ALG_ADVANCE</p></td>
+<td><p>进阶扩  展AWB算法,与ISP_AWB_ATTR_EX_S相关</p></td>
+</tr>
+<tr class="row-even"><td><p>AWB_ALG_BUTT</p></td>
+<td><p>无效设定值返回</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<blockquote>
+<div><p><a class="reference internal" href="5_AWB.html#isp-awb-attr-ex-s">ISP_AWB_ATTR_EX_S</a></p>
+</div></blockquote>
+</section>
+<section id="isp-awb-cbcr-track-attr-s">
+<h4><span class="section-number">5.5.2.6. </span>ISP_AWB_CBCR_TRACK_ATTR_S<a class="headerlink" href="5_AWB.html#isp-awb-cbcr-track-attr-s" title="永久链接至标题">¶</a></h4>
+<p>【说明】</p>
+<p>定义AWB统计范围与ISO的连动参数</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_AWB_CBCR_TRACK_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bEnable</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">au16CrMax</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">au16CrMin</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">au16CbMax</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">au16CbMin</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_AWB_CBCR_TRACK_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>bEnable</p></td>
+<td><p>AWB统计范围与ISO的连动开关</p></td>
+</tr>
+<tr class="row-odd"><td><p>au16CrMax</p></td>
+<td><p>不同ISO下R/G的最大值</p></td>
+</tr>
+<tr class="row-even"><td><p>au16CrMin</p></td>
+<td><p>不同ISO下R/G的最小值</p></td>
+</tr>
+<tr class="row-odd"><td><p>au16CbMax</p></td>
+<td><p>不同ISO下B/G的最大值</p></td>
+</tr>
+<tr class="row-even"><td><p>au16CbMin</p></td>
+<td><p>不同ISO下B/G的最小值</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<ul class="simple">
+<li><p>建议在低色温下标定CrMax(R/G),CbMin(B/G)</p></li>
+</ul>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="isp-awb-lum-histgram-attr-s">
+<h4><span class="section-number">5.5.2.7. </span>ISP_AWB_LUM_HISTGRAM_ATTR_S<a class="headerlink" href="5_AWB.html#isp-awb-lum-histgram-attr-s" title="永久链接至标题">¶</a></h4>
+<p>【说明】</p>
+<p>定义AWB亮度与权重参数</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_AWB_LUM_HISTGRAM_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bEnable</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">ISP_OP_TYPE_E</span><span class="w"> </span><span class="n">enOpType</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">au8HistThresh</span><span class="p">[</span><span class="n">AWB_LUM_HIST_NUM</span><span class="p">];</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">au16HistWt</span><span class="p">[</span><span class="n">AWB_LUM_HIST_NUM</span><span class="p">];</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_AWB_LUM_HISTGRAM_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>宏定义如下</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define AWB_LUM_HIST_NUM (6)</span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>bEnable</p></td>
+<td><p>不同亮度是否开启权重,预设开启</p></td>
+</tr>
+<tr class="row-odd"><td><p>enOpType</p></td>
+<td><p>自动模式:AWB自动分配权重</p>
+<p>手动模式:用户可自行设定亮度分类与权重</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>au8HistThresh</p></td>
+<td><p>亮度分类的阈值(手动模式下有效)</p></td>
+</tr>
+<tr class="row-odd"><td><p>au16HistWt</p></td>
+<td><p>亮度分类的权重(手动模式下有效)</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<ul class="simple">
+<li><p>au8HistThresh[0] 固定为0,au8HistThresh[5]固定为255.</p></li>
+<li><p>au8HistThresh[i+1]必须大于au8HistThresh[i]；</p></li>
+<li><p>au16HistWt 权重范围为32~512</p></li>
+</ul>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="isp-wb-attr-s">
+<h4><span class="section-number">5.5.2.8. </span>ISP_WB_ATTR_S<a class="headerlink" href="5_AWB.html#isp-wb-attr-s" title="永久链接至标题">¶</a></h4>
+<p>【说明】</p>
+<p>定义白平衡属性</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_WB_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bByPass</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8AWBRunInterval</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">ISP_OP_TYPE_E</span><span class="w"> </span><span class="n">enOpType</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">ISP_MWB_ATTR_S</span><span class="w"> </span><span class="n">stManual</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">ISP_AWB_ATTR_S</span><span class="w"> </span><span class="n">stAuto</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">ISP_AWB_ALG_E</span><span class="w"> </span><span class="n">enAlgType</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U8</span><span class="w">  </span><span class="n">u8DebugMode</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_WB_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>bByPass</p></td>
+<td><p>白平衡模块Bypass使能，默认值   CVI_FALSE。返回</p></td>
+</tr>
+<tr class="row-odd"><td><p>u8AWBRunInterval</p></td>
+<td><p>白平衡模块工作频率。</p>
+<p>取值范围：[0x1,  0xFF]</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>enOpType</p></td>
+<td><p>自动白平衡和手动白平衡切换。</p></td>
+</tr>
+<tr class="row-odd"><td><p>stManual</p></td>
+<td><p>手动参数</p></td>
+</tr>
+<tr class="row-even"><td><p>stAuto</p></td>
+<td><p>自动参数</p></td>
+</tr>
+<tr class="row-odd"><td><p>enAlgType</p></td>
+<td><p>AWB 算法类别返回</p></td>
+</tr>
+<tr class="row-even"><td><p>u8DebugMode</p></td>
+<td><p>Debug 时使用，一般不需设定</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<ul class="simple">
+<li><p>bByPass为TRUE时,WB其他参数设定不生效,RGB通道增益固定为一倍0x400</p></li>
+<li><p>u8AWBRunInterval默认值为6,表示每6帧执行一次AWB,可根据需求增加此数值,让AWB运行频率降低</p></li>
+</ul>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="isp-awb-attr-ex-s">
+<h4><span class="section-number">5.5.2.9. </span>ISP_AWB_ATTR_EX_S<a class="headerlink" href="5_AWB.html#isp-awb-attr-ex-s" title="永久链接至标题">¶</a></h4>
+<p>【说明】</p>
+<p>定义自动白平衡扩展属性</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_AWB_ATTR_EX_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8Tolerance</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8ZoneRadius</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16CurveLLimit</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16CurveRLimit</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bExtraLightEn</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">ISP_AWB_EXTRA_LIGHTSOURCE_INFO_S</span><span class="w"> </span><span class="n">stLightInfo</span><span class="p">[</span><span class="n">AWB_LS_NUM</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="n">ISP_AWB_IN_OUT_ATTR_S</span><span class="w"> </span><span class="n">stInOrOut</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bMultiLightSourceEn</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">ISP_AWB_MULTI_LS_TYPE_E</span><span class="w"> </span><span class="n">enMultiLSType</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16MultiLSScaler</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">au16MultiCTBin</span><span class="p">[</span><span class="n">AWB_CT_BIN_NUM</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">au16MultiCTWt</span><span class="p">[</span><span class="n">AWB_CT_BIN_NUM</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bFineTunEn</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8FineTunStrength</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="c1">//AWB Algo 6</span>
+<span class="w">  </span><span class="k">struct</span> <span class="nc">ST_ISP_AWB_INTERFERNCE_S</span><span class="w"> </span><span class="n">stInterfernce</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">struct</span> <span class="nc">ST_ISP_AWB_SKIN_S</span><span class="w"> </span><span class="n">stSkin</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">struct</span> <span class="nc">ST_ISP_AWB_SKY_S</span><span class="w"> </span><span class="n">stSky</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">struct</span> <span class="nc">ST_ISP_AWB_GRASS_S</span><span class="w"> </span><span class="n">stGrass</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">struct</span> <span class="nc">ST_ISP_AWB_CT_WGT_S</span><span class="w"> </span><span class="n">stCtLv</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">struct</span> <span class="nc">ST_ISP_AWB_SHIFT_LV_S</span><span class="w"> </span><span class="n">stShiftLv</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">struct</span> <span class="nc">ST_ISP_AWB_REGION_S</span><span class="w"> </span><span class="n">stRegion</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">adjBgainMode</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_AWB_ATTR_EX_S</span><span class="p">;</span><span class="w"></span>
+
+<span class="c1">// 宏定义如下：</span>
+<span class="cp">#define AWB_CT_BIN_NUM    (8)</span>
+<span class="cp">#define AWB_LS_NUM  (4)</span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>u8Tolerance</p></td>
+<td><p>AWB调整的偏差返回  范围，误差在此范围内时,AWB不做调整</p></td>
+</tr>
+<tr class="row-odd"><td><p>u8ZoneRadius</p></td>
+<td><p>AWB统计值分区的大小。该值越小,AWB   精度越高,但会降低 AWB 算法稳定性</p></td>
+</tr>
+<tr class="row-even"><td><p>u16CurveLLimit</p></td>
+<td><p>AWB色温曲线返回    的左边界限(R/G,B/G),</p>
+<p>取值范围：[0x0, 0x200]</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>u16CurveRLimit</p></td>
+<td><p>AWB色温曲线的右边界限(R/G,B/G),范围：[0x200, 0x3FF]</p></td>
+</tr>
+<tr class="row-even"><td><p>bExtraLightEn</p></td>
+<td><p>是否开启独立光源</p></td>
+</tr>
+<tr class="row-odd"><td><p>stLightInfo</p></td>
+<td><p>AWB计算时是否考虑色           温曲线外的独立光源点,最多四个独立点</p></td>
+</tr>
+<tr class="row-even"><td><p>stInOrOut</p></td>
+<td><p>AWB对场景做室内外判断的参数</p></td>
+</tr>
+<tr class="row-odd"><td><p>bMultiLightSourceEn</p></td>
+<td><p>AWB检测当前场返回  景是否为混合光源,来调整饱和度或CCM</p></td>
+</tr>
+<tr class="row-even"><td><p>enMultiLSType</p></td>
+<td><p>调整饱和度或是CCM</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16MultiLSScaler</p></td>
+<td><p>当混合光源下调整饱和度或CCM的强度</p></td>
+</tr>
+<tr class="row-even"><td><p>au16MultiCTBin</p></td>
+<td><p>色温分段参数,须为递增序列</p></td>
+</tr>
+<tr class="row-odd"><td><p>au16MultiCTWt</p></td>
+<td><p>色温分段权重,范围：[0x0, 0x400]</p></td>
+</tr>
+<tr class="row-even"><td><p>bFineTunEn</p></td>
+<td><p>AWB特殊色检测开关，例如肤色</p></td>
+</tr>
+<tr class="row-odd"><td><p>u8FineTunStrength</p></td>
+<td><p>肤色、蓝色等特殊色检测的强度</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<ul class="simple">
+<li><p>ISP_AWB_ATTR_EX_S 扩展属性只有在 pstWBAttr-&gt;enAlgType 为AWB_ALG_ADVANCE才有作用</p></li>
+<li><p>u8Tolerance为AWB的灵敏度参数,值为0时,AWB参数会实时更新,值比较大时,环境色温微微变化时并不会更新AWB参数,画面会轻微的偏色,建议户外为0,室内设置为2</p></li>
+<li><p>u16CurveLLimit 取值&lt;512,主要为排除绿色物体, u16CurveRLimit取值&gt;512,为排除偏紫色区域</p></li>
+<li><p>bMultiLightSourceEn 开启后,AWB会判断场景是否为混光源,在这样的场景下会降低饱和度或是CCM,以减少偏色</p></li>
+<li><p>WDR模式下会自动关闭混光源侦测功能</p></li>
+</ul>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="isp-awb-extra-lightsource-info-s">
+<h4><span class="section-number">5.5.2.10. </span>ISP_AWB_EXTRA_LIGHTSOURCE_INFO_S<a class="headerlink" href="5_AWB.html#isp-awb-extra-lightsource-info-s" title="永久链接至标题">¶</a></h4>
+<p>【说明】</p>
+<p>定义独立光源点的参数</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_AWB_EXTRA_LIGHTSOURCE_INFO_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16WhiteRgain</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16WhiteBgain</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16ExpQuant</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U8</span><span class="w">  </span><span class="n">u8LightStatus</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U8</span><span class="w">  </span><span class="n">u8Radius</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_AWB_EXTRA_LIGHTSOURCE_INFO_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>u16WhiteRgain</p></td>
+<td><p>特殊光源点的R通道增益</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16WhiteBgain</p></td>
+<td><p>特殊光源点的B通道增益</p></td>
+</tr>
+<tr class="row-even"><td><p>u16ExpQuant</p></td>
+<td><p>根据外在亮度做判断。</p>
+<p>ExpQuant 为开启的亮度限制值 例如</p>
+<p>ExpQuant = 6, 表示LV6以下返回   开启此WB光源点(一般夜景为LV6以下)</p>
+<p>ExpQuant =106 表示LV6以上开启</p>
+<p>ExpQuant =112 表示LV12以上开启(LV12一般为户外)</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>u8LightStatus</p></td>
+<td><p>特殊光源点的种类,</p>
+<p>0:不作动</p>
+<p>1:加入光源点返回</p>
+<p>2:删除光源点附近的计算</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>u8Radius</p></td>
+<td><p>特殊光源点的区域大小,</p>
+<p>取值范围：[0x0, 0xFF]</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="isp-awb-in-out-attr-s">
+<h4><span class="section-number">5.5.2.11. </span>ISP_AWB_IN_OUT_ATTR_S<a class="headerlink" href="5_AWB.html#isp-awb-in-out-attr-s" title="永久链接至标题">¶</a></h4>
+<p>【说明】</p>
+<p>定义AWB对场景做户外室内判断的参数</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_AWB_IN_OUT_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bEnable</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">ISP_OP_TYPE_E</span><span class="w"> </span><span class="n">enOpType</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">ISP_AWB_INDOOR_OUTDOOR_STATUS_E</span><span class="w"> </span><span class="n">enOutdoorStatus</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32OutThresh</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16LowStart</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16LowStop</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16HighStart</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16HighStop</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bGreenEnhanceEn</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U</span><span class="w"> </span><span class="n">u8OutShiftLimit</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_AWB_IN_OUT_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>bEnable</p></td>
+<td><p>判断场景为室内室外的开关</p></td>
+</tr>
+<tr class="row-odd"><td><p>enOpType</p></td>
+<td><p>判断室内室外(自动或手动)</p></td>
+</tr>
+<tr class="row-even"><td><p>enOutdoorStatus</p></td>
+<td><p>室内或室外模式(手动模式下)</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32OutThresh</p></td>
+<td><p>判定室内室外的阈值,           亮度小于时,则判定为室内,户外LV大多超过  15</p></td>
+</tr>
+<tr class="row-even"><td><p>u16LowStart</p></td>
+<td><p>将低色温的权返回   重拉低,低色温区的起始点,建议为5000K</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16LowStop</p></td>
+<td><p>将低色温的权重返回 拉低,低色温区的终止点,建议为4500K,</p>
+<p>取值范围：(0,u16LowStart)</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>u16HighStart</p></td>
+<td><p>将    高色温的权重拉低,高色温区的起始点,  建议为6500K,</p>
+<p>取值范围：(u16LowStart, 0xFFFF]</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>u16HighStop</p></td>
+<td><p>将高色温的权重返回 拉低,高色温区的终止点,建议为8000K,</p>
+<p>取值范围：(u16HighStart, 0xFFFF]</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>bGreenEnhanceEn</p></td>
+<td><p>在    绿色植物场景下,对绿色通道增加的开关</p></td>
+</tr>
+<tr class="row-odd"><td><p>u8OutShiftLimit</p></td>
+<td><p>当判定   为户外场景时,AWB算法的白点范围限制</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<ul class="simple">
+<li><p>户外亮度大多LV大于15所以u32OutThresh 建议为大于15</p></li>
+<li><p>四个参数的取值范围要求：u16LowStop&lt;u16LowStart&lt;u16HighStart&lt;u16HighStop</p></li>
+</ul>
+<p>【相关数据类型及接口】</p>
+<p>如下图, u16LowStop为3800K, u16LowStart为5000K</p>
+<p>u16HighStart为6200K, u16HighStop为7200K</p>
+<p>一般权重为32,室外色温最高权重为256</p>
+<figure class="align-center">
+<img alt="_images/AWB003.png" src="_images/AWB003.png" />
+</figure>
+</section>
+<section id="isp-awb-multi-ls-type-e">
+<h4><span class="section-number">5.5.2.12. </span>ISP_AWB_MULTI_LS_TYPE_E<a class="headerlink" href="5_AWB.html#isp-awb-multi-ls-type-e" title="永久链接至标题">¶</a></h4>
+<p>【说明】</p>
+<p>定义混光源下AWB的策略</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_ISP_AWB_MULTI_LS_TYPE_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">AWB_MULTI_LS_SAT</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">AWB_MULTI_LS_CCM</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">AWB_MULTI_LS_BUTT</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_AWB_MULTI_LS_TYPE_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AWB_MULTI_LS_SAT</p></td>
+<td><p>混合光源下调整饱和度</p></td>
+</tr>
+<tr class="row-odd"><td><p>AWB_MULTI_LS_CCM</p></td>
+<td><p>混合光源下调整CCM</p></td>
+</tr>
+<tr class="row-even"><td><p>AWB_MULTI_LS_BUTT</p></td>
+<td><p>无效</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="isp-awb-indoor-outdoor-status-e">
+<h4><span class="section-number">5.5.2.13. </span>ISP_AWB_INDOOR_OUTDOOR_STATUS_E<a class="headerlink" href="5_AWB.html#isp-awb-indoor-outdoor-status-e" title="永久链接至标题">¶</a></h4>
+<p>【说明】</p>
+<p>定义AWB室内室外状态</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_ISP_AWB_INDOOR_OUTDOOR_STATUS_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">AWB_INDOOR_MODE</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">AWB_OUTDOOR_MODE</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">AWB_INDOOR_OUTDOOR_BUTT</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_AWB_INDOOR_OUTDOOR_STATUS_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AWB_INDOOR_MODE</p></td>
+<td><p>室内模式</p></td>
+</tr>
+<tr class="row-odd"><td><p>AWB_OUTDOOR_MODE</p></td>
+<td><p>室外模式</p></td>
+</tr>
+<tr class="row-even"><td><p>AWB_INDOOR_OUTDOOR_BUTT</p></td>
+<td><p>无效</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="isp-wb-info-s">
+<h4><span class="section-number">5.5.2.14. </span>ISP_WB_INFO_S<a class="headerlink" href="5_AWB.html#isp-wb-info-s" title="永久链接至标题">¶</a></h4>
+<p>【说明】</p>
+<p>定义白平衡，饱和度，颜色校正信息</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_WB_INFO_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16Rgain</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16Grgain</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16Gbgain</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16Bgain</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16Saturation</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16ColorTemp</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">au16CCM</span><span class="p">[</span><span class="n">CCM_MATRIX_SIZE</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16LS0CT</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16LS1CT</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16LS0Area</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16LS1Area</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U8</span><span class="w">  </span><span class="n">u8MultiDegree</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16ActiveShift</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32FirstStableTime</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">ISP_AWB_INDOOR_OUTDOOR_STATUS_E</span><span class="w"> </span><span class="n">enInOutStatus</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_S16</span><span class="w"> </span><span class="n">s16Bv</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_WB_INFO_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>u16Rgain</p></td>
+<td><p>当前R通道增益值</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16Grgain</p></td>
+<td><p>当前Gr通道增益值</p></td>
+</tr>
+<tr class="row-even"><td><p>u16Gbgain</p></td>
+<td><p>当前Gb通道增益值</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16Bgain</p></td>
+<td><p>当前B通道增益值</p></td>
+</tr>
+<tr class="row-even"><td><p>u16Saturation</p></td>
+<td><p>目前饱和度返回</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16ColorTemp</p></td>
+<td><p>目前推算的色温值</p></td>
+</tr>
+<tr class="row-even"><td><p>au16CCM</p></td>
+<td><p>当前  的颜色校正矩阵，10bit小数精度。bit  15 是符号位，0 表示正数，1    表示负数，例如0x8010表         示-16</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16LS0CT</p></td>
+<td><p>混光源场景的主光源色温</p></td>
+</tr>
+<tr class="row-even"><td><p>u16LS1CT</p></td>
+<td><p>混光源场景的次光源色温</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16LS0Area</p></td>
+<td><p>混光源场景的主光源面积</p></td>
+</tr>
+<tr class="row-even"><td><p>u16LS1Area</p></td>
+<td><p>混光源场景的次光源面积</p></td>
+</tr>
+<tr class="row-odd"><td><p>u8MultiDegree</p></td>
+<td><p>目前场景是混光源的机率</p></td>
+</tr>
+<tr class="row-even"><td><p>u16ActiveShift</p></td>
+<td><p>目前白平衡范围的限制值</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32FirstStableTime</p></td>
+<td><p>首次AWB收敛稳定的时间,以帧数为单位</p></td>
+</tr>
+<tr class="row-even"><td><p>ISP_AWB_INDOOR_OUTDOOR_STATUS_E</p></td>
+<td><p>室内室外侦测结果</p></td>
+</tr>
+<tr class="row-odd"><td><p>s16Bv</p></td>
+<td><p>当前环境的bv值返回</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="4_AE.html" class="btn btn-neutral float-left" title="4. AE" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="6_AF.html" class="btn btn-neutral float-right" title="6. AF" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2025, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,2338 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>9.4. 数据类型 &mdash; MediaProcessingSoftwareDevelopmentReference master 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="../_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/qrious.js"></script>
+    <script src="../_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="9.5. 错误码" href="Error_Codes.html" />
+    <link rel="prev" title="9.3. API参考" href="API_Reference.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> MediaProcessingSoftwareDevelopmentReference
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_System_Overview.html">2. 系统概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_System_Control.html">3. 系统控制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_Video_Input.html">4. 视频输入</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5_Video_Output.html">5. 视频输出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6_Video_Processing_Subsystem.html">6. 视频处理子系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7_Video_Encoding.html">7. 视频编码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../8_Video_Decoding.html">8. 视频解码</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../9_Regional_Management.html">9. 区域管理</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Function_Overview.html">9.1. 功能概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Design_Overview.html">9.2. 设计概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="API_Reference.html">9.3. API参考</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="Data_Types.html#">9.4. 数据类型</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-min-width">9.4.1. RGN_MIN_WIDTH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-min-height">9.4.2. RGN_MIN_HEIGHT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-cover-max-width">9.4.3. RGN_COVER_MAX_WIDTH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-cover-max-height">9.4.4. RGN_COVER_MAX_HEIGHT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-cover-min-x">9.4.5. RGN_COVER_MIN_X</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-cover-min-y">9.4.6. RGN_COVER_MIN_Y</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-cover-max-x">9.4.7. RGN_COVER_MAX_X</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-cover-max-y">9.4.8. RGN_COVER_MAX_Y</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-coverex-max-num">9.4.9. RGN_COVEREX_MAX_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-coverex-max-width">9.4.10. RGN_COVEREX_MAX_WIDTH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-coverex-max-height">9.4.11. RGN_COVEREX_MAX_HEIGHT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-coverex-min-x">9.4.12. RGN_COVEREX_MIN_X</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-coverex-min-y">9.4.13. RGN_COVEREX_MIN_Y</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-coverex-max-x">9.4.14. RGN_COVEREX_MAX_X</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-coverex-max-y">9.4.15. RGN_COVEREX_MAX_Y</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-overlay-max-width">9.4.16. RGN_OVERLAY_MAX_WIDTH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-overlay-max-height">9.4.17. RGN_OVERLAY_MAX_HEIGHT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-overlay-min-x">9.4.18. RGN_OVERLAY_MIN_X</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-overlay-min-y">9.4.19. RGN_OVERLAY_MIN_Y</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-overlay-max-x">9.4.20. RGN_OVERLAY_MAX_X</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-overlay-max-y">9.4.21. RGN_OVERLAY_MAX_Y</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-mosaic-max-num">9.4.22. RGN_MOSAIC_MAX_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-mosaic-x-align">9.4.23. RGN_MOSAIC_X_ALIGN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-mosaic-y-align">9.4.24. RGN_MOSAIC_Y_ALIGN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-mosaic-width-align">9.4.25. RGN_MOSAIC_WIDTH_ALIGN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-mosaic-height-align">9.4.26. RGN_MOSAIC_HEIGHT_ALIGN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-mosaic-min-width">9.4.27. RGN_MOSAIC_MIN_WIDTH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-mosaic-min-height">9.4.28. RGN_MOSAIC_MIN_HEIGHT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-mosaic-max-width">9.4.29. RGN_MOSAIC_MAX_WIDTH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-mosaic-max-height">9.4.30. RGN_MOSAIC_MAX_HEIGHT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-mosaic-min-x">9.4.31. RGN_MOSAIC_MIN_X</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-mosaic-min-y">9.4.32. RGN_MOSAIC_MIN_Y</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-mosaic-max-x">9.4.33. RGN_MOSAIC_MAX_X</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-mosaic-max-y">9.4.34. RGN_MOSAIC_MAX_Y</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-max-layer-vpss">9.4.35. RGN_MAX_LAYER_VPSS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-odec-layer-vpss">9.4.36. RGN_ODEC_LAYER_VPSS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-normal-layer-vpss">9.4.37. RGN_NORMAL_LAYER_VPSS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-max-num-vpss">9.4.38. RGN_MAX_NUM_VPSS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-ex-max-num-vpss">9.4.39. RGN_EX_MAX_NUM_VPSS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-ex-max-width">9.4.40. RGN_EX_MAX_WIDTH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-max-buf-num">9.4.41. RGN_MAX_BUF_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-max-num">9.4.42. RGN_MAX_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-invalid-handle">9.4.43. RGN_INVALID_HANDLE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-cmpr-min-size">9.4.44. RGN_CMPR_MIN_SIZE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-handle">9.4.45. RGN_HANDLE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-type-e">9.4.46. RGN_TYPE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-area-type-e">9.4.47. RGN_AREA_TYPE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#osd-compress-mode-e">9.4.48. OSD_COMPRESS_MODE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#osd-compress-info-s">9.4.49. OSD_COMPRESS_INFO_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#cover-chn-attr-s">9.4.50. COVER_CHN_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#coverex-chn-attr-s">9.4.51. COVEREX_CHN_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#overlay-attr-s">9.4.52. OVERLAY_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#overlay-chn-attr-s">9.4.53. OVERLAY_CHN_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#overlayex-attr-s">9.4.54. OVERLAYEX_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#overlayex-chn-attr-s">9.4.55. OVERLAYEX_CHN_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-attr-u">9.4.56. RGN_ATTR_U</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-chn-attr-u">9.4.57. RGN_CHN_ATTR_U</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-attr-s">9.4.58. RGN_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-chn-attr-s">9.4.59. RGN_CHN_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-coordinate-e">9.4.60. RGN_COORDINATE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-quadrangle-s">9.4.61. RGN_QUADRANGLE_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#mosaic-blk-size-e">9.4.62. MOSAIC_BLK_SIZE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#mosaic-chn-attr-s">9.4.63. MOSAIC_CHN_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#invert-color-mode-e">9.4.64. INVERT_COLOR_MODE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#overlay-invert-color-s">9.4.65. OVERLAY_INVERT_COLOR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-cmpr-type-e">9.4.66. RGN_CMPR_TYPE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-line-attr-s">9.4.67. RGN_LINE_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-rect-attr-s">9.4.68. RGN_RECT_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-bitmap-attr-s">9.4.69. RGN_BITMAP_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-cmpr-obj-attr-s">9.4.70. RGN_CMPR_OBJ_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-canvas-cmpr-attr-s">9.4.71. RGN_CANVAS_CMPR_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-canvas-info-s">9.4.72. RGN_CANVAS_INFO_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-rgbquard-s">9.4.73. RGN_RGBQUARD_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-color-fmt-e">9.4.74. RGN_COLOR_FMT_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rgn-palette-s">9.4.75. RGN_PALETTE_S</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Error_Codes.html">9.5. 错误码</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../10_Audio_Frequency.html">10. 音频</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../11_Geometric_Distortion_Correction_Subsystem.html">11. 几何畸变矫正子系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../12_Proc_Debugging_Information_Explanation.html">12. Proc 调试信息说明</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MediaProcessingSoftwareDevelopmentReference</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../9_Regional_Management.html"><span class="section-number">9. </span>区域管理</a> &raquo;</li>
+      <li><span class="section-number">9.4. </span>数据类型</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="../_sources/9_Regional_Management/Data_Types.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">9.4. </span>数据类型<a class="headerlink" href="Data_Types.html#id1" title="永久链接至标题">¶</a></h1>
+<p>RGN 模块相关数据类型定义如下：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="Data_Types.html#rgn-min-width">RGN_MIN_WIDTH</a> ：定义区域的最小宽度。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-min-height">RGN_MIN_HEIGHT</a> ：定义区域的最小高度。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-cover-max-width">RGN_COVER_MAX_WIDTH</a> ：定义 COVER 区域的最大宽度。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-cover-max-height">RGN_COVER_MAX_HEIGHT</a> ：定义 COVER 区域的最大高度。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-cover-min-x">RGN_COVER_MIN_X</a> ：定义 COVER 区域起始位置的 X 坐标最小值。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-cover-min-y">RGN_COVER_MIN_Y</a> ：定义 COVER 区域起始位置的 Y 坐标最小值。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-cover-max-x">RGN_COVER_MAX_X</a> ：定义 COVER 区域起始位置的 X 坐标最大值。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-cover-max-y">RGN_COVER_MAX_Y</a> ：定义 COVER 区域起始位置的 Y 坐标最大值。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-coverex-max-num">RGN_COVEREX_MAX_NUM</a> ：定义 COVEREX 区域的最大个数。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-coverex-max-width">RGN_COVEREX_MAX_WIDTH</a> ：定义 COVEREX 区域的最大宽度。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-coverex-max-height">RGN_COVEREX_MAX_HEIGHT</a> ：定义 COVEREX 区域的最大高度。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-coverex-min-x">RGN_COVEREX_MIN_X</a> ：定义 COVEREX 区域起始位置的 X 坐标最小值。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-coverex-min-y">RGN_COVEREX_MIN_Y</a> ：定义 COVEREX 区域起始位置的 Y 坐标最小值。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-coverex-max-x">RGN_COVEREX_MAX_X</a> ：定义 COVEREX 区域起始位置的 X 坐标最大值。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-coverex-max-y">RGN_COVEREX_MAX_Y</a> ：定义 COVEREX 区域起始位置的 Y 坐标最大值。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-overlay-max-width">RGN_OVERLAY_MAX_WIDTH</a> ：定义 OVERLAY 区域的最大宽度。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-overlay-max-height">RGN_OVERLAY_MAX_HEIGHT</a> ：定义 OVERLAY 区域的最大高度。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-overlay-min-x">RGN_OVERLAY_MIN_X</a> ：定义 OVERLAY 区域起始位置的 X 坐标最小值。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-overlay-min-y">RGN_OVERLAY_MIN_Y</a> ：定义 OVERLAY 区域起始位置的 Y 坐标最小值。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-overlay-max-x">RGN_OVERLAY_MAX_X</a> ：定义 OVERLAY 区域起始位置的 X 坐标最大值。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-overlay-max-y">RGN_OVERLAY_MAX_Y</a> ：定义 OVERLAY 区域起始位置的 Y 坐标最大值。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-mosaic-max-num">RGN_MOSAIC_MAX_NUM</a> ：定义 MOSAIC 区域的最大个数。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-mosaic-x-align">RGN_MOSAIC_X_ALIGN</a> ：定义 MOSAIC 区域的 X 坐标对齐。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-mosaic-y-align">RGN_MOSAIC_Y_ALIGN</a> ：定义 MOSAIC 区域的 Y 坐标对齐。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-mosaic-width-align">RGN_MOSAIC_WIDTH_ALIGN</a> ：定义 MOSAIC 区域的宽度对齐。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-mosaic-height-align">RGN_MOSAIC_HEIGHT_ALIGN</a> ：定义 MOSAIC 区域的高度对齐。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-mosaic-min-width">RGN_MOSAIC_MIN_WIDTH</a> ：定义 MOSAIC 区域的最小宽度。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-mosaic-min-height">RGN_MOSAIC_MIN_HEIGHT</a> ：定义 MOSAIC 区域的最小高度。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-mosaic-max-width">RGN_MOSAIC_MAX_WIDTH</a> ：定义 MOSAIC 区域的最大宽度。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-mosaic-max-height">RGN_MOSAIC_MAX_HEIGHT</a> ：定义 MOSAIC 区域的最大高度。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-mosaic-min-x">RGN_MOSAIC_MIN_X</a> ：定义 MOSAIC 区域起始位置的 X 坐标最小值。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-mosaic-min-y">RGN_MOSAIC_MIN_Y</a> ：定义 MOSAIC 区域起始位置的 Y 坐标最小值。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-mosaic-max-x">RGN_MOSAIC_MAX_X</a> ：定义 MOSAIC 区域起始位置的 X 坐标最大值。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-mosaic-max-y">RGN_MOSAIC_MAX_Y</a> ：定义 MOSAIC 区域起始位置的 Y 坐标最大值。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-max-layer-vpss">RGN_MAX_LAYER_VPSS</a> ：定义一个 VPSS 通道最多可显示的区域层数。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-odec-layer-vpss">RGN_ODEC_LAYER_VPSS</a> ：定义一个 VPSS 通道的 ODEC 区域层。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-normal-layer-vpss">RGN_NORMAL_LAYER_VPSS</a> ：定义一个 VPSS 通道的 NORMAL 区域层。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-max-num-vpss">RGN_MAX_NUM_VPSS</a> ：定义一个 VPSS 通道最多可显示的区域的个数。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-ex-max-num-vpss">RGN_EX_MAX_NUM_VPSS</a> ：定义扩展区域的最大个数。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-ex-max-width">RGN_EX_MAX_WIDTH</a> ：定义扩展区域的最大宽度。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-max-buf-num">RGN_MAX_BUF_NUM</a> ：定义区域使用的最大内存数量。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-max-num">RGN_MAX_NUM</a> ：定义区域的最大个数。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-invalid-handle">RGN_INVALID_HANDLE</a> ：定义区域无效句柄。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-cmpr-min-size">RGN_CMPR_MIN_SIZE</a> ：定义区域压缩的最小尺寸。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-handle">RGN_HANDLE</a> ：定义区域句柄。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-type-e">RGN_TYPE_E</a> ：定义区域类型。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-area-type-e">RGN_AREA_TYPE_E</a> ：定义 COVER、COVEREX 区域类型。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#osd-compress-mode-e">OSD_COMPRESS_MODE_E</a> ：定义 OSD 压缩模式类型。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#osd-compress-info-s">OSD_COMPRESS_INFO_S</a> ：定义 OSD 压缩模式属性。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#cover-chn-attr-s">COVER_CHN_ATTR_S</a> ：定义 COVER 区域的通道属性。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#coverex-chn-attr-s">COVEREX_CHN_ATTR_S</a> ：定义 COVEREX 区域的通道属性。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#overlay-attr-s">OVERLAY_ATTR_S</a> ：定义视频迭加区域的属性。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#overlay-chn-attr-s">OVERLAY_CHN_ATTR_S</a> ：定义视频迭加区域的通道属性。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#overlayex-attr-s">OVERLAYEX_ATTR_S</a> ：定义扩展视频迭加区域的属性。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#overlayex-chn-attr-s">OVERLAYEX_CHN_ATTR_S</a> ：定义扩展视频迭加区域的通道属性。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-attr-u">RGN_ATTR_U</a> ：定义区域属性联合体。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-chn-attr-u">RGN_CHN_ATTR_U</a> ：定义区域通道属性联合体。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-attr-s">RGN_ATTR_S</a> ：定义区域属性结构体。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-chn-attr-s">RGN_CHN_ATTR_S</a> ：定义区域通道属性结构体。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-coordinate-e">RGN_COORDINATE_E</a> ：定义坐标类型。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-quadrangle-s">RGN_QUADRANGLE_S</a> ：定义任意四边形结构体。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#mosaic-blk-size-e">MOSAIC_BLK_SIZE_E</a> ：定义 MOSAIC 区域的块大小类型。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#mosaic-chn-attr-s">MOSAIC_CHN_ATTR_S</a> ：定义 MOSAIC 区域通道属性。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#invert-color-mode-e">INVERT_COLOR_MODE_E</a> ：定义 OSD 反色模式。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#overlay-invert-color-s">OVERLAY_INVERT_COLOR_S</a> ：定义 OSD 反色属性。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-cmpr-type-e">RGN_CMPR_TYPE_E</a> ：定义区域压缩类型。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-line-attr-s">RGN_LINE_ATTR_S</a> ：定义线条属性。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-rect-attr-s">RGN_RECT_ATTR_S</a> ：定义矩形属性。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-bitmap-attr-s">RGN_BITMAP_ATTR_S</a> ：定义位图属性。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-cmpr-obj-attr-s">RGN_CMPR_OBJ_ATTR_S</a> ：定义压缩对象属性。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-canvas-cmpr-attr-s">RGN_CANVAS_CMPR_ATTR_S</a> ：定义画布压缩属性。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-canvas-info-s">RGN_CANVAS_INFO_S</a> ：定义画布信息。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-rgbquard-s">RGN_RGBQUARD_S</a> ：定义调色盘颜色。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-color-fmt-e">RGN_COLOR_FMT_E</a> ：定义 OSD 支持的颜色格式。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#rgn-palette-s">RGN_PALETTE_S</a> ：定义调色盘属性。</p></li>
+</ul>
+<section id="rgn-min-width">
+<h2><span class="section-number">9.4.1. </span>RGN_MIN_WIDTH<a class="headerlink" href="Data_Types.html#rgn-min-width" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义区域的最小宽度。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define RGN_MIN_WIDTH 2</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-min-height">
+<h2><span class="section-number">9.4.2. </span>RGN_MIN_HEIGHT<a class="headerlink" href="Data_Types.html#rgn-min-height" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义区域的最小高度。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define RGN_MIN_HEIGHT 2</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-cover-max-width">
+<h2><span class="section-number">9.4.3. </span>RGN_COVER_MAX_WIDTH<a class="headerlink" href="Data_Types.html#rgn-cover-max-width" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 COVER 区域的最大宽度。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define RGN_COVER_MAX_WIDTH 3840</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-cover-max-height">
+<h2><span class="section-number">9.4.4. </span>RGN_COVER_MAX_HEIGHT<a class="headerlink" href="Data_Types.html#rgn-cover-max-height" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 COVER 区域的最大高度。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define RGN_COVER_MAX_HEIGHT 2160</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-cover-min-x">
+<h2><span class="section-number">9.4.5. </span>RGN_COVER_MIN_X<a class="headerlink" href="Data_Types.html#rgn-cover-min-x" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 COVER 区域起始位置的 X 坐标最小值。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define RGN_COVER_MIN_X 0</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-cover-min-y">
+<h2><span class="section-number">9.4.6. </span>RGN_COVER_MIN_Y<a class="headerlink" href="Data_Types.html#rgn-cover-min-y" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 COVER 区域起始位置的 Y 坐标最小值。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define RGN_COVER_MIN_Y 0</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-cover-max-x">
+<h2><span class="section-number">9.4.7. </span>RGN_COVER_MAX_X<a class="headerlink" href="Data_Types.html#rgn-cover-max-x" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 COVER 区域起始位置的 X 坐标最大值。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define RGN_COVER_MAX_X (RGN_COVER_MAX_WIDTH - RGN_MIN_WIDTH)</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-cover-max-y">
+<h2><span class="section-number">9.4.8. </span>RGN_COVER_MAX_Y<a class="headerlink" href="Data_Types.html#rgn-cover-max-y" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 COVER 区域起始位置的 Y 坐标最大值。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define RGN_COVER_MAX_Y (RGN_COVER_MAX_HEIGHT - RGN_MIN_HEIGHT)</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-coverex-max-num">
+<h2><span class="section-number">9.4.9. </span>RGN_COVEREX_MAX_NUM<a class="headerlink" href="Data_Types.html#rgn-coverex-max-num" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 COVEREX 区域的最大个数。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define RGN_COVEREX_MAX_NUM 4</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-coverex-max-width">
+<h2><span class="section-number">9.4.10. </span>RGN_COVEREX_MAX_WIDTH<a class="headerlink" href="Data_Types.html#rgn-coverex-max-width" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<blockquote>
+<div><p>定义 COVEREX 区域的最大宽度。</p>
+</div></blockquote>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define RGN_COVEREX_MAX_WIDTH 3840</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-coverex-max-height">
+<h2><span class="section-number">9.4.11. </span>RGN_COVEREX_MAX_HEIGHT<a class="headerlink" href="Data_Types.html#rgn-coverex-max-height" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 COVEREX 区域的最大高度。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define RGN_COVEREX_MAX_HEIGHT 2160</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-coverex-min-x">
+<h2><span class="section-number">9.4.12. </span>RGN_COVEREX_MIN_X<a class="headerlink" href="Data_Types.html#rgn-coverex-min-x" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 COVEREX 区域起始位置的 X 坐标最小值。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define RGN_COVEREX_MIN_X 0</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-coverex-min-y">
+<h2><span class="section-number">9.4.13. </span>RGN_COVEREX_MIN_Y<a class="headerlink" href="Data_Types.html#rgn-coverex-min-y" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 COVEREX 区域起始位置的 Y 坐标最小值。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define RGN_COVEREX_MIN_Y 0</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-coverex-max-x">
+<h2><span class="section-number">9.4.14. </span>RGN_COVEREX_MAX_X<a class="headerlink" href="Data_Types.html#rgn-coverex-max-x" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 COVEREX 区域起始位置的 X 坐标最大值。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define RGN_COVEREX_MAX_X (RGN_COVEREX_MAX_WIDTH - RGN_MIN_WIDTH)</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-coverex-max-y">
+<h2><span class="section-number">9.4.15. </span>RGN_COVEREX_MAX_Y<a class="headerlink" href="Data_Types.html#rgn-coverex-max-y" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 COVEREX 区域起始位置的 Y 坐标最大值。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define RGN_COVEREX_MAX_Y (RGN_COVEREX_MAX_HEIGHT - RGN_MIN_HEIGHT)</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-overlay-max-width">
+<h2><span class="section-number">9.4.16. </span>RGN_OVERLAY_MAX_WIDTH<a class="headerlink" href="Data_Types.html#rgn-overlay-max-width" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 OVERLAY 区域的最大宽度。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define RGN_OVERLAY_MAX_WIDTH 3840</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-overlay-max-height">
+<h2><span class="section-number">9.4.17. </span>RGN_OVERLAY_MAX_HEIGHT<a class="headerlink" href="Data_Types.html#rgn-overlay-max-height" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 OVERLAY 区域的最大高度。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define RGN_OVERLAY_MAX_HEIGHT 2160</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-overlay-min-x">
+<h2><span class="section-number">9.4.18. </span>RGN_OVERLAY_MIN_X<a class="headerlink" href="Data_Types.html#rgn-overlay-min-x" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 OVERLAY 区域起始位置的 X 坐标最小值。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define RGN_OVERLAY_MIN_X 0</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-overlay-min-y">
+<h2><span class="section-number">9.4.19. </span>RGN_OVERLAY_MIN_Y<a class="headerlink" href="Data_Types.html#rgn-overlay-min-y" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 OVERLAY 区域起始位置的 Y 坐标最小值。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define RGN_OVERLAY_MIN_Y 0</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-overlay-max-x">
+<h2><span class="section-number">9.4.20. </span>RGN_OVERLAY_MAX_X<a class="headerlink" href="Data_Types.html#rgn-overlay-max-x" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 OVERLAY 区域起始位置的 X 坐标最大值。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define RGN_OVERLAY_MAX_X (RGN_OVERLAY_MAX_WIDTH - RGN_MIN_WIDTH)</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-overlay-max-y">
+<h2><span class="section-number">9.4.21. </span>RGN_OVERLAY_MAX_Y<a class="headerlink" href="Data_Types.html#rgn-overlay-max-y" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 OVERLAY 区域起始位置的 Y 坐标最大值。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define RGN_OVERLAY_MAX_Y (RGN_OVERLAY_MAX_HEIGHT - RGN_MIN_HEIGHT)</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-mosaic-max-num">
+<h2><span class="section-number">9.4.22. </span>RGN_MOSAIC_MAX_NUM<a class="headerlink" href="Data_Types.html#rgn-mosaic-max-num" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 MOSAIC 区域的最大个数。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define RGN_MOSAIC_MAX_NUM 8</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-mosaic-x-align">
+<h2><span class="section-number">9.4.23. </span>RGN_MOSAIC_X_ALIGN<a class="headerlink" href="Data_Types.html#rgn-mosaic-x-align" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 MOSAIC 区域的 X 坐标对齐。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define RGN_MOSAIC_X_ALIGN 8</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-mosaic-y-align">
+<h2><span class="section-number">9.4.24. </span>RGN_MOSAIC_Y_ALIGN<a class="headerlink" href="Data_Types.html#rgn-mosaic-y-align" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 MOSAIC 区域的 Y 坐标对齐。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define RGN_MOSAIC_Y_ALIGN 8</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-mosaic-width-align">
+<h2><span class="section-number">9.4.25. </span>RGN_MOSAIC_WIDTH_ALIGN<a class="headerlink" href="Data_Types.html#rgn-mosaic-width-align" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 MOSAIC 区域的宽度对齐。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define RGN_MOSAIC_WIDTH_ALIGN 8</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-mosaic-height-align">
+<h2><span class="section-number">9.4.26. </span>RGN_MOSAIC_HEIGHT_ALIGN<a class="headerlink" href="Data_Types.html#rgn-mosaic-height-align" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 MOSAIC 区域的高度对齐。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define RGN_MOSAIC_HEIGHT_ALIGN 8</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-mosaic-min-width">
+<h2><span class="section-number">9.4.27. </span>RGN_MOSAIC_MIN_WIDTH<a class="headerlink" href="Data_Types.html#rgn-mosaic-min-width" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 MOSAIC 区域的最小宽度。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define RGN_MOSAIC_MIN_WIDTH 8</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-mosaic-min-height">
+<h2><span class="section-number">9.4.28. </span>RGN_MOSAIC_MIN_HEIGHT<a class="headerlink" href="Data_Types.html#rgn-mosaic-min-height" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 MOSAIC 区域的最小高度。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define RGN_MOSAIC_MIN_HEIGHT 8</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-mosaic-max-width">
+<h2><span class="section-number">9.4.29. </span>RGN_MOSAIC_MAX_WIDTH<a class="headerlink" href="Data_Types.html#rgn-mosaic-max-width" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 MOSAIC 区域的最大宽度。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define RGN_MOSAIC_MAX_WIDTH 3840</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-mosaic-max-height">
+<h2><span class="section-number">9.4.30. </span>RGN_MOSAIC_MAX_HEIGHT<a class="headerlink" href="Data_Types.html#rgn-mosaic-max-height" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 MOSAIC 区域的最大高度。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define RGN_MOSAIC_MAX_HEIGHT 2160</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-mosaic-min-x">
+<h2><span class="section-number">9.4.31. </span>RGN_MOSAIC_MIN_X<a class="headerlink" href="Data_Types.html#rgn-mosaic-min-x" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 MOSAIC 区域起始位置的 X 坐标最小值。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define RGN_MOSAIC_MIN_X 0</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-mosaic-min-y">
+<h2><span class="section-number">9.4.32. </span>RGN_MOSAIC_MIN_Y<a class="headerlink" href="Data_Types.html#rgn-mosaic-min-y" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 MOSAIC 区域起始位置的 Y 坐标最小值。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define RGN_MOSAIC_MIN_Y 0</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-mosaic-max-x">
+<h2><span class="section-number">9.4.33. </span>RGN_MOSAIC_MAX_X<a class="headerlink" href="Data_Types.html#rgn-mosaic-max-x" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 MOSAIC 区域起始位置的 X 坐标最大值。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define RGN_MOSAIC_MAX_X (RGN_MOSAIC_MAX_WIDTH - RGN_MOSAIC_MIN_WIDTH)</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-mosaic-max-y">
+<h2><span class="section-number">9.4.34. </span>RGN_MOSAIC_MAX_Y<a class="headerlink" href="Data_Types.html#rgn-mosaic-max-y" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 MOSAIC 区域起始位置的 Y 坐标最大值。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define RGN_MOSAIC_MAX_Y (RGN_MOSAIC_MAX_HEIGHT - RGN_MOSAIC_MIN_HEIGHT)</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-max-layer-vpss">
+<h2><span class="section-number">9.4.35. </span>RGN_MAX_LAYER_VPSS<a class="headerlink" href="Data_Types.html#rgn-max-layer-vpss" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义一个 VPSS 通道最多可显示的区域层数。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define RGN_MAX_LAYER_VPSS     2</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-odec-layer-vpss">
+<h2><span class="section-number">9.4.36. </span>RGN_ODEC_LAYER_VPSS<a class="headerlink" href="Data_Types.html#rgn-odec-layer-vpss" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义一个 VPSS 通道的 ODEC 区域层。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define RGN_ODEC_LAYER_VPSS 0</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-normal-layer-vpss">
+<h2><span class="section-number">9.4.37. </span>RGN_NORMAL_LAYER_VPSS<a class="headerlink" href="Data_Types.html#rgn-normal-layer-vpss" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义一个 VPSS 通道的 NORMAL 区域层。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define RGN_NORMAL_LAYER_VPSS     1</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-max-num-vpss">
+<h2><span class="section-number">9.4.38. </span>RGN_MAX_NUM_VPSS<a class="headerlink" href="Data_Types.html#rgn-max-num-vpss" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义一个 VPSS 通道最多可显示的区域的个数。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define RGN_MAX_NUM_VPSS 8</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-ex-max-num-vpss">
+<h2><span class="section-number">9.4.39. </span>RGN_EX_MAX_NUM_VPSS<a class="headerlink" href="Data_Types.html#rgn-ex-max-num-vpss" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义扩展区域的最大个数。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define RGN_EX_MAX_NUM_VPSS 16</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-ex-max-width">
+<h2><span class="section-number">9.4.40. </span>RGN_EX_MAX_WIDTH<a class="headerlink" href="Data_Types.html#rgn-ex-max-width" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义扩展区域的最大宽度。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define RGN_EX_MAX_WIDTH 3840</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-max-buf-num">
+<h2><span class="section-number">9.4.41. </span>RGN_MAX_BUF_NUM<a class="headerlink" href="Data_Types.html#rgn-max-buf-num" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义区域使用的最大内存数量。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define RGN_MAX_BUF_NUM 2</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-max-num">
+<h2><span class="section-number">9.4.42. </span>RGN_MAX_NUM<a class="headerlink" href="Data_Types.html#rgn-max-num" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义区域的最大个数。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define RGN_MAX_NUM 108</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-invalid-handle">
+<h2><span class="section-number">9.4.43. </span>RGN_INVALID_HANDLE<a class="headerlink" href="Data_Types.html#rgn-invalid-handle" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义区域无效句柄。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define RGN_INVALID_HANDLE (-1U)</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-cmpr-min-size">
+<h2><span class="section-number">9.4.44. </span>RGN_CMPR_MIN_SIZE<a class="headerlink" href="Data_Types.html#rgn-cmpr-min-size" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义区域压缩的最小尺寸。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define RGN_CMPR_MIN_SIZE 128000</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-handle">
+<h2><span class="section-number">9.4.45. </span>RGN_HANDLE<a class="headerlink" href="Data_Types.html#rgn-handle" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义区域句柄。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">RGN_HANDLE</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-type-e">
+<h2><span class="section-number">9.4.46. </span>RGN_TYPE_E<a class="headerlink" href="Data_Types.html#rgn-type-e" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义区域类型。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_RGN_TYPE_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">OVERLAY_RGN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">COVER_RGN</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">COVEREX_RGN</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">OVERLAYEX_RGN</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">MOSAIC_RGN</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">RGN_BUTT</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">RGN_TYPE_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>OVERLAY_RGN</p></td>
+<td><p>视频迭加区域。</p></td>
+</tr>
+<tr class="row-odd"><td><p>COVER_RGN</p></td>
+<td><p>视频遮挡区域。</p></td>
+</tr>
+<tr class="row-even"><td><p>COVEREX_RGN</p></td>
+<td><p>扩展视频遮挡区域。</p></td>
+</tr>
+<tr class="row-odd"><td><p>OVERLAYEX_RGN</p></td>
+<td><p>扩展视频迭加区域，尚未支持。</p></td>
+</tr>
+<tr class="row-even"><td><p>MOSAIC_RGN</p></td>
+<td><p>Mosaic视频区域。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>COVEREX_RGN和MOSAIC_RGN当前不支持DUAL OS。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-area-type-e">
+<h2><span class="section-number">9.4.47. </span>RGN_AREA_TYPE_E<a class="headerlink" href="Data_Types.html#rgn-area-type-e" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义COVER、COVEREX区域类型。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_RGN_AREA_TYPE_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">AREA_RECT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">AREA_QUAD_RANGLE</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">AREA_BUTT</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">RGN_AREA_TYPE_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AREA_RECT</p></td>
+<td><p>矩形区域。</p></td>
+</tr>
+<tr class="row-odd"><td><p>AREA_QUAD_RANGLE</p></td>
+<td><p>任意四边形区域，尚未支持。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="osd-compress-mode-e">
+<h2><span class="section-number">9.4.48. </span>OSD_COMPRESS_MODE_E<a class="headerlink" href="Data_Types.html#osd-compress-mode-e" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义OSD压缩模式类型。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_OSD_COMPRESS_MODE_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">OSD_COMPRESS_MODE_NONE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">OSD_COMPRESS_MODE_SW</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">OSD_COMPRESS_MODE_HW</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">OSD_COMPRESS_MODE_BUTT</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">OSD_COMPRESS_MODE_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>OSD_COMPRESS_MODE_NONE</p></td>
+<td><p>不使用压缩模式。</p></td>
+</tr>
+<tr class="row-odd"><td><p>OSD_COMPRESS_MODE_SW</p></td>
+<td><p>使用软件压缩模式。</p></td>
+</tr>
+<tr class="row-even"><td><p>OSD_COMPRESS_MODE_HW</p></td>
+<td><p>使用硬件压缩模式。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="osd-compress-info-s">
+<h2><span class="section-number">9.4.49. </span>OSD_COMPRESS_INFO_S<a class="headerlink" href="Data_Types.html#osd-compress-info-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义OSD压缩模式属性。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_OSD_COMPRESS_INFO_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">OSD_COMPRESS_MODE_E</span><span class="w"> </span><span class="n">enOSDCompressMode</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32EstCompressedSize</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32CompressedSize</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">OSD_COMPRESS_INFO_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>enOSDCompressMode</p></td>
+<td><p>定义OSD压缩模式类型。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32EstCompressedSize</p></td>
+<td><p>预估软件压缩模式下需要分配在内存大小。</p></td>
+</tr>
+<tr class="row-even"><td><p>u32CompressedSize</p></td>
+<td><p>硬件压缩模式下需要分配在内存大小。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="cover-chn-attr-s">
+<h2><span class="section-number">9.4.50. </span>COVER_CHN_ATTR_S<a class="headerlink" href="Data_Types.html#cover-chn-attr-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义COVER区域的通道属性。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_COVER_CHN_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">RGN_AREA_TYPE_E</span><span class="w"> </span><span class="n">enCoverType</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">union</span> <span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">RECT_S</span><span class="w"> </span><span class="n">stRect</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">RGN_QUADRANGLE_S</span><span class="w"> </span><span class="n">stQuadRangle</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">};</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32Color</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32Layer</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">RGN_COORDINATE_E</span><span class="w"> </span><span class="n">enCoordinate</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">COVER_CHN_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>enCoverType</p></td>
+<td><p>COVER区域类型。</p></td>
+</tr>
+<tr class="row-odd"><td><p>stRect</p></td>
+<td><div class="line-block">
+<div class="line">区域位置和宽高。</div>
+<div class="line">位置可为负数，矩形在通道的范围以外的部分会看不到。</div>
+<div class="line">宽高不可超过通道的大小。</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>stQuadRangle</p></td>
+<td><p>任意四边形区域，尚未支持。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32Color</p></td>
+<td><div class="line-block">
+<div class="line">COVER区域颜色。</div>
+<div class="line">格式为24bit RGB888。</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>u32Layer</p></td>
+<td><div class="line-block">
+<div class="line">区域层次。</div>
+<div class="line">目前不支持。</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>enCoordinate</p></td>
+<td><p>区域坐标类型。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="coverex-chn-attr-s">
+<h2><span class="section-number">9.4.51. </span>COVEREX_CHN_ATTR_S<a class="headerlink" href="Data_Types.html#coverex-chn-attr-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义COVEREX区域的通道属性。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_COVEREX_CHN_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">RGN_AREA_TYPE_E</span><span class="w"> </span><span class="n">enCoverType</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">union</span> <span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">RECT_S</span><span class="w"> </span><span class="n">stRect</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">RGN_QUADRANGLE_S</span><span class="w"> </span><span class="n">stQuadRangle</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">};</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32Color</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32Layer</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">COVEREX_CHN_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>enCoverType</p></td>
+<td><p>COVEREX区域类型。</p></td>
+</tr>
+<tr class="row-odd"><td><p>stRect</p></td>
+<td><div class="line-block">
+<div class="line">区域位置和宽高。</div>
+<div class="line">位置可为负数，矩形在通道的范围以外的部分会看不到。</div>
+<div class="line">宽高不可超过通道的大小。</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>stQuadRangle</p></td>
+<td><p>任意四边形区域，尚未支持。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32Color</p></td>
+<td><div class="line-block">
+<div class="line">COVEREX区域颜色。</div>
+<div class="line">格式为24bit RGB888。</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>u32Layer</p></td>
+<td><p>区域层次。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="overlay-attr-s">
+<h2><span class="section-number">9.4.52. </span>OVERLAY_ATTR_S<a class="headerlink" href="Data_Types.html#overlay-attr-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义视频迭加区域的属性。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_OVERLAY_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">PIXEL_FORMAT_E</span><span class="w"> </span><span class="n">enPixelFormat</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32BgColor</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">SIZE_S</span><span class="w"> </span><span class="n">stSize</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32CanvasNum</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bFlip</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bMirror</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">OSD_COMPRESS_INFO_S</span><span class="w"> </span><span class="n">stCompressInfo</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">OVERLAY_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>enPixelFormat</p></td>
+<td><div class="line-block">
+<div class="line">像素格式。</div>
+<div class="line">PIXEL_FORMAT_ARGB_1555,</div>
+<div class="line">PIXEL_FORMAT_ARGB_4444,</div>
+<div class="line">PIXEL_FORMAT_ARGB_8888。</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>u32BgColor</p></td>
+<td><div class="line-block">
+<div class="line">区域背景色。</div>
+<div class="line">根据enPixelFormat定义。</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>stSize</p></td>
+<td><p>区域宽高。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32CanvasNum</p></td>
+<td><p>区域内存数量。</p></td>
+</tr>
+<tr class="row-even"><td><p>bFlip</p></td>
+<td><div class="line-block">
+<div class="line">OSD内容是否翻转。</div>
+<div class="line">仅支持DUAL OS。</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>bMirror</p></td>
+<td><div class="line-block">
+<div class="line">OSD内容是否镜像。</div>
+<div class="line">仅支持DUAL OS。</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>stCompressInfo</p></td>
+<td><p>OSD压缩模式属性。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<ul>
+<li><p>stSize会影响区域分配的内存大小，建议不要大于最终链接通道的宽高，以免浪费内存。</p></li>
+<li><div class="line-block">
+<div class="line">u32CanvasNum根据使用情况决定。</div>
+<div class="line">若使用 <a class="reference internal" href="API_Reference.html#ref-cvi-rgn-setbitmap"><span class="std std-ref">CVI_RGN_SetBitMap</span></a>，为1即可。</div>
+<div class="line">若使用 <a class="reference internal" href="API_Reference.html#ref-cvi-rgn-getcanvasinfo"><span class="std std-ref">CVI_RGN_GetCanvasInfo</span></a>，希望double buffer避免更新过程中的瞬时，则建议为2。</div>
+</div>
+</li>
+</ul>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="overlay-chn-attr-s">
+<h2><span class="section-number">9.4.53. </span>OVERLAY_CHN_ATTR_S<a class="headerlink" href="Data_Types.html#overlay-chn-attr-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义视频迭加区域的通道属性。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_OVERLAY_CHN_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">POINT_S</span><span class="w"> </span><span class="n">stPoint</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32Layer</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">OVERLAY_INVERT_COLOR_S</span><span class="w"> </span><span class="n">stInvertColor</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">OVERLAY_CHN_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>stPoint</p></td>
+<td><div class="line-block">
+<div class="line">区域位置和宽高。</div>
+<div class="line">位置可为负数，矩形在通道的范围以外的部分会看不到。</div>
+<div class="line">宽高不可超过通道的大小。</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>u32Layer</p></td>
+<td><div class="line-block">
+<div class="line">区域层次。</div>
+<div class="line">目前不支持。</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>stInvertColor</p></td>
+<td><p>颜色反转结构体。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="overlayex-attr-s">
+<h2><span class="section-number">9.4.54. </span>OVERLAYEX_ATTR_S<a class="headerlink" href="Data_Types.html#overlayex-attr-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义扩展视频迭加区域的属性。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_OVERLAYEX_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">PIXEL_FORMAT_E</span><span class="w"> </span><span class="n">enPixelFormat</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32BgColor</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">SIZE_S</span><span class="w"> </span><span class="n">stSize</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32CanvasNum</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bFlip</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bMirror</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">OSD_COMPRESS_INFO_S</span><span class="w"> </span><span class="n">stCompressInfo</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">OVERLAYEX_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>enPixelFormat</p></td>
+<td><div class="line-block">
+<div class="line">像素格式。</div>
+<div class="line">PIXEL_FORMAT_ARGB_1555,</div>
+<div class="line">PIXEL_FORMAT_ARGB_4444,</div>
+<div class="line">PIXEL_FORMAT_ARGB_8888。</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>u32BgColor</p></td>
+<td><div class="line-block">
+<div class="line">区域背景色。</div>
+<div class="line">根据enPixelFormat定义。</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>stSize</p></td>
+<td><p>区域宽高。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32CanvasNum</p></td>
+<td><p>区域内存数量。</p></td>
+</tr>
+<tr class="row-even"><td><p>bFlip</p></td>
+<td><div class="line-block">
+<div class="line">OSD内容是否翻转。</div>
+<div class="line">仅支持DUAL OS。</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>bMirror</p></td>
+<td><div class="line-block">
+<div class="line">OSD内容是否镜像。</div>
+<div class="line">仅支持DUAL OS。</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>stCompressInfo</p></td>
+<td><p>OSD压缩模式属性。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<ul>
+<li><p>stSize会影响区域分配的内存大小，建议不要大于最终链接通道的宽高，以免浪费内存。</p></li>
+<li><div class="line-block">
+<div class="line">u32CanvasNum根据使用情况决定。</div>
+<div class="line">若使用 <a class="reference internal" href="API_Reference.html#ref-cvi-rgn-setbitmap"><span class="std std-ref">CVI_RGN_SetBitMap</span></a>，为1即可。</div>
+<div class="line">若使用 <a class="reference internal" href="API_Reference.html#ref-cvi-rgn-getcanvasinfo"><span class="std std-ref">CVI_RGN_GetCanvasInfo</span></a>，希望double buffer避免更新过程中的瞬时，则建议为2。</div>
+</div>
+</li>
+</ul>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="overlayex-chn-attr-s">
+<h2><span class="section-number">9.4.55. </span>OVERLAYEX_CHN_ATTR_S<a class="headerlink" href="Data_Types.html#overlayex-chn-attr-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义扩展视频迭加区域的通道属性。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_OVERLAYEX_CHN_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">POINT_S</span><span class="w"> </span><span class="n">stPoint</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32Layer</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">OVERLAY_INVERT_COLOR_S</span><span class="w"> </span><span class="n">stInvertColor</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">OVERLAYEX_CHN_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>stPoint</p></td>
+<td><div class="line-block">
+<div class="line">区域位置和宽高。</div>
+<div class="line">位置可为负数，矩形在通道的范围以外的部分会看不到。</div>
+<div class="line">宽高不可超过通道的大小。</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>u32Layer</p></td>
+<td><p>区域层次。</p></td>
+</tr>
+<tr class="row-even"><td><p>stInvertColor</p></td>
+<td><p>颜色反转结构体。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-attr-u">
+<h2><span class="section-number">9.4.56. </span>RGN_ATTR_U<a class="headerlink" href="Data_Types.html#rgn-attr-u" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义区域属性联合体。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="k">typedef</span><span class="w"> </span><span class="k">union</span> <span class="nc">_RGN_ATTR_U</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">OVERLAY_ATTR_S</span><span class="w"> </span><span class="n">stOverlay</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">OVERLAYEX_ATTR_S</span><span class="w"> </span><span class="n">stOverlayEx</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">RGN_ATTR_U</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>stOverlay</p></td>
+<td><p>视频迭加区域属性。</p></td>
+</tr>
+<tr class="row-odd"><td><p>stOverlayEx</p></td>
+<td><p>扩展视频迭加区域属性。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>仅有RGN_TYPE_E为Overlay/OverlayEx时，需设置此属性。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-chn-attr-u">
+<h2><span class="section-number">9.4.57. </span>RGN_CHN_ATTR_U<a class="headerlink" href="Data_Types.html#rgn-chn-attr-u" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义区域通道属性联合体。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">union</span> <span class="nc">_RGN_CHN_ATTR_U</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">OVERLAY_CHN_ATTR_S</span><span class="w"> </span><span class="n">stOverlayChn</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">COVER_CHN_ATTR_S</span><span class="w"> </span><span class="n">stCoverChn</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">COVEREX_CHN_ATTR_S</span><span class="w"> </span><span class="n">stCoverExChn</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">OVERLAYEX_CHN_ATTR_S</span><span class="w"> </span><span class="n">stOverlayExChn</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">MOSAIC_CHN_ATTR_S</span><span class="w"> </span><span class="n">stMosaicChn</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">RGN_CHN_ATTR_U</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>stOverlayChn</p></td>
+<td><p>视频迭加区域通道属性。</p></td>
+</tr>
+<tr class="row-odd"><td><p>stCoverChn</p></td>
+<td><p>遮挡区域通道属性。</p></td>
+</tr>
+<tr class="row-even"><td><p>stCoverExChn</p></td>
+<td><p>扩展遮挡区域通道属性。</p></td>
+</tr>
+<tr class="row-odd"><td><p>stOverlayExChn</p></td>
+<td><p>扩展视频迭加区域通道属性。</p></td>
+</tr>
+<tr class="row-even"><td><p>stMosaicChn</p></td>
+<td><p>Mosaic区域通道属性。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-attr-s">
+<h2><span class="section-number">9.4.58. </span>RGN_ATTR_S<a class="headerlink" href="Data_Types.html#rgn-attr-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义区域属性结构体。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_RGN_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">RGN_TYPE_E</span><span class="w"> </span><span class="n">enType</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">RGN_ATTR_U</span><span class="w"> </span><span class="n">unAttr</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">RGN_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>enType</p></td>
+<td><p>区域类型。</p></td>
+</tr>
+<tr class="row-odd"><td><p>unAttr</p></td>
+<td><p>区域属性联合体。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-chn-attr-s">
+<h2><span class="section-number">9.4.59. </span>RGN_CHN_ATTR_S<a class="headerlink" href="Data_Types.html#rgn-chn-attr-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义区域通道属性结构体。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_RGN_CHN_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bShow</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">RGN_TYPE_E</span><span class="w"> </span><span class="n">enType</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">RGN_CHN_ATTR_U</span><span class="w"> </span><span class="n">unChnAttr</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">RGN_CHN_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>bShow</p></td>
+<td><p>区域是否显示。</p></td>
+</tr>
+<tr class="row-odd"><td><p>enType</p></td>
+<td><p>区域类型。</p></td>
+</tr>
+<tr class="row-even"><td><p>unChnAttr</p></td>
+<td><p>区域通道属性联合体。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-coordinate-e">
+<h2><span class="section-number">9.4.60. </span>RGN_COORDINATE_E<a class="headerlink" href="Data_Types.html#rgn-coordinate-e" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义坐标类型。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_RGN_COORDINATE_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">RGN_ABS_COOR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">RGN_RATIO_COOR</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">RGN_COORDINATE_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>RGN_ABS_COOR</p></td>
+<td><p>绝对坐标。</p></td>
+</tr>
+<tr class="row-odd"><td><p>RGN_RATIO_COOR</p></td>
+<td><p>相对坐标。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-quadrangle-s">
+<h2><span class="section-number">9.4.61. </span>RGN_QUADRANGLE_S<a class="headerlink" href="Data_Types.html#rgn-quadrangle-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义任意四边形结构体。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_RGN_QUADRANGLE_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bSolid</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32Thick</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">POINT_S</span><span class="w"> </span><span class="n">stPoint</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">RGN_QUADRANGLE_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>bSolid</p></td>
+<td><p>实心四边形或虚心四边形。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32Thick</p></td>
+<td><p>四边形的线宽，当虚心四边形时有效。</p></td>
+</tr>
+<tr class="row-even"><td><p>stPoint[4]</p></td>
+<td><p>任意四边形四个点坐标。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>目前不支持。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="mosaic-blk-size-e">
+<h2><span class="section-number">9.4.62. </span>MOSAIC_BLK_SIZE_E<a class="headerlink" href="Data_Types.html#mosaic-blk-size-e" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义MOSAIC区域的块大小类型。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_MOSAIC_BLK_SIZE_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">MOSAIC_BLK_SIZE_8</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">MOSAIC_BLK_SIZE_16</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">MOSAIC_BLK_SIZE_BUTT</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">MOSAIC_BLK_SIZE_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>MOSAIC_BLK_SIZE_8</p></td>
+<td><p>8*8 大小。</p></td>
+</tr>
+<tr class="row-odd"><td><p>MOSAIC_BLK_SIZE_16</p></td>
+<td><p>16*16 大小。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>同一通道上的马赛克必须具有相同的块大小。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="mosaic-chn-attr-s">
+<h2><span class="section-number">9.4.63. </span>MOSAIC_CHN_ATTR_S<a class="headerlink" href="Data_Types.html#mosaic-chn-attr-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义MOSAIC区域通道属性。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_MOSAIC_CHN_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">RECT_S</span><span class="w"> </span><span class="n">stRect</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">MOSAIC_BLK_SIZE_E</span><span class="w"> </span><span class="n">enBlkSize</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32Layer</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">MOSAIC_CHN_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>stRect</p></td>
+<td><div class="line-block">
+<div class="line">区域位置和宽高。</div>
+<div class="line">位置可为负数，矩形在通道的范围以外的部分会看不到。</div>
+<div class="line">宽高不可超过通道的大小。</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>enBlkSize</p></td>
+<td><p>MOSAIC区域的块大小。</p></td>
+</tr>
+<tr class="row-even"><td><p>u32Layer</p></td>
+<td><div class="line-block">
+<div class="line">区域层次。</div>
+<div class="line">目前不支持。</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="invert-color-mode-e">
+<h2><span class="section-number">9.4.64. </span>INVERT_COLOR_MODE_E<a class="headerlink" href="Data_Types.html#invert-color-mode-e" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义OSD反色模式。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_INVERT_COLOR_MODE_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">LESSTHAN_LUM_THRESH</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">MORETHAN_LUM_THRESH</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">INVERT_COLOR_BUTT</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">INVERT_COLOR_MODE_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>LESSTHAN_LUM_THRESH</p></td>
+<td><p>当视频背景亮度均值小于亮度阈值时触发反色。</p></td>
+</tr>
+<tr class="row-odd"><td><p>MORETHAN_LUM_THRESH</p></td>
+<td><p>当视频背景亮度均值大于亮度阈值时触发反色。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>目前不支持。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="overlay-invert-color-s">
+<h2><span class="section-number">9.4.65. </span>OVERLAY_INVERT_COLOR_S<a class="headerlink" href="Data_Types.html#overlay-invert-color-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义OSD反色属性。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_OVERLAY_INVERT_COLOR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">SIZE_S</span><span class="w"> </span><span class="n">stInvColArea</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32LumThresh</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">INVERT_COLOR_MODE_E</span><span class="w"> </span><span class="n">enChgMod</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bInvColEn</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">OVERLAY_INVERT_COLOR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>stInvColArea</p></td>
+<td><p>反色区域大小。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32LumThresh</p></td>
+<td><p>亮度阈值。</p></td>
+</tr>
+<tr class="row-even"><td><p>enChgMod</p></td>
+<td><p>OSD反色模式。</p></td>
+</tr>
+<tr class="row-odd"><td><p>bInvColEn</p></td>
+<td><p>反色开关。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>目前不支持。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-cmpr-type-e">
+<h2><span class="section-number">9.4.66. </span>RGN_CMPR_TYPE_E<a class="headerlink" href="Data_Types.html#rgn-cmpr-type-e" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义区域压缩类型。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_RGN_CMPR_TYPE_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">RGN_CMPR_RECT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">RGN_CMPR_BIT_MAP</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">RGN_CMPR_LINE</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">RGN_CMPR_BUTT</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">RGN_CMPR_TYPE_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>RGN_CMPR_RECT</p></td>
+<td><p>矩形压缩。</p></td>
+</tr>
+<tr class="row-odd"><td><p>RGN_CMPR_BIT_MAP</p></td>
+<td><p>位图压缩。</p></td>
+</tr>
+<tr class="row-even"><td><p>RGN_CMPR_LINE</p></td>
+<td><p>线条压缩。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-line-attr-s">
+<h2><span class="section-number">9.4.67. </span>RGN_LINE_ATTR_S<a class="headerlink" href="Data_Types.html#rgn-line-attr-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义线条属性。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_RGN_LINE_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">POINT_S</span><span class="w"> </span><span class="n">stPointStart</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">POINT_S</span><span class="w"> </span><span class="n">stPointEnd</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32Thick</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32Color</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">RGN_LINE_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>stPointStart</p></td>
+<td><p>线条起始点。</p></td>
+</tr>
+<tr class="row-odd"><td><p>stPointEnd</p></td>
+<td><p>线条终点。</p></td>
+</tr>
+<tr class="row-even"><td><p>u32Thick</p></td>
+<td><p>线条宽度。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32Color</p></td>
+<td><p>线条颜色。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-rect-attr-s">
+<h2><span class="section-number">9.4.68. </span>RGN_RECT_ATTR_S<a class="headerlink" href="Data_Types.html#rgn-rect-attr-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义矩形属性。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_RGN_RECT_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">RECT_S</span><span class="w"> </span><span class="n">stRect</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32Thick</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32Color</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32IsFill</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">RGN_RECT_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>stRect</p></td>
+<td><div class="line-block">
+<div class="line">区域位置和宽高。</div>
+<div class="line">位置可为负数，矩形在通道的范围以外的部分会看不到。</div>
+<div class="line">宽高不可超过通道的大小。</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>u32Thick</p></td>
+<td><p>矩形的线宽。</p></td>
+</tr>
+<tr class="row-even"><td><p>u32Color</p></td>
+<td><p>矩形的颜色。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32IsFill</p></td>
+<td><p>是否填充矩形。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-bitmap-attr-s">
+<h2><span class="section-number">9.4.69. </span>RGN_BITMAP_ATTR_S<a class="headerlink" href="Data_Types.html#rgn-bitmap-attr-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义位图属性。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_RGN_BITMAP_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">RECT_S</span><span class="w"> </span><span class="n">stRect</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32BitmapPAddr</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">RGN_BITMAP_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>stRect</p></td>
+<td><div class="line-block">
+<div class="line">区域位置和宽高。</div>
+<div class="line">位置可为负数，矩形在通道的范围以外的部分会看不到。</div>
+<div class="line">宽高不可超过通道的大小。</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>u32BitmapPAddr</p></td>
+<td><p>位图的物理地址。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-cmpr-obj-attr-s">
+<h2><span class="section-number">9.4.70. </span>RGN_CMPR_OBJ_ATTR_S<a class="headerlink" href="Data_Types.html#rgn-cmpr-obj-attr-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义压缩对象属性。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_RGN_CMPR_OBJ_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">RGN_CMPR_TYPE_E</span><span class="w"> </span><span class="n">enObjType</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">union</span> <span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">RGN_LINE_ATTR_S</span><span class="w"> </span><span class="n">stLine</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">RGN_RECT_ATTR_S</span><span class="w"> </span><span class="n">stRgnRect</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">RGN_BITMAP_ATTR_S</span><span class="w"> </span><span class="n">stBitmap</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">};</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">RGN_CMPR_OBJ_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>enObjType</p></td>
+<td><p>压缩对象类型。</p></td>
+</tr>
+<tr class="row-odd"><td><p>stLine</p></td>
+<td><p>线条属性。</p></td>
+</tr>
+<tr class="row-even"><td><p>stRgnRect</p></td>
+<td><p>矩形属性。</p></td>
+</tr>
+<tr class="row-odd"><td><p>stBitmap</p></td>
+<td><p>位图属性。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-canvas-cmpr-attr-s">
+<h2><span class="section-number">9.4.71. </span>RGN_CANVAS_CMPR_ATTR_S<a class="headerlink" href="Data_Types.html#rgn-canvas-cmpr-attr-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义画布压缩属性。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_RGN_CANVAS_CMPR_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32Width</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32Height</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32BgColor</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">PIXEL_FORMAT_E</span><span class="w"> </span><span class="n">enPixelFormat</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32BsSize</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32ObjNum</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">RGN_CANVAS_CMPR_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>u32Width</p></td>
+<td><p>画布宽度。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32Height</p></td>
+<td><p>画布高度。</p></td>
+</tr>
+<tr class="row-even"><td><p>u32BgColor</p></td>
+<td><p>背景色。</p></td>
+</tr>
+<tr class="row-odd"><td><p>enPixelFormat</p></td>
+<td><p>像素格式。</p></td>
+</tr>
+<tr class="row-even"><td><p>u32BsSize</p></td>
+<td><p>基本大小。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32ObjNum</p></td>
+<td><p>对象编号。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-canvas-info-s">
+<h2><span class="section-number">9.4.72. </span>RGN_CANVAS_INFO_S<a class="headerlink" href="Data_Types.html#rgn-canvas-info-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义画布信息。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_RGN_CANVAS_INFO_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U64</span><span class="w"> </span><span class="n">u64PhyAddr</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U8</span><span class="w"> </span><span class="o">*</span><span class="n">pu8VirtAddr</span><span class="p">;</span><span class="w"></span>
+<span class="cp">#ifdef __arm__</span>
+<span class="w">  </span><span class="n">__u32</span><span class="w"> </span><span class="n">padding</span><span class="p">;</span><span class="w"> </span><span class="cm">/* padding for keeping same size of this structure */</span><span class="w"></span>
+<span class="cp">#endif</span>
+<span class="w">  </span><span class="n">SIZE_S</span><span class="w"> </span><span class="n">stSize</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32Stride</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">PIXEL_FORMAT_E</span><span class="w"> </span><span class="n">enPixelFormat</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bCompressed</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32CompressedSize</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">OSD_COMPRESS_MODE_E</span><span class="w"> </span><span class="n">enOSDCompressMode</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">RGN_CANVAS_CMPR_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstCanvasCmprAttr</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">RGN_CMPR_OBJ_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstObjAttr</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">RGN_CANVAS_INFO_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>u64PhyAddr</p></td>
+<td><p>物理地址。</p></td>
+</tr>
+<tr class="row-odd"><td><p>pu8VirtAddr</p></td>
+<td><p>虚拟地址。</p></td>
+</tr>
+<tr class="row-even"><td><p>stSize</p></td>
+<td><p>画布大小。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32Stride</p></td>
+<td><p>步幅。</p></td>
+</tr>
+<tr class="row-even"><td><p>enPixelFormat</p></td>
+<td><p>像素格式。</p></td>
+</tr>
+<tr class="row-odd"><td><p>bCompressed</p></td>
+<td><p>画布是否被压缩。</p></td>
+</tr>
+<tr class="row-even"><td><p>u32CompressedSize</p></td>
+<td><p>画布压缩后的大小。</p></td>
+</tr>
+<tr class="row-odd"><td><p>enOSDCompressMode</p></td>
+<td><p>OSD压缩模式。</p></td>
+</tr>
+<tr class="row-even"><td><p>pstCanvasCmprAttr</p></td>
+<td><p>画布压缩属性。</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstObjAttr</p></td>
+<td><p>压缩对象属性。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-rgbquard-s">
+<h2><span class="section-number">9.4.73. </span>RGN_RGBQUARD_S<a class="headerlink" href="Data_Types.html#rgn-rgbquard-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义调色盘颜色。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_RGN_RGBQUAD</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">argbAlpha</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">argbRed</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">argbGreen</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">argbBlue</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">RGN_RGBQUARD_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>argbAlpha</p></td>
+<td><p>Alpha通道。</p></td>
+</tr>
+<tr class="row-odd"><td><p>argbRed</p></td>
+<td><p>红色通道。</p></td>
+</tr>
+<tr class="row-even"><td><p>argbGreen</p></td>
+<td><p>绿色通道。</p></td>
+</tr>
+<tr class="row-odd"><td><p>argbBlue</p></td>
+<td><p>蓝色通道。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-color-fmt-e">
+<h2><span class="section-number">9.4.74. </span>RGN_COLOR_FMT_E<a class="headerlink" href="Data_Types.html#rgn-color-fmt-e" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 OSD 支持的颜色格式。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_RGN_COLOR_FMT_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">RGN_COLOR_FMT_RGB444</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">RGN_COLOR_FMT_RGB4444</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">RGN_COLOR_FMT_RGB555</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">RGN_COLOR_FMT_RGB565</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">RGN_COLOR_FMT_RGB1555</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">RGN_COLOR_FMT_RGB888</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">RGN_COLOR_FMT_RGB8888</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">RGN_COLOR_FMT_ARGB4444</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">RGN_COLOR_FMT_ARGB1555</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">RGN_COLOR_FMT_ARGB8888</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">RGN_COLOR_FMT_BUTT</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">RGN_COLOR_FMT_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>RGN_COLOR_FMT_RGB444</p></td>
+<td><p>RGB444格式。</p></td>
+</tr>
+<tr class="row-odd"><td><p>RGN_COLOR_FMT_RGB4444</p></td>
+<td><p>RGB4444格式。</p></td>
+</tr>
+<tr class="row-even"><td><p>RGN_COLOR_FMT_RGB555</p></td>
+<td><p>RGB555格式。</p></td>
+</tr>
+<tr class="row-odd"><td><p>RGN_COLOR_FMT_RGB565</p></td>
+<td><p>RGB565格式。</p></td>
+</tr>
+<tr class="row-even"><td><p>RGN_COLOR_FMT_RGB1555</p></td>
+<td><p>RGB1555格式。</p></td>
+</tr>
+<tr class="row-odd"><td><p>RGN_COLOR_FMT_RGB888</p></td>
+<td><p>RGB888格式。</p></td>
+</tr>
+<tr class="row-even"><td><p>RGN_COLOR_FMT_RGB8888</p></td>
+<td><p>RGB8888格式。</p></td>
+</tr>
+<tr class="row-odd"><td><p>RGN_COLOR_FMT_ARGB4444</p></td>
+<td><p>ARGB4444格式。</p></td>
+</tr>
+<tr class="row-even"><td><p>RGN_COLOR_FMT_ARGB1555</p></td>
+<td><p>ARGB1555格式。</p></td>
+</tr>
+<tr class="row-odd"><td><p>RGN_COLOR_FMT_ARGB8888</p></td>
+<td><p>ARGB8888格式。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<section id="rgn-palette-s">
+<h2><span class="section-number">9.4.75. </span>RGN_PALETTE_S<a class="headerlink" href="Data_Types.html#rgn-palette-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义调色盘属性。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_RGN_PALETTE</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">RGN_RGBQUARD_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstPaletteTable</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">lut_length</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">RGN_COLOR_FMT_E</span><span class="w"> </span><span class="n">pixelFormat</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">RGN_PALETTE_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>pstPaletteTable</p></td>
+<td><p>调色盘表。</p></td>
+</tr>
+<tr class="row-odd"><td><p>lut_length</p></td>
+<td><p>颜色查找表的长度。</p></td>
+</tr>
+<tr class="row-even"><td><p>pixelFormat</p></td>
+<td><p>OSD支持的颜色格式。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="API_Reference.html" class="btn btn-neutral float-left" title="9.3. API参考" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Error_Codes.html" class="btn btn-neutral float-right" title="9.5. 错误码" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

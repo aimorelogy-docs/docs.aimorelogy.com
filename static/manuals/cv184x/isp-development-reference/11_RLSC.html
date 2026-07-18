@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>11. RLSC &mdash; ISPDevelopmentReference master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="12. CCM" href="12_CCM.html" />
+    <link rel="prev" title="10. LSC" href="10_LSC.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> ISPDevelopmentReference
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Preface.html">2. 概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_System_Control.html">3. 系统控制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_AE.html">4. AE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_AWB.html">5. AWB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_AF.html">6. AF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_IMP.html">7. IMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_BlackLevel.html">8. BLC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_DPC.html">9. DPC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_LSC.html">10. LSC</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="11_RLSC.html#">11. RLSC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="11_RLSC.html#id1">11.1. 功能描述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_RLSC.html#api">11.2. API 参考</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="11_RLSC.html#cvi-isp-setradialshadingattr">11.2.1. CVI_ISP_SetRadialShadingAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_RLSC.html#cvi-isp-getradialshadingattr">11.2.2. CVI_ISP_GetRadialShadingAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_RLSC.html#cvi-isp-setradialshadinggainlutattr">11.2.3. CVI_ISP_SetRadialShadingGainLutAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_RLSC.html#cvi-isp-getradialshadinggainlutattr">11.2.4. CVI_ISP_GetRadialShadingGainLutAttr</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="11_RLSC.html#id2">11.3. 数据类型</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="11_RLSC.html#isp-radial-shading-manual-attr-s">11.3.1. ISP_RADIAL_SHADING_MANUAL_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_RLSC.html#isp-radial-shading-auto-attr-s">11.3.2. ISP_RADIAL_SHADING_AUTO_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_RLSC.html#isp-radial-shading-attr-s">11.3.3. ISP_RADIAL_SHADING_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_RLSC.html#isp-radial-shading-gain-lut-attr-s">11.3.4. ISP_RADIAL_SHADING_GAIN_LUT_ATTR_S</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="12_CCM.html">12. CCM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_Noise_Profile.html">13. Noise profile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_BNR.html">14. BNR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15_CNR.html">15. CNR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="16_TNR.html">16. TNR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="17_Crosstalk.html">17. Crosstalk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18_Demosaic.html">18. DEMOSAIC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19_Sharpen.html">19. SHARPEN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="20_PreSharpen.html">20. PRESHARPEN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21_RGB_Gamma.html">21. RGBGAMMA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="22_DCI.html">22. DCI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="23_LDCI.html">23. LDCI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="24_ColorTone.html">24. ColorTone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="25_Saturation.html">25. Saturation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="26_PFR.html">26. PFR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="27_FSHDR.html">27. FSHDR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="28_DRC.html">28. DRC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="29_Mono.html">29. MONO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="30_YCONTRAST.html">30. YCONTRAST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="31_CA.html">31. CA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="32_CA2.html">32. CA2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="33_CLUT.html">33. CLUT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="34_CSC.html">34. CSC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="35_VC.html">35. VC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="36_Statistical_Information.html">36. 统计讯息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="37_Query_Internal_Status_Messages.html">37. 查询内部状态消息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="38_Debug.html">38. Debug</a></li>
+<li class="toctree-l1"><a class="reference internal" href="39_Error_Code.html">39. 错误码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="40_3A_Development_User_Guide_Overview.html">40. 3A 开发指南概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="41_3A_Development_User_Guide.html">41. 3A 开发用户指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="42_Developer_Guide.html">42. 开发者指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="43_Appendix.html">43. 附录</a></li>
+<li class="toctree-l1"><a class="reference internal" href="44_Abbreviations.html">44. 缩略语</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ISPDevelopmentReference</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">11. </span>RLSC</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/11_RLSC.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="rlsc">
+<h1><span class="section-number">11. </span>RLSC<a class="headerlink" href="11_RLSC.html#rlsc" title="永久链接至标题">¶</a></h1>
+<section id="id1">
+<h2><span class="section-number">11.1. </span>功能描述<a class="headerlink" href="11_RLSC.html#id1" title="永久链接至标题">¶</a></h2>
+<p>LSC，即Lens shading correction，镜头阴影校正。</p>
+<p>在 cv184x 系列中，LSC会分成两个部分：一个是LSC，即MLSC（Mesh Lens shading correction），主要用来校正Color Shading。在处理器中 LSC 算法使用网格方法对图像先做标定，然后矫正，算法会将Bayer上的域画面划分成 37×37 个子区块。Bayer域四个通道由三组不同的RGB增益数组来做计算。由于只做颜色上的校正，所以一般G通道的增益保持一倍的设定，即512。当标定MLSC组数为复数组时，则会根据当前的色温选出邻近的两色温之MLSC标定表进行内插，产生对应当前色温的MLSC增益。标定的组数则由 LscGainLutSize 参数定义之。</p>
+<p>另一个是RLSC（Radius Lens shading correction），主要用来校正Luma Shading。在LSC算法中，会以画面的亮度中心为圆心，各像素点和圆心之间的距离为半径，做不同程度亮度补偿。一般离亮度中心越远，补偿强度越大。</p>
+<p>这里主要介绍RLSC的相关API和数据结构，MLSC 已经在上一章节介绍。</p>
+</section>
+<section id="api">
+<h2><span class="section-number">11.2. </span>API 参考<a class="headerlink" href="11_RLSC.html#api" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="11_RLSC.html#cvi-isp-setradialshadingattr">CVI_ISP_SetRadialShadingAttr</a> ： 设置Radius Shading算法参数</p></li>
+<li><p><a class="reference internal" href="11_RLSC.html#cvi-isp-getradialshadingattr">CVI_ISP_GetRadialShadingAttr</a> ： 获取Radius Shading算法参数</p></li>
+<li><p><a class="reference internal" href="11_RLSC.html#cvi-isp-setradialshadinggainlutattr">CVI_ISP_SetRadialShadingGainLutAttr</a> ： 设置LSC 半径形式补偿增益表</p></li>
+<li><p><a class="reference internal" href="11_RLSC.html#cvi-isp-getradialshadinggainlutattr">CVI_ISP_GetRadialShadingGainLutAttr</a> ： 获取LSC 半径形式补偿增益表</p></li>
+</ul>
+<section id="cvi-isp-setradialshadingattr">
+<h3><span class="section-number">11.2.1. </span>CVI_ISP_SetRadialShadingAttr<a class="headerlink" href="11_RLSC.html#cvi-isp-setradialshadingattr" title="永久链接至标题">¶</a></h3>
+<p>【描述】</p>
+<blockquote>
+<div><p>设置Radius Shading算法参数</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_SetRadialShadingAttr</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ISP_RADIAL_SHADING_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstRadialShadingAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>VI_PIPE 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstRadialShadingAttr</p></td>
+<td><p>Radius Shading算法参数</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，其值为 <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件: cvi_isp.h, cvi_comm_isp.h</p></li>
+<li><p>库文件: libisp.so</p></li>
+</ul>
+<p>【注意】</p>
+<p>无</p>
+<p>【举例】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="n">ISP_RADIAL_SHADING_ATTR_S</span><span class="w"> </span><span class="n">stAttr</span><span class="p">;</span><span class="w"></span>
+<span class="n">CVI_ISP_GetRadialShadingAttr</span><span class="p">(</span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">stAttr</span><span class="p">);</span><span class="w"></span>
+<span class="n">stAttr</span><span class="p">.</span><span class="n">enOpType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OP_TYPE_AUTO</span><span class="p">;</span><span class="w"></span>
+<span class="n">CVI_ISP_SetRadialShadingAttr</span><span class="p">(</span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">stAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="11_RLSC.html#cvi-isp-getradialshadingattr">CVI_ISP_GetRadialShadingAttr</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-getradialshadingattr">
+<h3><span class="section-number">11.2.2. </span>CVI_ISP_GetRadialShadingAttr<a class="headerlink" href="11_RLSC.html#cvi-isp-getradialshadingattr" title="永久链接至标题">¶</a></h3>
+<p>【描述】</p>
+<p>获取Radius Shading算法参数</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_GetRadialShadingAttr</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ISP_RADIAL_SHADING_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstRadialShadingAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>VI_PIPE 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstRadialShadingAttr</p></td>
+<td><p>Radius Shading算法参数</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，其值为 <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件: cvi_isp.h, cvi_comm_isp.h</p></li>
+<li><p>库文件: libisp.so</p></li>
+</ul>
+<p>【注意】</p>
+<p>无</p>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="11_RLSC.html#cvi-isp-setradialshadingattr">CVI_ISP_SetRadialShadingAttr</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-setradialshadinggainlutattr">
+<h3><span class="section-number">11.2.3. </span>CVI_ISP_SetRadialShadingGainLutAttr<a class="headerlink" href="11_RLSC.html#cvi-isp-setradialshadinggainlutattr" title="永久链接至标题">¶</a></h3>
+<p>【描述】</p>
+<blockquote>
+<div><p>设置LSC 半径形式补偿增益表</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_SetRadialShadingGainLutAttr</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ISP_RADIAL_SHADING_GAIN_LUT_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstRadialShadingGainLutAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>VI_PIPE 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstRadialShadingGainLutAttr</p></td>
+<td><p>LSC 半径形式补偿增益表</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，其值为 <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件: cvi_isp.h, cvi_comm_isp.h</p></li>
+<li><p>库文件: libisp.so</p></li>
+</ul>
+<p>【注意】</p>
+<p>无</p>
+<p>【举例】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="n">ISP_RADIAL_SHADING_GAIN_LUT_ATTR_S</span><span class="w"> </span><span class="n">stAttr</span><span class="p">;</span><span class="w"></span>
+<span class="n">CVI_ISP_GetRadialShadingGainLutAttr</span><span class="p">(</span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">stAttr</span><span class="p">);</span><span class="w"></span>
+<span class="n">stAttr</span><span class="p">.</span><span class="n">enOpType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OP_TYPE_AUTO</span><span class="p">;</span><span class="w"></span>
+<span class="n">CVI_ISP_SetRadialShadingGainLutAttr</span><span class="p">(</span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">stAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="11_RLSC.html#cvi-isp-getradialshadinggainlutattr">CVI_ISP_GetRadialShadingGainLutAttr</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-getradialshadinggainlutattr">
+<h3><span class="section-number">11.2.4. </span>CVI_ISP_GetRadialShadingGainLutAttr<a class="headerlink" href="11_RLSC.html#cvi-isp-getradialshadinggainlutattr" title="永久链接至标题">¶</a></h3>
+<p>【描述】</p>
+<p>获取LSC 半径形式补偿增益表</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_GetRadialShadingGainLutAttr</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ISP_RADIAL_SHADING_GAIN_LUT_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstRadialShadingGainLutAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>VI_PIPE 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstRadialShadingGainLutAttr</p></td>
+<td><p>LSC 半径形式补偿增益表</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，其值为 <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件: cvi_isp.h, cvi_comm_isp.h</p></li>
+<li><p>库文件: libisp.so</p></li>
+</ul>
+<p>【注意】</p>
+<p>无</p>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="11_RLSC.html#cvi-isp-setradialshadinggainlutattr">CVI_ISP_SetRadialShadingGainLutAttr</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id2">
+<h2><span class="section-number">11.3. </span>数据类型<a class="headerlink" href="11_RLSC.html#id2" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="11_RLSC.html#isp-radial-shading-manual-attr-s">ISP_RADIAL_SHADING_MANUAL_ATTR_S</a> ： 定义手动Radius Shading算法参数</p></li>
+<li><p><a class="reference internal" href="11_RLSC.html#isp-radial-shading-auto-attr-s">ISP_RADIAL_SHADING_AUTO_ATTR_S</a> ： 定义自动Radius Shading算法参数</p></li>
+<li><p><a class="reference internal" href="11_RLSC.html#isp-radial-shading-attr-s">ISP_RADIAL_SHADING_ATTR_S</a> ： 定义Radius Shading算法参数</p></li>
+<li><p><a class="reference internal" href="11_RLSC.html#isp-radial-shading-gain-lut-attr-s">ISP_RADIAL_SHADING_GAIN_LUT_ATTR_S</a> ： 定义LSC 半径形式补偿增益表</p></li>
+</ul>
+<section id="isp-radial-shading-manual-attr-s">
+<h3><span class="section-number">11.3.1. </span>ISP_RADIAL_SHADING_MANUAL_ATTR_S<a class="headerlink" href="11_RLSC.html#isp-radial-shading-manual-attr-s" title="永久链接至标题">¶</a></h3>
+<p>【说明】</p>
+<p>定义手动Radius Shading算法参数</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_RADIAL_SHADING_MANUAL_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">RadiusStr</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 4095]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">NDStr</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">NDThr</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_RADIAL_SHADING_MANUAL_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>RadiusStr</p></td>
+<td><p>RLSC的全局强度。</p>
+<p>取值范围： [0, 4095]</p>
+<p>数据类型： CVI_U16</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>NDStr</p></td>
+<td><p>调节噪声保留的强度，值越大，噪声保留越多。</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>NDThr</p></td>
+<td><p>允许保留噪声的最大值。</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="11_RLSC.html#cvi-isp-setradialshadingattr">CVI_ISP_SetRadialShadingAttr</a></p></li>
+<li><p><a class="reference internal" href="11_RLSC.html#cvi-isp-getradialshadingattr">CVI_ISP_GetRadialShadingAttr</a></p></li>
+</ul>
+</section>
+<section id="isp-radial-shading-auto-attr-s">
+<h3><span class="section-number">11.3.2. </span>ISP_RADIAL_SHADING_AUTO_ATTR_S<a class="headerlink" href="11_RLSC.html#isp-radial-shading-auto-attr-s" title="永久链接至标题">¶</a></h3>
+<p>【说明】</p>
+<p>定义自动Radius Shading算法参数</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_RADIAL_SHADING_AUTO_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">RadiusStr</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 4095]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">NDStr</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">NDThr</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_RADIAL_SHADING_AUTO_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>RadiusStr</p></td>
+<td><p>RLSC的全局强度。</p>
+<p>取值范围： [0, 4095]</p>
+<p>数据类型： CVI_U16</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>NDStr</p></td>
+<td><p>调节噪声保留的强度，值越大，噪声保留越多。</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>NDThr</p></td>
+<td><p>允许保留噪声的最大值。</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="11_RLSC.html#cvi-isp-setradialshadingattr">CVI_ISP_SetRadialShadingAttr</a></p></li>
+<li><p><a class="reference internal" href="11_RLSC.html#cvi-isp-getradialshadingattr">CVI_ISP_GetRadialShadingAttr</a></p></li>
+</ul>
+</section>
+<section id="isp-radial-shading-attr-s">
+<h3><span class="section-number">11.3.3. </span>ISP_RADIAL_SHADING_ATTR_S<a class="headerlink" href="11_RLSC.html#isp-radial-shading-attr-s" title="永久链接至标题">¶</a></h3>
+<p>【说明】</p>
+<p>定义Radius Shading算法参数</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_RADIAL_SHADING_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">Enable</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">ISP_OP_TYPE_E</span><span class="w"> </span><span class="n">enOpType</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">UpdateInterval</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">CenterX</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 8191]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">CenterY</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 8191]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">RadiusScaleRGB</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 32767]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">ISP_RADIAL_SHADING_MANUAL_ATTR_S</span><span class="w"> </span><span class="n">stManual</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">ISP_RADIAL_SHADING_AUTO_ATTR_S</span><span class="w"> </span><span class="n">stAuto</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_RADIAL_SHADING_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Enable</p></td>
+<td><p>模块使能开关</p>
+<p>取值范围： [0, 1]</p>
+<p>数据类型： CVI_BOOL</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>enOpType</p></td>
+<td><p>工作类型</p>
+<p>OP_TYPE_AUTO：自动模式</p>
+<p>OP_TYPE_MANUAL：手动模式</p>
+<p>数据类型： ISP_OP_TYPE_E</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>UpdateInterval</p></td>
+<td><p>影响参数更新间隔,值越大画面变化越慢,效能越好。</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>CenterX</p></td>
+<td><p>径向阴影校正的中心点 X 坐标。</p>
+<p>取值范围： [0, 8191]</p>
+<p>数据类型： CVI_U16</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>CenterY</p></td>
+<td><p>径向阴影校正的中心点 Y 坐标。</p>
+<p>取值范围： [0, 8191]</p>
+<p>数据类型： CVI_U16</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>RadiusScaleRGB</p></td>
+<td><p>控制径向阴影校正的半径缩放比例，影响 RGB 通道的校正范围。</p>
+<p>取值范围： [0, 32767]</p>
+<p>数据类型： CVI_U16</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>stManual</p></td>
+<td><p>手动参数</p></td>
+</tr>
+<tr class="row-odd"><td><p>stAuto</p></td>
+<td><p>自动参数</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="11_RLSC.html#cvi-isp-setradialshadingattr">CVI_ISP_SetRadialShadingAttr</a></p></li>
+<li><p><a class="reference internal" href="11_RLSC.html#cvi-isp-getradialshadingattr">CVI_ISP_GetRadialShadingAttr</a></p></li>
+</ul>
+</section>
+<section id="isp-radial-shading-gain-lut-attr-s">
+<h3><span class="section-number">11.3.4. </span>ISP_RADIAL_SHADING_GAIN_LUT_ATTR_S<a class="headerlink" href="11_RLSC.html#isp-radial-shading-gain-lut-attr-s" title="永久链接至标题">¶</a></h3>
+<p>【说明】</p>
+<p>定义LSC 半径形式补偿增益表</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_RADIAL_SHADING_GAIN_LUT_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">GGain</span><span class="p">[</span><span class="n">ISP_RLSC_WINDOW_SIZE</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 4095]*/</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_RADIAL_SHADING_GAIN_LUT_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>GGain</p></td>
+<td><p>亮度补偿增益表，由标定得来。</p>
+<p>取值范围： [0, 4095]</p>
+<p>数据类型： CVI_U16</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="11_RLSC.html#cvi-isp-setradialshadinggainlutattr">CVI_ISP_SetRadialShadingGainLutAttr</a></p></li>
+<li><p><a class="reference internal" href="11_RLSC.html#cvi-isp-getradialshadinggainlutattr">CVI_ISP_GetRadialShadingGainLutAttr</a></p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="10_LSC.html" class="btn btn-neutral float-left" title="10. LSC" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="12_CCM.html" class="btn btn-neutral float-right" title="12. CCM" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2025, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

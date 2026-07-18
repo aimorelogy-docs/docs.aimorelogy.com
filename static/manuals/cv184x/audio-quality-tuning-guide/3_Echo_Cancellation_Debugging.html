@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3. 回声消除调试 &mdash; AudioQualityTuningGuide master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="4. 常见问题：" href="4_FAQ.html" />
+    <link rel="prev" title="2. 介绍" href="2_Introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> AudioQualityTuningGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Introduction.html">2. 介绍</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="3_Echo_Cancellation_Debugging.html#">3. 回声消除调试</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3_Echo_Cancellation_Debugging.html#id2">3.1. 基本检测：</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_Echo_Cancellation_Debugging.html#id3">3.2. [回传参数(如果调试结果不理想状况下)]</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="4_FAQ.html">4. 常见问题：</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_VQE_Algorithm_Function_Introduction.html">5. VQE算法功能介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_Block_Diagram.html">6. Block Diagram:</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">AudioQualityTuningGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">3. </span>回声消除调试</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/3_Echo_Cancellation_Debugging.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">3. </span>回声消除调试<a class="headerlink" href="3_Echo_Cancellation_Debugging.html#id1" title="永久链接至标题">¶</a></h1>
+<section id="id2">
+<h2><span class="section-number">3.1. </span>基本检测：<a class="headerlink" href="3_Echo_Cancellation_Debugging.html#id2" title="永久链接至标题">¶</a></h2>
+<p>AEC调试上环境上有几个需求:涉及录音、播音、音量、测试环境.
+在基本需求满足后才是 AEC参数调试。</p>
+<p><strong>第一步：分别设置ADC，DAC的左右gain值:</strong></p>
+<p>在调整过程用户可能会需要分别调整左右mic 音量, 或是分别调整左右speaker音量, 可通过寄存器指令或sample_audio程序来设定。</p>
+<p>左右声道同时设置如下:</p>
+<p>./sample_audio 6 接着输入0, 8(音量值), 1(播音) 回车 <strong>speaker声道</strong></p>
+<p>./sample_audio 6 接着输入0, 8(音量值), 0(录音) 回车 <strong>mic录音音量</strong></p>
+<p>左右声道分开设置如下：</p>
+<p>speaker映射关系如下：</p>
+<p>1 ~ 32等级 (n * 0x10) - 1)  //-24db - 3db</p>
+<p>devmem 0x300a010 32 0x000F000F #(1 * 0x10) - 1)设置左音量值为1，设置右mic音量值为6。</p>
+<p>mic映射关系如下：</p>
+<p>devmem 0x0300a110 32 0x04000002 #设置左mic音量值为1，设置右mic音量值为6。左声道：低16bit, 右声道：高16bit。</p>
+<p>#define  ADC_VOL_GAIN_0  0x0001</p>
+<p>#define  ADC_VOL_GAIN_1  0x0002</p>
+<p>#define  ADC_VOL_GAIN_2  0x0004</p>
+<p>#define  ADC_VOL_GAIN_3  0x0008</p>
+<p>#define  ADC_VOL_GAIN_4  0x0010</p>
+<p>#define  ADC_VOL_GAIN_5  0x0020</p>
+<p>#define  ADC_VOL_GAIN_6  0x0040</p>
+<p>#define  ADC_VOL_GAIN_7  0x0080</p>
+<p>#define  ADC_VOL_GAIN_8  0x0100</p>
+<p>#define  ADC_VOL_GAIN_9  0x0200</p>
+<p>#define  ADC_VOL_GAIN_10  0x0400</p>
+<p>#define  ADC_VOL_GAIN_11  0x0800</p>
+<p>#define  ADC_VOL_GAIN_12  0x1000</p>
+<p>#define  ADC_VOL_GAIN_13  0x2400</p>
+<p>#define  ADC_VOL_GAIN_14  0x2800</p>
+<p>#define  ADC_VOL_GAIN_15  0x3000</p>
+<p>#define  ADC_VOL_GAIN_16  0x6400</p>
+<p>#define  ADC_VOL_GAIN_17  0x6800</p>
+<p>#define  ADC_VOL_GAIN_18  0x7000</p>
+<p>#define  ADC_VOL_GAIN_19  0xA400</p>
+<p>#define  ADC_VOL_GAIN_20  0xA800</p>
+<p>#define  ADC_VOL_GAIN_21  0xB000</p>
+<p>#define  ADC_VOL_GAIN_22  0xE400</p>
+<p>#define  ADC_VOL_GAIN_23  0xE800</p>
+<p>#define  ADC_VOL_GAIN_24  0xF000</p>
+<p><strong>第二步：确认录音和播放正常:</strong></p>
+<p>双向对讲前请先确认麦克风收音以及喇叭播音是正常的，可使用SDK内提供的</p>
+<p>sample_audio程序进行验证。</p>
+<p><strong>[录音正常测试]：</strong></p>
+<div class="line-block">
+<div class="line">./sample_audio 4 –list -r 8000 -R 8000 -c 2 -p 320 -C 0 -V 0 -F
+Cvi_8k_2chn.raw -T 10</div>
+<div class="line">对应参数值 (sample_rate: 8000/ channel : 2/ preriod_size:320/
+VQEon:0/<strong>预设录音秒数:10</strong>) ，然后对着mic说话 <strong>如朗读一段文字</strong>。</div>
+</div>
+<p>会产出Cvi_8k_2chn.raw 档案.</p>
+<p><strong>[验证]：</strong>请取出至计算机播放看是否有录音收音的波形.如：</p>
+<a class="reference internal image-reference" href="_images/EchoCa002.png"><img alt="_images/EchoCa002.png" src="_images/EchoCa002.png" style="width: 5in; height: 2.29167in;" /></a>
+<p>上面的 <strong>波形要适中不能超过上面那条白线否则就消波失真了！太大或者太小了可以在“预设录音秒数:10 ”按回车之前到ssh终端执行 sample audio 9 分别输入11回车选择设置ADCL子功能，再输入7回车。7这个gain值客户根据自己的波形实际情况设置</strong>。</p>
+<p><strong>[播放正常测试]：</strong></p>
+<p>./sample_audio 5 –list -r 8000 -R 8000 -c 2 -p 320 -C 0 -V 0 -F Cvi_8k_2chn.raw -T 10 语音播放参数.</p>
+<p>(channel:2/ sample rate:8000/period size:320/ VQE on:0)</p>
+<p><strong>[验证]:</strong> 播音时确认喇叭有出声且大小 <strong>合适没有爆音，杂音，破音等明显失真</strong>。</p>
+<p><strong>第三步：确认回声消除效果是否正常:</strong></p>
+<p>在客户端使用远程对讲程序前, 我们可以通过下面的方式验证板端回声消除效果。</p>
+<p><strong>[AEC效果测试]:</strong></p>
+<ol class="arabic">
+<li><p>执行 touch /tmp/ain_record ​​命令 和 touch /tmp/dump_ao_output命令。（如果多次进行测试，每次测试前执行：rm /tmp/*.pcm进行删除，不能测试太长时间否则pcm文件会把ddr内存耗光导致系统卡死。）</p>
+<p>再执行： <strong>sample_audio 10</strong></p>
+</li>
+</ol>
+<p>./sample_audio 10 –list -r 8000 -R 8000 -c 2 -p 320 -C 0 -V 1 -F play.wav -T 10</p>
+<p>收音参数(sample rate:8000/ chn:2/ period size:320)</p>
+<p>并将VQE / AEC 设为on, 并设定录音秒数,要播放的文件名。开始播放2s后（播放的是之前你自己朗读的文字内容）， <em>人对着mic说话如 （123456789abcdef），客户可以用20s时长。</em>录音一段时间后双击enter后等待结束。</p>
+<p><strong>在输入record时间回车前到ssh终端设置合适的ADCL,ADCR,DACR的gain值。方法上面有提到： sample audio 9 分别执行ADCL:11-&gt;将设置10; ADCR:12-&gt;设置为1；DACR:10-&gt;
+设置为8。其中10，1，8这三个值客户自行根据实际情况调整。把这三个值记住最后在自己的对讲程序中使用。</strong></p>
+<p><strong>[验证]:</strong></p>
+<p>产出sample_record.raw。执行cp /tmp/*.pcm ./拷贝到当前目录。</p>
+<p>把 sample_record.raw 和ain_record.pcm 文件拷贝到电脑用audacity / Cool Edit等免费播放软件查看</p>
+<p>正常情况下 sample_record.raw是单声道只能听到“<em>123456789abcdef</em></p>
+<p>”没有断续说明效果是ok的，在实际对讲程序中sample_record.raw的声音就是发给对方听的。</p>
+<p>如果还能听到文字声或“ <em>123456789abcdef</em> ”有断续丢字则说明效果不好。</p>
+<p>ain_record.pcm文件是立体声</p>
+<p>左声道是mic采集到的声音（包含人说话声*123456789abcdef* 和文字声），</p>
+<p>右声道只有喇叭的声音也就是文字声（左右声道 <strong>波形要适中不能消顶失真</strong>）。</p>
+</section>
+<section id="id3">
+<h2><span class="section-number">3.2. </span>[回传参数(如果调试结果不理想状况下)]<a class="headerlink" href="3_Echo_Cancellation_Debugging.html#id3" title="永久链接至标题">¶</a></h2>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>序号​​</p></th>
+<th class="head"><p>命令​​</p></th>
+<th class="head"><p>对应文件名​​</p></th>
+<th class="head"><p>注释</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>touch /tmp/ain_record</p></td>
+<td><p>/tmp/ain_record.pcm</p></td>
+<td><p>从底层获取的最原始pcm数据</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>touch /tmp/dump_before_aec</p></td>
+<td><p><strong>/tmp/dump_before_aec.pcm</strong></p></td>
+<td><p>vqe前的pcm(none bind mode)</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>touch /tmp/dump_after_aec</p></td>
+<td><p><strong>/tmp/dump_after_aec.pcm</strong></p></td>
+<td><p>vqe后的pcm(none bind mode)​</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>touch /tmp/dump_ao_output</p></td>
+<td><p>/tmp/dump_ao_output.pcm</p></td>
+<td><p>播放的声音原始数据</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>AEC效果不好时需要提供的资料(请先确保满足AEC算法基础要求):</strong></p>
+<p>1.简易的txt文件 内部注明：</p>
+<blockquote>
+<div><ul>
+<li><p>cv180x… project名称</p></li>
+<li><p>sample rate</p></li>
+<li><div class="line-block">
+<div class="line">sample_audio 8 打印的参数：</div>
+<div class="line">ADC L/ ADC R（录音音量）</div>
+<div class="line">DAC L  / DAC R   (播音音量)​</div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+<a class="reference internal image-reference" href="_images/EchoCa003.png"><img alt="文本 描述已自动生成" src="_images/EchoCa003.png" style="width: 4.83229in; height: 2.90891in;" /></a>
+<ul class="simple">
+<li><p>vqeconfig.txt里面包含code中下图结构体各个参数值:</p></li>
+</ul>
+<a class="reference internal image-reference" href="_images/EchoCa004.png"><img alt="文本 描述已自动生成" src="_images/EchoCa004.png" style="width: 4.84462in; height: 5.42238in;" /></a>
+<p>2.dump文件:</p>
+<blockquote>
+<div><p>/tmp目录的*.pcm 文件</p>
+</div></blockquote>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="2_Introduction.html" class="btn btn-neutral float-left" title="2. 介绍" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="4_FAQ.html" class="btn btn-neutral float-right" title="4. 常见问题：" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

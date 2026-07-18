@@ -1,0 +1,1572 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3.4. 数据类型 &mdash; MediaProcessingSoftwareDevelopmentReference master 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="../_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/qrious.js"></script>
+    <script src="../_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="3.5. 错误码" href="Error_Codes.html" />
+    <link rel="prev" title="3.3. API参考" href="API_Reference.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> MediaProcessingSoftwareDevelopmentReference
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_System_Overview.html">2. 系统概述</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../3_System_Control.html">3. 系统控制</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Function_Overview.html">3.1. 功能概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Design_Overview.html">3.2. 设计概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="API_Reference.html">3.3. API参考</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="Data_Types.html#">3.4. 数据类型</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#id2">3.4.1. 基础型别</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#mod-id-e">3.4.2. MOD_ID_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vb-source-e">3.4.3. VB_SOURCE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rotation-e">3.4.4. ROTATION_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#border-s">3.4.5. BORDER_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#point-s">3.4.6. POINT_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#size-s">3.4.7. SIZE_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#rect-s">3.4.8. RECT_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#mmf-chn-s">3.4.9. MMF_CHN_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#mmf-bind-dest-s">3.4.10. MMF_BIND_DEST_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#bind-node-s">3.4.11. BIND_NODE_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#mmf-version-s">3.4.12. MMF_VERSION_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vb-config-s">3.4.13. VB_CONFIG_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vb-pool-config-s">3.4.14. VB_POOL_CONFIG_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vb-user-block-s">3.4.15. VB_USER_BLOCK_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vb-pool-config-ex-s">3.4.16. VB_POOL_CONFIG_EX_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vb-cal-config-s">3.4.17. VB_CAL_CONFIG_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-vpss-mode-e">3.4.18. VI_VPSS_MODE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-vpss-mode-s">3.4.19. VI_VPSS_MODE_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#aspect-ratio-e">3.4.20. ASPECT_RATIO_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#aspect-ratio-s">3.4.21. ASPECT_RATIO_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#pixel-format-e">3.4.22. PIXEL_FORMAT_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#video-frame-s">3.4.23. VIDEO_FRAME_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#video-frame-info-s">3.4.24. VIDEO_FRAME_INFO_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#bitmap-s">3.4.25. BITMAP_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#wdr-mode-e">3.4.26. WDR_MODE_E</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Error_Codes.html">3.5. 错误码</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../4_Video_Input.html">4. 视频输入</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5_Video_Output.html">5. 视频输出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6_Video_Processing_Subsystem.html">6. 视频处理子系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7_Video_Encoding.html">7. 视频编码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../8_Video_Decoding.html">8. 视频解码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../9_Regional_Management.html">9. 区域管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10_Audio_Frequency.html">10. 音频</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../11_Geometric_Distortion_Correction_Subsystem.html">11. 几何畸变矫正子系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../12_Proc_Debugging_Information_Explanation.html">12. Proc 调试信息说明</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MediaProcessingSoftwareDevelopmentReference</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../3_System_Control.html"><span class="section-number">3. </span>系统控制</a> &raquo;</li>
+      <li><span class="section-number">3.4. </span>数据类型</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="../_sources/3_System_Control/Data_Types.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">3.4. </span>数据类型<a class="headerlink" href="Data_Types.html#id1" title="永久链接至标题">¶</a></h1>
+<section id="id2">
+<h2><span class="section-number">3.4.1. </span>基础型别<a class="headerlink" href="Data_Types.html#id2" title="永久链接至标题">¶</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/*----------------------------------------------</span>
+<span class="cm">* The common data type</span>
+<span class="cm">*----------------------------------------------</span>
+<span class="cm">*/</span><span class="w"></span>
+
+<span class="k">typedef</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w">           </span><span class="n">CVI_UCHAR</span><span class="p">;</span><span class="w"></span>
+<span class="k">typedef</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w">           </span><span class="n">CVI_U8</span><span class="p">;</span><span class="w"></span>
+<span class="k">typedef</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w">          </span><span class="n">CVI_U16</span><span class="p">;</span><span class="w"></span>
+<span class="k">typedef</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w">              </span><span class="n">CVI_U32</span><span class="p">;</span><span class="w"></span>
+<span class="k">typedef</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w">              </span><span class="n">CVI_HANDLE</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">typedef</span><span class="w"> </span><span class="kt">signed</span><span class="w"> </span><span class="kt">char</span><span class="w">               </span><span class="n">CVI_S8</span><span class="p">;</span><span class="w"></span>
+<span class="k">typedef</span><span class="w"> </span><span class="kt">signed</span><span class="w"> </span><span class="kt">char</span><span class="w">               </span><span class="n">CVI_CHAR</span><span class="p">;</span><span class="w"></span>
+<span class="k">typedef</span><span class="w"> </span><span class="kt">short</span><span class="w">                         </span><span class="n">CVI_S16</span><span class="p">;</span><span class="w"></span>
+<span class="k">typedef</span><span class="w"> </span><span class="kt">int</span><span class="w">                             </span><span class="n">CVI_S32</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">typedef</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w">           </span><span class="n">CVI_UL</span><span class="p">;</span><span class="w"></span>
+<span class="k">typedef</span><span class="w"> </span><span class="kt">signed</span><span class="w"> </span><span class="kt">long</span><span class="w">               </span><span class="n">CVI_SL</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">typedef</span><span class="w"> </span><span class="kt">float</span><span class="w">                          </span><span class="n">CVI_FLOAT</span><span class="p">;</span><span class="w"></span>
+<span class="k">typedef</span><span class="w"> </span><span class="kt">double</span><span class="w">                      </span><span class="n">CVI_DOUBLE</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">typedef</span><span class="w"> </span><span class="kt">void</span><span class="w">                          </span><span class="n">CVI_VOID</span><span class="p">;</span><span class="w"></span>
+<span class="k">typedef</span><span class="w"> </span><span class="kt">bool</span><span class="w">                          </span><span class="n">CVI_BOOL</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">typedef</span><span class="w"> </span><span class="kt">uint64_t</span><span class="w">                    </span><span class="n">CVI_U64</span><span class="p">;</span><span class="w"></span>
+<span class="k">typedef</span><span class="w"> </span><span class="kt">int64_t</span><span class="w">                      </span><span class="n">CVI_S64</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">typedef</span><span class="w"> </span><span class="kt">size_t</span><span class="w">                  </span><span class="n">CVI_SIZE_T</span><span class="p">;</span><span class="w"></span>
+<span class="cm">/*----------------------------------------------</span>
+<span class="cm">* const defination</span>
+<span class="cm">*----------------------------------------------</span>
+<span class="cm">*/</span><span class="w"></span>
+
+<span class="cp">#define CVI_NULL                 0L</span>
+<span class="cp">#define CVI_SUCCESS           0</span>
+<span class="cp">#define CVI_FAILURE             (-1)</span>
+<span class="cp">#define CVI_FAILURE_ILLEGAL_PARAM (-2)</span>
+<span class="cp">#define CVI_TRUE                 1</span>
+<span class="cp">#define CVI_FALSE                0</span>
+</pre></div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="mod-id-e">
+<h2><span class="section-number">3.4.2. </span>MOD_ID_E<a class="headerlink" href="Data_Types.html#mod-id-e" title="永久链接至标题">¶</a></h2>
+<blockquote>
+<div><dl>
+<dt>【说明】</dt><dd><p>定义模块ID列举</p>
+</dd>
+<dt>【定义】</dt><dd><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define FOREACH_MOD(MOD) {\</span>
+<span class="cp">    MOD(BASE)   \</span>
+<span class="cp">    MOD(VB)       \</span>
+<span class="cp">    MOD(SYS)    \</span>
+<span class="cp">    MOD(RGN)    \</span>
+<span class="cp">    MOD(CHNL)   \</span>
+<span class="cp">    MOD(VDEC)   \</span>
+<span class="cp">    MOD(VPSS)   \</span>
+<span class="cp">    MOD(VENC)   \</span>
+<span class="cp">    MOD(H264E)  \</span>
+<span class="cp">    MOD(JPEGE)  \</span>
+<span class="cp">    MOD(MPEG4E) \</span>
+<span class="cp">    MOD(H265E)  \</span>
+<span class="cp">    MOD(JPEGD)  \</span>
+<span class="cp">    MOD(VO)       \</span>
+<span class="cp">    MOD(VI)       \</span>
+<span class="cp">    MOD(DIS)    \</span>
+<span class="cp">    MOD(RC)       \</span>
+<span class="cp">    MOD(AIO)    \</span>
+<span class="cp">    MOD(AI)       \</span>
+<span class="cp">    MOD(AO)       \</span>
+<span class="cp">    MOD(AENC)   \</span>
+<span class="cp">    MOD(ADEC)   \</span>
+<span class="cp">    MOD(AUD)    \</span>
+<span class="cp">    MOD(VPU)    \</span>
+<span class="cp">    MOD(ISP)    \</span>
+<span class="cp">    MOD(IVE)    \</span>
+<span class="cp">    MOD(USER)   \</span>
+<span class="cp">    MOD(PROC)   \</span>
+<span class="cp">    MOD(LOG)    \</span>
+<span class="cp">    MOD(H264D)  \</span>
+<span class="cp">    MOD(GDC)    \</span>
+<span class="cp">    MOD(PHOTO)  \</span>
+<span class="cp">    MOD(FB)       \</span>
+<span class="cp">    MOD(BUTT)   \</span>
+<span class="cp">}</span>
+
+<span class="cp">#define GENERATE_ENUM(ENUM) CVI_ID_ ## ENUM,</span>
+
+<span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_MOD_ID_E</span><span class="w"> </span><span class="nf">FOREACH_MOD</span><span class="p">(</span><span class="n">GENERATE_ENUM</span><span class="p">)</span><span class="w"> </span><span class="n">MOD_ID_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</dd>
+<dt>【注意事项】</dt><dd><p>无。</p>
+</dd>
+<dt>【相关数据类型及接口】</dt><dd><p>无。</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="vb-source-e">
+<h2><span class="section-number">3.4.3. </span>VB_SOURCE_E<a class="headerlink" href="Data_Types.html#vb-source-e" title="永久链接至标题">¶</a></h2>
+<blockquote>
+<div><dl>
+<dt>【说明】</dt><dd><p>定义 VB 来源选择</p>
+</dd>
+<dt>【定义】</dt><dd><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_VB_SOURCE_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">VB_SOURCE_COMMON</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">VB_SOURCE_MODULE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">VB_SOURCE_PRIVATE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">VB_SOURCE_USER</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">VB_SOURCE_BUTT</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VB_SOURCE_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</dd>
+<dt>【成员】</dt><dd><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VB_SOURCE_COMMON</p></td>
+<td><p>公共VB</p></td>
+</tr>
+<tr class="row-odd"><td><p>VB_SOURCE_MODULE</p></td>
+<td><p>模块VB</p></td>
+</tr>
+<tr class="row-even"><td><p>VB_SOURCE_PRIVATE</p></td>
+<td><p>私有VB</p></td>
+</tr>
+<tr class="row-odd"><td><p>VB_SOURCE_USER</p></td>
+<td><p>用户VB</p></td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>【注意事项】</dt><dd><p>无。</p>
+</dd>
+<dt>【相关数据类型及接口】</dt><dd><p>无。</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="rotation-e">
+<h2><span class="section-number">3.4.4. </span>ROTATION_E<a class="headerlink" href="Data_Types.html#rotation-e" title="永久链接至标题">¶</a></h2>
+<blockquote>
+<div><dl>
+<dt>【说明】</dt><dd><p>定义旋转角度列举</p>
+</dd>
+<dt>【定义】</dt><dd><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_ROTATION_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">ROTATION_0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">ROTATION_90</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">ROTATION_180</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">ROTATION_270</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">ROTATION_XY_FLIP</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">ROTATION_MAX</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ROTATION_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</dd>
+<dt>【成员】</dt><dd><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ROTATION_0</p></td>
+<td><p>不旋转。</p></td>
+</tr>
+<tr class="row-odd"><td><p>ROTATION_90</p></td>
+<td><p>旋转90度。</p></td>
+</tr>
+<tr class="row-even"><td><p>ROTATION_180</p></td>
+<td><p>旋转180度，不支持。</p></td>
+</tr>
+<tr class="row-odd"><td><p>ROTATION_270</p></td>
+<td><p>旋转270度。</p></td>
+</tr>
+<tr class="row-even"><td><p>ROTATION_XY_FLIP</p></td>
+<td><p>旋转90度后在x方向镜像。</p></td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>【注意事项】</dt><dd><p>无。</p>
+</dd>
+<dt>【相关数据类型及接口】</dt><dd><p>无。</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="border-s">
+<h2><span class="section-number">3.4.5. </span>BORDER_S<a class="headerlink" href="Data_Types.html#border-s" title="永久链接至标题">¶</a></h2>
+<blockquote>
+<div><dl>
+<dt>【说明】</dt><dd><p>定义边框结构体</p>
+</dd>
+<dt>【定义】</dt><dd><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_BORDER_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32TopWidth</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32BottomWidth</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32LeftWidth</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32RightWidth</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32Color</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">BORDER_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</dd>
+<dt>【成员】</dt><dd><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>u32TopWidth</p></td>
+<td><p>上边框的宽度。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32BottomWidth</p></td>
+<td><p>下边框的宽度。</p></td>
+</tr>
+<tr class="row-even"><td><p>u32LeftWidth</p></td>
+<td><p>左边框的宽度。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32RightWidth</p></td>
+<td><p>右边框的宽度。</p></td>
+</tr>
+<tr class="row-even"><td><p>u32Color</p></td>
+<td><p>边框的颜色。</p></td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>【注意事项】</dt><dd><p>无。</p>
+</dd>
+<dt>【相关数据类型及接口】</dt><dd><p>无。</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="point-s">
+<h2><span class="section-number">3.4.6. </span>POINT_S<a class="headerlink" href="Data_Types.html#point-s" title="永久链接至标题">¶</a></h2>
+<blockquote>
+<div><dl>
+<dt>【说明】</dt><dd><p>定义坐标结构体</p>
+</dd>
+<dt>【定义】</dt><dd><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_POINT_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">s32X</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">s32Y</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">POINT_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</dd>
+<dt>【成员】</dt><dd><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>s32X</p></td>
+<td><p>横坐标。</p></td>
+</tr>
+<tr class="row-odd"><td><p>s32Y</p></td>
+<td><p>纵坐标。</p></td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>【注意事项】</dt><dd><p>无。</p>
+</dd>
+<dt>【相关数据类型及接口】</dt><dd><p>无。</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="size-s">
+<h2><span class="section-number">3.4.7. </span>SIZE_S<a class="headerlink" href="Data_Types.html#size-s" title="永久链接至标题">¶</a></h2>
+<blockquote>
+<div><dl>
+<dt>【说明】</dt><dd><p>定义大小结构体</p>
+</dd>
+<dt>【定义】</dt><dd><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_SIZE_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32Width</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32Height</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">SIZE_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</dd>
+<dt>【成员】</dt><dd><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>u32Width</p></td>
+<td><p>宽度。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32Height</p></td>
+<td><p>高度。</p></td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>【注意事项】</dt><dd><p>无。</p>
+</dd>
+<dt>【相关数据类型及接口】</dt><dd><ul class="simple">
+<li><p>VI_DEV_ATTR_S</p></li>
+<li><p>VI_PIPE_STATUS_S</p></li>
+<li><p>VI_CHN_ATTR_S</p></li>
+<li><p>VI_CHN_STATUS_S</p></li>
+<li><p>VO_VIDEO_LAYER_ATTR_S</p></li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="rect-s">
+<h2><span class="section-number">3.4.8. </span>RECT_S<a class="headerlink" href="Data_Types.html#rect-s" title="永久链接至标题">¶</a></h2>
+<blockquote>
+<div><dl>
+<dt>【说明】</dt><dd><p>定义矩形的宽度、高度和位置结构体</p>
+</dd>
+<dt>【定义】</dt><dd><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_RECT_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">s32X</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">s32Y</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32Width</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32Height</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">RECT_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</dd>
+<dt>【成员】</dt><dd><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>s32X</p></td>
+<td><p>横坐标。</p></td>
+</tr>
+<tr class="row-odd"><td><p>s32Y</p></td>
+<td><p>纵坐标。</p></td>
+</tr>
+<tr class="row-even"><td><p>u32Width</p></td>
+<td><p>宽度。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32Height</p></td>
+<td><p>高度。</p></td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>【注意事项】</dt><dd><p>无。</p>
+</dd>
+<dt>【相关数据类型及接口】</dt><dd><ul class="simple">
+<li><p>ASPECT_RATIO_S</p></li>
+<li><p>VI_CROP_INFO_S</p></li>
+<li><p>VPSS_CROP_INFO_S</p></li>
+<li><p>VO_CHN_ATTR_S</p></li>
+<li><p>VO_VIDEO_LAYER_ATTR_S</p></li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="mmf-chn-s">
+<h2><span class="section-number">3.4.9. </span>MMF_CHN_S<a class="headerlink" href="Data_Types.html#mmf-chn-s" title="永久链接至标题">¶</a></h2>
+<blockquote>
+<div><dl>
+<dt>【说明】</dt><dd><p>定义模块信道结构体</p>
+</dd>
+<dt>【定义】</dt><dd><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_MMF_CHN_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">MOD_ID_E</span><span class="w">    </span><span class="n">enModId</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_S32</span><span class="w">     </span><span class="n">s32DevId</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_S32</span><span class="w">     </span><span class="n">s32ChnId</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">MMF_CHN_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</dd>
+<dt>【成员】</dt><dd><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>enModId</p></td>
+<td><p>模块ID。</p></td>
+</tr>
+<tr class="row-odd"><td><p>s32DevId</p></td>
+<td><p>设备ID。在部分模块也可能是群ID</p></td>
+</tr>
+<tr class="row-even"><td><p>s32ChnId</p></td>
+<td><p>通道ID。</p></td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>【注意事项】</dt><dd><p>无。</p>
+</dd>
+<dt>【相关数据类型及接口】</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="API_Reference.html#cvi-sys-bind"><span class="std std-ref">CVI_SYS_Bind</span></a></p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-sys-unbind"><span class="std std-ref">CVI_SYS_UnBind</span></a></p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-sys-getbindbydest"><span class="std std-ref">CVI_SYS_GetBindByDest</span></a></p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-sys-getbindbysrc"><span class="std std-ref">CVI_SYS_GetBindBySrc</span></a></p></li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="mmf-bind-dest-s">
+<h2><span class="section-number">3.4.10. </span>MMF_BIND_DEST_S<a class="headerlink" href="Data_Types.html#mmf-bind-dest-s" title="永久链接至标题">¶</a></h2>
+<blockquote>
+<div><dl>
+<dt>【说明】</dt><dd><p>定义MMF系统绑定目标结构体</p>
+</dd>
+<dt>【定义】</dt><dd><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_MMF_BIND_DEST_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w">   </span><span class="n">u32Num</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">MMF_CHN_S</span><span class="w"> </span><span class="n">astMmfChn</span><span class="p">[</span><span class="n">BIND_DEST_MAXNUM</span><span class="p">];</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">MMF_BIND_DEST_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</dd>
+<dt>【成员】</dt><dd><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>u32Num</p></td>
+<td><p>绑定目的数量。</p></td>
+</tr>
+<tr class="row-odd"><td><p>astMmfChn</p></td>
+<td><p>绑定目的的信道结构体数组</p></td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>【注意事项】</dt><dd><p>无。</p>
+</dd>
+<dt>【相关数据类型及接口】</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="API_Reference.html#cvi-sys-getbindbysrc"><span class="std std-ref">CVI_SYS_GetBindBySrc</span></a></p></li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="bind-node-s">
+<h2><span class="section-number">3.4.11. </span>BIND_NODE_S<a class="headerlink" href="Data_Types.html#bind-node-s" title="永久链接至标题">¶</a></h2>
+<blockquote>
+<div><dl>
+<dt>【说明】</dt><dd><p>定义MMF系统绑定节点结构体</p>
+</dd>
+<dt>【定义】</dt><dd><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_BIND_NODE_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bUsed</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">MMF_CHN_S</span><span class="w"> </span><span class="n">src</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">MMF_BIND_DEST_S</span><span class="w"> </span><span class="n">dsts</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">BIND_NODE_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</dd>
+<dt>【成员】</dt><dd><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>bUsed</p></td>
+<td><p>标明该节点是否已使用。</p></td>
+</tr>
+<tr class="row-odd"><td><p>src</p></td>
+<td><p>绑定节点源通道。</p></td>
+</tr>
+<tr class="row-even"><td><p>dsts</p></td>
+<td><p>绑定节点目标通道群。</p></td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>【注意事项】</dt><dd><p>无。</p>
+</dd>
+<dt>【相关数据类型及接口】</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="API_Reference.html#cvi-sys-bind"><span class="std std-ref">CVI_SYS_Bind</span></a></p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-sys-unbind"><span class="std std-ref">CVI_SYS_UnBind</span></a></p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-sys-getbindbydest"><span class="std std-ref">CVI_SYS_GetBindByDest</span></a></p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-sys-getbindbysrc"><span class="std std-ref">CVI_SYS_GetBindBySrc</span></a></p></li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="mmf-version-s">
+<h2><span class="section-number">3.4.12. </span>MMF_VERSION_S<a class="headerlink" href="Data_Types.html#mmf-version-s" title="永久链接至标题">¶</a></h2>
+<blockquote>
+<div><dl>
+<dt>【说明】</dt><dd><p>定义MMF版本结构体</p>
+</dd>
+<dt>【定义】</dt><dd><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VERSION_NAME_MAXLEN 128</span>
+<span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_MMF_VERSION_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">version</span><span class="p">[</span><span class="n">VERSION_NAME_MAXLEN</span><span class="p">];</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">MMF_VERSION_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</dd>
+<dt>【成员】</dt><dd><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>version</p></td>
+<td><p>版本描述字符串。</p></td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>【注意事项】</dt><dd><p>无。</p>
+</dd>
+<dt>【相关数据类型及接口】</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="API_Reference.html#cvi-sys-getversion"><span class="std std-ref">CVI_SYS_GetVersion</span></a></p></li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+<hr class="docutils" />
+</section>
+<section id="vb-config-s">
+<span id="id3"></span><h2><span class="section-number">3.4.13. </span>VB_CONFIG_S<a class="headerlink" href="Data_Types.html#vb-config-s" title="永久链接至标题">¶</a></h2>
+<blockquote>
+<div><dl>
+<dt>【说明】</dt><dd><p>定义MMF系统视频区块池结构体</p>
+</dd>
+<dt>【定义】</dt><dd><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VB_CONFIG_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32MaxPoolCnt</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">VB_POOL_CONFIG_S</span><span class="w"> </span><span class="n">astCommPool</span><span class="p">[</span><span class="n">VB_MAX_COMM_POOLS</span><span class="p">];</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VB_CONFIG_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</dd>
+<dt>【成员】</dt><dd><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>u32MaxPoolCnt</p></td>
+<td><p>公共视频区块池数。</p></td>
+</tr>
+<tr class="row-odd"><td><p>astCommPool</p></td>
+<td><p>公共视频区块池属性。</p></td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>【注意事项】</dt><dd><p>无。</p>
+</dd>
+<dt>【相关数据类型及接口】</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vb-setconfig"><span class="std std-ref">CVI_VB_SetConfig</span></a></p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vb-getconfig"><span class="std std-ref">CVI_VB_GetConfig</span></a></p></li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="vb-pool-config-s">
+<h2><span class="section-number">3.4.14. </span>VB_POOL_CONFIG_S<a class="headerlink" href="Data_Types.html#vb-pool-config-s" title="永久链接至标题">¶</a></h2>
+<blockquote>
+<div><dl>
+<dt>【说明】</dt><dd><p>定义MMF视频区块池结构体</p>
+</dd>
+<dt>【定义】</dt><dd><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VB_POOL_CONFIG_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32BlkSize</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32BlkCnt</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">VB_REMAP_MODE_E</span><span class="w"> </span><span class="n">enRemapMode</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_CHAR</span><span class="w"> </span><span class="n">acName</span><span class="p">[</span><span class="n">MAX_VB_POOL_NAME_LEN</span><span class="p">];</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VB_POOL_CONFIG_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</dd>
+<dt>【成员】</dt><dd><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>u32BlkSize</p></td>
+<td><p>视频区块大小。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32BlkCnt</p></td>
+<td><p>视频区块池内的区块数。</p></td>
+</tr>
+<tr class="row-even"><td><p>enRemapMode</p></td>
+<td><p>区块的memory-map模式</p></td>
+</tr>
+<tr class="row-odd"><td><p>acName</p></td>
+<td><p>视频区块名称</p></td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>【注意事项】</dt><dd><ul class="simple">
+<li><p>u32BlkSize应根据所需图像大小、格式等信息来计算。若太大，会造成无谓的内存空间浪费；若太小，各MOD无法取得视频区块来使用。</p></li>
+<li><p>视频区块池是透过空闲内存来取得，若视频区块池大小超过内存的空闲大小，则会创建失败。</p></li>
+</ul>
+</dd>
+<dt>【相关数据类型及接口】</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="Data_Types.html#vb-config-s">VB_CONFIG_S</a></p></li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="vb-user-block-s">
+<h2><span class="section-number">3.4.15. </span>VB_USER_BLOCK_S<a class="headerlink" href="Data_Types.html#vb-user-block-s" title="永久链接至标题">¶</a></h2>
+<blockquote>
+<div><dl>
+<dt>【说明】</dt><dd><p>定义MMF视频外部区块池中的区块结构体</p>
+</dd>
+<dt>【定义】</dt><dd><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VB_USER_BLOCK_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U64</span><span class="w"> </span><span class="n">au64PhyAddr</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VB_USER_BLOCK_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</dd>
+<dt>【成员】</dt><dd><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>au64PhyAddr</p></td>
+<td><p>Y/U/V base addr.</p></td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>【注意事项】</dt><dd><ul class="simple">
+<li><p>无。</p></li>
+</ul>
+</dd>
+<dt>【相关数据类型及接口】</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="Data_Types.html#vb-pool-config-ex-s">VB_POOL_CONFIG_EX_S</a></p></li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="vb-pool-config-ex-s">
+<h2><span class="section-number">3.4.16. </span>VB_POOL_CONFIG_EX_S<a class="headerlink" href="Data_Types.html#vb-pool-config-ex-s" title="永久链接至标题">¶</a></h2>
+<blockquote>
+<div><dl>
+<dt>【说明】</dt><dd><p>定义MMF视频外部区块池结构体</p>
+</dd>
+<dt>【定义】</dt><dd><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VB_POOL_CONFIG_EX_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32BlkCnt</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">VB_USER_BLOCK_S</span><span class="w"> </span><span class="n">astUserBlk</span><span class="p">[</span><span class="n">VB_POOL_MAX_BLK</span><span class="p">];</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VB_POOL_CONFIG_EX_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</dd>
+<dt>【成员】</dt><dd><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>u32BlkCnt</p></td>
+<td><p>视频区块池内的区块数。</p></td>
+</tr>
+<tr class="row-odd"><td><p>astUserBlk</p></td>
+<td><p>区块的地址。</p></td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>【注意事项】</dt><dd><ul class="simple">
+<li><p>外部视频区块池是通过用户分配的ion内存来来取得，销毁区块池后，需要用户释放内存。</p></li>
+</ul>
+</dd>
+<dt>【相关数据类型及接口】</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="Data_Types.html#vb-user-block-s">VB_USER_BLOCK_S</a></p></li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="vb-cal-config-s">
+<h2><span class="section-number">3.4.17. </span>VB_CAL_CONFIG_S<a class="headerlink" href="Data_Types.html#vb-cal-config-s" title="永久链接至标题">¶</a></h2>
+<blockquote>
+<div><dl>
+<dt>【说明】</dt><dd><p>定义MMF视频区块属性结构体</p>
+</dd>
+<dt>【定义】</dt><dd><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VB_CAL_CONFIG_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32VBSize</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32MainStride</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32CStride</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32MainSize</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32MainYSize</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32MainCSize</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16AddrAlign</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U8</span><span class="w">  </span><span class="n">plane_num</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VB_CAL_CONFIG_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</dd>
+<dt>【成员】</dt><dd><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>u32VBSize</p></td>
+<td><p>VB的总大小。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32MainStride</p></td>
+<td><p>主图像数据的行跨度（stride）。</p></td>
+</tr>
+<tr class="row-even"><td><p>u32CStride</p></td>
+<td><p>色彩分量（如UV平面）的行跨度。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32MainSize</p></td>
+<td><p>主图像数据的总大小。</p></td>
+</tr>
+<tr class="row-even"><td><p>u32MainYSize</p></td>
+<td><p>主图像的Y分量（亮度）的大小。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32MainCSize</p></td>
+<td><p>主图像的色彩分量（如UV平面）的大小。</p></td>
+</tr>
+<tr class="row-even"><td><p>u16AddrAlign</p></td>
+<td><p>地址对齐。</p></td>
+</tr>
+<tr class="row-odd"><td><p>plane_num</p></td>
+<td><p>图像的平面数。</p></td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>【注意事项】</dt><dd><p>无。</p>
+</dd>
+<dt>【相关数据类型及接口】</dt><dd><p>无。</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="vi-vpss-mode-e">
+<h2><span class="section-number">3.4.18. </span>VI_VPSS_MODE_E<a class="headerlink" href="Data_Types.html#vi-vpss-mode-e" title="永久链接至标题">¶</a></h2>
+<blockquote>
+<div><dl>
+<dt>【说明】</dt><dd><p>定义VI和VPSS间的工作模式列举。</p>
+</dd>
+<dt>【定义】</dt><dd><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_VI_VPSS_MODE_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">VI_OFFLINE_VPSS_OFFLINE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">VI_OFFLINE_VPSS_ONLINE</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">VI_SLICE_VPSS_OFFLINE</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">VI_SLICE_VPSS_ONLINE</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">VI_ONLINE_VPSS_OFFLINE</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">VI_ONLINE_VPSS_ONLINE</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">VI_VPSS_MODE_BUTT</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VI_VPSS_MODE_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</dd>
+<dt>【成员】</dt><dd><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VI_OFFLINE_VPSS_OFFLINE</p></td>
+<td><p>VI_PROC/VI_CAP离线，VI_CAP/VPSS离线。</p></td>
+</tr>
+<tr class="row-odd"><td><p>VI_OFFLINE_VPSS_ONLINE</p></td>
+<td><p>VI_PROC/VI_CAP离线，VI_CAP/VPSS在线。</p></td>
+</tr>
+<tr class="row-even"><td><p>VI_SLICE_VPSS_OFFLINE</p></td>
+<td><p>VI_PROC/VI_CAP 内部slice，VI_CAP/VPSS离线。</p></td>
+</tr>
+<tr class="row-odd"><td><p>VI_SLICE_VPSS_ONLINE</p></td>
+<td><p>VI_PROC/VI_CAP 内部slice，VI_CAP/VPSS在线。</p></td>
+</tr>
+<tr class="row-even"><td><p>VI_ONLINE_VPSS_OFFLINE</p></td>
+<td><p>VI_PROC/VI_CAP在线，VI_CAP/VPSS离线。</p></td>
+</tr>
+<tr class="row-odd"><td><p>VI_ONLINE_VPSS_ONLINE</p></td>
+<td><p>VI_PROC/VI_CAP在线，VI_CAP/VPSS在线。</p></td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>【注意事项】</dt><dd><ul class="simple">
+<li><p>当VPSS_ONLINE时，VPSS无法分时处理，只能绑定特定的VI PIPE工作。</p></li>
+</ul>
+</dd>
+<dt>【相关数据类型及接口】</dt><dd><p>无。</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="vi-vpss-mode-s">
+<h2><span class="section-number">3.4.19. </span>VI_VPSS_MODE_S<a class="headerlink" href="Data_Types.html#vi-vpss-mode-s" title="永久链接至标题">¶</a></h2>
+<blockquote>
+<div><dl>
+<dt>【说明】</dt><dd><p>定义VI和VPSS间的工作模式。</p>
+</dd>
+<dt>【定义】</dt><dd><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VI_VPSS_MODE_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">VI_VPSS_MODE_E</span><span class="w"> </span><span class="n">aenMode</span><span class="p">[</span><span class="n">VI_MAX_PIPE_NUM</span><span class="p">];</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VI_VPSS_MODE_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</dd>
+<dt>【成员】</dt><dd><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>aenMode</p></td>
+<td><p>VI和VPSS间的工作模式</p></td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>【注意事项】</dt><dd><ul class="simple">
+<li><p>当VPSS_ONLINE时，VPSS无法分时处理，只能绑定特定的VI PIPE工作。</p></li>
+</ul>
+</dd>
+<dt>【相关数据类型及接口】</dt><dd><p>无。</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="aspect-ratio-e">
+<h2><span class="section-number">3.4.20. </span>ASPECT_RATIO_E<a class="headerlink" href="Data_Types.html#aspect-ratio-e" title="永久链接至标题">¶</a></h2>
+<blockquote>
+<div><dl>
+<dt>【说明】</dt><dd><p>定义旋转角度列举</p>
+</dd>
+<dt>【定义】</dt><dd><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_ASPECT_RATIO_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASPECT_RATIO_NONE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASPECT_RATIO_AUTO</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASPECT_RATIO_MANUAL</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASPECT_RATIO_MAX</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ASPECT_RATIO_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</dd>
+<dt>【成员】</dt><dd><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ASPECT_RATIO_NONE</p></td>
+<td><p>不动作，满屏。</p></td>
+</tr>
+<tr class="row-odd"><td><p>ASPECT_RATIO_AUTO</p></td>
+<td><p>视频保持比例，自动计算视频区域。</p></td>
+</tr>
+<tr class="row-even"><td><p>ASPECT_RATIO_MANUAL</p></td>
+<td><p>手动决定视频区域。</p></td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>【注意事项】</dt><dd><p>无。</p>
+</dd>
+<dt>【相关数据类型及接口】</dt><dd><p>无。</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="aspect-ratio-s">
+<h2><span class="section-number">3.4.21. </span>ASPECT_RATIO_S<a class="headerlink" href="Data_Types.html#aspect-ratio-s" title="永久链接至标题">¶</a></h2>
+<blockquote>
+<div><dl>
+<dt>【说明】</dt><dd><p>定义画面比例结构体</p>
+</dd>
+<dt>【定义】</dt><dd><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ASPECT_RATIO_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">ASPECT_RATIO_E</span><span class="w"> </span><span class="n">enMode</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bEnableBgColor</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32BgColor</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">RECT_S</span><span class="w"> </span><span class="n">stVideoRect</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ASPECT_RATIO_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</dd>
+<dt>【成员】</dt><dd><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>enMode</p></td>
+<td><p>画面比例列举。</p></td>
+</tr>
+<tr class="row-odd"><td><p>bEnableBgColor</p></td>
+<td><p>是否要让画面以外以背景色覆盖。</p></td>
+</tr>
+<tr class="row-even"><td><p>u32BgColor</p></td>
+<td><p>画面比例的背景色。为RGB888的格式，bit[7:0]为B，bit[15:8]为G，bit[23:16]为R。</p></td>
+</tr>
+<tr class="row-odd"><td><p>stVideoRect</p></td>
+<td><p>画面比例时视频的区域，只有当enMode为ASPECT_RATIO_MANUAL时才有用</p></td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>【注意事项】</dt><dd><p>无。</p>
+</dd>
+<dt>【相关数据类型及接口】</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="Data_Types.html#aspect-ratio-e">ASPECT_RATIO_E</a></p></li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="pixel-format-e">
+<h2><span class="section-number">3.4.22. </span>PIXEL_FORMAT_E<a class="headerlink" href="Data_Types.html#pixel-format-e" title="永久链接至标题">¶</a></h2>
+<blockquote>
+<div><dl>
+<dt>【说明】</dt><dd><p>定义像素格式枚举</p>
+</dd>
+<dt>【定义】</dt><dd><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_PIXEL_FORMAT_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">PIXEL_FORMAT_RGB_888</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">PIXEL_FORMAT_BGR_888</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">PIXEL_FORMAT_RGB_888_PLANAR</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">PIXEL_FORMAT_BGR_888_PLANAR</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">PIXEL_FORMAT_ARGB_1555</span><span class="p">,</span><span class="w"> </span><span class="c1">// 4,</span>
+<span class="w">    </span><span class="n">PIXEL_FORMAT_ARGB_4444</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">PIXEL_FORMAT_ARGB_8888</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">PIXEL_FORMAT_RGB_BAYER_8BPP</span><span class="p">,</span><span class="w"> </span><span class="c1">// 7,</span>
+<span class="w">    </span><span class="n">PIXEL_FORMAT_RGB_BAYER_10BPP</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">PIXEL_FORMAT_RGB_BAYER_12BPP</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">PIXEL_FORMAT_RGB_BAYER_14BPP</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">PIXEL_FORMAT_RGB_BAYER_16BPP</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">PIXEL_FORMAT_YUV_PLANAR_422</span><span class="p">,</span><span class="w"> </span><span class="c1">// 12,</span>
+<span class="w">    </span><span class="n">PIXEL_FORMAT_YUV_PLANAR_420</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">PIXEL_FORMAT_YUV_PLANAR_444</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">PIXEL_FORMAT_YUV_400</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">PIXEL_FORMAT_HSV_888</span><span class="p">,</span><span class="w"> </span><span class="c1">// 16,</span>
+<span class="w">    </span><span class="n">PIXEL_FORMAT_HSV_888_PLANAR</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">PIXEL_FORMAT_NV12</span><span class="p">,</span><span class="w"> </span><span class="c1">// 18,</span>
+<span class="w">    </span><span class="n">PIXEL_FORMAT_NV21</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">PIXEL_FORMAT_NV16</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">PIXEL_FORMAT_NV61</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">PIXEL_FORMAT_YUYV</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">PIXEL_FORMAT_UYVY</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">PIXEL_FORMAT_YVYU</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">PIXEL_FORMAT_VYUY</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">PIXEL_FORMAT_FP32_C1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w"> </span><span class="c1">// 32</span>
+<span class="w">    </span><span class="n">PIXEL_FORMAT_FP32_C3_PLANAR</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">PIXEL_FORMAT_INT32_C1</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">PIXEL_FORMAT_INT32_C3_PLANAR</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">PIXEL_FORMAT_UINT32_C1</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">PIXEL_FORMAT_UINT32_C3_PLANAR</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">PIXEL_FORMAT_BF16_C1</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">PIXEL_FORMAT_BF16_C3_PLANAR</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">PIXEL_FORMAT_INT16_C1</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">PIXEL_FORMAT_INT16_C3_PLANAR</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">PIXEL_FORMAT_UINT16_C1</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">PIXEL_FORMAT_UINT16_C3_PLANAR</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">PIXEL_FORMAT_INT8_C1</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">PIXEL_FORMAT_INT8_C3_PLANAR</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">PIXEL_FORMAT_UINT8_C1</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">PIXEL_FORMAT_UINT8_C3_PLANAR</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">PIXEL_FORMAT_8BIT_MODE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">48</span><span class="p">,</span><span class="w"> </span><span class="c1">//48</span>
+
+<span class="w">    </span><span class="n">PIXEL_FORMAT_MAX</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">PIXEL_FORMAT_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</dd>
+<dt>【成员】</dt><dd><p>无。</p>
+</dd>
+<dt>【注意事项】</dt><dd><p>无。</p>
+</dd>
+<dt>【相关数据类型及接口】</dt><dd><p>无。</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="video-frame-s">
+<h2><span class="section-number">3.4.23. </span>VIDEO_FRAME_S<a class="headerlink" href="Data_Types.html#video-frame-s" title="永久链接至标题">¶</a></h2>
+<blockquote>
+<div><dl>
+<dt>【说明】</dt><dd><p>定义视频图像帧信息</p>
+</dd>
+<dt>【定义】</dt><dd><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VIDEO_FRAME_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32Width</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32Height</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">PIXEL_FORMAT_E</span><span class="w"> </span><span class="n">enPixelFormat</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">BAYER_FORMAT_E</span><span class="w"> </span><span class="n">enBayerFormat</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">VIDEO_FORMAT_E</span><span class="w"> </span><span class="n">enVideoFormat</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">COMPRESS_MODE_E</span><span class="w"> </span><span class="n">enCompressMode</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">DYNAMIC_RANGE_E</span><span class="w"> </span><span class="n">enDynamicRange</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">COLOR_GAMUT_E</span><span class="w"> </span><span class="n">enColorGamut</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32Stride</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">CVI_U64</span><span class="w"> </span><span class="n">u64PhyAddr</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U8</span><span class="w"> </span><span class="o">*</span><span class="n">pu8VirAddr</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32Length</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">CVI_S16</span><span class="w"> </span><span class="n">s16OffsetTop</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_S16</span><span class="w"> </span><span class="n">s16OffsetBottom</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_S16</span><span class="w"> </span><span class="n">s16OffsetLeft</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_S16</span><span class="w"> </span><span class="n">s16OffsetRight</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32TimeRef</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U64</span><span class="w"> </span><span class="n">u64PTS</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">pPrivateData</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32FrameFlag</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VIDEO_FRAME_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</dd>
+<dt>【成员】</dt><dd><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>u32Width</p></td>
+<td><p>图像宽度</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32Height</p></td>
+<td><p>图像高度</p></td>
+</tr>
+<tr class="row-even"><td><p>enPixelFormat</p></td>
+<td><p>图像像素格式</p></td>
+</tr>
+<tr class="row-odd"><td><p>enBayerFormat</p></td>
+<td><p>图像RAW格式</p></td>
+</tr>
+<tr class="row-even"><td><p>enVideoFormat</p></td>
+<td><p>图像格式</p></td>
+</tr>
+<tr class="row-odd"><td><p>enCompressMode</p></td>
+<td><p>图像压缩格式</p></td>
+</tr>
+<tr class="row-even"><td><p>enDynamicRange</p></td>
+<td><p>动态范围</p></td>
+</tr>
+<tr class="row-odd"><td><p>enColorGamut</p></td>
+<td><p>色域范围</p></td>
+</tr>
+<tr class="row-even"><td><p>u32Stride</p></td>
+<td><p>图像行跨度</p></td>
+</tr>
+<tr class="row-odd"><td><p>u64PhyAddr</p></td>
+<td><p>物理地址</p></td>
+</tr>
+<tr class="row-even"><td><p>pu8VirAddr</p></td>
+<td><p>虚拟地址</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32Length</p></td>
+<td><p>图像空间大小(Bytes)</p></td>
+</tr>
+<tr class="row-even"><td><p>s16OffsetTop</p></td>
+<td><p>图像顶部剪裁宽度</p></td>
+</tr>
+<tr class="row-odd"><td><p>s16OffsetBottom</p></td>
+<td><p>图像底部剪裁宽度</p></td>
+</tr>
+<tr class="row-even"><td><p>s16OffsetLeft</p></td>
+<td><p>图像左侧剪裁宽度</p></td>
+</tr>
+<tr class="row-odd"><td><p>s16OffsetRight</p></td>
+<td><p>图像右侧剪裁宽度</p></td>
+</tr>
+<tr class="row-even"><td><p>u32TimeRef</p></td>
+<td><p>图像帧序列号</p></td>
+</tr>
+<tr class="row-odd"><td><p>u64PTS</p></td>
+<td><p>图像时间戳</p></td>
+</tr>
+<tr class="row-even"><td><p>pPrivateData</p></td>
+<td><p>私有数据</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32FrameFlag</p></td>
+<td><p>当前帧的标记</p></td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>【注意事项】</dt><dd><p>无。</p>
+</dd>
+<dt>【相关数据类型及接口】</dt><dd><p>无。</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="video-frame-info-s">
+<h2><span class="section-number">3.4.24. </span>VIDEO_FRAME_INFO_S<a class="headerlink" href="Data_Types.html#video-frame-info-s" title="永久链接至标题">¶</a></h2>
+<blockquote>
+<div><dl>
+<dt>【说明】</dt><dd><p>定义视频帧信息</p>
+</dd>
+<dt>【定义】</dt><dd><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VIDEO_FRAME_INFO_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">VIDEO_FRAME_S</span><span class="w"> </span><span class="n">stVFrame</span><span class="p">;</span><span class="w"> </span><span class="c1">///&lt; Video frame</span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32PoolId</span><span class="p">;</span><span class="w">      </span><span class="c1">///&lt; VB pool ID</span>
+<span class="p">}</span><span class="w"> </span><span class="n">VIDEO_FRAME_INFO_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</dd>
+<dt>【成员】</dt><dd><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>stVFrame</p></td>
+<td><p>视频帧</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32PoolId</p></td>
+<td><p>缓存池ID</p></td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>【注意事项】</dt><dd><p>无。</p>
+</dd>
+<dt>【相关数据类型及接口】</dt><dd><p><a class="reference internal" href="Data_Types.html#video-frame-s">VIDEO_FRAME_S</a></p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="bitmap-s">
+<h2><span class="section-number">3.4.25. </span>BITMAP_S<a class="headerlink" href="Data_Types.html#bitmap-s" title="永久链接至标题">¶</a></h2>
+<blockquote>
+<div><dl>
+<dt>【说明】</dt><dd><p>定义BITMAP信息</p>
+</dd>
+<dt>【定义】</dt><dd><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_BITMAP_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">PIXEL_FORMAT_E</span><span class="w"> </span><span class="n">enPixelFormat</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32Width</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32Height</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_VOID</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">ATTRIBUTE</span><span class="w"> </span><span class="n">pData</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">BITMAP_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</dd>
+<dt>【成员】</dt><dd><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>enPixelFormat</p></td>
+<td><p>Bitmap像素格式</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32Width</p></td>
+<td><p>Bitmap宽度</p></td>
+</tr>
+<tr class="row-even"><td><p>u32Height</p></td>
+<td><p>Bitmap高度</p></td>
+</tr>
+<tr class="row-odd"><td><p>pData</p></td>
+<td><p>Bitmap数据地址</p></td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>【注意事项】</dt><dd><p>无。</p>
+</dd>
+<dt>【相关数据类型及接口】</dt><dd><p>无。</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<hr class="docutils" />
+<section id="wdr-mode-e">
+<h2><span class="section-number">3.4.26. </span>WDR_MODE_E<a class="headerlink" href="Data_Types.html#wdr-mode-e" title="永久链接至标题">¶</a></h2>
+<blockquote>
+<div><dl>
+<dt>【说明】</dt><dd><p>定义了不同的宽动态范围模式枚举</p>
+</dd>
+<dt>【定义】</dt><dd><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_WDR_MODE_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">WDR_MODE_NONE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">WDR_MODE_BUILT_IN</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">WDR_MODE_QUDRA</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">WDR_MODE_2To1_LINE</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">WDR_MODE_2To1_FRAME</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">WDR_MODE_2To1_FRAME_FULL_RATE</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">WDR_MODE_3To1_LINE</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">WDR_MODE_3To1_FRAME</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">WDR_MODE_3To1_FRAME_FULL_RATE</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">WDR_MODE_4To1_LINE</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">WDR_MODE_4To1_FRAME</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">WDR_MODE_4To1_FRAME_FULL_RATE</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">WDR_MODE_MAX</span><span class="p">,</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">WDR_MODE_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</dd>
+<dt>【成员】</dt><dd><table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>WDR_MODE_NONE</p></td>
+<td><p>无WDR模式</p></td>
+</tr>
+<tr class="row-odd"><td><p>WDR_MODE_BUILT_IN</p></td>
+<td><p>内置WDR模式</p></td>
+</tr>
+<tr class="row-even"><td><p>WDR_MODE_QUDRA</p></td>
+<td><p>四通道WDR模式</p></td>
+</tr>
+<tr class="row-odd"><td><p>WDR_MODE_2To1_LINE</p></td>
+<td><p>2合1行模式 WDR</p></td>
+</tr>
+<tr class="row-even"><td><p>WDR_MODE_2To1_FRAME</p></td>
+<td><p>2合1帧模式 WDR</p></td>
+</tr>
+<tr class="row-odd"><td><p>WDR_MODE_2To1_FRAME_FULL_RATE</p></td>
+<td><p>2合1全帧速率模式 WDR</p></td>
+</tr>
+<tr class="row-even"><td><p>WDR_MODE_3To1_LINE</p></td>
+<td><p>3合1行模式 WDR</p></td>
+</tr>
+<tr class="row-odd"><td><p>WDR_MODE_3To1_FRAME</p></td>
+<td><p>3合1帧模式 WDR</p></td>
+</tr>
+<tr class="row-even"><td><p>WDR_MODE_3To1_FRAME_FULL_RATE</p></td>
+<td><p>3合1全帧速率模式 WDR</p></td>
+</tr>
+<tr class="row-odd"><td><p>WDR_MODE_4To1_LINE</p></td>
+<td><p>4合1行模式 WDR</p></td>
+</tr>
+<tr class="row-even"><td><p>WDR_MODE_4To1_FRAME</p></td>
+<td><p>4合1帧模式 WDR</p></td>
+</tr>
+<tr class="row-odd"><td><p>WDR_MODE_4To1_FRAME_FULL_RATE</p></td>
+<td><p>4合1全帧速率模式 WDR</p></td>
+</tr>
+<tr class="row-even"><td><p>WDR_MODE_MAX</p></td>
+<td><p>枚举最大值</p></td>
+</tr>
+</tbody>
+</table>
+</dd>
+<dt>【注意事项】</dt><dd><p>无。</p>
+</dd>
+<dt>【相关数据类型及接口】</dt><dd><p>无。</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="API_Reference.html" class="btn btn-neutral float-left" title="3.3. API参考" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Error_Codes.html" class="btn btn-neutral float-right" title="3.5. 错误码" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

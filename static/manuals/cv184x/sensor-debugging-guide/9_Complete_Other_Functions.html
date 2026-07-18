@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>9. 完善其它功能 &mdash; Sensor_Debugging_Guide master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="10. AE相关验证" href="10_AE_Related_Verification.html" />
+    <link rel="prev" title="8. 完成AE配置功能" href="8_Complete_the_AE_Configuration_Function.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Sensor_Debugging_Guide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Introduction_to_Sensor_Drivers.html">2. Sensor驱动介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Confirm_Specifications.html">3. 确认规格</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_Image_Output_Debugging.html">4. 图像输出调试(Linux非快启)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_Image_Output_Debugging.html">5. 图像输出调试(Alios快启)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_Image_Output_Verification.html">6. 图像输出验证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_Basic_Functions_of_ISP.html">7. ISP基本功能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_Complete_the_AE_Configuration_Function.html">8. 完成AE配置功能</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="9_Complete_Other_Functions.html#">9. 完善其它功能</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="9_Complete_Other_Functions.html#sensor">9.1. Sensor初始化流程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="9_Complete_Other_Functions.html#id2">9.2. Sensor关闭流程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="9_Complete_Other_Functions.html#sensor-ae">9.3. Sensor AE同步流程</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="10_AE_Related_Verification.html">10. AE相关验证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_Common_Problem.html">11. 常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_Color_Noise_Reduction_and_Other_Corrections.html">12. 颜色、去噪等矫正</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_Debugging_Tool.html">13. 调试工具</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Sensor_Debugging_Guide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">9. </span>完善其它功能</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/9_Complete_Other_Functions.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">9. </span>完善其它功能<a class="headerlink" href="9_Complete_Other_Functions.html#id1" title="永久链接至标题">¶</a></h1>
+<section id="sensor">
+<h2><span class="section-number">9.1. </span>Sensor初始化流程<a class="headerlink" href="9_Complete_Other_Functions.html#sensor" title="永久链接至标题">¶</a></h2>
+<p>除了AE/ISP之外，Sensor驱动也使用其他callbacks完善初始化流程。</p>
+<p>Sensor callbacks中一些参数设定可能会互相影响，须注意呼叫的顺序。</p>
+<p>建议的呼叫流程如下：</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/Comple004.png"><img alt="_images/Comple004.png" src="_images/Comple004.png" style="width: 80%;" /></a>
+</figure>
+<hr class="docutils" />
+<p>Pre-Init准备Sensor驱动的环境，呼叫的callback如下：</p>
+<ul class="simple">
+<li><p>pfnSetInit： 初始化sensor通用的参数。enGainMode决定sensor在WDR模式下Gain的行为。</p></li>
+<li><p>pfnSetBusInfo： 设定I2C信息。</p></li>
+<li><p>pfnRegisterCallback： 注册sensor ISP/AE callbacks。</p></li>
+<li><p>pfn_cmos_sensor_global_init： 初始化sensor驱动内部参数。</p></li>
+</ul>
+<hr class="docutils" />
+<p>Set Mode决定Sensor输出的主要格式，呼叫callback如下：</p>
+<ul class="simple">
+<li><p>pfn_cmos_set_image_mode： 设定输出的影像格式。</p></li>
+<li><p>pfn_cmos_set_wdr_mode： 设定线性或WDR模式。</p></li>
+</ul>
+<hr class="docutils" />
+<p>Set User Default设定初始化序列的AE参数，呼叫的callback如下：</p>
+<ul>
+<li><p>pfn_cmos_fps_set： 设定每秒的帧数。从callback pfn_cmos_get_ae_default得到预设的帧率f32Fps，注意新的帧率不得大于默认值。</p></li>
+<li><p>pfn_cmos_inttime_update： 设定曝光时间的条数并回传给 AE，</p>
+<p>线性模式下的曝光条数范围可以由pfn_cmos_get_ae_default的u32MaxIntTime与u32MinIntTime。</p>
+<p>WDR模式下可呼叫pfn_cmos_get_inttime_max 根据曝光比率得到长短曝的曝光条数范围。</p>
+</li>
+<li><p>pfn_cmos_gains_update： 设定Sensor的AGAIN与DGAIN。</p>
+<p>从pfn_cmos_get_ae_default的u32MaxAgain/u32MaxDgain与u32MinAgain/u32MinDgain得到Gain范围，</p>
+<p>可呼叫pfn_cmos_again_calc_table/pfn_cmos_dgain_calc_table得到最接近的Gain与对应的Sensor缓存器的设定值。</p>
+</li>
+</ul>
+<hr class="docutils" />
+<p>Init Mipi-Rx初始化Mipi-Rx参数，Sensor开机序列(Power On Sequence)。</p>
+<p><strong>Linux</strong> 由ioctl呼叫kernel的Mipi-Rx驱动进行操作。</p>
+<p>主要的程序如下：</p>
+<ul class="simple">
+<li><p>打开/dev/video0。此步骤会打开VIP相关电源与时钟。</p></li>
+<li><p>呼叫Sensor驱动的callback pfnGetRxAttr得到对应Sensor的Mipi-Rx设定。</p></li>
+<li><p>CVI_MIPI_RESET_SENSOR：  Mipi-Rx的ioctl。呼叫可打开定义在device tree的Sensor Reset pin。</p></li>
+</ul>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="nl">mipi_rx</span><span class="p">:</span><span class="w"> </span><span class="n">cif</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">compatible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;cvitek,cif&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">reg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mh">0x0</span><span class="w"> </span><span class="mh">0x0a0c2000</span><span class="w"> </span><span class="mh">0x0</span><span class="w"> </span><span class="mh">0x2000</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;</span><span class="mh">0x0</span><span class="w"> </span><span class="mh">0x0300b000</span><span class="w"> </span><span class="mh">0x0</span><span class="w"> </span><span class="mh">0x1000</span><span class="o">&gt;</span><span class="p">,</span><span class="o">&lt;</span><span class="mh">0x0</span><span class="w"> </span><span class="mh">0x0a0c4000</span><span class="w"> </span><span class="mh">0x0</span><span class="w"> </span><span class="mh">0x2000</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;</span><span class="mh">0x0</span><span class="w"> </span><span class="mh">0x0300d000</span><span class="w"> </span><span class="mh">0x0</span><span class="w"> </span><span class="mh">0x1000</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">reg</span><span class="o">-</span><span class="n">names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;csi_mac0&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;csi_wrap0&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;csi_mac1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;csi_wrap1&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">interrupts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="n">GIC_SPI</span><span class="w"> </span><span class="mi">155</span><span class="w"> </span><span class="n">IRQ_TYPE_LEVEL_HIGH</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;</span><span class="n">GIC_SPI</span><span class="w"> </span><span class="mi">156</span><span class="n">IRQ_TYPE_LEVEL_HIGH</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">interrupt</span><span class="o">-</span><span class="n">names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;csi0&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;csi1&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">snsr</span><span class="o">-</span><span class="n">reset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="n">portd</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="n">GPIO_ACTIVE_LOW</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="n">portd</span><span class="w"> </span><span class="mi">7</span><span class="n">GPIO_ACTIVE_LOW</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">resets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="n">rst</span><span class="w"> </span><span class="n">RST_CSIPHY0</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="n">rst</span><span class="w"> </span><span class="n">RST_CSIPHY1</span><span class="o">&gt;</span><span class="p">,</span><span class="o">&lt;&amp;</span><span class="n">rst</span><span class="w"> </span><span class="n">RST_CSIPHY0RST_APB</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="n">rst</span><span class="w"> </span><span class="n">RST_CSIPHY1RST_APB</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">reset</span><span class="o">-</span><span class="n">names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;phy0&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;phy1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;phy-apb0&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;phy-apb1&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>CVI_MIPI_RESET_MIPI：  Mipi-Rx的ioctl。呼叫可重置Mipi-Rx的设定。</p></li>
+<li><p>CVI_MIPI_SET_DEV_ATTR：  Mipi-Rx的ioctl。呼叫可设定Mipi-Rx属性。</p></li>
+<li><p>CVI_MIPI_ENABLE_SENSOR_CLOCK：  Mipi-Rx的ioctl。呼叫可打开Sensor时钟。频率由CVI_MIPI_SET_DEV_ATTR的mclk属性决定。</p></li>
+<li><p>CVI_MIPI_UNRESET_SENSOR：  Mipi-Rx的ioctl。呼叫可关闭定义在device tree的Sensor Reset pin。</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>Alios</strong> 则通过配置custom_viparam.c文件来设定reset pin的属性</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">PARAM_CLASSDEFINE</span><span class="p">(</span><span class="n">PARAM_SNS_CFG_S</span><span class="p">,</span><span class="n">SENSORCFG</span><span class="p">,</span><span class="n">CTX</span><span class="p">,</span><span class="n">Sensor</span><span class="p">)[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="p">.</span><span class="n">enSnsType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CONFIG_SNS0_TYPE</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="p">.</span><span class="n">s32I2cAddr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x10</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="p">.</span><span class="n">s8I2cDev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="p">.</span><span class="n">u32Rst_port_idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="c1">//GPIOC_16</span>
+<span class="w">   </span><span class="p">.</span><span class="n">u32Rst_pin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="p">.</span><span class="n">u32Rst_pol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OF_GPIO_ACTIVE_LOW</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="cm">/* config dev attr(reference sensor driver) */</span><span class="w"></span>
+<span class="w">   </span><span class="p">.</span><span class="n">bSetDevAttr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="p">.</span><span class="n">u8MclkCam</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="p">.</span><span class="n">s16MacClk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RX_MAC_CLK_200M</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="p">.</span><span class="n">u8MclkFreq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CAMPLL_FREQ_27M</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="p">.</span><span class="n">bHwSync</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_FALSE</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="p">.</span><span class="n">s32Framerate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Sensor Init呼叫Sensor驱动的callback pfn_cmos_sensor_init启动Sensor的初始序列。</p>
+</section>
+<section id="id2">
+<h2><span class="section-number">9.2. </span>Sensor关闭流程<a class="headerlink" href="9_Complete_Other_Functions.html#id2" title="永久链接至标题">¶</a></h2>
+<p>关闭Sensor时可参考以下流程：</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/Comple002.png"><img alt="_images/Comple002.png" src="_images/Comple002.png" style="width: 80%;" /></a>
+</figure>
+<ul class="simple">
+<li><p>Disable ISP：  关闭近端ISP接口。</p></li>
+<li><p>Disable Sensor：  呼叫sensor驱动callback pfn_cmos_sensor_exit关闭sensor码流与I2C接口。呼叫pfnUnRegisterCallback卸除Sensor驱动。</p></li>
+<li><p>Linux 呼叫Mipi-Rx ioctl CVI_MIPI_RESET_SENSOR打开Sensor reset pin。呼叫CVI_MIPI_DISABLE_SENSOR_CLOCK关闭Sensor时钟。呼叫CVI_MIPI_RESET_MIPI重置Mipi-Rx设定。</p></li>
+</ul>
+<p>Alios呼叫cif_reset_snsr_gpio打开Sensor reset pin ,呼叫cif_reset_mipi重置mipi-rx设定。</p>
+</section>
+<section id="sensor-ae">
+<h2><span class="section-number">9.3. </span>Sensor AE同步流程<a class="headerlink" href="9_Complete_Other_Functions.html#sensor-ae" title="永久链接至标题">¶</a></h2>
+<p>Sensor曝光与增益设定后可能反应在不同的帧上，因此需要有机制同步Sensor与ISP的设定。</p>
+<p>此外，在WDR Manual模式，调整短曝帧的曝光可能需要更新Mipi-Rx的设定。</p>
+<p>以下是Sensor AE同步流程：</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/Comple0031.png"><img alt="_images/Comple0031.png" src="_images/Comple0031.png" style="width: 80%;" /></a>
+</figure>
+<ol class="arabic simple">
+<li><p>Firmware呼叫sensor callbacks pfn_cmos_gains_update与pfn_cmos_inttime_update更新AE设定。</p></li>
+<li><p>Firmware在固定周期呼叫sensor callbacks pfn_cmos_get_sns_reg_info得到sensor/ISP/Mipi-Rx的设定。</p></li>
+<li><p>Firmware将sensor/ISP/CIF设定经由ISP ioctl 传递给ISP驱动内的同步处理机制。</p></li>
+<li><p>当需要更新sensor设定时，ISP driver呼叫在cv18xx_vip.ko内的I2C介面更新sensor缓存器。</p></li>
+<li><p>当需要更新Mipi-Rx的设定时，ISP driver呼叫在cvi_mipi_rx.ko内的Mipi-Rx驱动。</p></li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="8_Complete_the_AE_Configuration_Function.html" class="btn btn-neutral float-left" title="8. 完成AE配置功能" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="10_AE_Related_Verification.html" class="btn btn-neutral float-right" title="10. AE相关验证" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

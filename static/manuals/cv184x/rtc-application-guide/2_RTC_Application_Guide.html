@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2. Cvitek RTC 具体操作指南 &mdash; RTCApplicationGuide master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="3. Linux系统中RTC测试命令" href="3_RTC_Command_in_Linux_System.html" />
+    <link rel="prev" title="1. 声明" href="1_disclaimer.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> RTCApplicationGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="2_RTC_Application_Guide.html#">2. Cvitek RTC 具体操作指南</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_RTC_Application_Guide.html#id1">2.1. 模块介绍</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_RTC_Application_Guide.html#id2">2.1.1. 计数时钟频率</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2_RTC_Application_Guide.html#id3">2.2. 操作准备</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_RTC_Application_Guide.html#rtc">2.2.1. 使用 RTC（默认）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_RTC_Application_Guide.html#id4">2.2.2. 移除 RTC</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2_RTC_Application_Guide.html#id5">2.3. 应用层使用方式</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_RTC_Application_Guide.html#id6">2.3.1. 设备节点与头文件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_RTC_Application_Guide.html#ioctl">2.3.2. 常用 ioctl 指令</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_RTC_Application_Guide.html#rtc-time">2.3.3. 结构体 rtc_time 说明</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2_RTC_Application_Guide.html#id7">2.4. 示例代码</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_RTC_Application_Guide.html#rtc-example-c">2.4.1. 用户态操作示例（rtc_example.c）</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2_RTC_Application_Guide.html#id8">2.5. 小结</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_RTC_Application_Guide.html#id9">2.6. RTC 中断定时重启（软重启）</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_RTC_Application_Guide.html#id10">2.6.1. 执行方式</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_RTC_Application_Guide.html#rtc-soc">2.6.2. 从 RTC 闹钟到 SoC 复位的流程</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_RTC_Application_Guide.html#id11">2.6.3. 关键点小结</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3_RTC_Command_in_Linux_System.html">3. Linux系统中RTC测试命令</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">RTCApplicationGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">2. </span>Cvitek RTC 具体操作指南</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/2_RTC_Application_Guide.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cvitek-rtc">
+<h1><span class="section-number">2. </span>Cvitek RTC 具体操作指南<a class="headerlink" href="2_RTC_Application_Guide.html#cvitek-rtc" title="永久链接至标题">¶</a></h1>
+<section id="id1">
+<h2><span class="section-number">2.1. </span>模块介绍<a class="headerlink" href="2_RTC_Application_Guide.html#id1" title="永久链接至标题">¶</a></h2>
+<p>RTC(real time clock)实时时钟，是处理器内一个独立供电的恒电模块，为 Linux 系统提供时间。由于RTC 由电池供电，当处理器处于下电关机或休眠状态时，RTC 仍会维持工作状态时间不丢失。Linux 内核将 RTC 作为时间与日期维护器。亦可作为内核睡眠时唤醒内核的闹钟。</p>
+<p>应用程序可以用 RTC 提供的周期中断做周期性任务。</p>
+<section id="id2">
+<h3><span class="section-number">2.1.1. </span>计数时钟频率<a class="headerlink" href="2_RTC_Application_Guide.html#id2" title="永久链接至标题">¶</a></h3>
+<p>RTC 的计数时钟采用 32.768KHz 时钟，运行基于一个 32-bit 加法计数器提供秒计数，计数最大时间为 :</p>
+<p>2^32秒 = 49710 天 = 136 年</p>
+</section>
+</section>
+<section id="id3">
+<h2><span class="section-number">2.2. </span>操作准备<a class="headerlink" href="2_RTC_Application_Guide.html#id3" title="永久链接至标题">¶</a></h2>
+<section id="rtc">
+<h3><span class="section-number">2.2.1. </span>使用 RTC（默认）<a class="headerlink" href="2_RTC_Application_Guide.html#rtc" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p>使用 SDK 发布的 U-boot 与 Kernel 即可，无需修改 DTS。</p></li>
+<li><p>设备节点：<code class="docutils literal notranslate"><span class="pre">/dev/rtc0</span></code>。</p></li>
+</ul>
+</section>
+<section id="id4">
+<h3><span class="section-number">2.2.2. </span>移除 RTC<a class="headerlink" href="2_RTC_Application_Guide.html#id4" title="永久链接至标题">¶</a></h3>
+<p>若要在板级禁用 RTC，在板级 DTS（或 overlay）里用 <code class="docutils literal notranslate"><span class="pre">delete-node</span></code> 删除 RTC 节点。</p>
+<p>本 SDK 中 RTC 节点名为 <code class="docutils literal notranslate"><span class="pre">rtc</span></code> （在 <code class="docutils literal notranslate"><span class="pre">cv184x_base.dtsi</span></code> / <code class="docutils literal notranslate"><span class="pre">cv1835_asic.dtsi</span></code> 中定义），删除示例如下：</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/ {
+    /delete-node/ rtc;
+};
+</pre></div>
+</div>
+<p>若文档或其它 BSP 中节点名为 <code class="docutils literal notranslate"><span class="pre">cvitek-rtc&#64;3005000</span></code>，则使用：</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/delete-node/ cvitek-rtc@3005000;
+</pre></div>
+</div>
+<p>同文件中删除其它节点示例（仅作参考）：</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/delete-node/ i2s@04120000;
+/delete-node/ sound_ext1;
+/delete-node/ sound_ext2;
+/delete-node/ sound_PDM;
+/delete-node/ rtc;                    /* 删除 RTC */
+
+aliases {
+    /delete-property/ ethernet1;
+};
+</pre></div>
+</div>
+</section>
+</section>
+<section id="id5">
+<h2><span class="section-number">2.3. </span>应用层使用方式<a class="headerlink" href="2_RTC_Application_Guide.html#id5" title="永久链接至标题">¶</a></h2>
+<section id="id6">
+<h3><span class="section-number">2.3.1. </span>设备节点与头文件<a class="headerlink" href="2_RTC_Application_Guide.html#id6" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p>设备节点：<code class="docutils literal notranslate"><span class="pre">/dev/rtc0</span></code></p></li>
+<li><p>头文件：<code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&lt;linux/rtc.h&gt;</span></code>、<code class="docutils literal notranslate"><span class="pre">#include</span> <span class="pre">&lt;sys/ioctl.h&gt;</span></code></p></li>
+</ul>
+</section>
+<section id="ioctl">
+<h3><span class="section-number">2.3.2. </span>常用 ioctl 指令<a class="headerlink" href="2_RTC_Application_Guide.html#ioctl" title="永久链接至标题">¶</a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>指令</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>RTC_RD_TIME</p></td>
+<td><p>读取当前时间</p></td>
+</tr>
+<tr class="row-odd"><td><p>RTC_SET_TIME</p></td>
+<td><p>设置当前时间</p></td>
+</tr>
+<tr class="row-even"><td><p>RTC_ALM_READ</p></td>
+<td><p>读取闹钟时间</p></td>
+</tr>
+<tr class="row-odd"><td><p>RTC_ALM_SET</p></td>
+<td><p>设置闹钟时间</p></td>
+</tr>
+<tr class="row-even"><td><p>RTC_AIE_ON</p></td>
+<td><p>使能闹钟中断</p></td>
+</tr>
+<tr class="row-odd"><td><p>RTC_AIE_OFF</p></td>
+<td><p>禁止闹钟中断</p></td>
+</tr>
+<tr class="row-even"><td><p>RTC_UIE_ON</p></td>
+<td><p>使能更新中断</p></td>
+</tr>
+<tr class="row-odd"><td><p>RTC_UIE_OFF</p></td>
+<td><p>禁止更新中断</p></td>
+</tr>
+<tr class="row-even"><td><p>RTC_PIE_ON</p></td>
+<td><p>开周期中断</p></td>
+</tr>
+<tr class="row-odd"><td><p>RTC_PIE_OFF</p></td>
+<td><p>关周期中断</p></td>
+</tr>
+<tr class="row-even"><td><p>RTC_IRQP_SET</p></td>
+<td><p>设置周期中断频率</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rtc-time">
+<h3><span class="section-number">2.3.3. </span>结构体 rtc_time 说明<a class="headerlink" href="2_RTC_Application_Guide.html#rtc-time" title="永久链接至标题">¶</a></h3>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">rtc_time</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">tm_sec</span><span class="p">;</span><span class="w">   </span><span class="cm">/* 秒 [0,59] */</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">tm_min</span><span class="p">;</span><span class="w">   </span><span class="cm">/* 分 [0,59] */</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">tm_hour</span><span class="p">;</span><span class="w">  </span><span class="cm">/* 时 [0,23] */</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">tm_mday</span><span class="p">;</span><span class="w">  </span><span class="cm">/* 日 [1,31] */</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">tm_mon</span><span class="p">;</span><span class="w">   </span><span class="cm">/* 月 [0,11]，0=1月 */</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">tm_year</span><span class="p">;</span><span class="w">  </span><span class="cm">/* 年，实际年 = tm_year + 1900 */</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">tm_wday</span><span class="p">;</span><span class="w">  </span><span class="cm">/* 星期几 [0,6]，0=周日，1=周一 */</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">tm_yday</span><span class="p">;</span><span class="w">  </span><span class="cm">/* 一年中第几天 [0,365]，0=1月1日 */</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">tm_isdst</span><span class="p">;</span><span class="w"> </span><span class="cm">/* 夏令时：1=是，0=否 */</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>注意：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">tm_mon</span></code>：0 表示 1 月，11 表示 12 月。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tm_year</span></code>：存的是“年份 − 1900”，如 2025 年填 125。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tm_wday</span></code>：0=周日，1=周一，依此类推。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tm_yday</span></code>：0=1月1日，1=1月2日。</p></li>
+</ul>
+</section>
+</section>
+<section id="id7">
+<h2><span class="section-number">2.4. </span>示例代码<a class="headerlink" href="2_RTC_Application_Guide.html#id7" title="永久链接至标题">¶</a></h2>
+<section id="rtc-example-c">
+<h3><span class="section-number">2.4.1. </span>用户态操作示例（rtc_example.c）<a class="headerlink" href="2_RTC_Application_Guide.html#rtc-example-c" title="永久链接至标题">¶</a></h3>
+<p>该示例将“读取时间 / 设置时间 / 设置闹钟”整合为一个程序，通过参数选择具体操作。</p>
+<p><strong>编译</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>arm-none-linux-uclibcgnueabihf-gcc -o rtc_example rtc_example.c -static
+</pre></div>
+</div>
+<p><strong>运行</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./rtc_example <span class="o">[</span>read<span class="p">|</span>set<span class="p">|</span>alarm<span class="o">]</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">read</span></code>：读取并打印当前 RTC 时间。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">set</span></code>：将 RTC 设置为示例时间（2025-03-18 12:00:00），并打印设置后的时间。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">alarm</span></code>：将闹钟设为当前时间 + 5 秒，并开启闹钟中断（部分 RTC 可能不支持闹钟中断，会返回错误）。</p></li>
+</ul>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cm">/*</span>
+<span class="cm"> * Cvitek RTC 使用示例：读取时间、设置时间、设置闹钟</span>
+<span class="cm"> * 编译: arm-none-linux-uclibcgnueabihf-gcc -o rtc_example rtc_example.c -static</span>
+<span class="cm"> * 运行: ./rtc_example [read|set|alarm]</span>
+<span class="cm"> */</span><span class="w"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;fcntl.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;errno.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/rtc.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/ioctl.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span><span class="cp"></span>
+
+<span class="cp">#define RTC_DEV &quot;/dev/rtc0&quot;</span>
+
+<span class="k">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">print_rtc_time</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">struct</span> <span class="nc">rtc_time</span><span class="w"> </span><span class="o">*</span><span class="n">t</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;RTC 时间: %04d-%02d-%02d %02d:%02d:%02d 星期%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">           </span><span class="n">t</span><span class="o">-&gt;</span><span class="n">tm_year</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1900</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="o">-&gt;</span><span class="n">tm_mon</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="o">-&gt;</span><span class="n">tm_mday</span><span class="p">,</span><span class="w"></span>
+<span class="w">           </span><span class="n">t</span><span class="o">-&gt;</span><span class="n">tm_hour</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="o">-&gt;</span><span class="n">tm_min</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="o">-&gt;</span><span class="n">tm_sec</span><span class="p">,</span><span class="w"> </span><span class="n">t</span><span class="o">-&gt;</span><span class="n">tm_wday</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="cm">/* 读取并打印当前 RTC 时间 */</span><span class="w"></span>
+<span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">do_read</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">struct</span> <span class="nc">rtc_time</span><span class="w"> </span><span class="n">rtc_tm</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ioctl</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">RTC_RD_TIME</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">rtc_tm</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">perror</span><span class="p">(</span><span class="s">&quot;RTC_RD_TIME&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">print_rtc_time</span><span class="p">(</span><span class="o">&amp;</span><span class="n">rtc_tm</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="cm">/* 设置 RTC 时间（示例：2025-03-18 12:00:00） */</span><span class="w"></span>
+<span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">do_set</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">struct</span> <span class="nc">rtc_time</span><span class="w"> </span><span class="n">rtc_tm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">tm_sec</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">tm_min</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">tm_hour</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">tm_mday</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">tm_mon</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">   </span><span class="cm">/* 3 月 */</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">tm_year</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">125</span><span class="p">,</span><span class="w"> </span><span class="cm">/* 2025 */</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">tm_wday</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="p">.</span><span class="n">tm_isdst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">    </span><span class="p">};</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ioctl</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">RTC_SET_TIME</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">rtc_tm</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">perror</span><span class="p">(</span><span class="s">&quot;RTC_SET_TIME&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;已设置 RTC，当前为: &quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">do_read</span><span class="p">(</span><span class="n">fd</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="cm">/* 设置闹钟为当前时间 + 5 秒，并开启闹钟中断 */</span><span class="w"></span>
+<span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">do_alarm</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">struct</span> <span class="nc">rtc_time</span><span class="w"> </span><span class="n">rtc_tm</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ioctl</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">RTC_RD_TIME</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">rtc_tm</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">perror</span><span class="p">(</span><span class="s">&quot;RTC_RD_TIME&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">rtc_tm</span><span class="p">.</span><span class="n">tm_sec</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rtc_tm</span><span class="p">.</span><span class="n">tm_sec</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">60</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">rtc_tm</span><span class="p">.</span><span class="n">tm_sec</span><span class="w"> </span><span class="o">%=</span><span class="w"> </span><span class="mi">60</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">rtc_tm</span><span class="p">.</span><span class="n">tm_min</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rtc_tm</span><span class="p">.</span><span class="n">tm_min</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">60</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">rtc_tm</span><span class="p">.</span><span class="n">tm_min</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">rtc_tm</span><span class="p">.</span><span class="n">tm_hour</span><span class="o">++</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">rtc_tm</span><span class="p">.</span><span class="n">tm_hour</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">24</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">rtc_tm</span><span class="p">.</span><span class="n">tm_hour</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ioctl</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">RTC_ALM_SET</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">rtc_tm</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">errno</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">EINVAL</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;此 RTC 不支持闹钟中断</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">else</span><span class="w"></span>
+<span class="w">            </span><span class="n">perror</span><span class="p">(</span><span class="s">&quot;RTC_ALM_SET&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">ioctl</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">RTC_AIE_ON</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;闹钟已设为 5 秒后，已开启闹钟中断</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">argv</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">cmd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">argc</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;read&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">open</span><span class="p">(</span><span class="n">RTC_DEV</span><span class="p">,</span><span class="w"> </span><span class="n">O_RDONLY</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">fd</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">perror</span><span class="p">(</span><span class="s">&quot;open &quot;</span><span class="w"> </span><span class="n">RTC_DEV</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;read&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">do_read</span><span class="p">(</span><span class="n">fd</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;set&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">do_set</span><span class="p">(</span><span class="n">fd</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">strcmp</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;alarm&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="n">do_alarm</span><span class="p">(</span><span class="n">fd</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;用法: %s [read|set|alarm]</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span><span class="w"></span>
+<span class="w">        </span><span class="n">close</span><span class="p">(</span><span class="n">fd</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">close</span><span class="p">(</span><span class="n">fd</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="id8">
+<h2><span class="section-number">2.5. </span>小结<a class="headerlink" href="2_RTC_Application_Guide.html#id8" title="永久链接至标题">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>操作</p></th>
+<th class="head"><p>做法</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>使用 RTC</p></td>
+<td><p>不删节点，应用直接操作 <code class="docutils literal notranslate"><span class="pre">/dev/rtc0</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>移除 RTC</p></td>
+<td><p>在板级 DTS 中加 <code class="docutils literal notranslate"><span class="pre">/delete-node/</span> <span class="pre">rtc;</span></code> （本 SDK 节点名为 <code class="docutils literal notranslate"><span class="pre">rtc</span></code>）</p></td>
+</tr>
+<tr class="row-even"><td><p>读时间</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ioctl(fd,</span> <span class="pre">RTC_RD_TIME,</span> <span class="pre">&amp;rtc_tm)</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>设时间</p></td>
+<td><p>填充 <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">rtc_time</span></code>，再 <code class="docutils literal notranslate"><span class="pre">ioctl(fd,</span> <span class="pre">RTC_SET_TIME,</span> <span class="pre">&amp;rtc_tm)</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>设闹钟</p></td>
+<td><p>填充时间后 <code class="docutils literal notranslate"><span class="pre">ioctl(fd,</span> <span class="pre">RTC_ALM_SET,</span> <span class="pre">&amp;rtc_tm)</span></code>，再用 <code class="docutils literal notranslate"><span class="pre">RTC_AIE_ON</span></code> 使能</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id9">
+<h2><span class="section-number">2.6. </span>RTC 中断定时重启（软重启）<a class="headerlink" href="2_RTC_Application_Guide.html#id9" title="永久链接至标题">¶</a></h2>
+<p>软重启指不断电、不拉闸，仅让 CPU/SoC 重新执行启动流程（内核重新跑一遍），电源保持供电。通过 RTC 闹钟到点触发，可实现定时软重启。</p>
+<section id="id10">
+<h3><span class="section-number">2.6.1. </span>执行方式<a class="headerlink" href="2_RTC_Application_Guide.html#id10" title="永久链接至标题">¶</a></h3>
+<ol class="arabic simple">
+<li><p>在设备上查找 <code class="docutils literal notranslate"><span class="pre">auto_restart_after</span></code> 节点路径：</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>find /sys/devices/ -name auto_restart_after
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>向该节点写入秒数即可在指定秒数后触发软重启。下面示例为 30 秒后重启，路径需替换为上一步 <code class="docutils literal notranslate"><span class="pre">find</span></code> 得到的实际节点（通常形如 <code class="docutils literal notranslate"><span class="pre">/sys/devices/platform/5026000.rtc/auto_restart_after</span></code>）：</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="m">30</span> &gt; /sys/devices/platform/5026000.rtc/auto_restart_after
+</pre></div>
+</div>
+</section>
+<section id="rtc-soc">
+<h3><span class="section-number">2.6.2. </span>从 RTC 闹钟到 SoC 复位的流程<a class="headerlink" href="2_RTC_Application_Guide.html#rtc-soc" title="永久链接至标题">¶</a></h3>
+<ol class="arabic simple">
+<li><p><strong>设置 RTC 闹钟</strong>：用户通过 sysfs 写入属性 <code class="docutils literal notranslate"><span class="pre">auto_restart_after</span></code> ，例如命令 <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">30</span></code> ，表示约 30 秒后重启。驱动读取 RTC 当前秒数，将「当前秒数 + 设定秒数」写入 RTC 闹钟寄存器并使能闹钟。</p></li>
+<li><p><strong>RTC 闹钟中断</strong>：到点后 RTC 硬件比较秒计数与闹钟时间，拉高中断。内核 RTC 驱动在中断处理函数中清除中断、通过 <code class="docutils literal notranslate"><span class="pre">rtc_update_irq()</span></code> 通知用户态 <code class="docutils literal notranslate"><span class="pre">/dev/rtc0</span></code>，并提交一个延迟工作项。</p></li>
+<li><p><strong>工作队列中触发重启</strong>：在工作函数中，若此前已通过 <code class="docutils literal notranslate"><span class="pre">auto_restart_after</span></code> 设定了定时重启，则调用 <code class="docutils literal notranslate"><span class="pre">orderly_reboot()</span></code>；若超时未重启则再调用 <code class="docutils literal notranslate"><span class="pre">kernel_restart(NULL)</span></code>。</p></li>
+<li><p><strong>orderly_reboot</strong>：先尝试执行 <code class="docutils literal notranslate"><span class="pre">/sbin/reboot</span></code>，给用户态做收尾（sync、脚本等）；若执行失败则直接调用 <code class="docutils literal notranslate"><span class="pre">kernel_restart(NULL)</span></code>。</p></li>
+<li><p><strong>kernel_restart</strong>：进入重启准备阶段（通知链、设备 shutdown、迁移到重启 CPU、系统核心关闭、内核日志 dump），最后调用架构相关的 <code class="docutils literal notranslate"><span class="pre">machine_restart()</span></code>。</p></li>
+<li><p><strong>machine_restart（ARM64）</strong>：关中断、停止其它 CPU，再调用 <code class="docutils literal notranslate"><span class="pre">do_kernel_restart()</span></code>。</p></li>
+<li><p><strong>do_kernel_restart</strong>：调用所有通过 <code class="docutils literal notranslate"><span class="pre">register_restart_handler()</span></code> 注册的重启回调。</p></li>
+<li><p><strong>Cvitek 重启回调</strong>：在 <code class="docutils literal notranslate"><span class="pre">cvi-reboot.c</span></code> 中注册的 <code class="docutils literal notranslate"><span class="pre">cvi_restart_handler()</span></code> 写 RTC 域寄存器请求温复位（RTC_EN_WARM_RST_REQ），等待状态就绪后写 RTC_CTRL0 触发 SoC 内部 warm reset。CPU 从 BootROM/固件重新启动，整机不断电，完成软重启。</p></li>
+</ol>
+</section>
+<section id="id11">
+<h3><span class="section-number">2.6.3. </span>关键点小结<a class="headerlink" href="2_RTC_Application_Guide.html#id11" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p><strong>RTC 闹钟</strong>：提供“到点触发”，用 RTC 当前秒数 + N 秒设闹钟，与系统时间解耦。</p></li>
+<li><p><strong>orderly_reboot</strong>：先执行 <code class="docutils literal notranslate"><span class="pre">/sbin/reboot</span></code> 做用户态收尾，失败则直接 <code class="docutils literal notranslate"><span class="pre">kernel_restart</span></code>。</p></li>
+<li><p><strong>kernel_restart</strong>：关设备、迁 CPU、dump 日志，再交给架构的 <code class="docutils literal notranslate"><span class="pre">machine_restart</span></code>。</p></li>
+<li><p><strong>cvi_restart_handler</strong>：Cvitek SoC 的软复位实现，通过写 RTC 域 <strong>WARM_RST_REQ</strong> 由硬件做 CPU/SoC 温复位，电源保持供电。</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="1_disclaimer.html" class="btn btn-neutral float-left" title="1. 声明" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="3_RTC_Command_in_Linux_System.html" class="btn btn-neutral float-right" title="3. Linux系统中RTC测试命令" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

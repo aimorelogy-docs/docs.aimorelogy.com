@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2. 概述 &mdash; CIPHERAPIReference master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="3. API参考" href="3_API_Reference.html" />
+    <link rel="prev" title="1. 声明" href="1_disclaimer.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> CIPHERAPIReference
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="2_Overview.html#">2. 概述</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_Overview.html#id2">2.1. 概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Overview.html#id3">2.2. 使用流程</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_Overview.html#id4">2.2.1. 单包数据加解密</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Overview.html#id5">2.2.2. 多包数据加解密</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Overview.html#hash">2.2.3. HASH计算</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Overview.html#hmac-note-sw">2.2.4. HMAC计算 (NOTE SW)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Overview.html#id6">2.2.5. 产生随机数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Overview.html#rsa-note-sw">2.2.6. RSA加解密操作步骤 (NOTE SW)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Overview.html#rsa">2.2.7. RSA签名及验签操作步骤</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3_API_Reference.html">3. API参考</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_Data_Type.html">4. 数据类型</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_Error_Code.html">5. 错误码</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CIPHERAPIReference</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">2. </span>概述</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/2_Overview.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">2. </span>概述<a class="headerlink" href="2_Overview.html#id1" title="永久链接至标题">¶</a></h1>
+<section id="id2">
+<h2><span class="section-number">2.1. </span>概述<a class="headerlink" href="2_Overview.html#id2" title="永久链接至标题">¶</a></h2>
+<p>CIPHER 是晶视智能数字媒体处理平台提供的安全算法模块，提供对称式加解密算法包括 AES/DES/SM4, 不对称加解密算法 RSA(Note SW), 随机数生成, 以及摘要算法包插HASH, HMAC, 主要用于对音视频码流进行加解密保护, 认证用户合法性等场景, 各功能划分如下:</p>
+<p><strong>对称加密算法</strong></p>
+<ul class="simple">
+<li><p>AES：支持 ECB/CBC/CTR/ CCM/GCM (Note SW)等工作模式，其中 CCM/GCM 模式下, 加解密结束后需获取一次 TAG 值。</p></li>
+<li><p>DES：支持 ECB/CBC/CTR/ CFB/OFB (Note SW)等工作模式，其中 CFB 和 OFB 模式支持的位宽可为1/8/64</p></li>
+<li><p>SM4: 支持 ECB/CBC/CTR等工作模式</p></li>
+</ul>
+<p>以上算法除了 CTR/ CCM/GCM,  其它算法、模式的数据长度必须按块大小对齐；CCM/GCM 的 N、A 需要靠软件按标准把各个字段封装成块大小对齐的数据块；</p>
+<p><strong>不对称加解密算法</strong></p>
+<ul class="simple">
+<li><p>RSA (Note SW)：支持密钥位宽 1024/2048/3072/4096</p></li>
+</ul>
+<p>RSA 密钥位宽 1024 及以下算法为业界已知不安全算法，应禁止使用。</p>
+<p><strong>随机数生成</strong></p>
+<ul class="simple">
+<li><p>RNG：高速率获取随机数</p></li>
+</ul>
+<p><strong>摘要算法</strong></p>
+<ul class="simple">
+<li><p>HASH：支持 SHA1/SHA2/ SHA512/SM3 (Note SW)；</p></li>
+<li><p>HMAC : 支HMAC1/HMAC224/HMAC256/HMAC384/HMAC512 (Note SW)；</p></li>
+</ul>
+<p>SHA1 算法安全性较低，不能应用在参与生成“数字签名”的场景，推荐使用 SHA2（256 位及以上）算法。</p>
+</section>
+<section id="id3">
+<h2><span class="section-number">2.2. </span>使用流程<a class="headerlink" href="2_Overview.html#id3" title="永久链接至标题">¶</a></h2>
+<section id="id4">
+<h3><span class="section-number">2.2.1. </span>单包数据加解密<a class="headerlink" href="2_Overview.html#id4" title="永久链接至标题">¶</a></h3>
+<p><strong>场景说明</strong></p>
+<p>当物理内存中有一段码流数据需要进行加/解密时，获取其物理地址后, 在用户层调用 CIPHER 模块实现单包数据加/解密。</p>
+<p><strong>工作流程</strong></p>
+<p>对数据进行对称的 AES/DES/SM4 加解密的过程如下：</p>
+<p>步骤 1 : CIPHER设备初始化。调用接口 CVI_UNF_CIPHER_Init 完成。</p>
+<p>步骤 2 : 获取 CIPHER 句柄。调用接口 CVI_UNF_CIPHER_CreateHandle 完成。</p>
+<p>步骤 3 : 配置 CIPHER 控制信息，包含密钥、初始向量、加密算法、工作模式等信息。调用接口CVI_UNF_CIPHER_ConfigHandle 或CVI_UNF_CIPHER_ConfigHandleEx 完成。</p>
+<p>步骤 4 : 对数据进行加/解密。调用以下任一接口进行加解密。</p>
+<ul class="simple">
+<li><p>单包加密, CVI_UNF_CIPHER_Encrypt</p></li>
+<li><p>单包解密, CVI_UNF_CIPHER_Decrypt</p></li>
+</ul>
+<p>步骤 5 : 若使用 CCM、GCM (Note SW)模式，调用接口CVI_UNF_CIPHER_GetTag获取 TAG 值。</p>
+<p>步骤 6 : 销毁 CIPHER 句柄。调用接口 CVI_UNF_CIPHER_DestroyHandle 完成。</p>
+<p>步骤 7 : 关闭 CIPHER 设备。调用接口 CVI_UNF_CIPHER_Deinit 完成。</p>
+<p><strong>注意事项</strong></p>
+</section>
+<section id="id5">
+<h3><span class="section-number">2.2.2. </span>多包数据加解密<a class="headerlink" href="2_Overview.html#id5" title="永久链接至标题">¶</a></h3>
+<p><strong>场景说明</strong></p>
+<p>当物理内存中有多段码流数据需要进行加/解密时，获取其物理地址后, 在用户层调用 CIPHER 模块实现多包数据加/解密。</p>
+<p><strong>工作流程</strong></p>
+<p>对数据进行对称的 AES/DES/SM4 加解密的过程如下：</p>
+<p>步骤 1 : CIPHER设备初始化。调用接口 CVI_UNF_CIPHER_Init 完成。</p>
+<p>步骤 2 : 获取 CIPHER 句柄。调用接口 CVI_UNF_CIPHER_CreateHandle 完成。</p>
+<p>步骤 3 : 配置 CIPHER 控制信息，包含密钥、初始向量、加密算法、工作模式等信息。调用接口 CVI_UNF_CIPHER_ConfigHandle 或 CVI_UNF_CIPHER_ConfigHandleEx 完成。</p>
+<p>步骤 4 : 对数据进行加/解密。调用以下任一接口进行加解密。</p>
+<ul class="simple">
+<li><p>多包加密, CVI_UNF_CIPHER_EncryptMulti</p></li>
+<li><p>多包解密, CVI_UNF_CIPHER_DecryptMulti</p></li>
+</ul>
+<p>步骤 5 : 销毁 CIPHER 句柄。调用接口 CVI_UNF_CIPHER_DestroyHandle 完成。</p>
+<p>步骤 6 : 关闭 CIPHER 设备。调用接口 CVI_UNF_CIPHER_Deinit 完成。</p>
+<p><strong>注意事项</strong></p>
+</section>
+<section id="hash">
+<h3><span class="section-number">2.2.3. </span>HASH计算<a class="headerlink" href="2_Overview.html#hash" title="永久链接至标题">¶</a></h3>
+<p><strong>场景说明</strong></p>
+<p>计算数据的HASH值, 可选择SHA1/SHA2/ SHA512/SM3 (Note SW)</p>
+<p><strong>工作流程</strong></p>
+<p>步骤 1 : CIPHER设备初始化。调用接口 CVI_UNF_CIPHER_Init 完成。</p>
+<p>步骤 2 : 获取 HASH句柄, 选择HASH算法。调用接口 CVI_UNF_CIPHER_HashInit 完成。</p>
+<p>步骤 3 : 输入数据，逐个数据块依次计算 HASH 值。调用接口 CVI_UNF_CIPHER_HashUpdate 完成。</p>
+<p>步骤 4 : 如果摘要未计算完成，再次执行步骤 3。</p>
+<p>步骤 5 : 完成摘要计算，结束输入，获取计算结果。调用接口 CVI_UNF_CIPHER_HashFinal 完成。</p>
+<p>步骤 6 : 关闭 CIPHER 设备。调用接口 CVI_UNF_CIPHER_Deinit 完成。</p>
+<p><strong>注意事项</strong></p>
+</section>
+<section id="hmac-note-sw">
+<h3><span class="section-number">2.2.4. </span>HMAC计算 (NOTE SW)<a class="headerlink" href="2_Overview.html#hmac-note-sw" title="永久链接至标题">¶</a></h3>
+<p><strong>场景说明</strong></p>
+<p>基于HASH算法, 计算数据的HMAC值。</p>
+<p><strong>工作流程</strong></p>
+<p>步骤 1 : CIPHER设备初始化。调用接口 CVI_UNF_CIPHER_Init 完成。</p>
+<p>步骤 2 : 获取 HASH句柄, 选择HASH算法并配置HMAC计算的密钥,调用接口 CVI_UNF_CIPHER_HashInit完成。</p>
+<p>步骤 3 : 输入数据，逐个数据块依次计算 HMAC 值。调用接口 CVI_UNF_CIPHER_HashUpdate 完成。</p>
+<p>步骤 4 : 如果摘要未计算完成，再次执行步骤 3。</p>
+<p>步骤 5 : 完成摘要计算，结束输入，获取HMAC计算结果。调用接口 CVI_UNF_CIPHER_HashFinal 完成。</p>
+<p>步骤 6 : 关闭 CIPHER 设备。调用接口 CVI_UNF_CIPHER_Deinit 完成。</p>
+<p><strong>注意事项</strong></p>
+</section>
+<section id="id6">
+<h3><span class="section-number">2.2.5. </span>产生随机数<a class="headerlink" href="2_Overview.html#id6" title="永久链接至标题">¶</a></h3>
+<p><strong>场景说明</strong></p>
+<p>获取硬件产生的真随机数</p>
+<p><strong>工作流程</strong></p>
+<p>步骤 1 : CIPHER设备初始化。调用接口 CVI_UNF_CIPHER_Init 完成。</p>
+<p>步骤 2 : 获取 256bits随机数, 调用接口 CVI_UNF_CIPHER_GetRandomNumber完成。</p>
+<p>步骤 3 : 关闭 CIPHER 设备。调用接口 CVI_UNF_CIPHER_Deinit 完成。</p>
+<p><strong>注意事项</strong></p>
+</section>
+<section id="rsa-note-sw">
+<h3><span class="section-number">2.2.6. </span>RSA加解密操作步骤 (NOTE SW)<a class="headerlink" href="2_Overview.html#rsa-note-sw" title="永久链接至标题">¶</a></h3>
+<p><strong>场景说明</strong></p>
+<p>对数据进行 RSA 不对称算法加解密。使用公钥加密的数据，必须使用私钥进行解密。反之，使用私钥加密的数据，必须使用公钥解密。</p>
+<p><strong>工作流程</strong></p>
+<p>步骤 1 : CIPHER设备初始化。调用接口 CVI_UNF_CIPHER_Init 完成。</p>
+<p>步骤 2 : 对数据进行加解密或签名验证。根据使用的密钥不同，调用以下任一接口进行加解密、签名验证、生成密钥对等。</p>
+<ul class="simple">
+<li><p>公钥加密 : CVI_UNF_CIPHER_RsaPublicEncrypt</p></li>
+<li><p>私钥解密 : CVI_UNF_CIPHER_RsaPrivateDec</p></li>
+<li><p>私钥加密 : CVI_UNF_CIPHER_RsaPrivateEnc</p></li>
+<li><p>公钥解密 : CVI_UNF_CIPHER_RsaPublicDec</p></li>
+<li><p>私钥签名 : CVI_UNF_CIPHER_RsaSign</p></li>
+<li><p>公钥验证 : CVI_UNF_CIPHER_RsaVerify</p></li>
+</ul>
+<p>步骤 3 : 关闭 CIPHER 设备。调用接口 CVI_UNF_CIPHER_Deinit 完成。</p>
+<p><strong>注意事项</strong></p>
+</section>
+<section id="rsa">
+<h3><span class="section-number">2.2.7. </span>RSA签名及验签操作步骤<a class="headerlink" href="2_Overview.html#rsa" title="永久链接至标题">¶</a></h3>
+<p><strong>场景说明</strong></p>
+<p>对数据进行 RSA 签名及验签时，使用私钥进行数据签名，使用进行数据验签。</p>
+<p><strong>工作流程</strong></p>
+<p>步骤 1 : CIPHER设备初始化。调用接口 CVI_UNF_CIPHER_Init 完成。</p>
+<p>步骤 2 : 对数据进行签名验证。</p>
+<ul class="simple">
+<li><p>私钥签名 : CVI_UNF_CIPHER_RsaSign</p></li>
+<li><p>公钥验证 : CVI_UNF_CIPHER_RsaVerify</p></li>
+</ul>
+<p>步骤 3 : 关闭 CIPHER 设备。调用接口 CVI_UNF_CIPHER_Deinit 完成。</p>
+<p><strong>注意事项</strong></p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="1_disclaimer.html" class="btn btn-neutral float-left" title="1. 声明" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="3_API_Reference.html" class="btn btn-neutral float-right" title="3. API参考" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

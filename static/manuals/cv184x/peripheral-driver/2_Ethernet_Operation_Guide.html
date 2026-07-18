@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2. Ethernet 操作指南 &mdash; PeripheralDriver master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="3. USB操作指南" href="3_USB_Operation_Guide.html" />
+    <link rel="prev" title="1. 声明" href="1_disclaimer.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> PeripheralDriver
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="2_Ethernet_Operation_Guide.html#">2. Ethernet 操作指南</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_Ethernet_Operation_Guide.html#id1">2.1. 操作示例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Ethernet_Operation_Guide.html#ipv6">2.2. IPv6说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Ethernet_Operation_Guide.html#ieee-802-3x">2.3. IEEE 802.3x流控功能</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_Ethernet_Operation_Guide.html#id2">2.3.1. 流控功能描述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Ethernet_Operation_Guide.html#id3">2.3.2. 流控功能配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Ethernet_Operation_Guide.html#ethtool">2.3.3. ethtool配置接口流控功能</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3_USB_Operation_Guide.html">3. USB操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_SD_MMC_Card_Operation_Guide.html">4. SD/MMC 卡操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_I2C_Operation_Guide.html">5. I2C 操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_SPI_Operation_Guide.html">6. SPI 操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_GPIO_Operation_Guide.html">7. GPIO操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_UART_Operation_Guide.html">8. UART 操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_Watchdog_Operation_Guide.html">9. Watchdog 操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_PWM_Operation_Guide.html">10. PWM 操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_ADC_Operation_Guide.html">11. ADC 操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_CVI_PINMUX_Operation_Guide.html">12. CVI PINMUX 操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_DMA_mem_to_mem_Operation_Guide.html">13. DMA 操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_Thermal_Control_Operation_Guide.html">14. 温控策略与测试操作指南</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PeripheralDriver</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">2. </span>Ethernet 操作指南</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/2_Ethernet_Operation_Guide.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ethernet">
+<h1><span class="section-number">2. </span>Ethernet 操作指南<a class="headerlink" href="2_Ethernet_Operation_Guide.html#ethernet" title="永久链接至标题">¶</a></h1>
+<section id="id1">
+<h2><span class="section-number">2.1. </span>操作示例<a class="headerlink" href="2_Ethernet_Operation_Guide.html#id1" title="永久链接至标题">¶</a></h2>
+<p>Ethernet模块默认为编入内核，不需另外执行加载操作。</p>
+<p>内核下使用网口的操作步骤如下：</p>
+<ul>
+<li><p>配置ip地址和子网掩码</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ifconfig eth0 xxx.xxx.xxx.xxx netmask xxx.xxx.xxx.xxx up
+</pre></div>
+</div>
+</li>
+<li><p>设置缺省网关</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>route add default gw xxx.xxx.xxx.xxx
+</pre></div>
+</div>
+</li>
+<li><p>验证网络连通性</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ping xxx.xxx.xxx.xxx
+<span class="c1"># ping 网关或目标服务器 IP，确认网络可达后再进行后续 NFS/TFTP 操作</span>
+</pre></div>
+</div>
+</li>
+<li><p>挂载 nfs</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mount -t nfs -o nolock xxx.xxx.xxx.xxx:/your/path /mount-dir
+</pre></div>
+</div>
+</li>
+<li><p>shell下使用tftp上传下载文件</p>
+<p>前提是在server端有tftp服务软件在运行。</p>
+<p>下载文件：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tftp -g -r <span class="o">[</span>remote file name<span class="o">]</span> <span class="o">[</span>server ip<span class="o">]</span>
+</pre></div>
+</div>
+<p>备注: remote file name 为欲下载的文件名称，server ip为下载文件所在server的ip地址 (Ex：tftp -g -r test.txt 192.168.0.11)。</p>
+<p>上传文件：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tftp -p -l <span class="o">[</span><span class="nb">local</span> file name<span class="o">]</span> <span class="o">[</span>server ip<span class="o">]</span>
+</pre></div>
+</div>
+<p>备注: local file name 为本地欲上传的文件名称，server ip为上传文件的目标server的ip地址 (Ex：tftp -p -l test.txt 192.168.0.11)。</p>
+</li>
+</ul>
+<p>备注说明：CV184x Ethernet模块不支持TSO功能。</p>
+<p>备注说明：nfs工具默认不会编入文件系统，需要用户在需要时候加入。</p>
+</section>
+<section id="ipv6">
+<h2><span class="section-number">2.2. </span>IPv6说明<a class="headerlink" href="2_Ethernet_Operation_Guide.html#ipv6" title="永久链接至标题">¶</a></h2>
+<p>SDK包中默认关闭IPv6功能。如果要开启IPv6，需要修改内核选项。具体操作如下：</p>
+<ol class="arabic simple">
+<li><p>CV184x 系列</p></li>
+</ol>
+<p>修改</p>
+<blockquote>
+<div><p>build/boards/cv184x/{board_name}/linux/cvitek_{board_name}_defconfig。</p>
+<p>Ex: build/boards/cv184x/cv1842hp_wevb_0014a_spinor/linux/</p>
+<p>cvitek_cv1842hp_wevb_0014a_spinor_defconfig 新增或修改成CONFIG_IPV6=y。然后重新编译内核软件。</p>
+</div></blockquote>
+<p>IPv6环境配置方法如下：</p>
+<ul class="simple">
+<li><p>配置ip地址以及网关</p></li>
+</ul>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ip -6 addr add &lt;ipv6 address&gt;/ipv6 prefixlen dev &lt;port name&gt;
+
+Ex: ip -6 addr add <span class="m">2020</span>:abc:102::8888/24 dev eth0
+</pre></div>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li><p>Ping指定的IPv6地址</p></li>
+</ul>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ping -6 &lt;ipv6 address&gt;
+
+Ex: ping -6 <span class="m">2020</span>:abc:102::6666
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="ieee-802-3x">
+<h2><span class="section-number">2.3. </span>IEEE 802.3x流控功能<a class="headerlink" href="2_Ethernet_Operation_Guide.html#ieee-802-3x" title="永久链接至标题">¶</a></h2>
+<section id="id2">
+<h3><span class="section-number">2.3.1. </span>流控功能描述<a class="headerlink" href="2_Ethernet_Operation_Guide.html#id2" title="永久链接至标题">¶</a></h3>
+<p>CV184x Ethernet支持IEEE 802.3x所定义的流控功能，透过发送流控帧以及接收对端所发送过来的流控帧的方式来达到流控的目的。</p>
+<ul>
+<li><p>发送流控帧：</p>
+<blockquote>
+<div><p>在接收由对端发送过来的封包的过程中，若发现目前接收端的接收对列可能无法满足接收后续送达的封包时，则本地端会发送流控帧至对端，要求对端暂停一段时间不发送封包，藉此来进行流量控制。</p>
+</div></blockquote>
+</li>
+<li><p>接收流控帧：</p>
+<blockquote>
+<div><p>当本地端接收到由对端发送过来的流控帧时，本地端会根据帧内的流控时间描述延迟发送封包至对端，等到过了流控延迟时间后，再启动发送。若在等待过程中收到了由对端发送的流控帧其描述的流控时间为0时，则会直接启动发送。</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="id3">
+<h3><span class="section-number">2.3.2. </span>流控功能配置<a class="headerlink" href="2_Ethernet_Operation_Guide.html#id3" title="永久链接至标题">¶</a></h3>
+<p>接收流控帧功能默认是关闭的，亦没有提供软件接口配置。</p>
+<p>发送流控帧功能的相关文件配置在linux/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">flow_ctrl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FLOW_OFF</span><span class="p">;</span><span class="w"></span>
+<span class="n">module_param</span><span class="p">(</span><span class="n">flow_ctrl</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="mo">0644</span><span class="p">);</span><span class="w"></span>
+<span class="n">MODULE_PARM_DESC</span><span class="p">(</span><span class="n">flow_ctrl</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Flow control ability [on/off]&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">pause</span><span class="w"> </span><span class="o">=</span><span class="n">PAUSE_TIME</span><span class="p">;</span><span class="w"></span>
+<span class="n">module_param</span><span class="p">(</span><span class="n">pause</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="mo">0644</span><span class="p">);</span><span class="w"></span>
+<span class="n">MODULE_PARM_DESC</span><span class="p">(</span><span class="n">pause</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Flow Control Pause Time&quot;</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>若欲默认开启流控功能，可修改flow_ctrl = FLOW_AUTO。</p>
+<p>若欲修改默认pause time，可配置 pause至目标值。</p>
+</section>
+<section id="ethtool">
+<h3><span class="section-number">2.3.3. </span>ethtool配置接口流控功能<a class="headerlink" href="2_Ethernet_Operation_Guide.html#ethtool" title="永久链接至标题">¶</a></h3>
+<p>用户可以通过标准ethtool工具接口进行流控功能的使能。</p>
+<p>ethtool -a eth0 命令查看eth0口流控功能状态；打印如下</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># ethtool -a eth0</span>
+<span class="n">Pause</span> <span class="n">parameters</span> <span class="k">for</span> <span class="n">eth0</span><span class="p">:</span>
+<span class="n">Autonegotiate</span><span class="p">:</span> <span class="n">on</span>
+<span class="n">RX</span><span class="p">:</span> <span class="n">off</span>
+<span class="n">TX</span><span class="p">:</span> <span class="n">off</span>
+</pre></div>
+</div>
+<p>其中，RX流控是关闭的，TX流控是关闭的；用户可以通过以下命令打开或关闭TX流控：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># ethtool -A eth0 tx off（关闭TX流控）</span>
+<span class="c1"># ethtool -A eth0 tx on（打开TX流控）</span>
+</pre></div>
+</div>
+<p>备注：ethtool工具默认不会编入文件系统，需要用户在需要时候加入。</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="1_disclaimer.html" class="btn btn-neutral float-left" title="1. 声明" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="3_USB_Operation_Guide.html" class="btn btn-neutral float-right" title="3. USB操作指南" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2025, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

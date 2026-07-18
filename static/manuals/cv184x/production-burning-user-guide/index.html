@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV180X &amp; CV181X &amp; CV184X &amp; CV186AH/BM1688 烧写使用手册 &mdash; ProductionBurningUserGuide master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="1. 声明" href="1_disclaimer.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html#" class="icon icon-home"> ProductionBurningUserGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Overview.html">2. 概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Cvi_Download_Tool(USB&amp;UART).html">3. USB烧录/UART烧录</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_SD.html">4. SD卡烧录</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_TFTP.html">5. TFTP烧录</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_Burner.html">6. 烧录器烧录</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html#">ProductionBurningUserGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html#" class="icon icon-home"></a> &raquo;</li>
+      <li>CV180X &amp; CV181X &amp; CV184X &amp; CV186AH/BM1688 烧写使用手册</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cv180x-cv181x-cv184x-cv186ah-bm1688">
+<h1>CV180X &amp; CV181X &amp; CV184X &amp; CV186AH/BM1688 烧写使用手册<a class="headerlink" href="index.html#cv180x-cv181x-cv184x-cv186ah-bm1688" title="永久链接至标题">¶</a></h1>
+<p><strong>修订记录</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 15%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Revision</p></th>
+<th class="head"><p>Date</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1.0.0</p></td>
+<td><p>2023/08/30</p></td>
+<td><p>初稿</p></td>
+</tr>
+<tr class="row-odd"><td><p>1.0.1</p></td>
+<td><p>2023/09/14</p></td>
+<td><p>添加usb驱动安装使用指南</p></td>
+</tr>
+<tr class="row-even"><td><p>1.0.2</p></td>
+<td><p>2023/09/22</p></td>
+<td><p>完善一拖多流程内容</p></td>
+</tr>
+<tr class="row-odd"><td><p>1.0.3</p></td>
+<td><p>2023/09/27</p></td>
+<td><p>修改一拖多界面图片，增加注意事项</p></td>
+</tr>
+<tr class="row-even"><td><p>1.0.4</p></td>
+<td><p>2023/10/20</p></td>
+<td><p>增加ini配置文件说明</p></td>
+</tr>
+<tr class="row-odd"><td><p>1.0.5</p></td>
+<td><p>2023/12/10</p></td>
+<td><p>修改一拖多图标与进度条显示说明</p></td>
+</tr>
+<tr class="row-even"><td><p>1.0.6</p></td>
+<td><p>2024/03/29</p></td>
+<td><p>更新驱动安装章节内容</p></td>
+</tr>
+<tr class="row-odd"><td><p>1.0.7</p></td>
+<td><p>2024/11/08</p></td>
+<td><p>重构工具，更新新的设置选项和图片</p></td>
+</tr>
+<tr class="row-even"><td><p>1.0.8</p></td>
+<td><p>2025/03/19</p></td>
+<td><p>集成uart、usb、sd、tftp、烧录器 的文档</p></td>
+</tr>
+</tbody>
+</table>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Overview.html">2. 概述</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_Overview.html#id2">2.1. 介绍</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Overview.html#id3">2.2. 烧录前的准备工作</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3_Cvi_Download_Tool(USB&amp;UART).html">3. USB烧录/UART烧录</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3_Cvi_Download_Tool(USB&amp;UART)/1_Overview.html">3.1. 概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_Cvi_Download_Tool(USB&amp;UART)/2_Installing_The_USB_Driver.html">3.2. 安装usb驱动 (USB烧录)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_Cvi_Download_Tool(USB&amp;UART)/3_Uninstalling_The_USB_Driver.html">3.3. 卸载usb驱动 (USB烧录)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_Cvi_Download_Tool(USB&amp;UART)/4_Cvi_Download_Tool.html">3.4. cviDownloadTool 工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_Cvi_Download_Tool(USB&amp;UART)/5_Cvi_Download_Cmd.html">3.5. cviDownloadTool 工具</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="4_SD.html">4. SD卡烧录</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="4_SD/1_Overview.html">4.1. 概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_SD/2_Use_SD_Card_for_Bare_Burn.html">4.2. 使用SD卡裸烧</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="5_TFTP.html">5. TFTP烧录</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="5_TFTP/1_Use_TFTP_for_Load.html">5.1. 使用 TFTP 加载固件到DDR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_TFTP/2_Use_TFTP_for_Burn.html">5.2. 烧写固件到Flash</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="6_Burner.html">6. 烧录器烧录</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="6_Burner/1_Overview.html">6.1. 概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Burner/2_Burn_in_Procedure.html">6.2. 预烧程序</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="1_disclaimer.html" class="btn btn-neutral float-right" title="1. 声明" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

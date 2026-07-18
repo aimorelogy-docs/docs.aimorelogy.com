@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2. GOP结构和适用场景 &mdash; SmartCodingUserGuide master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="3. 感兴趣区域设置" href="3_Encoder_Input_Message.html" />
+    <link rel="prev" title="1. 声明" href="1_disclaimer.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> SmartCodingUserGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="2_GOP_Structure_and_Applicable_Scenarios.html#">2. GOP结构和适用场景</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_GOP_Structure_and_Applicable_Scenarios.html#id1">2.1. GOP模式列表</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_GOP_Structure_and_Applicable_Scenarios.html#normalp">2.2. NormalP模式结构说明</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_GOP_Structure_and_Applicable_Scenarios.html#id2">2.2.1. NormalP模式结构说明</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_GOP_Structure_and_Applicable_Scenarios.html#normal">2.2.2. Normal模式使用方法</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2_GOP_Structure_and_Applicable_Scenarios.html#smartpgop">2.3. SmartP模式GOP结构说明及使用方法</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_GOP_Structure_and_Applicable_Scenarios.html#smartp">2.3.1. SmartP模式结构说明</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_GOP_Structure_and_Applicable_Scenarios.html#id3">2.3.2. SmartP模式使用方法</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2_GOP_Structure_and_Applicable_Scenarios.html#gopbuffer">2.4. 不同GOP结构Buffer占用情况</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3_Encoder_Input_Message.html">3. 感兴趣区域设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_Encoder_Output_Message.html">4. 智能编码设置</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SmartCodingUserGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">2. </span>GOP结构和适用场景</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/2_GOP_Structure_and_Applicable_Scenarios.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="gop">
+<h1><span class="section-number">2. </span>GOP结构和适用场景<a class="headerlink" href="2_GOP_Structure_and_Applicable_Scenarios.html#gop" title="永久链接至标题">¶</a></h1>
+<section id="id1">
+<h2><span class="section-number">2.1. </span>GOP模式列表<a class="headerlink" href="2_GOP_Structure_and_Applicable_Scenarios.html#id1" title="永久链接至标题">¶</a></h2>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>模式</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>NormalP</p></td>
+<td><p>P帧只向前参考前一张参考帧</p></td>
+</tr>
+<tr class="row-odd"><td><p>SmartP</p></td>
+<td><p>P帧只向前参考前一张参考帧，VI帧向前参考IDR帧</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="normalp">
+<h2><span class="section-number">2.2. </span>NormalP模式结构说明<a class="headerlink" href="2_GOP_Structure_and_Applicable_Scenarios.html#normalp" title="永久链接至标题">¶</a></h2>
+<section id="id2">
+<h3><span class="section-number">2.2.1. </span>NormalP模式结构说明<a class="headerlink" href="2_GOP_Structure_and_Applicable_Scenarios.html#id2" title="永久链接至标题">¶</a></h3>
+<div class="line-block">
+<div class="line">NormalP（也称为 IPPP 编码）是视频编码中最基础、最常用的 GOP（Group of Pictures）结构，其帧类型排列遵循严格的 前向参考 模式</div>
+<div class="line">在一般无特殊需求场景下，建议使用NormalP模式</div>
+<div class="line">NormalP模式GOP结构，如下图所示。</div>
+</div>
+<figure class="align-center">
+<img alt="_images/normal01.png" src="_images/normal01.png" />
+</figure>
+<figure class="align-center">
+<img alt="_images/normal02.png" src="_images/normal02.png" />
+</figure>
+</section>
+<section id="normal">
+<h3><span class="section-number">2.2.2. </span>Normal模式使用方法<a class="headerlink" href="2_GOP_Structure_and_Applicable_Scenarios.html#normal" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p>相关接口</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">CVI_VENC_CreateChn</span></code></p>
+<ul class="simple">
+<li><p>相关参数</p></li>
+</ul>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>VENC_CHN_ATTR_S::stGopAttr.enGopMode = VENC_GOPMODE_NORMALP
+VENC_CHN_ATTR_S::stRcAttr.u32Gop = 60
+VENC_CHN_ATTR_S::stGopAttr.stNormalP.s32IPQpDelta推荐设为3，数值越大I帧码率越大，图像质量越好
+</pre></div>
+</div>
+</section>
+</section>
+<section id="smartpgop">
+<h2><span class="section-number">2.3. </span>SmartP模式GOP结构说明及使用方法<a class="headerlink" href="2_GOP_Structure_and_Applicable_Scenarios.html#smartpgop" title="永久链接至标题">¶</a></h2>
+<section id="smartp">
+<h3><span class="section-number">2.3.1. </span>SmartP模式结构说明<a class="headerlink" href="2_GOP_Structure_and_Applicable_Scenarios.html#smartp" title="永久链接至标题">¶</a></h3>
+<p>SmartP 是一种专为监控场景优化的视频编码模式，通过引入 Virtual-I帧 和 长期参考帧 机制，在保持低码率的同时减少关键帧（IDR）的强制插入频率</p>
+<dl class="simple">
+<dt>核心创新点</dt><dd><ul class="simple">
+<li><p>两种P帧融合</p>
+<ul>
+<li><p><strong>普通P帧</strong>：短期参考，向前参考前一帧（类似NormalP）</p></li>
+<li><p><strong>Virtual-I帧</strong>：长期参考，直接向前参考最近的IDR帧（跨越多帧）</p></li>
+</ul>
+</li>
+<li><p>通过减少IDR帧的频繁插入，避免因关键帧重建导致的画面瞬时码率波动</p></li>
+</ul>
+</dd>
+<dt>适用场景与限制</dt><dd><ul class="simple">
+<li><p>最佳场景</p>
+<ul>
+<li><p>固定摄像头监控：如商场、停车场等背景静止、仅有局部运动的场景</p></li>
+<li><p>低带宽传输时可显著降低整体码率</p></li>
+</ul>
+</li>
+<li><p>局限性</p>
+<ul>
+<li><p>动态背景适应性差：若摄像头移动或场景全局变化（如切换灯光），Virtual-I帧效率下降</p></li>
+<li><p>解码复杂度略高：需维护长期参考帧缓冲区</p></li>
+</ul>
+</li>
+</ul>
+</dd>
+</dl>
+<div class="line-block">
+<div class="line">SmartP模式GOP结构，如下图所示。</div>
+</div>
+<figure class="align-center">
+<img alt="_images/smart01.png" src="_images/smart01.png" />
+</figure>
+<figure class="align-center">
+<img alt="_images/smart02.png" src="_images/smart02.png" />
+</figure>
+</section>
+<section id="id3">
+<h3><span class="section-number">2.3.2. </span>SmartP模式使用方法<a class="headerlink" href="2_GOP_Structure_and_Applicable_Scenarios.html#id3" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p>相关接口</p></li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">CVI_VENC_CreateChn</span></code></p>
+<ul class="simple">
+<li><p>相关参数</p></li>
+</ul>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">VENC_CHN_ATTR_S</span><span class="o">::</span><span class="n">stGopAttr</span><span class="p">.</span><span class="n">enGopMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">VENC_GOPMODE_SMARTP</span><span class="w"></span>
+<span class="n">VENC_CHN_ATTR_S</span><span class="o">::</span><span class="n">stGopAttr</span><span class="p">.</span><span class="n">stSmartP</span><span class="p">.</span><span class="n">u32BgInterval</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">300</span><span class="w"> </span><span class="c1">//  10secs for fps=30</span>
+<span class="n">VENC_CHN_ATTR_S</span><span class="o">::</span><span class="n">stRcAttr</span><span class="p">.</span><span class="n">u32Gop</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">60</span><span class="w"> </span><span class="c1">// virtual I interval，2secs for fps=30</span>
+<span class="n">VENC_CHN_ATTR_S</span><span class="o">::</span><span class="n">stRcAttr</span><span class="p">.</span><span class="n">u32StatTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="c1">// secs</span>
+<span class="n">VENC_CHN_ATTR_S</span><span class="o">::</span><span class="w"> </span><span class="n">stGopAttr</span><span class="p">.</span><span class="n">stSmartP</span><span class="p">.</span><span class="n">s32BgQpDelta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="n">VENC_CHN_ATTR_S</span><span class="o">::</span><span class="w"> </span><span class="n">stGopAttr</span><span class="p">.</span><span class="n">stSmartP</span><span class="p">.</span><span class="n">s32ViQpDelta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="gopbuffer">
+<h2><span class="section-number">2.4. </span>不同GOP结构Buffer占用情况<a class="headerlink" href="2_GOP_Structure_and_Applicable_Scenarios.html#gopbuffer" title="永久链接至标题">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 40%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>模式</p></th>
+<th class="head"><p>DDR占用</p></th>
+<th class="head"><p>适用场景</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>NormalP</p></td>
+<td><p>2*PicSize</p></td>
+<td><p>一般场景</p></td>
+</tr>
+<tr class="row-odd"><td><p>SmartP</p></td>
+<td><p>3*PicSize</p></td>
+<td><p>监控场景</p></td>
+</tr>
+</tbody>
+</table>
+<div class="line-block">
+<div class="line">编码时编码器需要缓存当前待编码帧的YUV以及参考帧的YUV，对NormalP而言，其参考帧只有前面P帧，而SmartP除了缓存前面P帧的重建帧，还需要缓存长期参考帧的重建</div>
+</div>
+<blockquote>
+<div><ul>
+<li><p>H.264</p>
+<p>PicSize= FrameBufSize + mvBufSize + recBufSize</p>
+</li>
+<li><p>H.265</p>
+<p>PicSize= FrameBufSize + mvBufSize + recBufSize</p>
+</li>
+<li><p>各子项计算方法请参考文档《CV184x媒体软件开发参考》的“视频编码”章节</p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="1_disclaimer.html" class="btn btn-neutral float-left" title="1. 声明" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="3_Encoder_Input_Message.html" class="btn btn-neutral float-right" title="3. 感兴趣区域设置" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

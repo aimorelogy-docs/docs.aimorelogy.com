@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3. GFBG功能描述 &mdash; GFBGDevelopmentGuide master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="4. 模块加载" href="4_GFBG_Module_Loading.html" />
+    <link rel="prev" title="2. GFBG概述" href="2_GFBG_Overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> GFBGDevelopmentGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_GFBG_Overview.html">2. GFBG概述</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="3_GFBG_Function_Description.html#">3. GFBG功能描述</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3_GFBG_Function_Description.html#id1">3.1. 体系结构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_GFBG_Function_Description.html#id2">3.2. 标准功能与扩展功能</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3_GFBG_Function_Description.html#id3">3.2.1. 标准功能</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_GFBG_Function_Description.html#id4">3.2.2. 扩展功能</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3_GFBG_Function_Description.html#id5">3.3. 扩展模式下的图形层刷新类型</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3_GFBG_Function_Description.html#buffer-cvi-fb-layer-buf-none">3.3.1. 0 buffer（即CVI_FB_LAYER_BUF_NONE）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_GFBG_Function_Description.html#buffer-cvi-fb-layer-buf-one">3.3.2. 1 buffer（即CVI_FB_LAYER_BUF_ONE）暂不支持</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_GFBG_Function_Description.html#buffer-cvi-fb-layer-buf-double">3.3.3. 2 buffer（即CVI_FB_LAYER_BUF_DOUBLE）暂不支持</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="3_GFBG_Function_Description.html#id6">3.3.3.1. 图形层压缩 暂不支持</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="4_GFBG_Module_Loading.html">4. 模块加载</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_GFBG_Application_Example.html">5. 应用开发流程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_GFBG_Interface_Description.html">6. GFBG接口说明</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">GFBGDevelopmentGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">3. </span>GFBG功能描述</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/3_GFBG_Function_Description.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="gfbg">
+<h1><span class="section-number">3. </span>GFBG功能描述<a class="headerlink" href="3_GFBG_Function_Description.html#gfbg" title="永久链接至标题">¶</a></h1>
+<section id="id1">
+<h2><span class="section-number">3.1. </span>体系结构<a class="headerlink" href="3_GFBG_Function_Description.html#id1" title="永久链接至标题">¶</a></h2>
+<p>应用程序基于Linux系统使用GFBG，GFBG体系结构如下图所示。</p>
+<figure class="align-default" id="id7">
+<a class="reference internal image-reference" href="_images/image1.png"><img alt="_images/image1.png" src="_images/image1.png" style="width: 3.76806in; height: 3.76806in;" /></a>
+<figcaption>
+<p><span class="caption-number">图 3.1 </span><span class="caption-text">GFBG体系结构</span><a class="headerlink" href="3_GFBG_Function_Description.html#id7" title="永久链接至图片">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="id2">
+<h2><span class="section-number">3.2. </span>标准功能与扩展功能<a class="headerlink" href="3_GFBG_Function_Description.html#id2" title="永久链接至标题">¶</a></h2>
+<section id="id3">
+<h3><span class="section-number">3.2.1. </span>标准功能<a class="headerlink" href="3_GFBG_Function_Description.html#id3" title="永久链接至标题">¶</a></h3>
+<p>GFBG支持以下的 Linux Framebuffer 标准功能：</p>
+<ul class="simple">
+<li><p>物理显存映射到或者解除映射到虚拟内存空间中，允许用户通过虚拟地址访问物理显存，从而实现更高效的内存管理和操作。</p></li>
+<li><p>像操作普通文件一样操作物理显存，支持通过文件接口对显存进行读写操作，简化了显存的使用方式。</p></li>
+<li><p>设置硬件显示分辨率和象素格式，每个叠加图形层的支持的最大分辨率和象素格式可以通过支持能力接口获取，确保硬件显示的灵活性和兼容性。</p></li>
+<li><p>从物理显存的任何位置进行读写及显示，支持对显存内容的任意位置进行操作，满足复杂显示需求的同时提供更高的自由度。</p></li>
+</ul>
+</section>
+<section id="id4">
+<h3><span class="section-number">3.2.2. </span>扩展功能<a class="headerlink" href="3_GFBG_Function_Description.html#id4" title="永久链接至标题">¶</a></h3>
+<p>GFBG新增以下扩展功能：</p>
+<ul class="simple">
+<li><p>设置和获取叠加图形层的colorkey值。</p></li>
+<li><p>设置当前叠加图形层的起始位置（相对于屏幕原点的偏移）。</p></li>
+<li><p>设置和获取当前叠加图形层的显示状态（显示/隐藏）。</p></li>
+<li><p>通过模块加载参数配置 GFBG 的物理显存大小和管理叠加图形层的数目。</p></li>
+<li><p>设置和获取压缩模式的状态，目前仅支持非压缩模式。</p></li>
+<li><p>设置/获取图形层刷新类型（0 buffer、1 buffer 与 2 buffer），目前仅支持0 buffer模式。</p></li>
+</ul>
+</section>
+</section>
+<section id="id5">
+<h2><span class="section-number">3.3. </span>扩展模式下的图形层刷新类型<a class="headerlink" href="3_GFBG_Function_Description.html#id5" title="永久链接至标题">¶</a></h2>
+<p>GFBG 为上层用户提供了一套完整的刷新方案，称为 FB 的扩展模式。在对系统性能、内存、图形显示效果各方面综合衡量的基础上，可根据需要选择合适的刷新方案。该模式支持灵活的刷新策略，用户可以根据实际需求选择不同的刷新类型，例如 0 buffer、1 buffer 和 2 buffer 模式，以满足不同场景下的性能和显示效果要求。同时，扩展模式还提供了对刷新参数的精细化控制，确保在复杂的显示需求下能够实现高效、稳定的图形渲染。</p>
+<section id="buffer-cvi-fb-layer-buf-none">
+<h3><span class="section-number">3.3.1. </span>0 buffer（即CVI_FB_LAYER_BUF_NONE）<a class="headerlink" href="3_GFBG_Function_Description.html#buffer-cvi-fb-layer-buf-none" title="永久链接至标题">¶</a></h3>
+<p>上层用户的绘制 buffer 即为显示 buffer。该刷新类型可以显著节省内存消耗，同时具备最快的刷新速度。然而，由于绘制 buffer 与显示 buffer 是同一个，用户在绘制过程中可能会直接看到图形的绘制过程，例如未完成的图形或中间状态的内容。这种模式适用于对内存和性能要求较高，但对绘制过程的视觉效果要求不高的场景。示意如下图所示。</p>
+<figure class="align-default" id="id8">
+<a class="reference internal image-reference" href="_images/image3-1.png"><img alt="_images/image3-1.png" src="_images/image3-1.png" style="width: 3.76806in; height: 3.15069in;" /></a>
+<figcaption>
+<p><span class="caption-number">图 3.2 </span><span class="caption-text">0 buffer示意图</span><a class="headerlink" href="3_GFBG_Function_Description.html#id8" title="永久链接至图片">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="buffer-cvi-fb-layer-buf-one">
+<h3><span class="section-number">3.3.2. </span>1 buffer（即CVI_FB_LAYER_BUF_ONE）暂不支持<a class="headerlink" href="3_GFBG_Function_Description.html#buffer-cvi-fb-layer-buf-one" title="永久链接至标题">¶</a></h3>
+<p>显示 buffer 由 GFBG 提供，因此需要一定的内存。该刷新类型是对显示效果和内存需求的一种折中考虑。它通过在绘制 buffer 和显示 buffer 之间引入一个缓冲区，避免了绘制过程中直接影响显示内容的问题，从而提升了显示效果的稳定性和一致性。然而，由于需要额外的内存来存储显示 buffer，因此会增加内存的使用量。此外，在某些情况下可能会出现锯齿现象，这需要根据具体的应用场景进行权衡和优化。示意如下图所示。</p>
+<figure class="align-default" id="id9">
+<a class="reference internal image-reference" href="_images/image3-2.png"><img alt="_images/image3-2.png" src="_images/image3-2.png" style="width: 4.76806in; height: 3.15069in;" /></a>
+<figcaption>
+<p><span class="caption-number">图 3.3 </span><span class="caption-text">1 buffer示意图</span><a class="headerlink" href="3_GFBG_Function_Description.html#id9" title="永久链接至图片">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="buffer-cvi-fb-layer-buf-double">
+<h3><span class="section-number">3.3.3. </span>2 buffer（即CVI_FB_LAYER_BUF_DOUBLE）暂不支持<a class="headerlink" href="3_GFBG_Function_Description.html#buffer-cvi-fb-layer-buf-double" title="永久链接至标题">¶</a></h3>
+<p>显示 buffer 由 GFBG 提供。与前面的刷新类型相比，该模式需要占用最多的内存资源，但能够提供最佳的图形显示效果。通过引入双缓冲机制，确保了显示内容的稳定性和一致性，同时避免了绘制过程中对显示内容的直接影响。这种模式适用于对显示效果要求较高的场景，例如需要高质量图形渲染或复杂动画的应用。示意如下图所示。</p>
+<figure class="align-default" id="id10">
+<a class="reference internal image-reference" href="_images/image3-3.png"><img alt="_images/image3-3.png" src="_images/image3-3.png" style="width: 3.76806in; height: 3.15069in;" /></a>
+<figcaption>
+<p><span class="caption-number">图 3.4 </span><span class="caption-text">2 buffer示意图</span><a class="headerlink" href="3_GFBG_Function_Description.html#id10" title="永久链接至图片">¶</a></p>
+</figcaption>
+</figure>
+<section id="id6">
+<h4><span class="section-number">3.3.3.1. </span>图形层压缩 暂不支持<a class="headerlink" href="3_GFBG_Function_Description.html#id6" title="永久链接至标题">¶</a></h4>
+<p>图形层压缩功能是指图形层能够接收硬件压缩的数据，并基于这些压缩数据进行解压显示。当显示 buffer 的数据未发生变化时，图形层每次都会加载压缩后的数据进行解压显示。启用压缩功能的图形层可以有效降低总线的传输带宽，但需要额外分配一帧压缩数据所需的内存空间。通过这种方式，图形层压缩功能在保证显示效果的同时，能够显著优化系统性能，尤其是在高分辨率和高刷新率的显示场景下，减少了数据传输的压力。此外，该功能还可以在一定程度上降低系统功耗，使其更适合嵌入式设备和移动设备等对功耗敏感的应用场景。然而，需要注意的是，启用压缩功能可能会增加系统的复杂性，并对硬件和软件的兼容性提出更高的要求，因此在实际应用中需要根据具体需求进行权衡和选择。
+典型的图形层压缩buffer示意图图下图所示。</p>
+<figure class="align-default" id="id11">
+<a class="reference internal image-reference" href="_images/image3-4.png"><img alt="_images/image3-4.png" src="_images/image3-4.png" style="width: 4.76806in; height: 2.15069in;" /></a>
+<figcaption>
+<p><span class="caption-number">图 3.5 </span><span class="caption-text">图形层压缩buffer示意图</span><a class="headerlink" href="3_GFBG_Function_Description.html#id11" title="永久链接至图片">¶</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="2_GFBG_Overview.html" class="btn btn-neutral float-left" title="2. GFBG概述" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="4_GFBG_Module_Loading.html" class="btn btn-neutral float-right" title="4. 模块加载" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

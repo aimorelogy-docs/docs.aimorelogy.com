@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>10. 音频 &mdash; MediaProcessingSoftwareDevelopmentReference master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="10.1. 功能概述" href="10_Audio_Frequency/Function_Overview.html" />
+    <link rel="prev" title="9.5. 错误码" href="9_Regional_Management/Error_Codes.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> MediaProcessingSoftwareDevelopmentReference
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_System_Overview.html">2. 系统概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_System_Control.html">3. 系统控制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_Video_Input.html">4. 视频输入</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_Video_Output.html">5. 视频输出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_Video_Processing_Subsystem.html">6. 视频处理子系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_Video_Encoding.html">7. 视频编码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_Video_Decoding.html">8. 视频解码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_Regional_Management.html">9. 区域管理</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="10_Audio_Frequency.html#">10. 音频</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="10_Audio_Frequency/Function_Overview.html">10.1. 功能概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_Audio_Frequency/Design_Overview.html">10.2. 设计概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html">10.3. API参考</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html">10.4. 数据类型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_Audio_Frequency/Error_Codes.html">10.5. 错误码</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_Audio_Frequency/Related_Tests.html">10.6. 相关测试</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_Audio_Frequency/Sample_Code_and_Board-side_Component_Preliminary_Testing.html">10.7. 范例码及板端初步测试</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem.html">11. 几何畸变矫正子系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_Proc_Debugging_Information_Explanation.html">12. Proc 调试信息说明</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MediaProcessingSoftwareDevelopmentReference</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">10. </span>音频</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/10_Audio_Frequency.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">10. </span>音频<a class="headerlink" href="10_Audio_Frequency.html#id1" title="永久链接至标题">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="10_Audio_Frequency/Function_Overview.html">10.1. 功能概述</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="10_Audio_Frequency/Function_Overview.html#id2">10.1.1. 目的</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_Audio_Frequency/Function_Overview.html#id3">10.1.2. 定义及缩写</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="10_Audio_Frequency/Design_Overview.html">10.2. 设计概述</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="10_Audio_Frequency/Design_Overview.html#id2">10.2.1. 系统架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_Audio_Frequency/Design_Overview.html#id3">10.2.2. 音频输入与输出</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Design_Overview.html#audio-inputaudio-output">10.2.2.1. 音频接口及Audio Input、Audio Output设备</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Design_Overview.html#id4">10.2.2.2. 录音与播放原理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Design_Overview.html#id5">10.2.2.3. 音频接口时序</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Design_Overview.html#id6">10.2.2.4. 重采样</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Design_Overview.html#vqe">10.2.2.5. 语音音质增强 (VQE)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="10_Audio_Frequency/Design_Overview.html#id7">10.2.3. 音频编码与解码</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Design_Overview.html#id8">10.2.3.1. 音频编解码流程</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Design_Overview.html#id9">10.2.3.2. 音频编解码协议</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Design_Overview.html#id10">10.2.3.3. 语音帧结构</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html">10.3. API参考</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#id1">10.3.1. 模块属性API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-audio-init">10.3.1.1. CVI_AUDIO_INIT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-audio-deinit">10.3.1.2. CVI_AUDIO_DEINIT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-aud-sys-bind">10.3.1.3. CVI_AUD_SYS_Bind</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-aud-sys-unbind">10.3.1.4. CVI_AUD_SYS_UnBind</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#id2">10.3.2. 音频输入</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-setpubattr">10.3.2.1. CVI_AI_SetPubAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-getpubattr">10.3.2.2. CVI_AI_GetPubAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-enable">10.3.2.3. CVI_AI_Enable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-disable">10.3.2.4. CVI_AI_Disable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-enablechn">10.3.2.5. CVI_AI_EnableChn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-disablechn">10.3.2.6. CVI_AI_DisableChn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-getframe">10.3.2.7. CVI_AI_GetFrame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-releaseframe">10.3.2.8. CVI_AI_ReleaseFrame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-setchnparam">10.3.2.9. CVI_AI_SetChnParam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-getchnparam">10.3.2.10. CVI_AI_GetChnParam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-enableresmp">10.3.2.11. CVI_AI_EnableReSmp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-disableresmp">10.3.2.12. CVI_AI_DisableReSmp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-clrpubattr">10.3.2.13. CVI_AI_ClrPubAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-savefile">10.3.2.14. CVI_AI_SaveFile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-queryfilestatus">10.3.2.15. CVI_AI_QueryFileStatus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-enableaecrefframe">10.3.2.16. CVI_AI_EnableAecRefFrame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-disableaecrefframe">10.3.2.17. CVI_AI_DisableAecRefFrame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-setvolume">10.3.2.18. CVI_AI_SetVolume</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-getvolume">10.3.2.19. CVI_AI_GetVolume</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-setstereovolume">10.3.2.20. CVI_AI_SetStereoVolume</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-getstereovolume">10.3.2.21. CVI_AI_GetStereoVolume</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#id3">10.3.3. 语音音质增强API</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-setvqeattr">10.3.3.1. CVI_AI_SetVqeAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-settalkvqeattr">10.3.3.2. CVI_AI_SetTalkVqeAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-gettalkvqeattr">10.3.3.3. CVI_AI_GetTalkVqeAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-setrecordvqeattr">10.3.3.4. CVI_AI_SetRecordVqeAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-getrecordvqeattr">10.3.3.5. CVI_AI_GetRecordVqeAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-enablevqe">10.3.3.6. CVI_AI_EnableVqe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-disablevqe">10.3.3.7. CVI_AI_DisableVqe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-settrackmode">10.3.3.8. CVI_AI_SetTrackMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-gettrackmode">10.3.3.9. CVI_AI_GetTrackMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ao-setvqeattr">10.3.3.10. CVI_AO_SetVqeAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ao-getvqeattr">10.3.3.11. CVI_AO_GetVqeAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ao-enablevqe">10.3.3.12. CVI_AO_EnableVqe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ao-disablevqe">10.3.3.13. CVI_AO_DisableVqe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-setvqevolume">10.3.3.14. CVI_AI_SetVqeVolume</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-getvqevolume">10.3.3.15. CVI_AI_GetVqeVolume</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-vqefunconfig">10.3.3.16. CVI_AI_VqeFunConfig</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-vqe-pathselect">10.3.3.17. CVI_VQE_PathSelect</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#id5">10.3.4. 音频输出</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ao-setpubattr">10.3.4.1. CVI_AO_SetPubAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ao-getpubattr">10.3.4.2. CVI_AO_GetPubAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ao-enable">10.3.4.3. CVI_AO_Enable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ao-disable">10.3.4.4. CVI_AO_Disable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ao-enablechn">10.3.4.5. CVI_AO_EnableChn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ao-disablechn">10.3.4.6. CVI_AO_DisableChn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ao-sendframe">10.3.4.7. CVI_AO_SendFrame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ao-setstereovolume">10.3.4.8. CVI_AO_SetStereoVolume</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ao-getstereovolume">10.3.4.9. CVI_AO_GetStereoVolume</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ao-enableresmp">10.3.4.10. CVI_AO_EnableReSmp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ao-disableresmp">10.3.4.11. CVI_AO_DisableReSmp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ao-pausechn">10.3.4.12. CVI_AO_PauseChn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ao-resumechn">10.3.4.13. CVI_AO_ResumeChn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ao-clearchnbuf">10.3.4.14. CVI_AO_ClearChnBuf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ao-querychnstat">10.3.4.15. CVI_AO_QueryChnStat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ao-settrackmode">10.3.4.16. CVI_AO_SetTrackMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ao-gettrackmode">10.3.4.17. CVI_AO_GetTrackMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ao-setvolume">10.3.4.18. CVI_AO_SetVolume</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ao-getvolume">10.3.4.19. CVI_AO_GetVolume</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ao-setmute">10.3.4.20. CVI_AO_SetMute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ao-getmute">10.3.4.21. CVI_AO_GetMute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ao-savefile">10.3.4.22. CVI_AO_SaveFile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ao-clrpubattr">10.3.4.23. CVI_AO_ClrPubAttr</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#id9">10.3.5. 音频编码</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-aenc-createchn">10.3.5.1. CVI_AENC_CreateChn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-aenc-destroychn">10.3.5.2. CVI_AENC_DestroyChn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-aenc-sendframe">10.3.5.3. CVI_AENC_SendFrame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-aenc-getstream">10.3.5.4. CVI_AENC_GetStream</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-aenc-releasestream">10.3.5.5. CVI_AENC_ReleaseStream</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-aenc-savefile">10.3.5.6. CVI_AENC_SaveFile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-aenc-getstreambufinfo">10.3.5.7. CVI_AENC_GetStreamBufInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-aenc-setmute">10.3.5.8. CVI_AENC_SetMute</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-aenc-getmute">10.3.5.9. CVI_AENC_GetMute</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#id10">10.3.6. 音频解码</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-adec-createchn">10.3.6.1. CVI_ADEC_CreateChn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-adec-destroychn">10.3.6.2. CVI_ADEC_DestroyChn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-adec-sendstream">10.3.6.3. CVI_ADEC_SendStream</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-adec-clearchnbuf">10.3.6.4. CVI_ADEC_ClearChnBuf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-adec-getframe">10.3.6.5. CVI_ADEC_GetFrame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-adec-releaseframe">10.3.6.6. CVI_ADEC_ReleaseFrame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-adec-sendendofstream">10.3.6.7. CVI_ADEC_SendEndOfStream</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#id11">10.3.7. 重采样</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-resampler-create">10.3.7.1. CVI_Resampler_Create</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-resampler-process">10.3.7.2. CVI_Resampler_Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-resampler-destroy">10.3.7.3. CVI_Resampler_Destroy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-resampler-getmaxoutputnum">10.3.7.4. CVI_Resampler_GetMaxOutputNum</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html">10.4. 数据类型</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#id2">10.4.1. 音频输入/输出</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#ai-dev-max-num">10.4.1.1. AI_DEV_MAX_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#ao-dev-max-num">10.4.1.2. AO_DEV_MAX_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#cvi-aud-max-channel-num">10.4.1.3. CVI_AUD_MAX_CHANNEL_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#ai-talkvqe-mask-aec">10.4.1.4. AI_TALKVQE_MASK_AEC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#ai-talkvqe-mask-agc">10.4.1.5. AI_TALKVQE_MASK_AGC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#ai-talkvqe-mask-anr">10.4.1.6. AI_TALKVQE_MASK_ANR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#ai-recordvqe-mask-agc">10.4.1.7. AI_RECORDVQE_MASK_AGC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#max-audio-file-path-len">10.4.1.8. MAX_AUDIO_FILE_PATH_LEN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#max-audio-file-name-len">10.4.1.9. MAX_AUDIO_FILE_NAME_LEN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#cvi-max-ai-device-id-num">10.4.1.10. CVI_MAX_AI_DEVICE_ID_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#cvi-max-ai-card-id-num">10.4.1.11. CVI_MAX_AI_CARD_ID_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#cvi-max-ao-device-id-num">10.4.1.12. CVI_MAX_AO_DEVICE_ID_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#cvi-max-ao-card-id-num">10.4.1.13. CVI_MAX_AO_CARD_ID_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#cvi-max-audio-frame-num">10.4.1.14. CVI_MAX_AUDIO_FRAME_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#cvi-aud-max-voice-point-num">10.4.1.15. CVI_AUD_MAX_VOICE_POINT_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#cvi-aud-max-audio-point-num">10.4.1.16. CVI_AUD_MAX_AUDIO_POINT_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#cvi-max-audio-stream-len">10.4.1.17. CVI_MAX_AUDIO_STREAM_LEN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#max-audio-vqe-customize-name">10.4.1.18. MAX_AUDIO_VQE_CUSTOMIZE_NAME</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#audio-clksel-e">10.4.1.19. AUDIO_CLKSEL_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#audio-sample-rate-e">10.4.1.20. AUDIO_SAMPLE_RATE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#audio-bit-width-e">10.4.1.21. AUDIO_BIT_WIDTH_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#aio-mode-e">10.4.1.22. AIO_MODE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#aio-i2stype-e">10.4.1.23. AIO_I2STYPE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#audio-sound-mode-e">10.4.1.24. AUDIO_SOUND_MODE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#audio-mod-param-s">10.4.1.25. AUDIO_MOD_PARAM_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#aio-attr-s">10.4.1.26. AIO_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#ai-chn-param-s">10.4.1.27. AI_CHN_PARAM_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#audio-frame-s">10.4.1.28. AUDIO_FRAME_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#aec-frame-s">10.4.1.29. AEC_FRAME_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#audio-agc-config-s">10.4.1.30. AUDIO_AGC_CONFIG_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#ai-aec-config-s">10.4.1.31. AI_AEC_CONFIG_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#audio-anr-config-s">10.4.1.32. AUDIO_ANR_CONFIG_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#audio-delay-config-s">10.4.1.33. AUDIO_DELAY_CONFIG_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#vqe-workstate-e">10.4.1.34. VQE_WORKSTATE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#vqe-record-type">10.4.1.35. VQE_RECORD_TYPE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#ai-talkvqe-config-s">10.4.1.36. AI_TALKVQE_CONFIG_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#ai-recordvqe-config-s">10.4.1.37. AI_RECORDVQE_CONFIG_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#audio-stream-s">10.4.1.38. AUDIO_STREAM_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#ao-chn-state-s">10.4.1.39. AO_CHN_STATE_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#audio-track-mode-e">10.4.1.40. AUDIO_TRACK_MODE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#audio-fade-rate-e">10.4.1.41. AUDIO_FADE_RATE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#audio-fade-s">10.4.1.42. AUDIO_FADE_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#g726-bps-e">10.4.1.43. G726_BPS_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#adpcm-type-e">10.4.1.44. ADPCM_TYPE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#audio-save-file-info-s">10.4.1.45. AUDIO_SAVE_FILE_INFO_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#cvi-hpf-config-s">10.4.1.46. CVI_HPF_CONFIG_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#cvi-eq-config-s">10.4.1.47. CVI_EQ_CONFIG_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#cvi-drc-limiter-param">10.4.1.48. CVI_DRC_LIMITER_PARAM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#cvi-drc-expander-param">10.4.1.49. CVI_DRC_EXPANDER_PARAM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#cvi-drc-compressor-param">10.4.1.50. CVI_DRC_COMPRESSOR_PARAM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#audio-spk-eq-config-s">10.4.1.51. AUDIO_SPK_EQ_CONFIG_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#ao-vqe-config-s">10.4.1.52. AO_VQE_CONFIG_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#hpf-filter-type">10.4.1.53. HPF_FILTER_TYPE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#audio-spk-agc-config-s">10.4.1.54. AUDIO_SPK_AGC_CONFIG_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#audio-file-status-s">10.4.1.55. AUDIO_FILE_STATUS_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#vqe-module-config-s">10.4.1.56. VQE_MODULE_CONFIG_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#audio-vqe-register-s">10.4.1.57. AUDIO_VQE_REGISTER_S</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#id3">10.4.2. 音频编码</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#aenc-max-chn-num">10.4.2.1. AENC_MAX_CHN_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#aenc-attr-g711-s">10.4.2.2. AENC_ATTR_G711_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#aenc-attr-g726-s">10.4.2.3. AENC_ATTR_G726_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#aenc-attr-adpcm-s">10.4.2.4. AENC_ATTR_ADPCM_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#aenc-attr-lpcm-s">10.4.2.5. AENC_ATTR_LPCM_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#aenc-chn-attr-s">10.4.2.6. AENC_CHN_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#aac-aenc-encoder-s">10.4.2.7. AAC_AENC_ENCODER_S</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#id4">10.4.3. 音频解码</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#max-audio-frame-num">10.4.3.1. MAX_AUDIO_FRAME_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#adec-max-chn-num">10.4.3.2. ADEC_MAX_CHN_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#adec-attr-g711-s">10.4.3.3. ADEC_ATTR_G711_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#adec-attr-g726-s">10.4.3.4. ADEC_ATTR_G726_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#adec-attr-adpcm-s">10.4.3.5. ADEC_ATTR_ADPCM_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#adec-attr-lpcm-s">10.4.3.6. ADEC_ATTR_LPCM_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#adec-mode-e">10.4.3.7. ADEC_MODE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#adec-chn-attr-s">10.4.3.8. ADEC_CHN_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#audio-frame-info-s">10.4.3.9. AUDIO_FRAME_INFO_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#adec-decoder-s">10.4.3.10. ADEC_DECODER_S</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="10_Audio_Frequency/Error_Codes.html">10.5. 错误码</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="10_Audio_Frequency/Error_Codes.html#id2">10.5.1. 音频基础属性错误码</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_Audio_Frequency/Error_Codes.html#id3">10.5.2. 音频输入错误码</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_Audio_Frequency/Error_Codes.html#id4">10.5.3. 音频输出错误码</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_Audio_Frequency/Error_Codes.html#id5">10.5.4. 音频编码错误码</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_Audio_Frequency/Error_Codes.html#id6">10.5.5. 音频解码错误码</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="10_Audio_Frequency/Related_Tests.html">10.6. 相关测试</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="10_Audio_Frequency/Related_Tests.html#id2">10.6.1. 单元测试</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_Audio_Frequency/Related_Tests.html#id3">10.6.2. 功能测试</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_Audio_Frequency/Related_Tests.html#id4">10.6.3. 性能测试</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="10_Audio_Frequency/Sample_Code_and_Board-side_Component_Preliminary_Testing.html">10.7. 范例码及板端初步测试</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="10_Audio_Frequency/Sample_Code_and_Board-side_Component_Preliminary_Testing.html#id2">10.7.1. 范例码说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_Audio_Frequency/Sample_Code_and_Board-side_Component_Preliminary_Testing.html#id3">10.7.2. 板端初步测试</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="9_Regional_Management/Error_Codes.html" class="btn btn-neutral float-left" title="9.5. 错误码" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="10_Audio_Frequency/Function_Overview.html" class="btn btn-neutral float-right" title="10.1. 功能概述" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

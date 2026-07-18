@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>6. 图像输出验证 &mdash; Sensor_Debugging_Guide master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="7. ISP基本功能" href="7_Basic_Functions_of_ISP.html" />
+    <link rel="prev" title="5. 图像输出调试(Alios快启)" href="5_Image_Output_Debugging.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Sensor_Debugging_Guide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Introduction_to_Sensor_Drivers.html">2. Sensor驱动介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Confirm_Specifications.html">3. 确认规格</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_Image_Output_Debugging.html">4. 图像输出调试(Linux非快启)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_Image_Output_Debugging.html">5. 图像输出调试(Alios快启)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="6_Image_Output_Verification.html#">6. 图像输出验证</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="6_Image_Output_Verification.html#dump-raw">6.1. Dump RAW</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Image_Output_Verification.html#dump-yuv">6.2. Dump YUV</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="7_Basic_Functions_of_ISP.html">7. ISP基本功能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_Complete_the_AE_Configuration_Function.html">8. 完成AE配置功能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_Complete_Other_Functions.html">9. 完善其它功能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_AE_Related_Verification.html">10. AE相关验证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_Common_Problem.html">11. 常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_Color_Noise_Reduction_and_Other_Corrections.html">12. 颜色、去噪等矫正</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_Debugging_Tool.html">13. 调试工具</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Sensor_Debugging_Guide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">6. </span>图像输出验证</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/6_Image_Output_Verification.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">6. </span>图像输出验证<a class="headerlink" href="6_Image_Output_Verification.html#id1" title="永久链接至标题">¶</a></h1>
+<p>配置好init setting后如果时序满足sensor的工作要求，并且没有select timeout的打印，就可以确认sensor图像有正常输出了。</p>
+<p>若有异常请参考 <a class="reference internal" href="11_Common_Problem.html#id2"><span class="std std-ref">错误检查流程</span></a>。</p>
+<p>下面以sensor_test为例说明如何确认sensor的图像输出。
+<strong>请注意，只有非快启模式下才可以使用sensor_test来进行测试，在Linux端串口操作，打印会在alios端输出</strong></p>
+<p>图像查看需用到PC工具CvitekRawViewer，找对应FAE获取</p>
+<p>注意：若前面已经注释掉AE相关函数，此时使用的是厂商默认的初始设定，
+有可能出现图像偏暗或全黑的情况，要手动调整sensor曝光增益寄存器。</p>
+<section id="dump-raw">
+<span id="id2"></span><h2><span class="section-number">6.1. </span>Dump RAW<a class="headerlink" href="6_Image_Output_Verification.html#dump-raw" title="永久链接至标题">¶</a></h2>
+<p>运行sensor_test，输入1选择“dump vi raw data“，
+然后根据提示”To get raw dump from dev(0~1): ” ，
+输入dev（0表示vi pipe0，
+从第0路sensor dump图像，1表示vi pipe1，
+从第1路sensor dump图像）。</p>
+<p>然后根据提示”how many loops to do (1~60)”，输入loops(表示要dump多少frame)。</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>Alios 需要插入SD卡，dump 文件默认存到SD中</p>
+</div>
+<p>RAW图查看方式：</p>
+<blockquote>
+<div><p>将dump出的raw图像在电脑上使用CvitekRawViewer工具， 配置对应的processor、format、width、height</p>
+</div></blockquote>
+<p>工具使用如下图：</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/ImageO0021.png"><img alt="_images/ImageO0021.png" src="_images/ImageO0021.png" style="width: 80%;" /></a>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<ol class="loweralpha simple">
+<li><p>raw图像显示应该偏绿，如果偏紫或有斜线需检查Bayer format, flip/mirror等相关配置是否错误。</p></li>
+<li><p>宽度、高度、颜色格式一般可以由dump出的文件名称获取。</p></li>
+<li><p>sensor_test默认使用raw图压缩模式COMPRESS_MODE_TILE，所以在工具中应选择“dpcm raw6”，若不开启压缩模式，请选择“raw12”。</p></li>
+</ol>
+</div>
+</section>
+<section id="dump-yuv">
+<span id="id3"></span><h2><span class="section-number">6.2. </span>Dump YUV<a class="headerlink" href="6_Image_Output_Verification.html#dump-yuv" title="永久链接至标题">¶</a></h2>
+<p>运行sensor_test，输入2选择“dump vi yuv“，按照提示dump yuv图像：</p>
+<p>电脑上使用CvitekRawViewer工具， 配置对应的processor、format、width、height</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/ImageO0031.png"><img alt="_images/ImageO0031.png" src="_images/ImageO0031.png" style="width: 80%;" /></a>
+</figure>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="5_Image_Output_Debugging.html" class="btn btn-neutral float-left" title="5. 图像输出调试(Alios快启)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="7_Basic_Functions_of_ISP.html" class="btn btn-neutral float-right" title="7. ISP基本功能" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV184x 屏幕对接使用手册 &mdash; ScreenDockingGuide master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="1. 声明" href="1_disclaimer.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html#" class="icon icon-home"> ScreenDockingGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_MIPI_DSI.html">2. MIPI DSI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_LVDS.html">3. LVDS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_MIPI_DSI.html">4. MIPI DSI(SDK V6.3.4开始)</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html#">ScreenDockingGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html#" class="icon icon-home"></a> &raquo;</li>
+      <li>CV184x 屏幕对接使用手册</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cv184x">
+<h1>CV184x 屏幕对接使用手册<a class="headerlink" href="index.html#cv184x" title="永久链接至标题">¶</a></h1>
+<p><strong>修订记录</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 13%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Revision</p></th>
+<th class="head"><p>Date</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1.0</p></td>
+<td><p>2025/03/31</p></td>
+<td><p>Initial version</p></td>
+</tr>
+</tbody>
+</table>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_MIPI_DSI.html">2. MIPI DSI</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_MIPI_DSI.html#id1">2.1. 环境准备</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_DSI.html#id2">2.1.1. MIPI DSI 屏幕接口介绍</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_DSI.html#id3">2.1.2. 硬件连线确认</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2_MIPI_DSI.html#mipi">2.2. 配置MIPI屏</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_DSI.html#u-bootmipi">2.2.1. 在u-boot中配置MIPI屏</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#mipi-tx">2.2.1.1. 配置MIPI Tx设备属性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#id4">2.2.1.2. 配置屏幕初始化序列</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#id5">2.2.1.3. 添加头文件的引用</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#mipireset">2.2.1.4. 配置MIPI屏RESET管脚</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#mipipower">2.2.1.5. 配置MIPI屏POWER管脚</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#mipibacklight">2.2.1.6. 配置MIPI屏BACKLIGHT管脚</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#u-boot">2.2.1.7. 配置u-boot环境变量</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#logo">2.2.1.8. 更换logo图片</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#id6">2.2.1.9. 编译烧写验证</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_DSI.html#kernelmipi">2.2.2. 在kernel中配置MIPI屏</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#id7">2.2.2.1. 配置MIPI Tx设备属性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#id8">2.2.2.2. 配置屏幕初始化序列</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#id9">2.2.2.3. 添加头文件的引用</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#mipiresetpowerbacklight">2.2.2.4. 配置MIPI屏RESET、POWER、BACKLIGHT管脚</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#id10">2.2.2.5. 编译验证</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_DSI.html#id11">2.2.3. 在双系统中配置MIPI屏</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#id12">2.2.3.1. 配置MIPI Tx设备属性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#cvi-alios">2.2.3.2. 打开cvi_alios中的配置开关</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#id13">2.2.3.3. 配置屏幕初始化序列</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#id14">2.2.3.4. 添加头文件的引用</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#id15">2.2.3.5. 配置MIPI屏RESET、POWER、BACKLIGHT管脚</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#id16">2.2.3.6. 编译验证</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3_LVDS.html">3. LVDS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3_LVDS.html#id1">3.1. 环境准备</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3_LVDS.html#id2">3.1.1. LVDS屏幕接口介绍</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_LVDS.html#id3">3.1.2. 硬件连线确认</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3_LVDS.html#id4">3.2. 配置LVDS屏</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3_LVDS.html#u-bootlvds">3.2.1. 在u-boot中配置LVDS屏</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#id5">3.2.1.1. 配置LVDS设备属性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#id6">3.2.1.2. 添加头文件的引用</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#lvdsbacklight">3.2.1.3. 配置LVDS屏BACKLIGHT管脚</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#u-boot">3.2.1.4. 配置u-boot环境变量</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#logo">3.2.1.5. 更换logo图片</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#id7">3.2.1.6. 编译烧写验证</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="3_LVDS.html#kernellvds">3.2.2. 在kernel中配置LVDS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#id8">3.2.2.1. 配置LVDS设备属性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#id9">3.2.2.2. 添加头文件的引用</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#id10">3.2.2.3. 配置LVDS屏BACKLIGHT管脚</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#id11">3.2.2.4. 编译验证</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="3_LVDS.html#id12">3.2.3. 在双系统中配置LVDS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#id13">3.2.3.1. 配置LVDS设备属性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#cvi-alios">3.2.3.2. 打开cvi_alios中的配置开关</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#id14">3.2.3.3. 添加头文件的引用</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#id15">3.2.3.4. 配置LVDS屏BACKLIGHT管脚</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#id16">3.2.3.5. 编译验证</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="4_MIPI_DSI.html">4. MIPI DSI(SDK V6.3.4开始)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="4_MIPI_DSI.html#id1">4.1. 环境准备</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="4_MIPI_DSI.html#mipi-dsi">4.1.1. MIPI DSI 屏幕接口介绍</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_MIPI_DSI.html#id2">4.1.2. 硬件连线确认</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="4_MIPI_DSI.html#panelsupportlist">4.2. PanelSupportList 框架概览</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_MIPI_DSI.html#mipi">4.3. 配置 MIPI 屏（统一流程）</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="4_MIPI_DSI.html#id3">4.3.1. 第 1 步：编写屏参头文件</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="4_MIPI_DSI.html#id4">4.3.1.1. 命名规范</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_MIPI_DSI.html#id5">4.3.1.2. 头文件内容模板</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_MIPI_DSI.html#id6">4.3.1.3. 关键数据结构的说明</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_MIPI_DSI.html#id7">4.3.1.4. 初始化命令</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="4_MIPI_DSI.html#id8">4.3.2. 第 2 步：注册屏参头文件</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="4_MIPI_DSI.html#u-boot-cvi-alios-cvi-panels-h">4.3.2.1. u-boot / cvi_alios 注册方式（cvi_panels.h）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_MIPI_DSI.html#cvi-mpi-sample-panel-h-sample-panel-c">4.3.2.2. cvi_mpi 注册方式（sample_panel.h + sample_panel.c）</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="4_MIPI_DSI.html#id9">4.3.3. 第 3 步：配置使能并构建</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="4_MIPI_DSI.html#u-boot">4.3.3.1. u-boot 配置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_MIPI_DSI.html#cvi-alios">4.3.3.2. cvi_alios 配置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_MIPI_DSI.html#cvi-mpi">4.3.3.3. cvi_mpi 配置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_MIPI_DSI.html#id10">4.3.3.4. 构建</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="4_MIPI_DSI.html#reset-power-backlight">4.4. RESET / POWER / BACKLIGHT 管脚配置</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="4_MIPI_DSI.html#u-boot-dts">4.4.1. u-boot 配置方式（DTS）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_MIPI_DSI.html#cvi-mpi-gpio">4.4.2. cvi_mpi 配置方式（手动 GPIO）</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="4_MIPI_DSI.html#sample-panel">4.4.2.1. 方式一：sample_panel 命令行参数（仅调试用，代码中已注释）</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_MIPI_DSI.html#shell-sysfs">4.4.2.2. 方式二：shell 手动操作 sysfs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="4_MIPI_DSI.html#cvi-alios-platform-panelinit">4.4.3. cvi_alios 配置方式（PLATFORM_PanelInit）</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="4_MIPI_DSI.html#logo">4.5. 更换 Logo 图片</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_MIPI_DSI.html#id11">4.6. 编译烧写验证</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="1_disclaimer.html" class="btn btn-neutral float-right" title="1. 声明" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2025, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4. 图像输出调试(Linux非快启) &mdash; Sensor_Debugging_Guide master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="5. 图像输出调试(Alios快启)" href="5_Image_Output_Debugging.html" />
+    <link rel="prev" title="3. 确认规格" href="3_Confirm_Specifications.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Sensor_Debugging_Guide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Introduction_to_Sensor_Drivers.html">2. Sensor驱动介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Confirm_Specifications.html">3. 确认规格</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="4_Image_Output_Debugging.html#">4. 图像输出调试(Linux非快启)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="4_Image_Output_Debugging.html#id1">4.1. 硬件准备</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_Image_Output_Debugging.html#id2">4.2. 配置初始化序列</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="4_Image_Output_Debugging.html#sensor">4.2.1. 准备Sensor驱动</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Image_Output_Debugging.html#id3">4.2.2. Sensor初始化序列</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="4_Image_Output_Debugging.html#sample-common-alios-config">4.3. 适配sample common 和 alios config</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_Image_Output_Debugging.html#sensor-driver">4.4. 一键设置sensor driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_Image_Output_Debugging.html#sensor-ini-cfg">4.5. 添加sensor ini cfg配置</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_Image_Output_Debugging.html#sensor-test">4.6. 编译运行sensor_test</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="5_Image_Output_Debugging.html">5. 图像输出调试(Alios快启)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_Image_Output_Verification.html">6. 图像输出验证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_Basic_Functions_of_ISP.html">7. ISP基本功能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_Complete_the_AE_Configuration_Function.html">8. 完成AE配置功能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_Complete_Other_Functions.html">9. 完善其它功能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_AE_Related_Verification.html">10. AE相关验证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_Common_Problem.html">11. 常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_Color_Noise_Reduction_and_Other_Corrections.html">12. 颜色、去噪等矫正</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_Debugging_Tool.html">13. 调试工具</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Sensor_Debugging_Guide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">4. </span>图像输出调试(Linux非快启)</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/4_Image_Output_Debugging.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="linux">
+<h1><span class="section-number">4. </span>图像输出调试(Linux非快启)<a class="headerlink" href="4_Image_Output_Debugging.html#linux" title="永久链接至标题">¶</a></h1>
+<section id="id1">
+<h2><span class="section-number">4.1. </span>硬件准备<a class="headerlink" href="4_Image_Output_Debugging.html#id1" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>确认Sensor电源供应正确.</p></li>
+<li><p>确认Sensor Reset GPIO正确.</p></li>
+<li><p>确认Sensor输入参考时钟来源(主处理器或外部晶振)</p></li>
+<li><p>确认I2C可擦写Sensor寄存器.</p>
+<p>可直接调用文件系统内默认的i2c_read/i2c_write命令验证.</p>
+</li>
+</ul>
+</section>
+<section id="id2">
+<h2><span class="section-number">4.2. </span>配置初始化序列<a class="headerlink" href="4_Image_Output_Debugging.html#id2" title="永久链接至标题">¶</a></h2>
+<p>配置初始化序列建议参考版本发布包里的同厂商sensor驱动。</p>
+<p>新sensor bringup建议先注释掉AE算法相关的callbacks以排除算法影响。</p>
+<ul class="simple">
+<li><p>修改sample_common_vi.c，先去掉SAMPLE_COMM_ISP_Run调用。</p></li>
+</ul>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/image11.png"><img alt="_images/image11.png" src="_images/image11.png" style="width: 80%;" /></a>
+</figure>
+<ul class="simple">
+<li><p>修改xxx_cmos_ctrl.c中的init函数，先注解xxx_default_reg_init调用。</p></li>
+</ul>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/image22.png"><img alt="_images/image22.png" src="_images/image22.png" style="width: 80%;" /></a>
+</figure>
+<p>当sensor适配完能显示出图像后，记得重新打开这些注解。</p>
+<section id="sensor">
+<h3><span class="section-number">4.2.1. </span>准备Sensor驱动<a class="headerlink" href="4_Image_Output_Debugging.html#sensor" title="永久链接至标题">¶</a></h3>
+<ul>
+<li><p>依Sensor厂商、最大分辨率及WDR模式选择发布包内规格最接近的sensor驱动来作修改并编出sensor库。</p>
+<p>具体可见component/isp/user/sensor/cv18xx/xxxx内的xxxx_cmos.c、xxxx_cmos_ex.h、xxxx_cmos_param.h与xxxx_sensor_ctl.c</p>
+</li>
+<li><p>修改xxxx_sensor_ctl.c内的I2C 配置如i2c_addr, addr_byte与data_byte</p></li>
+</ul>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">imx327_i2c_addr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x1A</span><span class="p">;</span><span class="w"></span>
+<span class="k">const</span><span class="w"> </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">imx327_addr_byte</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<span class="k">const</span><span class="w"> </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">imx327_data_byte</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>依照sensor接口规格, 修改xxxx_cmos_param.h中的xxxx_rx_attr与pfnGetRxAttr, 设置mipi-rx的属性。</p></li>
+</ul>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/image31.png"><img alt="_images/image31.png" src="_images/image31.png" style="width: 80%;" /></a>
+</figure>
+<blockquote>
+<div><p>.Input_mode:设置输入模式是mipi还是bt656等等。</p>
+<p>.Mac_clk: mac时钟频率</p>
+<p>.raw_date_type:data的位宽</p>
+<p>.lane id:mipi数据lane、时钟lane的ID配置</p>
+<p>.cam: mclk ID</p>
+<p>.freq: SOC给sensor提供的参考输入时钟</p>
+<p>.devno:mipirx的编号，sensor ID</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>依照sensor输出模式, 修改xxxx_cmos_param.h中的g_astxxx_mode.</p></li>
+</ul>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">IMX327_MODE_S</span><span class="w"> </span><span class="n">g_astImx327_mode</span><span class="p">[</span><span class="n">IMX327_MODE_NUM</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="p">[</span><span class="n">IMX327_MODE_1080P30</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;1080p30&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="p">.</span><span class="n">astImg</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">         </span><span class="p">.</span><span class="n">stSnsSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="n">u32Width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1948</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="n">u32Height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1097</span><span class="p">,</span><span class="w"></span>
+<span class="w">         </span><span class="p">},</span><span class="w"></span>
+<span class="w">         </span><span class="p">.</span><span class="n">stWndRect</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="n">s32X</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="n">s32Y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="n">u32Width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1920</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="n">u32Height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1080</span><span class="p">,</span><span class="w"></span>
+<span class="w">         </span><span class="p">},</span><span class="w"></span>
+<span class="w">         </span><span class="p">.</span><span class="n">stMaxSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="n">u32Width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1948</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="n">u32Height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1097</span><span class="p">,</span><span class="w"></span>
+<span class="w">         </span><span class="p">},</span><span class="w"></span>
+<span class="w">      </span><span class="p">},</span><span class="w"></span>
+<span class="w">      </span><span class="p">.</span><span class="n">f32MaxFps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="p">.</span><span class="n">f32MinFps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.119</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="p">.</span><span class="n">u32HtsDef</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x1130</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="p">.</span><span class="n">u32VtsDef</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1125</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="p">.</span><span class="n">stExp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">         </span><span class="p">.</span><span class="n">u16Min</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">         </span><span class="p">.</span><span class="n">u16Max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1123</span><span class="p">,</span><span class="w"></span>
+<span class="w">         </span><span class="p">.</span><span class="n">u16Def</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span><span class="w"></span>
+<span class="w">         </span><span class="p">.</span><span class="n">u16Step</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="p">},</span><span class="w"></span>
+<span class="w">      </span><span class="p">.</span><span class="n">stAgain</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">         </span><span class="p">.</span><span class="n">u16Min</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1024</span><span class="p">,</span><span class="w"></span>
+<span class="w">         </span><span class="p">.</span><span class="n">u16Max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">62416</span><span class="p">,</span><span class="w"></span>
+<span class="w">         </span><span class="p">.</span><span class="n">u16Def</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1024</span><span class="p">,</span><span class="w"></span>
+<span class="w">         </span><span class="p">.</span><span class="n">u16Step</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="p">},.</span><span class="n">stDgain</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">         </span><span class="p">.</span><span class="n">u16Min</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1024</span><span class="p">,</span><span class="w"></span>
+<span class="w">         </span><span class="p">.</span><span class="n">u16Max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">38485</span><span class="p">,</span><span class="w"></span>
+<span class="w">         </span><span class="p">.</span><span class="n">u16Def</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1024</span><span class="p">,</span><span class="w"></span>
+<span class="w">         </span><span class="p">.</span><span class="n">u16Step</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="p">},</span><span class="w"></span>
+<span class="w">      </span><span class="p">.</span><span class="n">u16RHS1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="p">.</span><span class="n">u16BRL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1109</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="p">.</span><span class="n">u16OpbSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="p">.</span><span class="n">u16MarginVtop</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="p">.</span><span class="n">u16MarginVbot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="p">},</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<ul>
+<li><p>修改pfn_cmos_set_image_mode, 依照指定的宽高与帧率决定相符的sensor模式.</p>
+<p>我们一般拿到的init sequence对应的输出模式都是最大分辨率，也就是all pixel scan模式。</p>
+<p>但有些情况客户需要对sensor吐出来data进行裁剪，就需要适配成window crop mode，要找sensor厂商</p>
+<p>提供crop mode下与之对应的init sequence，或者自行根据sensor spec进行修改。</p>
+</li>
+</ul>
+</section>
+<section id="id3">
+<h3><span class="section-number">4.2.2. </span>Sensor初始化序列<a class="headerlink" href="4_Image_Output_Debugging.html#id3" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p>实作xxxx_sensor_ctrl.c内sensor模式的初始序列pfn_cmos_sensor_init.</p></li>
+<li><p>暂时注释xxxx_sensor_ctrl.c 内的xxxx_default_reg_init的呼叫.</p></li>
+<li><p>新增sensor object</p></li>
+</ul>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/image41.png"><img alt="_images/image41.png" src="_images/image41.png" style="width: 80%;" /></a>
+</figure>
+</section>
+</section>
+<section id="sample-common-alios-config">
+<h2><span class="section-number">4.3. </span>适配sample common 和 alios config<a class="headerlink" href="4_Image_Output_Debugging.html#sample-common-alios-config" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>将sensor object extern到</p>
+<p>build/media/sensor/sensor_cfg/sensor_cfg.c</p>
+<p>的getSnsObj(SNS_TYPE_E enSnsType) 函数中。</p>
+</li>
+</ul>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/image-output-6.png"><img alt="_images/image-output-6.png" src="_images/image-output-6.png" style="width: 80%;" /></a>
+</figure>
+<ul>
+<li><p>添加新的_SNS_TYPE_E到</p>
+<p>build/media/sensor/sensor_cfg/sensor_cfg.h</p>
+<p>的_SNS_TYPE_E 枚举列表中，linear在上半部，WDR在下半部。</p>
+</li>
+</ul>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/image-output-5.png"><img alt="_images/image-output-5.png" src="_images/image-output-5.png" style="width: 80%;" /></a>
+</figure>
+<ul>
+<li><p>sample_common_vi.c在SAMPLE_COMM_VI_GetDevAttrBySns、</p>
+<p>SAMPLE_COMM_VI_GetSizeBySensor添加对应的case。</p>
+</li>
+</ul>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/ImageO008.png"><img alt="_images/ImageO008.png" src="_images/ImageO008.png" style="width: 80%;" /></a>
+</figure>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/image101.png"><img alt="_images/image101.png" src="_images/image101.png" style="width: 80%;" /></a>
+</figure>
+<ul class="simple">
+<li><p>在cvi_alios/components/cvi_mmf_sdk/cvi_sensor/package.yaml中添加对应的sensor driver目录名字和源文件信息</p></li>
+</ul>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/ImageO014.png"><img alt="_images/ImageO014.png" src="_images/ImageO014.png" style="width: 80%;" /></a>
+</figure>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/ImageO015.png"><img alt="_images/ImageO015.png" src="_images/ImageO015.png" style="width: 80%;" /></a>
+</figure>
+<ul>
+<li><p>在Linux中，sensor配置使用到的接口有如下，用法请参照sample：</p></li>
+<li><p><cite>CVI_S32 CVI_SNS_GPIO_Init(VI_PIPE ViPipe, SNS_I2C_GPIO_INFO_S *pstGpioCfg);</cite></p>
+<blockquote>
+<div><p>配置各个sensor的reset GPIO信息，SNS_I2C_GPIO_INFO_S结构体如下：</p>
+<blockquote>
+<div><p>typedef struct _SNS_I2C_GPIO_INFO_S {</p>
+<p>CVI_S8 s8I2cDev;</p>
+<p>CVI_S32 s32I2cAddr;</p>
+<p>CVI_U32 u32Rst_port_idx;</p>
+<p>CVI_U32 u32Rst_pin;</p>
+<p>CVI_U32 u32Rst_pol;</p>
+<p>} SNS_I2C_GPIO_INFO_S;</p>
+</div></blockquote>
+</div></blockquote>
+</li>
+<li><p><cite>CVI_S32 CVI_SNS_GetAhdStatus(VI_PIPE ViPipe, SNS_AHD_MODE_S *pstStatus);</cite></p>
+<blockquote>
+<div><p>获取AHD Sensor的状态，仅限于AHD sensor， SNS_AHD_MODE_S结构体如下：</p>
+<blockquote>
+<div><p>typedef enum _SNS_AHD_MODE_E {</p>
+<p>AHD_MODE_NONE,</p>
+<p>AHD_MODE_1280X720H_NTSC,</p>
+<p>AHD_MODE_1280X720H_PAL,</p>
+<p>AHD_MODE_1280X720P25,</p>
+<p>AHD_MODE_1280X720P30,</p>
+<p>AHD_MODE_1280X720P50,</p>
+<p>AHD_MODE_1280X720P60,</p>
+<p>AHD_MODE_1920X1080P25,</p>
+<p>AHD_MODE_1920X1080P30,</p>
+<p>AHD_MODE_2304X1296P25,</p>
+<p>AHD_MODE_2304X1296P30,</p>
+<p>AHD_MODE_BUIsensor_cfg.h
+} SNS_AHD_MODE_S;</p>
+</div></blockquote>
+</div></blockquote>
+</li>
+<li><p><cite>CVI_S32 CVI_SNS_SetSnsType(VI_PIPE ViPipe, CVI_U32 SnsType);</cite></p>
+<blockquote>
+<div><p>设置对应PIPE的sensor ID，此方法需要在调用其他方法之前调用， SnsType可以见sensor_cfg.h</p>
+</div></blockquote>
+</li>
+<li><p><cite>CVI_S32 CVI_SNS_SetSnsRxAttr(VI_PIPE ViPipe, RX_INIT_ATTR_S *pstRxAttr);</cite></p>
+<blockquote>
+<div><p>设置对应sensor的RX配置， RX_INIT_ATTR_S结构体见cvi_sns_ctrl.h</p>
+</div></blockquote>
+</li>
+<li><p><cite>CVI_S32 CVI_SNS_SetSnsI2c(VI_PIPE ViPipe, CVI_S32 astI2cDev, CVI_S32 s32I2cAddr);</cite></p>
+<blockquote>
+<div><p>设置对应sensor的I2C总线和地址</p>
+</div></blockquote>
+</li>
+<li><p><cite>CVI_S32 CVI_SNS_SetSnsIspAttr(VI_PIPE ViPipe, ISP_INIT_ATTR_S *pstInitAttr);</cite></p>
+<blockquote>
+<div><p>设置sensor给到ISP的配置，ISP_INIT_ATTR_S结构体见cvi_sns_ctrl.h</p>
+</div></blockquote>
+</li>
+<li><p><cite>CVI_S32 CVI_SNS_RegCallback(VI_PIPE ViPipe, ISP_DEV IspDev);</cite></p>
+<blockquote>
+<div><p>设置sensor和ISP的callback</p>
+</div></blockquote>
+</li>
+<li><p><cite>CVI_S32 CVI_SNS_UnRegCallback(VI_PIPE ViPipe, ISP_DEV IspDev);</cite></p>
+<blockquote>
+<div><p>解除sensor和ISP的callback</p>
+</div></blockquote>
+</li>
+<li><p><cite>CVI_S32 CVI_SNS_SetSnsImgMode(VI_PIPE ViPipe, ISP_CMOS_SENSOR_IMAGE_MODE_S *stSnsrMode);</cite></p>
+<blockquote>
+<div><p>设置sensor要跑的mode，包括fps，size等，ISP_CMOS_SENSOR_IMAGE_MODE_S结构体见cvi_comm_sns.h</p>
+</div></blockquote>
+</li>
+<li><p><cite>CVI_S32 CVI_SNS_SetSnsWdrMode(VI_PIPE ViPipe, WDR_MODE_E wdrMode);</cite></p>
+<blockquote>
+<div><p>设置sensor的WDR mode，WDR_MODE_E结构体见cvi_comm_cif.h</p>
+</div></blockquote>
+</li>
+<li><p><cite>CVI_S32 CVI_SNS_GetSnsRxAttr(VI_PIPE ViPipe, SNS_COMBO_DEV_ATTR_S *stDevAttr);</cite></p>
+<blockquote>
+<div><p>获取sensor的RX配置，SNS_COMBO_DEV_ATTR_S结构体见cvi_comm_cif.h</p>
+</div></blockquote>
+</li>
+<li><p><cite>CVI_S32 CVI_SNS_SetSnsProbe(VI_PIPE ViPipe);</cite></p>
+<blockquote>
+<div><p>设置对应PIPE的sensor的probe</p>
+</div></blockquote>
+</li>
+<li><p><cite>CVI_S32 CVI_SNS_SetSnsGpioInit(CVI_U32 devNo, CVI_U32 u32Rst_port_idx, CVI_U32 u32Rst_pin, CVI_U32 u32Rst_pol);</cite></p>
+<blockquote>
+<div><p>配置各个sensor的reset GPIO信息，u32Rst_port_idx， u32Rst_pin，u32Rst_pol见下节的ini配置内容</p>
+</div></blockquote>
+</li>
+<li><p><cite>CVI_S32 CVI_SNS_RstSnsGpio(CVI_U32 devNo, CVI_U32 rstEnable);</cite></p>
+<blockquote>
+<div><p>将sensor的rst脚拉置有效位</p>
+</div></blockquote>
+</li>
+<li><p><cite>CVI_S32 CVI_SNS_RstMipi(CVI_U32 devNo, CVI_U32 rstEnable);</cite></p>
+<blockquote>
+<div><p>reset对应的sensor使用的MIPI</p>
+</div></blockquote>
+</li>
+<li><p><cite>CVI_S32 CVI_SNS_SetMipiAttr(VI_PIPE ViPipe, CVI_U32 SnsType);</cite></p>
+<blockquote>
+<div><p>将sensor的RX配置给CIF</p>
+</div></blockquote>
+</li>
+<li><p><cite>CVI_S32 CVI_SNS_EnableSnsClk(CVI_U32 devNo, CVI_U32 clkEnable);</cite></p>
+<blockquote>
+<div><p>enable sensor的mclk</p>
+</div></blockquote>
+</li>
+<li><p><cite>CVI_S32 CVI_SNS_SetSnsStandby(VI_PIPE ViPipe);</cite></p>
+<blockquote>
+<div><p>设置sensor的standby状态</p>
+</div></blockquote>
+</li>
+<li><p><cite>CVI_S32 CVI_SNS_SetSnsInit(VI_PIPE ViPipe);</cite></p>
+<blockquote>
+<div><p>设置sensor开始init</p>
+</div></blockquote>
+</li>
+<li><p><cite>CVI_S32 CVI_SNS_SetVIFlipMirrorCB(VI_PIPE ViPipe, VI_DEV ViDev);</cite></p>
+<blockquote>
+<div><p>将sensor的mirror和flip注册到VI之中</p>
+</div></blockquote>
+</li>
+<li><p>下面的方法提供给ISP使用，使用时请配合ISP相关文档查看</p></li>
+<li><p><cite>CVI_S32 CVI_SNS_GetAeDefault(VI_PIPE ViPipe, AE_SENSOR_DEFAULT_S *stAeDefault);</cite></p>
+<blockquote>
+<div><p>获取对应sensor的AE default状态</p>
+</div></blockquote>
+</li>
+<li><p><cite>CVI_S32 CVI_SNS_GetIspBlkLev(VI_PIPE ViPipe, ISP_CMOS_BLACK_LEVEL_S *stBlc);</cite></p>
+<blockquote>
+<div><p>获取对应sensor的BLK值， ISP_CMOS_BLACK_LEVEL_S结构体见cvi_comm_sns.h</p>
+</div></blockquote>
+</li>
+<li><p><cite>CVI_S32 CVI_SNS_SetSnsFps(VI_PIPE ViPipe, CVI_U8 fps, AE_SENSOR_DEFAULT_S *stSnsDft);</cite></p>
+<blockquote>
+<div><p>设置sensor的输出FPS</p>
+</div></blockquote>
+</li>
+<li><p><cite>CVI_S32 CVI_SNS_GetExpRatio(VI_PIPE ViPipe, SNS_EXP_MAX_S *stExpMax);</cite></p>
+<blockquote>
+<div><p>获取sensor的曝光范围</p>
+</div></blockquote>
+</li>
+<li><p><cite>CVI_S32 CVI_SNS_SetDgainCalc(VI_PIPE ViPipe, SNS_GAIN_S *stDgain);</cite></p>
+<blockquote>
+<div><p>设置sensor的数字增益值</p>
+</div></blockquote>
+</li>
+<li><p><cite>CVI_S32 CVI_SNS_SetAgainCalc(VI_PIPE ViPipe, SNS_GAIN_S *stAgain);</cite></p>
+<blockquote>
+<div><p>设置sensor的模拟增益值</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="sensor-driver">
+<h2><span class="section-number">4.4. </span>一键设置sensor driver<a class="headerlink" href="4_Image_Output_Debugging.html#sensor-driver" title="永久链接至标题">¶</a></h2>
+<p>CV184X新增了三个接口用于高效设置sensor driver，这些接口在使用后即可将sensor的模式，上下文初始化和MIPI设置获取出来；剩余只需要用户控制sensor的初始化，注册ISP，probe等动态操作。</p>
+<ul>
+<li><p><cite>CVI_S32 CVI_SNS_ParseIni(SENSOR_CFG_S *sensor_cfg);</cite></p>
+<blockquote>
+<div><p>解析sensor_cfg.ini配置文件获取sensor_cfg配置</p>
+</div></blockquote>
+</li>
+<li><p><cite>CVI_S32 CVI_SNS_GetConfigInfo(SENSOR_CFG_S *sensor_cfg);</cite></p>
+<blockquote>
+<div><p>从sensor_cfg配置中获取sensor的配置信息</p>
+</div></blockquote>
+</li>
+<li><p><cite>CVI_S32 CVI_SNS_SetSnsDrvCfg(SENSOR_CFG_S *sensor_cfg);</cite></p>
+<blockquote>
+<div><p>根据sensor_cfg配置设置sensor driver</p>
+</div></blockquote>
+</li>
+</ul>
+<p>外部应用依次调用即可，在返回成功之后，会将外部需要的回调和图像大小等等信息存放于sensor_cfg结构体中，外部应用可以根据需要配置使用。</p>
+</section>
+<section id="sensor-ini-cfg">
+<h2><span class="section-number">4.5. </span>添加sensor ini cfg配置<a class="headerlink" href="4_Image_Output_Debugging.html#sensor-ini-cfg" title="永久链接至标题">¶</a></h2>
+<p>Sensor的一些属性可以通过改ini来修改配置，比如lane线序、I2C端口sensor输出模式等。</p>
+<p>默认情况下middleware的流程会优先从/mnt/data/sensor_ini.cfg下读取sensor的配置文件，如果该目录下没有配置文件，会使用代码内部的初始值。</p>
+<p>下面以SC1336为例显示的sensor_cfg.ini内容:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[source]</span>
+
+<span class="c1">;type = SOURCE_USER_FE</span>
+
+<span class="na">dev_num</span> <span class="o">=</span> <span class="s">1</span>
+
+<span class="c1">; section for sensor</span>
+
+<span class="k">[sensor]</span>
+
+<span class="c1">; sensor name</span>
+
+<span class="na">name</span> <span class="o">=</span> <span class="s">0x000A0030</span>
+
+<span class="na">bus_id</span> <span class="o">=</span> <span class="s">3</span>
+
+<span class="na">mipi_dev</span> <span class="o">=</span> <span class="s">0</span>
+
+<span class="na">lane_id</span> <span class="o">=</span> <span class="s">2, 3, 1, -1, -1</span>
+
+<span class="na">pn_swap</span> <span class="o">=</span> <span class="s">1, 1, 1, 0, 0</span>
+
+<span class="na">mclk_en</span> <span class="o">=</span> <span class="s">1</span>
+
+<span class="na">mclk</span> <span class="o">=</span> <span class="s">0</span>
+
+<span class="na">port</span> <span class="o">=</span> <span class="s">0</span>
+
+<span class="na">pin</span> <span class="o">=</span> <span class="s">2</span>
+
+<span class="na">pol</span> <span class="o">=</span> <span class="s">1</span>
+
+<span class="na">fps</span> <span class="o">=</span> <span class="s">60</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>name：sensor的运行模式，0x000A0030代表SMS_SC1336_1L_MIPI_1M_30FPS_10BIT</p></li>
+<li><p>name 具体见build/media/cvi_sensor/sensor_cfg/sensor_cfg.h，其中定义了sensor支持列表；name命名规则如下表：</p></li>
+</ul>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/ImageO019.png"><img alt="_images/ImageO019.png" src="_images/ImageO019.png" style="width: 80%;" /></a>
+</figure>
+<ul>
+<li><p>Bus_id:表示I2C端口号</p></li>
+<li><p>Mipi_dev:表示用哪一组mipi-rx</p></li>
+<li><p>Lane_id:表示mipi的线序配置</p></li>
+<li><p>pn_swap:表示这组mipi线序P/N是否需要反转</p></li>
+<li><p>Pn_swap:表示P/N反转，不需要反转配成0，需要反转配置成1</p></li>
+<li><p>Mclk:表示选用哪一组mclk作为参考时钟</p></li>
+<li><p>Mclk_en:表示使能哪一组mclk输出</p></li>
+<li><p>hw_sync：dual sensor帧同步，hw_sync=1表示slave sensor sync with master sensor</p></li>
+<li><p>sns_i2c_addr：sensor的i2c 设备地址</p></li>
+<li><p>port：sensor RST引脚对应到处理器的GPIO使用的port口 A/B/C - 0/1/2</p></li>
+<li><p>pin：sensor RST引脚对应到处理器的GPIO使用的port口的编号</p></li>
+<li><p>pol：sensor RST引脚的有效电平</p>
+<blockquote>
+<div><dl>
+<dt>对应的参数配置如下：</dt><dd><p>enum of_gpio_flags {</p>
+<p>OF_GPIO_ACTIVE_LOW = 0x1,</p>
+<p>OF_GPIO_SINGLE_ENDED = 0x2,</p>
+<p>OF_GPIO_OPEN_DRAIN = 0x4,</p>
+<p>OF_GPIO_TRANSITORY = 0x8,</p>
+<p>OF_GPIO_PULL_UP = 0x10,</p>
+<p>OF_GPIO_PULL_DOWN = 0x20,</p>
+<p>};</p>
+</dd>
+</dl>
+</div></blockquote>
+</li>
+<li><p>fps：sensor 的输出fps，默认为25，其他fps需要设置对应的fps值</p></li>
+</ul>
+</section>
+<section id="sensor-test">
+<h2><span class="section-number">4.6. </span>编译运行sensor_test<a class="headerlink" href="4_Image_Output_Debugging.html#sensor-test" title="永久链接至标题">¶</a></h2>
+<p>前面小节配置完后，在SDK顶层目录执行 make peripherals_test 进行编译，将编译后的固件烧录到板端；</p>
+<p>烧录启动后，Linux串口终端执行sample_sensor</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/ImageO017.png"><img alt="_images/ImageO017.png" src="_images/ImageO017.png" style="width: 80%;" /></a>
+</figure>
+<p>在alios 串口输入 proc/vi_dbg 查看vi_dbg信息，帧率显示正常则表示sensor有正常出图</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/ImageO018.png"><img alt="_images/ImageO018.png" src="_images/ImageO018.png" style="width: 80%;" /></a>
+</figure>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="3_Confirm_Specifications.html" class="btn btn-neutral float-left" title="3. 确认规格" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="5_Image_Output_Debugging.html" class="btn btn-neutral float-right" title="5. 图像输出调试(Alios快启)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3.4. cviDownloadTool 工具 &mdash; ProductionBurningUserGuide master 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="../_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/qrious.js"></script>
+    <script src="../_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="3.5. cviDownloadTool 工具" href="5_Cvi_Download_Cmd.html" />
+    <link rel="prev" title="3.3. 卸载usb驱动 (USB烧录)" href="3_Uninstalling_The_USB_Driver.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> ProductionBurningUserGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_Overview.html">2. 概述</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../3_Cvi_Download_Tool(USB&amp;UART).html">3. USB烧录/UART烧录</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="1_Overview.html">3.1. 概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Installing_The_USB_Driver.html">3.2. 安装usb驱动 (USB烧录)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_Uninstalling_The_USB_Driver.html">3.3. 卸载usb驱动 (USB烧录)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="4_Cvi_Download_Tool.html#">3.4. cviDownloadTool 工具</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="4_Cvi_Download_Tool.html#id1">3.4.1. cviDownloadTool工具介绍</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Cvi_Download_Tool.html#id2">3.4.2. cviDownloadTool 使用方法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="4_Cvi_Download_Tool.html#id3">3.4.2.1. 烧录工具操作流程</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="5_Cvi_Download_Cmd.html">3.5. cviDownloadTool 工具</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../4_SD.html">4. SD卡烧录</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5_TFTP.html">5. TFTP烧录</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6_Burner.html">6. 烧录器烧录</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ProductionBurningUserGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../3_Cvi_Download_Tool(USB&amp;UART).html"><span class="section-number">3. </span>USB烧录/UART烧录</a> &raquo;</li>
+      <li><span class="section-number">3.4. </span>cviDownloadTool 工具</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="../_sources/3_Cvi_Download_Tool(USB&amp;UART)/4_Cvi_Download_Tool.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cvidownloadtool">
+<h1><span class="section-number">3.4. </span>cviDownloadTool 工具<a class="headerlink" href="4_Cvi_Download_Tool.html#cvidownloadtool" title="永久链接至标题">¶</a></h1>
+<section id="id1">
+<h2><span class="section-number">3.4.1. </span>cviDownloadTool工具介绍<a class="headerlink" href="4_Cvi_Download_Tool.html#id1" title="永久链接至标题">¶</a></h2>
+<p>cviDownloadTool工具是一款可视化烧录工具，
+支持裸片烧录，也支持U-Boot烧录（需设备硬件支持）
+最多可以支持8台设备同时烧录。</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>通过USB来烧录单板需要满足以下条件:</p>
+<ul class="simple">
+<li><p>PC机USB接口与单板的USB2.0口对接</p></li>
+<li><p>单板必须满足一次系统复位，可以上电复位或者系统软复位</p></li>
+</ul>
+<p>以上条件必须同时满足时，单板才能进入USB烧录流程</p>
+</div>
+</section>
+<section id="id2">
+<h2><span class="section-number">3.4.2. </span>cviDownloadTool 使用方法<a class="headerlink" href="4_Cvi_Download_Tool.html#id2" title="永久链接至标题">¶</a></h2>
+<section id="id3">
+<h3><span class="section-number">3.4.2.1. </span>烧录工具操作流程<a class="headerlink" href="4_Cvi_Download_Tool.html#id3" title="永久链接至标题">¶</a></h3>
+<p><strong>步骤1.1</strong></p>
+<p>打开烧录工具，进入到主界面。</p>
+<figure class="align-default" id="id6">
+<a class="reference internal image-reference" href="../_images/cviDow000.png"><img alt="../_images/cviDow000.png" src="../_images/cviDow000.png" style="width: 6.11in; height: 2.75in;" /></a>
+<figcaption>
+<p><span class="caption-number">图 3.4 </span><span class="caption-text">晶视烧录工具界面</span><a class="headerlink" href="4_Cvi_Download_Tool.html#id6" title="永久链接至图片">¶</a></p>
+</figcaption>
+</figure>
+<hr class="docutils" />
+<p><strong>步骤1.2</strong></p>
+<p>点击 设置-&gt;语言 进行语言选择。</p>
+<figure class="align-default" id="id7">
+<a class="reference internal image-reference" href="../_images/cviDow001.png"><img alt="../_images/cviDow001.png" src="../_images/cviDow001.png" style="width: 6.11in; height: 2.75in;" /></a>
+<figcaption>
+<p><span class="caption-number">图 3.5 </span><span class="caption-text">晶视烧录工具语言选择</span><a class="headerlink" href="4_Cvi_Download_Tool.html#id7" title="永久链接至图片">¶</a></p>
+</figcaption>
+</figure>
+<hr class="docutils" />
+<p><strong>步骤1.3</strong></p>
+<p>配置烧录工具参数</p>
+<p>用户在烧录前的第一个步骤应当是打开 设置 栏，按照当次烧录的需求进行配置。
+打开烧录工具左上角的菜单栏，依次选择 设置-&gt;选项，配置烧录所需的各个配置项。</p>
+<figure class="align-default" id="id8">
+<a class="reference internal image-reference" href="../_images/cviDow002.png"><img alt="../_images/cviDow002.png" src="../_images/cviDow002.png" style="width: 6.11in; height: 2.75in;" /></a>
+<figcaption>
+<p><span class="caption-number">图 3.6 </span><span class="caption-text">设置按钮</span><a class="headerlink" href="4_Cvi_Download_Tool.html#id8" title="永久链接至图片">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id9">
+<a class="reference internal image-reference" href="../_images/cviDow003.png"><img alt="../_images/cviDow003.png" src="../_images/cviDow003.png" style="width: 5.60in; height: 7.72in;" /></a>
+<figcaption>
+<p><span class="caption-number">图 3.7 </span><span class="caption-text">设置界面</span><a class="headerlink" href="4_Cvi_Download_Tool.html#id9" title="永久链接至图片">¶</a></p>
+</figcaption>
+</figure>
+<ul>
+<li><p>设置选项</p>
+<ul>
+<li><dl class="simple">
+<dt>烧录方式:</dt><dd><ul class="simple">
+<li><p>UART烧录： 使用UART口进行烧录。</p></li>
+<li><p>USB烧录： 使用USB口进行烧录。</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Uboot烧录: 若勾选此项，使用板端自带的U-Boot进行烧录，否则通过USB口加载镜像文件的U-Boot进行烧录。</p></li>
+<li><p>校验模式: 若勾选此项，在烧录时进行数据读回并进行校验。</p></li>
+<li><p>Raw文件烧录: 若输入的镜像文件不具备文件头，需勾选此项。</p></li>
+<li><p>SN信息: 烧录时读取sn码，并在烧录时打印到详细日志中。</p></li>
+<li><p>gpt分区烧录: 勾选此选项，烧录时包含gpt分区。</p></li>
+<li><p>芯片类型: 需烧录设备对应的芯片类型，当镜像包的fip文件中包含了该参数时，优先使用fip中的参数。</p></li>
+<li><p>vendor分区信息: 输入值为分区下标，若该值非空时，烧录时读取对应的vendor分区值并打印到详细日志中。</p></li>
+<li><p>解包选项:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>使用自定义解包工具: 勾选此项，即可自定义解包工具。</p></li>
+<li><p>解包工具: 选择自定义的解包工具，该工具必须为exe文件，且可以通过命令行执行的方式进行解包。</p></li>
+<li><p>解包参数: 解包工具的命令行参数，使用[IMAGE]和[DESTDIR]占位符来作为命令行中的镜像路径和目的路径，如 <cite>-unpack [IMAGE] [DESTDIR]</cite>。</p></li>
+<li><p>文件格式: 镜像压缩包的文件格式后缀。</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>烧录文件选择：允许在主界面自定义分区表上的哪些文件不需要被烧录。</p></li>
+<li><p>烧录详情: 在勾选此项后，主界面会显示烧录时使用的命令行参数。</p></li>
+<li><p>按键烧录: 若需烧录的板子需要按下烧录按键才进入烧录模式，则需勾选此选项。</p></li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>当不清楚设备的软硬件环境是否支持指定选项时，请勿随意勾选该选项，否则可能导致无法成功烧录。</p>
+</div>
+<hr class="docutils" />
+<p><strong>步骤1.4</strong></p>
+<p>点击 浏览 按钮，找到需要被烧录的文件系统配置xml文件，或镜像文件的压缩包。</p>
+<figure class="align-default" id="id10">
+<a class="reference internal image-reference" href="../_images/cviDow004.png"><img alt="../_images/cviDow004.png" src="../_images/cviDow004.png" style="width: 6.11in; height: 2.75in;" /></a>
+<figcaption>
+<p><span class="caption-number">图 3.8 </span><span class="caption-text">点击 浏览 按钮</span><a class="headerlink" href="4_Cvi_Download_Tool.html#id10" title="永久链接至图片">¶</a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>若选择的是压缩包，在解压之前会检测同级目录下是否存在cviBurnUnpackDir文件夹，若存在会将其删除，以删除旧的镜像文件！</p>
+<p>该文件用于保存从镜像中解压出来的所有文件，请在放置烧录固件文件的时候尽量避免所在路径存在同名文件夹。</p>
+<p>请确保镜像压缩包文件的内容仅有一个xml或yaml文件，当前工具会检索xml或yaml文件的路径作为烧录路径。</p>
+<p>若目录下必须同时存在xml和yaml文件，请手动解压镜像包，并点击 浏览 按钮选中xml或yaml文件。</p>
+</div>
+<hr class="docutils" />
+<p><strong>步骤1.5</strong></p>
+<p>选好文件后，点击确认，便会出现如 <a class="reference internal" href="4_Cvi_Download_Tool.html#id4"><span class="std std-numref">图 3.9</span></a> ，
+表格中会列出需要被烧录进去的文件以及他们的属性，
+用户可以通过手动取消勾选，表示哪些文件不需要被烧录。</p>
+<figure class="align-default" id="id4">
+<a class="reference internal image-reference" href="../_images/cviDow005.png"><img alt="../_images/cviDow005.png" src="../_images/cviDow005.png" style="width: 6.11in; height: 2.75in;" /></a>
+<figcaption>
+<p><span class="caption-number">图 3.9 </span><span class="caption-text">选择需要下载的文件</span><a class="headerlink" href="4_Cvi_Download_Tool.html#id4" title="永久链接至图片">¶</a></p>
+</figcaption>
+</figure>
+<hr class="docutils" />
+<p><strong>步骤1.6</strong></p>
+<p>点击 开始烧录 按钮，进入烧录子页面。</p>
+<p>此时已经是就绪状态，可以直接开始烧录。</p>
+<figure class="align-default" id="id11">
+<a class="reference internal image-reference" href="../_images/cviDow006.png"><img alt="../_images/cviDow006.png" src="../_images/cviDow006.png" style="width: 6.11in; height: 2.75in;" /></a>
+<figcaption>
+<p><span class="caption-number">图 3.10 </span><span class="caption-text">点击 开始烧录 按钮</span><a class="headerlink" href="4_Cvi_Download_Tool.html#id11" title="永久链接至图片">¶</a></p>
+</figcaption>
+</figure>
+<p>可以通过下方的按钮来改变烧录工具当前的状态。</p>
+<figure class="align-default" id="id12">
+<a class="reference internal image-reference" href="../_images/cviDow007.png"><img alt="../_images/cviDow007.png" src="../_images/cviDow007.png" style="width: 6.50in; height: 4.55in;" /></a>
+<figcaption>
+<p><span class="caption-number">图 3.11 </span><span class="caption-text">点击 开始烧录 按钮</span><a class="headerlink" href="4_Cvi_Download_Tool.html#id12" title="永久链接至图片">¶</a></p>
+</figcaption>
+</figure>
+<hr class="docutils" />
+<p><strong>步骤1.7</strong></p>
+<dl class="simple">
+<dt>进入就绪状态之后:</dt><dd><ul class="simple">
+<li><p>UART烧录：插入UART口，待进度条出现后，设备上电即可进入烧录。</p></li>
+<li><p>USB烧录：可以将设备插入到USB HUB中并开机，烧录程序会自动启动。</p></li>
+</ul>
+</dd>
+</dl>
+<p>简要日志中打印的是当前插入的USB设备，并且会在上方的方框标题显示插入板子对应的USB端口。</p>
+<p>烧录开始了之后进度条会展示当前设备的烧录进度。</p>
+<figure class="align-default" id="id13">
+<a class="reference internal image-reference" href="../_images/cviDow008.png"><img alt="../_images/cviDow008.png" src="../_images/cviDow008.png" style="width: 6.50in; height: 4.55in;" /></a>
+<figcaption>
+<p><span class="caption-number">图 3.12 </span><span class="caption-text">插入USB设备开始烧录</span><a class="headerlink" href="4_Cvi_Download_Tool.html#id13" title="永久链接至图片">¶</a></p>
+</figcaption>
+</figure>
+<p>附：USB端口的对应关系：</p>
+<blockquote>
+<div><p>将USB接口插入电脑之后，软件会自动识别插入的USB设备并为其编号，无需用户设置。</p>
+<p>在电脑与单板建立连接之后，会在对应的Board窗口展示其端口号。</p>
+<p>根据插入的顺序，依从左往右、从上至下的顺序排列在软件界面上。</p>
+<p>USB 端口由两部分组成，例如 端口：4,1中，</p>
+<p>4表示当前HUB的编号，</p>
+<p>1表示该HUB上的USB编号</p>
+<p>（实物HUB上标记的编号和电脑识别的可能不一致，这里以电脑标记的HUB号为主）。</p>
+<p>建议用户在插入USB之后为其做好标记，以免造成混淆。</p>
+<p>这样在量产时便可以通过软件显示的USB 端口与实际单板一一对应，方便查看每个单板的状态。</p>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>为了使USB 端口能够依次正确读取，请先将USB HUB插入电脑后再依次插入单板。</p>
+<p>请勿先将单板插入USB HUB之后再一次性将HUB插入电脑，此操作可能造成无法正确读取USB端口。</p>
+</div>
+<hr class="docutils" />
+<p><strong>步骤1.8</strong></p>
+<p>烧录成功：</p>
+<blockquote>
+<div><p>烧录完成后状态栏会有一个“版 x 烧录完成.”提示，图标栏也会显示如下图标。</p>
+<p>烧录成功后只需拔掉设备，然后插入新的设备即可进行新一轮的烧录。</p>
+</div></blockquote>
+<figure class="align-default" id="id14">
+<a class="reference internal image-reference" href="../_images/cviDow009.png"><img alt="../_images/cviDow009.png" src="../_images/cviDow009.png" style="width: 6.50in; height: 4.55in;" /></a>
+<figcaption>
+<p><span class="caption-number">图 3.13 </span><span class="caption-text">烧录成功</span><a class="headerlink" href="4_Cvi_Download_Tool.html#id14" title="永久链接至图片">¶</a></p>
+</figcaption>
+</figure>
+<p>烧录失败：</p>
+<blockquote>
+<div><p>若烧录过程中因各种原因导致烧录失败的话，对应烧录失败的Board框内图标会显示“⊗”，
+日志会提示“版 x 烧录失败，请检查连接并点击重置按钮.”，</p>
+<p>如 <a class="reference internal" href="4_Cvi_Download_Tool.html#id5"><span class="std std-numref">图 3.14</span></a>。此时可点击“重置”按钮对单个板子重新启动烧录程序。</p>
+</div></blockquote>
+<figure class="align-default" id="id5">
+<a class="reference internal image-reference" href="../_images/cviDow010.png"><img alt="../_images/cviDow010.png" src="../_images/cviDow010.png" style="width: 6.50in; height: 4.55in;" /></a>
+<figcaption>
+<p><span class="caption-number">图 3.14 </span><span class="caption-text">烧录失败</span><a class="headerlink" href="4_Cvi_Download_Tool.html#id5" title="永久链接至图片">¶</a></p>
+</figcaption>
+</figure>
+<p>重置:</p>
+<blockquote>
+<div><p>每个板子对应的框内都含有 重置 按钮，点击 重置 按钮可将对应的烧录程序重置，
+重新进入就绪状态，此时将未烧录成功的板子需要将设备拔掉、关机、再重新插入、开机，
+烧录程序会重新启动对板子进行烧录。</p>
+</div></blockquote>
+<figure class="align-default" id="id15">
+<a class="reference internal image-reference" href="../_images/cviDow011.png"><img alt="../_images/cviDow011.png" src="../_images/cviDow011.png" style="width: 6.50in; height: 4.55in;" /></a>
+<figcaption>
+<p><span class="caption-number">图 3.15 </span><span class="caption-text">重置 按钮</span><a class="headerlink" href="4_Cvi_Download_Tool.html#id15" title="永久链接至图片">¶</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="3_Uninstalling_The_USB_Driver.html" class="btn btn-neutral float-left" title="3.3. 卸载usb驱动 (USB烧录)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="5_Cvi_Download_Cmd.html" class="btn btn-neutral float-right" title="3.5. cviDownloadTool 工具" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2. eFuse使用指南 &mdash; eFuseUserGuide master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="2.1. eFuse概述" href="2_eFuse_User_Guide/eFuse_Overview.html" />
+    <link rel="prev" title="1. 声明" href="1_disclaimer.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> eFuseUserGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="2_eFuse_User_Guide.html#">2. eFuse使用指南</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_eFuse_User_Guide/eFuse_Overview.html">2.1. eFuse概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_eFuse_User_Guide/Secure_Boot_eFuse_Setup_Process.html">2.2. 安全启动eFuse设置流程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_eFuse_User_Guide/eFuse_U-boot_Command_Reference.html">2.3. eFuse u-boot命令参考</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_eFuse_User_Guide/eFuse_API_Reference.html">2.4. eFuse API参考</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_eFuse_User_Guide/Data_Types.html">2.5. 数据类型</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">eFuseUserGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">2. </span>eFuse使用指南</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/2_eFuse_User_Guide.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="efuse">
+<h1><span class="section-number">2. </span>eFuse使用指南<a class="headerlink" href="2_eFuse_User_Guide.html#efuse" title="永久链接至标题">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="2_eFuse_User_Guide/eFuse_Overview.html">2.1. eFuse概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_eFuse_User_Guide/Secure_Boot_eFuse_Setup_Process.html">2.2. 安全启动eFuse设置流程</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_eFuse_User_Guide/Secure_Boot_eFuse_Setup_Process.html#id1">2.2.1. 查看密钥内容</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_eFuse_User_Guide/Secure_Boot_eFuse_Setup_Process.html#id2">2.2.2. 烧录密钥</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_eFuse_User_Guide/Secure_Boot_eFuse_Setup_Process.html#id3">2.2.3. 使能安全启动</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2_eFuse_User_Guide/eFuse_U-boot_Command_Reference.html">2.3. eFuse u-boot命令参考</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_eFuse_User_Guide/eFuse_U-boot_Command_Reference.html#efuser">2.3.1. efuser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_eFuse_User_Guide/eFuse_U-boot_Command_Reference.html#efusew">2.3.2. efusew</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2_eFuse_User_Guide/eFuse_API_Reference.html">2.4. eFuse API参考</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_eFuse_User_Guide/eFuse_API_Reference.html#cvi-efuse-getsize">2.4.1. CVI_EFUSE_GetSize</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_eFuse_User_Guide/eFuse_API_Reference.html#cvi-efuse-read">2.4.2. CVI_EFUSE_Read</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_eFuse_User_Guide/eFuse_API_Reference.html#cvi-efuse-write">2.4.3. CVI_EFUSE_Write</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_eFuse_User_Guide/eFuse_API_Reference.html#cvi-efuse-enablesecureboot">2.4.4. CVI_EFUSE_EnableSecureBoot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_eFuse_User_Guide/eFuse_API_Reference.html#cvi-efuse-issecurebootenabled">2.4.5. CVI_EFUSE_IsSecureBootEnabled</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_eFuse_User_Guide/eFuse_API_Reference.html#cvi-efuse-enablefastboot">2.4.6. CVI_EFUSE_EnableFastBoot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_eFuse_User_Guide/eFuse_API_Reference.html#cvi-efuse-isfastbootenabled">2.4.7. CVI_EFUSE_IsFastBootEnabled</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_eFuse_User_Guide/eFuse_API_Reference.html#cvi-efuse-lock">2.4.8. CVI_EFUSE_Lock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_eFuse_User_Guide/eFuse_API_Reference.html#cvi-efuse-islocked">2.4.9. CVI_EFUSE_IsLocked</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_eFuse_User_Guide/eFuse_API_Reference.html#cvi-efuse-lockwrite">2.4.10. CVI_EFUSE_LockWrite</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_eFuse_User_Guide/eFuse_API_Reference.html#cvi-efuse-iswritelocked">2.4.11. CVI_EFUSE_IsWriteLocked</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2_eFuse_User_Guide/Data_Types.html">2.5. 数据类型</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_eFuse_User_Guide/Data_Types.html#cvi-efuse-area-e">2.5.1. CVI_EFUSE_AREA_E</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_eFuse_User_Guide/Data_Types.html#cvi-efuse-lock-e">2.5.2. CVI_EFUSE_LOCK_E</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="1_disclaimer.html" class="btn btn-neutral float-left" title="1. 声明" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="2_eFuse_User_Guide/eFuse_Overview.html" class="btn btn-neutral float-right" title="2.1. eFuse概述" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

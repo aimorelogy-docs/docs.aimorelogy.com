@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2.2. 安全启动eFuse设置流程 &mdash; eFuseUserGuide master 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="../_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/qrious.js"></script>
+    <script src="../_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="2.3. eFuse u-boot命令参考" href="eFuse_U-boot_Command_Reference.html" />
+    <link rel="prev" title="2.1. eFuse概述" href="eFuse_Overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> eFuseUserGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../2_eFuse_User_Guide.html">2. eFuse使用指南</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="eFuse_Overview.html">2.1. eFuse概述</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="Secure_Boot_eFuse_Setup_Process.html#">2.2. 安全启动eFuse设置流程</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Secure_Boot_eFuse_Setup_Process.html#id1">2.2.1. 查看密钥内容</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Secure_Boot_eFuse_Setup_Process.html#id2">2.2.2. 烧录密钥</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Secure_Boot_eFuse_Setup_Process.html#id3">2.2.3. 使能安全启动</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="eFuse_U-boot_Command_Reference.html">2.3. eFuse u-boot命令参考</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eFuse_API_Reference.html">2.4. eFuse API参考</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Data_Types.html">2.5. 数据类型</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">eFuseUserGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../2_eFuse_User_Guide.html"><span class="section-number">2. </span>eFuse使用指南</a> &raquo;</li>
+      <li><span class="section-number">2.2. </span>安全启动eFuse设置流程</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="../_sources/2_eFuse_User_Guide/Secure_Boot_eFuse_Setup_Process.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="efuse">
+<h1><span class="section-number">2.2. </span>安全启动eFuse设置流程<a class="headerlink" href="Secure_Boot_eFuse_Setup_Process.html#efuse" title="永久链接至标题">¶</a></h1>
+<div class="admonition attention">
+<p class="admonition-title">注意</p>
+<p>eFuse 每一位写入1后无法擦除 (只允许从0变成1)，写入前请注意</p>
+<p>指定的eFuse锁定后无法再读取或写入，锁定前请注意</p>
+</div>
+<section id="id1">
+<h2><span class="section-number">2.2.1. </span>查看密钥内容<a class="headerlink" href="Secure_Boot_eFuse_Setup_Process.html#id1" title="永久链接至标题">¶</a></h2>
+<p>在PC上查看密钥内容:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>查看AES加解密秘钥
+<span class="go">host$ xxd -p -c 256 loader_ek.key</span>
+<span class="go">668f8b6655a89f7cb8ee5cbd6f2c914e</span>
+
+<span class="gp"># </span>获取RSA验签所需 sha256 值
+<span class="gp"># </span>执行签署脚本fipsign.py时，脚本会打印所需sha256值，如下：
+<span class="go">host$ ./fipsign.py ......</span>
+<span class="go">Host$ .......</span>
+<span class="go">Host$ INFO:root:KPUB_HASH:978bc2031b9377dadb4c7c34467ee985806a63a3ac8ee293a3f0eddcd2b789d8</span>
+<span class="go">Host$ .......</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>KPUB_HASH: 后面的字符串就是所需sha256值</p></li>
+</ul>
+</section>
+<section id="id2">
+<h2><span class="section-number">2.2.2. </span>烧录密钥<a class="headerlink" href="Secure_Boot_eFuse_Setup_Process.html#id2" title="永久链接至标题">¶</a></h2>
+<ol class="arabic simple">
+<li><p>将loader_ek.key数据烧录到eFuse的 “加密密钥”区域，数据为16 Bytes，以16进制字符串表示。如果未使用加密功能可跳过这步骤。</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">u-boot# efusew LOADER_EK 668f8b6655a89f7cb8ee5cbd6f2c914e</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>烧录验签所需 sha256 值到eFuse的 “验签所需SHA256摘要”区域，数据为32 Bytes，以16进制字符串表示</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">u-boot# efusew HASH0_PUBLIC 978bc2031b9377dadb4c7c34467ee985806a63a3ac8ee293a3f0eddcd2b789d8</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>锁定相关密钥区域，防止误写</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">u-boot# efusew LOCK_LOADER_EK 01</span>
+<span class="go">u-boot# efusew LOCK_HASH0_PUBLIC 01</span>
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h2><span class="section-number">2.2.3. </span>使能安全启动<a class="headerlink" href="Secure_Boot_eFuse_Setup_Process.html#id3" title="永久链接至标题">¶</a></h2>
+<ol class="arabic simple">
+<li><p>enable 验签流程</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">u-boot# efusew SECUREBOOT 01</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>enable 验签和解密流程</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">u-boot# efusew SECUREBOOT 02</span>
+</pre></div>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">注意</p>
+<ol class="arabic simple">
+<li><p>安全启动使能后无法再变更，秘钥和开关写入前请注意数据正确</p></li>
+<li><p>使能安全启动需要和efuse写入数据以及fip.bin匹配，例如：enable 解密流程后需要使用已签名和已加密的FIP.bin，只签名的FIP.bin无法烧录和启动</p></li>
+</ol>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="eFuse_Overview.html" class="btn btn-neutral float-left" title="2.1. eFuse概述" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="eFuse_U-boot_Command_Reference.html" class="btn btn-neutral float-right" title="2.3. eFuse u-boot命令参考" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

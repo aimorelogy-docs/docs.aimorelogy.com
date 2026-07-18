@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4. 常见问题： &mdash; AudioQualityTuningGuide master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="5. VQE算法功能介绍" href="5_VQE_Algorithm_Function_Introduction.html" />
+    <link rel="prev" title="3. 回声消除调试" href="3_Echo_Cancellation_Debugging.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> AudioQualityTuningGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Introduction.html">2. 介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Echo_Cancellation_Debugging.html">3. 回声消除调试</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="4_FAQ.html#">4. 常见问题：</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_VQE_Algorithm_Function_Introduction.html">5. VQE算法功能介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_Block_Diagram.html">6. Block Diagram:</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">AudioQualityTuningGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">4. </span>常见问题：</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/4_FAQ.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">4. </span>常见问题：<a class="headerlink" href="4_FAQ.html#id1" title="永久链接至标题">¶</a></h1>
+<ol class="arabic">
+<li><p>BGA封装平台 ain_record.pcm文件右声道没有波形。</p>
+<blockquote>
+<div><p>答：查看硬件pcb是否有参考信号引入到ADCR通道。</p>
+</div></blockquote>
+</li>
+<li><p>对讲有回声（对方能听到自己的声音）。</p>
+<blockquote>
+<div><p>答：查看 ain_record.pcm 左右声道录音波形是否太大消波失真了。mic和spk是否有损坏，模拟电路是否存在干扰。如果都排查了没这类问题再考虑算法和算法参数的问题。</p>
+</div></blockquote>
+</li>
+<li><p>我的ADCR的gain值已经设置成1了，Audio Output设置的gain也不大而 ain_record.pcm的右声道是很大消波失真了。</p>
+<blockquote>
+<div><p>答：查看对方通过网络发过的声音数据，保存成文件放到pc查看波形。</p>
+</div></blockquote>
+</li>
+<li><p>机器端听到的声音有问题，如忽大忽小，有丢字等。</p>
+<blockquote>
+<div><p>答：假设机器是和手机app对讲。机器播放的声音就是手机发过来的。这种情况一般是手机端的问题。所有对讲中AEC的处理结果都是在对端表现出来的。也就是我们的 <strong>处理结果是在手机端表现出来</strong>，只要手机端的人没有听见自己的声音， <strong>对方的声音也没有丢字卡顿（也肯是网络或RISC-V负荷高的问题）</strong>
+等那我们的AEC处理结果就是ok的。</p>
+</div></blockquote>
+</li>
+<li><p>QFN封装平台为了不让 ain_record.pcm的右声道形消顶失真，把Audio Output音量gain调小了，导致喇叭不够大声怎么办？</p>
+<blockquote>
+<div><p>答：AEC算法可以正常运行的前提是没有失真（包含消顶，mic问题，spk问题，干扰问题导致的失真）。因为QFN是处理器内部把ADCR接到了DACR的而且ADC的gain没有减小音量的功能，所以这种情况只能是把Audio Output减小，加大功放的放大系数来解决这个矛盾。BGA平台在pcb上走线把ADCR接到了DACR则
+可以调整电阻分压来避免这种情况。</p>
+</div></blockquote>
+</li>
+<li><p>下面的测试方式是不行的：用手机播放声音来代替人说话测试；机器和手机放在一起一个人同时说话。</p></li>
+<li><p>对讲调试时啸叫严重。</p>
+<blockquote>
+<div><p>答：确定喇叭和mic之间是否距离过近，如果离的比较远还是有啸叫可以适当调小mic的gain值。</p>
+</div></blockquote>
+</li>
+</ol>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="3_Echo_Cancellation_Debugging.html" class="btn btn-neutral float-left" title="3. 回声消除调试" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="5_VQE_Algorithm_Function_Introduction.html" class="btn btn-neutral float-right" title="5. VQE算法功能介绍" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

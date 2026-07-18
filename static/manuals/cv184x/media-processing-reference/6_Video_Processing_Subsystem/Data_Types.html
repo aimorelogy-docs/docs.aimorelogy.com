@@ -1,0 +1,1538 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>6.4. 数据类型 &mdash; MediaProcessingSoftwareDevelopmentReference master 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="../_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/qrious.js"></script>
+    <script src="../_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="6.5. 错误码" href="Error_Codes.html" />
+    <link rel="prev" title="6.3. API参考" href="API_Reference.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> MediaProcessingSoftwareDevelopmentReference
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_System_Overview.html">2. 系统概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_System_Control.html">3. 系统控制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_Video_Input.html">4. 视频输入</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5_Video_Output.html">5. 视频输出</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../6_Video_Processing_Subsystem.html">6. 视频处理子系统</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Function_Overview.html">6.1. 功能概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Design_Overview.html">6.2. 设计概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="API_Reference.html">6.3. API参考</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="Data_Types.html#">6.4. 数据类型</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vpss-device-num">6.4.1. VPSS_DEVICE_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vpss-ip-num">6.4.2. VPSS_IP_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vpss-max-grp-num">6.4.3. VPSS_MAX_GRP_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vpss-online-num">6.4.4. VPSS_ONLINE_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vpss-max-chn-num">6.4.5. VPSS_MAX_CHN_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vpss-max-phy-chn-num">6.4.6. VPSS_MAX_PHY_CHN_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vpss-min-image-width">6.4.7. VPSS_MIN_IMAGE_WIDTH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vpss-min-image-height">6.4.8. VPSS_MIN_IMAGE_HEIGHT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vpss-max-image-width">6.4.9. VPSS_MAX_IMAGE_WIDTH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vpss-max-image-height">6.4.10. VPSS_MAX_IMAGE_HEIGHT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vpss0-hw-limit-width">6.4.11. VPSS0_HW_LIMIT_WIDTH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vpss1-hw-limit-width">6.4.12. VPSS1_HW_LIMIT_WIDTH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vpss2-hw-limit-width">6.4.13. VPSS2_HW_LIMIT_WIDTH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vpss3-hw-limit-width">6.4.14. VPSS3_HW_LIMIT_WIDTH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vpss-max-zoomin">6.4.15. VPSS_MAX_ZOOMIN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vpss-max-zoomout">6.4.16. VPSS_MAX_ZOOMOUT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vpss-rect-num">6.4.17. VPSS_RECT_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vpss-chn0">6.4.18. VPSS_CHN0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vpss-chn1">6.4.19. VPSS_CHN1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vpss-chn2">6.4.20. VPSS_CHN2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vpss-chn3">6.4.21. VPSS_CHN3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vpss-invalid-chn">6.4.22. VPSS_INVALID_CHN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vpss-invalid-grp">6.4.23. VPSS_INVALID_GRP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vpss-grp">6.4.24. VPSS_GRP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vpss-chn">6.4.25. VPSS_CHN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vpss-mode-e">6.4.26. VPSS_MODE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vpss-input-e">6.4.27. VPSS_INPUT_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vpss-mode-s">6.4.28. VPSS_MODE_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vpss-rounding-e">6.4.29. VPSS_ROUNDING_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vpss-crop-coordinate-e">6.4.30. VPSS_CROP_COORDINATE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vpss-normalize-s">6.4.31. VPSS_NORMALIZE_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vpss-crop-info-s">6.4.32. VPSS_CROP_INFO_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vpss-grp-attr-s">6.4.33. VPSS_GRP_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vpss-chn-attr-s">6.4.34. VPSS_CHN_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vpss-mod-param-s">6.4.35. VPSS_MOD_PARAM_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#proc-amp-e">6.4.36. PROC_AMP_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#proc-amp-ctrl-s">6.4.37. PROC_AMP_CTRL_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vpss-proc-amp-cfg">6.4.38. vpss_proc_amp_cfg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vpss-all-proc-amp-s">6.4.39. VPSS_ALL_PROC_AMP_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vpss-ldc-attr-s">6.4.40. VPSS_LDC_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vpss-chn-buf-wrap-s">6.4.41. VPSS_CHN_BUF_WRAP_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vpss-scale-coef-e">6.4.42. VPSS_SCALE_COEF_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vpss-rect-s">6.4.43. VPSS_RECT_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vpss-draw-rect-s">6.4.44. VPSS_DRAW_RECT_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vpss-convert-s">6.4.45. VPSS_CONVERT_S</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Error_Codes.html">6.5. 错误码</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../7_Video_Encoding.html">7. 视频编码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../8_Video_Decoding.html">8. 视频解码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../9_Regional_Management.html">9. 区域管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10_Audio_Frequency.html">10. 音频</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../11_Geometric_Distortion_Correction_Subsystem.html">11. 几何畸变矫正子系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../12_Proc_Debugging_Information_Explanation.html">12. Proc 调试信息说明</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MediaProcessingSoftwareDevelopmentReference</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../6_Video_Processing_Subsystem.html"><span class="section-number">6. </span>视频处理子系统</a> &raquo;</li>
+      <li><span class="section-number">6.4. </span>数据类型</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="../_sources/6_Video_Processing_Subsystem/Data_Types.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">6.4. </span>数据类型<a class="headerlink" href="Data_Types.html#id1" title="永久链接至标题">¶</a></h1>
+<p>VPSS 模块相关数据类型定义如下:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="Data_Types.html#vpss-device-num">VPSS_DEVICE_NUM</a>:定义 VPSS Device 数量。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vpss-ip-num">VPSS_IP_NUM</a>:定义 VPSS IP 数量。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vpss-max-grp-num">VPSS_MAX_GRP_NUM</a>:定义 VPSS GROUP 的最大个数。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vpss-online-num">VPSS_ONLINE_NUM</a>:定义 VPSS ONLINE GROUP 的最大个数。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vpss-max-chn-num">VPSS_MAX_CHN_NUM</a>:定义 VPSS 通道的最大个数。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vpss-max-phy-chn-num">VPSS_MAX_PHY_CHN_NUM</a>:定义 VPSS 物理通道的最大个数。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vpss-min-image-width">VPSS_MIN_IMAGE_WIDTH</a>:定义 VPSS 图像的最小宽度。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vpss-min-image-height">VPSS_MIN_IMAGE_HEIGHT</a>:定义 VPSS 图像的最小高度。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vpss-max-image-width">VPSS_MAX_IMAGE_WIDTH</a>:定义 VPSS 图像的最大宽度。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vpss-max-image-height">VPSS_MAX_IMAGE_HEIGHT</a>:定义 VPSS 图像的最大高度</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vpss0-hw-limit-width">VPSS0_HW_LIMIT_WIDTH</a>:定义 VPSS0 硬件的限制宽度。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vpss1-hw-limit-width">VPSS1_HW_LIMIT_WIDTH</a>:定义 VPSS1 硬件的限制宽度。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vpss2-hw-limit-width">VPSS2_HW_LIMIT_WIDTH</a>:定义 VPSS2 硬件的限制宽度。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vpss3-hw-limit-width">VPSS3_HW_LIMIT_WIDTH</a>:定义 VPSS3 硬件的限制宽度。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vpss-max-zoomin">VPSS_MAX_ZOOMIN</a>:定义VPSS物理通道最大放大倍数。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vpss-max-zoomout">VPSS_MAX_ZOOMOUT</a>:定义 VPSS 物理通道的最大缩小倍数。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vpss-rect-num">VPSS_RECT_NUM</a>:定义 VPSS 物理通道画框最大个数。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vpss-chn0">VPSS_CHN0</a>:定义 VPSS CHN 0。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vpss-chn1">VPSS_CHN1</a>:定义 VPSS CHN 1。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vpss-chn2">VPSS_CHN2</a>:定义 VPSS CHN 2。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vpss-chn3">VPSS_CHN3</a>:定义 VPSS CHN 3。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vpss-invalid-chn">VPSS_INVALID_CHN</a>:定义 VPSS 非法通道号。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vpss-invalid-grp">VPSS_INVALID_GRP</a>:定义 VPSS 非法组号。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vpss-grp">VPSS_GRP</a>:定义 VPSS 组号。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vpss-chn">VPSS_CHN</a>:定义 VPSS 通道号。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vpss-mode-e">VPSS_MODE_E</a>:定义 VPSS 模式。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vpss-input-e">VPSS_INPUT_E</a>:定义 VPSS 输入来源。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vpss-mode-s">VPSS_MODE_S</a>:定义VPSS工作模式结构体。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vpss-rounding-e">VPSS_ROUNDING_E</a>:定义 Normalize时rounding的模式。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vpss-crop-coordinate-e">VPSS_CROP_COORDINATE_E</a>:定义 CROP起点坐标模式。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vpss-normalize-s">VPSS_NORMALIZE_S</a>:定义 Normalize功能所需信息。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vpss-crop-info-s">VPSS_CROP_INFO_S</a>:定义 CROP功能所需信息。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vpss-grp-attr-s">VPSS_GRP_ATTR_S</a>:定义 VPSS GROUP属性。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vpss-chn-attr-s">VPSS_CHN_ATTR_S</a>:定义 VPSS 物理通道属性。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vpss-mod-param-s">VPSS_MOD_PARAM_S</a>:通过接口设置模块参数。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#proc-amp-e">PROC_AMP_E</a>:定义 VPSS PROCAMP 类别。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#proc-amp-ctrl-s">PROC_AMP_CTRL_S</a>:定义 VPSS PROCAMP 属性。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vpss-proc-amp-cfg">vpss_proc_amp_cfg</a>:记录 ISP 绑定数据场景。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vpss-all-proc-amp-s">VPSS_ALL_PROC_AMP_S</a>:定义 VPSS 所有组的颜色控制属性。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vpss-ldc-attr-s">VPSS_LDC_ATTR_S</a>:定义 VPSS 镜头畸变矫正结构体。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vpss-chn-buf-wrap-s">VPSS_CHN_BUF_WRAP_S</a>: 定义VPSS Buffer卷绕属性。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vpss-scale-coef-e">VPSS_SCALE_COEF_E</a>: 定义VPSS 图像缩放算法。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vpss-rect-s">VPSS_RECT_S</a>: 定义VPSS 边框属性。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vpss-draw-rect-s">VPSS_DRAW_RECT_S</a>: 定义vpss画框信息。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vpss-convert-s">VPSS_CONVERT_S</a>: 定义vpss convert参数。</p></li>
+</ul>
+<section id="vpss-device-num">
+<h2><span class="section-number">6.4.1. </span>VPSS_DEVICE_NUM<a class="headerlink" href="Data_Types.html#vpss-device-num" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VPSS Device 数量</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VPSS_DEVICE_NUM 2</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<section id="vpss-ip-num">
+<h2><span class="section-number">6.4.2. </span>VPSS_IP_NUM<a class="headerlink" href="Data_Types.html#vpss-ip-num" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VPSS IP 数量</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VPSS_IP_NUM 4</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<section id="vpss-max-grp-num">
+<h2><span class="section-number">6.4.3. </span>VPSS_MAX_GRP_NUM<a class="headerlink" href="Data_Types.html#vpss-max-grp-num" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VPSS GROUP 的最大个数</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VPSS_MAX_GRP_NUM 16</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<section id="vpss-online-num">
+<h2><span class="section-number">6.4.4. </span>VPSS_ONLINE_NUM<a class="headerlink" href="Data_Types.html#vpss-online-num" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VPSS ONLINE GROUP 的最大个数</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VPSS_ONLINE_NUM 3</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<section id="vpss-max-chn-num">
+<h2><span class="section-number">6.4.5. </span>VPSS_MAX_CHN_NUM<a class="headerlink" href="Data_Types.html#vpss-max-chn-num" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VPSS 通道的最大个数</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VPSS_MAX_CHN_NUM  VPSS_MAX_PHY_CHN_NUM</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>VPSS 最大信道数为物理信道数</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<section id="vpss-max-phy-chn-num">
+<h2><span class="section-number">6.4.6. </span>VPSS_MAX_PHY_CHN_NUM<a class="headerlink" href="Data_Types.html#vpss-max-phy-chn-num" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VPSS 物理通道的最大个数</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VPSS_MAX_PHY_CHN_NUM     4</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<section id="vpss-min-image-width">
+<h2><span class="section-number">6.4.7. </span>VPSS_MIN_IMAGE_WIDTH<a class="headerlink" href="Data_Types.html#vpss-min-image-width" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VPSS 图像的最小宽度</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VPSS_MIN_IMAGE_WIDTH 16</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<section id="vpss-min-image-height">
+<h2><span class="section-number">6.4.8. </span>VPSS_MIN_IMAGE_HEIGHT<a class="headerlink" href="Data_Types.html#vpss-min-image-height" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VPSS 图像的最小高度</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VPSS_MIN_IMAGE_HEIGHT 16</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<section id="vpss-max-image-width">
+<h2><span class="section-number">6.4.9. </span>VPSS_MAX_IMAGE_WIDTH<a class="headerlink" href="Data_Types.html#vpss-max-image-width" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VPSS 图像的最大宽度</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VPSS_MAX_IMAGE_WIDTH 8192</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<section id="vpss-max-image-height">
+<h2><span class="section-number">6.4.10. </span>VPSS_MAX_IMAGE_HEIGHT<a class="headerlink" href="Data_Types.html#vpss-max-image-height" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VPSS 图像的最大高度</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VPSS_MAX_IMAGE_HEIGHT 8192</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<section id="vpss0-hw-limit-width">
+<h2><span class="section-number">6.4.11. </span>VPSS0_HW_LIMIT_WIDTH<a class="headerlink" href="Data_Types.html#vpss0-hw-limit-width" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VPSS0 硬件的限制宽度。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VPSS0_HW_LIMIT_WIDTH 3840</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<section id="vpss1-hw-limit-width">
+<h2><span class="section-number">6.4.12. </span>VPSS1_HW_LIMIT_WIDTH<a class="headerlink" href="Data_Types.html#vpss1-hw-limit-width" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VPSS1 硬件的限制宽度。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VPSS1_HW_LIMIT_WIDTH 1920</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<section id="vpss2-hw-limit-width">
+<h2><span class="section-number">6.4.13. </span>VPSS2_HW_LIMIT_WIDTH<a class="headerlink" href="Data_Types.html#vpss2-hw-limit-width" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VPSS2 硬件的限制宽度。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VPSS2_HW_LIMIT_WIDTH 1920</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<section id="vpss3-hw-limit-width">
+<h2><span class="section-number">6.4.14. </span>VPSS3_HW_LIMIT_WIDTH<a class="headerlink" href="Data_Types.html#vpss3-hw-limit-width" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VPSS3 硬件的限制宽度。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VPSS3_HW_LIMIT_WIDTH 1920</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<section id="vpss-max-zoomin">
+<h2><span class="section-number">6.4.15. </span>VPSS_MAX_ZOOMIN<a class="headerlink" href="Data_Types.html#vpss-max-zoomin" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义VPSS物理通道最大放大倍数</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VPSS_MAX_ZOOMIN  128</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<section id="vpss-max-zoomout">
+<h2><span class="section-number">6.4.16. </span>VPSS_MAX_ZOOMOUT<a class="headerlink" href="Data_Types.html#vpss-max-zoomout" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VPSS 物理通道的最大缩小倍数</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VPSS_MAX_ZOOMOUT    128</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<section id="vpss-rect-num">
+<h2><span class="section-number">6.4.17. </span>VPSS_RECT_NUM<a class="headerlink" href="Data_Types.html#vpss-rect-num" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VPSS 物理通道画框最大个数。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VPSS_RECT_NUM    4</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<section id="vpss-chn0">
+<h2><span class="section-number">6.4.18. </span>VPSS_CHN0<a class="headerlink" href="Data_Types.html#vpss-chn0" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VPSS CHN 0</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VPSS_CHN0 0</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<section id="vpss-chn1">
+<h2><span class="section-number">6.4.19. </span>VPSS_CHN1<a class="headerlink" href="Data_Types.html#vpss-chn1" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VPSS CHN 1</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VPSS_CHN1 1</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<section id="vpss-chn2">
+<h2><span class="section-number">6.4.20. </span>VPSS_CHN2<a class="headerlink" href="Data_Types.html#vpss-chn2" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VPSS CHN 2</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VPSS_CHN2 2</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<section id="vpss-chn3">
+<h2><span class="section-number">6.4.21. </span>VPSS_CHN3<a class="headerlink" href="Data_Types.html#vpss-chn3" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VPSS CHN 3</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VPSS_CHN3 3</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<section id="vpss-invalid-chn">
+<h2><span class="section-number">6.4.22. </span>VPSS_INVALID_CHN<a class="headerlink" href="Data_Types.html#vpss-invalid-chn" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VPSS 非法通道号</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VPSS_INVALID_CHN -1</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<section id="vpss-invalid-grp">
+<h2><span class="section-number">6.4.23. </span>VPSS_INVALID_GRP<a class="headerlink" href="Data_Types.html#vpss-invalid-grp" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VPSS 非法组号</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VPSS_INVALID_GRP -1</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<section id="vpss-grp">
+<h2><span class="section-number">6.4.24. </span>VPSS_GRP<a class="headerlink" href="Data_Types.html#vpss-grp" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VPSS 组号。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">VPSS_GRP</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<section id="vpss-chn">
+<h2><span class="section-number">6.4.25. </span>VPSS_CHN<a class="headerlink" href="Data_Types.html#vpss-chn" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VPSS 组的管道号。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">VPSS_CHN</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<section id="vpss-mode-e">
+<h2><span class="section-number">6.4.26. </span>VPSS_MODE_E<a class="headerlink" href="Data_Types.html#vpss-mode-e" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VPSS 模式。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_VPSS_MODE_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">VPSS_MODE_SINGLE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">VPSS_MODE_DUAL</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">VPSS_MODE_BUTT</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VPSS_MODE_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VPSS_MODE_SINGLE</p></td>
+<td><p>single mode</p></td>
+</tr>
+<tr class="row-odd"><td><p>VPSS_MODE_DUAL</p></td>
+<td><p>dual mode</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-setmode"><span class="std std-ref">CVI_VPSS_SetMode</span></a></p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-getmode"><span class="std std-ref">CVI_VPSS_GetMode</span></a></p></li>
+</ul>
+</section>
+<section id="vpss-input-e">
+<h2><span class="section-number">6.4.27. </span>VPSS_INPUT_E<a class="headerlink" href="Data_Types.html#vpss-input-e" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VPSS 输入来源。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_VPSS_INPUT_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">VPSS_INPUT_MEM</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">VPSS_INPUT_ISP</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">VPSS_INPUT_BUTT</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VPSS_INPUT_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VPSS_INPUT_MEM</p></td>
+<td><p>VPSS输入源为DDR。</p></td>
+</tr>
+<tr class="row-odd"><td><p>VPSS_INPUT_ISP</p></td>
+<td><p>VPSS以online的方式工作，输入源为ISP。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<section id="vpss-mode-s">
+<h2><span class="section-number">6.4.28. </span>VPSS_MODE_S<a class="headerlink" href="Data_Types.html#vpss-mode-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VPSS 输入来源。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VPSS_MODE_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">VPSS_MODE_E</span><span class="w"> </span><span class="n">enMode</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">VPSS_INPUT_E</span><span class="w"> </span><span class="n">aenInput</span><span class="p">[</span><span class="n">VPSS_DEVICE_NUM</span><span class="p">];</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VPSS_MODE_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>enMode</p></td>
+<td><p>VPSS工作模式。</p></td>
+</tr>
+<tr class="row-odd"><td><p>aenInput</p></td>
+<td><p>每套VPSS的输入源。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<section id="vpss-rounding-e">
+<h2><span class="section-number">6.4.29. </span>VPSS_ROUNDING_E<a class="headerlink" href="Data_Types.html#vpss-rounding-e" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 Normalize时rounding的模式。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_VPSS_ROUNDING_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">VPSS_ROUNDING_TO_EVEN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VPSS_ROUNDING_AWAY_FROM_ZERO</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VPSS_ROUNDING_TRUNCATE</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VPSS_ROUNDING_MAX</span><span class="p">,</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VPSS_ROUNDING_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VPSS_ROUNDING_TO_EVEN</p></td>
+<td><p>四舍五入，参考下表。</p></td>
+</tr>
+<tr class="row-odd"><td><p>VPSS_ROUNDING_AWAY_FROM_ZERO</p></td>
+<td><p>四舍五入，参考下表。</p></td>
+</tr>
+<tr class="row-even"><td><p>VPSS_ROUNDING_TRUNCATE</p></td>
+<td><p>无条件舍去，参考下表。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>TO_EVEN</p></th>
+<th class="head"><p>AWAY_FROM_ZERO</p></th>
+<th class="head"><p>TRUNCATE</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>+1.8</p></td>
+<td><p>+2</p></td>
+<td><p>+2</p></td>
+<td><p>+1</p></td>
+</tr>
+<tr class="row-odd"><td><p>+1.5</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>+1.2</p></td>
+<td><p>+1</p></td>
+<td><p>+1</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>+0.8</p></td>
+<td></td>
+<td></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>+0.5</p></td>
+<td><p>0</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>+0.2</p></td>
+<td></td>
+<td><p>0</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>−0.2</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>−0.5</p></td>
+<td></td>
+<td><p>−1</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>−0.8</p></td>
+<td><p>−1</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>−1.2</p></td>
+<td></td>
+<td></td>
+<td><p>−1</p></td>
+</tr>
+<tr class="row-even"><td><p>−1.5</p></td>
+<td><p>−2</p></td>
+<td><p>−2</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>−1.8</p></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<section id="vpss-crop-coordinate-e">
+<h2><span class="section-number">6.4.30. </span>VPSS_CROP_COORDINATE_E<a class="headerlink" href="Data_Types.html#vpss-crop-coordinate-e" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 CROP 起点坐标的模式。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_VPSS_CROP_COORDINATE_E</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">VPSS_CROP_RATIO_COOR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VPSS_CROP_ABS_COOR</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VPSS_CROP_COORDINATE_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VPSS_CROP_RATIO_COOR</p></td>
+<td><p>相对坐标。</p></td>
+</tr>
+<tr class="row-odd"><td><p>VPSS_CROP_ABS_COOR</p></td>
+<td><p>绝对坐标。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>VPSS_CROP_RATIO_COOR 当前版本暂不支持。</p>
+<p>【相关数据类型及接口】</p>
+<p><a class="reference internal" href="Data_Types.html#vpss-crop-info-s">VPSS_CROP_INFO_S</a></p>
+</section>
+<section id="vpss-normalize-s">
+<h2><span class="section-number">6.4.31. </span>VPSS_NORMALIZE_S<a class="headerlink" href="Data_Types.html#vpss-normalize-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 Normalize功能所需信息。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VPSS_NORMALIZE_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bEnable</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_FLOAT</span><span class="w"> </span><span class="n">factor</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_FLOAT</span><span class="w"> </span><span class="n">mean</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span><span class="w"></span>
+<span class="w">   </span><span class="n">VPSS_ROUNDING_E</span><span class="w"> </span><span class="n">rounding</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VPSS_NORMALIZE_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>bEnable</p></td>
+<td><p>Normalize使能开关。</p></td>
+</tr>
+<tr class="row-odd"><td><p>factor</p></td>
+<td><p>正规化因子。</p>
+<p>1/8192 ~ 8191/8192</p>
+<p>or</p>
+<p>1/4096 ~ 8191/4096</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>mean</p></td>
+<td><p>正规化方均根差。  0 ~ 255</p></td>
+</tr>
+<tr class="row-odd"><td><p>rounding</p></td>
+<td><p>对小数部分的处理方式。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<ol class="arabic simple">
+<li><p>启用Normalize后的Output为int8, -128 ~ 127</p></li>
+<li><p>Normalize等效OpenCV中的convertTo()</p></li>
+</ol>
+<blockquote>
+<div><p>cv::convertTo(image, CV_8S, factor, -mean);</p>
+</div></blockquote>
+<ol class="arabic" start="3">
+<li><div class="line-block">
+<div class="line">根据VPSS CHN的format排列，结果会有所差异。</div>
+<div class="line">若是PIXEL_FORMAT_RGB_888_PLANAR/PIXEL_FORMAT_RGB_888运作方式如下:</div>
+<div class="line">(Pixel Value R) * factor[0] – mean[0]在接着做rounding。</div>
+<div class="line">(Pixel Value G) * factor[1] – mean[1]在接着做rounding。</div>
+<div class="line">(Pixel Value B) * factor[2] – mean[2]在接着做rounding。</div>
+<div class="line">若是PIXEL_FORMAT_BGR_888运作方式如下:</div>
+<div class="line">(Pixel Value B) * factor[0] – mean[0]在接着做rounding。</div>
+<div class="line">(Pixel Value G) * factor[1] – mean[1]在接着做rounding。</div>
+<div class="line">(Pixel Value R) * factor[2] – mean[2]在接着做rounding。</div>
+</div>
+</li>
+</ol>
+<p>【相关数据类型及接口】</p>
+<blockquote>
+<div><p><a class="reference internal" href="Data_Types.html#vpss-rounding-e">VPSS_ROUNDING_E</a></p>
+</div></blockquote>
+</section>
+<section id="vpss-crop-info-s">
+<h2><span class="section-number">6.4.32. </span>VPSS_CROP_INFO_S<a class="headerlink" href="Data_Types.html#vpss-crop-info-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 CROP 功能所需信息。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VPSS_CROP_INFO_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bEnable</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">VPSS_CROP_COORDINATE_E</span><span class="w"> </span><span class="n">enCropCoordinate</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">RECT_S</span><span class="w"> </span><span class="n">stCropRect</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VPSS_CROP_INFO_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>bEnable</p></td>
+<td><p>CROP 使能开关。</p></td>
+</tr>
+<tr class="row-odd"><td><p>enCropCoordinate</p></td>
+<td><p>CROP 起始点坐标模式。</p></td>
+</tr>
+<tr class="row-even"><td><p>stCropRect</p></td>
+<td><p>CROP 的矩形区域。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<blockquote>
+<div><p><a class="reference internal" href="Data_Types.html#vpss-crop-coordinate-e">VPSS_CROP_COORDINATE_E</a></p>
+</div></blockquote>
+</section>
+<section id="vpss-grp-attr-s">
+<h2><span class="section-number">6.4.33. </span>VPSS_GRP_ATTR_S<a class="headerlink" href="Data_Types.html#vpss-grp-attr-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VPSS GROUP 属性。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VPSS_GRP_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32MaxW</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32MaxH</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">PIXEL_FORMAT_E</span><span class="w"> </span><span class="n">enPixelFormat</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">FRAME_RATE_CTRL_S</span><span class="w"> </span><span class="n">stFrameRate</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8VpssDev</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VPSS_GRP_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>u32MaxW</p></td>
+<td><p>输入图像宽度。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32MaxH</p></td>
+<td><p>输入图像高度。</p></td>
+</tr>
+<tr class="row-even"><td><p>enPixelFormat</p></td>
+<td><p>输入图像像素格式。</p></td>
+</tr>
+<tr class="row-odd"><td><p>stFrameRate</p></td>
+<td><p>组帧率。</p></td>
+</tr>
+<tr class="row-even"><td><p>u8VpssDev</p></td>
+<td><p>可指定此VPSS组要使用哪个硬件工作。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<blockquote>
+<div><p>u8VpssDev 需在CVI_VPSS_SetMode()设定为VPSS_MODE_DUAL后，设定0/1才指定不同硬件。</p>
+</div></blockquote>
+<p>【相关数据类型及接口】</p>
+<ul class="simple">
+<li><p>PIXEL_FORMAT_E</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-creategrp"><span class="std std-ref">CVI_VPSS_CreateGrp</span></a></p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-setgrpattr"><span class="std std-ref">CVI_VPSS_SetGrpAttr</span></a></p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-getgrpattr"><span class="std std-ref">CVI_VPSS_GetGrpAttr</span></a></p></li>
+</ul>
+</section>
+<section id="vpss-chn-attr-s">
+<h2><span class="section-number">6.4.34. </span>VPSS_CHN_ATTR_S<a class="headerlink" href="Data_Types.html#vpss-chn-attr-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VPSS 物理通道属性。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VPSS_CHN_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32Width</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32Height</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">VIDEO_FORMAT_E</span><span class="w"> </span><span class="n">enVideoFormat</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">PIXEL_FORMAT_E</span><span class="w"> </span><span class="n">enPixelFormat</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">FRAME_RATE_CTRL_S</span><span class="w"> </span><span class="n">stFrameRate</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bMirror</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bFlip</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32Depth</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">ASPECT_RATIO_S</span><span class="w"> </span><span class="n">stAspectRatio</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">VPSS_NORMALIZE_S</span><span class="w"> </span><span class="n">stNormalize</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VPSS_CHN_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>u32Width</p></td>
+<td><p>目标图像宽度</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32Height</p></td>
+<td><p>目标图像高度</p></td>
+</tr>
+<tr class="row-even"><td><p>enVideoFormat</p></td>
+<td><p>目标图像视频格式。</p></td>
+</tr>
+<tr class="row-odd"><td><p>enPixelFormat</p></td>
+<td><p>目标图像像素格式。</p></td>
+</tr>
+<tr class="row-even"><td><p>stFrameRate</p></td>
+<td><p>帧率控制信息，当且仅当s32DstFrameRate小于s32SrcFrameRate时按比例控制帧率。
+例如，若s32SrcFrameRate为60，s32DstFrameRate为30，则每隔一帧丢一帧。</p></td>
+</tr>
+<tr class="row-odd"><td><p>bMirror</p></td>
+<td><p>水平镜像使能。</p></td>
+</tr>
+<tr class="row-even"><td><p>bFlip</p></td>
+<td><p>垂直翻转使能。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32Depth</p></td>
+<td><p>用户获取通道图像的队列长度。 静态属性。</p></td>
+</tr>
+<tr class="row-even"><td><p>stAspectRatio</p></td>
+<td><p>幅形比参数。</p></td>
+</tr>
+<tr class="row-odd"><td><p>stNormalize</p></td>
+<td><p>Normalize以便加速后续TPU的运作。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<ul class="simple">
+<li><p>输出图像宽度不能超过VPSS_MAX_IMAGE_WIDTH，高度不能超过VPSS_MAX_IMAGE_HEIGHT，全online不能放大。</p></li>
+<li><p>支持按比例控制帧率，-1表示不做帧率控制。</p></li>
+<li><p>假如开启幅形比，同时使能背景色，则不能在全online情况下使用。</p></li>
+<li><p>如果通道开启slice buffer，不支持Mirror和Flip，不支持帧率控制。</p></li>
+</ul>
+<p>【相关数据类型及接口】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-setchnattr"><span class="std std-ref">CVI_VPSS_SetChnAttr</span></a></p></li>
+</ul>
+</section>
+<section id="vpss-mod-param-s">
+<h2><span class="section-number">6.4.35. </span>VPSS_MOD_PARAM_S<a class="headerlink" href="Data_Types.html#vpss-mod-param-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>通过接口设置模块参数。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VPSS_PARAM_MOD_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32VpssVbSource</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32VpssSplitNodeNum</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VPSS_MOD_PARAM_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>u32VpssVbSource</p></td>
+<td><p>视频区块池类型。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32VpssSplitNodeNum</p></td>
+<td><p>分块节点数量。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>该结构体属性目前版本暂未使用</p>
+<p>【相关数据类型及接口】</p>
+</section>
+<section id="proc-amp-e">
+<h2><span class="section-number">6.4.36. </span>PROC_AMP_E<a class="headerlink" href="Data_Types.html#proc-amp-e" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VPSS PROCAMP 类别。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_PROC_AMP_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">PROC_AMP_BRIGHTNESS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">PROC_AMP_CONTRAST</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">PROC_AMP_SATURATION</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">PROC_AMP_HUE</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">PROC_AMP_MAX</span><span class="p">,</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">PROC_AMP_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>PROC_AMP_BRIGHTNESS</p></td>
+<td><p>亮度值。</p></td>
+</tr>
+<tr class="row-odd"><td><p>PROC_AMP_CONTRAST</p></td>
+<td><p>对比值。</p></td>
+</tr>
+<tr class="row-even"><td><p>PROC_AMP_SATURATION</p></td>
+<td><p>色调值。</p></td>
+</tr>
+<tr class="row-odd"><td><p>PROC_AMP_HUE</p></td>
+<td><p>饱和度值。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>【相关数据类型及接口】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="Data_Types.html#proc-amp-ctrl-s">PROC_AMP_CTRL_S</a></p></li>
+</ul>
+</section>
+<section id="proc-amp-ctrl-s">
+<h2><span class="section-number">6.4.37. </span>PROC_AMP_CTRL_S<a class="headerlink" href="Data_Types.html#proc-amp-ctrl-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VPSS PROCAMP 属性。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_PROC_AMP_CTRL_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">minimum</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">maximum</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">step</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">default_value</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">PROC_AMP_CTRL_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>minimum</p></td>
+<td><p>此颜色控制功能的最小值。</p></td>
+</tr>
+<tr class="row-odd"><td><p>maximum</p></td>
+<td><p>此颜色控制功能的最大值。</p></td>
+</tr>
+<tr class="row-even"><td><p>step</p></td>
+<td><p>此颜色控制功能的有效调整值。</p></td>
+</tr>
+<tr class="row-odd"><td><p>default_value</p></td>
+<td><p>此颜色控制功能的默认值。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<blockquote>
+<div><p>建议在开始对VPSS ProcAmp操作之前，先获取此些属性，以免操作失败。</p>
+</div></blockquote>
+<p>【相关数据类型及接口】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="Data_Types.html#proc-amp-e">PROC_AMP_E</a></p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-getgrpprocampctrl"><span class="std std-ref">CVI_VPSS_GetGrpProcAmpCtrl</span></a></p></li>
+</ul>
+</section>
+<section id="vpss-proc-amp-cfg">
+<h2><span class="section-number">6.4.38. </span>vpss_proc_amp_cfg<a class="headerlink" href="Data_Types.html#vpss-proc-amp-cfg" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>记录 ISP 绑定数据场景</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">vpss_proc_amp_cfg</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">proc_amp</span><span class="p">[</span><span class="n">PROC_AMP_MAX</span><span class="p">];</span><span class="w"></span>
+<span class="w">   </span><span class="n">VPSS_GRP</span><span class="w"> </span><span class="n">VpssGrp</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">scene</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>proc_amp</p></td>
+<td><p>颜色控制属性。</p></td>
+</tr>
+<tr class="row-odd"><td><p>VpssGrp</p></td>
+<td><p>VPSS GROUP 号。</p></td>
+</tr>
+<tr class="row-even"><td><p>scene</p></td>
+<td><p>所欲套用的 VPSS 输入 Bin 场景设定</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>【相关数据类型及接口】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-setgrpparamfrombin"><span class="std std-ref">CVI_VPSS_SetGrpParamfromBin</span></a></p></li>
+</ul>
+</section>
+<section id="vpss-all-proc-amp-s">
+<h2><span class="section-number">6.4.39. </span>VPSS_ALL_PROC_AMP_S<a class="headerlink" href="Data_Types.html#vpss-all-proc-amp-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VPSS 所有组的颜色控制属性</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">VPSS_ALL_PROC_AMP_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">s32ProcAmp</span><span class="p">[</span><span class="n">VPSS_MAX_GRP_NUM</span><span class="p">][</span><span class="n">PROC_AMP_MAX</span><span class="p">];</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>s32ProcAmp</p></td>
+<td><p>VPSS所有组的颜色控制属性。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>【相关数据类型及接口】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-getallprocamp"><span class="std std-ref">CVI_VPSS_GetAllProcAmp</span></a></p></li>
+</ul>
+</section>
+<section id="vpss-ldc-attr-s">
+<span id="id2"></span><h2><span class="section-number">6.4.40. </span>VPSS_LDC_ATTR_S<a class="headerlink" href="Data_Types.html#vpss-ldc-attr-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VPSS 镜头畸变矫正结构体。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VPSS_LDC_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bEnable</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">LDC_ATTR_S</span><span class="w"> </span><span class="n">stAttr</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VPSS_LDC_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>bEnable</p></td>
+<td><p>LDC使能。</p></td>
+</tr>
+<tr class="row-odd"><td><p>stAttr</p></td>
+<td><p>LDC设定属性。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<ul class="simple">
+<li><p>LDC_ATTR_S</p></li>
+</ul>
+</section>
+<section id="vpss-chn-buf-wrap-s">
+<h2><span class="section-number">6.4.41. </span>VPSS_CHN_BUF_WRAP_S<a class="headerlink" href="Data_Types.html#vpss-chn-buf-wrap-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义VPSS Buffer卷绕属性。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VPSS_CHN_BUF_WRAP_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bEnable</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32BufLine</span><span class="p">;</span><span class="w">   </span><span class="c1">// 64, 128</span>
+<span class="w">   </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32WrapBufferSize</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VPSS_CHN_BUF_WRAP_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>bEnable</p></td>
+<td><p>VPSS 通道Buffer卷绕开关。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32BufLine</p></td>
+<td><p>卷绕Buffer行高。</p></td>
+</tr>
+<tr class="row-even"><td><p>u32WrapBufferSize</p></td>
+<td><p>卷绕Buffer大小。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<ul class="simple">
+<li><p>u32BufLine需小于输出图像高度。</p></li>
+<li><p>u32BufLine只有64 / 128 两种大小。</p></li>
+<li><p>使能卷绕时，u32WrapBufferSize必须大于0，其计算可参考代码函数CVI_VPSS_GetWrapBufferSize。</p></li>
+</ul>
+<p>【相关数据类型及接口】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-setchnbufwrapattr"><span class="std std-ref">CVI_VPSS_SetChnBufWrapAttr</span></a></p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-getchnbufwrapattr"><span class="std std-ref">CVI_VPSS_GetChnBufWrapAttr</span></a></p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-getwrapbuffersize"><span class="std std-ref">CVI_VPSS_GetWrapBufferSize</span></a></p></li>
+</ul>
+</section>
+<section id="vpss-scale-coef-e">
+<h2><span class="section-number">6.4.42. </span>VPSS_SCALE_COEF_E<a class="headerlink" href="Data_Types.html#vpss-scale-coef-e" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义VPSS 图像缩放算法。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_VPSS_SCALE_COEF_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">VPSS_SCALE_COEF_BICUBIC</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VPSS_SCALE_COEF_BILINEAR</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VPSS_SCALE_COEF_NEAREST</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VPSS_SCALE_COEF_OPENCV_BILINEAR</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VPSS_SCALE_COEF_MAX</span><span class="p">,</span><span class="w"></span>
+<span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="n">VPSS_SCALE_COEF_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VPSS_SCALE_COEF_BICUBIC</p></td>
+<td><p>双三次插值算法。</p></td>
+</tr>
+<tr class="row-odd"><td><p>VPSS_SCALE_COEF_BILINEAR</p></td>
+<td><p>双线性插值算法。</p></td>
+</tr>
+<tr class="row-even"><td><p>VPSS_SCALE_COEF_NEAREST</p></td>
+<td><p>最邻近插值算法。</p></td>
+</tr>
+<tr class="row-odd"><td><p>VPSS_SCALE_COEF_OPENCV_BILINEAR</p></td>
+<td><p>与opencv效果对齐的双线性插值算法。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】
+无</p>
+<p>【相关数据类型及接口】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-setchnscalecoeflevel"><span class="std std-ref">CVI_VPSS_SetChnScaleCoefLevel</span></a></p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-getchnscalecoeflevel"><span class="std std-ref">CVI_VPSS_GetChnScaleCoefLevel</span></a></p></li>
+</ul>
+</section>
+<section id="vpss-rect-s">
+<h2><span class="section-number">6.4.43. </span>VPSS_RECT_S<a class="headerlink" href="Data_Types.html#vpss-rect-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义vpss边框属性</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VPSS_RECT_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bEnable</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16Thick</span><span class="p">;</span><span class="w">   </span><span class="cm">/* Width of line */</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32BgColor</span><span class="p">;</span><span class="w"> </span><span class="cm">/* RGB888, B:bit0 - bit7, G:bit8 - bit15, R:bit16 - bit23 */</span><span class="w"></span>
+<span class="w">  </span><span class="n">RECT_S</span><span class="w"> </span><span class="n">stRect</span><span class="p">;</span><span class="w">      </span><span class="cm">/*outside rectangle*/</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VPSS_RECT_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>bEnable</p></td>
+<td><p>使能开关。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16Thick</p></td>
+<td><p>线宽。</p></td>
+</tr>
+<tr class="row-even"><td><p>u32BgColor</p></td>
+<td><p>框的颜色，RGB888。</p></td>
+</tr>
+<tr class="row-odd"><td><p>stRect</p></td>
+<td><p>框的位置。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>【相关数据类型及接口】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-setchndrawrect"><span class="std std-ref">CVI_VPSS_SetChnDrawRect</span></a></p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-getchndrawrect"><span class="std std-ref">CVI_VPSS_GetChnDrawRect</span></a></p></li>
+</ul>
+</section>
+<section id="vpss-draw-rect-s">
+<h2><span class="section-number">6.4.44. </span>VPSS_DRAW_RECT_S<a class="headerlink" href="Data_Types.html#vpss-draw-rect-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义vpss画框信息</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VPSS_DRAW_RECT_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">VPSS_RECT_S</span><span class="w"> </span><span class="n">astRect</span><span class="p">[</span><span class="n">VPSS_RECT_NUM</span><span class="p">];</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VPSS_DRAW_RECT_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>astRect</p></td>
+<td><p>框的属性。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>【相关数据类型及接口】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-setchndrawrect"><span class="std std-ref">CVI_VPSS_SetChnDrawRect</span></a></p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-getchndrawrect"><span class="std std-ref">CVI_VPSS_GetChnDrawRect</span></a></p></li>
+</ul>
+</section>
+<section id="vpss-convert-s">
+<h2><span class="section-number">6.4.45. </span>VPSS_CONVERT_S<a class="headerlink" href="Data_Types.html#vpss-convert-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义vpss convert参数。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VPSS_CONVERT_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bEnable</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32aFactor</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32bFactor</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VPSS_CONVERT_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>bEnable</p></td>
+<td><p>convert开关。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32aFactor</p></td>
+<td><p>参数a。</p></td>
+</tr>
+<tr class="row-even"><td><p>u32bFactor</p></td>
+<td><p>参数b。</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="simple">
+<dt>【注意事项】</dt><dd><p>计算公式: ax + b，x为Pixel值。</p>
+</dd>
+</dl>
+<p>【相关数据类型及接口】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-setchnconvert"><span class="std std-ref">CVI_VPSS_SetChnConvert</span></a></p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-getchnconvert"><span class="std std-ref">CVI_VPSS_GetChnConvert</span></a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="API_Reference.html" class="btn btn-neutral float-left" title="6.3. API参考" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Error_Codes.html" class="btn btn-neutral float-right" title="6.5. 错误码" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

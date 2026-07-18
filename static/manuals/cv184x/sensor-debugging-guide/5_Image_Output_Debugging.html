@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5. 图像输出调试(Alios快启) &mdash; Sensor_Debugging_Guide master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="6. 图像输出验证" href="6_Image_Output_Verification.html" />
+    <link rel="prev" title="4. 图像输出调试(Linux非快启)" href="4_Image_Output_Debugging.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Sensor_Debugging_Guide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Introduction_to_Sensor_Drivers.html">2. Sensor驱动介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Confirm_Specifications.html">3. 确认规格</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_Image_Output_Debugging.html">4. 图像输出调试(Linux非快启)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="5_Image_Output_Debugging.html#">5. 图像输出调试(Alios快启)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="5_Image_Output_Debugging.html#id1">5.1. 硬件准备</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Image_Output_Debugging.html#id2">5.2. 配置初始化序列</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="5_Image_Output_Debugging.html#sensor">5.2.1. 准备Sensor驱动</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Image_Output_Debugging.html#id3">5.2.2. Sensor初始化序列</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Image_Output_Debugging.html#package-yaml">5.2.3. 修改package.yaml添加编译文件</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="5_Image_Output_Debugging.html#solution">5.3. 适配solution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="5_Image_Output_Debugging.html#sensor-type">5.3.1. 增加sensor type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Image_Output_Debugging.html#sensor-mipi">5.3.2. 修改sensor mipi相关配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Image_Output_Debugging.html#vb">5.3.3. 修改VB 配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Image_Output_Debugging.html#pinmux">5.3.4. 修改添加pinmux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Image_Output_Debugging.html#id4">5.3.5. 修改编译配置</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="5_Image_Output_Debugging.html#id5">5.4. 运行sensor</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="6_Image_Output_Verification.html">6. 图像输出验证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_Basic_Functions_of_ISP.html">7. ISP基本功能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_Complete_the_AE_Configuration_Function.html">8. 完成AE配置功能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_Complete_Other_Functions.html">9. 完善其它功能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_AE_Related_Verification.html">10. AE相关验证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_Common_Problem.html">11. 常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_Color_Noise_Reduction_and_Other_Corrections.html">12. 颜色、去噪等矫正</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_Debugging_Tool.html">13. 调试工具</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Sensor_Debugging_Guide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">5. </span>图像输出调试(Alios快启)</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/5_Image_Output_Debugging.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="alios">
+<h1><span class="section-number">5. </span>图像输出调试(Alios快启)<a class="headerlink" href="5_Image_Output_Debugging.html#alios" title="永久链接至标题">¶</a></h1>
+<section id="id1">
+<h2><span class="section-number">5.1. </span>硬件准备<a class="headerlink" href="5_Image_Output_Debugging.html#id1" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>确认Sensor电源供应正确.</p></li>
+<li><p>确认Sensor Reset GPIO正确.</p></li>
+<li><p>确认Sensor输入参考时钟来源(主处理器或外部晶振)</p></li>
+<li><p>确认I2C可擦写Sensor寄存器.</p>
+<p>可直接调用文件系统内默认的iic read /iic write命令验证.</p>
+</li>
+</ul>
+</section>
+<section id="id2">
+<h2><span class="section-number">5.2. </span>配置初始化序列<a class="headerlink" href="5_Image_Output_Debugging.html#id2" title="永久链接至标题">¶</a></h2>
+<p>配置初始化序列建议参考版本发布包里的同厂商sensor驱动。</p>
+<p>新sensor bringup建议先注释掉AE算法相关的callbacks以排除算法影响。</p>
+<ul class="simple">
+<li><p>修改components/cvi_platform/media/src/media_video.c，先去掉CVI_ISP_Run调用。</p></li>
+</ul>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/ImageO002.png"><img alt="_images/ImageO002.png" src="_images/ImageO002.png" style="width: 80%;" /></a>
+</figure>
+<ul class="simple">
+<li><p>修改xxx_cmos_ctrl.c中的init函数，先注解xxx_default_reg_init调用。</p></li>
+</ul>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/ImageO003.png"><img alt="_images/ImageO003.png" src="_images/ImageO003.png" style="width: 80%;" /></a>
+</figure>
+<p>当sensor适配完能显示出图像后，记得重新打开这些注解。</p>
+<section id="sensor">
+<h3><span class="section-number">5.2.1. </span>准备Sensor驱动<a class="headerlink" href="5_Image_Output_Debugging.html#sensor" title="永久链接至标题">¶</a></h3>
+<ul>
+<li><p>依Sensor厂商、最大分辨率及WDR模式选择发布包内规格最接近的sensor驱动来作修改并编出sensor库。</p>
+<p>具体可见mars_alios/components/cvi_mmf_sdk/cvi_sensor/xxxx内的xxxx_cmos.c、xxxx_cmos_ex.h、xxxx_cmos_param.h与xxxx_sensor_ctl.c</p>
+</li>
+<li><p>修改xxxx_sensor_ctl.c内的I2C 配置如i2c_addr, addr_byte与data_byte</p></li>
+</ul>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">bf314a_i2c_addr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x6e</span><span class="p">;</span><span class="w"></span>
+<span class="k">const</span><span class="w"> </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">bf314a_addr_byte</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="k">const</span><span class="w"> </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">bf314a_data_byte</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>依照sensor接口规格, 修改xxxx_cmos_param.h中的xxxx_rx_attr与pfnGetRxAttr, 设置mipi-rx的属性。</p></li>
+</ul>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/ImageO004.png"><img alt="_images/ImageO004.png" src="_images/ImageO004.png" style="width: 80%;" /></a>
+</figure>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.Input_mode:设置输入模式是mipi还是bt656等等。
+
+.Mac_clk: mac时钟频率
+
+.raw_date_type:data的位宽
+
+.lane id:mipi数据lane、时钟lane的ID配置
+
+.cam: mclk ID
+
+.freq: SOC给sensor提供的参考输入时钟
+
+.devno:mipirx的编号，sensor ID
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>依照sensor输出模式, 修改xxxx_cmos_param.h中的g_astxxx_mode.</p></li>
+</ul>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">BF314A_MODE_S</span><span class="w"> </span><span class="n">g_astBf314a_mode</span><span class="p">[</span><span class="n">BF314A_MODE_NUM</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="p">[</span><span class="n">BF314A_MODE_1280X720P30</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;1280X720P30&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="p">.</span><span class="n">astImg</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">         </span><span class="p">.</span><span class="n">stSnsSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="n">u32Width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1288</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="n">u32Height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">728</span><span class="p">,</span><span class="w"></span>
+<span class="w">         </span><span class="p">},</span><span class="w"></span>
+<span class="w">         </span><span class="p">.</span><span class="n">stWndRect</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="n">s32X</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="n">s32Y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="n">u32Width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1280</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="n">u32Height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">720</span><span class="p">,</span><span class="w"></span>
+<span class="w">         </span><span class="p">},</span><span class="w"></span>
+<span class="w">         </span><span class="p">.</span><span class="n">stMaxSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="n">u32Width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1288</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="n">u32Height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">728</span><span class="p">,</span><span class="w"></span>
+<span class="w">         </span><span class="p">},</span><span class="w"></span>
+<span class="w">      </span><span class="p">},</span><span class="w"></span>
+<span class="w">      </span><span class="p">.</span><span class="n">f32MaxFps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="p">.</span><span class="n">f32MinFps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.34</span><span class="p">,</span><span class="w"> </span><span class="cm">/* vts * 30 / 0xFFFF */</span><span class="w"></span>
+<span class="w">      </span><span class="p">.</span><span class="n">u32HtsDef</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1600</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="p">.</span><span class="n">u32VtsDef</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">750</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="p">.</span><span class="n">stExp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">         </span><span class="p">.</span><span class="n">u16Min</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">         </span><span class="p">.</span><span class="n">u16Max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">750</span><span class="p">,</span><span class="w"></span>
+<span class="w">         </span><span class="p">.</span><span class="n">u16Def</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">450</span><span class="p">,</span><span class="w"></span>
+<span class="w">         </span><span class="p">.</span><span class="n">u16Step</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="p">},</span><span class="w"></span>
+<span class="w">      </span><span class="p">.</span><span class="n">stAgain</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">         </span><span class="p">.</span><span class="n">u32Min</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1024</span><span class="p">,</span><span class="w"></span>
+<span class="w">         </span><span class="p">.</span><span class="n">u32Max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">16384</span><span class="p">,</span><span class="w"></span>
+<span class="w">         </span><span class="p">.</span><span class="n">u32Def</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1024</span><span class="p">,</span><span class="w"></span>
+<span class="w">         </span><span class="p">.</span><span class="n">u32Step</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="p">},</span><span class="w"></span>
+<span class="w">      </span><span class="p">.</span><span class="n">stDgain</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">         </span><span class="p">.</span><span class="n">u32Min</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1024</span><span class="p">,</span><span class="w"></span>
+<span class="w">         </span><span class="p">.</span><span class="n">u32Max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">16384</span><span class="p">,</span><span class="w"></span>
+<span class="w">         </span><span class="p">.</span><span class="n">u32Def</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1024</span><span class="p">,</span><span class="w"></span>
+<span class="w">         </span><span class="p">.</span><span class="n">u32Step</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="p">},</span><span class="w"></span>
+<span class="w">   </span><span class="p">},</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<ul>
+<li><p>修改pfn_cmos_set_image_mode, 依照指定的宽高与帧率决定相符的sensor模式.</p>
+<p>我们一般拿到的init sequence对应的输出模式都是最大分辨率，也就是all pixel scan模式。</p>
+<p>但有些情况客户需要对sensor吐出来data进行裁剪，就需要适配成window crop mode，</p>
+<p>要找sensor厂商提供crop mode下与之对应的init sequence，或者自行根据sensor spec进行修改。</p>
+</li>
+</ul>
+</section>
+<section id="id3">
+<h3><span class="section-number">5.2.2. </span>Sensor初始化序列<a class="headerlink" href="5_Image_Output_Debugging.html#id3" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p>实作xxxx_sensor_ctrl.c内sensor模式的初始序列pfn_cmos_sensor_init.</p></li>
+<li><p>暂时注释xxxx_sensor_ctrl.c 内的xxxx_default_reg_init的呼叫.</p></li>
+<li><p>新增sensor object</p></li>
+</ul>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/image42.png"><img alt="_images/image42.png" src="_images/image42.png" style="width: 80%;" /></a>
+</figure>
+</section>
+<section id="package-yaml">
+<h3><span class="section-number">5.2.3. </span>修改package.yaml添加编译文件<a class="headerlink" href="5_Image_Output_Debugging.html#package-yaml" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p>修改cvi_alios/components/cvi_mmf_sdk/cvi_sensor/package.yaml，添加头文件和源文件</p></li>
+</ul>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/image52.png"><img alt="_images/image52.png" src="_images/image52.png" style="width: 80%;" /></a>
+</figure>
+</section>
+</section>
+<section id="solution">
+<h2><span class="section-number">5.3. </span>适配solution<a class="headerlink" href="5_Image_Output_Debugging.html#solution" title="永久链接至标题">¶</a></h2>
+<section id="sensor-type">
+<h3><span class="section-number">5.3.1. </span>增加sensor type<a class="headerlink" href="5_Image_Output_Debugging.html#sensor-type" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p>build/media/cvi_sensor/sensor_cfg/sensor_cfg.h的_SNS_TYPE_E增加一个type</p></li>
+</ul>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/image62.png"><img alt="_images/image62.png" src="_images/image62.png" style="width: 80%;" /></a>
+</figure>
+<ul>
+<li><p>build/media/cvi_sensor/sensor_cfg/sensor_cfg.c</p>
+<p>增加sensor object，在getPicSize，getDevAttr函数中添加对应的case</p>
+</li>
+</ul>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/image71.png"><img alt="_images/image71.png" src="_images/image71.png" style="width: 80%;" /></a>
+</figure>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/image8.png"><img alt="_images/image8.png" src="_images/image8.png" style="width: 80%;" /></a>
+</figure>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/image9.png"><img alt="_images/image9.png" src="_images/image9.png" style="width: 80%;" /></a>
+</figure>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/image102.png"><img alt="_images/image102.png" src="_images/image102.png" style="width: 80%;" /></a>
+</figure>
+</section>
+<section id="sensor-mipi">
+<h3><span class="section-number">5.3.2. </span>修改sensor mipi相关配置<a class="headerlink" href="5_Image_Output_Debugging.html#sensor-mipi" title="永久链接至标题">¶</a></h3>
+<ul>
+<li><p>solutions/peripherals_test/customization/peripherals_qfn/param/custom_viparam.c</p>
+<p>这里面配置的reset管脚，mipi lane等配置会替代sensor driver默认设定的信息</p>
+</li>
+</ul>
+<blockquote>
+<div><p>配置说明：</p>
+<p>s32I2cAddr：sensor的i2c 设备地址</p>
+<p>s8I2cDev:表示I2C端口号</p>
+<p>u32Rst_port_idx: reset管脚的GPIO group</p>
+<p>u32Rst_pin: reset管脚的GPIO num</p>
+<p>as16LaneId:表示mipi的线序配置</p>
+<p>as8PNSwap:表示P/N反转，不需要反转配成0，需要反转配置成1</p>
+<p>u8MclkCam:表示选用哪一组mclk作为参考时钟</p>
+<p>s16MacClk: mac clk</p>
+<p>u8MclkFreq： MCLK 频率</p>
+<p>bHwSync：dual sensor帧同步，bHwSync =1表示slave sensor sync with master sensor</p>
+<p>s32Framerate：帧率</p>
+</div></blockquote>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/image111.png"><img alt="_images/image111.png" src="_images/image111.png" style="width: 80%;" /></a>
+</figure>
+<p>如果想默认使用驱动的参数，则可以只配置下图这些即可</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/image12.png"><img alt="_images/image12.png" src="_images/image12.png" style="width: 80%;" /></a>
+</figure>
+</section>
+<section id="vb">
+<h3><span class="section-number">5.3.3. </span>修改VB 配置<a class="headerlink" href="5_Image_Output_Debugging.html#vb" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p>solutions/peripherals_test/customization/peripherals_qfn/param/custom_sysparam.c 根据sensor输出size修改VB的u16width和u16height</p></li>
+</ul>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/image13.png"><img alt="_images/image13.png" src="_images/image13.png" style="width: 80%;" /></a>
+</figure>
+</section>
+<section id="pinmux">
+<h3><span class="section-number">5.3.4. </span>修改添加pinmux<a class="headerlink" href="5_Image_Output_Debugging.html#pinmux" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p>solutions/peripherals_test/customization/peripherals_qfn/src/custom_platform.c 根据板子实际硬件配置，修改mipi i2c reset等管脚复用</p></li>
+</ul>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/image14.png"><img alt="_images/image14.png" src="_images/image14.png" style="width: 80%;" /></a>
+</figure>
+</section>
+<section id="id4">
+<h3><span class="section-number">5.3.5. </span>修改编译配置<a class="headerlink" href="5_Image_Output_Debugging.html#id4" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p>solutions/peripherals_test/package.yaml.peripherals_qfn</p></li>
+</ul>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/image15.png"><img alt="_images/image15.png" src="_images/image15.png" style="width: 80%;" /></a>
+</figure>
+</section>
+</section>
+<section id="id5">
+<h2><span class="section-number">5.4. </span>运行sensor<a class="headerlink" href="5_Image_Output_Debugging.html#id5" title="永久链接至标题">¶</a></h2>
+<p>编译运行后，快启下会直接启动sensor，在alios 串口输入 proc/vi_dbg 查看vi_dbg信息，帧率显示正常则表示sensor有正常出图</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/ImageO0181.png"><img alt="_images/ImageO0181.png" src="_images/ImageO0181.png" style="width: 80%;" /></a>
+</figure>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="4_Image_Output_Debugging.html" class="btn btn-neutral float-left" title="4. 图像输出调试(Linux非快启)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="6_Image_Output_Verification.html" class="btn btn-neutral float-right" title="6. 图像输出验证" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

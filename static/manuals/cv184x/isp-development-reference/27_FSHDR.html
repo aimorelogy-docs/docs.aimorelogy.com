@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>27. FSHDR &mdash; ISPDevelopmentReference master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="28. DRC" href="28_DRC.html" />
+    <link rel="prev" title="26. PFR" href="26_PFR.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> ISPDevelopmentReference
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Preface.html">2. 概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_System_Control.html">3. 系统控制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_AE.html">4. AE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_AWB.html">5. AWB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_AF.html">6. AF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_IMP.html">7. IMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_BlackLevel.html">8. BLC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_DPC.html">9. DPC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_LSC.html">10. LSC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_RLSC.html">11. RLSC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_CCM.html">12. CCM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_Noise_Profile.html">13. Noise profile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_BNR.html">14. BNR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15_CNR.html">15. CNR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="16_TNR.html">16. TNR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="17_Crosstalk.html">17. Crosstalk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18_Demosaic.html">18. DEMOSAIC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19_Sharpen.html">19. SHARPEN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="20_PreSharpen.html">20. PRESHARPEN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21_RGB_Gamma.html">21. RGBGAMMA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="22_DCI.html">22. DCI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="23_LDCI.html">23. LDCI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="24_ColorTone.html">24. ColorTone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="25_Saturation.html">25. Saturation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="26_PFR.html">26. PFR</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="27_FSHDR.html#">27. FSHDR</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="27_FSHDR.html#id1">27.1. 功能描述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="27_FSHDR.html#api">27.2. API 参考</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="27_FSHDR.html#cvi-isp-setfshdrattr">27.2.1. CVI_ISP_SetFSHDRAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="27_FSHDR.html#cvi-isp-getfshdrattr">27.2.2. CVI_ISP_GetFSHDRAttr</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="27_FSHDR.html#id2">27.3. 数据类型</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="27_FSHDR.html#isp-fshdr-attr-s">27.3.1. ISP_FSHDR_ATTR_S</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="28_DRC.html">28. DRC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="29_Mono.html">29. MONO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="30_YCONTRAST.html">30. YCONTRAST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="31_CA.html">31. CA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="32_CA2.html">32. CA2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="33_CLUT.html">33. CLUT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="34_CSC.html">34. CSC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="35_VC.html">35. VC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="36_Statistical_Information.html">36. 统计讯息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="37_Query_Internal_Status_Messages.html">37. 查询内部状态消息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="38_Debug.html">38. Debug</a></li>
+<li class="toctree-l1"><a class="reference internal" href="39_Error_Code.html">39. 错误码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="40_3A_Development_User_Guide_Overview.html">40. 3A 开发指南概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="41_3A_Development_User_Guide.html">41. 3A 开发用户指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="42_Developer_Guide.html">42. 开发者指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="43_Appendix.html">43. 附录</a></li>
+<li class="toctree-l1"><a class="reference internal" href="44_Abbreviations.html">44. 缩略语</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ISPDevelopmentReference</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">27. </span>FSHDR</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/27_FSHDR.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="fshdr">
+<h1><span class="section-number">27. </span>FSHDR<a class="headerlink" href="27_FSHDR.html#fshdr" title="永久链接至标题">¶</a></h1>
+<section id="id1">
+<h2><span class="section-number">27.1. </span>功能描述<a class="headerlink" href="27_FSHDR.html#id1" title="永久链接至标题">¶</a></h2>
+<p>宽动态范围合成相关参数。</p>
+</section>
+<section id="api">
+<h2><span class="section-number">27.2. </span>API 参考<a class="headerlink" href="27_FSHDR.html#api" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="27_FSHDR.html#cvi-isp-setfshdrattr">CVI_ISP_SetFSHDRAttr</a> ： 设置帧合成属性参数</p></li>
+<li><p><a class="reference internal" href="27_FSHDR.html#cvi-isp-getfshdrattr">CVI_ISP_GetFSHDRAttr</a> ： 获取帧合成属性参数</p></li>
+</ul>
+<section id="cvi-isp-setfshdrattr">
+<h3><span class="section-number">27.2.1. </span>CVI_ISP_SetFSHDRAttr<a class="headerlink" href="27_FSHDR.html#cvi-isp-setfshdrattr" title="永久链接至标题">¶</a></h3>
+<p>【描述】</p>
+<blockquote>
+<div><p>设置帧合成属性参数</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_SetFSHDRAttr</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ISP_FSHDR_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstFSHDRAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>VI_PIPE 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstFSHDRAttr</p></td>
+<td><p>帧合成属性参数</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，其值为 <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件: cvi_isp.h, cvi_comm_isp.h</p></li>
+<li><p>库文件: libisp.so</p></li>
+</ul>
+<p>【注意】</p>
+<p>无</p>
+<p>【举例】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="n">ISP_FSHDR_ATTR_S</span><span class="w"> </span><span class="n">stAttr</span><span class="p">;</span><span class="w"></span>
+<span class="n">CVI_ISP_GetFSHDRAttr</span><span class="p">(</span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">stAttr</span><span class="p">);</span><span class="w"></span>
+<span class="n">stAttr</span><span class="p">.</span><span class="n">enOpType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OP_TYPE_AUTO</span><span class="p">;</span><span class="w"></span>
+<span class="n">CVI_ISP_SetFSHDRAttr</span><span class="p">(</span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">stAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="27_FSHDR.html#cvi-isp-getfshdrattr">CVI_ISP_GetFSHDRAttr</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-getfshdrattr">
+<h3><span class="section-number">27.2.2. </span>CVI_ISP_GetFSHDRAttr<a class="headerlink" href="27_FSHDR.html#cvi-isp-getfshdrattr" title="永久链接至标题">¶</a></h3>
+<p>【描述】</p>
+<p>获取帧合成属性参数</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_GetFSHDRAttr</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ISP_FSHDR_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstFSHDRAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>VI_PIPE 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstFSHDRAttr</p></td>
+<td><p>帧合成属性参数</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，其值为 <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件: cvi_isp.h, cvi_comm_isp.h</p></li>
+<li><p>库文件: libisp.so</p></li>
+</ul>
+<p>【注意】</p>
+<p>无</p>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="27_FSHDR.html#cvi-isp-setfshdrattr">CVI_ISP_SetFSHDRAttr</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id2">
+<h2><span class="section-number">27.3. </span>数据类型<a class="headerlink" href="27_FSHDR.html#id2" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="27_FSHDR.html#isp-fshdr-attr-s">ISP_FSHDR_ATTR_S</a> ： 定义帧合成属性参数</p></li>
+</ul>
+<section id="isp-fshdr-attr-s">
+<h3><span class="section-number">27.3.1. </span>ISP_FSHDR_ATTR_S<a class="headerlink" href="27_FSHDR.html#isp-fshdr-attr-s" title="永久链接至标题">¶</a></h3>
+<p>【说明】</p>
+<p>定义帧合成属性参数</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_FSHDR_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">ISP_OP_TYPE_E</span><span class="w"> </span><span class="n">enOpType</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">UpdateInterval</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">FusionEnable</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">FusionMode</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 2]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">FusionDbgMode</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 4]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">FusionYsel</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 2]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">FusionBldNsel</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">FusionBldDsel</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">FusionDS1Th</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 4095]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">FusionDS1Step</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">FusionDS1Lb</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">FusionDS2Th</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 4095]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">FusionDS2Step</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">FusionDS2Lb</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">LENormBldRange</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 4095]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">LENormBldP0</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 4095]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">SENormBldRange</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 4095]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">SENormBldP0</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 4095]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">LEDynmBldRange</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 4095]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">LEDynmBldP0</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 4095]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">SEDynmBldRange</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 4095]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">SEDynmBldP0</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 4095]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">NDBldLumTh</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 256]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">NDBldDarkWt</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 16]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">NDBldDiffLut</span><span class="p">[</span><span class="n">FS_DIFF_DW_LENGTH</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 16]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">MCurveEnable</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">ISP_MCURVE_MODE_E</span><span class="w"> </span><span class="n">MCurveMode</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">MCurveAutoSEMin</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 4095]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">MCurveManualSEMax</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 4095]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">MCurveSmooth</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">MCurveDelta</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 8560]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">MCurveX1</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 65535]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">MCurveBldRatio</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 10]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">MCurveXMaxRatio</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 256]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">MCurveYsel</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 2]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">MCurveYvWet</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 8]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">MCurveFlumWet</span><span class="p">[</span><span class="n">FS_FLUMW_LUT_LENGTH</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_FSHDR_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>enOpType</p></td>
+<td><p>工作类型</p>
+<p>OP_TYPE_AUTO：自动模式</p>
+<p>OP_TYPE_MANUAL：手动模式</p>
+<p>数据类型： ISP_OP_TYPE_E</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>UpdateInterval</p></td>
+<td><p>影响参数更新间隔,值越大画面变化越慢,效能越好。</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>FusionEnable</p></td>
+<td><p>HDR Fusion使能。HDR mode设置1；linear mode设置0。</p>
+<p>取值范围： [0, 1]</p>
+<p>数据类型： CVI_BOOL</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>FusionMode</p></td>
+<td><p>选择输出结果。</p>
+<p>0：输出HDR Fusion的结果；</p>
+<p>1：输出SE结果；</p>
+<p>2：输出LE结果；</p>
+<p>取值范围： [0, 2]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>FusionDbgMode</p></td>
+<td><p>设置调试模式</p>
+<p>取值范围： [0, 4]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>FusionYsel</p></td>
+<td><p>用Bayer计算Luma的方式，0: RGB的平均值, 1: G的平均值, 2: 原始Bayer值</p>
+<p>取值范围： [0, 2]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>FusionBldNsel</p></td>
+<td><p>计算静态融合权重的标准, 0: 以LE的亮度为标准计算静态融合权重，1: 以SE的亮度为标准计算静态融合权重</p>
+<p>取值范围： [0, 1]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>FusionBldDsel</p></td>
+<td><p>计算动态融合权重的标准，0: 以LE的亮度为标准计算动态融合权重，1: 以SE的亮度为标准计算动态融合权重</p>
+<p>取值范围： [0, 1]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>FusionDS1Th</p></td>
+<td><p>控制SE的Y和raw开始融合的范围，值越小，开始融合的亮度越低，越少的暗区被降低饱和度</p>
+<p>取值范围： [0, 4095]</p>
+<p>数据类型： CVI_U16</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>FusionDS1Step</p></td>
+<td><p>控制SE的Y和raw融合的过渡区间，值越小，过渡越平缓</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>FusionDS1Lb</p></td>
+<td><p>控制SE的Y和raw的融合权重，值越小，暗区使用更多Y，暗区饱和度越低</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>FusionDS2Th</p></td>
+<td><p>控制LE的Y和raw开始融合的范围，值越小，开始融合的亮度越低，越少的暗区被降低饱和度</p>
+<p>取值范围： [0, 4095]</p>
+<p>数据类型： CVI_U16</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>FusionDS2Step</p></td>
+<td><p>控制LE的Y和raw融合的过渡区间，值越小，过渡越平缓</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>FusionDS2Lb</p></td>
+<td><p>控制LE的Y和raw的融合权重，值越小，暗区使用更多Y，暗区饱和度越低</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>LENormBldRange</p></td>
+<td><p>LE Normal blending curve range，静止区长短曝融合时，以长曝为基准的过渡区域范围。高于LENormBldP0+ LENormBldRange的图像数据将只选择短曝光数据合成HDR图像。</p>
+<p>取值范围： [0, 4095]</p>
+<p>数据类型： CVI_U16</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>LENormBldP0</p></td>
+<td><p>LE Normal blending curve P0，静止区长短曝融合时，以长曝为基准的临界值，低于该临界值的图像数据将只选择长曝光数据合成HDR图像。</p>
+<p>取值范围： [0, 4095]</p>
+<p>数据类型： CVI_U16</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>SENormBldRange</p></td>
+<td><p>SE Normal blending curve range，静止区长短曝融合时，以短曝为基准的过渡区域范围。高于SENormBldP0+SENormBldRange的图像数据将只选择短曝光数据合成HDR图像。</p>
+<p>取值范围： [0, 4095]</p>
+<p>数据类型： CVI_U16</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SENormBldP0</p></td>
+<td><p>SE Normal blending curve P0，静止区长短曝融合时，以短曝为基准的临界值，低于该临界值的图像数据将只选择长曝光数据合成HDR图像。</p>
+<p>取值范围： [0, 4095]</p>
+<p>数据类型： CVI_U16</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>LEDynmBldRange</p></td>
+<td><p>LE Dynamic blending curve range，运动区长短曝融合时，以长曝为基准的过渡区域范围。高于LENormBldP0+ LENormBldRange的图像数据将只选择短曝光数据合成HDR图像。</p>
+<p>取值范围： [0, 4095]</p>
+<p>数据类型： CVI_U16</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>LEDynmBldP0</p></td>
+<td><p>LE Dynamic blending curve P0，运动区长短曝融合时，以长曝为基准的临界值，低于该临界值的图像数据将只选择长曝光数据合成HDR图像。</p>
+<p>取值范围： [0, 4095]</p>
+<p>数据类型： CVI_U16</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>SEDynmBldRange</p></td>
+<td><p>SE Dynamic blending curve range，运动区长短曝融合时，以短曝为基准的过渡区域范围。高于SENormBldP0+ SENormBldRange的图像数据将只选择短曝光数据合成HDR图像。</p>
+<p>取值范围： [0, 4095]</p>
+<p>数据类型： CVI_U16</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SEDynmBldP0</p></td>
+<td><p>SE Dynamic blending curve P0，运动区长短曝融合时，以短曝为基准的临界值，低于该临界值的图像数据将只选择长曝光数据合成HDR图像。</p>
+<p>取值范围： [0, 4095]</p>
+<p>数据类型： CVI_U16</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>NDBldLumTh</p></td>
+<td><p>动静区权重融合的亮度阈值，值越小，对越暗区的运动越敏感</p>
+<p>取值范围： [0, 256]</p>
+<p>数据类型： CVI_U16</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>NDBldDarkWt</p></td>
+<td><p>动静区权重融合的最小值，值越大，最暗区使用的动态权重越大</p>
+<p>取值范围： [0, 16]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>NDBldDiffLut</p></td>
+<td><p>动静区权重融合的查找表，值越大，对运动区越敏感，动态权重越大</p>
+<p>取值范围： [0, 16]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MCurveEnable</p></td>
+<td><p>Map Curve的开关。HDR mode设置1；linear mode设置0。</p>
+<p>取值范围： [0, 1]</p>
+<p>数据类型： CVI_BOOL</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>MCurveMode</p></td>
+<td><p>Auto Map Curve的控制开关。0: Auto模式，自动生成Curve，1：Manual模式，设置MCurveManualSEMax调整Curve最大值。</p>
+<p>数据类型： ISP_MCURVE_MODE_E</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MCurveAutoSEMin</p></td>
+<td><p>限制自动模式下参与计算的短帧最大值的下限，可以改善短帧过暗时对画面亮度抬升过大的问题</p>
+<p>取值范围： [0, 4095]</p>
+<p>数据类型： CVI_U16</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>MCurveManualSEMax</p></td>
+<td><p>手动设置Curve横坐标最大值，在Manual模式下使用。值越小，全局提亮程度越大。</p>
+<p>取值范围： [0, 4095]</p>
+<p>数据类型： CVI_U16</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MCurveSmooth</p></td>
+<td><p>调整 mcurve 变化的快慢，值越大越慢</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>MCurveDelta</p></td>
+<td><p>决定Map Curve暗部的斜率。值越小，暗部提亮越明显。</p>
+<p>取值范围： [0, 8560]</p>
+<p>数据类型： CVI_U16</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MCurveX1</p></td>
+<td><p>对于亮度大于X1的亮区做对比度保护。值越小，对比度保护区域越大。</p>
+<p>取值范围： [0, 65535]</p>
+<p>数据类型： CVI_U16</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>MCurveBldRatio</p></td>
+<td><p>亮区对比度保护程度。值越小，保护程度越大。0: linear, 10: curve</p>
+<p>取值范围： [0, 10]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MCurveXMaxRatio</p></td>
+<td><p>调整暗区提亮程度。在Auto模式下使用。128表示Map Curve完全自动生成。小于128时，值越小，暗区提亮程度越大。大于128时，值越大，画面整体压暗程度越大。</p>
+<p>取值范围： [0, 256]</p>
+<p>数据类型： CVI_U16</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>MCurveYsel</p></td>
+<td><p>用Bayer计算Luma的方式，0: RGB的平均值( 4G+2B+2R), 1: G的平均值(4G), 2: 原始Bayer值</p>
+<p>取值范围： [0, 2]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MCurveYvWet</p></td>
+<td><p>Y和LocalMax融合的权重，值越大越偏向LocalMax, 0：全取y，8：全取v</p>
+<p>取值范围： [0, 8]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>MCurveFlumWet</p></td>
+<td><p>Y和Raw融合的权重表，值越大越偏向Raw,  0: 全用ymean</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="27_FSHDR.html#cvi-isp-setfshdrattr">CVI_ISP_SetFSHDRAttr</a></p></li>
+<li><p><a class="reference internal" href="27_FSHDR.html#cvi-isp-getfshdrattr">CVI_ISP_GetFSHDRAttr</a></p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="26_PFR.html" class="btn btn-neutral float-left" title="26. PFR" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="28_DRC.html" class="btn btn-neutral float-right" title="28. DRC" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2025, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

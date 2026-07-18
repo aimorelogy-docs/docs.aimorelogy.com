@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4. Alios 指令集使用 &mdash; AliOS_Compilation_and_Usage_Instructions master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="prev" title="3. 运行说明" href="3_Instructions_for_Running.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> AliOS_Compilation_and_Usage_Instructions
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Compilation_Environment.html">2. 编译环境</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Instructions_for_Running.html">3. 运行说明</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="4_Commands_Detailed_Explanation.html#">4. Alios 指令集使用</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#id1">4.1. 系统信息</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#help">4.1.1. help</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#reboot">4.1.2. reboot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#ccs">4.1.3. ccs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#sysver">4.1.4. sysver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#time">4.1.5. time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#msleep">4.1.6. msleep</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#f">4.1.7. f</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#devname">4.1.8. devname</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#err2cli">4.1.9. err2cli</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#id2">4.2. 进程信息</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#id3">4.2.1. 多媒体进程</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#proc-vb">4.2.1.1. proc_vb</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#proc-sys">4.2.1.2. proc_sys</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#proc-vi-dbg">4.2.1.3. proc_vi_dbg</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#proc-vi">4.2.1.4. proc_vi</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#proc-gdc">4.2.1.5. proc_gdc</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#proc-mipi-rx">4.2.1.6. proc_mipi_rx</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#proc-vo">4.2.1.7. proc_vo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#proc-rgn">4.2.1.8. proc_rgn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#proc-codec">4.2.1.9. proc_codec</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#proc-vdec">4.2.1.10. proc_vdec</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#proc-rc">4.2.1.11. proc_rc</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#proc-jpege">4.2.1.12. proc_jpege</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#proc-h264e">4.2.1.13. proc_h264e</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#proc-h265e">4.2.1.14. proc_h265e</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#proc-venc">4.2.1.15. proc_venc</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#testmedia-switch-pipeline">4.2.1.16. testMedia_switch_pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#testmedia-video-deinit">4.2.1.17. testMedia_video_Deinit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#testmedia-video-init">4.2.1.18. testMedia_video_init</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#dump-isp-pqgram">4.2.1.19. dump_isp_pqgram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#proc-log">4.2.1.20. proc_log</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#ipcm">4.2.2. ipcm 进程</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#ipcm-dbg">4.2.2.1. ipcm_dbg</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#ipcm-dbg-pool-info">4.2.2.2. ipcm_dbg pool_info</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#ipcm-dbg-log0-on">4.2.2.3. ipcm_dbg log0_on</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#ipcm-dbg-log0-off">4.2.2.4. ipcm_dbg log0_off</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#ipcm-dbg-logall-on">4.2.2.5. ipcm_dbg logall_on</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#ipcm-dbg-logall-off">4.2.2.6. ipcm_dbg logall_off</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#id4">4.2.3. 进程整体信息</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#tasklist">4.2.3.1. tasklist</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#taskbt">4.2.3.2. taskbt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#taskbtn">4.2.3.3. taskbtn</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#cpu">4.2.4. CPU 信息</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#cpuusage">4.2.4.1. cpuusage</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#id5">4.3. 内存信息</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#id6">4.3.1. 查看内存信息</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#p">4.3.1.1. p</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#p-offcheck">4.3.1.2. p _offcheck</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#id7">4.3.2. 修改内存信息</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#m">4.3.2.1. m</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#id8">4.3.3. 内存调试信息</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#ddumpsys">4.3.3.1. ddumpsys</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#dumpsys-mm">4.3.3.2. dumpsys mm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#dumpsys-mm-info">4.3.3.3. dumpsys mm_info</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#dumpsys-mm-info-resv">4.3.3.4. dumpsys mm_info_resv</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#mmlk">4.3.3.5. mmlk</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#id9">4.4. 调试信息</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#debug">4.4.1. debug</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">AliOS_Compilation_and_Usage_Instructions</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">4. </span>Alios 指令集使用</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/4_Commands_Detailed_Explanation.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="alios">
+<h1><span class="section-number">4. </span>Alios 指令集使用<a class="headerlink" href="4_Commands_Detailed_Explanation.html#alios" title="永久链接至标题">¶</a></h1>
+<section id="id1">
+<h2><span class="section-number">4.1. </span>系统信息<a class="headerlink" href="4_Commands_Detailed_Explanation.html#id1" title="永久链接至标题">¶</a></h2>
+<section id="help">
+<h3><span class="section-number">4.1.1. </span>help<a class="headerlink" href="4_Commands_Detailed_Explanation.html#help" title="永久链接至标题">¶</a></h3>
+<p>该命令将打印 alios 所有命令列表并简要描述每个命令的作用。</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--&gt;</span> <span class="n">help</span>
+    <span class="o">--&gt;</span> <span class="o">================</span> <span class="n">AliOS</span> <span class="n">Things</span> <span class="n">Command</span> <span class="n">List</span> <span class="o">==============</span>
+    <span class="o">--&gt;</span> <span class="n">help</span>           <span class="p">:</span> <span class="nb">print</span> <span class="n">this</span>
+    <span class="o">--&gt;</span> <span class="n">reboot</span>         <span class="p">:</span> <span class="n">reboot</span> <span class="n">system</span>
+    <span class="o">--&gt;</span> <span class="n">proc_codec</span>     <span class="p">:</span> <span class="n">codec</span> <span class="n">info</span>
+    <span class="o">--&gt;</span> <span class="n">proc_rc</span>        <span class="p">:</span> <span class="n">rc</span> <span class="n">info</span>
+    <span class="o">--&gt;</span> <span class="n">proc_jpege</span>     <span class="p">:</span> <span class="n">jpeg</span> <span class="n">encode</span> <span class="n">info</span>
+    <span class="o">--&gt;</span> <span class="n">proc_h264e</span>     <span class="p">:</span> <span class="n">h264</span> <span class="n">encode</span> <span class="n">info</span>
+    <span class="o">--&gt;</span> <span class="n">proc_h265e</span>     <span class="p">:</span> <span class="n">h265</span> <span class="n">encode</span> <span class="n">info</span>
+    <span class="o">--&gt;</span> <span class="n">proc_venc</span>      <span class="p">:</span> <span class="n">venc</span> <span class="n">info</span>
+    <span class="o">--&gt;</span> <span class="n">proc_vdec</span>      <span class="p">:</span> <span class="n">vdec</span> <span class="n">info</span>
+    <span class="o">--&gt;</span> <span class="n">proc_ai</span>        <span class="p">:</span> <span class="n">audio</span> <span class="n">info</span>
+    <span class="o">--&gt;</span> <span class="n">proc_ao</span>        <span class="p">:</span> <span class="n">ao</span> <span class="n">info</span>
+    <span class="o">--&gt;</span> <span class="n">proc_mipi_rx</span>   <span class="p">:</span> <span class="n">proc</span> <span class="n">mipi</span> <span class="n">rx</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="reboot">
+<h3><span class="section-number">4.1.2. </span>reboot<a class="headerlink" href="4_Commands_Detailed_Explanation.html#reboot" title="永久链接至标题">¶</a></h3>
+<p>重启 alios 系统，Linux 系统也会随之重启。</p>
+</section>
+<section id="ccs">
+<h3><span class="section-number">4.1.3. </span>ccs<a class="headerlink" href="4_Commands_Detailed_Explanation.html#ccs" title="永久链接至标题">¶</a></h3>
+<dl>
+<dt>console cli console show，用于显示命令台界面内容。</dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--&gt;</span> <span class="n">ccs</span>
+    <span class="o">--&gt;</span> <span class="o">--------</span> <span class="n">console</span> <span class="n">show</span> <span class="o">-----------</span>
+    <span class="o">--&gt;</span> <span class="nb">id</span>    <span class="n">name</span>     <span class="n">att</span>
+    <span class="o">--&gt;</span> <span class="mi">1</span>    <span class="n">cli</span><span class="o">-</span><span class="n">uart</span>  <span class="mi">0</span>  <span class="n">c</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</section>
+<section id="sysver">
+<h3><span class="section-number">4.1.4. </span>sysver<a class="headerlink" href="4_Commands_Detailed_Explanation.html#sysver" title="永久链接至标题">¶</a></h3>
+<dl>
+<dt>显示系统 kernel 版本。</dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--&gt;</span> <span class="n">sysver</span>
+    <span class="o">--&gt;</span> <span class="n">kernel</span> <span class="n">version</span> <span class="p">:</span><span class="mi">12000</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</section>
+<section id="time">
+<h3><span class="section-number">4.1.5. </span>time<a class="headerlink" href="4_Commands_Detailed_Explanation.html#time" title="永久链接至标题">¶</a></h3>
+<dl>
+<dt>显示系统启动运动到现在的毫秒数。</dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--&gt;</span> <span class="n">time</span>
+    <span class="o">--&gt;</span> <span class="n">UP</span> <span class="n">time</span> <span class="mi">263888</span> <span class="n">ms</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</section>
+<section id="msleep">
+<h3><span class="section-number">4.1.6. </span>msleep<a class="headerlink" href="4_Commands_Detailed_Explanation.html#msleep" title="永久链接至标题">¶</a></h3>
+<p>以毫秒时间休眠。系统休眠 2000ms 后重启。</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--&gt;</span> <span class="n">msleep</span> <span class="mi">2000</span>
+    <span class="o">--&gt;</span>                 <span class="c1">#系统休眠2000ms后重启</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="f">
+<h3><span class="section-number">4.1.7. </span>f<a class="headerlink" href="4_Commands_Detailed_Explanation.html#f" title="永久链接至标题">¶</a></h3>
+<dl>
+<dt>表示运行一个函数（f 后需要跟函数名）。</dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--&gt;</span> <span class="n">f</span>
+    <span class="o">--&gt;</span> <span class="n">para</span> <span class="n">error</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</section>
+<section id="devname">
+<h3><span class="section-number">4.1.8. </span>devname<a class="headerlink" href="4_Commands_Detailed_Explanation.html#devname" title="永久链接至标题">¶</a></h3>
+<dl>
+<dt>打印板端设备的名称。该设备是 cv181xc 系列的 evb 板。</dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--&gt;</span> <span class="n">devname</span>
+    <span class="o">--&gt;</span> <span class="n">device</span> <span class="n">name</span><span class="p">:</span> <span class="n">cv181xc_evb</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</section>
+<section id="err2cli">
+<h3><span class="section-number">4.1.9. </span>err2cli<a class="headerlink" href="4_Commands_Detailed_Explanation.html#err2cli" title="永久链接至标题">¶</a></h3>
+<dl>
+<dt>系统从 panic 状态转换到控制台。</dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--&gt;</span> <span class="n">err2cli</span> <span class="mi">0</span>
+    <span class="o">--&gt;</span> <span class="nb">set</span> <span class="n">panic_runto_cli</span> <span class="n">flag</span><span class="p">:</span><span class="mh">0x0</span>
+
+<span class="o">--&gt;</span> <span class="n">err2cli</span> <span class="mi">1</span>
+    <span class="o">--&gt;</span> <span class="nb">set</span> <span class="n">panic_runto_cli</span> <span class="n">flag</span><span class="p">:</span><span class="mh">0x21314916</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</section>
+</section>
+<section id="id2">
+<h2><span class="section-number">4.2. </span>进程信息<a class="headerlink" href="4_Commands_Detailed_Explanation.html#id2" title="永久链接至标题">¶</a></h2>
+<section id="id3">
+<h3><span class="section-number">4.2.1. </span>多媒体进程<a class="headerlink" href="4_Commands_Detailed_Explanation.html#id3" title="永久链接至标题">¶</a></h3>
+<section id="proc-vb">
+<h4><span class="section-number">4.2.1.1. </span>proc_vb<a class="headerlink" href="4_Commands_Detailed_Explanation.html#proc-vb" title="永久链接至标题">¶</a></h4>
+<p>该指令用于记录当前 VB 模块的 buffer 使用情况（VB: Video Block）。</p>
+<figure class="align-default">
+<img alt="_images/proc_vb.png" src="_images/proc_vb.png" />
+</figure>
+</section>
+<section id="proc-sys">
+<h4><span class="section-number">4.2.1.2. </span>proc_sys<a class="headerlink" href="4_Commands_Detailed_Explanation.html#proc-sys" title="永久链接至标题">¶</a></h4>
+<p>该指令用来记录当前 SYS 模块的使用情况。</p>
+<figure class="align-default">
+<img alt="_images/proc_sys.png" src="_images/proc_sys.png" />
+</figure>
+</section>
+<section id="proc-vi-dbg">
+<h4><span class="section-number">4.2.1.3. </span>proc_vi_dbg<a class="headerlink" href="4_Commands_Detailed_Explanation.html#proc-vi-dbg" title="永久链接至标题">¶</a></h4>
+<p>该指令用来打印 vi 进程的 debug 信息。</p>
+<figure class="align-default">
+<img alt="_images/proc_vi_dbg.png" src="_images/proc_vi_dbg.png" />
+</figure>
+</section>
+<section id="proc-vi">
+<h4><span class="section-number">4.2.1.4. </span>proc_vi<a class="headerlink" href="4_Commands_Detailed_Explanation.html#proc-vi" title="永久链接至标题">¶</a></h4>
+<p>该指令记录当前视频输入设备及信道的属性配置以及状态信息。</p>
+<figure class="align-default">
+<img alt="_images/proc_vi.png" src="_images/proc_vi.png" />
+</figure>
+<p>模块参数:</p>
+<ul class="simple">
+<li><p>VI MODE (VI模式)</p></li>
+<li><p>VI DEV ATTR1 (VI设备特征)</p></li>
+<li><p>VI DEV ATTR2 (VI设备特征)</p></li>
+<li><p>VI BIND ATTR (VI关联特征)</p></li>
+<li><p>VI DEV TIMING ATTR (VI时间特征)</p></li>
+<li><p>VI CHN ATTR1 (VI通道特征)</p></li>
+<li><p>VI CHN OUTPUT RESOLUTION (VI通道输出分辨率)</p></li>
+<li><p>VI CHN ROTATE INFO (VI通道旋转信息)</p></li>
+<li><p>VI CHN EARLY INTERRUPT INFO (VI通道中断信息)</p></li>
+<li><p>VI CHN CROP INFO (VI通道裁剪信息)</p></li>
+<li><p>VI CHN STATUS (VI通道状态)</p></li>
+</ul>
+</section>
+<section id="proc-gdc">
+<h4><span class="section-number">4.2.1.5. </span>proc_gdc<a class="headerlink" href="4_Commands_Detailed_Explanation.html#proc-gdc" title="永久链接至标题">¶</a></h4>
+<p>该指令用于记录 GDC 模块最近完成的若干任务、最近耗时最大的任务及历史累计信息。</p>
+<figure class="align-default">
+<img alt="_images/proc_gdc.png" src="_images/proc_gdc.png" />
+</figure>
+</section>
+<section id="proc-mipi-rx">
+<h4><span class="section-number">4.2.1.6. </span>proc_mipi_rx<a class="headerlink" href="4_Commands_Detailed_Explanation.html#proc-mipi-rx" title="永久链接至标题">¶</a></h4>
+<p>该指令用于显示 mipi_rx 进程的信息。</p>
+<figure class="align-default">
+<img alt="_images/proc_mipi_rx.png" src="_images/proc_mipi_rx.png" />
+</figure>
+</section>
+<section id="proc-vo">
+<h4><span class="section-number">4.2.1.7. </span>proc_vo<a class="headerlink" href="4_Commands_Detailed_Explanation.html#proc-vo" title="永久链接至标题">¶</a></h4>
+<p>该指令用于记录当前 VO 的使用状况及其属性配置，包含设备状态、视频层状态和通道状态。</p>
+<p>用于动态获取 VO 的使用状态以调试测试。</p>
+<figure class="align-default">
+<img alt="_images/proc_vo.png" src="_images/proc_vo.png" />
+</figure>
+</section>
+<section id="proc-rgn">
+<h4><span class="section-number">4.2.1.8. </span>proc_rgn<a class="headerlink" href="4_Commands_Detailed_Explanation.html#proc-rgn" title="永久链接至标题">¶</a></h4>
+<p>该指令用于记录当前区域资源信息。</p>
+<figure class="align-default">
+<img alt="_images/proc_rgn.png" src="_images/proc_rgn.png" />
+</figure>
+</section>
+<section id="proc-codec">
+<h4><span class="section-number">4.2.1.9. </span>proc_codec<a class="headerlink" href="4_Commands_Detailed_Explanation.html#proc-codec" title="永久链接至标题">¶</a></h4>
+<p>该指令用于显示编码器与解码器的信息。</p>
+<figure class="align-default">
+<img alt="_images/proc_codec.png" src="_images/proc_codec.png" />
+</figure>
+</section>
+<section id="proc-vdec">
+<h4><span class="section-number">4.2.1.10. </span>proc_vdec<a class="headerlink" href="4_Commands_Detailed_Explanation.html#proc-vdec" title="永久链接至标题">¶</a></h4>
+<p>该指令用于显示视频解码器的信息。</p>
+<figure class="align-default">
+<img alt="_images/proc_vdec.png" src="_images/proc_vdec.png" />
+</figure>
+</section>
+<section id="proc-rc">
+<h4><span class="section-number">4.2.1.11. </span>proc_rc<a class="headerlink" href="4_Commands_Detailed_Explanation.html#proc-rc" title="永久链接至标题">¶</a></h4>
+<p>该指令用于显示当前编码码率控制信息。</p>
+<figure class="align-default">
+<img alt="_images/proc_rc.png" src="_images/proc_rc.png" />
+</figure>
+</section>
+<section id="proc-jpege">
+<h4><span class="section-number">4.2.1.12. </span>proc_jpege<a class="headerlink" href="4_Commands_Detailed_Explanation.html#proc-jpege" title="永久链接至标题">¶</a></h4>
+<p>该指令用于显示 JPEG 编码过程中各通道编码属性状态。</p>
+<figure class="align-default">
+<img alt="_images/proc_jpege.png" src="_images/proc_jpege.png" />
+</figure>
+</section>
+<section id="proc-h264e">
+<h4><span class="section-number">4.2.1.13. </span>proc_h264e<a class="headerlink" href="4_Commands_Detailed_Explanation.html#proc-h264e" title="永久链接至标题">¶</a></h4>
+<p>该指令用于显示 H.264 视频编码属性配置以及状态信息。</p>
+<figure class="align-default">
+<img alt="_images/proc_h264e.png" src="_images/proc_h264e.png" />
+</figure>
+</section>
+<section id="proc-h265e">
+<h4><span class="section-number">4.2.1.14. </span>proc_h265e<a class="headerlink" href="4_Commands_Detailed_Explanation.html#proc-h265e" title="永久链接至标题">¶</a></h4>
+<p>该指令用于显示 H.265 视频编码属性配置以及状态信息。</p>
+<figure class="align-default">
+<img alt="_images/proc_h265e.png" src="_images/proc_h265e.png" />
+</figure>
+</section>
+<section id="proc-venc">
+<h4><span class="section-number">4.2.1.15. </span>proc_venc<a class="headerlink" href="4_Commands_Detailed_Explanation.html#proc-venc" title="永久链接至标题">¶</a></h4>
+<p>该指令用于显示当前视频编码属性配置以及状态信息。</p>
+<figure class="align-default">
+<img alt="_images/proc_venc.png" src="_images/proc_venc.png" />
+</figure>
+</section>
+<section id="testmedia-switch-pipeline">
+<h4><span class="section-number">4.2.1.16. </span>testMedia_switch_pipeline<a class="headerlink" href="4_Commands_Detailed_Explanation.html#testmedia-switch-pipeline" title="永久链接至标题">¶</a></h4>
+<p>该指令用于测试媒体切换 pipeline。</p>
+<figure class="align-default">
+<img alt="_images/testMedia_switch_pipeline.png" src="_images/testMedia_switch_pipeline.png" />
+</figure>
+</section>
+<section id="testmedia-video-deinit">
+<h4><span class="section-number">4.2.1.17. </span>testMedia_video_Deinit<a class="headerlink" href="4_Commands_Detailed_Explanation.html#testmedia-video-deinit" title="永久链接至标题">¶</a></h4>
+<p>该指令用于测试媒体视频资源释放。</p>
+<figure class="align-default">
+<img alt="_images/testMedia_video_Deinit.png" src="_images/testMedia_video_Deinit.png" />
+</figure>
+</section>
+<section id="testmedia-video-init">
+<h4><span class="section-number">4.2.1.18. </span>testMedia_video_init<a class="headerlink" href="4_Commands_Detailed_Explanation.html#testmedia-video-init" title="永久链接至标题">¶</a></h4>
+<p>该指令用于测试媒体视频初始化。</p>
+</section>
+<section id="dump-isp-pqgram">
+<h4><span class="section-number">4.2.1.19. </span>dump_isp_pqgram<a class="headerlink" href="4_Commands_Detailed_Explanation.html#dump-isp-pqgram" title="永久链接至标题">¶</a></h4>
+<p>该指令用于显示 dump_isp 参数信息。</p>
+<figure class="align-default">
+<img alt="_images/dump_isp_pqgram.png" src="_images/dump_isp_pqgram.png" />
+</figure>
+</section>
+<section id="proc-log">
+<h4><span class="section-number">4.2.1.20. </span>proc_log<a class="headerlink" href="4_Commands_Detailed_Explanation.html#proc-log" title="永久链接至标题">¶</a></h4>
+<p>该指令用于显示当前各个模块的调试级别。</p>
+<figure class="align-default">
+<img alt="_images/proc_log.png" src="_images/proc_log.png" />
+</figure>
+</section>
+</section>
+<section id="ipcm">
+<h3><span class="section-number">4.2.2. </span>ipcm 进程<a class="headerlink" href="4_Commands_Detailed_Explanation.html#ipcm" title="永久链接至标题">¶</a></h3>
+<section id="ipcm-dbg">
+<h4><span class="section-number">4.2.2.1. </span>ipcm_dbg<a class="headerlink" href="4_Commands_Detailed_Explanation.html#ipcm-dbg" title="永久链接至标题">¶</a></h4>
+<p>该指令用于打印大小核间通信调试信息。</p>
+<figure class="align-default">
+<img alt="_images/ipcm_dbg.png" src="_images/ipcm_dbg.png" />
+</figure>
+</section>
+<section id="ipcm-dbg-pool-info">
+<h4><span class="section-number">4.2.2.2. </span>ipcm_dbg pool_info<a class="headerlink" href="4_Commands_Detailed_Explanation.html#ipcm-dbg-pool-info" title="永久链接至标题">¶</a></h4>
+<p>该指令用于显示大小核通信 buffer 池使用情况。</p>
+<figure class="align-default">
+<img alt="_images/ipcm_dbg_pool_info.png" src="_images/ipcm_dbg_pool_info.png" />
+</figure>
+</section>
+<section id="ipcm-dbg-log0-on">
+<h4><span class="section-number">4.2.2.3. </span>ipcm_dbg log0_on<a class="headerlink" href="4_Commands_Detailed_Explanation.html#ipcm-dbg-log0-on" title="永久链接至标题">¶</a></h4>
+<p>该指令用于打开 ipcm 的第一个调试日志。</p>
+</section>
+<section id="ipcm-dbg-log0-off">
+<h4><span class="section-number">4.2.2.4. </span>ipcm_dbg log0_off<a class="headerlink" href="4_Commands_Detailed_Explanation.html#ipcm-dbg-log0-off" title="永久链接至标题">¶</a></h4>
+<p>该指令用于关闭 ipcm 的第一个调试日志。</p>
+</section>
+<section id="ipcm-dbg-logall-on">
+<h4><span class="section-number">4.2.2.5. </span>ipcm_dbg logall_on<a class="headerlink" href="4_Commands_Detailed_Explanation.html#ipcm-dbg-logall-on" title="永久链接至标题">¶</a></h4>
+<p>该指令用于打开 ipcm 的所有调试日志。</p>
+</section>
+<section id="ipcm-dbg-logall-off">
+<h4><span class="section-number">4.2.2.6. </span>ipcm_dbg logall_off<a class="headerlink" href="4_Commands_Detailed_Explanation.html#ipcm-dbg-logall-off" title="永久链接至标题">¶</a></h4>
+<p>该指令用于关闭 ipcm 的所有调试日志。</p>
+</section>
+</section>
+<section id="id4">
+<h3><span class="section-number">4.2.3. </span>进程整体信息<a class="headerlink" href="4_Commands_Detailed_Explanation.html#id4" title="永久链接至标题">¶</a></h3>
+<section id="tasklist">
+<h4><span class="section-number">4.2.3.1. </span>tasklist<a class="headerlink" href="4_Commands_Detailed_Explanation.html#tasklist" title="永久链接至标题">¶</a></h4>
+<p>该指令用于打印进程列表。</p>
+<blockquote>
+<div><dl class="simple">
+<dt>::</dt><dd><dl class="simple">
+<dt>–&gt; tasklist</dt><dd><p>–&gt; ——————————————————————————–
+–&gt; Name               ID    State    Prio StackSize MinFreesize Runtime  Candidate
+–&gt; ——————————————————————————–
+–&gt; dyn_mem_proc_task  1     PEND     6    4096      3368        1031        N
+–&gt; idle_task          2     RDY      61   4288      3720        141756526   N
+–&gt; DEFAULT-WORKQUEUE  3     PEND     20   4096      3432        153         N
+–&gt; timer_task         4     PEND     30   3840      3112        58990       N
+–&gt; cpu_stats          5     SLP      60   2640      2016        50717       N
+–&gt; app_task           6     SLP      32   8192      4168        206587      N
+–&gt; cli-uart           7     RDY      60   8192      6392        444838      Y
+–&gt; heartbeat          8     SLP      27   1024      400         62195       N
+–&gt; _isp_post_thread   9     PEND     17   4096      3344        164         N
+–&gt; cvitask_isp_pre    10    PEND     17   4096      2896        117         N
+–&gt; cvitask_isp_err    11    PEND     17   4096      3344        118         N
+–&gt; gdc_job_worker     12    PEND     17   4096      3200        58340       N
+–&gt; MediaMsg           13    PEND     16   103424    101416      45291       N
+–&gt; workq_thread       14    PEND     22   4096      3344        56578       N
+–&gt; workq_thread       15    PEND     22   4096      3344        35171       N
+–&gt; workq_thread       16    PEND     22   4096      3344        24530       N
+–&gt; workq_thread       17    PEND     22   4096      3344        38924       N
+–&gt; anon proc          18    PEND     32   8192      7504        14625       N
+–&gt; ——————————————————————————–</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+<ul class="simple">
+<li><p>Name 是task名称</p></li>
+<li><p>ID 是taskID</p></li>
+<li><p>State 是task现在状态</p></li>
+<li><p>Prio 指的是优先级</p></li>
+<li><p>StackSize 指的是栈空间M</p></li>
+<li><p>inFreesize 指的是最小自由块大小</p></li>
+<li><p>Runtime 指的是运行时间</p></li>
+</ul>
+</section>
+<section id="taskbt">
+<h4><span class="section-number">4.2.3.2. </span>taskbt<a class="headerlink" href="4_Commands_Detailed_Explanation.html#taskbt" title="永久链接至标题">¶</a></h4>
+<p>该指令用于通过 task ID 查看任务的调用栈信息。</p>
+<blockquote>
+<div><dl class="simple">
+<dt>::</dt><dd><dl class="simple">
+<dt>–&gt; taskbt</dt><dd><p>–&gt; task_btn &lt;taskname&gt;</p>
+</dd>
+<dt>–&gt; taskbt 6</dt><dd><p>–&gt; task name : app_task
+–&gt; ========== Call stack ==========
+–&gt; backtrace : 0x8220150A
+–&gt; backtrace : 0x822EFD16
+–&gt; backtrace : 0x82220822
+–&gt; backtrace : ^task entry^
+–&gt; ==========    End     ==========</p>
+</dd>
+<dt>–&gt; taskbt 7</dt><dd><p>–&gt; task name : cli-uart
+–&gt; ========== Call stack ==========
+–&gt; backtrace : 0x823FC1C0
+–&gt; Status of task is ‘Running’, Can not backtrace!
+–&gt; ==========    End     ==========</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<section id="taskbtn">
+<h4><span class="section-number">4.2.3.3. </span>taskbtn<a class="headerlink" href="4_Commands_Detailed_Explanation.html#taskbtn" title="永久链接至标题">¶</a></h4>
+<p>该指令用于通过 task Name 查看任务的调用栈信息。</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span>--&gt; taskbtn
+    --&gt; task_btn &lt;taskname&gt;
+
+--&gt; taskbtn cli-uart
+    --&gt; ========== Call stack ==========
+    --&gt; backtrace : 0x8221CD40
+    --&gt; Status of task is &#39;Running&#39;, Can not backtrace!
+    --&gt; ==========    End     ==========
+
+--&gt; taskbtn app_task
+    --&gt; ========== Call stack ==========
+    --&gt; backtrace : 0x8220150A
+    --&gt; backtrace : 0x822EFD16
+    --&gt; backtrace : 0x82220822
+    --&gt; backtrace : ^task entry^
+    --&gt; ==========    End     ==========
+</pre></div>
+</div>
+</div></blockquote>
+<p>参数:</p>
+<ul class="simple">
+<li><p>Name: 任务名称</p></li>
+<li><p>ID: 任务 ID</p></li>
+<li><p>State: 任务现在状态</p></li>
+<li><p>Priorio: 优先级</p></li>
+<li><p>StackSize: 栈空间</p></li>
+<li><p>MinFreesize: 最小自由块大小</p></li>
+<li><p>Runtime: 运行时间</p></li>
+</ul>
+</section>
+</section>
+<section id="cpu">
+<h3><span class="section-number">4.2.4. </span>CPU 信息<a class="headerlink" href="4_Commands_Detailed_Explanation.html#cpu" title="永久链接至标题">¶</a></h3>
+<section id="cpuusage">
+<h4><span class="section-number">4.2.4.1. </span>cpuusage<a class="headerlink" href="4_Commands_Detailed_Explanation.html#cpuusage" title="永久链接至标题">¶</a></h4>
+<p>该指令用于查看 CPU 使用率，会进行实时更新。</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--&gt;</span> <span class="n">cpuusage</span>
+    <span class="o">--&gt;</span> <span class="o">-----------------------</span>
+    <span class="o">--&gt;</span> <span class="n">CPU</span> <span class="n">usage</span> <span class="p">:</span>  <span class="mf">0.17</span><span class="o">%</span>
+    <span class="o">--&gt;</span> <span class="o">---------------------------</span>
+    <span class="o">--&gt;</span> <span class="n">Name</span>               <span class="o">%</span><span class="n">CPU</span>
+    <span class="o">--&gt;</span> <span class="o">---------------------------</span>
+    <span class="o">--&gt;</span> <span class="n">dyn_mem_proc_task</span>    <span class="mf">0.00</span>
+    <span class="o">--&gt;</span> <span class="n">idle_task</span>           <span class="mf">99.83</span>
+    <span class="o">--&gt;</span> <span class="n">DEFAULT</span><span class="o">-</span><span class="n">WORKQUEUE</span>    <span class="mf">0.00</span>
+    <span class="o">--&gt;</span> <span class="n">timer_task</span>           <span class="mf">0.00</span>
+    <span class="o">--&gt;</span> <span class="n">cpu_stats</span>            <span class="mf">0.00</span>
+    <span class="o">--&gt;</span> <span class="n">app_task</span>             <span class="mf">0.00</span>
+    <span class="o">--&gt;</span> <span class="n">cli</span><span class="o">-</span><span class="n">uart</span>             <span class="mf">0.00</span>
+    <span class="o">--&gt;</span> <span class="n">heartbeat</span>            <span class="mf">0.00</span>
+    <span class="o">--&gt;</span> <span class="n">_isp_post_thread</span>     <span class="mf">0.00</span>
+    <span class="o">--&gt;</span> <span class="n">cvitask_isp_pre</span>      <span class="mf">0.00</span>
+    <span class="o">--&gt;</span> <span class="n">cvitask_isp_err</span>      <span class="mf">0.00</span>
+    <span class="o">--&gt;</span> <span class="n">gdc_job_worker</span>       <span class="mf">0.00</span>
+    <span class="o">--&gt;</span> <span class="n">MediaMsg</span>             <span class="mf">0.00</span>
+    <span class="o">--&gt;</span> <span class="n">workq_thread</span>         <span class="mf">0.00</span>
+    <span class="o">--&gt;</span> <span class="n">workq_thread</span>         <span class="mf">0.00</span>
+    <span class="o">--&gt;</span> <span class="n">workq_thread</span>         <span class="mf">0.00</span>
+    <span class="o">--&gt;</span> <span class="n">workq_thread</span>         <span class="mf">0.00</span>
+    <span class="o">--&gt;</span> <span class="n">anon</span> <span class="n">proc</span>            <span class="mf">0.00</span>
+    <span class="o">--&gt;</span> <span class="n">cpuusage</span>             <span class="mf">0.16</span>
+    <span class="o">--&gt;</span> <span class="o">---------------------------</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+</section>
+</section>
+<section id="id5">
+<h2><span class="section-number">4.3. </span>内存信息<a class="headerlink" href="4_Commands_Detailed_Explanation.html#id5" title="永久链接至标题">¶</a></h2>
+<section id="id6">
+<h3><span class="section-number">4.3.1. </span>查看内存信息<a class="headerlink" href="4_Commands_Detailed_Explanation.html#id6" title="永久链接至标题">¶</a></h3>
+<section id="p">
+<h4><span class="section-number">4.3.1.1. </span>p<a class="headerlink" href="4_Commands_Detailed_Explanation.html#p" title="永久链接至标题">¶</a></h4>
+<dl>
+<dt>该指令用于打印物理内存内容。</dt><dd><dl>
+<dt>::</dt><dd><dl class="simple">
+<dt>–&gt; p</dt><dd><p>–&gt; p &lt;addr&gt; &lt;nunits&gt; &lt;width&gt;
+–&gt; addr  : address to display
+–&gt; nunits: number of units to display (default is 16)
+–&gt; width : width of unit, 1/2/4 (default is 4)</p>
+</dd>
+</dl>
+<p>p&lt;addr&gt; &lt;nunits&gt; &lt;width&gt;</p>
+</dd>
+</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--&gt;</span> <span class="n">p</span> <span class="mh">0x80000000</span> <span class="mi">64</span> <span class="mi">2</span>
+  <span class="o">--&gt;</span> <span class="mh">0x80000000</span><span class="p">:</span> <span class="mi">0433</span> <span class="mi">0005</span> <span class="mi">84</span><span class="n">b3</span> <span class="mi">0005</span> <span class="mi">0933</span> <span class="mi">0006</span> <span class="mi">00</span><span class="n">ef</span> <span class="mi">59</span><span class="n">c0</span>
+  <span class="o">--&gt;</span> <span class="mh">0x80000010</span><span class="p">:</span> <span class="mi">0833</span> <span class="mi">0005</span> <span class="mi">0533</span> <span class="mi">0004</span> <span class="mi">85</span><span class="n">b3</span> <span class="mi">0004</span> <span class="mi">0633</span> <span class="mi">0009</span>
+  <span class="o">--&gt;</span> <span class="mh">0x80000020</span><span class="p">:</span> <span class="mi">58</span><span class="n">fd</span> <span class="mi">0463</span> <span class="mi">0118</span> <span class="mi">1</span><span class="n">d63</span> <span class="mb">0b0</span><span class="mi">5</span> <span class="mi">0817</span> <span class="mi">0000</span> <span class="mi">0813</span>
+  <span class="o">--&gt;</span> <span class="mh">0x80000030</span><span class="p">:</span> <span class="mi">3</span><span class="n">c68</span> <span class="mi">4885</span> <span class="mi">282</span><span class="n">f</span> <span class="mi">0118</span> <span class="mi">1463</span> <span class="mi">0</span><span class="n">a08</span> <span class="mi">0297</span> <span class="mi">0000</span>
+  <span class="o">--&gt;</span> <span class="mh">0x80000040</span><span class="p">:</span> <span class="mi">8293</span> <span class="mi">3</span><span class="n">c42</span> <span class="mi">0317</span> <span class="mi">0000</span> <span class="mi">0313</span> <span class="n">fbc3</span> <span class="n">b023</span> <span class="mi">0062</span>
+  <span class="o">--&gt;</span> <span class="mh">0x80000050</span><span class="p">:</span> <span class="mi">0297</span> <span class="mi">0000</span> <span class="mi">8293</span> <span class="mi">3</span><span class="n">b82</span> <span class="n">b283</span> <span class="mi">0002</span> <span class="mi">03</span><span class="n">b3</span> <span class="mi">4053</span>
+  <span class="o">--&gt;</span> <span class="mh">0x80000060</span><span class="p">:</span> <span class="mf">0e17</span> <span class="mi">0000</span> <span class="mf">0e13</span> <span class="mi">388</span><span class="n">e</span> <span class="mi">3023</span> <span class="mi">007</span><span class="n">e</span> <span class="mi">6297</span> <span class="mi">0001</span>
+  <span class="o">--&gt;</span> <span class="mh">0x80000070</span><span class="p">:</span> <span class="mi">8293</span> <span class="mi">4342</span> <span class="mi">7317</span> <span class="mi">0001</span> <span class="mi">0313</span> <span class="mi">4943</span> <span class="mi">8363</span> <span class="mi">0662</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</section>
+<section id="p-offcheck">
+<h4><span class="section-number">4.3.1.2. </span>p _offcheck<a class="headerlink" href="4_Commands_Detailed_Explanation.html#p-offcheck" title="永久链接至标题">¶</a></h4>
+<p>该指令用于打印物理内存内容,但是不进行内存地址合理性检查</p>
+<blockquote>
+<div><dl class="simple">
+<dt>::</dt><dd><dl class="simple">
+<dt>–&gt;  p 0x800000</dt><dd><p>–&gt; p &lt;addr&gt; &lt;nunits&gt; &lt;width&gt;
+–&gt; addr  : address to display
+–&gt; nunits: number of units to display (default is 16)
+–&gt; width : width of unit, 1/2/4 (default is 4)
+–&gt;
+–&gt; #使用p打印非法地址，会提示打印p打印物理地址的用法，使用p_offcheck 打印非法地址会陷入dump状态。
+–&gt; (0x82402410): 0x20202020 0x20202020 0x19191919 0x19191919
+–&gt; (0x82402420): 0x18181818 0x18181818 0x09090909 0x09090909
+–&gt; (0x82402430): 0x08080808 0x08080808 0x8221FCCC 0x00000000
+–&gt; !!!!!!!!!! dump end   !!!!!!!!!!</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+</section>
+<section id="id7">
+<h3><span class="section-number">4.3.2. </span>修改内存信息<a class="headerlink" href="4_Commands_Detailed_Explanation.html#id7" title="永久链接至标题">¶</a></h3>
+<section id="m">
+<h4><span class="section-number">4.3.2.1. </span>m<a class="headerlink" href="4_Commands_Detailed_Explanation.html#m" title="永久链接至标题">¶</a></h4>
+<p>该指令用于修改物理内存内容。</p>
+<blockquote>
+<div><dl class="simple">
+<dt>::</dt><dd><dl class="simple">
+<dt>–&gt; m</dt><dd><p>–&gt; m &lt;addr&gt; &lt;value&gt; &lt;width&gt;
+–&gt; addr  : address to modify
+–&gt; value : new value (default is 0)
+–&gt; width : width of unit, 1/2/4 (default is 4)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<figure class="align-default">
+<img alt="_images/m.png" src="_images/m.png" />
+</figure>
+</div></blockquote>
+<ul class="simple">
+<li><p>第一个参数:物理地址</p></li>
+<li><p>第二个参数:要修改的 新数值 （不填写,默认修改为0）</p></li>
+<li><p>第三个参数：修改的字节个数（可选项为 1/2/4 ，不填写，默认修改4个字节）</p></li>
+<li><p>左侧 m 0x80000000 1 4 指的是将 0x80000000 地址内容修改4Byte修改的新数值为1，</p></li>
+<li><p>修改后该地址处内容由00050433修改为00000001</p></li>
+</ul>
+</section>
+</section>
+<section id="id8">
+<h3><span class="section-number">4.3.3. </span>内存调试信息<a class="headerlink" href="4_Commands_Detailed_Explanation.html#id8" title="永久链接至标题">¶</a></h3>
+<section id="ddumpsys">
+<h4><span class="section-number">4.3.3.1. </span>ddumpsys<a class="headerlink" href="4_Commands_Detailed_Explanation.html#ddumpsys" title="永久链接至标题">¶</a></h4>
+<p>该指令用于显示系统调试信息。</p>
+</section>
+<section id="dumpsys-mm">
+<h4><span class="section-number">4.3.3.2. </span>dumpsys mm<a class="headerlink" href="4_Commands_Detailed_Explanation.html#dumpsys-mm" title="永久链接至标题">¶</a></h4>
+<p>该指令用于显示系统调试内存信息。</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">--&gt;</span>  <span class="n">dumpsys</span> <span class="n">mm</span>
+    <span class="o">--&gt;</span>  <span class="o">---------------------------------------------------------------------------</span>
+    <span class="o">--&gt;</span>  <span class="p">[</span><span class="n">HEAP</span><span class="p">]</span><span class="o">|</span> <span class="n">TotalSz</span>    <span class="o">|</span> <span class="n">FreeSz</span>     <span class="o">|</span> <span class="n">UsedSz</span>     <span class="o">|</span> <span class="n">MinFreeSz</span>  <span class="o">|</span> <span class="n">MaxFreeBlkSz</span>  <span class="o">|</span>
+    <span class="o">--&gt;</span>        <span class="o">|</span> <span class="mh">0x005066C0</span> <span class="o">|</span> <span class="mh">0x004AE580</span> <span class="o">|</span> <span class="mh">0x00058140</span> <span class="o">|</span> <span class="mh">0x004AE100</span> <span class="o">|</span> <span class="mh">0x004AE580</span>    <span class="o">|</span>
+    <span class="o">--&gt;</span>  <span class="o">---------------------------------------------------------------------------</span>
+    <span class="o">--&gt;</span>  <span class="o">---------------------------------------------------------------------------</span>
+    <span class="o">--&gt;</span>  <span class="p">[</span><span class="n">HEAP</span><span class="p">]</span><span class="o">|</span> <span class="n">TotalSz</span>    <span class="o">|</span> <span class="n">FreeSz</span>     <span class="o">|</span> <span class="n">UsedSz</span>     <span class="o">|</span> <span class="n">MinFreeSz</span>  <span class="o">|</span> <span class="n">MaxFreeBlkSz</span>  <span class="o">|</span>
+    <span class="o">--&gt;</span>        <span class="o">|</span> <span class="mh">0x015A0000</span> <span class="o">|</span> <span class="mh">0x00E3BCC0</span> <span class="o">|</span> <span class="mh">0x00764340</span> <span class="o">|</span> <span class="mh">0x00E3BCC0</span> <span class="o">|</span> <span class="mh">0x00E3BCC0</span>    <span class="o">|</span>
+    <span class="o">--&gt;</span>  <span class="o">---------------------------------------------------------------------------</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="dumpsys-mm-info">
+<h4><span class="section-number">4.3.3.3. </span>dumpsys mm_info<a class="headerlink" href="4_Commands_Detailed_Explanation.html#dumpsys-mm-info" title="永久链接至标题">¶</a></h4>
+<p>该指令用于显示alios内存分区信息。</p>
+<blockquote>
+<div><figure class="align-default">
+<img alt="_images/dumpsys_mm_info.png" src="_images/dumpsys_mm_info.png" />
+</figure>
+</div></blockquote>
+</section>
+<section id="dumpsys-mm-info-resv">
+<h4><span class="section-number">4.3.3.4. </span>dumpsys mm_info_resv<a class="headerlink" href="4_Commands_Detailed_Explanation.html#dumpsys-mm-info-resv" title="永久链接至标题">¶</a></h4>
+<dl>
+<dt>该指令用于显示alios resv分区内存信息。</dt><dd><figure class="align-default">
+<img alt="_images/dump_sys_mm_info_resv.png" src="_images/dump_sys_mm_info_resv.png" />
+</figure>
+</dd>
+</dl>
+</section>
+<section id="mmlk">
+<h4><span class="section-number">4.3.3.5. </span>mmlk<a class="headerlink" href="4_Commands_Detailed_Explanation.html#mmlk" title="永久链接至标题">¶</a></h4>
+<dl class="simple">
+<dt>该指令用于显示内存泄漏信息。</dt><dd><dl class="simple">
+<dt>::</dt><dd><dl class="simple">
+<dt>–&gt; mmlk</dt><dd><p>–&gt; memory leak chec—————–All new alloced blocks:—————-
+–&gt; Blk_Addr    Stat     Len  Chk      Caller    Point
+–&gt; ————–New alloced blocks info ends.————-
+–&gt; —————–All new alloced blocks:—————-
+–&gt; Blk_Addr    Stat     Len  Chk      Caller    Point
+–&gt; ————–New alloced blocks info ends.————-
+–&gt; k start.
+–&gt; Add tag 1 when malloc</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</section>
+</section>
+<section id="id9">
+<h2><span class="section-number">4.4. </span>调试信息<a class="headerlink" href="4_Commands_Detailed_Explanation.html#id9" title="永久链接至标题">¶</a></h2>
+<section id="debug">
+<h3><span class="section-number">4.4.1. </span>debug<a class="headerlink" href="4_Commands_Detailed_Explanation.html#debug" title="永久链接至标题">¶</a></h3>
+<p>该指令用于显示系统 debug 信息，包括堆栈信息、任务列表、信号量以及锁的等待情况。</p>
+<blockquote>
+<div><figure class="align-default">
+<img alt="_images/debug.png" src="_images/debug.png" />
+</figure>
+</div></blockquote>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="3_Instructions_for_Running.html" class="btn btn-neutral float-left" title="3. 运行说明" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2025, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

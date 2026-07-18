@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>12.17. VPSS &mdash; MediaProcessingSoftwareDevelopmentReference master 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="../_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/qrious.js"></script>
+    <script src="../_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="prev" title="12.16. VO" href="VO.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> MediaProcessingSoftwareDevelopmentReference
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_System_Overview.html">2. 系统概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_System_Control.html">3. 系统控制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_Video_Input.html">4. 视频输入</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5_Video_Output.html">5. 视频输出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6_Video_Processing_Subsystem.html">6. 视频处理子系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7_Video_Encoding.html">7. 视频编码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../8_Video_Decoding.html">8. 视频解码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../9_Regional_Management.html">9. 区域管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10_Audio_Frequency.html">10. 音频</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../11_Geometric_Distortion_Correction_Subsystem.html">11. 几何畸变矫正子系统</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../12_Proc_Debugging_Information_Explanation.html">12. Proc 调试信息说明</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Function_Overview.html">12.1. 功能概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AI.html">12.2. AI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AO.html">12.3. AO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VENC.html">12.4. VENC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="H265E.html">12.5. H265E</a></li>
+<li class="toctree-l2"><a class="reference internal" href="H264E.html">12.6. H264E</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JPEGE.html">12.7. JPEGE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RC.html">12.8. RC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VDEC.html">12.9. VDEC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LOG.html">12.10. LOG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SYS.html">12.11. SYS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VB.html">12.12. VB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GDC.html">12.13. GDC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="REGION.html">12.14. REGION</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VI.html">12.15. VI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VO.html">12.16. VO</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="VPSS.html#">12.17. VPSS</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MediaProcessingSoftwareDevelopmentReference</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../12_Proc_Debugging_Information_Explanation.html"><span class="section-number">12. </span>Proc 调试信息说明</a> &raquo;</li>
+      <li><span class="section-number">12.17. </span>VPSS</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="../_sources/12_Proc_Debugging_Information_Explanation/VPSS.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="vpss">
+<h1><span class="section-number">12.17. </span>VPSS<a class="headerlink" href="VPSS.html#vpss" title="永久链接至标题">¶</a></h1>
+<p>【调试信息】</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>cat /proc/soph/vpss
+
+<span class="go">Module: [VPSS], Build Time[#1 SMP PREEMPT Wed Feb 24 15:02:47 CST 2021]</span>
+
+<span class="go">-------------------------------MODULE PARAM-------------------------------</span>
+<span class="go">          vpss_vb_source</span>
+<span class="go">                CommonVB</span>
+<span class="go">-------------------------------VPSS MODE----------------------------------</span>
+<span class="go">                vpss_mode           dev0           dev1</span>
+<span class="go">                     dual       input_isp      input_mem</span>
+
+<span class="go">-------------------------------VPSS GRP ATTR----------------------------------------------</span>
+<span class="go">    GrpID      MaxW      MaxH         PixFmt                  SrcFRate  DstFRate  dev</span>
+<span class="gp">      # </span><span class="m">0</span>         <span class="m">1920</span>        <span class="m">1080</span>      YUV_PLANAR_420        -1        -1                <span class="m">0</span>
+<span class="gp">      # </span><span class="m">1</span>         <span class="m">1920</span>        <span class="m">1080</span>      YUV_PLANAR_420        -1        -1                <span class="m">1</span>
+
+<span class="go">-------------------------------VPSS GRP AMP CTRL----------------------------------------------</span>
+<span class="go">    GrpID      Brightness      Contrast         Saturation                  Hue</span>
+<span class="gp">      # </span><span class="m">0</span>         <span class="m">50</span>        <span class="m">50</span>      <span class="m">50</span>        <span class="m">50</span>
+<span class="gp">      # </span><span class="m">1</span>         <span class="m">50</span>       <span class="m">50</span>      <span class="m">50</span>        <span class="m">50</span>
+
+<span class="go">-------------------------------VPSS CHN ATTR------------------------------</span>
+<span class="go">    GrpID  PhyChnID    Enable  MirrorEn    FlipEn  SrcFRate  DstFRate</span>
+<span class="go">    Depth    Aspect    videoX    videoY    videoW    videoH     BgColor</span>
+<span class="gp">      # </span><span class="m">0</span>       <span class="c1"># 0              Y            N                 N          30              30</span>
+<span class="go">          0      AUTO          0            0                  0           0               0x0</span>
+<span class="gp">      # </span><span class="m">1</span>       <span class="c1"># 0              Y            N                 N          30             30</span>
+<span class="go">          0      AUTO          0            0                  0           0               0x0</span>
+<span class="gp">      # </span><span class="m">1</span>       <span class="c1"># 1             Y            N                 N           0               0</span>
+<span class="go">          0      NONE         0            0                  0           0               0x0</span>
+<span class="gp">      # </span><span class="m">1</span>       <span class="c1"># 2             N           N                  N           0               0</span>
+<span class="go">        0      NONE          0            0                  0           0               0x0</span>
+
+<span class="go">-------------------------------VPSS GRP CROP INFO-------------------------</span>
+<span class="go">    GrpID    CropEn  CoorType     CoorX     CoorY     Width    Height</span>
+<span class="gp">      # </span><span class="m">0</span>         N          RAT               <span class="m">0</span>              <span class="m">0</span>              <span class="m">0</span>             <span class="m">0</span>
+<span class="gp">      # </span><span class="m">0</span>         N          RAT               <span class="m">0</span>              <span class="m">0</span>              <span class="m">0</span>             <span class="m">0</span>
+
+<span class="go">-------------------------------VPSS CHN CROP INFO-------------------------</span>
+<span class="go">    GrpID     ChnID    CropEn  CoorType     CoorX     CoorY     Width    Height</span>
+<span class="gp">      # </span><span class="m">0</span>        <span class="c1"># 0          N           RAT               0              0              0             0</span>
+<span class="gp">      # </span><span class="m">1</span>        <span class="c1"># 0          N           RAT               0              0              0             0</span>
+<span class="gp">      # </span><span class="m">1</span>        <span class="c1"># 1          N           RAT               0              0              0             0</span>
+<span class="gp">      # </span><span class="m">1</span>        <span class="c1"># 2          N           RAT               0              0              0             0</span>
+
+<span class="go">-------------------------------VPSS GRP WORK STATUS-----------------------------------------------------</span>
+<span class="go">    GrpID   RecvCnt   LostCnt        StartFailCnt    bStart        CostTime(us)     MaxCostTime(us)</span>
+<span class="go">HwCostTime(us)   HwMaxCostTime(us)</span>
+<span class="gp">      # </span><span class="m">0</span>       <span class="m">905</span>          <span class="m">0</span>                   <span class="m">0</span>                       Y                 <span class="m">7241</span>                    <span class="m">9007</span>
+<span class="go">    7029                       7038</span>
+<span class="gp">      # </span><span class="m">1</span>       <span class="m">905</span>          <span class="m">0</span>                   <span class="m">0</span>                       Y                 <span class="m">7241</span>                    <span class="m">9007</span>
+<span class="go">    7029                       7038</span>
+
+<span class="go">-------------------------------VPSS CHN OUTPUT RESOLUTION-----------------</span>
+<span class="go">    GrpID     ChnID    Enable     Width    Height              Pixfmt             Videofmt    VbPool SendOK FrameRate</span>
+<span class="gp">      # </span><span class="m">0</span>         <span class="c1"># 0         Y              1920      1080      YUV_PLANAR_420    LINEAR       0*        905     24</span>
+<span class="gp">      # </span><span class="m">1</span>         <span class="c1"># 0         Y              1280       720       YUV_PLANAR_420    LINEAR      1        905     24</span>
+<span class="gp">      # </span><span class="m">1</span>        <span class="c1"># 1         Y              1280          720                RGB_888             LINEAR         1      905  24</span>
+<span class="gp">      # </span><span class="m">1</span>        <span class="c1"># 2         N              0              0                 RGB_888             LINEAR         0      0     0</span>
+
+<span class="go">-------------------------------VPSS CHN ROTATE INFO-----------------------</span>
+<span class="go">    GrpID     ChnID    Rotate</span>
+<span class="gp">      # </span><span class="m">0</span>        <span class="c1"># 0         0</span>
+<span class="gp">      # </span><span class="m">1</span>        <span class="c1"># 0         0</span>
+<span class="gp">      # </span><span class="m">1</span>        <span class="c1"># 1         0</span>
+<span class="gp">      # </span><span class="m">1</span>        <span class="c1"># 2         0</span>
+
+<span class="go">-------------------------------VPSS CHN LDC INFO-----------------------</span>
+<span class="go">    GrpID     ChnID    Enable    Aspect    XRatio    YRatio</span>
+<span class="go">  XYRatio   XOffset   YOffset     DistortionRatio</span>
+<span class="gp">      # </span><span class="m">0</span>       <span class="c1"># 0          N              N              0             0</span>
+<span class="go">          0          0           0                   0</span>
+<span class="gp">      # </span><span class="m">1</span>       <span class="c1"># 0          N              N              0             0</span>
+<span class="go">          0          0           0                   0</span>
+<span class="gp">      # </span><span class="m">1</span>       <span class="c1"># 1          N              N              0             0</span>
+<span class="go">          0          0           0                   0</span>
+<span class="gp">      # </span><span class="m">1</span>       <span class="c1"># 2          N              N              0             0</span>
+<span class="go">          0          0           0                   0</span>
+
+<span class="go">-------------------------------VPSS HW STATUS-----------------------</span>
+<span class="go">    ID       Online    Status  StartCnt    IntCnt DutyRatio</span>
+<span class="gp">     # </span><span class="m">0</span>   N      Idle         <span class="m">0</span>         <span class="m">0</span>       <span class="m">0</span>
+<span class="gp">     # </span><span class="m">1</span>   N      Idle         <span class="m">0</span>         <span class="m">0</span>       <span class="m">0</span>
+
+<span class="go">-------------------------------VPSS CHN BUF WRAP ATTR---------------------</span>
+<span class="go">    GrpID     ChnID    Enable   BufLineWrapBufSize</span>
+<span class="gp">      # </span><span class="m">0</span>       <span class="c1"># 0         N         0         0</span>
+<span class="gp">      # </span><span class="m">1</span>       <span class="c1"># 0         N         0         0</span>
+<span class="gp">      # </span><span class="m">1</span>       <span class="c1"># 1         N         0         0</span>
+<span class="gp">      # </span><span class="m">1</span>       <span class="c1"># 2         N         0         0</span>
+</pre></div>
+</div>
+<p>【调试信息分析】</p>
+<p>记录当前VPSS属性配置以及状态信息。</p>
+<p>【参数说明】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>MODULE PARAM</p></td>
+<td><p>vpss_vb_source</p></td>
+<td><p>视频缓存池类型。</p>
+<p>CommonVB：公共VB</p>
+<p>UserVB：UserVB</p>
+<p>UserIon：UserIon</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>VPSS MODE</p></td>
+<td><p>vpss_mode</p></td>
+<td><p>vpss模式，single或者dual mode。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>dev0</p></td>
+<td><p>vpss dev0的输入来源，isp或者memory。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>dev1</p></td>
+<td><p>vpss dev1的输入来源 ，isp或者memory。single mode情况下只有dev1。</p></td>
+</tr>
+<tr class="row-even"><td><div class="line-block">
+<div class="line">VPSS GRP ATTR</div>
+<div class="line">VPSS GRP属性</div>
+</div>
+</td>
+<td><p>GrpID</p></td>
+<td><p>GRP ID号。</p>
+<p>有效范围：</p>
+<p>[0, VPSS_MAX_GRP_NUM)。</p>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>MaxW</p></td>
+<td><p>组输入图像最大宽度。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>MaxH</p></td>
+<td><p>组输入图像最大高度。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PixFmt</p></td>
+<td><p>组输入图像像素格式。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>SrcFRate</p></td>
+<td><p>GRP源帧率。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>DstFRate</p></td>
+<td><p>GRP目标帧率。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>dev</p></td>
+<td><p>Group使用硬件dev号。</p></td>
+</tr>
+<tr class="row-odd"><td><div class="line-block">
+<div class="line">VPSS GRP AMP CTRL</div>
+<div class="line">VPSS GRP颜色控制属性</div>
+</div>
+</td>
+<td><p>GrpID</p></td>
+<td><p>GRP ID号。</p>
+<p>有效范围：</p>
+<p>[0, VPSS_MAX_GRP_NUM)。</p>
+</td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Brightness</p></td>
+<td><p>亮度。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Contrast</p></td>
+<td><p>对比度。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Saturation</p></td>
+<td><p>饱和度。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Hue</p></td>
+<td><p>色度。</p></td>
+</tr>
+<tr class="row-even"><td><div class="line-block">
+<div class="line">VPSS CHN ATTR</div>
+<div class="line">VPSS 各物理通道属性</div>
+</div>
+</td>
+<td><p>GrpID</p></td>
+<td><p>GRP ID号。</p>
+<p>有效范围：</p>
+<p>[0, VPSS_MAX_GRP_NUM)。</p>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PhyChnID</p></td>
+<td><p>物理通道ID号。</p>
+<p>有效范围：</p>
+<p>[0,  VPSS_MAX_PHY_CHN_NUM)。</p>
+</td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Enable</p></td>
+<td><p>是否使能该通道。</p>
+<p>N：关闭；</p>
+<p>Y：打开。</p>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>MirrorEn</p></td>
+<td><p>是否使能mirror功能。</p>
+<p>N：关闭；</p>
+<p>Y：打开。</p>
+</td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>FlipEn</p></td>
+<td><p>是否使能flip功能。</p>
+<p>N：关闭；</p>
+<p>Y：打开。</p>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>SrcFRate</p></td>
+<td><p>通道帧率控制：源帧率。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>DstFRate</p></td>
+<td><p>通道帧率控制：目标帧率。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Depth</p></td>
+<td><p>用户获取通道图像的队列长度。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Aspect</p></td>
+<td><p>幅形比模式。   NONE：关闭幅形比AUTO：自动模式 MANUAL：手动模式</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>videoX</p></td>
+<td><p>视频位置X坐标。手动模式有效。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>videoY</p></td>
+<td><p>视频位置Y坐标。手动模式有效。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>videoW</p></td>
+<td><p>视频宽度。手动模式有效。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>videoH</p></td>
+<td><p>视频高度。手动模式有效。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>BgColor</p></td>
+<td><p>幅形比背景色。 有效范围：[0x0, 0xFFFFFF]</p></td>
+</tr>
+<tr class="row-even"><td><div class="line-block">
+<div class="line">VPSS GRP CROP INFO</div>
+<div class="line">VPSS 组CROP信息</div>
+</div>
+</td>
+<td><p>GrpID</p></td>
+<td><p>GRP ID号。</p>
+<p>有效范围：</p>
+<p>[0, VPSS_MAX_GRP_NUM)。</p>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>CropEn</p></td>
+<td><p>是否使能CROP功能。     N：关闭；      Y：打开。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CoorType</p></td>
+<td><p>坐标类型。     RAT：相对坐标； ABS：绝对坐标。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>CoorX</p></td>
+<td><p>水平方向起始坐标。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CoorY</p></td>
+<td><p>垂直方向起始坐标。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Width</p></td>
+<td><p>CROP RECT的宽，     不能超出最大图像宽度。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Height</p></td>
+<td><p>CROP RECT的高，     不能超出最大图像高度。</p></td>
+</tr>
+<tr class="row-odd"><td><div class="line-block">
+<div class="line">VPSS CHN CROP INFO</div>
+<div class="line">通道CROP信息</div>
+</div>
+</td>
+<td><p>GrpID</p></td>
+<td><p>GRP ID号。</p>
+<p>有效范围：</p>
+<p>[0, VPSS_MAX_GRP_NUM)。</p>
+</td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ChnID</p></td>
+<td><p>CHN ID号。</p>
+<p>有效范围：</p>
+<p>[0,  VPSS_MAX_PHY_CHN_NUM)。</p>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>CropEn</p></td>
+<td><p>是否使能CROP功能。     N：关闭；      Y：打开。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CoorType</p></td>
+<td><p>坐标类型。     RAT：相对坐标； ABS：绝对坐标</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>CoorX</p></td>
+<td><p>水平方向起始坐标。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CoorY</p></td>
+<td><p>垂直方向起始坐标。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Width</p></td>
+<td><p>CROP RECT的宽，     不能超出最大图像宽度。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Height</p></td>
+<td><p>CROP RECT的高，     不能超出最大图像高度。</p></td>
+</tr>
+<tr class="row-odd"><td><div class="line-block">
+<div class="line">VPSS GRP WORKSTATUS</div>
+<div class="line">VPSS GRP 工作状态信息</div>
+</div>
+</td>
+<td><p>GrpID</p></td>
+<td><p>GRP ID号。</p>
+<p>有效范围：</p>
+<p>[0, VPSS_MAX_GRP_NUM)。</p>
+</td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>RecvCnt</p></td>
+<td><p>接收到的图像数</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>LostCnt</p></td>
+<td><p>因队列满而丢弃的图像数。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>StartFailCnt</p></td>
+<td><p>Start任务失败次数。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>bStart</p></td>
+<td><p>是否开始接收图像。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CostTime(us)</p></td>
+<td><p>当前完成任务的耗时。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>MaxCostTime(us)</p></td>
+<td><p>历史上耗 时最长任务的执行时间。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>HwCostTime(us)</p></td>
+<td><p>当前完成任务的硬件耗时</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>HwMaxCostTime(us)</p></td>
+<td><p>历史上硬件耗   时最长任务的执行时间。</p></td>
+</tr>
+<tr class="row-even"><td><div class="line-block">
+<div class="line">VPSS CHN OUTPUT RESOLUTION</div>
+<div class="line">VPSS通道信息</div>
+</div>
+</td>
+<td><p>GrpID</p></td>
+<td><p>GRP ID号。</p>
+<p>有效范围：</p>
+<p>[0, VPSS_MAX_GRP_NUM)。</p>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ChnID</p></td>
+<td><p>通道ID 号。</p>
+<p>有效范围：</p>
+<p>[0,  VPSS_MAX_PHY_CHN_NUM)。</p>
+</td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Enable</p></td>
+<td><p>通道使能。     N：关闭  Y：打开。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Width</p></td>
+<td><p>目标图像 的宽度，以像素为单位。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Height</p></td>
+<td><p>目标图像 的高度，以像素为单位。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Pixfmt</p></td>
+<td><p>目标图像的像素格式。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Videofmt</p></td>
+<td><p>目标图像的视频格式。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>VbPool</p></td>
+<td><p>该通道绑定的vb pool。</p>
+<p>如果带*，则表明该通道attach了该vb pool。</p>
+</td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>SendOK</p></td>
+<td><p>成功发送的图像数量。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>FrameRate</p></td>
+<td><p>通道输出的实时帧率。</p></td>
+</tr>
+<tr class="row-even"><td><div class="line-block">
+<div class="line">VPSS CHN ROTATE INFO</div>
+<div class="line">通道旋转的信息</div>
+</div>
+</td>
+<td><p>GrpID</p></td>
+<td><p>GRP ID号。</p>
+<p>有效范围：</p>
+<p>[0, VPSS_MAX_GRP_NUM)。</p>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ChnID</p></td>
+<td><p>通道ID 号。</p>
+<p>有效范围：</p>
+<p>[0,  VPSS_MAX_PHY_CHN_NUM)。</p>
+</td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Rotate</p></td>
+<td><p>旋转的角度枚举。</p></td>
+</tr>
+<tr class="row-odd"><td><div class="line-block">
+<div class="line">VPSS CHN LDC INFO</div>
+<div class="line">VPSS物理通道LDC属性</div>
+</div>
+</td>
+<td><p>GrpID VPSS</p></td>
+<td><p>GRP ID号。</p>
+<p>有效范围：</p>
+<p>[0, VPSS_MAX_GRP_NUM)。</p>
+</td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ChnID</p></td>
+<td><p>通道ID 号。</p>
+<p>有效范围：</p>
+<p>[0,  VPSS_MAX_PHY_CHN_NUM)。</p>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Enable</p></td>
+<td><p>LDC开关。      N：关闭；      Y：打开。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Aspect</p></td>
+<td><p>是否保持幅形比。N：不保持幅形比；      Y：保持幅形比。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>XRatio</p></td>
+<td><p>X 方向视野大小参数，不保持幅形比时有效。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>YRatio</p></td>
+<td><p>Y 方向视野大小参数，不保持幅形比时有效。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>XYRatio</p></td>
+<td><p>视野大小参数，保持幅形比时有效。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>XOffset</p></td>
+<td><p>校正中心点的X坐标偏移。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>YOffset</p></td>
+<td><p>校正中心点的Y坐标偏移。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>DistortionRatio</p></td>
+<td><p>校正强度系数。</p></td>
+</tr>
+<tr class="row-odd"><td><div class="line-block">
+<div class="line">VPSS HW STATUS</div>
+<div class="line">VPSS硬件工作状态</div>
+</div>
+</td>
+<td><p>ID</p></td>
+<td><p>vpss硬件编号</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Online</p></td>
+<td><div class="line-block">
+<div class="line">是否online。</div>
+<div class="line">N：offline</div>
+<div class="line">Y：online</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Status</p></td>
+<td><div class="line-block">
+<div class="line">HW的工作状态。</div>
+<div class="line">Idle：空闲</div>
+<div class="line">Running：运行中</div>
+<div class="line">End：运行结束</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>StartCnt</p></td>
+<td><p>启动次数。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>IntCnt</p></td>
+<td><p>中断次数。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>DutyRatio</p></td>
+<td><p>该vpss硬件负载占空比。</p></td>
+</tr>
+<tr class="row-odd"><td><div class="line-block">
+<div class="line">VPSS CHN BUF WRAPATTR</div>
+<div class="line">vpss chn的slice buf属性</div>
+</div>
+</td>
+<td><p>GrpID</p></td>
+<td><p>GRP ID号。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ChnID</p></td>
+<td><p>CHN ID号。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Enable</p></td>
+<td><p>是否开启。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>BufLine</p></td>
+<td><p>Slice buf的行数。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>BufLineWrapBufSize</p></td>
+<td><p>Slice buf的大小。</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="VO.html" class="btn btn-neutral float-left" title="12.16. VO" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

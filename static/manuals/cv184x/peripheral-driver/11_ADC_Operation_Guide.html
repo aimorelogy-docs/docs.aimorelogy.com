@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>11. ADC 操作指南 &mdash; PeripheralDriver master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="12. CVI PINMUX 操作指南" href="12_CVI_PINMUX_Operation_Guide.html" />
+    <link rel="prev" title="10. PWM 操作指南" href="10_PWM_Operation_Guide.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> PeripheralDriver
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Ethernet_Operation_Guide.html">2. Ethernet 操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_USB_Operation_Guide.html">3. USB操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_SD_MMC_Card_Operation_Guide.html">4. SD/MMC 卡操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_I2C_Operation_Guide.html">5. I2C 操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_SPI_Operation_Guide.html">6. SPI 操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_GPIO_Operation_Guide.html">7. GPIO操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_UART_Operation_Guide.html">8. UART 操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_Watchdog_Operation_Guide.html">9. Watchdog 操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_PWM_Operation_Guide.html">10. PWM 操作指南</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="11_ADC_Operation_Guide.html#">11. ADC 操作指南</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="11_ADC_Operation_Guide.html#id1">11.1. 操作准备</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_ADC_Operation_Guide.html#id2">11.2. 操作流程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_ADC_Operation_Guide.html#id3">11.3. 操作示例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="11_ADC_Operation_Guide.html#saradc0-1">11.3.1. 读取 SARADC0 通道 1 并换算电压</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_ADC_Operation_Guide.html#saradc0-3-rtc-saradc0-10">11.3.2. SARADC0 通道 3 与 RTC_SARADC0 通道 10 读取示例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_ADC_Operation_Guide.html#id4">11.3.3. 内核态 ADC 读写示例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_ADC_Operation_Guide.html#id5">11.3.4. 用户态 ADC 读写示例</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="12_CVI_PINMUX_Operation_Guide.html">12. CVI PINMUX 操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_DMA_mem_to_mem_Operation_Guide.html">13. DMA 操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_Thermal_Control_Operation_Guide.html">14. 温控策略与测试操作指南</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PeripheralDriver</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">11. </span>ADC 操作指南</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/11_ADC_Operation_Guide.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="adc">
+<h1><span class="section-number">11. </span>ADC 操作指南<a class="headerlink" href="11_ADC_Operation_Guide.html#adc" title="永久链接至标题">¶</a></h1>
+<p>本文档说明在 CV184x 平台上通过 IIO 接口使用 SARADC、通道与 sysfs 节点对应关系、电压换算及用户态/内核态操作示例。</p>
+<section id="id1">
+<h2><span class="section-number">11.1. </span>操作准备<a class="headerlink" href="11_ADC_Operation_Guide.html#id1" title="永久链接至标题">¶</a></h2>
+<p><strong>1. 内核要求</strong></p>
+<ul class="simple">
+<li><p>使用 SDK 提供的内核镜像。</p></li>
+</ul>
+<p><strong>2. ADC 与通道说明</strong></p>
+<ul class="simple">
+<li><p>用户层通过 IIO 接口访问 15 路 12-bit ADC 通道，参考电压 1.5V。</p></li>
+<li><p>芯片内共有 5 组 SARADC，每组 3 路 12-bit 通道：</p>
+<ul>
+<li><p>SARADC0～SARADC2：常规 ADC（共 9 路）</p></li>
+<li><p>RTC_SARADC0～RTC_SARADC1：RTC 域 ADC（共 6 路）</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>3. IIO 设备路径与通道对应关系</strong></p>
+<p>IIO 设备路径为 <code class="docutils literal notranslate"><span class="pre">/sys/bus/iio/devices/iio:device0/</span></code>，各通道对应的原始值节点如下：</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>in_voltage1_raw ～ in_voltage3_raw   # SARADC0
+in_voltage4_raw ～ in_voltage6_raw   # SARADC1
+in_voltage7_raw ～ in_voltage9_raw   # SARADC2
+in_voltage10_raw ～ in_voltage12_raw # RTC_SARADC0
+in_voltage13_raw ～ in_voltage15_raw # RTC_SARADC1
+</pre></div>
+</div>
+<p><strong>4. 电压计算公式</strong></p>
+<blockquote>
+<div><p>电压（mV）= 原始值 × 1500 / 4095</p>
+</div></blockquote>
+<p><strong>5. 引脚与功能切换</strong></p>
+<ul>
+<li><p>SARADC0 通道 3 对应的引脚名称为 ADC3；可采用默认 GPIO 功能，无需切换：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cvi_pinmux -r ADC3
+</pre></div>
+</div>
+</li>
+<li><p>RTC_SARADC0 通道 10 对应引脚 PWR_SEQ3；需切换为 GPIO 功能，例如：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cvi_pinmux -r PWR_SEQ3
+cvi_pinmux -w PWR_SEQ3/PWR_GPIO_5
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="id2">
+<h2><span class="section-number">11.2. </span>操作流程<a class="headerlink" href="11_ADC_Operation_Guide.html#id2" title="永久链接至标题">¶</a></h2>
+<p><strong>步骤 1：硬件连接</strong></p>
+<ul class="simple">
+<li><p>确认所用 ADC 通道对应的物理引脚（可参考原理图）。</p></li>
+<li><p>将待测电压源接到对应引脚，注意输入电压不得超过参考电压 1.5V。</p></li>
+<li><p>保证参考电压稳定。</p></li>
+</ul>
+<p><strong>步骤 2：引脚配置</strong></p>
+<ul class="simple">
+<li><p>常规 ADC 通道（SARADC0～2）一般无需额外 pinmux。</p></li>
+<li><p>RTC 域 ADC（RTC_SARADC0/1）或需将对应引脚配置为 ADC 功能，或需切回 GPIO 时，使用 <code class="docutils literal notranslate"><span class="pre">cvi_pinmux</span></code> 进行切换。</p></li>
+</ul>
+<p><strong>步骤 3：数据读取</strong></p>
+<ul class="simple">
+<li><p>用户态：通过 <code class="docutils literal notranslate"><span class="pre">/sys/bus/iio/devices/iio:device0/</span></code> 下对应的 <code class="docutils literal notranslate"><span class="pre">in_voltageN_raw</span></code> 节点读取原始值。</p></li>
+</ul>
+<p><strong>步骤 4：数据处理</strong></p>
+<ul class="simple">
+<li><p>读取原始值后，用公式「电压（mV）= 原始值 × 1500 / 4095」换算为电压。</p></li>
+<li><p>按需做滤波、校准等后处理。</p></li>
+</ul>
+</section>
+<section id="id3">
+<h2><span class="section-number">11.3. </span>操作示例<a class="headerlink" href="11_ADC_Operation_Guide.html#id3" title="永久链接至标题">¶</a></h2>
+<section id="saradc0-1">
+<h3><span class="section-number">11.3.1. </span>读取 SARADC0 通道 1 并换算电压<a class="headerlink" href="11_ADC_Operation_Guide.html#saradc0-1" title="永久链接至标题">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 读取原始值</span>
+cat /sys/bus/iio/devices/iio:device0/in_voltage1_raw
+<span class="c1"># 示例输出：2048</span>
+<span class="c1"># 电压（mV）= 2048 × 1500 / 4095 ≈ 750</span>
+</pre></div>
+</div>
+<p>说明：开发板原理图中 ADC 常按通道标号（如 SARADC1～9 对应上述 SARADC0～2 的 9 路，PWR_SARADC1～6 对应 RTC_SARADC0/1 的 6 路），具体以原理图为准。</p>
+</section>
+<section id="saradc0-3-rtc-saradc0-10">
+<h3><span class="section-number">11.3.2. </span>SARADC0 通道 3 与 RTC_SARADC0 通道 10 读取示例<a class="headerlink" href="11_ADC_Operation_Guide.html#saradc0-3-rtc-saradc0-10" title="永久链接至标题">¶</a></h3>
+<p>可用万用表对比：将通道接 1.8V 或接地（注意原始值最大为 4095，换算电压最大为 1.5V）。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat /sys/bus/iio/devices/iio:device0/in_voltage3_raw
+cat /sys/bus/iio/devices/iio:device0/in_voltage10_raw
+<span class="c1"># 接地时读数应接近 0</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/ADC1.jpg"><img alt="_images/ADC1.jpg" class="align-center" src="_images/ADC1.jpg" style="width: 600px;" /></a>
+</section>
+<section id="id4">
+<h3><span class="section-number">11.3.3. </span>内核态 ADC 读写示例<a class="headerlink" href="11_ADC_Operation_Guide.html#id4" title="永久链接至标题">¶</a></h3>
+<p><strong>步骤 1：在设备树中为需要配置ADC通道的节点添加ADC通道属性</strong></p>
+<div class="highlight-dts notranslate"><div class="highlight"><pre><span></span><span class="nf">my-adc-consumer</span><span class="o">@</span><span class="mi">0</span><span class="cm"> </span><span class="p">{</span>
+    <span class="kr">compatible</span> <span class="o">=</span> <span class="s">&quot;myco,my-adc-consumer&quot;</span><span class="p">;</span>
+    <span class="n">io-channels</span> <span class="o">=</span> <span class="o">&lt;&amp;</span><span class="na">saradc0</span> <span class="mi">0</span><span class="o">&gt;</span><span class="p">;</span>   <span class="cm">/* 0 表示通道 0，范围 0～14 */</span>
+    <span class="kr">status</span> <span class="o">=</span> <span class="s">&quot;okay&quot;</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p><strong>步骤 2：在驱动中申请ADC通道并读取ADC值</strong></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">my_adc_consumer</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="p">...</span><span class="w"></span>
+<span class="w">    </span><span class="k">struct</span> <span class="nc">iio_channel</span><span class="w"> </span><span class="o">*</span><span class="n">chan</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">...</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">my_adc_consumer_probe</span><span class="p">(</span><span class="k">struct</span> <span class="nc">platform_device</span><span class="w"> </span><span class="o">*</span><span class="n">pdev</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">struct</span> <span class="nc">my_adc_consumer</span><span class="w"> </span><span class="o">*</span><span class="n">priv</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">ret</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">priv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">devm_kzalloc</span><span class="p">(</span><span class="o">&amp;</span><span class="n">pdev</span><span class="o">-&gt;</span><span class="n">dev</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="o">*</span><span class="n">priv</span><span class="p">),</span><span class="w"> </span><span class="n">GFP_KERNEL</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">priv</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="n">ENOMEM</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="cm">/* 获取 ADC 通道 */</span><span class="w"></span>
+<span class="w">    </span><span class="n">priv</span><span class="o">-&gt;</span><span class="n">chan</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">devm_iio_channel_get</span><span class="p">(</span><span class="o">&amp;</span><span class="n">pdev</span><span class="o">-&gt;</span><span class="n">dev</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IS_ERR</span><span class="p">(</span><span class="n">priv</span><span class="o">-&gt;</span><span class="n">chan</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">dev_err</span><span class="p">(</span><span class="o">&amp;</span><span class="n">pdev</span><span class="o">-&gt;</span><span class="n">dev</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;iio_channel_get failed: %ld</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">PTR_ERR</span><span class="p">(</span><span class="n">priv</span><span class="o">-&gt;</span><span class="n">chan</span><span class="p">));</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">PTR_ERR</span><span class="p">(</span><span class="n">priv</span><span class="o">-&gt;</span><span class="n">chan</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="cm">/* 读取原始值 */</span><span class="w"></span>
+<span class="w">    </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iio_read_channel_raw</span><span class="p">(</span><span class="n">priv</span><span class="o">-&gt;</span><span class="n">chan</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">val</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">dev_err</span><span class="p">(</span><span class="o">&amp;</span><span class="n">pdev</span><span class="o">-&gt;</span><span class="n">dev</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;read raw failed: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ret</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">dev_info</span><span class="p">(</span><span class="o">&amp;</span><span class="n">pdev</span><span class="o">-&gt;</span><span class="n">dev</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ADC raw value: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">...</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="id5">
+<h3><span class="section-number">11.3.4. </span>用户态 ADC 读写示例<a class="headerlink" href="11_ADC_Operation_Guide.html#id5" title="永久链接至标题">¶</a></h3>
+<p>以下示例通过 IIO sysfs 读取指定通道的原始值并换算为电压（mV）。通道 1～15 对应 <code class="docutils literal notranslate"><span class="pre">in_voltage1_raw``～``in_voltage15_raw</span></code>，电压公式：电压（mV）= 原始值 × 1500 / 4095。用法：<code class="docutils literal notranslate"><span class="pre">./程序名</span> <span class="pre">&lt;通道号&gt;</span></code>，通道号 1～15。</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="linenos"> 2</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="linenos"> 3</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;fcntl.h&gt;</span><span class="cp"></span>
+<span class="linenos"> 4</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span><span class="cp"></span>
+<span class="linenos"> 5</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
+<span class="linenos"> 6</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;errno.h&gt;</span><span class="cp"></span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="cp">#define ADC_PATH &quot;/sys/bus/iio/devices/iio:device0/&quot;</span>
+<span class="linenos"> 9</span><span class="cp">#define MAX_CHANNELS 15</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="kt">float</span><span class="w"> </span><span class="nf">read_adc_voltage</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">channel</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">12</span><span class="p">{</span><span class="w"></span>
+<span class="linenos">13</span><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">path</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span><span class="w"></span>
+<span class="linenos">14</span><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="mi">32</span><span class="p">];</span><span class="w"></span>
+<span class="linenos">15</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">raw</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">16</span><span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">voltage</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">17</span>
+<span class="linenos">18</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">channel</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">channel</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">MAX_CHANNELS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">19</span><span class="w">        </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Invalid channel: %d (1-%d)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">channel</span><span class="p">,</span><span class="w"> </span><span class="n">MAX_CHANNELS</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">20</span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mf">-1.0</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">21</span><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">22</span>
+<span class="linenos">23</span><span class="w">    </span><span class="n">snprintf</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">path</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;%sin_voltage%d_raw&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ADC_PATH</span><span class="p">,</span><span class="w"> </span><span class="n">channel</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">24</span>
+<span class="linenos">25</span><span class="w">    </span><span class="n">fd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">O_RDONLY</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">26</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">fd</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">27</span><span class="w">        </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Failed to open %s: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">strerror</span><span class="p">(</span><span class="n">errno</span><span class="p">));</span><span class="w"></span>
+<span class="linenos">28</span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mf">-1.0</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">29</span><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">30</span>
+<span class="linenos">31</span><span class="w">    </span><span class="n">memset</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">));</span><span class="w"></span>
+<span class="linenos">32</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">read</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">33</span><span class="w">        </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Failed to read %s: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">strerror</span><span class="p">(</span><span class="n">errno</span><span class="p">));</span><span class="w"></span>
+<span class="linenos">34</span><span class="w">        </span><span class="n">close</span><span class="p">(</span><span class="n">fd</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">35</span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mf">-1.0</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">36</span><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">37</span>
+<span class="linenos">38</span><span class="w">    </span><span class="n">close</span><span class="p">(</span><span class="n">fd</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">39</span>
+<span class="linenos">40</span><span class="w">    </span><span class="n">raw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">atoi</span><span class="p">(</span><span class="n">buf</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">41</span><span class="w">    </span><span class="n">voltage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">raw</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">1500.0</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">4095.0</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">42</span>
+<span class="linenos">43</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">voltage</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">44</span><span class="p">}</span><span class="w"></span>
+<span class="linenos">45</span>
+<span class="linenos">46</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span><span class="w"></span>
+<span class="linenos">47</span><span class="p">{</span><span class="w"></span>
+<span class="linenos">48</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">channel</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">49</span><span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">voltage</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">50</span>
+<span class="linenos">51</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">argc</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">52</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Usage: %s &lt;channel&gt;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span><span class="w"></span>
+<span class="linenos">53</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Channels: 1-15</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">54</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;  1-3: SARADC0</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">55</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;  4-6: SARADC1</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">56</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;  7-9: SARADC2</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">57</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;  10-12: RTC_SARADC0</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">58</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;  13-15: RTC_SARADC1</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">59</span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">60</span><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">61</span>
+<span class="linenos">62</span><span class="w">    </span><span class="n">channel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">atoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span><span class="w"></span>
+<span class="linenos">63</span><span class="w">    </span><span class="n">voltage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">read_adc_voltage</span><span class="p">(</span><span class="n">channel</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">64</span>
+<span class="linenos">65</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">voltage</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">66</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Channel %d: %.2f mV (%.3f V)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">67</span><span class="w">               </span><span class="n">channel</span><span class="p">,</span><span class="w"> </span><span class="n">voltage</span><span class="p">,</span><span class="w"> </span><span class="n">voltage</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">1000.0</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">68</span><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">69</span>
+<span class="linenos">70</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">71</span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p><strong>运行方式说明</strong></p>
+<ol class="arabic">
+<li><p><strong>保存源码</strong>：将上述代码保存为文件，例如 <code class="docutils literal notranslate"><span class="pre">adc_read.c</span></code>。</p></li>
+<li><p><strong>编译</strong>：在宿主机或目标板上使用对应工具链编译。示例（目标板为 ARM 时请替换为实际交叉编译器）：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 交叉编译示例（以实际工具链为准）</span>
+arm-none-linux-uclibcgnueabihf-gcc -o adc_read adc_read.c -static
+</pre></div>
+</div>
+</li>
+<li><p><strong>运行</strong>：在目标板上执行，传入通道号 1～15。无参数或参数错误时会打印用法与通道对应关系。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./adc_read &lt;通道号&gt;
+</pre></div>
+</div>
+<p><strong>示例：</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./adc_read <span class="m">1</span>      <span class="c1"># 读取 SARADC0 通道 1</span>
+./adc_read <span class="m">10</span>     <span class="c1"># 读取 RTC_SARADC0 通道 10</span>
+./adc_read        <span class="c1"># 打印用法：Channels 1-15，及 1-3/4-6/7-9/10-12/13-15 对应关系</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>输出</strong>：成功时打印该通道电压，如 <code class="docutils literal notranslate"><span class="pre">Channel</span> <span class="pre">1:</span> <span class="pre">750.00</span> <span class="pre">mV</span> <span class="pre">(0.750</span> <span class="pre">V)</span></code>；失败时在 stderr 输出错误信息。</p></li>
+</ol>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="10_PWM_Operation_Guide.html" class="btn btn-neutral float-left" title="10. PWM 操作指南" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="12_CVI_PINMUX_Operation_Guide.html" class="btn btn-neutral float-right" title="12. CVI PINMUX 操作指南" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2025, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

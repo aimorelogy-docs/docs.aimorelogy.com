@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4. 码率控制专题 &mdash; BitRateControlApplicationNotes master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="prev" title="3. GOP结构参数意义和使用方法" href="3_Meaning_and_Usage_of_GOP_Structure_Parameters.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> BitRateControlApplicationNotes
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Meaning_and_Usage_of_Bitrate_Control_Parameters.html">2. 码率控制参数意义和使用方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Meaning_and_Usage_of_GOP_Structure_Parameters.html">3. GOP结构参数意义和使用方法</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="4_Bitrate_Control_Topic.html#">4. 码率控制专题</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="4_Bitrate_Control_Topic.html#id2">4.1. 码率稳定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_Bitrate_Control_Topic.html#id3">4.2. 图像质量提升</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_Bitrate_Control_Topic.html#id4">4.3. 调节呼吸效应</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_Bitrate_Control_Topic.html#i">4.4. 限制I帧幅度</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_Bitrate_Control_Topic.html#id5">4.5. 减少运动拖影</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_Bitrate_Control_Topic.html#id6">4.6. 减少色度偏移</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_Bitrate_Control_Topic.html#qp">4.7. 码率控制的起始QP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_Bitrate_Control_Topic.html#id7">4.8. 低码率场景</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_Bitrate_Control_Topic.html#id8">4.9. 注意事项</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">BitRateControlApplicationNotes</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">4. </span>码率控制专题</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/4_Bitrate_Control_Topic.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">4. </span>码率控制专题<a class="headerlink" href="4_Bitrate_Control_Topic.html#id1" title="永久链接至标题">¶</a></h1>
+<section id="id2">
+<h2><span class="section-number">4.1. </span>码率稳定<a class="headerlink" href="4_Bitrate_Control_Topic.html#id2" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>设置码率超出阈值丢帧，可以在图像变动剧烈时减少瞬时码率波动且维持图像质量</p></li>
+<li><p>建议设置：</p></li>
+</ul>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">VENC_FRAMELOST_S</span><span class="o">::</span><span class="n">bFrmLostOpen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TRUE</span><span class="w"></span>
+<span class="n">VENC_FRAMELOST_S</span><span class="o">::</span><span class="n">u32FrmLostBpsThr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">u32BitRate</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">1.2</span><span class="w"></span>
+<span class="n">VENC_FRAMELOST_S</span><span class="o">::</span><span class="n">enFrmLostMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FRMLOST_PSKIP</span><span class="w"></span>
+<span class="n">VENC_FRAMELOST_S</span><span class="o">::</span><span class="n">u32EncFrmGaps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h2><span class="section-number">4.2. </span>图像质量提升<a class="headerlink" href="4_Bitrate_Control_Topic.html#id3" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>u32MaxIQp，u32MaxQp为限制宏块最大QP参数。设置较低最大QP参数可确保低码率编码或场景剧烈变化时图像质量受到保证，同时也容易造成码率过冲。建议依照应用需求调整适当的最大QP</p></li>
+</ul>
+</section>
+<section id="id4">
+<h2><span class="section-number">4.3. </span>调节呼吸效应<a class="headerlink" href="4_Bitrate_Control_Topic.html#id4" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>s32IPQPDelta为IP帧之间的QP差值。设置差值适当时可以减少呼吸效应。当场景为静态时建议设置较大的差值。静态场景建议值：[2, 6], 动态场景建议值：[2, 4]</p></li>
+<li><p>低照场景画面躁声较大时, 可以稍微降低s32IPQPDelta. 藉由降低I帧码率以提高P帧码率可避免高质量I帧引入过多躁声造成呼吸效应。</p></li>
+</ul>
+</section>
+<section id="i">
+<h2><span class="section-number">4.4. </span>限制I帧幅度<a class="headerlink" href="4_Bitrate_Control_Topic.html#i" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>设置I帧最小QP有机会降低I帧码率, 但有降低画面质量风险。使用上不容易控制，需要对场景有使用上的经验才可以有较佳的设定。码率过高情况仍可能发生。</p></li>
+</ul>
+</section>
+<section id="id5">
+<h2><span class="section-number">4.5. </span>减少运动拖影<a class="headerlink" href="4_Bitrate_Control_Topic.html#id5" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>透过纹理级码率控制可以有效减少容易察觉的平坦区域拖影，可以适当微调整纹理宏块级码率控制参数减少平坦区域拖影且增加细节。同时因增加复杂纹理区域QP使该区域失真较多。建议依照目标码率及场景调整取得平衡。</p></li>
+</ul>
+</section>
+<section id="id6">
+<h2><span class="section-number">4.6. </span>减少色度偏移<a class="headerlink" href="4_Bitrate_Control_Topic.html#id6" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>cb_qp_offset，cr_qp_offset为色度质量调整参数。藉由降低色度QP增加色度图像质量，减少图像色偏现象。同时可能降低亮度图像。建议依照目标码率及场景调整取得平衡。</p></li>
+</ul>
+</section>
+<section id="qp">
+<h2><span class="section-number">4.7. </span>码率控制的起始QP<a class="headerlink" href="4_Bitrate_Control_Topic.html#qp" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>合适的起始QP应考虑场景，码率，分辨率等来设置。用户可以通过VENC_RC_PARAM_S::s32FirstFrameStartQp配置合适的起始QP值。该接口在创建通道后，开始第一帧编码之前调用有效。</p></li>
+</ul>
+</section>
+<section id="id7">
+<h2><span class="section-number">4.8. </span>低码率场景<a class="headerlink" href="4_Bitrate_Control_Topic.html#id7" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>打开基于纹理的宏块级码率控制，设置推荐参数或适当微调。例如室外场景设置u32ThrdLv=3</p></li>
+<li><p>依照场景适当降低帧率。例如目标帧率设置为20fps。</p></li>
+<li><p>设置编码PSkip的方式动态降低帧率VENC_FRAMELOST_S::enFrmLostMode = FRMLOST_PSKIP；VENC_FRAMELOST_S::u32EncFrmGaps = 1。</p></li>
+<li><p>设置较大的Gop，并且码率统计时间u32StatTime建议与Gop值设置相匹配。Gop建议设置为帧率的5～10倍，例如帧率=30fps，Gop设置为150～300，u32StatTime设置为5～10秒。</p></li>
+<li><p>对于固定安装摄像头等偏静止场景，建议使用SmartP模式。编码当使用SmartP模式时，u32BgInterval应该与u32StatTime相匹配。</p></li>
+<li><p>降低ISP模块AE的灵敏度，增加AE反应延迟可避免光线明暗变化后AE的频繁调节。</p></li>
+<li><p>增加3DNR去噪强度，并适当降低Sharpen强度，降低图像细节。</p></li>
+</ul>
+</section>
+<section id="id8">
+<h2><span class="section-number">4.9. </span>注意事项<a class="headerlink" href="4_Bitrate_Control_Topic.html#id8" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>u32Gop：建议设置为编码帧率的整数倍，如果不是整数倍会因I帧的在时间上分布不均匀而导致瞬时码率波动。</p></li>
+<li><p>u32StatTime：建议设置为（Gop/fps）的整数倍，例如帧率30fps，Gop=60，统计时间应该设为2秒的整数倍。如果不是整数倍码率可能会不太准确。</p></li>
+<li><p>u32MaxIQp，u32MaxQp：帧内最大QP进行限制。关注质量时建议设置为[40, 46]，而较容易出现码率上冲。</p></li>
+<li><p>u32MinQp、u32MinIQp：帧内最小QP进行限制。适当设置能够在图像静止或小运动的时候节省码率。</p></li>
+<li><p>ROI设置Qp过低时会影响码率控制稳定度。应根据目标码率适当设置ROI。</p></li>
+<li><p>OSD图像通常为边缘较锐利的字体, 若OSD区域过大可能会增加编码压力。</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="3_Meaning_and_Usage_of_GOP_Structure_Parameters.html" class="btn btn-neutral float-left" title="3. GOP结构参数意义和使用方法" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

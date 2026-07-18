@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3. CVITEK SDK二次开发网络安全注意事项 &mdash; CyberSecurityPrecautionsforSDKSecondaryDevelopment master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="prev" title="2. 概述" href="2_Overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> CyberSecurityPrecautionsforSDKSecondaryDevelopment
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Overview.html">2. 概述</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#">3. CVITEK SDK二次开发网络安全注意事项</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#u-boot">3.1. u-boot使用注意事项</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#id1">3.1.1. 串口</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#id2">3.1.2. u-boot指令</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#linux">3.2. Linux使用网络安全注意事项</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#root">3.2.1. root帐户</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#id3">3.2.2. 文件权限</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#id4">3.3. Linux 驱动使用网络安全注意事项</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#id5">3.3.1. 串口</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#id6">3.4. 应用开发安全注意事项</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#cipher">3.4.1. Cipher驱动</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#id7">3.5. 其他安全注意事项</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#id8">3.5.1. 裸片烧写</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#sd-u">3.5.2. SD 卡/U盘挂载权限</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#jtag">3.5.3. JTAG</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#alios">3.6. Alios 开发使用注意事项</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CyberSecurityPrecautionsforSDKSecondaryDevelopment</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">3. </span>CVITEK SDK二次开发网络安全注意事项</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/3_Cyber_Security_Precautions_for_SDK_Secondary_Development.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cvitek-sdk">
+<h1><span class="section-number">3. </span>CVITEK SDK二次开发网络安全注意事项<a class="headerlink" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#cvitek-sdk" title="永久链接至标题">¶</a></h1>
+<section id="u-boot">
+<h2><span class="section-number">3.1. </span>u-boot使用注意事项<a class="headerlink" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#u-boot" title="永久链接至标题">¶</a></h2>
+<section id="id1">
+<h3><span class="section-number">3.1.1. </span>串口<a class="headerlink" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#id1" title="永久链接至标题">¶</a></h3>
+<p>CVITEK SDK中的u-boot串口功能默认是开启的。在u-boot的执行流程中，u-boot会等待一秒的时间让研发人员可以在执行阶段通过敲击按键的方式中断u-boot执行过程以停留在u-boot 阶段进行调试。若过程中没有任何敲击按键的事件发生，一秒后则会继续u-boot的开机流程。</p>
+<p>在正式发布的产品，可以将此配置取消，以达到无法在u-boot阶段通过串口调试的目的，具体实现方法如下：</p>
+<p>步骤1. 开启build/boards/{processor_name}/{board_name}/u-boot/{board_name}_defconfig (依据各产品的命名可能会有不同的文件名称，此示例中为 cvitek_cv1842hp_wevb_0014a_spinand_defconfig)。修改CONFIG_BOOTDELAY的配置值为”-2”。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>CONFIG_IDENT_STRING=&quot;cvitek_cv184x&quot;
+CONFIG_DISTRO_DEFAULTS=y
+CONFIG_BOOTDELAY=-2
+# CONFIG_DISPLAY_CPUINFO is not set
+</pre></div>
+</div>
+<p>步骤2. 重新编译u-boot</p>
+</section>
+<section id="id2">
+<h3><span class="section-number">3.1.2. </span>u-boot指令<a class="headerlink" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#id2" title="永久链接至标题">¶</a></h3>
+<p>u-boot下提供许多研发人员进行开发与调试的指令, 例如：md, mw, setenv, saveenv等。但这些指令在正式产品中并非是必须的。可以选择保留无关乎系统安全的指令，并将其他指令删除。</p>
+<p>例如欲删除 md/mw指令，具体实现方式如下：</p>
+<p>开启/u-boot-2021.10/cmd/Makefile, 因为md/mw 具体实现代码是在mem.c中</p>
+<p>所以直接将下面示例中的obj-$(CONFIG_CMD_MEMORY) += mem.o注释掉或删除</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">obj</span><span class="o">-</span><span class="n">$</span><span class="p">(</span><span class="n">CONFIG_LOGBUFFER</span><span class="p">)</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">log</span><span class="p">.</span><span class="n">o</span><span class="w"></span>
+<span class="n">obj</span><span class="o">-</span><span class="n">$</span><span class="p">(</span><span class="n">CONFIG_ID_EEPROM</span><span class="p">)</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">mac</span><span class="p">.</span><span class="n">o</span><span class="w"></span>
+<span class="n">obj</span><span class="o">-</span><span class="n">$</span><span class="p">(</span><span class="n">CONFIG_CMD_MD5SUM</span><span class="p">)</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">md5sum</span><span class="p">.</span><span class="n">o</span><span class="w"></span>
+<span class="cp">#obj-$(CONFIG_CMD_MEMORY) += mem.o</span>
+<span class="n">obj</span><span class="o">-</span><span class="n">$</span><span class="p">(</span><span class="n">CONFIG_CMD_IO</span><span class="p">)</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">io</span><span class="p">.</span><span class="n">o</span><span class="w"></span>
+<span class="n">obj</span><span class="o">-</span><span class="n">$</span><span class="p">(</span><span class="n">CONFIG_CMD_MFSL</span><span class="p">)</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">mfsl</span><span class="p">.</span><span class="n">o</span><span class="w"></span>
+</pre></div>
+</div>
+<p>或是修改 /u-boot-2021.10/cmd/Kconfig, 将default配置为”n”。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config CMD_MEMORY
+   bool &quot;md, mm, mw, cp, cmp, base, loop, ip_update&quot;
+   default n
+   help
+    Memory commands.
+       md - memory display
+       mm - memory modify (auto-incrementing address)
+       mw - memory write (fill)
+       cp - memory copy
+       cmp - memory compare
+       base - print or set address offset
+       loop - initialize loop on address range
+       ip_update - sync ip from mem 0x400038C/900 to uboot env
+</pre></div>
+</div>
+<p>其他命令删除方法与上面的操作类似。</p>
+</section>
+</section>
+<section id="linux">
+<h2><span class="section-number">3.2. </span>Linux使用网络安全注意事项<a class="headerlink" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#linux" title="永久链接至标题">¶</a></h2>
+<section id="root">
+<h3><span class="section-number">3.2.1. </span>root帐户<a class="headerlink" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#root" title="永久链接至标题">¶</a></h3>
+<p>在实际产品中，需要对root用户做安全性修改，用户可决定更改默认密码或是禁止root通过shell登录。具体方法如下：</p>
+<ul>
+<li><p>修改密码</p>
+<p>步骤1. 执行shell指令 ”passwd”更改密码。</p>
+<p>步骤2. 将/etc/shadow拷贝出来（可通过挂载SD卡或是网络）</p>
+<p>步骤3. 将shadow文件拷贝至/ramdisk/rootfs/overlay/{processor_name}/etc 下。</p>
+<p>步骤4. 重新编译rootfs文件系统 (指令： <code class="docutils literal notranslate"><span class="pre">pack_rootfs</span></code>)，并将rootfs.spinor 重新烧入进平台。</p>
+</li>
+<li><p>禁止root通过shell登录</p>
+<p>步骤1. 修改SDK包里的/ramdisk/rootfs/overlay/{processor_name}/etc/passwd，将内容</p>
+<p><code class="docutils literal notranslate"><span class="pre">root:x:0:0:root:/root:/bin/sh</span></code></p>
+<p>修改成：</p>
+<p><code class="docutils literal notranslate"><span class="pre">root:x:0:0:root:/root:/bin/false</span></code></p>
+<p>步骤2. 重新编译rootfs文件系统 (指令： <code class="docutils literal notranslate"><span class="pre">pack_rootfs</span></code>)，并將rootfs.spinor重新烧入进平台。</p>
+</li>
+</ul>
+</section>
+<section id="id3">
+<h3><span class="section-number">3.2.2. </span>文件权限<a class="headerlink" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#id3" title="永久链接至标题">¶</a></h3>
+<p>CVITEK SDK 默认使用SquashFS文件系统， 用户无法对预载的文件系统进行写或删除的动作，藉此来保护系统的稳定性。</p>
+</section>
+</section>
+<section id="id4">
+<h2><span class="section-number">3.3. </span>Linux 驱动使用网络安全注意事项<a class="headerlink" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#id4" title="永久链接至标题">¶</a></h2>
+<section id="id5">
+<h3><span class="section-number">3.3.1. </span>串口<a class="headerlink" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#id5" title="永久链接至标题">¶</a></h3>
+<p>研发人员在linux中可通过串口来做调试，若要避免串口被非法接入的风险，确定串口在产品中不再使用，则在出厂时可以关闭串口。具体实现方法如下：</p>
+<p>步骤1. 开启build/boards/{processor_name}/{board_name}/dts /{processor_name}/ {processor_name}_base.dtsi (依据各产品的命名可能会有不同的文件名称，此示例中为cv184x), 修改如下示例的代码，</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  uart0: serial@04140000 {
+              compatible = &quot;snps,dw-apb-uart&quot;;
+              reg = &lt;0x0 0x04140000 0x0 0x1000&gt;;
+              clock-frequency = &lt;25000000&gt;;
+              reg-shift = &lt;2&gt;;
+              reg-io-width = &lt;4&gt;;
+-             status = &quot;okay&quot;;
++             status = &quot;disabled&quot;;
+     };
+</pre></div>
+</div>
+<p>步骤2. 重新编译linux</p>
+</section>
+</section>
+<section id="id6">
+<h2><span class="section-number">3.4. </span>应用开发安全注意事项<a class="headerlink" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#id6" title="永久链接至标题">¶</a></h2>
+<section id="cipher">
+<h3><span class="section-number">3.4.1. </span>Cipher驱动<a class="headerlink" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#cipher" title="永久链接至标题">¶</a></h3>
+<p>CIPHER 是晶视智能数字媒体处理平台提供的安全算法模块，提供对称式加解密算法包括 AES/DES/SM4, 不对称加解密算法RSA 随机数生成, 以及摘要算法包括HASH, HMAC, 客户可用于对音视频码流进行加解密保护, 认证用户合法性等场景。
+详情请参考《CVITEK CIPHER API 参考》。</p>
+</section>
+</section>
+<section id="id7">
+<h2><span class="section-number">3.5. </span>其他安全注意事项<a class="headerlink" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#id7" title="永久链接至标题">¶</a></h2>
+<section id="id8">
+<h3><span class="section-number">3.5.1. </span>裸片烧写<a class="headerlink" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#id8" title="永久链接至标题">¶</a></h3>
+<p>CVITEK SDK包提供SD，USB裸片烧写功能，建议在实际产品中将裸片烧写功能关闭。SD，USB裸烧功能可以通过硬件上的设计进行关闭。</p>
+</section>
+<section id="sd-u">
+<h3><span class="section-number">3.5.2. </span>SD 卡/U盘挂载权限<a class="headerlink" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#sd-u" title="永久链接至标题">¶</a></h3>
+<p>若开发的产品具备SD card或是U盘等可插拔储存设备接口时，建议挂载储存设备文件系统前加上”-o noexec”参数，以避免恶意第三方程序的运行进而造成系统的损坏。</p>
+</section>
+<section id="jtag">
+<h3><span class="section-number">3.5.3. </span>JTAG<a class="headerlink" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#jtag" title="永久链接至标题">¶</a></h3>
+<p>建议在实际产品上移除JTAG接口，以避免恶意窜改系统配置而造成系统损坏。</p>
+</section>
+</section>
+<section id="alios">
+<h2><span class="section-number">3.6. </span>Alios 开发使用注意事项<a class="headerlink" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#alios" title="永久链接至标题">¶</a></h2>
+<p>参考Alios开源文档 <a class="reference external" href="https://github.com/alibaba/AliOS-Things/tree/master/documentation">https://github.com/alibaba/AliOS-Things/tree/master/documentation</a></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="2_Overview.html" class="btn btn-neutral float-left" title="2. 概述" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

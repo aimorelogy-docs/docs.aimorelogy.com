@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5. 视频输出 &mdash; MediaProcessingSoftwareDevelopmentReference master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="5.1. 功能概述" href="5_Video_Output/Function_Overview.html" />
+    <link rel="prev" title="4.5. 错误码" href="4_Video_Input/Error_Codes.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> MediaProcessingSoftwareDevelopmentReference
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_System_Overview.html">2. 系统概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_System_Control.html">3. 系统控制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_Video_Input.html">4. 视频输入</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="5_Video_Output.html#">5. 视频输出</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/Function_Overview.html">5.1. 功能概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/Design_Overview.html">5.2. 设计概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/API_Reference.html">5.3. API参考</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/Data_Types.html">5.4. 数据类型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/Error_Codes.html">5.5. 错误码</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="6_Video_Processing_Subsystem.html">6. 视频处理子系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_Video_Encoding.html">7. 视频编码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_Video_Decoding.html">8. 视频解码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_Regional_Management.html">9. 区域管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_Audio_Frequency.html">10. 音频</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem.html">11. 几何畸变矫正子系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_Proc_Debugging_Information_Explanation.html">12. Proc 调试信息说明</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MediaProcessingSoftwareDevelopmentReference</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">5. </span>视频输出</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/5_Video_Output.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">5. </span>视频输出<a class="headerlink" href="5_Video_Output.html#id1" title="永久链接至标题">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="5_Video_Output/Function_Overview.html">5.1. 功能概述</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/Function_Overview.html#id2">5.1.1. 目的</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="5_Video_Output/Design_Overview.html">5.2. 设计概述</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/Design_Overview.html#id2">5.2.1. 系统架构</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="5_Video_Output/API_Reference.html">5.3. API参考</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-enable">5.3.1. CVI_VO_Enable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-disable">5.3.2. CVI_VO_Disable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-isenabled">5.3.3. CVI_VO_IsEnabled</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-suspend">5.3.4. CVI_VO_Suspend</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-resume">5.3.5. CVI_VO_Resume</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-setpubattr">5.3.6. CVI_VO_SetPubAttr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-getpubattr">5.3.7. CVI_VO_GetPubAttr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-setbtparam">5.3.8. CVI_VO_SetBTParam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-getbtparam">5.3.9. CVI_VO_GetBTParam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-setlvdsparam">5.3.10. CVI_VO_SetLVDSParam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-getlvdsparam">5.3.11. CVI_VO_GetLVDSParam</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-enablevideolayer">5.3.12. CVI_VO_EnableVideoLayer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-disablevideolayer">5.3.13. CVI_VO_DisableVideoLayer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-setvideolayerattr">5.3.14. CVI_VO_SetVideoLayerAttr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-getvideolayerattr">5.3.15. CVI_VO_GetVideoLayerAttr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-getlayerprocampctrl">5.3.16. CVI_VO_GetLayerProcAmpCtrl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-setlayerprocamp">5.3.17. CVI_VO_SetLayerProcAmp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-getlayerprocamp">5.3.18. CVI_VO_GetLayerProcAmp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-setdisplaybuflen">5.3.19. CVI_VO_SetDisplayBufLen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-getdisplaybuflen">5.3.20. CVI_VO_GetDisplayBufLen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-enablechn">5.3.21. CVI_VO_EnableChn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-disablechn">5.3.22. CVI_VO_DisableChn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-setchnattr">5.3.23. CVI_VO_SetChnAttr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-getchnattr">5.3.24. CVI_VO_GetChnAttr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-showchn">5.3.25. CVI_VO_ShowChn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-hidechn">5.3.26. CVI_VO_HideChn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-setchnrotation">5.3.27. CVI_VO_SetChnRotation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-getchnrotation">5.3.28. CVI_VO_GetChnRotation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-pausechn">5.3.29. CVI_VO_PauseChn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-resumechn">5.3.30. CVI_VO_ResumeChn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-clearchnbuf">5.3.31. CVI_VO_ClearChnBuf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-sendframe">5.3.32. CVI_VO_SendFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-setchnframerate">5.3.33. CVI_VO_SetChnFrameRate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-getchnframerate">5.3.34. CVI_VO_GetChnFrameRate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-getchnpts">5.3.35. CVI_VO_GetChnPTS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-querychnstatus">5.3.36. CVI_VO_QueryChnStatus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-closefd">5.3.37. CVI_VO_CloseFd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-get-panel-status">5.3.38. CVI_VO_Get_Panel_Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-regpmcallback">5.3.39. CVI_VO_RegPmCallBack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-unregpmcallback">5.3.40. CVI_VO_UnRegPmCallBack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-setgammainfo">5.3.41. CVI_VO_SetGammaInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-getgammainfo">5.3.42. CVI_VO_GetGammaInfo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-showpattern">5.3.43. CVI_VO_ShowPattern</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="5_Video_Output/Data_Types.html">5.4. 数据类型</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-dev">5.4.1. VO_DEV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-layer">5.4.2. VO_LAYER</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-chn">5.4.3. VO_CHN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-intf-type-e">5.4.4. VO_INTF_TYPE_E</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-intf-sync-e">5.4.5. VO_INTF_SYNC_E</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-lvds-mode-e">5.4.6. VO_LVDS_MODE_E</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-lvds-out-bit-e">5.4.7. VO_LVDS_OUT_BIT_E</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-lvds-lane-id">5.4.8. VO_LVDS_LANE_ID</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-csc-matrix-e">5.4.9. VO_CSC_MATRIX_E</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-mac-bt-mux-e">5.4.10. VO_MAC_BT_MUX_E</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-mac-d-sel-e">5.4.11. VO_MAC_D_SEL_E</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-bt-mode-e">5.4.12. VO_BT_MODE_E</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-bt-data-seq-e">5.4.13. VO_BT_DATA_SEQ_E</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-csc-s">5.4.14. VO_CSC_S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-sync-info-s">5.4.15. VO_SYNC_INFO_S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-lvds-attr-s">5.4.16. VO_LVDS_ATTR_S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-pub-attr-s">5.4.17. VO_PUB_ATTR_S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-video-layer-attr-s">5.4.18. VO_VIDEO_LAYER_ATTR_S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-chn-attr-s">5.4.19. VO_CHN_ATTR_S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-min-chn-width">5.4.20. VO_MIN_CHN_WIDTH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-min-chn-height">5.4.21. VO_MIN_CHN_HEIGHT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-max-dev-num">5.4.22. VO_MAX_DEV_NUM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-max-layer-num">5.4.23. VO_MAX_LAYER_NUM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-max-chn-num">5.4.24. VO_MAX_CHN_NUM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-i80-instr-s">5.4.25. VO_I80_INSTR_S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-pm-ops-s">5.4.26. VO_PM_OPS_S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-gamma-info-s">5.4.27. VO_GAMMA_INFO_S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-bin-info-s">5.4.28. VO_BIN_INFO_S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-pattern-mode">5.4.29. VO_PATTERN_MODE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-d-remap-s">5.4.30. VO_D_REMAP_S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-pinmux-s">5.4.31. VO_PINMUX_S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-bt-attr-s">5.4.32. VO_BT_ATTR_S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-mcu-instrs-s">5.4.33. VO_MCU_INSTRS_S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-hw-mcu-cfg-s">5.4.34. VO_HW_MCU_CFG_S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-chn-status-s">5.4.35. VO_CHN_STATUS_S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-query-status-s">5.4.36. VO_QUERY_STATUS_S</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="5_Video_Output/Error_Codes.html">5.5. 错误码</a></li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="4_Video_Input/Error_Codes.html" class="btn btn-neutral float-left" title="4.5. 错误码" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="5_Video_Output/Function_Overview.html" class="btn btn-neutral float-right" title="5.1. 功能概述" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

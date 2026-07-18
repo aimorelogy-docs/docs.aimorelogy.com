@@ -1,0 +1,4715 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4.3. API参考 &mdash; MediaProcessingSoftwareDevelopmentReference master 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="../_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/qrious.js"></script>
+    <script src="../_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="4.4. 数据类型" href="Data_Types.html" />
+    <link rel="prev" title="4.2. 设计概述" href="Design_Overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> MediaProcessingSoftwareDevelopmentReference
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_System_Overview.html">2. 系统概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_System_Control.html">3. 系统控制</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../4_Video_Input.html">4. 视频输入</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Function_Overview.html">4.1. 功能概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Design_Overview.html">4.2. 设计概述</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="API_Reference.html#">4.3. API参考</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-setdevattr">4.3.1. CVI_VI_SetDevAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-getdevattr">4.3.2. CVI_VI_GetDevAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-enabledev">4.3.3. CVI_VI_EnableDev</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-disabledev">4.3.4. CVI_VI_DisableDev</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-setdevbindattr">4.3.5. CVI_VI_SetDevBindAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-getdevbindattr">4.3.6. CVI_VI_GetDevBindAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-setdevunbindattr">4.3.7. CVI_VI_SetDevUnbindAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-setdevtimingattr">4.3.8. CVI_VI_SetDevTimingAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-getdevtimingattr">4.3.9. CVI_VI_GetDevTimingAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-createpipe">4.3.10. CVI_VI_CreatePipe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-destroypipe">4.3.11. CVI_VI_DestroyPipe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-setpipeattr">4.3.12. CVI_VI_SetPipeAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-getpipeattr">4.3.13. CVI_VI_GetPipeAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-startpipe">4.3.14. CVI_VI_StartPipe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-stoppipe">4.3.15. CVI_VI_StopPipe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-setpipecrop">4.3.16. CVI_VI_SetPipeCrop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-getpipecrop">4.3.17. CVI_VI_GetPipeCrop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-setpipedumpattr">4.3.18. CVI_VI_SetPipeDumpAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-getpipedumpattr">4.3.19. CVI_VI_GetPipeDumpAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-setpipeframesource">4.3.20. CVI_VI_SetPipeFrameSource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-getpipeframesource">4.3.21. CVI_VI_GetPipeFrameSource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-getpipeframe">4.3.22. CVI_VI_GetPipeFrame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-releasepipeframe">4.3.23. CVI_VI_ReleasePipeFrame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-sendpiperaw">4.3.24. CVI_VI_SendPipeRaw</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-querypipestatus">4.3.25. CVI_VI_QueryPipeStatus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-getpipefd">4.3.26. CVI_VI_GetPipeFd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-closefd">4.3.27. CVI_VI_CloseFd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-attachvbpool">4.3.28. CVI_VI_AttachVbPool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-detachvbpool">4.3.29. CVI_VI_DetachVbPool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-setchnattr">4.3.30. CVI_VI_SetChnAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-getchnattr">4.3.31. CVI_VI_GetChnAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-enablechn">4.3.32. CVI_VI_EnableChn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-disablechn">4.3.33. CVI_VI_DisableChn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-setchncrop">4.3.34. CVI_VI_SetChnCrop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-getchncrop">4.3.35. CVI_VI_GetChnCrop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-getchnframe">4.3.36. CVI_VI_GetChnFrame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-releasechnframe">4.3.37. CVI_VI_ReleaseChnFrame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-setchnrotation">4.3.38. CVI_VI_SetChnRotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-getchnrotation">4.3.39. CVI_VI_GetChnRotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-setchnldcattr">4.3.40. CVI_VI_SetChnLDCAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-getchnldcattr">4.3.41. CVI_VI_GetChnLDCAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-regchnflipmirrorcallback">4.3.42. CVI_VI_RegChnFlipMirrorCallBack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-unregchnflipmirrorcallback">4.3.43. CVI_VI_UnRegChnFlipMirrorCallBack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-setchnflipmirror">4.3.44. CVI_VI_SetChnFlipMirror</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-getchnflipmirror">4.3.45. CVI_VI_GetChnFlipMirror</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-suspend">4.3.46. CVI_VI_Suspend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-resume">4.3.47. CVI_VI_Resume</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-setdevnum">4.3.48. CVI_VI_SetDevNum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-getdevnum">4.3.49. CVI_VI_GetDevNum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-enablepatgen">4.3.50. CVI_VI_EnablePatgen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-startsmoothrawdump">4.3.51. CVI_VI_StartSmoothRawDump</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-stopsmoothrawdump">4.3.52. CVI_VI_StopSmoothRawDump</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-getsmoothrawdump">4.3.53. CVI_VI_GetSmoothRawDump</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-putsmoothrawdump">4.3.54. CVI_VI_PutSmoothRawDump</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-dumphwregistertofile">4.3.55. CVI_VI_DumpHwRegisterToFile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-querychnstatus">4.3.56. CVI_VI_QueryChnStatus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-regpmcallback">4.3.57. CVI_VI_RegPmCallBack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-unregpmcallback">4.3.58. CVI_VI_UnRegPmCallBack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-settuningdis">4.3.59. CVI_VI_SetTuningDis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-querydevstatus">4.3.60. CVI_VI_QueryDevStatus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-trig-ahd">4.3.61. CVI_VI_Trig_AHD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-setextchnattr">4.3.62. CVI_VI_SetExtChnAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vi-getextchnattr">4.3.63. CVI_VI_GetExtChnAttr</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Data_Types.html">4.4. 数据类型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Error_Codes.html">4.5. 错误码</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../5_Video_Output.html">5. 视频输出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6_Video_Processing_Subsystem.html">6. 视频处理子系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7_Video_Encoding.html">7. 视频编码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../8_Video_Decoding.html">8. 视频解码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../9_Regional_Management.html">9. 区域管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10_Audio_Frequency.html">10. 音频</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../11_Geometric_Distortion_Correction_Subsystem.html">11. 几何畸变矫正子系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../12_Proc_Debugging_Information_Explanation.html">12. Proc 调试信息说明</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MediaProcessingSoftwareDevelopmentReference</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../4_Video_Input.html"><span class="section-number">4. </span>视频输入</a> &raquo;</li>
+      <li><span class="section-number">4.3. </span>API参考</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="../_sources/4_Video_Input/API_Reference.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="api">
+<h1><span class="section-number">4.3. </span>API参考<a class="headerlink" href="API_Reference.html#api" title="永久链接至标题">¶</a></h1>
+<p>视频输入（VI）实现启用视频输入设备、视频输入 PIPE 创建，视频输入信道配置、 Dev 绑定 MIPI 设备，PIPE 绑定 Dev 等功能。</p>
+<p>该功能模块提供以下API：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-setdevattr">CVI_VI_SetDevAttr</a> ：设置 VI 设备属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-getdevattr">CVI_VI_GetDevAttr</a> ：获取 VI 设备属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-enabledev">CVI_VI_EnableDev</a> ：启用 VI 设备。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-disabledev">CVI_VI_DisableDev</a> ：禁用 VI 设备。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-setdevbindattr">CVI_VI_SetDevBindAttr</a> ：设置 VI 设备绑定属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-getdevbindattr">CVI_VI_GetDevBindAttr</a> ：获取 VI 设备绑定属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-setdevunbindattr">CVI_VI_SetDevUnbindAttr</a> ：设置 VI 设备解除绑定属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#id1">CVI_VI_SetDevTimingAttr</a> ：设置自产生时序属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-getdevtimingattr">CVI_VI_GetDevTimingAttr</a> ：获取自产生时序属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-createpipe">CVI_VI_CreatePipe</a> ：创建一个 VI PIPE。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-destroypipe">CVI_VI_DestroyPipe</a> ：销毁一个 VI PIPE。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-setpipeattr">CVI_VI_SetPipeAttr</a> ：设置 VI PIPE 的属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-getpipeattr">CVI_VI_GetPipeAttr</a> ：获取 VI PIPE 的属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-startpipe">CVI_VI_StartPipe</a> ：启用 VI PIPE。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-stoppipe">CVI_VI_StopPipe</a> ：禁用 VI PIPE。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-setpipecrop">CVI_VI_SetPipeCrop</a> ：设置 VI 物理 PIPE 裁剪功能属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-getpipecrop">CVI_VI_GetPipeCrop</a> ：获取 VI 物理 PIPE 裁剪功能属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#id2">CVI_VI_SetPipeDumpAttr</a> ：设置 VI 物理 PIPE dump 属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#id3">CVI_VI_GetPipeDumpAttr</a> ：获取 VI 物理 PIPE dump 属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#id4">CVI_VI_SetPipeFrameSource</a> ：设置 VI PIPE 数据的来源。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-getpipeframesource">CVI_VI_GetPipeFrameSource</a> ：获取 VI PIPE 数据的来源。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-getpipeframe">CVI_VI_GetPipeFrame</a> ：获取 VI 物理 PIPE 的数据。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-releasepipeframe">CVI_VI_ReleasePipeFrame</a> ：释放 VI PIPE 的数据。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-sendpiperaw">CVI_VI_SendPipeRaw</a> ：通过 VI PIPE 发送 RAW 数据。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-querypipestatus">CVI_VI_QueryPipeStatus</a> ：查看 VI PIPE 状态。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-getpipefd">CVI_VI_GetPipeFd</a> ：获取 VI PIPE 文件描述符。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-closefd">CVI_VI_CloseFd</a> ：关闭 VI 文件描述符。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-attachvbpool">CVI_VI_AttachVbPool</a> ：将 VI 通道绑定到某个视频缓存VB池中。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-detachvbpool">CVI_VI_DetachVbPool</a> : 将 VI 通道从某个视频缓存VB池中解绑定。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#id5">CVI_VI_SetChnAttr</a> ：设置 VI 通道属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#id6">CVI_VI_GetChnAttr</a> ：获取 VI 通道属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-enablechn">CVI_VI_EnableChn</a> ：启用 VI 通道。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-disablechn">CVI_VI_DisableChn</a> ：禁用 VI 通道。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-setchncrop">CVI_VI_SetChnCrop</a> ：设置 VI 信道裁剪功能属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-getchncrop">CVI_VI_GetChnCrop</a> ：获取 VI 信道裁剪功能属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-getchnframe">CVI_VI_GetChnFrame</a> ：从 VI 通道获取采集的图像。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-releasechnframe">CVI_VI_ReleaseChnFrame</a> ：释放一帧从 VI 通道获取的图像。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-setchnrotation">CVI_VI_SetChnRotation</a> ：设置 VI 通道旋转的属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-getchnrotation">CVI_VI_GetChnRotation</a> ：获取 VI 通道旋转的属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-regchnflipmirrorcallback">CVI_VI_RegChnFlipMirrorCallBack</a> ：注册 VI 通道翻转镜像回调函数。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-unregchnflipmirrorcallback">CVI_VI_UnRegChnFlipMirrorCallBack</a> ：注销 VI 通道翻转镜像回调函数。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-setchnflipmirror">CVI_VI_SetChnFlipMirror</a> ：设置 VI 通道翻转镜像的属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-getchnflipmirror">CVI_VI_GetChnFlipMirror</a> ：获取 VI 通道翻转镜像的属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-suspend">CVI_VI_Suspend</a>: 休眠 VI 设备。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-resume">CVI_VI_Resume</a>: 唤醒 VI 设备。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-setdevnum">CVI_VI_SetDevNum</a>: 设置 VI 设备数量。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-getdevnum">CVI_VI_GetDevNum</a>: 获取 VI 设备数量。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-enablepatgen">CVI_VI_EnablePatgen</a>: 启用 VI pattern模式。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-startsmoothrawdump">CVI_VI_StartSmoothRawDump</a>: 开始dump平滑raw图。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-stopsmoothrawdump">CVI_VI_StopSmoothRawDump</a>: 停止dump平滑raw图。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-getsmoothrawdump">CVI_VI_GetSmoothRawDump</a>: 获取dump下来的平滑raw图。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-putsmoothrawdump">CVI_VI_PutSmoothRawDump</a>: 放置dump下来的平滑raw图。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-dumphwregistertofile">CVI_VI_DumpHwRegisterToFile</a>: 下载硬件寄存器数据到指定文件。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-querychnstatus">CVI_VI_QueryChnStatus</a>: 查看 VI 通道状态。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-regpmcallback">CVI_VI_RegPmCallBack</a>: 注册 VI 设备电源管理回调函数。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-unregpmcallback">CVI_VI_UnRegPmCallBack</a>: 注销 VI 设备电源管理回调函数。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-settuningdis">CVI_VI_SetTuningDis</a>: 设置tuning参数。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-querydevstatus">CVI_VI_QueryDevStatus</a>: 获取 VI 设备状态。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-trig-ahd">CVI_VI_Trig_AHD</a>: 设置AHD触发器。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-setextchnattr">CVI_VI_SetExtChnAttr</a> ：设置 VI 通道扩展属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-getextchnattr">CVI_VI_GetExtChnAttr</a> ：获取 VI 通道扩展属性。</p></li>
+</ul>
+<hr class="docutils" />
+<section id="cvi-vi-setdevattr">
+<h2><span class="section-number">4.3.1. </span>CVI_VI_SetDevAttr<a class="headerlink" href="API_Reference.html#cvi-vi-setdevattr" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>设置 VI 设备属性。基本设备属性默认了部分处理器配置。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_SetDevAttr</span><span class="p">(</span><span class="n">VI_DEV</span><span class="w"> </span><span class="n">ViDev</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">VI_DEV_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstDevAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViDev</p></td>
+<td><p>VI 设备号。取值范围：[0, VI_MAX_DEV_NUM)。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstDevAttr</p></td>
+<td><p>VI 设备属性指针。静态属性。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>在调用前要保证 VI 设备处于禁用状态。如果 VI 设备已处于使能状态，可以使用 CVI_VI_DisableDev 来禁用设备。</p></li>
+<li><p>参数 pstDevAttr 主要用来配置指定 VI 设备的视频接口模式，用于与外围 camera、sensor 或 codec 对接，支持的接口模式包括 MIPI_RX（MIPI/LVDS/HISPI）。</p></li>
+<li><p>用户需要配置以下几类信息，具体属性意义参见“ <a class="reference internal" href="Data_Types.html#id1"><span class="std std-ref">数据类型</span></a> ”部分的说明：</p>
+<ul>
+<li><p>接口模式信息：接口模式为 MIPI Rx（MIPI/LVDS/HISPI）等模式</p></li>
+<li><p>工作模式信息：1 路复合模式</p></li>
+<li><p>数据布局信息：YUV数据输入下的数据排列</p></li>
+<li><p>数据信息：RGB、YUV 数据输入</p></li>
+<li><p>同步时序信息：垂直、水平同步信号的属性</p></li>
+</ul>
+</li>
+</ul>
+<p>【举例】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">VI_DEV_ATTR_S</span><span class="w"> </span><span class="n">DEV_ATTR_IMX327_2M_BASE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">VI_MODE_MIPI</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VI_WORK_MODE_1Multiplex</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VI_SCAN_PROGRESSIVE</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">,</span><span class="w"> </span><span class="mi">-1</span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="n">VI_DATA_SEQ_YUYV</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="cm">/*port_vsync   port_vsync_neg     port_hsync        port_hsync_neg        */</span><span class="w"></span>
+<span class="w">  </span><span class="n">VI_VSYNC_PULSE</span><span class="p">,</span><span class="w"> </span><span class="n">VI_VSYNC_NEG_LOW</span><span class="p">,</span><span class="w"> </span><span class="n">VI_HSYNC_VALID_SINGNAL</span><span class="p">,</span><span class="w"> </span><span class="n">VI_HSYNC_NEG_HIGH</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VI_VSYNC_VALID_SIGNAL</span><span class="p">,</span><span class="w"> </span><span class="n">VI_VSYNC_VALID_NEG_HIGH</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">  </span><span class="cm">/*hsync_hfb    hsync_act    hsync_hhb*/</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="mi">0</span><span class="p">,</span><span class="mi">1920</span><span class="p">,</span><span class="w">        </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="cm">/*vsync0_vhb vsync0_act vsync0_hhb*/</span><span class="w"></span>
+<span class="w">  </span><span class="mi">0</span><span class="p">,</span><span class="mi">1080</span><span class="p">,</span><span class="w">        </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="cm">/*vsync1_vhb vsync1_act vsync1_hhb*/</span><span class="w"></span>
+<span class="w">  </span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="n">VI_DATA_TYPE_RGB</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="mi">1920</span><span class="p">,</span><span class="w"> </span><span class="mi">1080</span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">WDR_MODE_NONE</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="mi">1080</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="n">enBayerFormat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BAYER_FORMAT_RG</span><span class="p">,</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_SNS_TYPE_E</span><span class="w">  </span><span class="n">enSnsType</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">SONY_IMX327_MIPI_2M_30FPS_12BIT</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">VI_DEV_ATTR_S</span><span class="w">      </span><span class="n">stViDevAttr</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">SAMPLE_COMM_VI_GetDevAttrBySns</span><span class="p">(</span><span class="n">enSnsType</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">stViDevAttr</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">s32Ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_VI_SetDevAttr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">stViDevAttr</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s32Ret</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">CVI_SUCCESS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">SAMPLE_PRT</span><span class="p">(</span><span class="s">&quot;CVI_VI_SetDevAttr failed with %#x</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">s32Ret</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">s32Ret</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">s32Ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_VI_EnableDev</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s32Ret</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">CVI_SUCCESS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">SAMPLE_PRT</span><span class="p">(</span><span class="s">&quot;CVI_VI_EnableDev failed with %#x</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">s32Ret</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">s32Ret</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">CVI_VI_DisableDev</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">s32Ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_VI_StopPipe</span><span class="p">(</span><span class="n">ViPipe</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s32Ret</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">CVI_SUCCESS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">SAMPLE_PRT</span><span class="p">(</span><span class="s">&quot;CVI_VI_StopPipe failed with %#x!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">s32Ret</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">s32Ret</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">s32Ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_VI_DestroyPipe</span><span class="p">(</span><span class="n">ViPipe</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s32Ret</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">CVI_SUCCESS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">SAMPLE_PRT</span><span class="p">(</span><span class="s">&quot;CVI_VI_DestroyPipe failed with %#x!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">s32Ret</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">s32Ret</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vi-getdevattr">CVI_VI_GetDevAttr</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vi-getdevattr">
+<h2><span class="section-number">4.3.2. </span>CVI_VI_GetDevAttr<a class="headerlink" href="API_Reference.html#cvi-vi-getdevattr" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>获取 VI 设备属性。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_GetDevAttr</span><span class="p">(</span><span class="n">VI_DEV</span><span class="w"> </span><span class="n">ViDev</span><span class="p">,</span><span class="w"> </span><span class="n">VI_DEV_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstDevAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViDev</p></td>
+<td><p>VI 设备号。取值范围：[0, VI_MAX_DEV_NUM)。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstDevAttr</p></td>
+<td><p>VI 设备属性指针。</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<blockquote>
+<div><p>如果未设置 VI 设备属性，该接口将返回失败。</p>
+</div></blockquote>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vi-setdevattr">CVI_VI_SetDevAttr</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vi-enabledev">
+<h2><span class="section-number">4.3.3. </span>CVI_VI_EnableDev<a class="headerlink" href="API_Reference.html#cvi-vi-enabledev" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>启用 VI 设备。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_EnableDev</span><span class="p">(</span><span class="n">VI_DEV</span><span class="w"> </span><span class="n">ViDev</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViDev</p></td>
+<td><p>VI 设备号。取值范围：[0, VI_MAX_DEV_NUM)。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>如果未设置 VI 设备属性，该接口将返回失败。</p></li>
+<li><p>CV184x支持同时启动三个VI DEV。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vi-disabledev">CVI_VI_DisableDev</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vi-disabledev">
+<h2><span class="section-number">4.3.4. </span>CVI_VI_DisableDev<a class="headerlink" href="API_Reference.html#cvi-vi-disabledev" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>禁用 VI 设备。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_DisableDev</span><span class="p">(</span><span class="n">VI_DEV</span><span class="w"> </span><span class="n">ViDev</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViDev</p></td>
+<td><p>VI 设备号。取值范围：[0, VI_MAX_DEV_NUM)。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>建议先销毁所有与该VI 设备绑定的物理 PIPE 后，再禁用 VI 设备。</p></li>
+<li><p>禁用 VI 设备后将完全关闭该设备，需要重新设置属性，才能使能VI设备。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vi-enabledev">CVI_VI_EnableDev</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vi-setdevbindattr">
+<h2><span class="section-number">4.3.5. </span>CVI_VI_SetDevBindAttr<a class="headerlink" href="API_Reference.html#cvi-vi-setdevbindattr" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>设置 VI 设备绑定属性。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_SetDevBindAttr</span><span class="p">(</span><span class="n">VI_DEV</span><span class="w"> </span><span class="n">ViDev</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">VI_DEV_BIND_PIPE_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstDevBindAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViDev</p></td>
+<td><p>VI 设备号。取值范围：[0, VI_MAX_DEV_NUM)。</p></td>
+<td><p>输入/输出</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstDevBindPipe</p></td>
+<td><p>绑定到 Dev 的物理 PIPE 信息的结构体指针。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>必须先使能 VI 设备后才能绑定物理 PIPE。</p></li>
+<li><p>此接口暂无使用。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vi-enabledev">CVI_VI_EnableDev</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vi-getdevbindattr">
+<h2><span class="section-number">4.3.6. </span>CVI_VI_GetDevBindAttr<a class="headerlink" href="API_Reference.html#cvi-vi-getdevbindattr" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>获取 VI 设备绑定属性。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_GetDevBindAttr</span><span class="p">(</span><span class="n">VI_DEV</span><span class="w"> </span><span class="n">ViDev</span><span class="p">,</span><span class="w"> </span><span class="n">VI_DEV_BIND_PIPE_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstDevBindAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViDev</p></td>
+<td><p>VI 设备号。取值范围：[0, VI_MAX_DEV_NUM)。</p></td>
+<td><p>输入/输出</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstDevBindAttr</p></td>
+<td><p>设备绑定属性。</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>使用本接口前，需使能设备并绑定物理 PIPE，否则返回失败。</p></li>
+<li><p>此接口暂无使用。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vi-setdevbindattr">CVI_VI_SetDevBindAttr</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vi-setdevunbindattr">
+<h2><span class="section-number">4.3.7. </span>CVI_VI_SetDevUnbindAttr<a class="headerlink" href="API_Reference.html#cvi-vi-setdevunbindattr" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>设置 VI 设备解除绑定属性。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_SetDevUnbindAttr</span><span class="p">(</span><span class="n">VI_DEV</span><span class="w"> </span><span class="n">ViDev</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViDev</p></td>
+<td><p>VI 设备号。取值范围：[0, VI_MAX_DEV_NUM)。</p></td>
+<td><p>输入/输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>使用本接口前，需使能设备并绑定物理 PIPE，否则返回失败。</p></li>
+<li><p>此接口暂无使用。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+<hr class="docutils" />
+</section>
+<section id="cvi-vi-setdevtimingattr">
+<span id="id1"></span><h2><span class="section-number">4.3.8. </span>CVI_VI_SetDevTimingAttr<a class="headerlink" href="API_Reference.html#cvi-vi-setdevtimingattr" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>设置自产生时序属性。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_SetDevTimingAttr</span><span class="p">(</span><span class="n">VI_DEV</span><span class="w"> </span><span class="n">ViDev</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">VI_DEV_TIMING_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstTimingAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViDev</p></td>
+<td><p>VI 设备号。取值范围：[0, VI_MAX_DEV_NUM)。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstTimingAttr</p></td>
+<td><p>详见 <a class="reference internal" href="Data_Types.html#vi-dev-timing-attr-s"><span class="std std-ref">VI_DEV_TIMING_ATTR_S</span></a> 说明。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>使用本接口前，需先配置 DEV 属性，并使能设备，否则返回失败。</p></li>
+<li><p>使用自产生时序功能灌 RAW 时，需配置 DEV/ PIPE/ CHN 的宽高与 RAW 文件的宽高保持一致。</p></li>
+<li><p>使能自产生时序后，若不灌 RAW，则无图像显示；灌 RAW 方式请参考 CVI_VI_SendPipeRaw 的描述。</p></li>
+<li><p>使能自产生时序后，VI 输出帧率由配置自产生时序产生的有效帧率决定。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vi-enabledev">CVI_VI_EnableDev</a></p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vi-setdevattr">CVI_VI_SetDevAttr</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vi-getdevtimingattr">
+<h2><span class="section-number">4.3.9. </span>CVI_VI_GetDevTimingAttr<a class="headerlink" href="API_Reference.html#cvi-vi-getdevtimingattr" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>获取自产生时序属性。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_GetDevTimingAttr</span><span class="p">(</span><span class="n">VI_DEV</span><span class="w"> </span><span class="n">ViDev</span><span class="p">,</span><span class="w"> </span><span class="n">VI_DEV_TIMING_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstTimingAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViDev</p></td>
+<td><p>VI 设备号。取值范围：[0, VI_MAX_DEV_NUM)。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstTimingAttr</p></td>
+<td><p>详见 <a class="reference internal" href="Data_Types.html#vi-dev-timing-attr-s"><span class="std std-ref">VI_DEV_TIMING_ATTR_S</span></a> 说明。</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>使用本接口前，需先配置 DevTimingAttr，并使能设备，否则返回失败。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vi-enabledev">CVI_VI_EnableDev</a></p>
+<p><a class="reference internal" href="API_Reference.html#id1">CVI_VI_SetDevTimingAttr</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vi-createpipe">
+<h2><span class="section-number">4.3.10. </span>CVI_VI_CreatePipe<a class="headerlink" href="API_Reference.html#cvi-vi-createpipe" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>创建一个 VI PIPE。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_CreatePipe</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">VI_PIPE_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstPipeAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>VI PIPE号。取值范围：[0, VI_MAX_PIPE_NUM)。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstPipeAttr</p></td>
+<td><p>PIPE 的属性结构体指针。详见 <a class="reference internal" href="Data_Types.html#vi-pipe-attr-s"><span class="std std-ref">VI_PIPE_ATTR_S</span></a> 说明。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>不支持重复创建。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vi-enabledev">CVI_VI_EnableDev</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vi-destroypipe">
+<h2><span class="section-number">4.3.11. </span>CVI_VI_DestroyPipe<a class="headerlink" href="API_Reference.html#cvi-vi-destroypipe" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>销毁一个 VI PIPE。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_DestroyPipe</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>VI PIPE号。取值范围：[0, VI_MAX_PIPE_NUM)。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstPipeAttr</p></td>
+<td><p>PIPE 的属性结构体指针。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>在未创建 PIPE 或重复销毁 PIPE 时，调用本接口，将提示 PIPE 不存在。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vi-createpipe">CVI_VI_CreatePipe</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vi-setpipeattr">
+<h2><span class="section-number">4.3.12. </span>CVI_VI_SetPipeAttr<a class="headerlink" href="API_Reference.html#cvi-vi-setpipeattr" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>设置 VI PIPE 的属性。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_SetPipeAttr</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">VI_PIPE_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstPipeAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>VI PIPE号。取值范围：[0, VI_MAX_PIPE_NUM)。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstPipeAttr</p></td>
+<td><p>PIPE 的属性结构体指针。详见 <a class="reference internal" href="Data_Types.html#vi-pipe-attr-s"><span class="std std-ref">VI_PIPE_ATTR_S</span></a> 说明</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>使用本接口前，需先调用 CVI_VI_CreatePipe，否则提示失败。</p></li>
+<li><p>PIPE 属性必须合法，其中部分静态属性不可动态设置，具体请参见 <a class="reference internal" href="Data_Types.html#vi-pipe-attr-s"><span class="std std-ref">VI_PIPE_ATTR_S</span></a> 。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vi-getpipeattr">
+<h2><span class="section-number">4.3.13. </span>CVI_VI_GetPipeAttr<a class="headerlink" href="API_Reference.html#cvi-vi-getpipeattr" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>获取 VI PIPE 的属性。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_GetPipeAttr</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">VI_PIPE_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstPipeAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>VI PIPE号。取值范围：[0, VI_MAX_PIPE_NUM)。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstPipeAttr</p></td>
+<td><p>PIPE 的属性结构体指针。详见 <a class="reference internal" href="Data_Types.html#vi-pipe-attr-s"><span class="std std-ref">VI_PIPE_ATTR_S</span></a> 说明。</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>使用本接口前，需先调用 <a class="reference internal" href="API_Reference.html#cvi-vi-setpipeattr">CVI_VI_SetPipeAttr</a> 。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vi-setpipeattr">CVI_VI_SetPipeAttr</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vi-startpipe">
+<h2><span class="section-number">4.3.14. </span>CVI_VI_StartPipe<a class="headerlink" href="API_Reference.html#cvi-vi-startpipe" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>启用 VI PIPE。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_StartPipe</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>VI PIPE号。取值范围：[0, VI_MAX_PIPE_NUM)。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>使用本接口前，需先调用 <a class="reference internal" href="API_Reference.html#cvi-vi-createpipe">CVI_VI_CreatePipe</a> 。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vi-createpipe">CVI_VI_CreatePipe</a></p>
+</section>
+<section id="cvi-vi-stoppipe">
+<h2><span class="section-number">4.3.15. </span>CVI_VI_StopPipe<a class="headerlink" href="API_Reference.html#cvi-vi-stoppipe" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>禁用 VI PIPE。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_StopPipe</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>VI PIPE号。取值范围：[0, VI_MAX_PIPE_NUM)。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>使用本接口前，Pipe必须已创建。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vi-createpipe">CVI_VI_CreatePipe</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vi-setpipecrop">
+<h2><span class="section-number">4.3.16. </span>CVI_VI_SetPipeCrop<a class="headerlink" href="API_Reference.html#cvi-vi-setpipecrop" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>设置 VI 物理 PIPE 裁剪功能属性。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_SetPipeCrop</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">CROP_INFO_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstCropInfo</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>VI 物理 PIPE 号。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstCropInfo</p></td>
+<td><p>裁剪功能参数结构体指针。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>使用本接口前，Pipe必须已创建。</p></li>
+<li><p>本接口与 <a class="reference internal" href="API_Reference.html#cvi-vi-setchncrop">CVI_VI_SetChnCrop</a> 有同样效果。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vi-getpipecrop">
+<h2><span class="section-number">4.3.17. </span>CVI_VI_GetPipeCrop<a class="headerlink" href="API_Reference.html#cvi-vi-getpipecrop" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>获取 VI 物理 PIPE 裁剪功能属性。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_GetPipeCrop</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">CROP_INFO_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstCropInfo</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>VI 物理 PIPE 号。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstCropInfo</p></td>
+<td><p>裁剪功能参数结构体指针。</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>使用本接口前，Pipe必须已创建。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+<hr class="docutils" />
+</section>
+<section id="cvi-vi-setpipedumpattr">
+<span id="id2"></span><h2><span class="section-number">4.3.18. </span>CVI_VI_SetPipeDumpAttr<a class="headerlink" href="API_Reference.html#cvi-vi-setpipedumpattr" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>设置 VI 物理 PIPE dump 属性。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_SetPipeDumpAttr</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">VI_DUMP_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstDumpAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>物理 PIPE 号。取值范围：[0, VI_MAX_PHY_PIPE_NUM - 1)。</p></td>
+<td><p>输入/输出</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstDumpAttr</p></td>
+<td><p>VI 物理 PIPE dump 的属性。详见 <a class="reference internal" href="Data_Types.html#vi-dump-attr-s"><span class="std std-ref">VI_DUMP_ATTR_S</span></a> 说明</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>支持Dump 12-bit非压缩/6-bit压缩的RAW数据。</p></li>
+<li><p>如果是YUV数据建议使用CVI_VI_GetChnFrame。</p></li>
+<li><p>暂不支持Dump IR数据。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+<hr class="docutils" />
+</section>
+<section id="cvi-vi-getpipedumpattr">
+<span id="id3"></span><h2><span class="section-number">4.3.19. </span>CVI_VI_GetPipeDumpAttr<a class="headerlink" href="API_Reference.html#cvi-vi-getpipedumpattr" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>获取 VI 物理 PIPE dump 属性。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_GetPipeDumpAttr</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">VI_DUMP_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstDumpAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>物理 PIPE 号。取值范围：[0, VI_MAX_PHY_PIPE_NUM - 1)。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstDumpAttr</p></td>
+<td><p>VI 物理 PIPE dump 的属性。 详见 <a class="reference internal" href="Data_Types.html#vi-dump-attr-s"><span class="std std-ref">VI_DUMP_ATTR_S</span></a> 说明。</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>PIPE 必须已创建。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#id2">CVI_VI_SetPipeDumpAttr</a></p>
+<hr class="docutils" />
+</section>
+<section id="cvi-vi-setpipeframesource">
+<span id="id4"></span><h2><span class="section-number">4.3.20. </span>CVI_VI_SetPipeFrameSource<a class="headerlink" href="API_Reference.html#cvi-vi-setpipeframesource" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>设置 VI PIPE 数据的来源。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_SetPipeFrameSource</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">VI_PIPE_FRAME_SOURCE_E</span><span class="w"> </span><span class="n">enSource</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>VI PIPE号。取值范围：[0, VI_MAX_PIPE_NUM)。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>enSource</p></td>
+<td><p>PIPE 的数据来源。</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>PIPE 必须已创建。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vi-getpipeframesource">
+<h2><span class="section-number">4.3.21. </span>CVI_VI_GetPipeFrameSource<a class="headerlink" href="API_Reference.html#cvi-vi-getpipeframesource" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>获取 VI PIPE 数据的来源。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_GetPipeFrameSource</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">VI_PIPE_FRAME_SOURCE_E</span><span class="w"> </span><span class="o">*</span><span class="n">penSource</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>VI PIPE号。取值范围：[0, VI_MAX_PIPE_NUM)。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>penSource</p></td>
+<td><p>PIPE 的数据来源。</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>PIPE 必须已创建。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vi-getpipeframe">
+<h2><span class="section-number">4.3.22. </span>CVI_VI_GetPipeFrame<a class="headerlink" href="API_Reference.html#cvi-vi-getpipeframe" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>获取 VI 物理 PIPE 的数据。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_GetPipeFrame</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">VIDEO_FRAME_INFO_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstVideoFrame</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">s32MilliSec</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>物理 PIPE 号。取值范围：[0, VI_MAX_PHY_PIPE_NUM - 1)。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstVideoFrame</p></td>
+<td><p>VI PIPE 数据信息的指针。</p></td>
+<td><p>输出</p></td>
+</tr>
+<tr class="row-even"><td><p>s32MilliSec</p></td>
+<td><p>超时参数，超时时间的单位为毫秒（ms）。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>PIPE 必须已创建。</p></li>
+<li><p>调用 CVI_VI_SetPipeDumpAttr 设置 dump 属性、使能 dump、设置 depth，否则获取不到 raw 数据。</p></li>
+<li><p>超时参数 s32MilliSec，设置范围最小为0。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#id2">CVI_VI_SetPipeDumpAttr</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vi-releasepipeframe">
+<h2><span class="section-number">4.3.23. </span>CVI_VI_ReleasePipeFrame<a class="headerlink" href="API_Reference.html#cvi-vi-releasepipeframe" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>释放 VI PIPE 的数据。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_ReleasePipeFrame</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">VIDEO_FRAME_INFO_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstVideoFrame</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>物理 PIPE 号。取值范围：[0, VI_MAX_PHY_PIPE_NUM - 1)。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstVideoFrame</p></td>
+<td><p>VI PIPE 数据信息的指针。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>本接口需与 CVI_VI_GetPipeFrame 匹配使用，GetPipeFrame后不Release会导致系统内存不足，进而影响VI运作。</p></li>
+<li><p>用户必须保证 pstVideoFrame 结构中的信息与GetPipeFrame时一致，否则会造成释放不成功。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vi-getpipeframe">CVI_VI_GetPipeFrame</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vi-sendpiperaw">
+<h2><span class="section-number">4.3.24. </span>CVI_VI_SendPipeRaw<a class="headerlink" href="API_Reference.html#cvi-vi-sendpiperaw" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>通过 VI PIPE 发送 RAW 数据。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_SendPipeRaw</span><span class="p">(</span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32PipeNum</span><span class="p">,</span><span class="w"> </span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">PipeId</span><span class="p">[],</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">VIDEO_FRAME_INFO_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstVideoFrame</span><span class="p">[],</span><span class="w"> </span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">s32MilliSec</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>u32PipeNum</p></td>
+<td><p>Pipe 数目，固定填1值。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>PipeId</p></td>
+<td><p>PIPE 号数组，个数为 u32PipeNum。</p></td>
+<td><p>输入/输出</p></td>
+</tr>
+<tr class="row-even"><td><p>pstVideoFrame</p></td>
+<td><p>RAW 数据信息。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>s32MilliSec</p></td>
+<td><p>超时参数，大于 0 表示超时模式，超时时间的单位为毫秒（ms）。</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>PIPE 必须已创建且启动。</p></li>
+<li><p>送 RAW 首先需要通过 <a class="reference internal" href="API_Reference.html#id4">CVI_VI_SetPipeFrameSource</a> 来设置 PIPE 的数据来源。</p></li>
+<li><p>支持用户自定义时序灌 RAW。</p></li>
+<li><p>只支持送非压模式 RAW 数据。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#id4">CVI_VI_SetPipeFrameSource</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vi-querypipestatus">
+<h2><span class="section-number">4.3.25. </span>CVI_VI_QueryPipeStatus<a class="headerlink" href="API_Reference.html#cvi-vi-querypipestatus" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>查询 VI PIPE 状态。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_QueryPipeStatus</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">VI_PIPE_STATUS_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstStatus</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>PIPE 号。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstStatus</p></td>
+<td><p>PIPE 状态信息。</p></td>
+<td><p>输入/输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>PIPE 必须已创建且启动。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vi-getpipefd">
+<h2><span class="section-number">4.3.26. </span>CVI_VI_GetPipeFd<a class="headerlink" href="API_Reference.html#cvi-vi-getpipefd" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>获取 VI PIPE 文件描述符。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_GetPipeFd</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>PIPE 号。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>PIPE 必须已创建且启动。</p></li>
+<li><p>DUAL_OS不可用。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vi-closefd">
+<h2><span class="section-number">4.3.27. </span>CVI_VI_CloseFd<a class="headerlink" href="API_Reference.html#cvi-vi-closefd" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>关闭 VI 文件描述符。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_CloseFd</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<p>无</p>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>DUAL_OS不可用。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vi-attachvbpool">
+<h2><span class="section-number">4.3.28. </span>CVI_VI_AttachVbPool<a class="headerlink" href="API_Reference.html#cvi-vi-attachvbpool" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>将 VI 通道绑定到某个视频缓存VB池中。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_AttachVbPool</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">VI_CHN</span><span class="w"> </span><span class="n">ViChn</span><span class="p">,</span><span class="w"> </span><span class="n">VB_POOL</span><span class="w"> </span><span class="n">VbPool</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>PIPE 号。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>ViChn</p></td>
+<td><p>VI 通道号。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>VbPool</p></td>
+<td><p>视频缓存VB 池信息。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h，cvi_comm_vb.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>ViPipe、ViChn必须符合取值范围。</p></li>
+<li><p>VbPool必须保证是已创建VB池的有效PoolId。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vi-detachvbpool">
+<h2><span class="section-number">4.3.29. </span>CVI_VI_DetachVbPool<a class="headerlink" href="API_Reference.html#cvi-vi-detachvbpool" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>将 VI 通道从某个视频缓存VB池中解绑定。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_DetachVbPool</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">VI_CHN</span><span class="w"> </span><span class="n">ViChn</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>PIPE 号。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>ViChn</p></td>
+<td><p>VI 通道号。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>ViPipe、ViChn必须符合取值范围。</p></li>
+<li><p>VbPool必须保证是已创建VB池的有效PoolId。</p></li>
+<li><p>需先调用Attahc获取。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+<hr class="docutils" />
+</section>
+<section id="cvi-vi-setchnattr">
+<span id="id5"></span><h2><span class="section-number">4.3.30. </span>CVI_VI_SetChnAttr<a class="headerlink" href="API_Reference.html#cvi-vi-setchnattr" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>设置 VI 通道属性。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_SetChnAttr</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">VI_CHN</span><span class="w"> </span><span class="n">ViChn</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">VI_CHN_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstChnAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>PIPE 号。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>ViChn</p></td>
+<td><p>VI 通道号。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>pstChnAttr</p></td>
+<td><p>VI 通道属性结构体指针。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>目标图像大小 stSize： 必须配置，且大小需要在 VI 支持的范围内。</p></li>
+<li><p>像素格式 enPixelFormat：输出像素格式支持 NV21。</p></li>
+<li><p>帧率控制 stFrameRate：不支持帧率控制。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+<hr class="docutils" />
+</section>
+<section id="cvi-vi-getchnattr">
+<span id="id6"></span><h2><span class="section-number">4.3.31. </span>CVI_VI_GetChnAttr<a class="headerlink" href="API_Reference.html#cvi-vi-getchnattr" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>获取 VI 通道属性。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_GetChnAttr</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">VI_CHN</span><span class="w"> </span><span class="n">ViChn</span><span class="p">,</span><span class="w"> </span><span class="n">VI_CHN_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstChnAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>PIPE 号。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>ViChn</p></td>
+<td><p>VI 通道号。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>pstChnAttr</p></td>
+<td><p>VI 通道属性结构体指针。</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>PIPE 必须已创建，否则会返回失败。</p></li>
+<li><p>通道属性需先设置后，才可获取。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vi-enablechn">
+<h2><span class="section-number">4.3.32. </span>CVI_VI_EnableChn<a class="headerlink" href="API_Reference.html#cvi-vi-enablechn" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>启用 VI 通道。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_EnableChn</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">VI_CHN</span><span class="w"> </span><span class="n">ViChn</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>PIPE 号。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>ViChn</p></td>
+<td><p>VI 通道号。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>PIPE 必须已创建，否则会返回失败。</p></li>
+<li><p>必须先设置通道属性。</p></li>
+<li><p>不支持重复启用 VI 通道。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vi-disablechn">
+<h2><span class="section-number">4.3.33. </span>CVI_VI_DisableChn<a class="headerlink" href="API_Reference.html#cvi-vi-disablechn" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>禁用 VI 通道。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_DisableChn</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">VI_CHN</span><span class="w"> </span><span class="n">ViChn</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>PIPE 号。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>ViChn</p></td>
+<td><p>VI 通道号。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>PIPE 必须已创建，否则会返回失败。</p></li>
+<li><p>必须先设置通道属性。</p></li>
+<li><p>VI 通道须要先使能。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vi-setchncrop">
+<h2><span class="section-number">4.3.34. </span>CVI_VI_SetChnCrop<a class="headerlink" href="API_Reference.html#cvi-vi-setchncrop" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>设置 VI 通道裁剪功能属性。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_SetChnCrop</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">VI_CHN</span><span class="w"> </span><span class="n">ViChn</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">VI_CROP_INFO_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstCropInfo</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>PIPE 号。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>ViChn</p></td>
+<td><p>VI 通道号。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>pstCropInfo</p></td>
+<td><p>裁剪功能参数结构体指针。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>PIPE 必须已创建，否则会返回失败。</p></li>
+<li><p>使用此API进行Crop，会让部分画面丧失。</p></li>
+<li><p>使用此API进行Crop后，VPSS的输入size必须和pstCropInfo的size一样。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vi-getchncrop">
+<h2><span class="section-number">4.3.35. </span>CVI_VI_GetChnCrop<a class="headerlink" href="API_Reference.html#cvi-vi-getchncrop" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>获取 VI 通道裁剪功能属性。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_GetChnCrop</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">VI_CHN</span><span class="w"> </span><span class="n">ViChn</span><span class="p">,</span><span class="w"> </span><span class="n">VI_CROP_INFO_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstCropInfo</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>PIPE 号。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>ViChn</p></td>
+<td><p>VI 通道号。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>pstCropInfo</p></td>
+<td><p>裁剪功能参数结构体指针</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>PIPE 必须已创建，否则会返回失败。</p></li>
+<li><p>必须先使用SetChnCrop设置属性，才能获得属性。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vi-getchnframe">
+<h2><span class="section-number">4.3.36. </span>CVI_VI_GetChnFrame<a class="headerlink" href="API_Reference.html#cvi-vi-getchnframe" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>从 VI 通道获取采集的图像。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_GetChnFrame</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">VI_CHN</span><span class="w"> </span><span class="n">ViChn</span><span class="p">,</span><span class="w"> </span><span class="n">VIDEO_FRAME_INFO_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstFrameInfo</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">s32MilliSec</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>PIPE 号。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>ViChn</p></td>
+<td><p>VI 通道号。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>pstFrameInfo</p></td>
+<td><p>VI 帧信息结构指针。</p></td>
+<td><p>输出</p></td>
+</tr>
+<tr class="row-odd"><td><p>s32MilliSec</p></td>
+<td><p>超时参数，-1 表示阻塞模式；0 表示非阻塞模式；大于 0 表示超时模式，超时时间的单位为毫秒（ms）。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>PIPE 必须已创建，否则会返回失败。</p></li>
+<li><p>必须先设置通道属性。</p></li>
+<li><p>获取的物理地址信息来自内部使用的 VideoBuffer，因此使用完之后，必须要调用 CVI_VI_ReleaseChnFrame 接口释放其内存。</p></li>
+<li><p>pstFrameInfo-&gt;stVFrame.u64PhyAddr[0] 和 pstFrameInfo-&gt;stVFrame.u64PhyAddr[1]/[2] 分别指向图像的亮度分量和色度分量的物理地址。</p></li>
+<li><p>如果 u32MilliSec 设为 -1 时，表示阻塞模式，程序一直等待，直到获取到图像才返回。</p></li>
+<li><p>如果 u32MilliSec 大于 0 时，表示非阻塞模式，参数的单位是毫秒，指超时时间，在此时间内如果没有获取到图像，则超时返回。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-releasechnframe">CVI_VI_ReleaseChnFrame</a></p></li>
+<li><p><a class="reference internal" href="API_Reference.html#id5">CVI_VI_SetChnAttr</a></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="cvi-vi-releasechnframe">
+<h2><span class="section-number">4.3.37. </span>CVI_VI_ReleaseChnFrame<a class="headerlink" href="API_Reference.html#cvi-vi-releasechnframe" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>释放一帧从 VI 通道获取的图像。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_ReleaseChnFrame</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">VI_CHN</span><span class="w"> </span><span class="n">ViChn</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">VIDEO_FRAME_INFO_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstFrameInfo</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>PIPE 号。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>ViChn</p></td>
+<td><p>VI 通道号。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>pstFrameInfo</p></td>
+<td><p>VI 帧信息结构指针。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>PIPE 必须已创建，否则会返回失败。</p></li>
+<li><p>必须先设置通道属性。</p></li>
+<li><p>此接口必须与 <a class="reference internal" href="API_Reference.html#cvi-vi-getchnframe">CVI_VI_GetChnFrame</a> 配对使用。</p></li>
+<li><p>用户必须保证 pstFrameInfo 结构中的信息与获取时一致，否则可能造成释放不成功。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-getchnframe">CVI_VI_GetChnFrame</a></p></li>
+<li><p><a class="reference internal" href="API_Reference.html#id5">CVI_VI_SetChnAttr</a></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="cvi-vi-setchnrotation">
+<h2><span class="section-number">4.3.38. </span>CVI_VI_SetChnRotation<a class="headerlink" href="API_Reference.html#cvi-vi-setchnrotation" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>设置 VI 通道旋转的属性。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_SetChnRotation</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">VI_CHN</span><span class="w"> </span><span class="n">ViChn</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ROTATION_E</span><span class="w"> </span><span class="n">enRotation</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>VI物理 PIPE 号。取值范围：[0, VI_MAX_PHY_PIPE_NUM - 1)。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>ViChn</p></td>
+<td><p>VI物理通道号。取值范围：[0, VI_MAX_PHY_CHN_NUM - 1)。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>enRotation</p></td>
+<td><p>旋转属性。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>使用本接口前，需先调用 CVI_VI_CreatePipe，否则提示失败。</p></li>
+<li><p>必需在设置通道属性后才能设置此属性。</p></li>
+<li><p>仅支持YUV420 Planar及YUV400两种格式的旋转。</p></li>
+<li><p>旋转后通道输出的图像内存大小可能发生变化，但从通道所获取的尺寸仍为原本用户设置值。例如1920x1080输入的图像，旋转90度后，实际输出为1080x1920。</p></li>
+<li><p>VI_ONLINE_VPSS_ONLINE/ VI_OFFLINE_VPSS_ONLINE下不支援。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vi-getchnrotation">
+<h2><span class="section-number">4.3.39. </span>CVI_VI_GetChnRotation<a class="headerlink" href="API_Reference.html#cvi-vi-getchnrotation" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>获取 VI 通道旋转的属性。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_GetChnRotation</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">VI_CHN</span><span class="w"> </span><span class="n">ViChn</span><span class="p">,</span><span class="w"> </span><span class="n">ROTATION_E</span><span class="w"> </span><span class="o">*</span><span class="n">penRotation</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>VI物理 PIPE 号。取值范围：[0, VI_MAX_PHY_PIPE_NUM - 1)。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>ViChn</p></td>
+<td><p>VI物理通道号。取值范围：[0, VI_MAX_PHY_CHN_NUM - 1)。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>penRotation</p></td>
+<td><p>旋转属性指针。</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>使用本接口前，需先调用 <a class="reference internal" href="API_Reference.html#cvi-vi-createpipe">CVI_VI_CreatePipe</a> (ViPipe)，否则提示失败。</p></li>
+<li><p>VI_ONLINE_VPSS_ONLINE/ VI_OFFLINE_VPSS_ONLINE下不支援。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vi-setchnrotation">CVI_VI_SetChnRotation</a></p>
+<hr class="docutils" />
+</section>
+<section id="cvi-vi-setchnldcattr">
+<span id="id7"></span><h2><span class="section-number">4.3.40. </span>CVI_VI_SetChnLDCAttr<a class="headerlink" href="API_Reference.html#cvi-vi-setchnldcattr" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>设置 VI 通道镜头畸变矫正的属性。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_SetChnLDCAttr</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">VI_CHN</span><span class="w"> </span><span class="n">ViChn</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">VI_LDC_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstLDCAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>VI物理 PIPE 号。取值范围：[0, VI_MAX_PHY_PIPE_NUM - 1)。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>ViChn</p></td>
+<td><p>VI物理通道号。取值范围：[0, VI_MAX_PHY_CHN_NUM - 1)。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>pstLDCAttr</p></td>
+<td><p>镜头畸变矫正属性。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>使用本接口前，需先调用 CVI_VI_CreatePipe，否则提示失败。</p></li>
+<li><p>必需在设置通道属性后才能设置此属性。</p></li>
+<li><p>VI_ONLINE_VPSS_ONLINE/ VI_OFFLINE_VPSS_ONLINE下不支援。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#id8">CVI_VI_GetChnLDCAttr</a></p>
+<p><a class="reference internal" href="Data_Types.html#vi-ldc-attr-s"><span class="std std-ref">VI_LDC_ATTR_S</span></a></p>
+<hr class="docutils" />
+</section>
+<section id="cvi-vi-getchnldcattr">
+<span id="id8"></span><h2><span class="section-number">4.3.41. </span>CVI_VI_GetChnLDCAttr<a class="headerlink" href="API_Reference.html#cvi-vi-getchnldcattr" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>获取 VI 通道镜头畸变矫正的属性。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_GetChnLDCAttr</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">VI_CHN</span><span class="w"> </span><span class="n">ViChn</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">VI_LDC_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstLDCAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>VI物理 PIPE 号。取值范围：[0, VI_MAX_PHY_PIPE_NUM - 1)。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>ViChn</p></td>
+<td><p>VI物理通道号。取值范围：[0, VI_MAX_PHY_CHN_NUM - 1)。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>pstLDCAttr</p></td>
+<td><p>镜头畸变矫正属性。</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>使用本接口前，需先调用 CVI_VI_CreatePipe，否则提示失败。</p></li>
+<li><p>VI_ONLINE_VPSS_ONLINE/ VI_OFFLINE_VPSS_ONLINE下不支援。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#id7">CVI_VI_SetChnLDCAttr</a></p>
+<p><a class="reference internal" href="Data_Types.html#vi-ldc-attr-s"><span class="std std-ref">VI_LDC_ATTR_S</span></a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vi-regchnflipmirrorcallback">
+<h2><span class="section-number">4.3.42. </span>CVI_VI_RegChnFlipMirrorCallBack<a class="headerlink" href="API_Reference.html#cvi-vi-regchnflipmirrorcallback" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>注册 VI 通道翻转镜像回调函数。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_RegChnFlipMirrorCallBack</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">VI_DEV</span><span class="w"> </span><span class="n">ViDev</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">pvData</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>PIPE 号。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>ViDev</p></td>
+<td><p>VI 设备号。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>pvData</p></td>
+<td><p>回调函数指针。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<p>无</p>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vi-unregchnflipmirrorcallback">
+<h2><span class="section-number">4.3.43. </span>CVI_VI_UnRegChnFlipMirrorCallBack<a class="headerlink" href="API_Reference.html#cvi-vi-unregchnflipmirrorcallback" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>注销 VI 通道翻转镜像回调函数。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_UnRegChnFlipMirrorCallBack</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">VI_DEV</span><span class="w"> </span><span class="n">ViDev</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>PIPE 号。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>ViDev</p></td>
+<td><p>VI 设备号。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<p>无</p>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vi-setchnflipmirror">
+<h2><span class="section-number">4.3.44. </span>CVI_VI_SetChnFlipMirror<a class="headerlink" href="API_Reference.html#cvi-vi-setchnflipmirror" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>设置 VI 通道翻转镜像的属性。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_SetChnFlipMirror</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">VI_CHN</span><span class="w"> </span><span class="n">ViChn</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bFlip</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bMirror</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>PIPE 号。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>ViChn</p></td>
+<td><p>VI 通道号。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>bFlip</p></td>
+<td><p>翻转使能开关。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>bMirror</p></td>
+<td><p>镜像使能开关。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>使用前需先调用 CVI_VI_RegChnFlipMirrorCallBack 注册回调函数，否则提示失败。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-regchnflipmirrorcallback">CVI_VI_RegChnFlipMirrorCallBack</a></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="cvi-vi-getchnflipmirror">
+<h2><span class="section-number">4.3.45. </span>CVI_VI_GetChnFlipMirror<a class="headerlink" href="API_Reference.html#cvi-vi-getchnflipmirror" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>获取 VI 通道翻转镜像的属性。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_GetChnFlipMirror</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">VI_CHN</span><span class="w"> </span><span class="n">ViChn</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="o">*</span><span class="n">pbFlip</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="o">*</span><span class="n">pbMirror</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>PIPE 号。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>ViChn</p></td>
+<td><p>VI 通道号。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>pbFlip</p></td>
+<td><p>翻转属性。</p></td>
+<td><p>输出</p></td>
+</tr>
+<tr class="row-odd"><td><p>pbMirror</p></td>
+<td><p>镜像属性。</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<p>无</p>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vi-suspend">
+<h2><span class="section-number">4.3.46. </span>CVI_VI_Suspend<a class="headerlink" href="API_Reference.html#cvi-vi-suspend" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>休眠 VI 设备。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_Suspend</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<p>无</p>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>需在初始化VI模块之后调用</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vi-resume">CVI_VI_Resume</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vi-resume">
+<h2><span class="section-number">4.3.47. </span>CVI_VI_Resume<a class="headerlink" href="API_Reference.html#cvi-vi-resume" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>唤醒 VI 设备。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_Resume</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<p>无</p>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>需在VI模块进行suspend之后使用</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vi-suspend">CVI_VI_Suspend</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vi-setdevnum">
+<h2><span class="section-number">4.3.48. </span>CVI_VI_SetDevNum<a class="headerlink" href="API_Reference.html#cvi-vi-setdevnum" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>设置 VI 设备数量。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_SetDevNum</span><span class="p">(</span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">devNum</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>devNum</p></td>
+<td><p>VI 设备数量。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<p>无</p>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vi-getdevnum">CVI_VI_GetDevNum</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vi-getdevnum">
+<h2><span class="section-number">4.3.49. </span>CVI_VI_GetDevNum<a class="headerlink" href="API_Reference.html#cvi-vi-getdevnum" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>获取 VI 设备数量。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_GetDevNum</span><span class="p">(</span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">devNum</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>devNum</p></td>
+<td><p>VI 设备数量。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<p>无</p>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vi-setdevnum">CVI_VI_SetDevNum</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vi-enablepatgen">
+<h2><span class="section-number">4.3.50. </span>CVI_VI_EnablePatgen<a class="headerlink" href="API_Reference.html#cvi-vi-enablepatgen" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>启用 VI pattern模式。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_EnablePatgen</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>Pipe 号。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<p>无</p>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vi-startsmoothrawdump">
+<h2><span class="section-number">4.3.51. </span>CVI_VI_StartSmoothRawDump<a class="headerlink" href="API_Reference.html#cvi-vi-startsmoothrawdump" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>开始dump平滑raw图。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_StartSmoothRawDump</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">VI_SMOOTH_RAW_DUMP_INFO_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstDumpInfo</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>pstDumpInfo</p></td>
+<td><p>vi dump平滑raw图信息结构体指针</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<p>无</p>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vi-stopsmoothrawdump">CVI_VI_StopSmoothRawDump</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vi-stopsmoothrawdump">
+<h2><span class="section-number">4.3.52. </span>CVI_VI_StopSmoothRawDump<a class="headerlink" href="API_Reference.html#cvi-vi-stopsmoothrawdump" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>停止dump平滑raw图。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_StopSmoothRawDump</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">VI_SMOOTH_RAW_DUMP_INFO_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstDumpInfo</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>pstDumpInfo</p></td>
+<td><p>vi dump平滑raw图信息结构体指针</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<p>无</p>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vi-startsmoothrawdump">CVI_VI_StartSmoothRawDump</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vi-getsmoothrawdump">
+<h2><span class="section-number">4.3.53. </span>CVI_VI_GetSmoothRawDump<a class="headerlink" href="API_Reference.html#cvi-vi-getsmoothrawdump" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>获取dump下来的平滑raw图。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_GetSmoothRawDump</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">VIDEO_FRAME_INFO_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstVideoFrame</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">s32MilliSec</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>pipe号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstVideoFrame</p></td>
+<td><p>raw数据信息</p></td>
+<td><p>输出</p></td>
+</tr>
+<tr class="row-even"><td><p>s32MilliSec</p></td>
+<td><p>超时参数，-1 表示阻塞模式；0 表示非阻塞模式；大于 0 表示超时模式，超时时间的单位为毫秒（ms）。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<p>无</p>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vi-putsmoothrawdump">
+<h2><span class="section-number">4.3.54. </span>CVI_VI_PutSmoothRawDump<a class="headerlink" href="API_Reference.html#cvi-vi-putsmoothrawdump" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>放置dump下来的平滑raw图。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_PutSmoothRawDump</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">VIDEO_FRAME_INFO_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstVideoFrame</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>pipe号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstVideoFrame</p></td>
+<td><p>raw数据信息</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<p>无</p>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vi-dumphwregistertofile">
+<h2><span class="section-number">4.3.55. </span>CVI_VI_DumpHwRegisterToFile<a class="headerlink" href="API_Reference.html#cvi-vi-dumphwregistertofile" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>下载硬件寄存器数据到指定文件。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_DumpHwRegisterToFile</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">fp</span><span class="p">,</span><span class="w"> </span><span class="n">VI_DUMP_REGISTER_TABLE_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstRegTbl</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>pipe号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>fp</p></td>
+<td><p>文件描述符</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>pstRegTbl</p></td>
+<td><p>硬件寄存器数据指针</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<p>无</p>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vi-querychnstatus">
+<h2><span class="section-number">4.3.56. </span>CVI_VI_QueryChnStatus<a class="headerlink" href="API_Reference.html#cvi-vi-querychnstatus" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>查看 VI 通道状态。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_QueryChnStatus</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">VI_CHN</span><span class="w"> </span><span class="n">ViChn</span><span class="p">,</span><span class="w"> </span><span class="n">VI_CHN_STATUS_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstChnStatus</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>pipe号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>ViChn</p></td>
+<td><p>VI通道号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>pstChnStatus</p></td>
+<td><p>VI 设备通道状态结构体指针</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<p>无</p>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vi-regpmcallback">
+<h2><span class="section-number">4.3.57. </span>CVI_VI_RegPmCallBack<a class="headerlink" href="API_Reference.html#cvi-vi-regpmcallback" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>注册 VI 设备电源管理回调函数。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_RegPmCallBack</span><span class="p">(</span><span class="n">VI_DEV</span><span class="w"> </span><span class="n">ViDev</span><span class="p">,</span><span class="w"> </span><span class="n">VI_PM_OPS_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstPmOps</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">pvData</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViDev</p></td>
+<td><p>VI 设备号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstPmOps</p></td>
+<td><p>VI 设备电源管理操作结构体指针</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>pvData</p></td>
+<td><p>用户私有数据指针</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<p>无</p>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vi-unregpmcallback">CVI_VI_UnRegPmCallBack</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vi-unregpmcallback">
+<h2><span class="section-number">4.3.58. </span>CVI_VI_UnRegPmCallBack<a class="headerlink" href="API_Reference.html#cvi-vi-unregpmcallback" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>注销 VI 设备电源管理回调函数。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_UnRegPmCallBack</span><span class="p">(</span><span class="n">VI_DEV</span><span class="w"> </span><span class="n">ViDev</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViDev</p></td>
+<td><p>VI 设备号</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<p>无</p>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vi-regpmcallback">CVI_VI_RegPmCallBack</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vi-settuningdis">
+<h2><span class="section-number">4.3.59. </span>CVI_VI_SetTuningDis<a class="headerlink" href="API_Reference.html#cvi-vi-settuningdis" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>设置tuning参数。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_SetTuningDis</span><span class="p">(</span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">ctrl</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">fe</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">be</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">post</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ctrl</p></td>
+<td><p>控制通道参数</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>fe</p></td>
+<td><p>fe控制参数</p></td>
+<td><p>输入be</p></td>
+</tr>
+<tr class="row-even"><td><p>be</p></td>
+<td><p>be控制参数</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>post</p></td>
+<td><p>post控制参数</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<p>仅DUAL OS支持</p>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vi-querydevstatus">
+<h2><span class="section-number">4.3.60. </span>CVI_VI_QueryDevStatus<a class="headerlink" href="API_Reference.html#cvi-vi-querydevstatus" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>获取 VI 设备状态。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_QueryDevStatus</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>pipe号</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<p>无</p>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vi-trig-ahd">
+<h2><span class="section-number">4.3.61. </span>CVI_VI_Trig_AHD<a class="headerlink" href="API_Reference.html#cvi-vi-trig-ahd" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>设置AHD触发器。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_Trig_AHD</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8AHDSignal</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>VI PIPE号。取值范围：[0, VI_MAX_PIPE_NUM)。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>u8AHDSignal</p></td>
+<td><p>AHD开启标志。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>使用此接口需要使用AHD热插拔sensor，正常使用无需调用此接口。</p></li>
+<li><p>接口暂时弃用。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vi-setextchnattr">
+<h2><span class="section-number">4.3.62. </span>CVI_VI_SetExtChnAttr<a class="headerlink" href="API_Reference.html#cvi-vi-setextchnattr" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>设置扩展通道属性。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_SetExtChnAttr</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">VI_CHN</span><span class="w"> </span><span class="n">ViChn</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">VI_EXT_CHN_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstExtChnAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>VI PIPE号。取值范围：[0, VI_MAX_PIPE_NUM)。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>ViChn</p></td>
+<td><p>VI 通道号。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>pstExtChnAttr</p></td>
+<td><p>VI 通道扩展属性结构体指针。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>此接口暂无使用。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vi-getextchnattr">CVI_VI_GetExtChnAttr</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vi-getextchnattr">
+<h2><span class="section-number">4.3.63. </span>CVI_VI_GetExtChnAttr<a class="headerlink" href="API_Reference.html#cvi-vi-getextchnattr" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>获取扩展通道属性。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VI_GetExtChnAttr</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">VI_CHN</span><span class="w"> </span><span class="n">ViChn</span><span class="p">,</span><span class="w"> </span><span class="n">VI_EXT_CHN_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstExtChnAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 60%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>VI PIPE号。取值范围：[0, VI_MAX_PIPE_NUM)。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>ViChn</p></td>
+<td><p>VI 通道号。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>pstExtChnAttr</p></td>
+<td><p>VI 通道扩展属性结构体指针。</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，请参见 <a class="reference internal" href="Error_Codes.html#video-input-error-codes"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vi.h, cvi_comm_vi.h</p></li>
+<li><p>库文件：libvi.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>此接口暂无使用。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vi-setextchnattr">CVI_VI_SetExtChnAttr</a></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Design_Overview.html" class="btn btn-neutral float-left" title="4.2. 设计概述" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Data_Types.html" class="btn btn-neutral float-right" title="4.4. 数据类型" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

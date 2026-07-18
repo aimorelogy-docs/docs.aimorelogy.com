@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>6. FIT 镜像安全启动 &mdash; SecureBootUserGuide master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="7. SquashFS RootFS 签名与内核验签" href="7_RootFS_Signature.html" />
+    <link rel="prev" title="5. FIP 签名与加密及 eFuse" href="5_FIP_Secure_Boot.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> SecureBootUserGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Secure_Boot_Introduction.html">2. 安全启动介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Secure_Image_Generation.html">3. 安全镜像生成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_eFuse_Burning.html">4. eFuse 烧写</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_FIP_Secure_Boot.html">5. FIP 签名与加密及 eFuse</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="6_FIT_Image_Secure_Boot.html#">6. FIT 镜像安全启动</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="6_FIT_Image_Secure_Boot.html#id1">6.1. 生成 FIT 验签与加密用的密钥与材料</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_FIT_Image_Secure_Boot.html#u-boot">6.2. 打开配置（内核与 U-Boot）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_FIT_Image_Secure_Boot.html#id2">6.3. 编译与产物</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_FIT_Image_Secure_Boot.html#fit-ramdisk-keys">6.4. FIT 相关密钥一览（ramdisk/keys/）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_FIT_Image_Secure_Boot.html#id3">6.5. 流程简表（FIT 侧）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_FIT_Image_Secure_Boot.html#fip">6.6. 与 FIP 的配合</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="7_RootFS_Signature.html">7. SquashFS RootFS 签名与内核验签</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_DATA_Partition_Signature.html">8. DATA 分区（userdata）签名与验签</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SecureBootUserGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">6. </span>FIT 镜像安全启动</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/6_FIT_Image_Secure_Boot.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="fit">
+<h1><span class="section-number">6. </span>FIT 镜像安全启动<a class="headerlink" href="6_FIT_Image_Secure_Boot.html#fit" title="永久链接至标题">¶</a></h1>
+<p>本章说明 <strong>boot.spinor</strong> 中 <strong>FIT</strong> 镜像的验签与可选加密：由 <strong>U-Boot</strong> 在加载内核与设备树前完成校验或解密。FIT 与 <strong>FIP</strong> 在 ROM/BL1 侧的职责相互独立；产线常见顺序是先完成 FIT 侧配置与打包，再对 <strong>fip.bin</strong> 做签名与加密，详见 <a class="reference internal" href="5_FIP_Secure_Boot.html"><span class="doc">FIP 签名与加密及 eFuse</span></a>。</p>
+<p>除进入 <strong>ramdisk/keys</strong> 目录后的命令外，其余命令均在 <strong>mars 根目录</strong> 执行；须先依次执行 <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">build/envsetup_soc.sh</span></code> 与 <code class="docutils literal notranslate"><span class="pre">defconfig</span></code> ，将后者参数换为实际板型名。</p>
+<section id="id1">
+<h2><span class="section-number">6.1. </span>生成 FIT 验签与加密用的密钥与材料<a class="headerlink" href="6_FIT_Image_Secure_Boot.html#id1" title="永久链接至标题">¶</a></h2>
+<p>只做一次，与 FIP 密钥分开保存。FIT 的 RSA 验签使用 <strong>私钥</strong> 与 <strong>公钥证书</strong>；若开启 FIT 加密，还需要 <strong>AES-256 密钥</strong> 与 <strong>IV</strong>。</p>
+<p>在 mars 根目录下进入 <strong>ramdisk/keys</strong> 后执行（与 ramdisk 侧打包脚本约定的路径一致）：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cd ramdisk/keys</span>
+<span class="go">openssl genpkey -algorithm RSA -out test_reeos.key</span>
+<span class="go">openssl req -new -x509 -key test_reeos.key -out test_reeos.crt</span>
+<span class="go">openssl rand -out test_reeos_aes256.bin 32</span>
+<span class="go">openssl rand -out test_reeos_iv.bin 16</span>
+</pre></div>
+</div>
+<p>得到：<strong>test_reeos.key</strong>、<strong>test_reeos.crt</strong>；若启用 FIT 加密，还有 <strong>test_reeos_aes256.bin</strong>、<strong>test_reeos_iv.bin</strong>。ITS、打包脚本、U-Boot 环境变量中的路径须与上述文件名及目录一致。</p>
+</section>
+<section id="u-boot">
+<h2><span class="section-number">6.2. </span>打开配置（内核与 U-Boot）<a class="headerlink" href="6_FIT_Image_Secure_Boot.html#u-boot" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>执行 <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">build/envsetup_soc.sh</span></code>、<code class="docutils literal notranslate"><span class="pre">defconfig``（实际板型名）后运行</span> <span class="pre">``menuconfig</span></code>，在 <strong>Kernel options</strong> 下勾选 <strong>Enable kernel secure boot</strong>，保存退出。</p></li>
+<li><p>（可选）在 <code class="docutils literal notranslate"><span class="pre">menuconfig</span></code> 中勾选菜单项 <code class="docutils literal notranslate"><span class="pre">Support</span> <span class="pre">FIT</span> <span class="pre">image</span> <span class="pre">encryption/decryption</span></code>。勾选后对 FIT 做加密与验签；不勾选则仅验签、不加密。</p></li>
+<li><p>执行 <code class="docutils literal notranslate"><span class="pre">menuconfig_uboot</span></code>，进入 <strong>Security support</strong>，勾选 <strong>Add secure boot support to kernel</strong>，并确保子项已启用：<strong>Enable RSA support</strong>、<strong>Enable hash command</strong>、<strong>Enable libcrypto support</strong> 等，保存退出。</p></li>
+</ul>
+</section>
+<section id="id2">
+<h2><span class="section-number">6.3. </span>编译与产物<a class="headerlink" href="6_FIT_Image_Secure_Boot.html#id2" title="永久链接至标题">¶</a></h2>
+<p>执行 <code class="docutils literal notranslate"><span class="pre">build_all</span></code> 完成编译。完成后在 <code class="docutils literal notranslate"><span class="pre">install/</span></code> 下对应板型的 <code class="docutils literal notranslate"><span class="pre">soc_*</span></code> 子目录中可得到 <strong>boot.spinor</strong> 等产物（具体以板级配置为准）。烧录时按现有流程将带签名或加密的 <strong>boot.spinor</strong> 写入 BOOT 分区。</p>
+</section>
+<section id="fit-ramdisk-keys">
+<h2><span class="section-number">6.4. </span>FIT 相关密钥一览（ramdisk/keys/）<a class="headerlink" href="6_FIT_Image_Secure_Boot.html#fit-ramdisk-keys" title="永久链接至标题">¶</a></h2>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 38%" />
+<col style="width: 63%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>文件</p></th>
+<th class="head"><p>用途</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>test_reeos.key</p></td>
+<td><p>FIT RSA 私钥（签名）</p></td>
+</tr>
+<tr class="row-odd"><td><p>test_reeos.crt</p></td>
+<td><p>FIT 公钥证书</p></td>
+</tr>
+<tr class="row-even"><td><p>test_reeos_aes256.bin</p></td>
+<td><p>FIT AES-256 密钥（32 字节，仅当启用 FIT 加密）</p></td>
+</tr>
+<tr class="row-odd"><td><p>test_reeos_iv.bin</p></td>
+<td><p>FIT 加密 IV（16 字节，仅当启用 FIT 加密）</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id3">
+<h2><span class="section-number">6.5. </span>流程简表（FIT 侧）<a class="headerlink" href="6_FIT_Image_Secure_Boot.html#id3" title="永久链接至标题">¶</a></h2>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 82%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>步骤</p></th>
+<th class="head"><p>内容</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>在 <code class="docutils literal notranslate"><span class="pre">ramdisk/keys</span></code> 下生成 FIT 密钥与证书；可选 AES/IV</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">menuconfig</span></code> 打开 Enable kernel secure boot；可选 Support FIT image encryption/decryption</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">menuconfig_uboot</span></code> 打开 Add secure boot support to kernel 及所需子项</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>执行 build_all，取 install 下 boot.spinor 等产物并按原流程烧录 BOOT 分区</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="fip">
+<h2><span class="section-number">6.6. </span>与 FIP 的配合<a class="headerlink" href="6_FIT_Image_Secure_Boot.html#fip" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><strong>FIT</strong>：保护 <strong>boot.spinor</strong> 中的 kernel、FDT 等，由 U-Boot 执行。</p></li>
+<li><p><strong>FIP</strong>：保护 <strong>fip.bin</strong> 镜像，含 U-Boot 与 BL2 等，由 ROM/BL1 验签与解密，见 <a class="reference internal" href="5_FIP_Secure_Boot.html"><span class="doc">FIP 签名与加密及 eFuse</span></a>。</p></li>
+</ul>
+<p>完整安全启动链路中，通常在完成本章配置并得到 <strong>boot.spinor</strong> 后，再按 <a class="reference internal" href="5_FIP_Secure_Boot.html"><span class="doc">FIP 签名与加密及 eFuse</span></a> 生成 <strong>fip_enc.bin</strong>、烧 eFuse 并烧录 FIP 分区。</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="5_FIP_Secure_Boot.html" class="btn btn-neutral float-left" title="5. FIP 签名与加密及 eFuse" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="7_RootFS_Signature.html" class="btn btn-neutral float-right" title="7. SquashFS RootFS 签名与内核验签" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

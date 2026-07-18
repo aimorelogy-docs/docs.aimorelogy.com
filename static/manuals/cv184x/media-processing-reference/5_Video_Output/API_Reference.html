@@ -1,0 +1,3264 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5.3. API参考 &mdash; MediaProcessingSoftwareDevelopmentReference master 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="../_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/qrious.js"></script>
+    <script src="../_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="5.4. 数据类型" href="Data_Types.html" />
+    <link rel="prev" title="5.2. 设计概述" href="Design_Overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> MediaProcessingSoftwareDevelopmentReference
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_System_Overview.html">2. 系统概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_System_Control.html">3. 系统控制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_Video_Input.html">4. 视频输入</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../5_Video_Output.html">5. 视频输出</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Function_Overview.html">5.1. 功能概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Design_Overview.html">5.2. 设计概述</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="API_Reference.html#">5.3. API参考</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vo-enable">5.3.1. CVI_VO_Enable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vo-disable">5.3.2. CVI_VO_Disable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vo-isenabled">5.3.3. CVI_VO_IsEnabled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vo-suspend">5.3.4. CVI_VO_Suspend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vo-resume">5.3.5. CVI_VO_Resume</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vo-setpubattr">5.3.6. CVI_VO_SetPubAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vo-getpubattr">5.3.7. CVI_VO_GetPubAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vo-setbtparam">5.3.8. CVI_VO_SetBTParam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vo-getbtparam">5.3.9. CVI_VO_GetBTParam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vo-setlvdsparam">5.3.10. CVI_VO_SetLVDSParam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vo-getlvdsparam">5.3.11. CVI_VO_GetLVDSParam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vo-enablevideolayer">5.3.12. CVI_VO_EnableVideoLayer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vo-disablevideolayer">5.3.13. CVI_VO_DisableVideoLayer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vo-setvideolayerattr">5.3.14. CVI_VO_SetVideoLayerAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vo-getvideolayerattr">5.3.15. CVI_VO_GetVideoLayerAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vo-getlayerprocampctrl">5.3.16. CVI_VO_GetLayerProcAmpCtrl</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vo-setlayerprocamp">5.3.17. CVI_VO_SetLayerProcAmp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vo-getlayerprocamp">5.3.18. CVI_VO_GetLayerProcAmp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vo-setdisplaybuflen">5.3.19. CVI_VO_SetDisplayBufLen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vo-getdisplaybuflen">5.3.20. CVI_VO_GetDisplayBufLen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vo-enablechn">5.3.21. CVI_VO_EnableChn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vo-disablechn">5.3.22. CVI_VO_DisableChn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vo-setchnattr">5.3.23. CVI_VO_SetChnAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vo-getchnattr">5.3.24. CVI_VO_GetChnAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vo-showchn">5.3.25. CVI_VO_ShowChn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vo-hidechn">5.3.26. CVI_VO_HideChn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vo-setchnrotation">5.3.27. CVI_VO_SetChnRotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vo-getchnrotation">5.3.28. CVI_VO_GetChnRotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vo-pausechn">5.3.29. CVI_VO_PauseChn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vo-resumechn">5.3.30. CVI_VO_ResumeChn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vo-clearchnbuf">5.3.31. CVI_VO_ClearChnBuf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vo-sendframe">5.3.32. CVI_VO_SendFrame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vo-setchnframerate">5.3.33. CVI_VO_SetChnFrameRate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vo-getchnframerate">5.3.34. CVI_VO_GetChnFrameRate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vo-getchnpts">5.3.35. CVI_VO_GetChnPTS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vo-querychnstatus">5.3.36. CVI_VO_QueryChnStatus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vo-closefd">5.3.37. CVI_VO_CloseFd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vo-get-panel-status">5.3.38. CVI_VO_Get_Panel_Status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vo-regpmcallback">5.3.39. CVI_VO_RegPmCallBack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vo-unregpmcallback">5.3.40. CVI_VO_UnRegPmCallBack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vo-setgammainfo">5.3.41. CVI_VO_SetGammaInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vo-getgammainfo">5.3.42. CVI_VO_GetGammaInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vo-showpattern">5.3.43. CVI_VO_ShowPattern</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Data_Types.html">5.4. 数据类型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Error_Codes.html">5.5. 错误码</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../6_Video_Processing_Subsystem.html">6. 视频处理子系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7_Video_Encoding.html">7. 视频编码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../8_Video_Decoding.html">8. 视频解码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../9_Regional_Management.html">9. 区域管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10_Audio_Frequency.html">10. 音频</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../11_Geometric_Distortion_Correction_Subsystem.html">11. 几何畸变矫正子系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../12_Proc_Debugging_Information_Explanation.html">12. Proc 调试信息说明</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MediaProcessingSoftwareDevelopmentReference</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../5_Video_Output.html"><span class="section-number">5. </span>视频输出</a> &raquo;</li>
+      <li><span class="section-number">5.3. </span>API参考</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="../_sources/5_Video_Output/API_Reference.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="api">
+<h1><span class="section-number">5.3. </span>API参考<a class="headerlink" href="API_Reference.html#api" title="永久链接至标题">¶</a></h1>
+<p>视频输出（VO）实现视频输出设备，视频曾，信道等功能。</p>
+<p>该功能模块所支持的 API，以下由大而小分别从设备、视频层、通道等方面进行介绍</p>
+<p>设备相关API 如下：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vo-enable">CVI_VO_Enable</a> ：启用视频输出设备。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vo-disable">CVI_VO_Disable</a> ：禁用视频输出设备。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vo-isenabled">CVI_VO_IsEnabled</a> : 查询输出设备是否已启用。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vo-setpubattr">CVI_VO_SetPubAttr</a> ：设置视频输出设备的相关属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vo-getpubattr">CVI_VO_GetPubAttr</a> ：获取视频输出设备的相关属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vo-closefd">CVI_VO_CloseFd</a> ：关闭视频输出设备的文件句柄。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vo-suspend">CVI_VO_Suspend</a> : 暂停显示设备。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vo-resume">CVI_VO_Resume</a> : 恢复显示设备。</p></li>
+</ul>
+<p>接口相关API如下：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vo-setbtparam">CVI_VO_SetBTParam</a> : 设置设备BT接口属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vo-getbtparam">CVI_VO_GetBTParam</a> : 获取设备BT接口属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vo-setlvdsparam">CVI_VO_SetLVDSParam</a> : 设置设备LVDS接口属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vo-getlvdsparam">CVI_VO_GetLVDSParam</a> : 获取设备LVDS接口属性。</p></li>
+</ul>
+<p>视频层相关API如下：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vo-enablevideolayer">CVI_VO_EnableVideoLayer</a> ：启用视频层。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vo-disablevideolayer">CVI_VO_DisableVideoLayer</a> ：禁用视频层。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vo-setvideolayerattr">CVI_VO_SetVideoLayerAttr</a> ：设置视频层的相关属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vo-getvideolayerattr">CVI_VO_GetVideoLayerAttr</a> ：获取视频层的相关属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vo-getlayerprocampctrl">CVI_VO_GetLayerProcAmpCtrl</a>: 获取视频层的图像效果功能描述。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vo-setlayerprocamp">CVI_VO_SetLayerProcAmp</a>: 设置视频层的图像效果属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vo-getlayerprocamp">CVI_VO_GetLayerProcAmp</a>: 获取视频层的图像效果属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vo-setdisplaybuflen">CVI_VO_SetDisplayBufLen</a> : 设置视频显示缓冲区长度。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vo-getdisplaybuflen">CVI_VO_GetDisplayBufLen</a> : 获取视频显示缓冲区长度。</p></li>
+</ul>
+<p>通道相关API 如下：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vo-enablechn">CVI_VO_EnableChn</a> ：启用视频输出通道。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vo-disablechn">CVI_VO_DisableChn</a> ：禁用视频输出通道。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vo-setchnattr">CVI_VO_SetChnAttr</a> ：设置视频输出通道的相关属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vo-getchnattr">CVI_VO_GetChnAttr</a> ：获取视频输出通道的相关属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vo-showchn">CVI_VO_ShowChn</a> ：显示指定的视频输出通道。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vo-hidechn">CVI_VO_HideChn</a> ：隐藏指定的视频输出通道。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vo-setchnrotation">CVI_VO_SetChnRotation</a> ：设置视频输出通道的旋转属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vo-getchnrotation">CVI_VO_GetChnRotation</a> ：获取视频输出通道的旋转属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vo-pausechn">CVI_VO_PauseChn</a> ：暂停指定的VO通道的输出。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vo-resumechn">CVI_VO_ResumeChn</a> ：恢复指定的 VO通道的输出。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vo-clearchnbuf">CVI_VO_ClearChnBuf</a> : 清空指定视频层指定通道的视频缓冲区。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vo-sendframe">CVI_VO_SendFrame</a> : 向指定视频层的指定通道发送视频帧。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vo-setchnframerate">CVI_VO_SetChnFrameRate</a> : 设置指定视频输出通道的显示帧率。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vo-getchnframerate">CVI_VO_GetChnFrameRate</a> : 获取指定视频输出通道的显示帧率。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vo-getchnpts">CVI_VO_GetChnPTS</a> : 获取指定视频输出通道当前显示图像的时间戳。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vo-querychnstatus">CVI_VO_QueryChnStatus</a> : 查询视频输出通道状态。</p></li>
+</ul>
+<p>其他API如下：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vo-get-panel-status">CVI_VO_Get_Panel_Status</a> : 获取显示面板状态。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vo-regpmcallback">CVI_VO_RegPmCallBack</a> : 注册电源管理回调函数。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vo-unregpmcallback">CVI_VO_UnRegPmCallBack</a> : 取消注册电源管理回调函数。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vo-setgammainfo">CVI_VO_SetGammaInfo</a> : 设置伽马校正信息。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vo-getgammainfo">CVI_VO_GetGammaInfo</a>: 获取伽马校正信息。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vo-showpattern">CVI_VO_ShowPattern</a> : 在设备上显示图例。</p></li>
+</ul>
+<hr class="docutils" />
+<section id="cvi-vo-enable">
+<h2><span class="section-number">5.3.1. </span>CVI_VO_Enable<a class="headerlink" href="API_Reference.html#cvi-vo-enable" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>启用视频输出设备。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VO_Enable</span><span class="p">(</span><span class="n">VO_DEV</span><span class="w"> </span><span class="n">VoDev</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VoDev</p></td>
+<td><p>视频输出设备号。</p>
+<p>取值范围：[0, VO_MAX_DEV_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-output-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vo.h, cvi_comm_vo.h</p></li>
+<li><p>库文件：libvo.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>必须在使用视频输出功能前先进行设备使能操作。</p></li>
+<li><p>在调用设备使能前，必须对设备公共属性进行配置，否则返回设备未配置错误。</p></li>
+<li><p>如果希望更改 VO 的时序配置，则需要先调用 <a class="reference internal" href="API_Reference.html#cvi-vo-disable">CVI_VO_Disable</a> 接口，强制关闭 VO 硬件后再使能。以避免变更时序过程中出现不喜的瞬时。</p></li>
+</ul>
+<p>【举例】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">s32Ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_SUCCESS</span><span class="p">;</span><span class="w"></span>
+
+<span class="n">s32Ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_VO_SetPubAttr</span><span class="p">(</span><span class="n">VoDev</span><span class="p">,</span><span class="w"> </span><span class="n">pstPubAttr</span><span class="p">);</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s32Ret</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">CVI_SUCCESS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">SAMPLE_PRT</span><span class="p">(</span><span class="s">&quot;failed with %#x!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">s32Ret</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">CVI_FAILURE</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="n">s32Ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_VO_Enable</span><span class="p">(</span><span class="n">VoDev</span><span class="p">);</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s32Ret</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">CVI_SUCCESS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">SAMPLE_PRT</span><span class="p">(</span><span class="s">&quot;failed with %#x!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">s32Ret</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">CVI_FAILURE</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vo-disable">CVI_VO_Disable</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vo-disable">
+<h2><span class="section-number">5.3.2. </span>CVI_VO_Disable<a class="headerlink" href="API_Reference.html#cvi-vo-disable" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>禁用视频输出设备。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VO_Disable</span><span class="p">(</span><span class="n">VO_DEV</span><span class="w"> </span><span class="n">VoDev</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VoDev</p></td>
+<td><p>视频输出设备号。</p>
+<p>取值范围：[0, VO_MAX_DEV_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-output-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vo.h, cvi_comm_vo.h</p></li>
+<li><p>库文件：libvo.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>设备禁止前必须先禁止该设备上的视频层。</p></li>
+<li><p>只有在VO 设备禁止下，才能做设置设备属性的变更。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vo-enable">CVI_VO_Enable</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vo-isenabled">
+<h2><span class="section-number">5.3.3. </span>CVI_VO_IsEnabled<a class="headerlink" href="API_Reference.html#cvi-vo-isenabled" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>查询输出设备是否已启用。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="nf">CVI_VO_IsEnabled</span><span class="p">(</span><span class="n">VO_DEV</span><span class="w"> </span><span class="n">VoDev</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VoDev</p></td>
+<td><p>视频输出设备号。</p>
+<p>取值范围：[0, VO_MAX_DEV_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>非0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-output-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vo.h, cvi_comm_vo.h</p></li>
+<li><p>库文件：libvo.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>在执行 <a class="reference internal" href="API_Reference.html#cvi-vo-enable">CVI_VO_Enable</a> 后调用。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vo-enable">CVI_VO_Enable</a></p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vo-disable">CVI_VO_Disable</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vo-suspend">
+<h2><span class="section-number">5.3.4. </span>CVI_VO_Suspend<a class="headerlink" href="API_Reference.html#cvi-vo-suspend" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>显示设备进入休眠状态。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VO_Suspend</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>非0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-output-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vo.h, cvi_comm_vo.h</p></li>
+<li><p>库文件：libvo.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>在执行 <a class="reference internal" href="API_Reference.html#cvi-vo-enable">CVI_VO_Enable</a> 后调用。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vo-resume">
+<h2><span class="section-number">5.3.5. </span>CVI_VO_Resume<a class="headerlink" href="API_Reference.html#cvi-vo-resume" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>显示设备恢复正常状态。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VO_Resume</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>非0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-output-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vo.h, cvi_comm_vo.h</p></li>
+<li><p>库文件：libvo.a</p></li>
+</ul>
+<p>【注意】</p>
+<p>无</p>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vo-setpubattr">
+<h2><span class="section-number">5.3.6. </span>CVI_VO_SetPubAttr<a class="headerlink" href="API_Reference.html#cvi-vo-setpubattr" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>配置视频输出设备的相关属性。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VO_SetPubAttr</span><span class="p">(</span><span class="n">VO_DEV</span><span class="w"> </span><span class="n">VoDev</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">VO_PUB_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstPubAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VoDev</p></td>
+<td><p>视频输出设备号。</p>
+<p>取值范围：[0, VO_MAX_DEV_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstPubAttr</p></td>
+<td><p>视频输出设备公共属性结构体指针。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-output-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vo.h, cvi_comm_vo.h</p></li>
+<li><p>库文件：libvo.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>视频输出设备属性为静态属性， 必须 在执行 <a class="reference internal" href="API_Reference.html#cvi-vo-enable">CVI_VO_Enable</a> 前 配置 。</p></li>
+<li><p>各个DEV 的使用说明详见 <a class="reference internal" href="Data_Types.html#vo-dev"><span class="std std-ref">VO_DEV</span></a> 。</p></li>
+<li><p>视频输出设备属性的使用说明详见 <a class="reference internal" href="Data_Types.html#vo-pub-attr-s"><span class="std std-ref">VO_PUB_ATTR_S</span></a> 章节。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vo-getpubattr">CVI_VO_GetPubAttr</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vo-getpubattr">
+<h2><span class="section-number">5.3.7. </span>CVI_VO_GetPubAttr<a class="headerlink" href="API_Reference.html#cvi-vo-getpubattr" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>获取视频输出设备的相关属性。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VO_GetPubAttr</span><span class="p">(</span><span class="n">VO_DEV</span><span class="w"> </span><span class="n">VoDev</span><span class="p">,</span><span class="w"> </span><span class="n">VO_PUB_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstPubAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VoDev</p></td>
+<td><p>视频输出设备号。</p>
+<p>取值范围：[0, VO_MAX_DEV_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstPubAttr</p></td>
+<td><p>视频输出设备公共属性结构体指针。</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-output-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vo.h, cvi_comm_vo.h</p></li>
+<li><p>库文件：libvo.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>在设置设备公共属性前先获取属性，就可以只设置需要改变的 配置项。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vo-setpubattr">CVI_VO_SetPubAttr</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vo-setbtparam">
+<h2><span class="section-number">5.3.8. </span>CVI_VO_SetBTParam<a class="headerlink" href="API_Reference.html#cvi-vo-setbtparam" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>设置设备BT接口属性。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VO_SetBTParam</span><span class="p">(</span><span class="n">VO_DEV</span><span class="w"> </span><span class="n">VoDev</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">VO_BT_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstBTParam</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VoDev</p></td>
+<td><p>视频输出设备号。</p>
+<p>取值范围：[0, VO_MAX_DEV_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstBTParam</p></td>
+<td><p>BT接口属性结构体指针。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-output-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vo.h, cvi_comm_vo.h</p></li>
+<li><p>库文件：libvo.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>设备接口未配置成BT时返回失败。</p></li>
+<li><p>此接口不支持动态设置，设置BT接口属性时，需要在执行 <a class="reference internal" href="API_Reference.html#cvi-vo-setpubattr">CVI_VO_SetPubAttr</a> 设置设备公共属性之后配置，在执行 <a class="reference internal" href="API_Reference.html#cvi-vo-enable">CVI_VO_Enable</a> 前 配置。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vo-getbtparam">CVI_VO_GetBTParam</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vo-getbtparam">
+<h2><span class="section-number">5.3.9. </span>CVI_VO_GetBTParam<a class="headerlink" href="API_Reference.html#cvi-vo-getbtparam" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>获取设备BT接口属性。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VO_GetBTParam</span><span class="p">(</span><span class="n">VO_DEV</span><span class="w"> </span><span class="n">VoDev</span><span class="p">,</span><span class="w"> </span><span class="n">VO_BT_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstBTParam</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VoDev</p></td>
+<td><p>视频输出设备号。</p>
+<p>取值范围：[0, VO_MAX_DEV_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstBTParam</p></td>
+<td><p>BT接口属性结构体指针。</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-output-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vo.h, cvi_comm_vo.h</p></li>
+<li><p>库文件：libvo.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>设备接口未配置成BT时返回失败。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vo-setbtparam">CVI_VO_SetBTParam</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vo-setlvdsparam">
+<h2><span class="section-number">5.3.10. </span>CVI_VO_SetLVDSParam<a class="headerlink" href="API_Reference.html#cvi-vo-setlvdsparam" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>设置设备LVDS接口输出属性。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VO_SetLVDSParam</span><span class="p">(</span><span class="n">VO_DEV</span><span class="w"> </span><span class="n">VoDev</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">VO_LVDS_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstLVDSParam</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VoDev</p></td>
+<td><p>视频输出设备号。</p>
+<p>取值范围：[0, VO_MAX_DEV_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstLVDSParam</p></td>
+<td><p>LVDS接口属性结构体指针。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-output-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vo.h, cvi_comm_vo.h</p></li>
+<li><p>库文件：libvo.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>设备接口未配置成LVDS时返回失败。</p></li>
+<li><p>此接口不支持动态设置，设置LVDS接口属性时，需要在执行 <a class="reference internal" href="API_Reference.html#cvi-vo-setpubattr">CVI_VO_SetPubAttr</a> 设置设备公共属性之后配置，在执行 <a class="reference internal" href="API_Reference.html#cvi-vo-enable">CVI_VO_Enable</a> 前 配置。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vo-getlvdsparam">CVI_VO_GetLVDSParam</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vo-getlvdsparam">
+<h2><span class="section-number">5.3.11. </span>CVI_VO_GetLVDSParam<a class="headerlink" href="API_Reference.html#cvi-vo-getlvdsparam" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>获取设备LVDS接口输出属性。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VO_GetLVDSParam</span><span class="p">(</span><span class="n">VO_DEV</span><span class="w"> </span><span class="n">VoDev</span><span class="p">,</span><span class="w"> </span><span class="n">VO_LVDS_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstLVDSParam</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VoDev</p></td>
+<td><p>视频输出设备号。</p>
+<p>取值范围：[0, VO_MAX_DEV_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstLVDSParam</p></td>
+<td><p>LVDS接口属性结构体指针。</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-output-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vo.h, cvi_comm_vo.h</p></li>
+<li><p>库文件：libvo.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>设备接口未配置成LVDS时返回失败。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vo-setlvdsparam">CVI_VO_SetLVDSParam</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vo-enablevideolayer">
+<h2><span class="section-number">5.3.12. </span>CVI_VO_EnableVideoLayer<a class="headerlink" href="API_Reference.html#cvi-vo-enablevideolayer" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>启用视频层。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VO_EnableVideoLayer</span><span class="w"> </span><span class="p">(</span><span class="n">VO_LAYER</span><span class="w"> </span><span class="n">VoLayer</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VoLayer</p></td>
+<td><p>视频输出视频层号。</p>
+<p>取值范围：[0, VO_MAX_LAYER_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-output-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vo.h, cvi_comm_vo.h</p></li>
+<li><p>库文件：libvo.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>视频层使能前必须保证该视频层所绑定的设备处于使能状态。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vo-disablevideolayer">CVI_VO_DisableVideoLayer</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vo-disablevideolayer">
+<h2><span class="section-number">5.3.13. </span>CVI_VO_DisableVideoLayer<a class="headerlink" href="API_Reference.html#cvi-vo-disablevideolayer" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>禁用视频层。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VO_DisableVideoLayer</span><span class="w"> </span><span class="p">(</span><span class="n">VO_LAYER</span><span class="w"> </span><span class="n">VoLayer</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VoLayer</p></td>
+<td><p>视频输出视频层号。</p>
+<p>取值范围：[0, VO_MAX_LAYER_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-output-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vo.h, cvi_comm_vo.h</p></li>
+<li><p>库文件：libvo.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>视频层禁止前，其上的通道必须先禁止。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vo-enablevideolayer">CVI_VO_EnableVideoLayer</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vo-setvideolayerattr">
+<h2><span class="section-number">5.3.14. </span>CVI_VO_SetVideoLayerAttr<a class="headerlink" href="API_Reference.html#cvi-vo-setvideolayerattr" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>配置视频层的相关属性。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VO_SetVideoLayerAttr</span><span class="w"> </span><span class="p">(</span><span class="n">VO_LAYER</span><span class="w"> </span><span class="n">VoLayer</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">VO_VIDEO_LAYER_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstLayerAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VoLayer</p></td>
+<td><p>视频输出视频层号。</p>
+<p>取值范围：[0, VO_MAX_LAYER_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstLayerAttr</p></td>
+<td><p>视频层属性结构体指针。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-output-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vo.h, cvi_comm_vo.h</p></li>
+<li><p>库文件：libvo.a</p></li>
+</ul>
+<p>【注意】</p>
+<p>无</p>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vo-getvideolayerattr">CVI_VO_GetVideoLayerAttr</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vo-getvideolayerattr">
+<h2><span class="section-number">5.3.15. </span>CVI_VO_GetVideoLayerAttr<a class="headerlink" href="API_Reference.html#cvi-vo-getvideolayerattr" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>获取视频层的相关属性。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VO_GetVideoLayerAttr</span><span class="w"> </span><span class="p">(</span><span class="n">VO_LAYER</span><span class="w"> </span><span class="n">VoLayer</span><span class="p">,</span><span class="w"> </span><span class="n">VO_VIDEO_LAYER_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstLayerAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VoLayer</p></td>
+<td><p>视频输出视频层号。</p>
+<p>取值范围：[0, VO_MAX_LAYER_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstLayerAttr</p></td>
+<td><p>视频层属性结构体指针。</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-output-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vo.h, cvi_comm_vo.h</p></li>
+<li><p>库文件：libvo.a</p></li>
+</ul>
+<p>【注意】</p>
+<p>无</p>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vo-setvideolayerattr">CVI_VO_SetVideoLayerAttr</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vo-getlayerprocampctrl">
+<h2><span class="section-number">5.3.16. </span>CVI_VO_GetLayerProcAmpCtrl<a class="headerlink" href="API_Reference.html#cvi-vo-getlayerprocampctrl" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>获取视频层的图像效果控制参数。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VO_GetLayerProcAmpCtrl</span><span class="p">(</span><span class="n">VO_LAYER</span><span class="w"> </span><span class="n">VoLayer</span><span class="p">,</span><span class="w"> </span><span class="n">PROC_AMP_E</span><span class="w"> </span><span class="n">type</span><span class="p">,</span><span class="w"> </span><span class="n">PROC_AMP_CTRL_S</span><span class="w"> </span><span class="o">*</span><span class="n">ctrl</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VoLayer</p></td>
+<td><p>视频输出视频层号。</p>
+<p>取值范围：[0, VO_MAX_LAYER_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p>视频层图像效果类型。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>ctrl</p></td>
+<td><p>视频层图像效果控制参数结构体指针。</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-output-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vo.h, cvi_comm_vo.h</p></li>
+<li><p>库文件：libvo.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>该接口主要用于获取视频层图像效果，包括亮度、对比度、色调、饱和度的取值范围、step、及默认值。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vo-getlayerprocamp">CVI_VO_GetLayerProcAmp</a></p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vo-setlayerprocamp">CVI_VO_SetLayerProcAmp</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vo-setlayerprocamp">
+<h2><span class="section-number">5.3.17. </span>CVI_VO_SetLayerProcAmp<a class="headerlink" href="API_Reference.html#cvi-vo-setlayerprocamp" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>设置视频层的图像效果属性。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VO_SetLayerProcAmp</span><span class="p">(</span><span class="n">VO_LAYER</span><span class="w"> </span><span class="n">VoLayer</span><span class="p">,</span><span class="w"> </span><span class="n">PROC_AMP_E</span><span class="w"> </span><span class="n">type</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">value</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VoLayer</p></td>
+<td><p>视频输出视频层号。</p>
+<p>取值范围：[0, VO_MAX_LAYER_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p>视频层图像效果类型。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>value</p></td>
+<td><p>图像效果参数值。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-output-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vo.h, cvi_comm_vo.h</p></li>
+<li><p>库文件：libvo.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>该接口主要用于设置视频层图像效果，包括亮度、对比度、色调、饱和度。</p></li>
+<li><p>亮度、对比度、饱和度取值范围[0, 255], 色调取值范围[0, 359]。</p></li>
+<li><p>视频层没有启动前不允许调用。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vo-getlayerprocampctrl">CVI_VO_GetLayerProcAmpCtrl</a></p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vo-getlayerprocamp">CVI_VO_GetLayerProcAmp</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vo-getlayerprocamp">
+<h2><span class="section-number">5.3.18. </span>CVI_VO_GetLayerProcAmp<a class="headerlink" href="API_Reference.html#cvi-vo-getlayerprocamp" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>获取视频层的图像效果属性。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VO_GetLayerProcAmp</span><span class="p">(</span><span class="n">VO_LAYER</span><span class="w"> </span><span class="n">VoLayer</span><span class="p">,</span><span class="w"> </span><span class="n">PROC_AMP_E</span><span class="w"> </span><span class="n">type</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_S32</span><span class="w"> </span><span class="o">*</span><span class="n">value</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VoLayer</p></td>
+<td><p>视频输出视频层号。</p>
+<p>取值范围：[0, VO_MAX_LAYER_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p>视频层图像效果类型。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>value</p></td>
+<td><p>图像效果参数值变量指针。</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-output-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vo.h, cvi_comm_vo.h</p></li>
+<li><p>库文件：libvo.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>该接口主要用于获取视频层图像效果，包括亮度、对比度、色调、饱和度。</p></li>
+<li><p>视频层没有启动前不允许调用。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vo-getlayerprocampctrl">CVI_VO_GetLayerProcAmpCtrl</a></p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vo-setlayerprocamp">CVI_VO_SetLayerProcAmp</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vo-setdisplaybuflen">
+<h2><span class="section-number">5.3.19. </span>CVI_VO_SetDisplayBufLen<a class="headerlink" href="API_Reference.html#cvi-vo-setdisplaybuflen" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>设置视频显示缓冲区长度。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VO_SetDisplayBufLen</span><span class="p">(</span><span class="n">VO_LAYER</span><span class="w"> </span><span class="n">VoLayer</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32BufLen</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VoLayer</p></td>
+<td><p>视频输出视频层号。</p>
+<p>取值范围：[0, VO_MAX_LAYER_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32BufLen</p></td>
+<td><p>视频显示缓冲区长度。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-output-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vo.h, cvi_comm_vo.h</p></li>
+<li><p>库文件：libvo.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>调用前需保证视频层未使能，否则无效。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vo-getdisplaybuflen">CVI_VO_GetDisplayBufLen</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vo-getdisplaybuflen">
+<h2><span class="section-number">5.3.20. </span>CVI_VO_GetDisplayBufLen<a class="headerlink" href="API_Reference.html#cvi-vo-getdisplaybuflen" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>获取视频显示缓冲区长度。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VO_GetDisplayBufLen</span><span class="p">(</span><span class="n">VO_LAYER</span><span class="w"> </span><span class="n">VoLayer</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_U32</span><span class="w"> </span><span class="o">*</span><span class="n">pu32BufLen</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VoLayer</p></td>
+<td><p>视频输出视频层号。</p>
+<p>取值范围：[0, VO_MAX_LAYER_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32BufLen</p></td>
+<td><p>视频显示缓冲区长度。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-output-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vo.h, cvi_comm_vo.h</p></li>
+<li><p>库文件：libvo.a</p></li>
+</ul>
+<p>【注意】</p>
+<p>无</p>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vo-setdisplaybuflen">CVI_VO_SetDisplayBufLen</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vo-enablechn">
+<h2><span class="section-number">5.3.21. </span>CVI_VO_EnableChn<a class="headerlink" href="API_Reference.html#cvi-vo-enablechn" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>启用指定的视频输出通道。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VO_EnableChn</span><span class="p">(</span><span class="n">VO_LAYER</span><span class="w"> </span><span class="n">VoLayer</span><span class="p">,</span><span class="w"> </span><span class="n">VO_CHN</span><span class="w"> </span><span class="n">VoChn</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VoLayer</p></td>
+<td><p>视频输出视频层号。</p>
+<p>取值范围：[0, VO_MAX_LAYER_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>VoChn</p></td>
+<td><p>视频输出通道号。</p>
+<p>取值范围：[0, VO_MAX_CHN_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-output-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vo.h, cvi_comm_vo.h</p></li>
+<li><p>库文件：libvo.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>调用前必须使能相应设备上的视频层。</p></li>
+<li><p>信道使能前必须进行信道配置，否则返回信道未配置的错误 。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vo-disablechn">CVI_VO_DisableChn</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vo-disablechn">
+<h2><span class="section-number">5.3.22. </span>CVI_VO_DisableChn<a class="headerlink" href="API_Reference.html#cvi-vo-disablechn" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>禁用视频输出通道。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VO_DisableChn</span><span class="p">(</span><span class="n">VO_LAYER</span><span class="w"> </span><span class="n">VoLayer</span><span class="p">,</span><span class="w"> </span><span class="n">VO_CHN</span><span class="w"> </span><span class="n">VoChn</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VoLayer</p></td>
+<td><p>视频输出视频层号。</p>
+<p>取值范围：[0, VO_MAX_LAYER_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>VoChn</p></td>
+<td><p>视频输出通道号。</p>
+<p>取值范围：[0, VO_MAX_CHN_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-output-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vo.h, cvi_comm_vo.h</p></li>
+<li><p>库文件：libvo.a</p></li>
+</ul>
+<p>【注意】</p>
+<blockquote>
+<div><p>无</p>
+</div></blockquote>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vo-enablechn">CVI_VO_EnableChn</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vo-setchnattr">
+<h2><span class="section-number">5.3.23. </span>CVI_VO_SetChnAttr<a class="headerlink" href="API_Reference.html#cvi-vo-setchnattr" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>配置视频输出信道的相关属性。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VO_SetPubAttr</span><span class="p">(</span><span class="n">VO_LAYER</span><span class="w"> </span><span class="n">VoLayer</span><span class="p">,</span><span class="w"> </span><span class="n">VO_CHN</span><span class="w"> </span><span class="n">VoChn</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">VO_CHN_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstChnAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VoLayer</p></td>
+<td><p>视频输出视频层号。</p>
+<p>取值范围：[0, VO_MAX_LAYER_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>VoChn</p></td>
+<td><p>视频输出通道号。</p>
+<p>取值范围：[0, VO_MAX_CHN_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>pstChnAttr</p></td>
+<td><p>视频输出通道属性结构体指针。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-output-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vo.h, cvi_comm_vo.h</p></li>
+<li><p>库文件：libvo.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>通道显示区域需小于视频层属性中设定的stImageSize 大小。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vo-getchnattr">CVI_VO_GetChnAttr</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vo-getchnattr">
+<h2><span class="section-number">5.3.24. </span>CVI_VO_GetChnAttr<a class="headerlink" href="API_Reference.html#cvi-vo-getchnattr" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>获取视频输出通道的相关属性。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VO_GtPubAttr</span><span class="p">(</span><span class="n">VO_LAYER</span><span class="w"> </span><span class="n">VoLayer</span><span class="p">,</span><span class="w"> </span><span class="n">VO_CHN</span><span class="w"> </span><span class="n">VoChn</span><span class="p">,</span><span class="w"> </span><span class="n">VO_CHN_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstChnAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VoLayer</p></td>
+<td><p>视频输出视频层号。</p>
+<p>取值范围：[0, VO_MAX_LAYER_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>VoChn</p></td>
+<td><p>视频输出通道号。</p>
+<p>取值范围：[0, VO_MAX_CHN_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>pstChnAttr</p></td>
+<td><p>视频输出通道属性结构体指针。</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-output-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vo.h, cvi_comm_vo.h</p></li>
+<li><p>库文件：libvo.a</p></li>
+</ul>
+<p>【注意】</p>
+<p>无</p>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vo-setchnattr">CVI_VO_SetChnAttr</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vo-showchn">
+<h2><span class="section-number">5.3.25. </span>CVI_VO_ShowChn<a class="headerlink" href="API_Reference.html#cvi-vo-showchn" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>显示指定的视频输出通道。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VO_ShowChn</span><span class="p">(</span><span class="n">VO_LAYER</span><span class="w"> </span><span class="n">VoLayer</span><span class="p">,</span><span class="w"> </span><span class="n">VO_CHN</span><span class="w"> </span><span class="n">VoChn</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VoLayer</p></td>
+<td><p>视频输出视频层号。</p>
+<p>取值范围：[0, VO_MAX_LAYER_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>VoChn</p></td>
+<td><p>视频输出通道号。</p>
+<p>取值范围：[0, VO_MAX_CHN_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-output-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vo.h, cvi_comm_vo.h</p></li>
+<li><p>库文件：libvo.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>调用前必须使能相应设备上的视频通道。</p></li>
+<li><p>默认下处于显示状态。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vo-hidechn">CVI_VO_HideChn</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vo-hidechn">
+<h2><span class="section-number">5.3.26. </span>CVI_VO_HideChn<a class="headerlink" href="API_Reference.html#cvi-vo-hidechn" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>隐藏指定的视频输出通道。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VO_HideChn</span><span class="p">(</span><span class="n">VO_LAYER</span><span class="w"> </span><span class="n">VoLayer</span><span class="p">,</span><span class="w"> </span><span class="n">VO_CHN</span><span class="w"> </span><span class="n">VoChn</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VoLayer</p></td>
+<td><p>视频输出视频层号。</p>
+<p>取值范围：[0, VO_MAX_LAYER_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>VoChn</p></td>
+<td><p>视频输出通道号。</p>
+<p>取值范围：[0, VO_MAX_CHN_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-output-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vo.h, cvi_comm_vo.h</p></li>
+<li><p>库文件：libvo.a</p></li>
+</ul>
+<p>【注意】</p>
+<p>无</p>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vo-showchn">CVI_VO_ShowChn</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vo-setchnrotation">
+<h2><span class="section-number">5.3.27. </span>CVI_VO_SetChnRotation<a class="headerlink" href="API_Reference.html#cvi-vo-setchnrotation" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>设置 VO通道旋转的属性。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VO_SetChnRotation</span><span class="p">(</span><span class="n">VO_LAYER</span><span class="w"> </span><span class="n">VoLayer</span><span class="p">,</span><span class="w"> </span><span class="n">VO_CHN</span><span class="w"> </span><span class="n">VoChn</span><span class="p">,</span><span class="w"> </span><span class="n">ROTATION_E</span><span class="w"> </span><span class="n">enRotation</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VoLayer</p></td>
+<td><p>视频输出视频层号。</p>
+<p>取值范围：[0, VO_MAX_LAYER_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>VoChn</p></td>
+<td><p>视频输出通道号。</p>
+<p>取值范围：[0, VO_MAX_CHN_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>enRotation</p></td>
+<td><p>旋转属性。 详见 ROTATION_E 说明</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-output-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vo.h, cvi_comm_vo.h</p></li>
+<li><p>库文件：libvo.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>使用本接口前，需先调用 <a class="reference internal" href="API_Reference.html#cvi-vo-setchnattr">CVI_VO_SetChnAttr</a>，否则提示失败。</p></li>
+<li><p>CV184x仅支持NV12，NV21及YUV400三种格式的旋转。</p></li>
+<li><p>设置后，旋转会作用于进入信道的视频图像，要注意设置视频层和视频信道的属性大小。例如通道设定大小为1920x1080，且旋转90度，因此输入给信道的图像应为1080x1920。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vo-getchnrotation">
+<h2><span class="section-number">5.3.28. </span>CVI_VO_GetChnRotation<a class="headerlink" href="API_Reference.html#cvi-vo-getchnrotation" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>获取 VO通道旋转的属性。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VO_GetChnRotation</span><span class="p">(</span><span class="n">VO_LAYER</span><span class="w"> </span><span class="n">VoLayer</span><span class="p">,</span><span class="w"> </span><span class="n">VO_CHN</span><span class="w"> </span><span class="n">VoChn</span><span class="p">,</span><span class="w"> </span><span class="n">ROTATION_E</span><span class="w"> </span><span class="o">*</span><span class="n">penRotation</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VoLayer</p></td>
+<td><p>视频输出视频层号。</p>
+<p>取值范围：[0, VO_MAX_LAYER_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>VoChn</p></td>
+<td><p>视频输出通道号。</p>
+<p>取值范围：[0, VO_MAX_CHN_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>penRotation</p></td>
+<td><p>旋转属性指针。 详见 ROTATION_E 说明</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-output-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vo.h, cvi_comm_vo.h</p></li>
+<li><p>库文件：libvo.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>使用本接口前，需先调用 <a class="reference internal" href="API_Reference.html#cvi-vo-setchnattr">CVI_VO_SetChnAttr</a>，否则提示失败。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vo-setchnrotation">CVI_VO_SetChnRotation</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vo-pausechn">
+<h2><span class="section-number">5.3.29. </span>CVI_VO_PauseChn<a class="headerlink" href="API_Reference.html#cvi-vo-pausechn" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>暂停指定的VO通道的输出。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VO_PauseChn</span><span class="p">(</span><span class="n">VO_LAYER</span><span class="w"> </span><span class="n">VoLayer</span><span class="p">,</span><span class="w"> </span><span class="n">VO_CHN</span><span class="w"> </span><span class="n">VoChn</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VoLayer</p></td>
+<td><p>视频输出视频层号。</p>
+<p>取值范围：[0, VO_MAX_LAYER_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>VoChn</p></td>
+<td><p>视频输出通道号。</p>
+<p>取值范围：[0, VO_MAX_CHN_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-output-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vo.h, cvi_comm_vo.h</p></li>
+<li><p>库文件：libvo.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>调用前必须使能相应设备上的视频通道。</p></li>
+<li><p>允许重复暂停同一通道，不返回失败。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vo-resumechn">CVI_VO_ResumeChn</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vo-resumechn">
+<h2><span class="section-number">5.3.30. </span>CVI_VO_ResumeChn<a class="headerlink" href="API_Reference.html#cvi-vo-resumechn" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>恢复指定的 VO通道的输出。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VO_ResumeChn</span><span class="p">(</span><span class="n">VO_LAYER</span><span class="w"> </span><span class="n">VoLayer</span><span class="p">,</span><span class="w"> </span><span class="n">VO_CHN</span><span class="w"> </span><span class="n">VoChn</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VoLayer</p></td>
+<td><p>视频输出视频层号。</p>
+<p>取值范围：[0, VO_MAX_LAYER_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>VoChn</p></td>
+<td><p>视频输出通道号。</p>
+<p>取值范围：[0, VO_MAX_CHN_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-output-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vo.h, cvi_comm_vo.h</p></li>
+<li><p>库文件：libvo.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>调用前必须使能相应设备上的视频通道。</p></li>
+<li><p>允许重复恢复同一通道，不返回失败。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vo-pausechn">CVI_VO_PauseChn</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vo-clearchnbuf">
+<h2><span class="section-number">5.3.31. </span>CVI_VO_ClearChnBuf<a class="headerlink" href="API_Reference.html#cvi-vo-clearchnbuf" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>清空指定视频层指定通道的视频缓冲区。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VO_ClearChnBuf</span><span class="p">(</span><span class="n">VO_LAYER</span><span class="w"> </span><span class="n">VoLayer</span><span class="p">,</span><span class="w"> </span><span class="n">VO_CHN</span><span class="w"> </span><span class="n">VoChn</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bClrAll</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VoLayer</p></td>
+<td><p>视频输出视频层号。</p>
+<p>取值范围：[0, VO_MAX_LAYER_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>VoChn</p></td>
+<td><p>视频输出通道号。</p>
+<p>取值范围：[0, VO_MAX_CHN_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>bClrAll</p></td>
+<td><p>是否全部清空标记。</p>
+<div class="line-block">
+<div class="line">CVI_TRUE：将通道中的数据全部清空，此时
+屏幕上该通道的区域将无图像显示，直到有新的图
+像数据到来。</div>
+<div class="line">CVI_FALSE：在通道中保留一帧图像数据，
+而将其他数据清空。</div>
+</div>
+</td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-output-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vo.h, cvi_comm_vo.h</p></li>
+<li><p>库文件：libvo.a</p></li>
+</ul>
+<p>【注意】</p>
+<p>无</p>
+<p>【举例】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vo-sendframe">
+<h2><span class="section-number">5.3.32. </span>CVI_VO_SendFrame<a class="headerlink" href="API_Reference.html#cvi-vo-sendframe" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>向指定视频层的指定通道发送视频帧。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VO_SendFrame</span><span class="p">(</span><span class="n">VO_LAYER</span><span class="w"> </span><span class="n">VoLayer</span><span class="p">,</span><span class="w"> </span><span class="n">VO_CHN</span><span class="w"> </span><span class="n">VoChn</span><span class="p">,</span><span class="w"> </span><span class="n">VIDEO_FRAME_INFO_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstVideoFrame</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">s32MilliSec</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VoLayer</p></td>
+<td><p>视频输出视频层号。</p>
+<p>取值范围：[0, VO_MAX_LAYER_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>VoChn</p></td>
+<td><p>视频输出通道号。</p>
+<p>取值范围：[0, VO_MAX_CHN_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>pstVideoFrame</p></td>
+<td><p>视频帧信息结构体指针。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>s32MilliSec</p></td>
+<td><p>视频帧发送后等待时间。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-output-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vo.h, cvi_comm_vo.h</p></li>
+<li><p>库文件：libvo.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>调用该接口前必须保证通道已经使能。</p></li>
+<li><p>阻塞式发送暂不支持，s32MilliSec无用。</p></li>
+<li><p>输入视频数据信息要符合VO数据的要求。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vo-setchnframerate">
+<h2><span class="section-number">5.3.33. </span>CVI_VO_SetChnFrameRate<a class="headerlink" href="API_Reference.html#cvi-vo-setchnframerate" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>设置指定视频输出通道的显示帧率。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VO_SetChnFrameRate</span><span class="p">(</span><span class="n">VO_LAYER</span><span class="w"> </span><span class="n">VoLayer</span><span class="p">,</span><span class="w"> </span><span class="n">VO_CHN</span><span class="w"> </span><span class="n">VoChn</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">s32ChnFrmRate</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VoLayer</p></td>
+<td><p>视频输出视频层号。</p>
+<p>取值范围：[0, VO_MAX_LAYER_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>VoChn</p></td>
+<td><p>视频输出通道号。</p>
+<p>取值范围：[0, VO_MAX_CHN_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>s32ChnFrmRate</p></td>
+<td><p>视频输出通道帧率。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-output-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vo.h, cvi_comm_vo.h</p></li>
+<li><p>库文件：libvo.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>调用该接口前必须保证通道已经使能。</p></li>
+<li><p>设置帧率不能大于当前通道实际帧率。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vo-getchnframerate">CVI_VO_GetChnFrameRate</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vo-getchnframerate">
+<h2><span class="section-number">5.3.34. </span>CVI_VO_GetChnFrameRate<a class="headerlink" href="API_Reference.html#cvi-vo-getchnframerate" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>获取指定视频输出通道的显示帧率。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VO_GetChnFrameRate</span><span class="p">(</span><span class="n">VO_LAYER</span><span class="w"> </span><span class="n">VoLayer</span><span class="p">,</span><span class="w"> </span><span class="n">VO_CHN</span><span class="w"> </span><span class="n">VoChn</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_S32</span><span class="w"> </span><span class="o">*</span><span class="n">ps32ChnFrmRate</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VoLayer</p></td>
+<td><p>视频输出视频层号。</p>
+<p>取值范围：[0, VO_MAX_LAYER_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>VoChn</p></td>
+<td><p>视频输出通道号。</p>
+<p>取值范围：[0, VO_MAX_CHN_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>ps32ChnFrmRate</p></td>
+<td><p>视频输出通道帧率变量指针。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-output-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vo.h, cvi_comm_vo.h</p></li>
+<li><p>库文件：libvo.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>返回通道实际帧率。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vo-setchnframerate">CVI_VO_SetChnFrameRate</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vo-getchnpts">
+<h2><span class="section-number">5.3.35. </span>CVI_VO_GetChnPTS<a class="headerlink" href="API_Reference.html#cvi-vo-getchnpts" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>获取指定视频输出通道当前显示图像的时间戳。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VO_GetChnPTS</span><span class="p">(</span><span class="n">VO_LAYER</span><span class="w"> </span><span class="n">VoLayer</span><span class="p">,</span><span class="w"> </span><span class="n">VO_CHN</span><span class="w"> </span><span class="n">VoChn</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_U64</span><span class="w"> </span><span class="o">*</span><span class="n">pu64ChnPTS</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VoLayer</p></td>
+<td><p>视频输出视频层号。</p>
+<p>取值范围：[0, VO_MAX_LAYER_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>VoChn</p></td>
+<td><p>视频输出通道号。</p>
+<p>取值范围：[0, VO_MAX_CHN_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>pu64ChnPTS</p></td>
+<td><p>视频输出通道时间戳变量指针。</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-output-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vo.h, cvi_comm_vo.h</p></li>
+<li><p>库文件：libvo.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>调用前需保证视频层使能，视频通道使能。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vo-querychnstatus">
+<h2><span class="section-number">5.3.36. </span>CVI_VO_QueryChnStatus<a class="headerlink" href="API_Reference.html#cvi-vo-querychnstatus" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>查询视频输出通道状态。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VO_QueryChnStatus</span><span class="p">(</span><span class="n">VO_LAYER</span><span class="w"> </span><span class="n">VoLayer</span><span class="p">,</span><span class="w"> </span><span class="n">VO_CHN</span><span class="w"> </span><span class="n">VoChn</span><span class="p">,</span><span class="w"> </span><span class="n">VO_QUERY_STATUS_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstStatus</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VoLayer</p></td>
+<td><p>视频输出视频层号。</p>
+<p>取值范围：[0, VO_MAX_LAYER_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>VoChn</p></td>
+<td><p>视频输出通道号。</p>
+<p>取值范围：[0, VO_MAX_CHN_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>pstStatus</p></td>
+<td><p>通道状态结构体指针。</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-output-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vo.h, cvi_comm_vo.h</p></li>
+<li><p>库文件：libvo.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>调用前需保证视频设备使能。</p></li>
+<li><p>调用前需要保证所要查询的通道已经使能。</p></li>
+<li><p>可以多次调用获取通道状态接口。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vo-closefd">
+<h2><span class="section-number">5.3.37. </span>CVI_VO_CloseFd<a class="headerlink" href="API_Reference.html#cvi-vo-closefd" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>关闭视频输出设备的文件句柄。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VO_CloseFd</span><span class="p">(</span><span class="n">CVI_VOID</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<p>无</p>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-output-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vo.h, cvi_comm_vo.h</p></li>
+<li><p>库文件：libvo.a</p></li>
+</ul>
+<p>【注意】</p>
+<p>此接口调用后，VO其他 MMF接口失效。</p>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vo-get-panel-status">
+<h2><span class="section-number">5.3.38. </span>CVI_VO_Get_Panel_Status<a class="headerlink" href="API_Reference.html#cvi-vo-get-panel-status" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>关闭视频输出设备的文件句柄。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VO_Get_Panel_Status</span><span class="p">(</span><span class="n">VO_LAYER</span><span class="w"> </span><span class="n">VoLayer</span><span class="p">,</span><span class="w"> </span><span class="n">VO_CHN</span><span class="w"> </span><span class="n">VoChn</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_U32</span><span class="w"> </span><span class="o">*</span><span class="n">is_init</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VoLayer</p></td>
+<td><p>视频输出视频层号。</p>
+<p>取值范围：[0, VO_MAX_LAYER_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>VoChn</p></td>
+<td><p>视频输出通道号。</p>
+<p>取值范围：[0, VO_MAX_CHN_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>is_init</p></td>
+<td><p>显示面板是否初始化标记。</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-output-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vo.h, cvi_comm_vo.h</p></li>
+<li><p>库文件：libvo.a</p></li>
+</ul>
+<p>【注意】</p>
+<p>无</p>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vo-regpmcallback">
+<h2><span class="section-number">5.3.39. </span>CVI_VO_RegPmCallBack<a class="headerlink" href="API_Reference.html#cvi-vo-regpmcallback" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>注册电源管理回调函数。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">CVI_VO_RegPmCallBack</span><span class="p">(</span><span class="n">VO_DEV</span><span class="w"> </span><span class="n">VoDev</span><span class="p">,</span><span class="w"> </span><span class="n">VO_PM_OPS_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstPmOps</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">pvData</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VoDev</p></td>
+<td><p>视频输出设备号。</p>
+<p>取值范围：[0, VO_MAX_DEV_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstPmOps</p></td>
+<td><p>电源管理函数结构体指针。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>pvData</p></td>
+<td><p>额外用户数据指针。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-output-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vo.h, cvi_comm_vo.h</p></li>
+<li><p>库文件：libvo.a</p></li>
+</ul>
+<p>【注意】</p>
+<p>无</p>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vo-unregpmcallback">CVI_VO_UnRegPmCallBack</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vo-unregpmcallback">
+<h2><span class="section-number">5.3.40. </span>CVI_VO_UnRegPmCallBack<a class="headerlink" href="API_Reference.html#cvi-vo-unregpmcallback" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>取消注册电源管理回调函数。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VO_UnRegPmCallBack</span><span class="p">(</span><span class="n">VO_DEV</span><span class="w"> </span><span class="n">VoDev</span><span class="p">);)</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VoDev</p></td>
+<td><p>视频输出设备号。</p>
+<p>取值范围：[0, VO_MAX_DEV_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-output-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vo.h, cvi_comm_vo.h</p></li>
+<li><p>库文件：libvo.a</p></li>
+</ul>
+<p>【注意】</p>
+<p>无</p>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vo-regpmcallback">CVI_VO_RegPmCallBack</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vo-setgammainfo">
+<h2><span class="section-number">5.3.41. </span>CVI_VO_SetGammaInfo<a class="headerlink" href="API_Reference.html#cvi-vo-setgammainfo" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>设置伽马校正信息。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VO_SetGammaInfo</span><span class="p">(</span><span class="n">VO_GAMMA_INFO_S</span><span class="w"> </span><span class="o">*</span><span class="n">pinfo</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>pinfo</p></td>
+<td><p>伽马校正信息结构体指针。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-output-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vo.h, cvi_comm_vo.h</p></li>
+<li><p>库文件：libvo.a</p></li>
+</ul>
+<p>【注意】</p>
+<p>无</p>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vo-getgammainfo">CVI_VO_GetGammaInfo</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vo-getgammainfo">
+<h2><span class="section-number">5.3.42. </span>CVI_VO_GetGammaInfo<a class="headerlink" href="API_Reference.html#cvi-vo-getgammainfo" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>设置伽马校正信息。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VO_GetGammaInfo</span><span class="p">(</span><span class="n">VO_GAMMA_INFO_S</span><span class="w"> </span><span class="o">*</span><span class="n">pinfo</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>pinfo</p></td>
+<td><p>伽马校正信息结构体指针。</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-output-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vo.h, cvi_comm_vo.h</p></li>
+<li><p>库文件：libvo.a</p></li>
+</ul>
+<p>【注意】</p>
+<p>无</p>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vo-setgammainfo">CVI_VO_SetGammaInfo</a></p>
+</section>
+<hr class="docutils" />
+<section id="cvi-vo-showpattern">
+<h2><span class="section-number">5.3.43. </span>CVI_VO_ShowPattern<a class="headerlink" href="API_Reference.html#cvi-vo-showpattern" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>设置伽马校正信息。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VO_ShowPattern</span><span class="p">(</span><span class="n">VO_DEV</span><span class="w"> </span><span class="n">VoDev</span><span class="p">,</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">VO_PATTERN_MODE</span><span class="w"> </span><span class="n">PatternId</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VoDev</p></td>
+<td><p>视频输出设备号。</p>
+<p>取值范围：[0, VO_MAX_DEV_NUM]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>VO_PATTERN_MODE</p></td>
+<td><p>图例操作指令ID</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-output-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vo.h, cvi_comm_vo.h</p></li>
+<li><p>库文件：libvo.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>此接口用于调试屏幕时输出芯片内置test pattern</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Design_Overview.html" class="btn btn-neutral float-left" title="5.2. 设计概述" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Data_Types.html" class="btn btn-neutral float-right" title="5.4. 数据类型" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

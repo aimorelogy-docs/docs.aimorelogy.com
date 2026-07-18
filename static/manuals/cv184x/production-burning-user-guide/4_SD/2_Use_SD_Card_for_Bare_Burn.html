@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4.2. 使用SD卡裸烧 &mdash; ProductionBurningUserGuide master 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="../_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/qrious.js"></script>
+    <script src="../_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="5. TFTP烧录" href="../5_TFTP.html" />
+    <link rel="prev" title="4.1. 概述" href="1_Overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> ProductionBurningUserGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_Overview.html">2. 概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_Cvi_Download_Tool(USB&amp;UART).html">3. USB烧录/UART烧录</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../4_SD.html">4. SD卡烧录</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="1_Overview.html">4.1. 概述</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="2_Use_SD_Card_for_Bare_Burn.html#">4.2. 使用SD卡裸烧</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_Use_SD_Card_for_Bare_Burn.html#id1">4.2.1. 使用前准备</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Use_SD_Card_for_Bare_Burn.html#id2">4.2.2. 裸烧流程解释</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Use_SD_Card_for_Bare_Burn.html#id3">4.2.3. 操作过程</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Use_SD_Card_for_Bare_Burn.html#id4">4.2.4. 操作实例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Use_SD_Card_for_Bare_Burn.html#upgrade-zip">4.2.5. 使用upgrade.zip进行升级</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Use_SD_Card_for_Bare_Burn.html#id5">4.2.6. 注意事项</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Use_SD_Card_for_Bare_Burn.html#emmc-ecsd-register">4.2.7. 设置eMMC ECSD register</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../5_TFTP.html">5. TFTP烧录</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6_Burner.html">6. 烧录器烧录</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ProductionBurningUserGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../4_SD.html"><span class="section-number">4. </span>SD卡烧录</a> &raquo;</li>
+      <li><span class="section-number">4.2. </span>使用SD卡裸烧</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="../_sources/4_SD/2_Use_SD_Card_for_Bare_Burn.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sd">
+<h1><span class="section-number">4.2. </span>使用SD卡裸烧<a class="headerlink" href="2_Use_SD_Card_for_Bare_Burn.html#sd" title="永久链接至标题">¶</a></h1>
+<section id="id1">
+<h2><span class="section-number">4.2.1. </span>使用前准备<a class="headerlink" href="2_Use_SD_Card_for_Bare_Burn.html#id1" title="永久链接至标题">¶</a></h2>
+<ol class="arabic simple">
+<li><p>参考 【Linux 开发环境用户指南】【1.2如何编译BSP】编译下列档案:</p></li>
+</ol>
+<ul class="simple">
+<li><p>fip.bin - bootloader + uboot</p></li>
+<li><p>boot.emmc/boot.spinand/boot.spinor- minimal Linux image(可选)</p></li>
+<li><p>rootfs.emmc/rootfs.spinand/rootfs.spinor - rootFS(可选）</p></li>
+<li><p>system.emmc/system.spinand/system.spinor - rw 分区(可选)</p></li>
+<li><p>cfg.emmc/cfg.spinand/cfg.spinor - config rw 分区(可选)</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p>一张 FAT32 格式的TF卡(micro SD)</p></li>
+</ol>
+</section>
+<section id="id2">
+<h2><span class="section-number">4.2.2. </span>裸烧流程解释<a class="headerlink" href="2_Use_SD_Card_for_Bare_Burn.html#id2" title="永久链接至标题">¶</a></h2>
+<a class="reference internal image-reference" href="../_images/image1.png"><img alt="../_images/image1.png" src="../_images/image1.png" style="width: 2.94167in; height: 5.04286in;" /></a>
+</section>
+<section id="id3">
+<h2><span class="section-number">4.2.3. </span>操作过程<a class="headerlink" href="2_Use_SD_Card_for_Bare_Burn.html#id3" title="永久链接至标题">¶</a></h2>
+<ol class="loweralpha simple">
+<li><p>将fip.bin，*.emmc/*.spinand/*.spinor放到 SD 卡中</p></li>
+<li><p>将SD卡插入Cvitek EVB的SD卡槽中</p></li>
+<li><p>将Cvitek EVB平台开机</p></li>
+</ol>
+</section>
+<section id="id4">
+<h2><span class="section-number">4.2.4. </span>操作实例<a class="headerlink" href="2_Use_SD_Card_for_Bare_Burn.html#id4" title="永久链接至标题">¶</a></h2>
+<p>使用前确认档案</p>
+<p>SPINAND</p>
+<a class="reference internal image-reference" href="../_images/image2.png"><img alt="../_images/image2.png" src="../_images/image2.png" style="width: 6.26806in; height: 1.68056in;" /></a>
+<p>插入SD卡,并将Cvitek EVB平台接上电源开机后,自动启动刻录程序</p>
+<p>平台刻录完成时,可于UART端口看到以下讯息.</p>
+<p>将平台断电再重开机即刻录完成</p>
+<figure class="align-default">
+<img alt="../_images/image11.png" src="../_images/image11.png" />
+</figure>
+</section>
+<section id="upgrade-zip">
+<h2><span class="section-number">4.2.5. </span>使用upgrade.zip进行升级<a class="headerlink" href="2_Use_SD_Card_for_Bare_Burn.html#upgrade-zip" title="永久链接至标题">¶</a></h2>
+<ol class="arabic simple">
+<li><p>参考 【 Linux 开发环境用户指南】【1.2如何编译BSP】编译upgrade.zip</p></li>
+<li><p>将 upgrade.zip 拷贝至SD卡</p></li>
+<li><p>解压缩 upgrade.zip (请将档案解压至 SD 卡的根目录)</p></li>
+</ol>
+</section>
+<section id="id5">
+<h2><span class="section-number">4.2.6. </span>注意事项<a class="headerlink" href="2_Use_SD_Card_for_Bare_Burn.html#id5" title="永久链接至标题">¶</a></h2>
+<p>请确认SD Card有被正确格式化成 FAT32</p>
+</section>
+<section id="emmc-ecsd-register">
+<h2><span class="section-number">4.2.7. </span>设置eMMC ECSD register<a class="headerlink" href="2_Use_SD_Card_for_Bare_Burn.html#emmc-ecsd-register" title="永久链接至标题">¶</a></h2>
+<p>当使用SD卡进行裸烧时，会用 u-boot 内建的 eMMC 驱动来对 ECSD 进行修改，
+主要是针对 ECSD[162] bit，也就是将 n_RST 的功能开启，具体刻录方式如下：</p>
+<ol class="arabic simple">
+<li><p>在u-boot下输入以下指令来启n_RST功能</p></li>
+</ol>
+<p>· uboot # mmc fuse_rstn 0</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="1_Overview.html" class="btn btn-neutral float-left" title="4.1. 概述" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../5_TFTP.html" class="btn btn-neutral float-right" title="5. TFTP烧录" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

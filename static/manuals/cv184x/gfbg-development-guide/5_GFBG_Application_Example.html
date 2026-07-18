@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5. 应用开发流程 &mdash; GFBGDevelopmentGuide master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="6. GFBG接口说明" href="6_GFBG_Interface_Description.html" />
+    <link rel="prev" title="4. 模块加载" href="4_GFBG_Module_Loading.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> GFBGDevelopmentGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_GFBG_Overview.html">2. GFBG概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_GFBG_Function_Description.html">3. GFBG功能描述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_GFBG_Module_Loading.html">4. 模块加载</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="5_GFBG_Application_Example.html#">5. 应用开发流程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_GFBG_Interface_Description.html">6. GFBG接口说明</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">GFBGDevelopmentGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">5. </span>应用开发流程</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/5_GFBG_Application_Example.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">5. </span>应用开发流程<a class="headerlink" href="5_GFBG_Application_Example.html#id1" title="永久链接至标题">¶</a></h1>
+<p>GFBG 主要用于显示 2D 图形（以直接操作物理显存的方式），其核心功能是通过高效的显存管理和图形叠加技术，提供流畅的图形显示效果。它能够满足嵌入式系统中对高性能、低延迟图形显示的需求，同时支持灵活的分辨率和色深配置。</p>
+<p>GFBG 应用开发流程如下图所示，开发者可以根据实际需求，按照流程图中的步骤逐步完成应用的设计、开发和调试工作。通过合理的显存分配和参数配置，可以充分发挥 GFBG 的性能优势，为用户提供优质的图形显示体验。</p>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="_images/image5-1.png"><img alt="_images/image5-1.png" src="_images/image5-1.png" style="width: 4.76806in; height: 7.15069in;" /></a>
+<figcaption>
+<p><span class="caption-number">图 5.1 </span><span class="caption-text">GFBG应用开发流程图</span><a class="headerlink" href="5_GFBG_Application_Example.html#id2" title="永久链接至图片">¶</a></p>
+</figcaption>
+</figure>
+<p>具体开发步骤如下：</p>
+<ul class="simple">
+<li><p>基于VO的对外API打开VO设备。</p></li>
+<li><p>调用open函数打开GFBG设备。</p></li>
+<li><p>调用ioctl函数设置GFBG显示位置，设置GFBG像素格式以及屏幕宽高等参数，具体设置请参考下一节的GFBG的ioctl接口说明。</p></li>
+<li><p>调用ioctl函数获取GFBG分配的物理显存大小、跨度等信息，用于后续的显存读写操作。</p></li>
+<li><p>调用mmap函数将GFBG分配的物理显存映射到用户空间，获取虚拟地址。</p></li>
+<li><p>用户操作虚拟内存，完成具体的绘制任务，打开显示开关，标准模式下虚拟显示分辨率可以设置为屏幕显示分辨率的2倍，用于实现更高的显示精度。</p></li>
+<li><p>调用munmap函数解除映射</p></li>
+<li><p>调用close函数关闭GFBG设备。</p></li>
+</ul>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="4_GFBG_Module_Loading.html" class="btn btn-neutral float-left" title="4. 模块加载" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="6_GFBG_Interface_Description.html" class="btn btn-neutral float-right" title="6. GFBG接口说明" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

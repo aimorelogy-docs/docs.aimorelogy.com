@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2. 建构CVITEK软件编译环境 &mdash; SDKCompilationandUsageGuide master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="3. 烧录说明" href="3_Burning_Instructions.html" />
+    <link rel="prev" title="1. 声明" href="1_disclaimer.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> SDKCompilationandUsageGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#">2. 建构CVITEK软件编译环境</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#linux">2.1. Linux 服务器</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#virtualboxvmubuntu">2.1.1. 于VirtualBoxVM安装Ubuntu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#ubuntu">2.1.2. Ubuntu 开机设定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#ssh-server">2.1.3. 安装SSH Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#samba-server">2.1.4. 安装Samba Server</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#id1">2.2. 建构编译环境</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#docker">2.2.1. 使用 Docker 编译</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#github">2.3. 配置github账号</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#sdk">2.4. 获取 SDK 的方式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#id3">2.5. 文件结构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#id4">2.6. 编译</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#id5">2.6.1. 环境变量说明</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#id6">2.6.2. SDK 编译</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#id7">2.7. 编译组态设定</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#id8">2.7.1. 单系统或双系统的编译设定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#id9">2.7.2. 工具链切换</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#id10">2.7.3. 修改分区</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#id11">2.7.4. 内存映射设定</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#id12">2.7.4.1. 内存映射</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#id13">2.7.4.2. 内存映射修改</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3_Burning_Instructions.html">3. 烧录说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_EVB_Interface_Description.html">4. EVB接口说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_Root_File_System.html">5. 根文件系统(rootfs)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_Accelerate_Development_with_NFS.html">6. 使用NFS加速开发</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_SD_Boot_Guide.html">7. SD Boot 使用指南</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SDKCompilationandUsageGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">2. </span>建构CVITEK软件编译环境</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/2_Build_CVITEK_Software_Compilation_Environment.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cvitek">
+<h1><span class="section-number">2. </span>建构CVITEK软件编译环境<a class="headerlink" href="2_Build_CVITEK_Software_Compilation_Environment.html#cvitek" title="永久链接至标题">¶</a></h1>
+<section id="linux">
+<h2><span class="section-number">2.1. </span>Linux 服务器<a class="headerlink" href="2_Build_CVITEK_Software_Compilation_Environment.html#linux" title="永久链接至标题">¶</a></h2>
+<p>开发者可选择使用：</p>
+<ul class="simple">
+<li><p>Ubuntu OS计算机</p></li>
+<li><p>Windows OS计算机 + Virtualbox VM (上面运行Ubuntu)</p></li>
+</ul>
+<p>两种方式，都请安装成Ubuntu 20.04 LTS版本。</p>
+<p>Virtualbox VM 下载网址: <a class="reference external" href="https://www.virtualbox.org/wiki/Downloads">https://www.virtualbox.org/wiki/Downloads</a></p>
+<p>Ubuntu 20.04 LTS下载网址: <a class="reference external" href="https://releases.ubuntu.com/focal/ubuntu-20.04.6-desktop-amd64.iso">https://releases.ubuntu.com/focal/ubuntu-20.04.6-desktop-amd64.iso</a></p>
+<section id="virtualboxvmubuntu">
+<h3><span class="section-number">2.1.1. </span>于VirtualBoxVM安装Ubuntu<a class="headerlink" href="2_Build_CVITEK_Software_Compilation_Environment.html#virtualboxvmubuntu" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p>建立新的VM，并加以命名</p></li>
+</ul>
+<img alt="_images/image1.png" src="_images/image1.png" />
+<ul class="simple">
+<li><p>规划8GB记忆体供VM使用。</p></li>
+</ul>
+<img alt="_images/image2.png" src="_images/image2.png" />
+<ul class="simple">
+<li><p>预留200GB硬盘空间，供后续存放SDK用。</p></li>
+</ul>
+<img alt="_images/image3.png" src="_images/image3.png" />
+</section>
+<section id="ubuntu">
+<h3><span class="section-number">2.1.2. </span>Ubuntu 开机设定<a class="headerlink" href="2_Build_CVITEK_Software_Compilation_Environment.html#ubuntu" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><p>第一次开机需要挂载安装光盘ISO挡案</p></li>
+</ul>
+<img alt="_images/image4.png" src="_images/image4.png" />
+<ul class="simple">
+<li><p>开始安装</p></li>
+</ul>
+<img alt="_images/image5.png" src="_images/image5.png" />
+<ul class="simple">
+<li><p>设定VirtualBox Host-only Ethernet Adapter以便Host与VirtualBox沟通（终端服务以及档案分享）</p></li>
+</ul>
+<img alt="_images/image6.png" src="_images/image6.png" />
+</section>
+<section id="ssh-server">
+<h3><span class="section-number">2.1.3. </span>安装SSH Server<a class="headerlink" href="2_Build_CVITEK_Software_Compilation_Environment.html#ssh-server" title="永久链接至标题">¶</a></h3>
+<p>SSH Server安装</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo apt-get install ssh</span>
+<span class="go">sudo apt-get install openssh-server</span>
+</pre></div>
+</div>
+<p>安装后可以修改一些 ssh 的设定, 如port、密码认证、root登入等</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">vim /etc/ssh/sshd_config</span>
+
+<span class="go">Port 22</span>
+
+<span class="go">PasswordAuthentication yes</span>
+
+<span class="go">PermitRootLogin yes -&gt; 是否开放 root 登入</span>
+</pre></div>
+</div>
+<p>修改后要重启SSH</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo /etc/init.d/ssh restart</span>
+</pre></div>
+</div>
+</section>
+<section id="samba-server">
+<h3><span class="section-number">2.1.4. </span>安装Samba Server<a class="headerlink" href="2_Build_CVITEK_Software_Compilation_Environment.html#samba-server" title="永久链接至标题">¶</a></h3>
+<p>Ubuntu VB需要安装Samba套件，方便后续Host PC与其做档案分享。</p>
+<p>安装Samba前，先用ifconfig获取IP 地址，第一次安装会发现没有net-tool支持，需要安装net-tool</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo apt install net-tools</span>
+<span class="go">sudo apt-get install samba samba-common</span>
+</pre></div>
+</div>
+<p>建立账号的samba 密码</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo smbpasswd -a cvitek</span>
+</pre></div>
+</div>
+<p>修改/etc/samba/smb.conf，增加以下的内容</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">[cvitek]</span>
+<span class="go">path = /home/cvitek</span>
+<span class="go">writable = yes</span>
+<span class="go">browseable= yes</span>
+<span class="go">valid users = cvitek</span>
+</pre></div>
+</div>
+<p>启动samba server</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo service smbd restart</span>
+</pre></div>
+</div>
+<p>WINDOW PC端连接Samba server （&lt;Server IP&gt;）</p>
+<a class="reference internal image-reference" href="_images/image7.png"><img alt="_images/image7.png" src="_images/image7.png" style="width: 2.77006in; height: 0.69236in;" /></a>
+<p>参考 <a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#id1"><span class="std std-ref">2.2.</span></a> 安装CVITEK Build Environment即可进行编译。</p>
+</section>
+</section>
+<section id="id1">
+<span id="id2"></span><h2><span class="section-number">2.2. </span>建构编译环境<a class="headerlink" href="2_Build_CVITEK_Software_Compilation_Environment.html#id1" title="永久链接至标题">¶</a></h2>
+<p>在编译SDK之前，Ubuntu需要安装以下套件：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo apt-get update</span>
+<span class="go">sudo apt-get install -y build-essential</span>
+<span class="go">sudo apt-get install -y ninja-build</span>
+<span class="go">sudo apt-get install -y automake</span>
+<span class="go">sudo apt-get install -y autoconf</span>
+<span class="go">sudo apt-get install -y libtool</span>
+<span class="go">sudo apt-get install -y wget</span>
+<span class="go">sudo apt-get install -y curl</span>
+<span class="go">sudo apt-get install -y git</span>
+<span class="go">sudo apt-get install -y gcc</span>
+<span class="go">sudo apt-get install -y libssl-dev</span>
+<span class="go">sudo apt-get install -y bc</span>
+<span class="go">sudo apt-get install -y slib</span>
+<span class="go">sudo apt-get install -y squashfs-tools</span>
+<span class="go">sudo apt-get install -y android-sdk-libsparse-utils</span>
+<span class="go">sudo apt-get install -y android-sdk-ext4-utils</span>
+<span class="go">sudo apt-get install -y jq</span>
+<span class="go">sudo apt-get install -y cmake</span>
+<span class="go">sudo apt-get install -y python3-distutils</span>
+<span class="go">sudo apt-get install -y tclsh</span>
+<span class="go">sudo apt-get install -y scons</span>
+<span class="go">sudo apt-get install -y parallel</span>
+<span class="go">sudo apt-get install -y ssh-client</span>
+<span class="go">sudo apt-get install -y tree</span>
+<span class="go">sudo apt-get install -y python3-dev</span>
+<span class="go">sudo apt-get install -y python3-pip</span>
+<span class="go">sudo apt-get install -y device-tree-compiler</span>
+<span class="go">sudo apt-get install -y libssl-dev</span>
+<span class="go">sudo apt-get install -y ssh</span>
+<span class="go">sudo apt-get install -y cpio</span>
+<span class="go">sudo apt-get install -y squashfs-tools</span>
+<span class="go">sudo apt-get install -y fakeroot</span>
+<span class="go">sudo apt-get install -y libncurses5</span>
+<span class="go">sudo apt-get install -y flex</span>
+<span class="go">sudo apt-get install -y bison</span>
+<span class="go">sudo apt-get install -y pkg-config</span>
+<span class="go">sudo pip3 install -U yoctools</span>
+</pre></div>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">注意</p>
+<p>注意检查 python 命令是否存在，如果不存在，需要创建软连接到 python3 命令。</p>
+<p>sudo ln -s /usr/bin/python3 /usr/bin/python</p>
+</div>
+<section id="docker">
+<h3><span class="section-number">2.2.1. </span>使用 Docker 编译<a class="headerlink" href="2_Build_CVITEK_Software_Compilation_Environment.html#docker" title="永久链接至标题">¶</a></h3>
+<p>可以将 SDK 映射到docker容器中，在容器内运行编译命令，如果你的编译环境准备有问题，可以使用此方式。</p>
+<ol class="arabic">
+<li><p>准备 Dockerfile，将下面的内容保存到文件 cvitek-linux-Dockerfile</p>
+<div class="highlight-dockerfile notranslate"><div class="highlight"><pre><span></span><span class="c"># 基础镜像使用 ubuntu:20.04</span>
+<span class="k">FROM</span> <span class="s">ubuntu:20.04</span>
+
+<span class="k">ENV</span> <span class="nv">DEBIAN_FRONTEND</span><span class="o">=</span>noninteractive
+<span class="k">ENV</span> <span class="nv">TZ</span><span class="o">=</span>Asia/Shanghai
+
+<span class="c"># 安装依赖</span>
+<span class="k">RUN</span> apt-get update <span class="se">\</span>
+      <span class="o">&amp;&amp;</span> apt-get install -y <span class="se">\</span>
+      pkg-config
+
+<span class="k">RUN</span> <span class="nv">DEBIAN_FRONTEND</span><span class="o">=</span>noninteractive apt-get install -y <span class="se">\</span>
+      build-essential <span class="se">\</span>
+      ninja-build <span class="se">\</span>
+      automake <span class="se">\</span>
+      autoconf <span class="se">\</span>
+      libtool <span class="se">\</span>
+      wget <span class="se">\</span>
+      curl <span class="se">\</span>
+      git <span class="se">\</span>
+      gcc <span class="se">\</span>
+      libssl-dev <span class="se">\</span>
+      bc <span class="se">\</span>
+      slib <span class="se">\</span>
+      squashfs-tools <span class="se">\</span>
+      android-sdk-libsparse-utils <span class="se">\</span>
+      android-sdk-ext4-utils <span class="se">\</span>
+      jq <span class="se">\</span>
+      cmake <span class="se">\</span>
+      python3-distutils <span class="se">\</span>
+      tclsh <span class="se">\</span>
+      scons <span class="se">\</span>
+      parallel <span class="se">\</span>
+      ssh-client <span class="se">\</span>
+      tree <span class="se">\</span>
+      python3-dev <span class="se">\</span>
+      python3-pip <span class="se">\</span>
+      device-tree-compiler <span class="se">\</span>
+      libssl-dev <span class="se">\</span>
+      ssh <span class="se">\</span>
+      cpio <span class="se">\</span>
+      squashfs-tools <span class="se">\</span>
+      fakeroot <span class="se">\</span>
+      libncurses5 <span class="se">\</span>
+      flex <span class="se">\</span>
+      bison <span class="se">\</span>
+      rsync <span class="se">\</span>
+      <span class="o">&amp;&amp;</span> apt-get clean <span class="se">\</span>
+      <span class="o">&amp;&amp;</span> rm -rf /var/lib/apt/lists/*
+
+<span class="c"># 按照 yoctools，编译 alios 需要</span>
+<span class="k">RUN</span> ln -s /usr/bin/python3 /usr/bin/python
+<span class="k">RUN</span> pip3 install yoctools -U
+
+<span class="c"># 设置工作目录</span>
+<span class="k">WORKDIR</span><span class="s"> /cvitek-sdk</span>
+
+<span class="c"># 设置挂载点</span>
+<span class="k">VOLUME</span> <span class="p">[</span><span class="s2">&quot;/cvitek-sdk&quot;</span><span class="p">]</span>
+
+<span class="k">CMD</span> <span class="p">[</span><span class="s2">&quot;/bin/bash&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p>编译生成docker镜像</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker build -t cvitek-linux -f cvitek-linux-Dockerfile .
+</pre></div>
+</div>
+</li>
+<li><p>获取 SDK 到文件夹 <cite>/data/xxx/SDK/</cite> 后（见下面的描述），启动容器：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker run -it --name cvitek-linux <span class="se">\</span>
+   -v /data/xxx/SDK:/cvitek-sdk <span class="se">\</span>
+   cvitek-linux
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+</section>
+<section id="github">
+<h2><span class="section-number">2.3. </span>配置github账号<a class="headerlink" href="2_Build_CVITEK_Software_Compilation_Environment.html#github" title="永久链接至标题">¶</a></h2>
+<p>在github建立个人账号，并配置好ssh key，下载代码需要用到个人github账号</p>
+<ol class="arabic">
+<li><p>设置账号邮箱</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git config --global user.name <span class="s2">&quot;your_name&quot;</span>
+
+git config --global user.email <span class="s2">&quot;your_email@example.com&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>配置密钥</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ssh-keygen -t ed25519 -C <span class="s2">&quot;your_email@example.com&quot;</span>
+
+cat ~/.ssh/id_ed25519.pub
+</pre></div>
+</div>
+</li>
+</ol>
+<p>3.将公钥添加到github</p>
+<a class="reference internal image-reference" href="_images/image7-1.png"><img alt="_images/image7-1.png" src="_images/image7-1.png" style="width: 6.27083in; height: 2.69444in;" /></a>
+<p>4.验证ssh是否配置成功</p>
+<blockquote>
+<div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ssh -T git@github.com
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="sdk">
+<h2><span class="section-number">2.4. </span>获取 SDK 的方式<a class="headerlink" href="2_Build_CVITEK_Software_Compilation_Environment.html#sdk" title="永久链接至标题">¶</a></h2>
+<ol class="arabic">
+<li><p>使用git从github拉取最新SDK源码，见：<a class="reference external" href="https://github.com/sophgo/sophpi">https://github.com/sophgo/sophpi</a></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone -b sg200x-evb git@github.com:sophgo/sophpi.git
+
+./sophpi/scripts/repo_clone.sh --gitclone sophpi/scripts/subtree_cv184x-v6.x.xml
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="id3">
+<h2><span class="section-number">2.5. </span>文件结构<a class="headerlink" href="2_Build_CVITEK_Software_Compilation_Environment.html#id3" title="永久链接至标题">¶</a></h2>
+<p>SDK文件结构说明如下:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>top
+├── build                         ## 编译脚本集合
+|     └── media
+|        └── SensorSupportList    ## sensor 驱动
+├── fsbl                          ## First Stage Boot Loader
+├── host-tools                    ## 编译工具链
+├── isp_tuning                    ## isp tuning工具
+├── linux_5.10                    ## linux内核
+├── cvi_mpi                       ## 多媒体及isp库
+├── osal                          ## 操作系统抽象层
+├── osdrv                         ## kernel space 驱动
+├── oss                           ## 开源代码库
+├── ramdisk                       ## ram disk
+├── u-boot-2021.10                ## uboot
+├── libsophon                     ## tpu库及tpu驱动
+├── cvi_rtsp                      ## 多媒体hal层
+├── buildroot-2021.05             ## Buildroot
+├── isp-tool-daemon               ## isp调试工具
+├── cvi_alios                     ## AliOS
+├── freertos                      ## FreeRTOS
+├── rt-thread                     ## RT-Thread
+└── tdl_sdk                       ## AI Models SDK
+</pre></div>
+</div>
+</section>
+<section id="id4">
+<h2><span class="section-number">2.6. </span>编译<a class="headerlink" href="2_Build_CVITEK_Software_Compilation_Environment.html#id4" title="永久链接至标题">¶</a></h2>
+<section id="id5">
+<h3><span class="section-number">2.6.1. </span>环境变量说明<a class="headerlink" href="2_Build_CVITEK_Software_Compilation_Environment.html#id5" title="永久链接至标题">¶</a></h3>
+<p>编译前置动作最主要是为了设置三个环境变量：$CHIP, $BOARD, $DUAL_OS</p>
+<p><strong>$CHIP</strong> 变量是需要根据用户的 SOC 来做设置。</p>
+<p><strong>$BOARD</strong> 变量是针对每张 EVB, 有不同的驱动，必须要正确设置。</p>
+<p><strong>$DUAL_OS</strong> 变量是根据用户需要确定每张 EVB 运行单系统或双系统，每张 EVB 有默认的配置，可以通过 menuconfig 命令切换。单双系统的说明参阅下文 编译单系统或双系统的设定。</p>
+</section>
+<section id="id6">
+<h3><span class="section-number">2.6.2. </span>SDK 编译<a class="headerlink" href="2_Build_CVITEK_Software_Compilation_Environment.html#id6" title="永久链接至标题">¶</a></h3>
+<p>编译请在docker环境中执行</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> build/envsetup_soc.sh <span class="c1"># 初始化环境</span>
+
+defconfig cv1842hp_wevb_0014a_spinor <span class="c1"># 设定编译组态，cv184x内建支持的EVB板卡配置命名方式为 $CHIP_$BOARD</span>
+
+clean_all <span class="c1"># 清除旧的编译目标文件</span>
+
+build_all <span class="c1"># 全编译</span>
+</pre></div>
+</div>
+<p>在source 命令初始化环境之前，可以通过export 命令按需设置如下环境变量等：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">ENABLE_BOOTLOGO</span><span class="o">=</span>y <span class="c1"># 配置logo.jpg打包到档案的环境变量</span>
+<span class="nb">export</span> <span class="nv">TPU_REL</span><span class="o">=</span><span class="m">1</span> <span class="c1"># 加入tdl_sdk SDK编译</span>
+</pre></div>
+</div>
+<p>编译出的档案会放置于 install/soc_$CHIP_$BOARD 之下。</p>
+<p>部分编译：</p>
+<p>注：需要在全编译一次后才能支持部分编译</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ clean_uboot <span class="o">&amp;&amp;</span> build_uboot <span class="c1"># 只更新uboot，对应fip.bin和fip_spl.bin</span>
+
+$ clean_kernel <span class="o">&amp;&amp;</span> build_kernel <span class="c1"># 只更新kernel，对应boot.spinor</span>
+
+$ clean_osdrv <span class="o">&amp;&amp;</span> build_osdrv <span class="o">&amp;&amp;</span> pack_rootfs <span class="c1"># 只更新osdrv，生成到system/*，对应rootfs.spinor</span>
+
+$ clean_middleware <span class="o">&amp;&amp;</span> build_middleware <span class="o">&amp;&amp;</span> pack_rootfs <span class="c1"># 只更新cvi_mpi(cvi_test / sample_dsi)，生成到system/*，对应rootfs.spinor</span>
+
+$ clean_libsophon <span class="o">&amp;&amp;</span> build_libsophon <span class="c1"># 只更新libsophon，生成到libsophon/build/*</span>
+
+$ clean_tdl_sdk <span class="o">&amp;&amp;</span> build_tdl_sdk <span class="c1"># 只更新tdl_sdk</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>单独编译 cvi_mpi：build_middleware 会针对Sensor driver（位于cvi_mpi/component/isp/ 下）以及sample application（位于cvi_mpi/sample/下）重新编译</p></li>
+<li><p>重新打包文件系统：pack_rootfs会将变更后的driver以及application包装成可烧录映像档案。</p></li>
+</ul>
+</section>
+</section>
+<section id="id7">
+<h2><span class="section-number">2.7. </span>编译组态设定<a class="headerlink" href="2_Build_CVITEK_Software_Compilation_Environment.html#id7" title="永久链接至标题">¶</a></h2>
+<p>初始化之后，编译组态的设定档案路径如下，以cv1842hp_wevb_0014a_spinor为例</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cat build/boards/cv184x/cv1842hp_wevb_0014a_spinor/cv1842hp_wevb_0014a_spinor_defconfig
+<span class="go">CONFIG_CHIP_cv1842hp=y</span>
+<span class="go">CONFIG_BOARD_wevb_0014a_spinor=y</span>
+<span class="go">CONFIG_DDR_CFG_ddr3_2133_x16=y</span>
+<span class="go">CONFIG_ARCH=&quot;arm&quot;</span>
+<span class="go">CONFIG_CC_OPTIMIZE_FOR_SIZE=y</span>
+<span class="go">CONFIG_KERNEL_ENTRY_HACK=y</span>
+<span class="go">CONFIG_TOOLCHAIN_MUSL_ARM=y</span>
+<span class="go">CONFIG_FLASH_SIZE_SHRINK=y</span>
+<span class="go">CONFIG_BOOT_IMAGE_SINGLE_DTB=y</span>
+<span class="go">CONFIG_STORAGE_TYPE_spinor=y</span>
+<span class="go">......</span>
+<span class="go">CONFIG_DUAL_OS=y</span>
+<span class="go">CONFIG_ENABLE_ALIOS=y</span>
+<span class="go">CONFIG_RTOS_BUILD_IN_FIP=n</span>
+<span class="gp"># </span>Memory Map Configuration
+<span class="go">CONFIG_DRAM_SIZE=0x10000000</span>
+<span class="go">......</span>
+<span class="gp">#</span>
+<span class="gp"># </span>Partition Configuration
+<span class="gp">#</span>
+<span class="go">CONFIG_PARTITION_COUNT=8</span>
+<span class="go">......</span>
+</pre></div>
+</div>
+<p>可以通过defconfig打印CV184x内建支持的EVB 编译组态，然后指定具体的EVB。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>defconfig cv184x
+<span class="go">* cv184x * the avaliable cvitek EVB boards</span>
+<span class="go">cv184x - cv184x_fpga [FPGA]</span>
+<span class="go">         cv184x_palladium [PALLADIUM]</span>
+<span class="go">         cv184x_palladium_c906 [PALLADIUM_c906]</span>
+<span class="go">cv1841c - cv1841c_wevb_0015a_emmc [CA53 + EMMC + QFN SIP 128MB]</span>
+<span class="go">         cv1841c_wevb_0015a_spinand [CA53 + SPINAND + QFN SIP 128MB]</span>
+<span class="go">         cv1841c_wevb_0015a_spinor [CA53 + SPINOR + QFN SIP 128MB]</span>
+<span class="go">cv1842cp - cv1842cp_wevb_0015a_spinand [CA53 + SPINAND + QFN SIP 256MB]</span>
+<span class="go">         cv1842cp_wevb_0015a_spinor [CA53 + SPINOR + QFN SIP 256MB]</span>
+<span class="go">cv1842hp - cv1842hp_wevb_0014a_emmc [CA53 + EMMC + BGA SIP 256MB]</span>
+<span class="go">         cv1842hp_wevb_0014a_spinand [CA53 + SPINAND + BGA SIP 256MB]</span>
+<span class="go">         cv1842hp_wevb_0014a_spinor [CA53 + SPINOR + BGA SIP 256MB]</span>
+<span class="go">cv1843hp - cv1843hp_wevb_0014a_emmc [CA53 + EMMC + BGA SIP 512MB]</span>
+</pre></div>
+</div>
+<p>下列介绍两种方式进行编译组态设定。</p>
+<ul class="simple">
+<li><p>使用command line - setconfig 方式</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>setconfig <span class="nv">ARCH</span><span class="o">=</span>arm
+<span class="gp">$ </span>setconfig <span class="nv">CROSS_COMPILE_KERNEL</span><span class="o">=</span>arm-none-linux-musleabihf-
+<span class="gp">$ </span>setconfig <span class="nv">TOOLCHAIN_MUSL_ARM</span><span class="o">=</span>y
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>透过Menuconfig设定</p></li>
+</ul>
+<p>初始化之后，键入menuconfig进入以下页面，即可选择各种SDK内部设定，包含CHIP，EVB板号，DUAL_OS等等。</p>
+<img alt="_images/image12.png" src="_images/image12.png" />
+<p>配置过程可以透过[Enter] [Space] [ESC] 等进行设置/返回的动作</p>
+<p>配置完毕后, 按下[S]储存配置文件, 接着按下[Q]离开图形化接口</p>
+<p>(或者按下 ESC, 会自动弹出是否需要储存的图形)</p>
+<p>选取IC （以cv1842cp为例）</p>
+<img alt="_images/image13.png" src="_images/image13.png" />
+<p>EVB 版号会列出相对应的选择，选取EVB的同时也会决定编译出的image适配的DDR以及Flash Size。（以这个例子选取的EVB上所带的DDR为DDR3，Flash为16MB的SPINOR Flash）</p>
+<img alt="_images/image14.png" src="_images/image14.png" />
+<p>最后退出选择储存设定（设定会储存于./build/.config），即可完成SDK编译组态的选定。</p>
+<section id="id8">
+<h3><span class="section-number">2.7.1. </span>单系统或双系统的编译设定<a class="headerlink" href="2_Build_CVITEK_Software_Compilation_Environment.html#id8" title="永久链接至标题">¶</a></h3>
+<p>CV184X 板卡是双核处理器，大核是基于ARM架构的处理器，小核是基于RISC-V架构的处理器。</p>
+<p>单双系统是根据多媒体功能需求不同划分的，主要在小核的使用不同。
+- 单系统配置时，大核上运行 Linux 系统，小核上运行 FreeRTOS 或 RT-Thread 系统（v6.3.0之后默认是RT-Thread）。
+- 双系统配置时，大核上运行 Linux 系统，小核上运行 AliOS 系统。</p>
+<p>通过 setconfig 命令设定，单系统设定为：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>选择 RT-Thread 系统
+<span class="gp">$ </span>setconfig <span class="nv">DUAL_OS</span><span class="o">=</span>n <span class="nv">RTOS_COMPRESS_ORIG</span><span class="o">=</span>y
+<span class="go">Run setconfig function</span>
+<span class="go">Loaded configuration &#39;.config&#39;</span>
+<span class="go">Configuration saved to &#39;.confi&#39;</span>
+<span class="go">...</span>
+<span class="gp"># </span>选择 FreeRTOS 系统
+<span class="gp">$ </span>setconfig <span class="nv">DUAL_OS</span><span class="o">=</span>n <span class="nv">ENABLE_FREERTOS</span><span class="o">=</span>y
+<span class="go">Run setconfig function</span>
+<span class="go">Loaded configuration &#39;.config&#39;</span>
+<span class="go">Configuration saved to &#39;.confi&#39;</span>
+<span class="go">...</span>
+</pre></div>
+</div>
+<p>双系统设定为：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>默认 AliOS 系统
+<span class="gp">$ </span>setconfig <span class="nv">DUAL_OS</span><span class="o">=</span>y
+<span class="go">Run setconfig function</span>
+<span class="go">Loaded configuration &#39;.config&#39;</span>
+<span class="go">Configuration saved to &#39;.confi&#39;</span>
+<span class="go">...</span>
+</pre></div>
+</div>
+<p>执行 menuconfig 命令在菜单中选择，单系统设定为：</p>
+<img alt="_images/image15.png" src="_images/image15.png" />
+<img alt="_images/image15-1.png" src="_images/image15-1.png" />
+<p>双系统设定为：</p>
+<img alt="_images/image16.png" src="_images/image16.png" />
+</section>
+<section id="id9">
+<h3><span class="section-number">2.7.2. </span>工具链切换<a class="headerlink" href="2_Build_CVITEK_Software_Compilation_Environment.html#id9" title="永久链接至标题">¶</a></h3>
+<p>CV184x 提供了基于以下三种Arch的编译工具链：</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 50%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Arch</p></th>
+<th class="head"><p>Libc</p></th>
+<th class="head"><p>Toolchain</p></th>
+<th class="head"><p>Target Platform</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Arm</p></td>
+<td><p>glibc</p></td>
+<td><p>arm-gnu-toolchain-11.3.rel1-x86_64-arm-none-linux-gnueabihf</p></td>
+<td><p>arm-none-linux-gnueabihf</p></td>
+</tr>
+<tr class="row-odd"><td><p>Arm</p></td>
+<td><p>musl</p></td>
+<td><p>arm-gnu-toolchain-11.3.rel1-x86_64-arm-none-linux-musleabihf</p></td>
+<td><p>arm-none-linux-musleabihf</p></td>
+</tr>
+<tr class="row-even"><td><p>Aarch64</p></td>
+<td><p>glibc</p></td>
+<td><p>arm-gnu-toolchain-11.3.rel1-x86_64-aarch64-none-linux-gnu</p></td>
+<td><p>aarch64-none-linux-gnu</p></td>
+</tr>
+</tbody>
+</table>
+<p>Linux内核可以通过配置如下组态，从而切换不同的编译工具链：</p>
+<ul class="simple">
+<li><p>arm glibc</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>setconfig <span class="nv">ARCH</span><span class="o">=</span>arm
+<span class="gp">$ </span>setconfig <span class="nv">CROSS_COMPILE_KERNEL</span><span class="o">=</span>arm-none-linux-gnueabihf-
+<span class="gp">$ </span>setconfig <span class="nv">TOOLCHAIN_GLIBC_ARM</span><span class="o">=</span>y
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>arm musl</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>setconfig <span class="nv">ARCH</span><span class="o">=</span>arm
+<span class="gp">$ </span>setconfig <span class="nv">CROSS_COMPILE_KERNEL</span><span class="o">=</span>arm-none-linux-musleabihf-
+<span class="gp">$ </span>setconfig <span class="nv">TOOLCHAIN_MUSL_ARM</span><span class="o">=</span>y
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>aarch64 glibc</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>setconfig <span class="nv">ARCH</span><span class="o">=</span>arm64
+<span class="gp">$ </span>setconfig <span class="nv">CROSS_COMPILE_KERNEL</span><span class="o">=</span>aarch64-none-linux-gnu-
+<span class="gp">$ </span>setconfig <span class="nv">TOOLCHAIN_GLIBC_ARM64</span><span class="o">=</span>y
+</pre></div>
+</div>
+<p>以上均可使用图像化界面配置。</p>
+<p>U-boot使用aarch64-none-linux-gnu-工具链。</p>
+<p>AliOS使用玄铁交叉编译工具链Xuantie-900-gcc-elf-newlib-x86_64-V2.6.1</p>
+</section>
+<section id="id10">
+<h3><span class="section-number">2.7.3. </span>修改分区<a class="headerlink" href="2_Build_CVITEK_Software_Compilation_Environment.html#id10" title="永久链接至标题">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">请参阅</span> <span class="n">CV184x</span> <span class="n">Flash</span> <span class="n">分区工具使用手册</span> <span class="o">-</span> <span class="n">第六章</span> <span class="n">分区修改</span>
+</pre></div>
+</div>
+</section>
+<section id="id11">
+<h3><span class="section-number">2.7.4. </span>内存映射设定<a class="headerlink" href="2_Build_CVITEK_Software_Compilation_Environment.html#id11" title="永久链接至标题">¶</a></h3>
+<section id="id12">
+<h4><span class="section-number">2.7.4.1. </span>内存映射<a class="headerlink" href="2_Build_CVITEK_Software_Compilation_Environment.html#id12" title="永久链接至标题">¶</a></h4>
+<p>内存的基本分配如下图所示。</p>
+<ul class="simple">
+<li><p>MONITOR：ATF固件使用内存，包括bl31和bl32</p></li>
+<li><p>RTOS_SYS_TOTAL：小核使用内存，如果使用alios作为小核系统，RTOS_SYS_TOTAL_SIZE=大小核的共享内存+RTOS_SYS_SIZE；使用freertos，则RTOS_SYS_TOTAL_SIZE=RTOS_SYS_SIZE。KERNEL：KERNEL系统内存,KERNEL_ENTRY_HACK</p></li>
+<li><p>ION：大核ION驱动使用的内存</p></li>
+<li><p>RTOS_ION：小核ION使用的内存</p></li>
+</ul>
+<img alt="_images/image29.png" src="_images/image29.png" />
+<p>使用python脚本（memmap.py）定义具体的ADDR和SIZE，在编译时解析memmap.py生成对应的cvi_board_memmap.*文件提供给linux、u-boot、fsbl等编译使用。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cat build/boards/default/memmap/memmap.py
+<span class="go">import os</span>
+<span class="go">SIZE_1M = 0x100000</span>
+<span class="go">SIZE_1K = 1024</span>
+<span class="gp"># </span>Only attributes <span class="k">in</span> class MemoryMap are generated to .h
+<span class="go">class MemoryMap:</span>
+<span class="gp">   # </span>No prefix <span class="s2">&quot;CVIMMAP_&quot;</span> <span class="k">for</span> the items <span class="k">in</span> _no_prefix<span class="o">[]</span>
+<span class="go">   _no_prefix = [</span>
+<span class="go">      &quot;CONFIG_SYS_TEXT_BASE&quot;  # u-boot&#39;s CONFIG_SYS_TEXT_BASE is used without CPP.</span>
+<span class="go">   ]</span>
+<span class="go">   DRAM_BASE = 0x80000000</span>
+<span class="go">   DRAM_SIZE = 510 * SIZE_1M</span>
+<span class="go">......</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>cvi_board_memmap.h</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cat build/output/cv1842hp_wevb_0014a_spinor/cvi_board_memmap.h
+<span class="gp">#</span>ifndef __BOARD_MMAP__a149c034__
+<span class="gp">#</span>define __BOARD_MMAP__a149c034__
+<span class="gp">#</span>define CONFIG_SYS_TEXT_BASE 0x83800000  /* offset <span class="m">56</span>.0MiB */
+<span class="go">......</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>cvi_board_memmap.conf</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cat build/output/cv1842hp_wevb_0014a_spinor/cvi_board_memmap.conf
+<span class="go">CONFIG_SYS_TEXT_BASE=0x83800000</span>
+<span class="go">CVIMMAP_ATF_SIZE=0xa0000</span>
+<span class="go">CVIMMAP_BOOTLOGO_ADDR=0x89e3e000</span>
+<span class="go">CVIMMAP_BOOTLOGO_SIZE=0x1c2000</span>
+<span class="go">......</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>cvi_board_memmap.ld</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cat build/output/cv1842hp_wevb_0014a_spinor/cvi_board_memmap.ld
+<span class="go">CONFIG_SYS_TEXT_BASE = 0x83800000;</span>
+<span class="go">CVIMMAP_ATF_SIZE = 0xa0000;</span>
+<span class="go">CVIMMAP_BOOTLOGO_ADDR = 0x89e3e000;</span>
+<span class="go">CVIMMAP_BOOTLOGO_SIZE = 0x1c2000;</span>
+<span class="go">CVIMMAP_CONFIG_SYS_INIT_SP_ADDR = 0x83500000;</span>
+<span class="go">......</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>cvi_board_memmap.txt</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cat build/output/cv1842hp_wevb_0014a_spinor/cvi_board_memmap.txt
+<span class="go">FBSL stage:</span>
+<span class="go">| Name               | Start Address | End Address | Size      | Size(M/K/B) |</span>
+<span class="go">|--------------------|---------------|-------------|-----------|-------------|</span>
+<span class="go">......</span>
+</pre></div>
+</div>
+<p>不同EVB 的内存分配情况略有不同，主要单双系统在小核上的使用不同。</p>
+<p>因此，将主要的ADDR和SIZE定义成可设置的变量，默认值定义在EVB defconfig文件中（v6.3.0前后有所不同，请详见代码）。
+在生成cvi_board_memmap.*文件时，读取配置文件中的值。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cat build/boards/cv184x/cv1842hp_wevb_0014a_spinor/cv1842hp_wevb_0014a_spinor_defconfig
+<span class="go">......</span>
+<span class="go">CONFIG_DUAL_OS=y</span>
+<span class="go">CONFIG_ENABLE_ALIOS=y</span>
+<span class="go">CONFIG_RTOS_BUILD_IN_FIP=n</span>
+<span class="go">CONFIG_DRAM_SIZE=0x10000000</span>
+<span class="go">CONFIG_ION_SIZE=0x4B00000</span>
+<span class="go">CONFIG_RTOS_SYS_SIZE=0x400000</span>
+<span class="go">CONFIG_RTOS_ION_SIZE=0x6000000</span>
+<span class="go">......</span>
+</pre></div>
+</div>
+</section>
+<section id="id13">
+<h4><span class="section-number">2.7.4.2. </span>内存映射修改<a class="headerlink" href="2_Build_CVITEK_Software_Compilation_Environment.html#id13" title="永久链接至标题">¶</a></h4>
+<p>通过menuconfig图形化菜单界面可以修改部分ADDR和SIZE，以满足开发的需求。</p>
+<img alt="_images/image30.png" src="_images/image30.png" />
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="1_disclaimer.html" class="btn btn-neutral float-left" title="1. 声明" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="3_Burning_Instructions.html" class="btn btn-neutral float-right" title="3. 烧录说明" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

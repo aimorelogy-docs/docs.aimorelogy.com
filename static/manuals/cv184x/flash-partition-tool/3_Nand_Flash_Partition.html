@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3. Nand Flash 分区 &mdash; CvitekFlashPartitionToolUserGuide master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="4. EMMC分区方式" href="4_EMMC_Partition.html" />
+    <link rel="prev" title="2. 概述" href="2_Overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> CvitekFlashPartitionToolUserGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Overview.html">2. 概述</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="3_Nand_Flash_Partition.html#">3. Nand Flash 分区</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3_Nand_Flash_Partition.html#mtd">3.1. 关于 mtd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_Nand_Flash_Partition.html#id1">3.2. 分区表</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_Nand_Flash_Partition.html#id2">3.3. 烧写规则</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3_Nand_Flash_Partition.html#sv">3.3.1. SV  分区</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_Nand_Flash_Partition.html#fip">3.3.2. FIP 分区</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_Nand_Flash_Partition.html#id3">3.3.3. 其他分区</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3_Nand_Flash_Partition.html#nand">3.4. NAND 分区对齐</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="4_EMMC_Partition.html">4. EMMC分区方式</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_Nor_Flash_Partition.html">5. Nor flash 分区</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_Partition_Configuration.html">6. 分区修改</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CvitekFlashPartitionToolUserGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">3. </span>Nand Flash 分区</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/3_Nand_Flash_Partition.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="nand-flash">
+<h1><span class="section-number">3. </span>Nand Flash 分区<a class="headerlink" href="3_Nand_Flash_Partition.html#nand-flash" title="永久链接至标题">¶</a></h1>
+<section id="mtd">
+<h2><span class="section-number">3.1. </span>关于 mtd<a class="headerlink" href="3_Nand_Flash_Partition.html#mtd" title="永久链接至标题">¶</a></h2>
+<p>内存技术设备即 MTD（Memory Technology Device，缩写为 MTD），是 Linux 系统中
+设备文件系统的一个类别，主要用于闪存的应用，是一种闪存转换层（Flash Transl
+ation Layer，FTL）。创造 MTD 子系统的主要目的是提供一个介于闪存硬件驱动程序
+与应用程序之间的抽象层。</p>
+</section>
+<section id="id1">
+<h2><span class="section-number">3.2. </span>分区表<a class="headerlink" href="3_Nand_Flash_Partition.html#id1" title="永久链接至标题">¶</a></h2>
+<p>CVITEK 方案Flash分区以xml格式定义，以boards/default/partition/partition_spinand_page_2k.xml为例:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;physical_partition</span> <span class="na">type=</span><span class="s">&quot;spinand&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;partition</span> <span class="na">label=</span><span class="s">&quot;fip&quot;</span> <span class="na">size_in_kb=</span><span class="s">&quot;2560&quot;</span> <span class="na">file=</span><span class="s">&quot;fip.bin&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;partition</span> <span class="na">label=</span><span class="s">&quot;BOOT&quot;</span> <span class="na">size_in_kb=</span><span class="s">&quot;8192&quot;</span> <span class="na">file=</span><span class="s">&quot;boot.spinand&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;partition</span> <span class="na">label=</span><span class="s">&quot;MISC&quot;</span> <span class="na">size_in_kb=</span><span class="s">&quot;384&quot;</span> <span class="na">file=</span><span class="s">&quot;logo.jpg&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;partition</span> <span class="na">label=</span><span class="s">&quot;ENV&quot;</span> <span class="na">size_in_kb=</span><span class="s">&quot;128&quot;</span> <span class="na">file=</span><span class="s">&quot;&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;partition</span> <span class="na">label=</span><span class="s">&quot;ROOTFS&quot;</span> <span class="na">size_in_kb=</span><span class="s">&quot;71680&quot;</span> <span class="na">file=</span><span class="s">&quot;rootfs.spinand&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;partition</span> <span class="na">label=</span><span class="s">&quot;SYSTEM&quot;</span> <span class="na">size_in_kb=</span><span class="s">&quot;20480&quot;</span> <span class="na">file=</span><span class="s">&quot;system.spinand&quot;</span> <span class="na">mountpoint=</span><span class="s">&quot;&quot;</span> <span class="na">type=</span><span class="s">&quot;ubifs&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;partition</span> <span class="na">label=</span><span class="s">&quot;CFG&quot;</span> <span class="na">size_in_kb=</span><span class="s">&quot;4096&quot;</span> <span class="na">file=</span><span class="s">&quot;cfg.spinand&quot;</span> <span class="na">mountpoint=</span><span class="s">&quot;/mnt/cfg&quot;</span> <span class="na">type=</span><span class="s">&quot;ubifs&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;partition</span> <span class="na">label=</span><span class="s">&quot;DATA&quot;</span> <span class="na">file=</span><span class="s">&quot;&quot;</span> <span class="na">mountpoint=</span><span class="s">&quot;/mnt/data&quot;</span> <span class="na">type=</span><span class="s">&quot;ubifs&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/physical_partition&gt;</span>
+</pre></div>
+</div>
+<p>以 2KB page size 128KB blocksize 的 NAND flash 为例：由xml文件上数据，将各分区大小换算成block大小后（公式：block个数  = 分区大小 / 单一block大小），如下所示:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 33%" />
+<col style="width: 27%" />
+<col style="width: 24%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Partition</p></th>
+<th class="head"><p>Start block offset</p></th>
+<th class="head"><p>Number of blocks</p></th>
+<th class="head"><p>Binary files</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>FIP</p></td>
+<td><p>0</p></td>
+<td><p>20</p></td>
+<td><p>fip.bin</p></td>
+</tr>
+<tr class="row-odd"><td><p>BOOT</p></td>
+<td><p>24</p></td>
+<td><p>64</p></td>
+<td><p>boot.spinand</p></td>
+</tr>
+<tr class="row-even"><td><p>MISC</p></td>
+<td><p>顺排（遇坏块则跳过）</p></td>
+<td><p>3</p></td>
+<td><p>logo.jpg</p></td>
+</tr>
+<tr class="row-odd"><td><p>ENV</p></td>
+<td><p>顺排（遇坏块则跳过）</p></td>
+<td><p>1</p></td>
+<td><p>Null (无内容)</p></td>
+</tr>
+<tr class="row-even"><td><p>ENV_BAK</p></td>
+<td><p>顺排（遇坏块则跳过）</p></td>
+<td><p>1</p></td>
+<td><p>Null (无内容)</p></td>
+</tr>
+<tr class="row-odd"><td><p>ROOTFS</p></td>
+<td><p>顺排（遇坏块则跳过）</p></td>
+<td><p>560</p></td>
+<td><p>rootfs.spinand</p></td>
+</tr>
+<tr class="row-even"><td><p>SYSTEM</p></td>
+<td><p>顺排（遇坏块则跳过）</p></td>
+<td><p>160</p></td>
+<td><p>system.spinand</p></td>
+</tr>
+<tr class="row-odd"><td><p>CFG</p></td>
+<td><p>顺排（遇坏块则跳过）</p></td>
+<td><p>32</p></td>
+<td><p>cfg.spinand</p></td>
+</tr>
+<tr class="row-even"><td><p>DATA</p></td>
+<td><p>顺排（遇坏块则跳过）</p></td>
+<td><p>Don’t Care</p></td>
+<td><p>Null (无内容)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id2">
+<h2><span class="section-number">3.3. </span>烧写规则<a class="headerlink" href="3_Nand_Flash_Partition.html#id2" title="永久链接至标题">¶</a></h2>
+<section id="sv">
+<h3><span class="section-number">3.3.1. </span>SV  分区<a class="headerlink" href="3_Nand_Flash_Partition.html#sv" title="永久链接至标题">¶</a></h3>
+<p>SV分区跟处理器绑定，用户只需选择2KB或4KB page size的bin并将其烧写，请勿自行修改分区内容。以2KB page size为例，请将block 0, 1, 2, 3都烧写182x_sv_2k_pg.bin，如遇坏块则略过该block。如果前四个block都是坏块，请勿使用该SPI NAND flash。</p>
+</section>
+<section id="fip">
+<h3><span class="section-number">3.3.2. </span>FIP 分区<a class="headerlink" href="3_Nand_Flash_Partition.html#fip" title="永久链接至标题">¶</a></h3>
+<p>FIP 分区包含两个部分：
+处理器相关的Bootloader(无开源)，u-boot. CVITEK 编译流程会自动将两者打包成一个 fip.bin。</p>
+<p>nand 烧录时烧录逻辑：从 block 0~19 之间依序挑选好块，总共烧写两份，第一份会写在 block 0~9, 第二份会烧写在 block 10~19，互为备份。</p>
+<p>fip.bin本身烧入进spinand 大概会使用到 3~4个 blocks，但因 spinand 特性问题， block 可能会出现坏块状况，所以剩余未使用的 block 预留用于出现坏块时使用。</p>
+<p><strong>例一</strong></p>
+<p>没有坏块的话，将第一份 fip.bin 烧写至block 0, 1, 2, 3, 4；第二份fip.bin烧写至block 9, 10, 11, 12, 13。</p>
+<p><strong>例二</strong></p>
+<p>若block 4, 11为坏块，请将第一份 fip.bin 烧写至block 0, 1, 2, 3, 5； 第二份 fip.bin 烧写至block 9, 10, 12, 13, 14</p>
+</section>
+<section id="id3">
+<h3><span class="section-number">3.3.3. </span>其他分区<a class="headerlink" href="3_Nand_Flash_Partition.html#id3" title="永久链接至标题">¶</a></h3>
+<p>照分区表配置，依序烧写，遇到坏块则略过，跳下一个好块再烧写。</p>
+</section>
+</section>
+<section id="nand">
+<h2><span class="section-number">3.4. </span>NAND 分区对齐<a class="headerlink" href="3_Nand_Flash_Partition.html#nand" title="永久链接至标题">¶</a></h2>
+<p>分区大小需按照 nand flash 的 erase size 对齐， erase size 可查阅 nand flash 的 spec 手册，
+当前有 128/256k erase size，若无法获取到 nand flash 的 erase size 大小可默认按照 256k 大小对
+齐</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="2_Overview.html" class="btn btn-neutral float-left" title="2. 概述" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="4_EMMC_Partition.html" class="btn btn-neutral float-right" title="4. EMMC分区方式" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

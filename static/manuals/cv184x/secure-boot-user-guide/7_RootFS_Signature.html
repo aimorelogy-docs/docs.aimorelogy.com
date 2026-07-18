@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>7. SquashFS RootFS 签名与内核验签 &mdash; SecureBootUserGuide master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="8. DATA 分区（userdata）签名与验签" href="8_DATA_Partition_Signature.html" />
+    <link rel="prev" title="6. FIT 镜像安全启动" href="6_FIT_Image_Secure_Boot.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> SecureBootUserGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Secure_Boot_Introduction.html">2. 安全启动介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Secure_Image_Generation.html">3. 安全镜像生成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_eFuse_Burning.html">4. eFuse 烧写</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_FIP_Secure_Boot.html">5. FIP 签名与加密及 eFuse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_FIT_Image_Secure_Boot.html">6. FIT 镜像安全启动</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="7_RootFS_Signature.html#">7. SquashFS RootFS 签名与内核验签</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="7_RootFS_Signature.html#id1">7.1. 整体目标</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7_RootFS_Signature.html#id2">7.2. 使用与排查建议</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7_RootFS_Signature.html#id3">7.3. 相关文件</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="8_DATA_Partition_Signature.html">8. DATA 分区（userdata）签名与验签</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SecureBootUserGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">7. </span>SquashFS RootFS 签名与内核验签</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/7_RootFS_Signature.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="squashfs-rootfs">
+<h1><span class="section-number">7. </span>SquashFS RootFS 签名与内核验签<a class="headerlink" href="7_RootFS_Signature.html#squashfs-rootfs" title="永久链接至标题">¶</a></h1>
+<section id="id1">
+<h2><span class="section-number">7.1. </span>整体目标<a class="headerlink" href="7_RootFS_Signature.html#id1" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><strong>目的</strong>：保证设备上 <code class="docutils literal notranslate"><span class="pre">mtdblock6</span></code> 等设备节点对应的 SquashFS rootfs（分区号以板级为准）未被篡改，内核在挂载前对其做签名验证，失败则拒绝挂载。</p></li>
+<li><p><strong>实现方式</strong>：构建时对 <code class="docutils literal notranslate"><span class="pre">mksquashfs</span></code> 产出的镜像做 <strong>SHA256</strong> 与 <strong>裸 RSA 签名</strong>，并追加自定义签名块；内核挂载前按同一规则验签。</p></li>
+</ul>
+</section>
+<section id="id2">
+<h2><span class="section-number">7.2. </span>使用与排查建议<a class="headerlink" href="7_RootFS_Signature.html#id2" title="永久链接至标题">¶</a></h2>
+<p>日常使用可归纳为：</p>
+<ol class="arabic simple">
+<li><p>menuconfig-&gt;Kernel options-&gt;Enable kernel secure boot。</p></li>
+<li><p>执行 <strong>build_all</strong>。</p></li>
+<li><p>烧录生成的镜像，将 <code class="docutils literal notranslate"><span class="pre">install/.../rootfs.spinor</span></code> （路径随板型变化）写入 ROOTFS 分区。</p></li>
+</ol>
+<p>可选：用 <code class="docutils literal notranslate"><span class="pre">check_rootfs_sig.sh</span></code> 确认 rootfs 已签名（sig_len&gt;0）。更换证书时需同时更新 <code class="docutils literal notranslate"><span class="pre">linux_5.10/certs/cert.pem</span></code> 与构建端 <code class="docutils literal notranslate"><span class="pre">-c</span></code> / <code class="docutils literal notranslate"><span class="pre">-k</span></code> 参数。</p>
+<ul class="simple">
+<li><p><strong>验签成功</strong>：日志出现 <code class="docutils literal notranslate"><span class="pre">VFS:</span> <span class="pre">Mounted</span> <span class="pre">root</span> <span class="pre">(squashfs</span> <span class="pre">filesystem)</span> <span class="pre">readonly</span> <span class="pre">on</span> <span class="pre">device</span> <span class="pre">31:6.</span></code> ，随后 <code class="docutils literal notranslate"><span class="pre">/sbin/init</span></code> 正常启动。</p></li>
+<li><p><strong>error -126</strong>：若日志出现 <code class="docutils literal notranslate"><span class="pre">SquashFS</span> <span class="pre">raw</span> <span class="pre">signature</span> <span class="pre">requires</span> <span class="pre">cert</span> <span class="pre">with</span> <span class="pre">'SquashFS</span> <span class="pre">Root</span> <span class="pre">Signing'</span></code> ，则 <code class="docutils literal notranslate"><span class="pre">get_squashfs_x509_key()</span></code> 为 NULL。通过 fallback 修改后，单证书（如 “Internet Widgits Pty Ltd”）会被用作 SquashFS key，此错误可消除。</p></li>
+<li><p><strong>error -129</strong> （仅旧 PKCS#7 路径）：若日志出现 <code class="docutils literal notranslate"><span class="pre">Message</span> <span class="pre">digest</span> <span class="pre">doesn't</span> <span class="pre">match</span></code> 或提示 error -129，多为设备上前 <code class="docutils literal notranslate"><span class="pre">bytes_used</span></code> 字节与签名时 payload 不一致；当前已用自定义 raw 格式，无此 PKCS#7 摘要比较。</p></li>
+</ul>
+</section>
+<section id="id3">
+<h2><span class="section-number">7.3. </span>相关文件<a class="headerlink" href="7_RootFS_Signature.html#id3" title="永久链接至标题">¶</a></h2>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 31%" />
+<col style="width: 69%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>用途</p></th>
+<th class="head"><p>路径（相对仓库根）</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>私钥（签名）</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">ramdisk/keys/test_reeos.key</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>证书（验签）</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">linux_5.10/certs/cert.pem</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>签名脚本</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">build/scripts/append_squashfs_sig.py</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>检查脚本</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">build/scripts/check_rootfs_sig.sh</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>内核验签</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">linux_5.10/fs/squashfs/verification.c</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>证书加载</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">linux_5.10/certs/system_keyring.c</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>SquashFS key 接口</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">linux_5.10/security/keys/key.c</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>证书通过 <code class="docutils literal notranslate"><span class="pre">CONFIG_SYSTEM_TRUSTED_KEYS</span></code> 编入内核；构建时用上述私钥对 rootfs 签名。</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="6_FIT_Image_Secure_Boot.html" class="btn btn-neutral float-left" title="6. FIT 镜像安全启动" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="8_DATA_Partition_Signature.html" class="btn btn-neutral float-right" title="8. DATA 分区（userdata）签名与验签" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

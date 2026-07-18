@@ -1,0 +1,2062 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>39. 错误码 &mdash; ISPDevelopmentReference master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="40. 3A 开发指南概述" href="40_3A_Development_User_Guide_Overview.html" />
+    <link rel="prev" title="38. Debug" href="38_Debug.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> ISPDevelopmentReference
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Preface.html">2. 概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_System_Control.html">3. 系统控制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_AE.html">4. AE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_AWB.html">5. AWB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_AF.html">6. AF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_IMP.html">7. IMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_BlackLevel.html">8. BLC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_DPC.html">9. DPC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_LSC.html">10. LSC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_RLSC.html">11. RLSC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_CCM.html">12. CCM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_Noise_Profile.html">13. Noise profile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_BNR.html">14. BNR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15_CNR.html">15. CNR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="16_TNR.html">16. TNR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="17_Crosstalk.html">17. Crosstalk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18_Demosaic.html">18. DEMOSAIC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19_Sharpen.html">19. SHARPEN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="20_PreSharpen.html">20. PRESHARPEN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21_RGB_Gamma.html">21. RGBGAMMA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="22_DCI.html">22. DCI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="23_LDCI.html">23. LDCI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="24_ColorTone.html">24. ColorTone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="25_Saturation.html">25. Saturation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="26_PFR.html">26. PFR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="27_FSHDR.html">27. FSHDR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="28_DRC.html">28. DRC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="29_Mono.html">29. MONO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="30_YCONTRAST.html">30. YCONTRAST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="31_CA.html">31. CA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="32_CA2.html">32. CA2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="33_CLUT.html">33. CLUT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="34_CSC.html">34. CSC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="35_VC.html">35. VC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="36_Statistical_Information.html">36. 统计讯息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="37_Query_Internal_Status_Messages.html">37. 查询内部状态消息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="38_Debug.html">38. Debug</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="39_Error_Code.html#">39. 错误码</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="39_Error_Code.html#proc">39.1. Proc 调试信息说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="39_Error_Code.html#id3">39.2. 概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="39_Error_Code.html#id4">39.3. 使用方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="39_Error_Code.html#isp">39.4. ISP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="39_Error_Code.html#level1">39.4.1. LEVEL1级别调试信息分析</a></li>
+<li class="toctree-l3"><a class="reference internal" href="39_Error_Code.html#level2">39.4.2. LEVEL2级别调试信息分析</a></li>
+<li class="toctree-l3"><a class="reference internal" href="39_Error_Code.html#level3">39.4.3. LEVEL3级别调试信息分析</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="40_3A_Development_User_Guide_Overview.html">40. 3A 开发指南概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="41_3A_Development_User_Guide.html">41. 3A 开发用户指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="42_Developer_Guide.html">42. 开发者指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="43_Appendix.html">43. 附录</a></li>
+<li class="toctree-l1"><a class="reference internal" href="44_Abbreviations.html">44. 缩略语</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ISPDevelopmentReference</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">39. </span>错误码</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/39_Error_Code.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<span id="id2"></span><h1><span class="section-number">39. </span>错误码<a class="headerlink" href="39_Error_Code.html#id1" title="永久链接至标题">¶</a></h1>
+<section id="proc">
+<h2><span class="section-number">39.1. </span>Proc 调试信息说明<a class="headerlink" href="39_Error_Code.html#proc" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="id3">
+<h2><span class="section-number">39.2. </span>概述<a class="headerlink" href="39_Error_Code.html#id3" title="永久链接至标题">¶</a></h2>
+<blockquote>
+<div><p>调试信息采用procfs，可以根据上层设定的proc param和proc level，
+实时反映ISP模组内的设定参数，3A统计值，3A运算结果等信息，
+供开发人员定位问题和分析问题使用。</p>
+</div></blockquote>
+</section>
+<section id="id4">
+<h2><span class="section-number">39.3. </span>使用方法<a class="headerlink" href="39_Error_Code.html#id4" title="永久链接至标题">¶</a></h2>
+<p>【文件目录】</p>
+<blockquote>
+<div><p>/proc/soph/isp</p>
+</div></blockquote>
+<p>【开启方法】</p>
+<blockquote>
+<div><p>在呼叫CVI_ISP_MemInit后，呼叫CVI_ISP_SetCtrlParam设定ISP控制参数u32ProcParam=n，
+其中n不能为0，n表示收集ISP信息的频率，每隔n帧收集一次ISP信息，默认值为30</p>
+<p>呼叫CVI_ISP_SetCtrlParam设定ISP控制参数u32ProcLevel=m，其中m 的范围为【0, 3】
+m=0时表示proc功能关闭，
+m=1时表示打印level1级别的资讯，
+m=2时表示打印level2级别的资讯，
+m=3时表示打印level3级别的资讯，
+level级别越高，表示打印的资讯越详细，
+而且高级别的打印内容一定包含低级别的打印内容，默认值为0</p>
+<p>在使用ISP_TOOL_DAEMON时，若要开启proc功能，可以在跑ISP_TOOL_DAEMON前export PROC_LEVEL=n(n为1-3,n=0不开启)</p>
+</div></blockquote>
+<p>【查看信息方法】</p>
+<blockquote>
+<div><p>ISP module正常运行后</p>
+<p>在控制台通过调用cat /proc/soph/isp，相关log随后会打印于控制台，cp /proc/soph/isp到pc端查看。</p>
+</div></blockquote>
+</section>
+<section id="isp">
+<h2><span class="section-number">39.4. </span>ISP<a class="headerlink" href="39_Error_Code.html#isp" title="永久链接至标题">¶</a></h2>
+<section id="level1">
+<h3><span class="section-number">39.4.1. </span>LEVEL1级别调试信息分析<a class="headerlink" href="39_Error_Code.html#level1" title="永久链接至标题">¶</a></h3>
+<blockquote>
+<div><p>ISP的各模块参数打印</p>
+</div></blockquote>
+<p>【参数说明】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 60%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>MODULE/CTRLPARAM</p></td>
+<td><p>ProcParam</p></td>
+<td><p>表示收集ISP信息的收集频率</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ProcLevel</p></td>
+<td><p>表示ISP proc的level级别</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>AEStatIntvl</p></td>
+<td><p>表示ISP AE统计信息更新频率</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>AWBStatIntvl</p></td>
+<td><p>表示ISP AWB统计信息更新频率</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>AFStatIntvl</p></td>
+<td><p>表示ISP AF统计信息更新频率</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>UpdatePos</p></td>
+<td><p>表示中断更新位置是用帧起始中断还是在帧结束中断，0是帧起始</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>IntTimeOut</p></td>
+<td><p>表示获取 ISP 中断超时的最大时间</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PwmNumber</p></td>
+<td><p>表示 pwm 使用情况</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>PortIntDelay</p></td>
+<td><p>表示 Port 中断延时时间</p></td>
+</tr>
+<tr class="row-odd"><td><p>FSWDR</p></td>
+<td><p>Enable</p></td>
+<td><p>WDR 模块使能</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>MotionCompEnable</p></td>
+<td><p>WDR运动侦测使能开关</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>CombineSNRAwareEn</p></td>
+<td><p>具SNR感知的宽动态融合模式使能，能根据短帧噪声自适应取决长短帧融合比例</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CombineSNRAwareLowThr</p></td>
+<td><p>短帧噪声SNR自适应低临界值。
+当短帧估测噪声低于低临界值则进行一般长短帧融合，
+噪声介于低临界值与高临界值间则按比列进行SNR自适应融合。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>CombineSNRAwareHighThr</p></td>
+<td><p>当短帧估测噪声高于高临界值则根据
+SNRAwar eToleranceLevel强度进行SNR自适应融合，噪声介于低临界值与高临界值间则按比列进行SNR自适应融合。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CombineSNRAwareSmLevel</p></td>
+<td><p>短帧噪声SNR自适应之时间域变化平滑程度</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ExposureRatio</p></td>
+<td><p>WDR 长短曝的曝光比</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ShortMaxVal</p></td>
+<td><p>WDR 宽动态的最大值</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>isManualMode</p></td>
+<td><p>手动模式或自动模式</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CombineLongThr</p></td>
+<td><p>长曝光临界值，低于该临界值的图像数据将只选择长曝光数据合成WDR影像</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>CombineShortThr</p></td>
+<td><p>短曝光临界值，超过该临界值的图像数据将只选择短曝光数据合成WDR影像</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CombineMinWeight</p></td>
+<td><p>长短曝图像数据融合最低权重值。权重值越大，融合时长曝光占的比重越多，反之则短曝光占的比重越多</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>CombineMaxWeight</p></td>
+<td><p>长短曝图像数据融合最高权重值。权重值越大，融合时长曝光占的比重越多，反之则短曝光占的比重越多</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>MergeMode</p></td>
+<td><p>WDR运动侦测模式
+0:运动侦测资讯取长短帧运动资讯最大值
+1: 运动侦测资讯 为长短帧运动资讯之等比例融合，比例由MergeModeAlpha定义</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>MergeModeAlpha</p></td>
+<td><p>MergeMode模式为1的移动资讯融合比例</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CombineSNRAwareTolLevel</p></td>
+<td><p>短帧噪声SNR自适应之噪声容忍强度</p></td>
+</tr>
+<tr class="row-odd"><td><p>Shading</p></td>
+<td><p>MeshEnable</p></td>
+<td><p>MeshLSC 功能使能</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>MeshisManualMode</p></td>
+<td><p>手动模式或自动模式</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>MeshStr</p></td>
+<td><p>LSC 补偿强度</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>MeshLscGainLut Size</p></td>
+<td><p>色温自适应LSC补偿增益表数量</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>MeshLscGainLutColorTemp</p></td>
+<td><p>色温自适应LSC补偿增益表所对应之色温</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>RadialEnable</p></td>
+<td><p>RadialLSC 功能使能</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>RadialCenterX</p></td>
+<td><p>图像传感器镜心X方向坐标</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>RadialCenterY</p></td>
+<td><p>图像传感器镜心Y方向坐标</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>RadialStr</p></td>
+<td><p>LSC 补偿强度</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Low-RadialGainLut</p></td>
+<td><p>LSC R adius形式补偿增益表</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>High-RadialGainLut</p></td>
+<td><p>LSC R adius形式补偿增益表</p></td>
+</tr>
+<tr class="row-even"><td><p>DCI</p></td>
+<td><p>Enable</p></td>
+<td><p>DCI模块使能</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Speed</p></td>
+<td><p>Smooth 强度, 值越高, 则变化越慢</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>DciStrength</p></td>
+<td><p>用来控制DCI的强度，值越大，对比度越大。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>isManualMode</p></td>
+<td><p>手动模式或自动模式</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ContrastGain</p></td>
+<td><p>保留每个BIN最低斜率,值越大斜率越小</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>BlcThr</p></td>
+<td><p>用来决定暗区范围的阈值。值越大，包含的暗区范围越大。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>WhtThr</p></td>
+<td><p>用来决定亮区范围的阈值。值越小，包含的亮区范围越大。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>BlcCtrl</p></td>
+<td><p>用来决定暗区的对比度。数值为256时，暗区对比度不变。比256大时，值越大，暗区对比度越大；反之，比256小时，值越小，暗区对比度越小。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>WhtCtrl</p></td>
+<td><p>用来决定亮区的对比度。数值为256时，亮区对比度不变。比256大时，值越大，亮区对比度越大；反之，比256小时，值越小，亮区对比度越小。</p></td>
+</tr>
+<tr class="row-odd"><td><p>Dehaze</p></td>
+<td><p>Enable</p></td>
+<td><p>Dehaze功能使能</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>isManualMode</p></td>
+<td><p>手动模式或自动模式</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Strength</p></td>
+<td><p>用来控制Dehaze的强度。值越大，去雾强度越强</p></td>
+</tr>
+<tr class="row-even"><td><p>BlackLevel</p></td>
+<td><p>Enable</p></td>
+<td><p>BLC 模块使能</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>isManualMode</p></td>
+<td><p>手动模式或自动模式</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>PreOffsetR</p></td>
+<td><p>BLC R 像素暗电流值</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PreOffsetGr</p></td>
+<td><p>BLC GR 像素暗电流值</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>PreOffsetGb</p></td>
+<td><p>BLC Gb 像素暗电流值</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PreOffsetB</p></td>
+<td><p>BLC B 像素暗电流值</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>PreGainR</p></td>
+<td><p>BLC R 像素暗电流补偿增益</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PreGainGr</p></td>
+<td><p>BLC Gr 像素暗电流补偿增益</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>PreGainGb</p></td>
+<td><p>BLC Gb 像素暗电流补偿增益</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PreGainB</p></td>
+<td><p>BLC B 像素暗电流补偿增益</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>PostOffsetR</p></td>
+<td><p>BLC R 像素暗电流值</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PostOffsetGr</p></td>
+<td><p>BLC Gr 像素暗电流值</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>PostOffsetGb</p></td>
+<td><p>BLC Gb 像素暗电流值</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PostOffsetB</p></td>
+<td><p>BLC B 像素暗电流值</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>PostGainR</p></td>
+<td><p>BLC R 像素暗电流补偿增益</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PostGainGr</p></td>
+<td><p>BLC Gr 像素暗电流补偿增益</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>PostGainGb</p></td>
+<td><p>BLC Gb 像素暗电流补偿增益</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PostGainB</p></td>
+<td><p>BLC B 像素暗电流补偿增益</p></td>
+</tr>
+<tr class="row-even"><td><p>DPC</p></td>
+<td><p>Enable</p></td>
+<td><p>DPC模块使能</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>isManualMode</p></td>
+<td><p>手动模式或自动模式</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ClusterSize</p></td>
+<td><p>群聚坏点面积上限，值越高越能修正群聚坏点，但可能会造成高频区域解像力的衰减</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>BrightDefToNorPixRatio</p></td>
+<td><p>可视亮坏点值与周围像素的倍率</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>DarkDefToNorPixRatio</p></td>
+<td><p>可视暗坏点值与周围像素的倍率</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>FlatThreR</p></td>
+<td><p>R通道判别平坦区临界值，值越小越能保留边缘信息</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>FlatThreG</p></td>
+<td><p>B通道判别平坦区临界值，值越小越能保留边缘信息</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>FlatThreB</p></td>
+<td><p>B通道判别平坦区临界值，值越小越能保留边缘信息</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>FlatThreMinG</p></td>
+<td><p>G通道判别平坦区最小临界值</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>FlatThreMinRB</p></td>
+<td><p>RB通道判别平坦区最小临界值</p></td>
+</tr>
+<tr class="row-even"><td><p>TNR</p></td>
+<td><p>Enable</p></td>
+<td><p>TNR模块使能</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>DeflickerMode</p></td>
+<td><p>抗闪烁模式</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>DeflickerToleranceLevel</p></td>
+<td><p>抗闪烁模式mode4抗闪容忍值，数值越大越能抗闪烁，但亮区的移动残影也会增加。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>LowMtPrtEn</p></td>
+<td><p>空域降噪微小运动保护使能</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>isManualMode</p></td>
+<td><p>手动模式或自动模式</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>TnrStrength0</p></td>
+<td><p>长曝光TNR强度增益</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>MapThdLow0</p></td>
+<td><p>长曝光TNR强度上限</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>MapThdHigh0</p></td>
+<td><p>长曝光TNR强度下限</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>BrightnessNoiseLevelLE</p></td>
+<td><p>长曝光亮度噪声容忍值</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>BrightnessNoiseLevelSE</p></td>
+<td><p>短曝光亮度噪声容忍值</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>RNoiseLevel0</p></td>
+<td><p>长曝光红色通道噪声容忍值</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>RNoiseHiLevel0</p></td>
+<td><p>长曝光红色通道亮部噪声容忍值</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>GNoiseLevel0</p></td>
+<td><p>长曝光绿色通道噪声容忍值</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>GNoiseHiLevel0</p></td>
+<td><p>长曝光绿色通道亮部噪声容忍值</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>BNoiseLevel0</p></td>
+<td><p>长曝光蓝色通道噪声容忍值</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>BNoiseHiLevel0</p></td>
+<td><p>长曝光蓝色通道亮部噪声容忍值</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>RNoiseLevel1</p></td>
+<td><p>短曝光红色通道噪声容忍值</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>RNoiseHiLevel1</p></td>
+<td><p>短曝光红色通道亮部噪声容忍值</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>GNoiseLevel1</p></td>
+<td><p>短曝光绿色通道噪声容忍值</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>GNoiseHiLevel1</p></td>
+<td><p>短曝光绿色通道亮部噪声容忍值</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>BNoiseLevel1</p></td>
+<td><p>短曝光蓝色通道噪声容忍值</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>BNoiseHiLevel1</p></td>
+<td><p>短曝光蓝色通道亮部噪声容忍值</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>LowMtPrtLevel</p></td>
+<td><p>保护限值</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>L2mIn0</p></td>
+<td><p>长曝光TNR亮度对强度增益特性表。由四组数值组成的数组。定义灰度等级，值越大灰度越高。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>L2mOut0</p></td>
+<td><p>长曝光TNR亮度对强度增益特性表。由四组数值组成的数组。定义强度增益，值越大强度越强。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>L2mIn1</p></td>
+<td><p>短曝光TNR亮度对强度增益特性表。由四组数值组成的数组。定义灰度等级，值越大灰度越高。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>L2mOut1</p></td>
+<td><p>短曝光TNR亮度对强度增益特性表。由四组数值组成的数组。定义强度增益，值越大强度越强。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PrtctIn0</p></td>
+<td><p>长曝光TNR动量对拖尾消除程度特性表，由四组数值组成的数组。定义运动等级对运动物体拖尾的消除程度，值越大运动幅度越强。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>PrtctOut0</p></td>
+<td><p>长曝光TNR动量对拖尾消除程度特性表，由四组数值组成的数组。定义运动等级对运动物体拖尾的消除程度，值越小拖尾消除程度越强。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PrtctIn1</p></td>
+<td><p>短曝光TNR动量对拖尾消除程度特性表，由四组数值组成的数组。定义运动等级对运动物体拖尾的消除程度，值越大运动幅度越强。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>PrtctOut1</p></td>
+<td><p>短曝光TNR动量对拖尾消除程度特性表，由四组数值组成的数组。定义运动等级对运动物体拖尾的消除程度，值越小拖尾消除程度越强。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>LowMtPrtIn</p></td>
+<td><p>定义运动等级</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>LowMtPrtOut</p></td>
+<td><p>值越大，拖影越不明显，噪声越明显</p></td>
+</tr>
+<tr class="row-odd"><td><p>CAC</p></td>
+<td><p>Enable</p></td>
+<td><p>CAC模块使能</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>VarThr</p></td>
+<td><p>边缘侦测的阈值。值越小，越多区域被判断为边缘。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PurpleDetRange</p></td>
+<td><p>紫边侦测的阈值。值越大，越多区域被判断为紫边。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>PurpleCb</p></td>
+<td><p>紫色在Cb domain的坐标。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PurpleCr</p></td>
+<td><p>紫色在Cr domain的坐标。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>GreenCb</p></td>
+<td><p>绿色在Cb domain的坐标。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>GreenCr</p></td>
+<td><p>绿色在Cr domain的坐标。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>isManualMode</p></td>
+<td><p>手动模式或自动模式</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>DePurpleStr</p></td>
+<td><p>紫边侦测的阈值。值越大，越多区域被判断为紫边。</p></td>
+</tr>
+<tr class="row-even"><td><p>CNR</p></td>
+<td><p>Enable</p></td>
+<td><p>CNR模块使能。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>isManualMode</p></td>
+<td><p>手动模式或自动模式</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CnrStr</p></td>
+<td><p>色噪去噪强度。值越大，色噪去噪强度越大。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>NoiseSuppressStr</p></td>
+<td><p>色噪抑制强度。值越大，色噪去除强度越大。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>NoiseSuppressGain</p></td>
+<td><p>色噪抑制强度增益。值越小，色噪去噪强度越大。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>FilterType</p></td>
+<td><p>色噪去噪滤波器强度。值越大，色噪去除强度越大。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>MotionNrStr</p></td>
+<td><p>调节物体运动区域的色噪去噪强度。值越大，运动区域的色噪越少。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>DetailSmoothMode</p></td>
+<td><p>去噪细节平滑功能使能</p></td>
+</tr>
+<tr class="row-even"><td><p>Sharpen</p></td>
+<td><p>Enable</p></td>
+<td><p>Y Sharpen 模块使能</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>EdgeGain</p></td>
+<td><p>边缘的增强参数值越大时，边缘锐化强度越大</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>TextureGain</p></td>
+<td><p>细节纹理的增强参数值越大时，细节纹理锐化强度越大</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>EdgeThr</p></td>
+<td><p>边缘和噪声的分界阈值，大于该值被视为是边缘，小于该值则被视为噪声该值越大，越少的边缘被增加；该值越小，越多的边缘被增强。曝光增益越大时，该值建议设置越大</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>TextureThr</p></td>
+<td><p>细节纹理和噪声的分界阈值，大于该值被视为是细节纹理，小于该值则被视为噪声</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>LumaAdpCoringEn</p></td>
+<td><p>自动亮度噪声抑止阈值开关</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>LumaAdpGainEn</p></td>
+<td><p>亮度锐化权重使能</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>DeltaAdpGainEn</p></td>
+<td><p>锐化权重使能</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>WdrCoringCompensationEn</p></td>
+<td><p>亮度锐化噪声值在  wdr模式的补偿使能。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Wd rCoringCompensationMode</p></td>
+<td><p>亮度锐化噪声值在wdr模式的补偿模式。
+0:根据WdrCoringHighThrd与WdrCoringLowthd补偿亮度锐化噪声。
+1:根据DRC tone  mapping curve自动补偿亮度锐化噪声。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>WdrCoringToleranceLevel</p></td>
+<td><p>亮度锐化噪声值在wdr模式补偿的容忍值。数值越小锐化的效果越明显但也越容易将噪声锐化。数值越大则不易将噪声锐化，但锐化的效果则越不明显。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>WdrCoringHighThr</p></td>
+<td><p>亮度锐化噪声 wdr模式补偿的高临界值。亮度低于此临界值则不进行噪声补偿。亮度高于此临界值则根据WdrCoringTol eranceLevel数值进行噪声补偿。亮度介于WdrCoringLowThrd与WdrCoringHighThrd之间则按比例进行补偿。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>WdrCoringLowThr</p></td>
+<td><p>亮度锐化噪声 wdr模式补偿的低临界值。亮度低于此临界值则不进行噪声补偿。亮度高于此临界值则根据WdrCoringTol eranceLevel数值进行噪声补偿。亮度介于W
+drCoringLowThrd与WdrCoringHighThrd之间则按比例进行补偿。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>isManualMode</p></td>
+<td><p>手动模式或自动模式</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>EdgeFreq</p></td>
+<td><p>图像具方向性的边缘频段控制</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>TextureFreq</p></td>
+<td><p>图像无方向性的细节纹理频段控制</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>GlobalGain</p></td>
+<td><p>全局锐化权重</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>OverShootThr</p></td>
+<td><p>白边锐化上限幅度</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>UnderShootThr</p></td>
+<td><p>黑边锐化下限幅度</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>YNoiseLevel</p></td>
+<td><p>亮度锐化噪声值放大倍率，一倍为64。数值越大亮度锐化噪声越被放大，反之则缩小。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>DeltaAdpGain</p></td>
+<td><p>锐化权重</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>LumaAdpCoring</p></td>
+<td><p>亮度锐化噪声值，细节纹理或边缘的增强会排除该容忍值所贡献的增强。数值越小锐化的效果越明显但也越容易将噪声锐化。数值越大则不易将噪声锐化，但锐化的效果则越不明显。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>LumaAdpGain</p></td>
+<td><p>亮度锐化权重</p></td>
+</tr>
+<tr class="row-odd"><td><p>Saturation</p></td>
+<td><p>isManualMode</p></td>
+<td><p>手动模式或自动模式</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Saturation</p></td>
+<td><p>饱和度</p></td>
+</tr>
+<tr class="row-odd"><td><p>Gamma</p></td>
+<td><p>Enable</p></td>
+<td><p>Gamma功能使能</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>enCurveType</p></td>
+<td><p>Gamma曲线类型</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>isManualMode</p></td>
+<td><p>手动模式或自动模式</p></td>
+</tr>
+<tr class="row-even"><td><p>HSV</p></td>
+<td><p>Enable</p></td>
+<td><p>Saturation Tuning 使能</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>isManualMode</p></td>
+<td><p>手动模式或自动模式</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>SatCoringLinearTh</p></td>
+<td><p>饱和度的 coring 值</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>SatCoringLinearLmt</p></td>
+<td><p>最大输出饱和度</p></td>
+</tr>
+<tr class="row-even"><td><p>CCM</p></td>
+<td><p>Enable</p></td>
+<td><p>CCM模块使能</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>isManualMode</p></td>
+<td><p>手动模式或自动模式</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ISOActEnable</p></td>
+<td><p>低照度下CCM Bypass功能使能</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>TempActEnable</p></td>
+<td><p>高低色温下CCMBypass功能使能。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CCMTabNum</p></td>
+<td><p>当前配置的CCM矩阵个数</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>CCM</p></td>
+<td><p>颜色校正矩阵</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CCMTab</p></td>
+<td><p>不同色温下的CCM矩阵系数</p></td>
+</tr>
+<tr class="row-odd"><td><p>YNR</p></td>
+<td><p>Enable</p></td>
+<td><p>YNR模块使能</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CoringParamEnable</p></td>
+<td><p>控制是否使用手动coring</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>isManualMode</p></td>
+<td><p>手动模式或自动模式</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>WindowType</p></td>
+<td><p>去噪滤波局域程度。其值越小，作用越局域</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>DetailSmoothMode</p></td>
+<td><p>去噪细节平滑功能使能</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>NoiseSuppressStr</p></td>
+<td><p>噪声抑制强度。值越大，亮噪去除强度越大</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>FilterType</p></td>
+<td><p>去噪滤波器强度。值越大，亮噪去除强度越大</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>MotionThr</p></td>
+<td><p>物体移动量阈值。值越小，侦测为运动的区域范围越大。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>MotionNrPosGain</p></td>
+<td><p>调节在大于移动量阈值的区域之去噪强度。值越大，噪声保留越少。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>MotionNrNegGain</p></td>
+<td><p>调节在小于移动量阈值的区域之去噪强度。值越小，噪声保留越少。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>VarThr</p></td>
+<td><p>侦测边缘的阈值。值越大，判断为边缘的数量越少。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CoringWgtLF</p></td>
+<td><p>调节在低频区域的随机噪声强度。值越大，在低频区域保留的噪声越多。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>CoringWgtHF</p></td>
+<td><p>调节在高频区域的随机噪声强度。 值越大，在高频区域的保留的噪声越多。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>NonDirFiltStr</p></td>
+<td><p>调节在低频区的去噪强度。值越大，在低频区域去除的噪声越多。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>VhDirFiltStr</p></td>
+<td><p>调节在水平和垂直区的去噪强度。值越大，在水平和垂直边缘去除的噪声越多。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>AaDirFiltStr</p></td>
+<td><p>调节在对角线边缘的去噪强度。 值越大，在对角线边缘去除的噪声越多。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>NoiseCoringBaseLuma</p></td>
+<td><p>运动区亮度值。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>NoiseCoringBaseOffset</p></td>
+<td><p>运动区亮度噪声容忍值，运动区的判断与TNR运动区侦测连动。值越大，对运动区去噪强度越大。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>NoiseCoringAdvLuma</p></td>
+<td><p>静止区亮度值</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>NoiseCoringAdvOffset</p></td>
+<td><p>静止区亮度噪 声容忍值，静止区的判断与TNR运动区侦测连动。值越大，对静止区去噪强度越大。</p></td>
+</tr>
+<tr class="row-odd"><td><p>WDRExposureAttr</p></td>
+<td><p>ExpRatioType</p></td>
+<td><p>仅在多帧合成WDR模式下有效。
+OP_TYPE _AUTO：根据场景自动计算长短帧曝光比；
+OP_TYPE_MANUAL：手动配置长短帧曝光比。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ExpRatio</p></td>
+<td><p>仅在多帧合成WDR模式下有效。
+当enExpRatioType为OP_TYPE_AUTO时，au32ExpRatio无效。
+当enExpRatio  Type为OP_TYPE_MANUAL时，au32ExpRatio为
+可擦写，表示多帧合成WDR相邻2帧曝光比期望值。
+取值范围：【0x40,0xFFF】</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ExpRatioMax</p></td>
+<td><p>仅在多帧合成WDR模式下有效。
+当enExpRatioType为OP_TYPE_AUTO时，u32ExpRatioMax表示最长帧与最短帧曝光时间比值的最大值。
+当enExpRatioType为OP_TYPE_MANUAL时，u32ExpRatioMax无效。
+6bit小数精度，0x40表示曝光比为1倍。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ExpRatioMin</p></td>
+<td><p>仅在多帧合成WDR模式下有效。
+当enExpRatioType为 OP_TYPE_AUTO时，u32ExpRatioMin表示长帧曝光时间与短帧曝光时间比值的最小值。
+当enExpRatioType为 OP_TYPE_MANUAL时，u32ExpRatioMin无效。
+格式为无符号 6.6bit定点，0x40表示长帧曝光时间与短帧曝光时间的比值为1倍。默认值为0x40。
+取值范围：【0x40, u32ExpRatioMax】</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Tolerance</p></td>
+<td><p>曝光比容忍值，仅在两帧合成WDR模式下有效。
+当enExpRatioType为 OP_TYPE_AUTO时，该值越大，表示场景动态范围变化在一定范围内时，曝光比保持
+不变。
+默认值为0xC。
+取值范围：【0x0, 0xFF】</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Speed</p></td>
+<td><p>自动曝光比调节速度，仅在两帧合成WDR模式下有效。
+当enExpRatioType为OP_TYPE_AUTO时，该值越大，自动曝光比调节速度越快。
+默认值为0x20。
+取值范围：【0x0, 0xFF】</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>RatioBias</p></td>
+<td><p>曝光比偏差值，仅在多帧合成WDR模式下有效。
+当enExpRatioType为OP_TYPE_AUTO时，该值越大，自动曝光比越大。
+默认值为0x400，表示不对自动曝光比算法的计算结果进行调整。
+经过该值调整的曝光比会受到曝光比最大/最小值的限制。
+取值范围：【0x0,   0xFFFF】</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>SECompensation</p></td>
+<td><p>调整短帧画面的目标亮度值
+取值范围：【0x0,   0xFF】</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>SEHisThr</p></td>
+<td><p>计算短帧 frame 超过长帧 frame的曝光比阈值 (1x =64)</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>SE His255CntTargetDownThr</p></td>
+<td><p>短帧 histogram bin 255 数量大于此阈值,则调降短帧的目标亮度</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>SEHis255CntTargetUpThr</p></td>
+<td><p>短帧 histogram bin 255 数量小于此阈值,则将调降的短帧的目标亮度恢复原来的目标亮度</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>LEHisCntTargetDownRatio</p></td>
+<td><p>长帧 histogram bin 255 数量大于此阈值,则调降的长帧的目标亮度</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>LEHisCntTargetUpRatio</p></td>
+<td><p>长帧 histogram bin 255 数量小于此阈值,则将调降的长帧的目标亮度恢复原来的目标亮度</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>LEAdjustTargetMin</p></td>
+<td><p>长帧 各 LV 的 target min 40,40, 40, 40, 40, 40, 45, 50, 60, 60, 60, 60, 60, 60, 60, 60</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>LEAdjustTargetMax</p></td>
+<td><p>长帧 各 LV 的 target max 50,50, 50, 50, 50, 50, 60, 70, 85, 100, 110, 110, 120, 120, 120, 120</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>SEAdjustTargetMin</p></td>
+<td><p>短帧 各 LV 的 target min 20,20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>SEAdjustTargetMax</p></td>
+<td><p>短帧 各 LV 的 target max 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>DiffPixelNum</p></td>
+<td><p>长帧 histogram bin 255 的 pixel 数阈值, 超过此值, 则降低长曝的目标亮度</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>LELowBinThr</p></td>
+<td><p>长帧亮度大于此阈值的window 才能加入 AE 长帧的测光</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>LEHighBinThr</p></td>
+<td><p>长帧亮度小于此阈值的window 才能加入 AE 长帧的测光</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>SELowBinThr</p></td>
+<td><p>短帧亮度大于此阈值的window 才能加入 AE 短帧的测光</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>SEHighBinTh</p></td>
+<td><p>短帧亮度小于此阈值的window 才能加入 AE 短帧的测光</p></td>
+</tr>
+<tr class="row-odd"><td><p>ExposureAttr</p></td>
+<td><p>ByPass</p></td>
+<td><p>AE模块bypass功能使能，默认为CVI_FALSE
+FSWDR 模式下，表示当前最短帧(VS)曝光时间。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>OpType</p></td>
+<td><p>自动曝光或手动曝光开关，默认为OP_TYPE_AUTO。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>AERunInterval</p></td>
+<td><p>AE算法运行的 间隔
+取值范围为【1,255】。
+取值为1时表示每帧都运行AE算法；
+取值为2时表示每2帧运行1次AE算法，依此类推。
+建议该值设置不要大于2，否则AE调节速度会受到影响。
+WDR模式时，该值建议设置为1，这样AE收敛会更加平滑。该值默认为1。
+线性模式不用关注该值。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ExpTimeOpType</p></td>
+<td><p>手动曝光时间使能，默认值为OP_TYPE_AUTO</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>AGainOpType</p></td>
+<td><p>手动sensor模拟增益使能，默认值为OP_TYPE_AUTO</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>DGainOpType</p></td>
+<td><p>手动sensor数字增益使能，默认值为OP_TYPE_AUTO</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ISPDGainOpType</p></td>
+<td><p>手动ISP数字增益，10bit小数精度，默认值为0x400。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ExpTime</p></td>
+<td><p>手动曝光时间，以微秒(us)为单位，默认值为0x4000</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>AGain</p></td>
+<td><p>手动sensor模拟增益，10bit小数精度，默认值为0x400。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>DGain</p></td>
+<td><p>手动sensor数字增益，10bit小数精度，默认值为0x400。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ISPDGain</p></td>
+<td><p>手动ISP数字增益，10bit小数精度，默认值为0x400。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ISONumOpType</p></td>
+<td><p>ISO num 手动/自动模式切换</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>UseISONum</p></td>
+<td><p>手动模式时, 使用 ISO num 的型式来控制增益</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ISONum</p></td>
+<td><p>手动模式时, 设定的ISO num</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ExpTimeRangeMax</p></td>
+<td><p>曝光时间范围，设置最大值，以微秒(us)为单位。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ExpTimeRangeMin</p></td>
+<td><p>曝光时间范围，设置最小值，以微秒(us)为单位。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>AGainRangeMax</p></td>
+<td><p>Sensor模拟增益范围，设置最大值，10bit小数精度。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>AGainRangeMin</p></td>
+<td><p>Sensor模拟增益范围，设置最小值，10bit小数精度。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>DGainRangeMax</p></td>
+<td><p>Sensor数字增益范围，设置最大值，10bit小数精度。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>DGainRangeMin</p></td>
+<td><p>Sensor数字增益范围，设置最小值，10bit小数精度。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ISPDGainRangeMax</p></td>
+<td><p>ISP数字增益范围，设置最大值，10bit小数精度。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ISPDGainRangeMin</p></td>
+<td><p>ISP数字增益范围，设置最小值，10bit小数精度。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>SysGainRangeMin</p></td>
+<td><p>系统增益范围，设置最小值，10bit小数精度</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>SysGainRangeMax</p></td>
+<td><p>系统增益范围，设置最大值，10bit小数精度</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Speed</p></td>
+<td><p>自动曝光调整时的速度。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>BlackSpeedBias</p></td>
+<td><p>画面由暗到亮 AE调节速度的偏差值，该值越大，画面从暗到亮的速度越快。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Tolerance</p></td>
+<td><p>自动曝光调整时对画面亮度的容忍偏差。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Compensation</p></td>
+<td><p>自动曝光调整时的目标亮度。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>EVBias</p></td>
+<td><p>自动曝光调整时的曝光量偏差值，10bit小数精度</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>AEStrategyMode</p></td>
+<td><p>自动曝光策略，高光优先或低光优先。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>AntiflickerEnable</p></td>
+<td><p>抗闪属性设置。默认抗闪不使能。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>AntiflickerFrequency</p></td>
+<td><p>抗闪频率值</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>DebugMode</p></td>
+<td><p>AE 的 debug mode 参数</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>IRCutOnLv</p></td>
+<td><p>不使用 IR Cut 的环境 Lv 值 ,   精度为 100</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>IRCutOffLv</p></td>
+<td><p>使用 IR Cut 的环境Lv 值 , 精度为 100</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>HistRatioSlope</p></td>
+<td><p>目前 frame 的亮度与高光区亮度的混合权重</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>MaxHistOffset</p></td>
+<td><p>目前 frame 的亮度与高光区亮度的混合后, 提升的亮度范围</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ISONumRangeMin</p></td>
+<td><p>ISO num 范围的最小值</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ISONumRangeMax</p></td>
+<td><p>ISO num 范围的最大值</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>AdjustTargetMax</p></td>
+<td><p>各 LV 的 target max50,50, 50, 50, 50, 50, 55, 60, 60, 60, 60, 60, 60, 65, 70, 70</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>AdjustTargetMin</p></td>
+<td><p>各 LV 的 target min40,40, 40, 40, 40, 40, 45, 50, 50, 50, 50, 50, 50, 55, 60, 60</p></td>
+</tr>
+<tr class="row-even"><td><p>ExposureInfo</p></td>
+<td><p>ExposureTime</p></td>
+<td><p>当前曝光时间 ，单位为微秒(us)。
+FSWDR 模式下，表示当前最短帧(VS)曝光时间。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ShortExpTime</p></td>
+<td><p>FSWDR 模式下，表示当前短帧(S)曝光时间，单位为微秒(us)。
+线性模式不用关注该值。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>LongExpTime</p></td>
+<td><p>FSWDR 模式下，表示当前长帧(L)曝光时间，单位为微秒(us)。
+线性模式不用关注该值。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>AGain</p></td>
+<td><p>当前 sensor 模拟增益，10bit小数精度。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>DGain</p></td>
+<td><p>当前 sensor 数字增益，10bit小数精度。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ISPDGain</p></td>
+<td><p>当前 ISP 数字增益，10bit小数精度</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>AveLum</p></td>
+<td><p>平均亮度信息。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ISO</p></td>
+<td><p>当前 sensor 模拟增益*sensor 数字增益*ISP 数字增益*100，其中增益的精度都为10bit。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>WDRShortAveLuma</p></td>
+<td><p>WDR 短帧画面平均亮度信息。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>WDRExpRatio</p></td>
+<td><p>WDR 长,短帧的曝光比</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>LEFrameAvgLuma</p></td>
+<td><p>WDR 长帧画面的平均亮度</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>SEFrameAvgLuma</p></td>
+<td><p>WDR 短帧画面的平均亮度</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>LightValue</p></td>
+<td><p>估计的环境亮度值</p></td>
+</tr>
+<tr class="row-odd"><td><p>AE Route</p></td>
+<td><p>TotalNum</p></td>
+<td><p>曝光分配路线节点数目，目前最大为16</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>AERouteNodex.
+IntTime</p></td>
+<td><p>曝光分配路线节点属性的节点曝光时间，单位为微秒(us)</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>AERouteNodex.
+SysGain</p></td>
+<td><p>曝光分配路线节点属性的节点增益，包括sensor模拟增益，sensor数字增益和ISP数字增益，10bit精度。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>AERouteNodex.
+IrisFNO</p></td>
+<td><p>曝光分配路线节点属性的节点光圈F值大小，仅支持P-Iris，不支持DC-Iris</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>AERouteNodex.
+IrisFNOLin</p></td>
+<td><p>曝光分配路线节点属性的节点光圈F值等效增益大小，仅支持P-Iris，不支持DC-Iris</p></td>
+</tr>
+<tr class="row-even"><td><p>WBAttr</p></td>
+<td><p>ByPass</p></td>
+<td><p>白平衡模块Bypass使能，默认值CVI_FALSE</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>AWBRunInterval</p></td>
+<td><p>白平衡模块工作频率</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>OpType</p></td>
+<td><p>自动白平衡和手动白平衡切换</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>AlgType</p></td>
+<td><p>ALG_AWB ALG_AWB_SPEC</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>DebugMode</p></td>
+<td><p>debug mode</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Rgain</p></td>
+<td><p>手动白平衡红色通道增益</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Grgain</p></td>
+<td><p>手动白平衡Gr通道增益</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Gbgain</p></td>
+<td><p>手动白平衡Gb通道增益</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Bgain</p></td>
+<td><p>手动白平衡Gb通道增益</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Enable</p></td>
+<td><p>自动白平衡使能</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>RefColorTemp</p></td>
+<td><p>静态白平衡
+系数标定的环境色温，单位Kelvin。
+推荐在Macbeth D50标准光源环境或室外晴天环境取得24
+色卡 Raw 数据进行标定</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>RGStrength</p></td>
+<td><p>自动白平衡R通道校准强度</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>BGStrength</p></td>
+<td><p>自动白平衡B通道校准强度</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Speed</p></td>
+<td><p>自动白平衡算法收敛速度</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ZoneSel</p></td>
+<td><p>参数为0或255时,采 用近似灰世界的白平衡算法,其他值则为进行分类筛选,提升精度</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>HighColorTemp</p></td>
+<td><p>自动白平衡算法的色温上限</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>LowColorTemp</p></td>
+<td><p>自动白平衡算法的色温上限</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ShiftLimitEn</p></td>
+<td><p>AWB超过类白点范围的增益映像回白点范围的开关</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>GainNormEn</p></td>
+<td><p>对 RGB通道增益进行限制，可以改善低色温、低照度场景的信噪比</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>NaturalCastEn</p></td>
+<td><p>低色温下AWB风格喜好开关</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>AWBZoneWtEn</p></td>
+<td><p>画面分区权重开关,预设为关闭</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>stCTLimit.bEnable</p></td>
+<td><p>定义自平衡的增益范围限制属性</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>stCTLimit.enOpType</p></td>
+<td><p>0:AutoMode</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>stCTLimit.HighRgLimit</p></td>
+<td><p>手动模式下高色温下的最大R增益</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>stCTLimit.HighBgLimit</p></td>
+<td><p>手动模式下高色温下的最小B增益</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>stCTLimit.LowRgLimit</p></td>
+<td><p>手动模式下低色温下的最小R增益</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>stCTLimit.LowBgLimit</p></td>
+<td><p>手动模式下低色温下的最大B增益</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>stLumaHist.bEnable</p></td>
+<td><p>AW B亮度与权重参数开关</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>stLumaHist.enOpType</p></td>
+<td><p>Auto Mode</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>stCbCrTrack.bEnable</p></td>
+<td><p>AWB统计范围与ISO的连动参数</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Tolerance</p></td>
+<td><p>自动白平衡调整的偏差范围，检测误差在门限范围内时,AWB不作动作</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ZoneRadius</p></td>
+<td><p>自动白平衡统计中对像素分类时用的距离范围。该值越小,AWB精度越高, 但会降低AWB 算法稳定性</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CurveLLimit</p></td>
+<td><p>自动白平衡色温曲线的左边界限</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>CurveRLimit</p></td>
+<td><p>自动白平衡色温曲线的右边界限</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ExtraLightEn</p></td>
+<td><p>自动白平衡计算时是否考虑色温曲线外的独立光源点,最多四个独立点</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>WhiteBgain</p></td>
+<td><p>特殊光源点的B通道增益</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ExpQuant</p></td>
+<td><p>根据外在亮度做判断。
+ExpQuant 为开启的亮度限制值例如
+ExpQuant = 6, 表示LV6以下开启此WB光源点(一般夜景为LV6以下)
+ExpQuant =106 表示LV6以上开启
+ExpQuant =112 表示LV12以上开启(LV12一般为户外)</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>LightStatus</p></td>
+<td><p>特殊光源点的种类, 0:不作动作 1:加入光源点 2:删除光源点附近的计算</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Radius</p></td>
+<td><p>特殊光源点的区域大小,</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>OutdoorStatus</p></td>
+<td><p>室内或室外模式(手动模式下)</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>OutThresh</p></td>
+<td><p>判定室内室外的阈值,亮度小于时,则判定为室内,户外LV大多超过15</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>LowStart</p></td>
+<td><p>将高色温的权重拉低,高色温区的起始点,建议为6500K</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>LowStop</p></td>
+<td><p>将低色温的权重拉低,低色温区的终止点,建议为4500K</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>HighStart</p></td>
+<td><p>将高色温的权重拉低,高色温区的起始点,建议为6500K</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>HighStop</p></td>
+<td><p>将高色温的权重拉低,高色温区的终止点,建议为8000K</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>GreenEnhanceEn</p></td>
+<td><p>在绿色植物场景下,对绿色通道增加的开关</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>OutShiftLimit</p></td>
+<td><p>当判定为户外场景时,AWB算法的白点范围限制</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>MultiLightSourceEn</p></td>
+<td><p>AWB检测当前场景是否为混合光源,来调整饱和度或CCM</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>MultiLSType</p></td>
+<td><p>调整饱和度或是CCM</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>MultiLSScaler</p></td>
+<td><p>当混合光源下调整饱和度或CCM的强度</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>FineTunEn</p></td>
+<td><p>AWB特殊色检测开关，例如肤色</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>FineTunStrength</p></td>
+<td><p>肤色、蓝色等特殊色检测的强度</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ShiftLimit</p></td>
+<td><p>当判定为户外场景时,AWB算法的白点范围限制</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>CurvePara</p></td>
+<td><p>CurvePara【0-2】 普朗克曲线系数，由AWB标定工具给出。普朗克曲线描绘白色块在不同色温的标准光源下的颜色表现。
+CurvePara【3-5】 色温曲线系数，由AWB标定工具给出。色温曲线描绘白色块的颜色表现与色温的对应关系。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>StaticWB</p></td>
+<td><p>静态白平衡系数，由AWB标定工具给出。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>AttrZoneWt</p></td>
+<td><p>32x32画面权重</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>stLumaHist.HistThresh</p></td>
+<td><p>亮度分类的阈 值(手动模式下有效)</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>stLumaHist.HistWt</p></td>
+<td><p>亮度分类的权 重(手动模式下有效)</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>stCbCrTrack.CrMax</p></td>
+<td><p>不同ISO下R/G的最大值</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>stCbCrTrack.CrMin</p></td>
+<td><p>不同ISO下R/G的最小值</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>stCbCrTrack.CbMax</p></td>
+<td><p>不同ISO下B/G的最大值</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>stCbCrTrack.CbMin</p></td>
+<td><p>不同ISO下B/G的最小值</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>MultiCTBin</p></td>
+<td><p>色温分段参数</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>MultiCTWt</p></td>
+<td><p>色温分段权重</p></td>
+</tr>
+<tr class="row-even"><td><p>WBInfo</p></td>
+<td><p>Rgain</p></td>
+<td><p>当前R通道增益值</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Ggain</p></td>
+<td><p>当前G通道增益值</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Bgain</p></td>
+<td><p>当前B通道增益值</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Saturation</p></td>
+<td><p>当前饱和度值</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ColorTemp</p></td>
+<td><p>当前色温值</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>InOutStatus</p></td>
+<td><p>室内外检测结果</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Bv</p></td>
+<td><p>当前环境bv值</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>CCM</p></td>
+<td><p>当前颜色校正矩阵值，8bit小数精度。bit15是符号位，0表示正数，1表示负数，例如0x8010表示-16。</p></td>
+</tr>
+<tr class="row-even"><td><p>BNR</p></td>
+<td><p>Enable</p></td>
+<td><p>BNR模块使能</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>isManualMode</p></td>
+<td><p>手动模式或自动模式</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>WindowType</p></td>
+<td><p>去噪滤波局域程度。其值越小，作用越局域。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>DetailSmoothMode</p></td>
+<td><p>去噪细节平滑功能使能。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>NoiseSuppressStr</p></td>
+<td><p>噪声抑制强度。值越大，亮噪去除强度越大。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>FilterType</p></td>
+<td><p>去噪滤波器强度。值越大，亮噪去除强度越大。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>NrLscRatio</p></td>
+<td><p>参考LSC增益调节去噪强度。值越大，参考LSC增益的比例越多。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>VarThr</p></td>
+<td><p>侦测边缘的阈值。值越大，判断为边缘的数量越少。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CoringWgtLF</p></td>
+<td><p>调节在低频区域的随机噪声强度。值越大，在低频区域保留的噪声越多。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>CoringWgtHF</p></td>
+<td><p>调节在高频区 域的随机噪声强度。值越大，在高频区域的保留的噪声越多。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>NonDirFiltStr</p></td>
+<td><p>调节在低频区的去噪强度。值越大，在低频区域去除的噪声越多。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>VhDirFiltStr</p></td>
+<td><p>调节在水平和垂直区的去噪强度。值越大，在水平和垂直边缘去除的噪声越多。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>AaDirFiltStr</p></td>
+<td><p>调节在对角线边缘的去噪强度。值越大，在对角线边缘去除的噪声越多。</p></td>
+</tr>
+<tr class="row-odd"><td><p>Crosstalk</p></td>
+<td><p>Enable</p></td>
+<td><p>GE 模块使能</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>isManualMode</p></td>
+<td><p>手动模式或自动模式</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Strength</p></td>
+<td><p>G通道平衡全局强度</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>FlatThre</p></td>
+<td><p>平坦区侦测节点1-4阈值</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>GrGbDiffThreSec</p></td>
+<td><p>G 通道平衡节点1-4阈值</p></td>
+</tr>
+<tr class="row-even"><td><p>Demosaic</p></td>
+<td><p>Enable</p></td>
+<td><p>Demosaic模块使能</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>LumaTunedCoringEn</p></td>
+<td><p>(OpType, CoringEn)
+(x,0): by noise profile
+(1,1): by ISO table
+(0,1): by manual</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>isManualMode</p></td>
+<td><p>手动模式或自动模式</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>CoarseEdgeThr</p></td>
+<td><p>边缘粗调侦测阈值。值越小，侦测为边缘的数量越多。建议搭配参数CoarseStr调试。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CoarseStr</p></td>
+<td><p>边缘粗调强度值。值越小，越偏方向性的处理。反之，越偏无方向性的处理。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>FineEdgeThr</p></td>
+<td><p>边缘细调侦测阈值。值越小，侦测为边缘的数量越多。建议搭配参数FineStr调试。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>FineStr</p></td>
+<td><p>边缘细调强度值。值越小，越偏方向性的处理。反之，越偏无方向性的处理。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>DetailSmoothEnable</p></td>
+<td><p>细节平滑功能使能</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>DetailSmoothStr</p></td>
+<td><p>细节平滑强度。值越大，平滑强度越强，对伪细节的抑制强度越大。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>DetailWgtThr</p></td>
+<td><p>细节保留范围阈值。值越小，细节保留作用的范围越大。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>DetailWgtSlope</p></td>
+<td><p>细节保留强度。值越大，细节保留越多。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>DetailWgtMin</p></td>
+<td><p>边缘细节平滑保留允许之最小增益。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>DetailWgtMax</p></td>
+<td><p>边缘细节平滑保留允许之最大增益。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>LumaWgtThr</p></td>
+<td><p>亮度细节平滑作用范围阈值。值越小，细节平滑作用的范围越大。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>LumaWgtSlope</p></td>
+<td><p>亮度细节平滑边缘保留强度。值越大，细节平滑强度越强。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>LumaWgtMin</p></td>
+<td><p>亮度细节平滑强度允许之最小增益。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>LumaWgtMax</p></td>
+<td><p>亮度细节平滑强度允许之最大增益。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>EdgeEnhanceEnable</p></td>
+<td><p>边缘强化功能使能</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>OverShtGain</p></td>
+<td><p>调节overshoot程度。值越大，边缘强化越大。OverShtGain为一倍时，其值为256。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>UnderShtGain</p></td>
+<td><p>调节undershoot程度。值越大，边缘强化越大。UnderShtGain为 一倍时，其值为256。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>NoiseSuppressStr</p></td>
+<td><p>噪声抑制强度。值越大，越能抑制噪声被强化。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>GainTable</p></td>
+<td><p>无方向中频纹理增强强度。
+值越大，无方向中频纹理的锐度越高。
+该参数是一个33的数组，表现为一个连续33段的强度曲线。
+数值为128时，增益为一倍。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>LumaTunedCoring</p></td>
+<td><p>噪声抑制强度。值越大，越能抑制噪声被强化。</p></td>
+</tr>
+<tr class="row-odd"><td><p>AE config</p></td>
+<td><p>WinWeight</p></td>
+<td><p>AE 测光权重</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="level2">
+<h3><span class="section-number">39.4.2. </span>LEVEL2级别调试信息分析<a class="headerlink" href="39_Error_Code.html#level2" title="永久链接至标题">¶</a></h3>
+<blockquote>
+<div><p>在level1的基础上，补充了meshLscGainLut，exposureInfo的额外资讯，以及GammaTable</p>
+</div></blockquote>
+<p>【参数说明】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 60%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Module/GammaEx</p></td>
+<td><p>GammaTable</p></td>
+<td><p>Gamma曲线节点数值</p></td>
+</tr>
+<tr class="row-odd"><td><p>ShadingEx</p></td>
+<td><p>MeshLscGainLut</p></td>
+<td><p>LSC 网格线形 式红色通道补偿增益表,包含RG B三个通道</p></td>
+</tr>
+<tr class="row-even"><td><p>ExposureInfoEx</p></td>
+<td><p>Exposure</p></td>
+<td><p>当前曝光量，等于曝光时间与曝光增益的乘积，其中曝光时间的单位为曝光行数，曝光增益为6bit 小数精度。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ExposureIsMax</p></td>
+<td><p>0：ISP 未达到最大曝光水平；
+1：ISP 达到最大曝光水平。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>HistError</p></td>
+<td><p>统计信息，AE 的目标亮度 值与实际值的差
+该值为正表示当前期望的亮度信息大于实际的亮度信息，
+该值为负表 示期望的亮 度信息小于实际的亮度信息。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PirisFno</p></td>
+<td><p>当前 P-Iris 光圈 F 值对应的等效增益。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Fps</p></td>
+<td><p>实际图像帧率 * 100。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>RefExpRatio</p></td>
+<td><p>参考曝光比，用于估计当前场景的动态范围，
+会受到ISP_WDR_EXPOSURE_ATTR_S 中Tolerance 和 Speed 等值的影响。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>AE_RouteTotalNum</p></td>
+<td><p>曝光分配 路线节点数目，目前最大为16</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>AERouteNodeX.IntTime</p></td>
+<td><p>曝光分配路线节点属性的节点曝光时间，单位为微秒(us)</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>AERouteNodeX.SysGain</p></td>
+<td><p>曝光分配路线节点属性的节点增益，包括sensor模拟增益，sensor数字增益和ISP数字增益，10bit精度。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>AERouteNodeX.IrisFNO</p></td>
+<td><p>曝光分配路线节点属性的节点光圈F值大小，仅 支持P-Iris，不支持DC-Iris</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>AE RouteNodeX.IrisFNOLin</p></td>
+<td><p>曝光分配路线节点属性的节点光圈F值等效增益大小，仅 支持P-Iris，不支持DC-Iris</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>AE_Hist256Value</p></td>
+<td><p>全局 256 段直方图统计信息</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="level3">
+<h3><span class="section-number">39.4.3. </span>LEVEL3级别调试信息分析<a class="headerlink" href="39_Error_Code.html#level3" title="永久链接至标题">¶</a></h3>
+<blockquote>
+<div><p>在level2的基础上，补充了3a的统计值</p>
+</div></blockquote>
+<p>【参数说明】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 60%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AE statistics</p></td>
+<td><p>LEGlobalAvgR</p></td>
+<td><p>长曝光帧全局统计的R分量统计平均值</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>LEGlobalAvgGr</p></td>
+<td><p>长曝光帧全局统计的GR分量统计平均值</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>LEGlobalAvgGb</p></td>
+<td><p>长曝光帧全局统计的GB分量统计平均值</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>LEGlobalAvgB</p></td>
+<td><p>长曝光帧全局统计的B分量统计平均值</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>SEGlobalAvgR</p></td>
+<td><p>短曝光帧全局统计的R分量统计平均值</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>SEGlobalAvgGr</p></td>
+<td><p>短曝光帧全局统计的GR分量统计平均值</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>SEGlobalAvgGb</p></td>
+<td><p>短曝光帧全局统计的GB分量统计平均值</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>SEGlobalAvgB</p></td>
+<td><p>短曝光帧全局统计的B分量统计平均值</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>LEHistogramMem</p></td>
+<td><p>长曝光帧全局统计的像素 histogram 统计值</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>SEHistogramMem</p></td>
+<td><p>短曝光帧全局统计的像素 histogram 统计值</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>LEZoneRAvg</p></td>
+<td><p>长曝光帧各分区间 R通道的分量统计平均值</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>LEZoneGrAvg</p></td>
+<td><p>长曝光帧各分区间 Gr通道的分量统计平均值</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>LEZoneGbAvg</p></td>
+<td><p>长曝光帧各分区间 Gb通道的分量统计平均值</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>LEZoneBAvg</p></td>
+<td><p>长曝光帧各分区间 B通道的分量统计平均值</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>SEZoneRAvg</p></td>
+<td><p>短曝光帧各分区间 R通道的分量统计平均值</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>SEZoneGrAvg</p></td>
+<td><p>短曝光帧各分区间 Gr通道的分量统计平均值</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>SEZoneGbAvg</p></td>
+<td><p>短曝光帧各分区间 Gb通道的分量统计平均值</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>SEZoneBAvg</p></td>
+<td><p>短曝光帧各分区间 B通道的分量统计平均值</p></td>
+</tr>
+<tr class="row-even"><td><p>AWB statistics</p></td>
+<td><p>LEGlobalR</p></td>
+<td><p>长曝光帧全局统计的R分量统计平均值</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>LEGlobalG</p></td>
+<td><p>长曝光帧全局统计的G分量统计平均值</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>LEGlobalB</p></td>
+<td><p>长曝光帧全局统计的B分量统计平均值</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>LECountAll</p></td>
+<td><p>长曝光帧全局统计的像素统计平均值</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>SEGlobalR</p></td>
+<td><p>短曝光帧全局统计的R分量统计平均值</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>SEGlobalG</p></td>
+<td><p>短曝光帧全局统计的G分量统计平均值</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>SEGlobalB</p></td>
+<td><p>短曝光帧全局统计的B分量统计平均值</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>SECountAll</p></td>
+<td><p>短曝光帧全局统计的像素统计平均值</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>LEZoneAvgR</p></td>
+<td><p>长曝光帧各分区间的R分量统计平均值</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>LEZoneAvgG</p></td>
+<td><p>长曝光帧各分区间的G分量统计平均值</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>LEZoneAvgB</p></td>
+<td><p>长曝光帧各分区间的B分量统计平均值</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>LEZoneCountAll</p></td>
+<td><p>长曝光帧各分区间的像素统计值</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>SEZoneAvgR</p></td>
+<td><p>短曝光帧各分区间的R分量统计平均值</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>SEZoneAvgG</p></td>
+<td><p>短曝光帧各分区间的G分量统计平均值</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>SEZoneAvgB</p></td>
+<td><p>短曝光帧各分区间的B分量统计平均值</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>SEZoneCountAll</p></td>
+<td><p>曝光帧各分区间的像素统计值</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="38_Debug.html" class="btn btn-neutral float-left" title="38. Debug" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="40_3A_Development_User_Guide_Overview.html" class="btn btn-neutral float-right" title="40. 3A 开发指南概述" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2025, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

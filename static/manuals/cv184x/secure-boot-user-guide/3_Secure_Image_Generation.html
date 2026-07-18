@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3. 安全镜像生成 &mdash; SecureBootUserGuide master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="4. eFuse 烧写" href="4_eFuse_Burning.html" />
+    <link rel="prev" title="2. 安全启动介绍" href="2_Secure_Boot_Introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> SecureBootUserGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Secure_Boot_Introduction.html">2. 安全启动介绍</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="3_Secure_Image_Generation.html#">3. 安全镜像生成</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3_Secure_Image_Generation.html#id2">3.1. 四层保护对照</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_Secure_Image_Generation.html#id3">3.2. 密钥与工具（速查）</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="4_eFuse_Burning.html">4. eFuse 烧写</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_FIP_Secure_Boot.html">5. FIP 签名与加密及 eFuse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_FIT_Image_Secure_Boot.html">6. FIT 镜像安全启动</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_RootFS_Signature.html">7. SquashFS RootFS 签名与内核验签</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_DATA_Partition_Signature.html">8. DATA 分区（userdata）签名与验签</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SecureBootUserGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">3. </span>安全镜像生成</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/3_Secure_Image_Generation.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">3. </span>安全镜像生成<a class="headerlink" href="3_Secure_Image_Generation.html#id1" title="永久链接至标题">¶</a></h1>
+<p>本章概述 CV184x Spinor 安全启动场景下，<strong>FIP</strong>、<strong>FIT（内核/设备树）</strong>、<strong>SquashFS RootFS</strong>、<strong>DATA（userdata）</strong> 四层签名或加密与验签的关系。具体操作、命令与密钥生成请分章阅读：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="5_FIP_Secure_Boot.html"><span class="doc">FIP 签名与加密及 eFuse</span></a> — FIP 签名与加密、eFuse 与 FIP 分区烧录顺序</p></li>
+<li><p><a class="reference internal" href="6_FIT_Image_Secure_Boot.html"><span class="doc">FIT 镜像安全启动</span></a> — FIT 验签与可选加密（boot.spinor、U-Boot）</p></li>
+<li><p><a class="reference internal" href="7_RootFS_Signature.html"><span class="doc">SquashFS RootFS 签名与内核验签</span></a> — RootFS（SquashFS）签名与内核挂载前验签</p></li>
+<li><p><a class="reference internal" href="8_DATA_Partition_Signature.html"><span class="doc">DATA 分区（userdata）签名与验签</span></a> — DATA 分区（JFFS2）签名与启动时验签、挂载策略</p></li>
+</ul>
+<section id="id2">
+<h2><span class="section-number">3.1. </span>四层保护对照<a class="headerlink" href="3_Secure_Image_Generation.html#id2" title="永久链接至标题">¶</a></h2>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 24%" />
+<col style="width: 56%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>对象</p></th>
+<th class="head"><p>典型镜像/分区</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>FIP</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">fip.bin</span></code> / <code class="docutils literal notranslate"><span class="pre">fip_enc.bin</span></code></p></td>
+<td><p>ROM/BL1 对 FIP 验签与解密（可选）；需 <code class="docutils literal notranslate"><span class="pre">CONFIG_FSBL_SECURE_BOOT_SUPPORT</span></code> 等配置，详见 <a class="reference internal" href="5_FIP_Secure_Boot.html"><span class="doc">FIP 签名与加密及 eFuse</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>内核（FIT）</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">boot.spinor</span></code> 内 FIT</p></td>
+<td><p>U-Boot 对 FIT 验签与可选解密；与 <strong>Enable kernel secure boot</strong>、U-Boot Security 等选项相关，详见 <a class="reference internal" href="6_FIT_Image_Secure_Boot.html"><span class="doc">FIT 镜像安全启动</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>RootFS</p></td>
+<td><p>rootfs.spinor（SquashFS）</p></td>
+<td><p>构建时追加签名块，内核挂载前验签，详见 <a class="reference internal" href="7_RootFS_Signature.html"><span class="doc">SquashFS RootFS 签名与内核验签</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>userdata（DATA）</p></td>
+<td><p>data.spinor（JFFS2）</p></td>
+<td><p>构建时追加 trailer，启动脚本调用 <code class="docutils literal notranslate"><span class="pre">verify_data_sig</span></code> 通过后挂载，详见 <a class="reference internal" href="8_DATA_Partition_Signature.html"><span class="doc">DATA 分区（userdata）签名与验签</span></a></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p><strong>注意事项</strong></p>
+<p>为避免量产密钥被窃，建议量产密钥单独保管，并在安全环境下进行签名与加密操作。</p>
+</div>
+</section>
+<section id="id3">
+<h2><span class="section-number">3.2. </span>密钥与工具（速查）<a class="headerlink" href="3_Secure_Image_Generation.html#id3" title="永久链接至标题">¶</a></h2>
+<p>FIP 侧常用私钥与密钥文件包括：<strong>rsa_hash0.pem</strong>、<strong>bl_priv.pem</strong>、<strong>loader_ek.key</strong>、<strong>bl_ek.key</strong>；FIT 与 RootFS、DATA 签名常与 <strong>ramdisk/keys/test_reeos.key</strong> 及 <strong>linux_5.10/certs/cert.pem</strong> 配合使用。<code class="docutils literal notranslate"><span class="pre">fipsign.py</span></code> 与 eFuse 见 <a class="reference internal" href="5_FIP_Secure_Boot.html"><span class="doc">FIP 签名与加密及 eFuse</span></a>；FIT 密钥与菜单项见 <a class="reference internal" href="6_FIT_Image_Secure_Boot.html"><span class="doc">FIT 镜像安全启动</span></a>。FIP 签名工具路径示例：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">python3 fsbl/plat/cvitek/cv184x/common/fipsign.py sign-enc --help</span>
+</pre></div>
+</div>
+<p>仅签名不加密时可使用 <code class="docutils literal notranslate"><span class="pre">sign</span></code> 子命令（参数见工具 <code class="docutils literal notranslate"><span class="pre">--help</span></code> 输出）。U-Boot 镜像生成仍参考《U-boot 移植应用开发指南》等文档得到原始 <strong>fip.bin</strong> 后再做签名或加密。</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="2_Secure_Boot_Introduction.html" class="btn btn-neutral float-left" title="2. 安全启动介绍" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="4_eFuse_Burning.html" class="btn btn-neutral float-right" title="4. eFuse 烧写" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

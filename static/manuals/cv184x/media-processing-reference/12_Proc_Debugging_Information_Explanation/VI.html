@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>12.15. VI &mdash; MediaProcessingSoftwareDevelopmentReference master 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="../_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/qrious.js"></script>
+    <script src="../_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="12.16. VO" href="VO.html" />
+    <link rel="prev" title="12.14. REGION" href="REGION.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> MediaProcessingSoftwareDevelopmentReference
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_System_Overview.html">2. 系统概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_System_Control.html">3. 系统控制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_Video_Input.html">4. 视频输入</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5_Video_Output.html">5. 视频输出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6_Video_Processing_Subsystem.html">6. 视频处理子系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7_Video_Encoding.html">7. 视频编码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../8_Video_Decoding.html">8. 视频解码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../9_Regional_Management.html">9. 区域管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10_Audio_Frequency.html">10. 音频</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../11_Geometric_Distortion_Correction_Subsystem.html">11. 几何畸变矫正子系统</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../12_Proc_Debugging_Information_Explanation.html">12. Proc 调试信息说明</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Function_Overview.html">12.1. 功能概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AI.html">12.2. AI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AO.html">12.3. AO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VENC.html">12.4. VENC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="H265E.html">12.5. H265E</a></li>
+<li class="toctree-l2"><a class="reference internal" href="H264E.html">12.6. H264E</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JPEGE.html">12.7. JPEGE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RC.html">12.8. RC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VDEC.html">12.9. VDEC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LOG.html">12.10. LOG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SYS.html">12.11. SYS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VB.html">12.12. VB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GDC.html">12.13. GDC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="REGION.html">12.14. REGION</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="VI.html#">12.15. VI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VO.html">12.16. VO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VPSS.html">12.17. VPSS</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MediaProcessingSoftwareDevelopmentReference</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../12_Proc_Debugging_Information_Explanation.html"><span class="section-number">12. </span>Proc 调试信息说明</a> &raquo;</li>
+      <li><span class="section-number">12.15. </span>VI</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="../_sources/12_Proc_Debugging_Information_Explanation/VI.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="vi">
+<h1><span class="section-number">12.15. </span>VI<a class="headerlink" href="VI.html#vi" title="永久链接至标题">¶</a></h1>
+<p>【调试信息】</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>cat /proc/cvitek/vi
+
+<span class="go">-------------------------------MODULE PARAM-------------------------------------</span>
+<span class="go">        DetectErrFrame  DropErrFrame</span>
+<span class="go">                0               0</span>
+
+<span class="go">-------------------------------VI MODE------------------------------------------</span>
+<span class="go">        DevID   PrerawFE        PrerawBE        Postraw         Scaler</span>
+<span class="go">          0      online          online         offline         offline</span>
+
+<span class="go">-------------------------------VI DEV ATTR1-------------------------------------</span>
+<span class="go">        DevID   DevEn   BindPipe        Width   Height  IntfM   WkM     ScanM</span>
+<span class="go">          0       Y        Y            1920    1080    MIPI    1MUX      P</span>
+
+<span class="go">-------------------------------VI DEV ATTR2-------------------------------------</span>
+<span class="go">        DevID   AD0     AD1     AD2     AD3     Seq     DataType        WDRMode</span>
+<span class="go">          0     -1      -1      -1      -1      N/A      RGB            None</span>
+
+<span class="go">-------------------------------VI BIND ATTR-------------------------------------</span>
+<span class="go">        DevID   PipeNum         PipeId</span>
+<span class="go">          0       0               0</span>
+
+<span class="go">-------------------------------VI DEV TIMING ATTR-------------------------------</span>
+<span class="go">        DevID   DevTimingEn     DevFrmRate      DevWidth        DevHeight</span>
+<span class="go">          0         N              0             1920            1080</span>
+
+<span class="go">-------------------------------VI CHN ATTR1-------------------------------------</span>
+<span class="go">        DevID   ChnID   Width   Height  Mirror  Flip    SrcFRate        DstFRate        PixFmt  VideoFmt</span>
+<span class="go">          0       0     1920    1080      N      N        -1              -1            NV21      SDR8</span>
+
+<span class="go">-------------------------------VI CHN ATT2--------------------------------------</span>
+<span class="go">        DevID   ChnID   CompressMode    Depth   Align</span>
+<span class="go">          0       0     None              0      32</span>
+
+<span class="go">-------------------------------VI CHN OUTPUT RESOLUTION-------------------------</span>
+<span class="go">        DevID   ChnID   Mirror  Flip    Width   Height  PixFmt  VideoFmt        CompressMode    FrameRate</span>
+<span class="go">          0       0       N      N      1920    1080    NV21      SDR8            None             -1</span>
+
+<span class="go">-------------------------------VI CHN ROTATE INFO-------------------------------</span>
+<span class="go">        DevID   ChnID   Rotate</span>
+<span class="go">          0       0       0</span>
+
+<span class="go">-------------------------------VI CHN EARLY INTERRUPT INFO----------------------</span>
+<span class="go">        DevID   ChnID   Enable  LineCnt</span>
+<span class="go">          0       0       N        0</span>
+
+<span class="go">-------------------------------VI CHN CROP INFO---------------------------------</span>
+<span class="go">        DevID   ChnID   CropEn  CoorType        CoorX   CoorY   Width   Height  TrimX   TrimY   TrimWid TrimHgt</span>
+<span class="go">          0       0       N       RAT              0       0       0       0       0      0       0        0</span>
+
+<span class="go">-------------------------------VI CHN STATUS------------------------------------</span>
+<span class="go">        DevID   ChnID   Enable  FrameRate       IntCnt  RecvPic LostFrame       VbFail  Width   Height</span>
+<span class="go">          0       0       N         0            1550    1550       0               0   1920    1080</span>
+</pre></div>
+</div>
+<p>【调试信息分析】</p>
+<p>记录当前视频输入设备及信道的属性配置以及状态信息。</p>
+<p>【参数说明】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>MODULE PARAMVI 模块参数</p></td>
+<td><p>DetectErrFrame误帧</p></td>
+<td><p>信号不稳定时，实时丢弃侦测到的错策略。该参数仅限于调试时使用，正式产品中不建议使用，把该值配成0，实时丢掉错误帧。</p>
+<p>&gt;0：当检测到连续错误帧数大于该值时，则认为是时序配错，后面的帧不再丢弃；</p>
+<p>0：默认值，表示实时丢 弃检测到的错误帧图像。</p>
+<p>&lt;0：关闭检测错误帧功能。</p>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>DropErrFrame</p></td>
+<td><p>当               检测到当前帧是错误帧时，认为接下来的几帧也可能是错误帧，应该丢弃。</p>
+<p>0：默认值，      表示不开启连续丢帧功能，只丢弃当前的错误帧；</p>
+<p>&gt; 0：该参数表示当检测到图 像错误时，连续丢drop_er r_frame帧(含当前帧)，不 管后面的图像是否正确。</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>VI MODEVI PIPE的工作模式</p></td>
+<td><p>DevID</p></td>
+<td><p>设备号。有效范围：[0,    VI_MAX_DEV_NUM)。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PrerawFE</p></td>
+<td><p>PrerawFE工作模式</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>PrerawBE</p></td>
+<td><p>PrerawBE工作模式</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Postraw</p></td>
+<td><p>Postraw工作模式</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Scaler</p></td>
+<td><p>Scaler工作模式</p></td>
+</tr>
+<tr class="row-odd"><td><p>VI DEV ATTR1视频输入设备属性1</p></td>
+<td><p>DevID</p></td>
+<td><p>设备号。有效范围：[0,    VI_MAX_DEV_NUM)。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>DevEn</p></td>
+<td><p>设备使能。</p>
+<p>N：关闭；</p>
+<p>Y：打开。</p>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>BindPipe</p></td>
+<td><p>设备是否绑定pipe。</p>
+<p>N：未绑定；</p>
+<p>Y：已绑定。</p>
+</td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Width</p></td>
+<td><p>设备宽度，单位：像素。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Height</p></td>
+<td><p>设备高度，单位：像素。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>IntfM</p></td>
+<td><p>输入模式。MIPI or BT or LVDS</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>WkM</p></td>
+<td><p>工作模式，现在只有1MUX</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ScanM</p></td>
+<td><p>隔行或逐行输入。</p>
+<p>取值：{I， P}。VI_SCAN_INTERLACED= I, VI_SCAN_PROGRESSIVE = P</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>VI DEV ATTR2视频输入设备属性2</p></td>
+<td><p>DevID</p></td>
+<td><p>设备号。有效范围：[0,    VI_MAX_DEV_NUM)。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>AD0</p></td>
+<td><p>AD号。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>AD1</p></td>
+<td><p>AD号。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>AD2</p></td>
+<td><p>AD号。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>AD3</p></td>
+<td><p>AD号。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Seq</p></td>
+<td><p>数据顺序。</p>
+<p>取值：{VUVU, UVUV,    UYVY, VYUY, YUYV, YVYU}。</p>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>DataType</p></td>
+<td><p>输入数据类型，默认为RGB。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>WDRMode</p></td>
+<td><p>WDR模式。</p>
+<p>WDR_2L1：二合一行模式</p>
+<p>WDR_2F1：二合一帧模式</p>
+<p>WDR_3L1：三合一行模式</p>
+<p>WDR_3F1：三合一帧模式</p>
+<p>WDR_4L1：四合一行模式</p>
+<p>WDR_4F1：四合一帧模式</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>VI BIND ATTR绑定关系</p></td>
+<td><p>DevID</p></td>
+<td><p>设备号。有效范围：[0,    VI_MAX_DEV_NUM)。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>PipeNum</p></td>
+<td><p>Pipe数目</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PipeId</p></td>
+<td><p>PIPE号。</p>
+<p>有效范围：[0,    VI_MAX_PIPE_NUM)。</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>VI DEV TIMING ATTR自产生时序属性</p></td>
+<td><p>DevID</p></td>
+<td><p>设备号。有效范围：[0,    VI_MAX_DEV_NUM)。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>DevTimingEn</p></td>
+<td><p>是否使能自产生时序功能：(is_offline_preraw)</p>
+<p>N：关闭；</p>
+<p>Y：打开；</p>
+</td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>DevFrmRate</p></td>
+<td><p>用户设置的       自产生时序帧率；（当其大于设备支持的最大帧率时，返回设备最大帧率）</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>DevWidth</p></td>
+<td><p>设备宽度，单位：像素；</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>DevHeight</p></td>
+<td><p>设备高度，单位：像素；</p></td>
+</tr>
+<tr class="row-odd"><td><p>VI CHN ATTR1物理通道属性1</p></td>
+<td><p>DevID</p></td>
+<td><p>设备号。有效范围：[0,    VI_MAX_DEV_NUM)。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ChnID</p></td>
+<td><p>通道号。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Width</p></td>
+<td><p>通道输出宽度。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Height</p></td>
+<td><p>通道输出高度。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Mirror</p></td>
+<td><p>mirror使能       N：关闭；        Y：打开。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Flip</p></td>
+<td><p>flip使能         N：关闭；        Y：打开。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>SrcFRate</p></td>
+<td><p>源帧率。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>DstFRate</p></td>
+<td><p>目的帧率。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PixFmt</p></td>
+<td><p>输出像素格式。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>VideoFmt</p></td>
+<td><p>输出视频格式。</p></td>
+</tr>
+<tr class="row-odd"><td><p>VI CHN ATT2物理通道属性2</p></td>
+<td><p>DevID</p></td>
+<td><p>设备号。有效范围：[0,    VI_MAX_DEV_NUM)。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ChnID</p></td>
+<td><p>通道号。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>CompressMode</p></td>
+<td><p>是否压缩         N：关闭；        Y：打开。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Depth</p></td>
+<td><p>用户             获取通道帧的队列深度。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Align</p></td>
+<td><p>通道图像行stride对齐。</p></td>
+</tr>
+<tr class="row-even"><td><p>VI CHN OUTPUTRESOLUTIONVI通道输出的图像属性</p></td>
+<td><p>DevID</p></td>
+<td><p>设备号。有效范围：[0,    VI_MAX_DEV_NUM)。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ChnID</p></td>
+<td><p>通道号。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Mirror</p></td>
+<td><p>mirror使能       N：关闭；        Y：打开。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Flip</p></td>
+<td><p>flip使能         N：关闭；        Y：打开。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Width</p></td>
+<td><p>通道输出宽度。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Height</p></td>
+<td><p>通道输出高度。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>PixFmt</p></td>
+<td><p>输出像素格式。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>VideoFmt</p></td>
+<td><p>输出视频格式。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CompressMode</p></td>
+<td><p>是否压缩         N：关闭；        Y：打开。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>FrameRate</p></td>
+<td><p>帧率。</p></td>
+</tr>
+<tr class="row-even"><td><p>VI CHN ROTATE INFOVI 通道旋转属性</p></td>
+<td><p>DevID</p></td>
+<td><p>设备号。有效范围：[0,    VI_MAX_DEV_NUM)。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ChnID</p></td>
+<td><p>通道号。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Rotate</p></td>
+<td><p>通道旋转角度。</p></td>
+</tr>
+<tr class="row-odd"><td><p>VI CHN EARLYINTERRUPT INFO提前上报中断信息</p></td>
+<td><p>DevID VI_MAX</p></td>
+<td><p>设备号。有效范围：[0,    VI_MAX_DEV_NUM)。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ChnID</p></td>
+<td><p>通道号。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Enable</p></td>
+<td><p>是否使           能提前上报中断的功能。N：关闭；        Y：打开。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>LineCnt</p></td>
+<td><p>提前上报中断的行数。</p></td>
+</tr>
+<tr class="row-odd"><td><p>VI CHN CROP INFOVI通道裁剪属性</p></td>
+<td><p>DevID</p></td>
+<td><p>设备号。有效范围：[0,    VI_MAX_DEV_NUM)。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ChnID</p></td>
+<td><p>通道号。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>CropEn</p></td>
+<td><p>是否使能CROP     功能。(cvi_isp_s_select ion，V4L2_SEL_TGT_CROP) N：关闭；        Y：打开。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CoorType</p></td>
+<td><p>坐标类型。       RAT：相对坐标；  ABS：绝对坐标。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>CoorX</p></td>
+<td><p>水平方向起始坐标。    坐标类型为相对坐 标时，合法取值范围为[0, 999]；           坐标类型为绝对坐 标时，合法取值范围为[0, VI_CHN_MAX_WIDTH]。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CoorY</p></td>
+<td><p>垂直方向起始坐标。    坐标类型为相对坐 标时，合法取值范围为[0, 999]；           坐标类型为绝对坐 标时，合法取值范围为[0, VI_CHN_MAX_HEIGHT ]。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Width</p></td>
+<td><p>CROP RECT的宽，       不能超出最大图像宽度。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Height</p></td>
+<td><p>CROP RECT的高，       不能超出最大图像高度。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>TrimX</p></td>
+<td><p>实际图像起始点坐标。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>TrimY</p></td>
+<td><p>实际图像起始点坐标。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>TrimWid</p></td>
+<td><p>实               际图像宽，单位：像素。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>TrimHgt</p></td>
+<td><p>实               际图像高，单位：像素。</p></td>
+</tr>
+<tr class="row-odd"><td><p>VI CHN STATUS通道状态信息</p></td>
+<td><p>DevID</p></td>
+<td><p>设备号。有效范围：[0,    VI_MAX_DEV_NUM)。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ChnID</p></td>
+<td><p>通道号。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Enable</p></td>
+<td><p>通道使能。       0：不使能；      1：使能。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>FrameRate</p></td>
+<td><p>帧率。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>IntCnt</p></td>
+<td><p>通道中断计数。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>RecvPic</p></td>
+<td><p>接收到的图像数目。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>LostFrame</p></td>
+<td><p>通道丢帧数。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>VbFail</p></td>
+<td><p>通道获取VB失败计数。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Width</p></td>
+<td><p>通道宽度。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Height</p></td>
+<td><p>通道高度。</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="REGION.html" class="btn btn-neutral float-left" title="12.14. REGION" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="VO.html" class="btn btn-neutral float-right" title="12.16. VO" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

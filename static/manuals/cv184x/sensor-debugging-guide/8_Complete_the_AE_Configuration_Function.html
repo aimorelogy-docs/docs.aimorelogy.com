@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>8. 完成AE配置功能 &mdash; Sensor_Debugging_Guide master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="9. 完善其它功能" href="9_Complete_Other_Functions.html" />
+    <link rel="prev" title="7. ISP基本功能" href="7_Basic_Functions_of_ISP.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Sensor_Debugging_Guide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Introduction_to_Sensor_Drivers.html">2. Sensor驱动介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Confirm_Specifications.html">3. 确认规格</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_Image_Output_Debugging.html">4. 图像输出调试(Linux非快启)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_Image_Output_Debugging.html">5. 图像输出调试(Alios快启)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_Image_Output_Verification.html">6. 图像输出验证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_Basic_Functions_of_ISP.html">7. ISP基本功能</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="8_Complete_the_AE_Configuration_Function.html#">8. 完成AE配置功能</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="8_Complete_the_AE_Configuration_Function.html#id1">8.1. 开发流程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="8_Complete_the_AE_Configuration_Function.html#id2">8.2. 注意事项</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="9_Complete_Other_Functions.html">9. 完善其它功能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_AE_Related_Verification.html">10. AE相关验证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_Common_Problem.html">11. 常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_Color_Noise_Reduction_and_Other_Corrections.html">12. 颜色、去噪等矫正</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_Debugging_Tool.html">13. 调试工具</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Sensor_Debugging_Guide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">8. </span>完成AE配置功能</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/8_Complete_the_AE_Configuration_Function.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ae">
+<h1><span class="section-number">8. </span>完成AE配置功能<a class="headerlink" href="8_Complete_the_AE_Configuration_Function.html#ae" title="永久链接至标题">¶</a></h1>
+<p>Sensor驱动功能皆由operation callbacks实现。</p>
+<p>本章节以使用者已详悉Sensor datasheet为前提描述AE Callbacks应实现的基本功能。</p>
+<section id="id1">
+<h2><span class="section-number">8.1. </span>开发流程<a class="headerlink" href="8_Complete_the_AE_Configuration_Function.html#id1" title="永久链接至标题">¶</a></h2>
+<p>请依序实现以下AE基本功能callbacks</p>
+<ol class="arabic simple">
+<li><p>pfn_cmos_get_ae_default</p></li>
+<li><p>pfn_cmos_fps_set</p></li>
+<li><p>pfn_cmos_inttime_update</p></li>
+<li><p>pfn_cmos_gains_update</p></li>
+<li><p>pfn_cmos_again_calc_table</p></li>
+<li><p>pfn_cmos_dgain_calc_table</p></li>
+<li><p>pfn_cmos_get_inttime_max</p></li>
+</ol>
+</section>
+<section id="id2">
+<h2><span class="section-number">8.2. </span>注意事项<a class="headerlink" href="8_Complete_the_AE_Configuration_Function.html#id2" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>pfn_cmos_get_ae_default： 回传AE算法相关的sensor数据。</p></li>
+</ul>
+<p>需要提供 AE 算法在 linear 模式下的最大及最小曝光条数，linear/ WDR模式仿真/数字增益的最大及最小值以及增益的类型，
+数字增益若是只有如 : 0db , 6db, 12db 等少数几种选择，则为 DB 型，
+其余为线性，曝光生效周期的 frame 数，开机第几个 frame 后稳定的 frame 数。</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>u32FullLinesStd : 在初使化序列内, 一帧内时间的line数.</p></li>
+<li><p>u32MaxAgain: 最大的AGain 值.</p></li>
+<li><p>u32MinAgain: 最小的AGain 值.</p></li>
+<li><p>u32MaxDgain: 最大的DGain 值.</p></li>
+<li><p>u32MinDgain: 最小的DGain 值.</p></li>
+<li><p>u32MaxIntTime: 线性模式中最大的曝光值.</p></li>
+<li><p>u32MinIntTimeTarget: 线性模式中最小的曝光值.</p></li>
+<li><p>u32AEResponseFrame: AE最大的反应时间(unit: frame)</p></li>
+</ul>
+</div></blockquote>
+<p>主要是要按照sensor spec填写相关AE的属性，包括FullLinesStd,FullLinesMax, IntTime的max、min以及step, gain的max和min以及step等。注意要确认好intTime和gain的AccuType:</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/image18.png"><img alt="_images/image18.png" src="_images/image18.png" style="width: 80%;" /></a>
+</figure>
+<p>一般情况下intTime设定和对应register是成线性关系的,
+AccuType配置成AE_ACCURACY_LINEAR;</p>
+<p>gain的设定一般设为AE_ACCURACY_TABLE,表示从gain table去映射，
+后面会介绍pfn_cmos_again_calc_table/pfn_cmos_dgain_calc_table。</p>
+<p>不过有些sensor可能gain设定比较特殊，比如soi_F35这款,它的dgain就不能做到很细的调节，只有1x, 2x, 3x, 4x这4个挡位。</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/Comple003.png"><img alt="_images/Comple003.png" src="_images/Comple003.png" style="width: 80%;" /></a>
+</figure>
+<ul class="simple">
+<li><p>pfn_cmos_fps_set： 设定sensor帧率。</p></li>
+</ul>
+<p>默认为Sensor输出模式的最大帧率。Sensor驱动增加输出的垂直Blanking条数达到降低帧率的效果。</p>
+<p>注意由于输出总条数改变，有些Sensor的曝光范围也会改变，Sensor驱动须重新计算。</p>
+<p>例如, 若初始序列的FPS=30, 新的FPS 不能大于30.通常调整frame rate的方法是依照比例增加sensor输出的full lines.</p>
+<p>例如, 若在FPS=30时, full lines = 1125. FPS=25时的full lines = 1125*30/25 = 1350。</p>
+<ul class="simple">
+<li><p>pfn_cmos_inttime_update： 设定Sensor的曝光时间并回传实际生效的曝光条数给 AE。</p></li>
+</ul>
+<p>输入参数为一数列，在WDR模式依序代表短曝帧与长曝帧的曝光值，单位为水平输出条数。</p>
+<p>例如，当u32IntTime[0]=8，u32IntTime[[1]=1000，代表短曝帧曝光为8条线的时间，长曝帧为1000条线的时间。</p>
+<p>若在线性模式，序列[0]即代表曝光值，序列[1]无意义。注意在WDR模式，
+调整Sensor短帧曝光可能需要重新计算Crop信息与mipi-rx设定。</p>
+<ul class="simple">
+<li><p>pfn_cmos_gains_update： 设定Sensor的增益值。</p></li>
+</ul>
+<p>输入参数为pu32Again与pu32Dgain两个序列。</p>
+<p>在WDR模式，pu32Again[0]代表短曝帧的模拟增益值，pu32Again[[1]代表长曝帧的模拟增益值；</p>
+<p>pu32Dgain[0]代表短曝帧的数字增益值，pu32Dgain[[1]代表长曝帧的数字增益值。</p>
+<p>数值为Sensor缓存器的设定值，可由pfn_cmos_again_calc_table与pfn_cmos_dgain_calc_table转换真实增益值。</p>
+<p>在线性模式，仅pu32Again[0]与pu32Dgain[0]有意义。</p>
+<p>可由pfn_cmos_again_calc_table与pfn_cmos_dgain_calc_table转换真实增益值。</p>
+<p>在线性模式，只有pu32Again[0]和pu32Dgain[0]有意义。</p>
+<p>在WDR mode下：</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>pu32Again[0]: 短帧的Again配置.</p></li>
+<li><p>pu32Again[1]: 长帧的Again配置.</p></li>
+<li><p>pu32Dgain[0]: 短帧的Dgain配置.</p></li>
+<li><p>pu32Dgain[1]: 长帧的Dgain配置.</p></li>
+<li><p>Gains update有3种模式： SHARE, WDR_2F, ONLY_LEF, 设置在pfnSetInit.</p></li>
+<li><p>SHARE: 长短帧共享Gain配置 (Sony, OV).</p></li>
+<li><p>WDR_2F: 长短帧分开Gain配置 (Sony, OV).</p></li>
+<li><p>ONLY_LEF: 仅长曝帧Gain可配置 (SOI).</p></li>
+</ul>
+</div></blockquote>
+<ul>
+<li><p>pfn_cmos_again_calc_table： 输入为1024为基准的模拟增益值，Sensor驱动经查表或计算出不大于输入值且最相近的模拟增益值，输出对应的Sensor缓存器设定。</p>
+<ul>
+<li><p>pu32AgainLin: AE传入1024-based的Again.</p>
+<p>Sensor驱动依照规格书的gain table或公式, 回传最接近的1024-based Again.</p>
+<p>Again的范围定义于pfn_cmos_get_ae_default</p>
+</li>
+<li><p>pu32AgainDb: 回传对应的Sensor Again register 配置.</p></li>
+</ul>
+</li>
+<li><p>pfn_cmos_dgain_calc_table： 输入为1024为基准的数字增益值，Sensor驱动经查表或计算出出不大于输入值且最相近的数字增益值，输出对应的Sensor缓存器设定。</p>
+<ul>
+<li><p>pu32DgainLin: AE传入1024-based的Dgain.</p>
+<p>Sensor驱动依照规格书的gain table或公式, 回传最接近的1024-based Dgain.</p>
+<p>Dgain的范围定义于pfn_cmos_get_ae_default</p>
+</li>
+<li><p>pu32DgainDb: 回传对应的Sensor Dgain register 配置.</p>
+<p>若sensor Dgain调整为阶型(1X, 2X, 4X…),</p>
+<p>pfn_cmos_get_ae_default 内的stDgainAccu.enAccuType须设定成AE_ACCURACY_DB.</p>
+</li>
+</ul>
+</li>
+<li><p>pfn_cmos_get_inttime_max： 用于WDR模式，计算在当前的曝光比下长短帧可容许曝光条数的范围。</p>
+<p>SONY DOL, F35 HDR-wo VC, OV HDR-DT, Smartsens SC200AI 都是利用blanking区间实现短帧曝光。</p>
+<p>有些sensor (OS08A20, F35) 可设定成Fix L2S distance,
+即设定一个最大的短帧曝光值, 当调整短帧曝光时, L2S distance
+不会变化, ISP crop size 不需动态配置.</p>
+<ul class="simple">
+<li><p>u16ManRatioEnable: Manual Ratio Enable, 设定为1</p></li>
+<li><p>au32Ratio[0] : 2 frame HDR下, 长帧曝光*64/短帧曝光比</p></li>
+<li><p>au32IntTimeMax[0] : 短帧最大曝光值(单位:一条H时间)</p></li>
+<li><p>au32IntTimeMax[1] : 长帧最大曝光值(单位:一条H时间)</p></li>
+<li><p>au32IntTimeMin[0] : 短帧最小曝光值(单位:一条H时间)</p></li>
+<li><p>au32IntTimeMin[1] : 长帧最小曝光值(单位:一条H时间)</p></li>
+<li><p>pu32LFMaxIntTime[0] : NA</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="7_Basic_Functions_of_ISP.html" class="btn btn-neutral float-left" title="7. ISP基本功能" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="9_Complete_Other_Functions.html" class="btn btn-neutral float-right" title="9. 完善其它功能" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

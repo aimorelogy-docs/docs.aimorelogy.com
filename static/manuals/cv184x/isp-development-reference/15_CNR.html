@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>15. CNR &mdash; ISPDevelopmentReference master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="16. TNR" href="16_TNR.html" />
+    <link rel="prev" title="14. BNR" href="14_BNR.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> ISPDevelopmentReference
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Preface.html">2. 概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_System_Control.html">3. 系统控制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_AE.html">4. AE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_AWB.html">5. AWB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_AF.html">6. AF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_IMP.html">7. IMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_BlackLevel.html">8. BLC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_DPC.html">9. DPC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_LSC.html">10. LSC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_RLSC.html">11. RLSC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_CCM.html">12. CCM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_Noise_Profile.html">13. Noise profile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_BNR.html">14. BNR</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="15_CNR.html#">15. CNR</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="15_CNR.html#id1">15.1. 功能描述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="15_CNR.html#api">15.2. API 参考</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="15_CNR.html#cvi-isp-setcnrattr">15.2.1. CVI_ISP_SetCNRAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="15_CNR.html#cvi-isp-getcnrattr">15.2.2. CVI_ISP_GetCNRAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="15_CNR.html#cvi-isp-setcnrfilterattr">15.2.3. CVI_ISP_SetCNRFilterAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="15_CNR.html#cvi-isp-getcnrfilterattr">15.2.4. CVI_ISP_GetCNRFilterAttr</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="15_CNR.html#id2">15.3. 数据类型</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="15_CNR.html#isp-cnr-manual-attr-s">15.3.1. ISP_CNR_MANUAL_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="15_CNR.html#isp-cnr-auto-attr-s">15.3.2. ISP_CNR_AUTO_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="15_CNR.html#isp-cnr-attr-s">15.3.3. ISP_CNR_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="15_CNR.html#isp-cnr-filter-manual-attr-s">15.3.4. ISP_CNR_FILTER_MANUAL_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="15_CNR.html#isp-cnr-filter-auto-attr-s">15.3.5. ISP_CNR_FILTER_AUTO_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="15_CNR.html#isp-cnr-filter-attr-s">15.3.6. ISP_CNR_FILTER_ATTR_S</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="16_TNR.html">16. TNR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="17_Crosstalk.html">17. Crosstalk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18_Demosaic.html">18. DEMOSAIC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19_Sharpen.html">19. SHARPEN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="20_PreSharpen.html">20. PRESHARPEN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21_RGB_Gamma.html">21. RGBGAMMA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="22_DCI.html">22. DCI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="23_LDCI.html">23. LDCI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="24_ColorTone.html">24. ColorTone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="25_Saturation.html">25. Saturation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="26_PFR.html">26. PFR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="27_FSHDR.html">27. FSHDR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="28_DRC.html">28. DRC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="29_Mono.html">29. MONO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="30_YCONTRAST.html">30. YCONTRAST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="31_CA.html">31. CA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="32_CA2.html">32. CA2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="33_CLUT.html">33. CLUT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="34_CSC.html">34. CSC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="35_VC.html">35. VC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="36_Statistical_Information.html">36. 统计讯息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="37_Query_Internal_Status_Messages.html">37. 查询内部状态消息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="38_Debug.html">38. Debug</a></li>
+<li class="toctree-l1"><a class="reference internal" href="39_Error_Code.html">39. 错误码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="40_3A_Development_User_Guide_Overview.html">40. 3A 开发指南概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="41_3A_Development_User_Guide.html">41. 3A 开发用户指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="42_Developer_Guide.html">42. 开发者指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="43_Appendix.html">43. 附录</a></li>
+<li class="toctree-l1"><a class="reference internal" href="44_Abbreviations.html">44. 缩略语</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ISPDevelopmentReference</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">15. </span>CNR</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/15_CNR.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cnr">
+<h1><span class="section-number">15. </span>CNR<a class="headerlink" href="15_CNR.html#cnr" title="永久链接至标题">¶</a></h1>
+<section id="id1">
+<h2><span class="section-number">15.1. </span>功能描述<a class="headerlink" href="15_CNR.html#id1" title="永久链接至标题">¶</a></h2>
+<p>在 YUV Domain 针对色度噪声进行的空域去噪算法。 cv184x 系列 的 CNR 模块通过双边滤波处理对UV通道做整体的降噪处理。</p>
+</section>
+<section id="api">
+<h2><span class="section-number">15.2. </span>API 参考<a class="headerlink" href="15_CNR.html#api" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="15_CNR.html#cvi-isp-setcnrattr">CVI_ISP_SetCNRAttr</a> ： 设置CNR 参数属性</p></li>
+<li><p><a class="reference internal" href="15_CNR.html#cvi-isp-getcnrattr">CVI_ISP_GetCNRAttr</a> ： 获取CNR 参数属性</p></li>
+<li><p><a class="reference internal" href="15_CNR.html#cvi-isp-setcnrfilterattr">CVI_ISP_SetCNRFilterAttr</a> ： 设置CNR FILTER 参数属性</p></li>
+<li><p><a class="reference internal" href="15_CNR.html#cvi-isp-getcnrfilterattr">CVI_ISP_GetCNRFilterAttr</a> ： 获取CNR FILTER 参数属性</p></li>
+</ul>
+<section id="cvi-isp-setcnrattr">
+<h3><span class="section-number">15.2.1. </span>CVI_ISP_SetCNRAttr<a class="headerlink" href="15_CNR.html#cvi-isp-setcnrattr" title="永久链接至标题">¶</a></h3>
+<p>【描述】</p>
+<blockquote>
+<div><p>设置CNR 参数属性</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_SetCNRAttr</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ISP_CNR_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstCNRAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>VI_PIPE 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstCNRAttr</p></td>
+<td><p>CNR 参数属性</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，其值为 <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件: cvi_isp.h, cvi_comm_isp.h</p></li>
+<li><p>库文件: libisp.so</p></li>
+</ul>
+<p>【注意】</p>
+<p>无</p>
+<p>【举例】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="n">ISP_CNR_ATTR_S</span><span class="w"> </span><span class="n">stAttr</span><span class="p">;</span><span class="w"></span>
+<span class="n">CVI_ISP_GetCNRAttr</span><span class="p">(</span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">stAttr</span><span class="p">);</span><span class="w"></span>
+<span class="n">stAttr</span><span class="p">.</span><span class="n">enOpType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OP_TYPE_AUTO</span><span class="p">;</span><span class="w"></span>
+<span class="n">CVI_ISP_SetCNRAttr</span><span class="p">(</span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">stAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="15_CNR.html#cvi-isp-getcnrattr">CVI_ISP_GetCNRAttr</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-getcnrattr">
+<h3><span class="section-number">15.2.2. </span>CVI_ISP_GetCNRAttr<a class="headerlink" href="15_CNR.html#cvi-isp-getcnrattr" title="永久链接至标题">¶</a></h3>
+<p>【描述】</p>
+<p>获取CNR 参数属性</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_GetCNRAttr</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ISP_CNR_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstCNRAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>VI_PIPE 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstCNRAttr</p></td>
+<td><p>CNR 参数属性</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，其值为 <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件: cvi_isp.h, cvi_comm_isp.h</p></li>
+<li><p>库文件: libisp.so</p></li>
+</ul>
+<p>【注意】</p>
+<p>无</p>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="15_CNR.html#cvi-isp-setcnrattr">CVI_ISP_SetCNRAttr</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-setcnrfilterattr">
+<h3><span class="section-number">15.2.3. </span>CVI_ISP_SetCNRFilterAttr<a class="headerlink" href="15_CNR.html#cvi-isp-setcnrfilterattr" title="永久链接至标题">¶</a></h3>
+<p>【描述】</p>
+<blockquote>
+<div><p>设置CNR FILTER 参数属性</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_SetCNRFilterAttr</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ISP_CNR_FILTER_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstCNRFilterAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>VI_PIPE 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstCNRFilterAttr</p></td>
+<td><p>CNR FILTER 参数属性</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，其值为 <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件: cvi_isp.h, cvi_comm_isp.h</p></li>
+<li><p>库文件: libisp.so</p></li>
+</ul>
+<p>【注意】</p>
+<p>无</p>
+<p>【举例】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="n">ISP_CNR_FILTER_ATTR_S</span><span class="w"> </span><span class="n">stAttr</span><span class="p">;</span><span class="w"></span>
+<span class="n">CVI_ISP_GetCNRFilterAttr</span><span class="p">(</span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">stAttr</span><span class="p">);</span><span class="w"></span>
+<span class="n">stAttr</span><span class="p">.</span><span class="n">enOpType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OP_TYPE_AUTO</span><span class="p">;</span><span class="w"></span>
+<span class="n">CVI_ISP_SetCNRFilterAttr</span><span class="p">(</span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">stAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="15_CNR.html#cvi-isp-getcnrfilterattr">CVI_ISP_GetCNRFilterAttr</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-getcnrfilterattr">
+<h3><span class="section-number">15.2.4. </span>CVI_ISP_GetCNRFilterAttr<a class="headerlink" href="15_CNR.html#cvi-isp-getcnrfilterattr" title="永久链接至标题">¶</a></h3>
+<p>【描述】</p>
+<p>获取CNR FILTER 参数属性</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_GetCNRFilterAttr</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ISP_CNR_FILTER_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstCNRFilterAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>VI_PIPE 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstCNRFilterAttr</p></td>
+<td><p>CNR FILTER 参数属性</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，其值为 <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件: cvi_isp.h, cvi_comm_isp.h</p></li>
+<li><p>库文件: libisp.so</p></li>
+</ul>
+<p>【注意】</p>
+<p>无</p>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="15_CNR.html#cvi-isp-setcnrfilterattr">CVI_ISP_SetCNRFilterAttr</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id2">
+<h2><span class="section-number">15.3. </span>数据类型<a class="headerlink" href="15_CNR.html#id2" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="15_CNR.html#isp-cnr-manual-attr-s">ISP_CNR_MANUAL_ATTR_S</a> ： 定义手动CNR 参数属性</p></li>
+<li><p><a class="reference internal" href="15_CNR.html#isp-cnr-auto-attr-s">ISP_CNR_AUTO_ATTR_S</a> ： 定义自动CNR 参数属性</p></li>
+<li><p><a class="reference internal" href="15_CNR.html#isp-cnr-attr-s">ISP_CNR_ATTR_S</a> ： 定义CNR 参数属性</p></li>
+<li><p><a class="reference internal" href="15_CNR.html#isp-cnr-filter-manual-attr-s">ISP_CNR_FILTER_MANUAL_ATTR_S</a> ： 定义手动CNR FILTER 参数属性</p></li>
+<li><p><a class="reference internal" href="15_CNR.html#isp-cnr-filter-auto-attr-s">ISP_CNR_FILTER_AUTO_ATTR_S</a> ： 定义自动CNR FILTER 参数属性</p></li>
+<li><p><a class="reference internal" href="15_CNR.html#isp-cnr-filter-attr-s">ISP_CNR_FILTER_ATTR_S</a> ： 定义CNR FILTER 参数属性</p></li>
+</ul>
+<section id="isp-cnr-manual-attr-s">
+<h3><span class="section-number">15.3.1. </span>ISP_CNR_MANUAL_ATTR_S<a class="headerlink" href="15_CNR.html#isp-cnr-manual-attr-s" title="永久链接至标题">¶</a></h3>
+<p>【说明】</p>
+<p>定义手动CNR 参数属性</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_CNR_MANUAL_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">MedianFltKsize</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 2]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">CnrByMotion</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 31]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">CnrRefYStr</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 31]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">CnrRefUVStr</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 31]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">CnrYRange</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 3]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">CnrYThr</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 31]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">CnrYPrcStr</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 2]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">CnrYStrH</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 32]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">CnrYStrT</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 32]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">CnrUVRange</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 4]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">CnrUVThr</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 32]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">CnrUVPrcStr</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 3]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">CnrUVStrH</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 64]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">CnrUVStrT</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 64]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">CnrSatRange</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 3]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">CnrSatPrtThr</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 31]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">CnrSatPrcStr</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 2]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">CnrSatStrH</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 32]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">CnrSatStrT</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 32]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">CnrSatBldCoring</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 32]*/</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_CNR_MANUAL_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>MedianFltKsize</p></td>
+<td><p>Filter size selection for CMF。</p>
+<p>取值范围： [0, 2]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>CnrByMotion</p></td>
+<td><p>控制不同运动状态下的CNR强度。CnrByMotion[0]~CnrByMotion[2]分别对应静止区、转换区、运动区。</p>
+<p>取值范围： [0, 31]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>CnrRefYStr</p></td>
+<td><p>在 Y 通道上的色度参考权重。</p>
+<p>取值范围： [0, 31]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>CnrRefUVStr</p></td>
+<td><p>在 UV 通道上的色度参考权重。</p>
+<p>取值范围： [0, 31]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>CnrYRange</p></td>
+<td><p>在 Y 通道上的亮度差阈值。值越大，高亮度差阈值越大，CnrYStrH对高亮度差区域的影响范围越大。</p>
+<p>取值范围： [0, 3]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>CnrYThr</p></td>
+<td><p>在 Y 通道上的亮度差阈值。亮度差低于CnrYThr的部分，CNR强度由CnrYStrH控制。</p>
+<p>取值范围： [0, 31]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>CnrYPrcStr</p></td>
+<td><p>Chroma adaptation weighting precision for Y channel。</p>
+<p>0: 8; 1: 16; 2: 32;</p>
+<p>取值范围： [0, 2]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>CnrYStrH</p></td>
+<td><p>在 Y 通道上控制亮度差异较小的区域的CNR强度。值越大，去噪强度越大。</p>
+<p>取值范围： [0, 32]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>CnrYStrT</p></td>
+<td><p>在 Y 通道上控制亮度差异较大的区域的CNR强度。值越大，去噪强度越大。</p>
+<p>取值范围： [0, 32]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>CnrUVRange</p></td>
+<td><p>在 UV 通道上控制高色差阈值。值越大，高色差阈值越大，CnrUVStrH对高色差区域的影响范围越大。</p>
+<p>0: 8; 1: 16; 2: 32; 3: 64; 4: 128; 7-5: Reserved;</p>
+<p>取值范围： [0, 4]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>CnrUVThr</p></td>
+<td><p>在 UV 通道上控制高饱和阈值。值越大，高饱和阈值越大，CnrSatStrH对高饱和区域的影响范围越大。</p>
+<p>取值范围： [0, 32]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>CnrUVPrcStr</p></td>
+<td><p>Chroma adaptation weighting precision for UV channels。</p>
+<p>0: 8; 1: 16; 2: 32; 3: 64;</p>
+<p>取值范围： [0, 3]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>CnrUVStrH</p></td>
+<td><p>在 UV 通道上控制低色差区域的CNR强度。值越大，去噪强度越大。</p>
+<p>取值范围： [0, 64]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>CnrUVStrT</p></td>
+<td><p>在 UV 通道上控制高色差区域的CNR强度。值越大，去噪强度越大。</p>
+<p>取值范围： [0, 64]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>CnrSatRange</p></td>
+<td><p>控制高饱和阈值。值越大，高饱和阈值越大，CnrSatStrH对高饱和区域的影响范围越大。</p>
+<p>0: 8; 1: 16; 2: 32; 3: 64;</p>
+<p>取值范围： [0, 3]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>CnrSatPrtThr</p></td>
+<td><p>低饱和度阈值。饱和度低于CnrSatPrtThr的部分，CNR强度由CnrSatStrH控制。</p>
+<p>取值范围： [0, 31]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>CnrSatPrcStr</p></td>
+<td><p>Chroma adaptation weighting precision for Saturation。</p>
+<p>0: 8; 1: 16; 2: 32;</p>
+<p>取值范围： [0, 2]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>CnrSatStrH</p></td>
+<td><p>控制低饱和度区域的CNR强度。值越大，去噪强度越大。</p>
+<p>取值范围： [0, 32]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>CnrSatStrT</p></td>
+<td><p>控制高饱和度区域的CNR强度。值越大，去噪强度越大。</p>
+<p>取值范围： [0, 32]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>CnrSatBldCoring</p></td>
+<td><p>Chroma adaptation weighting for Saturation blending。</p>
+<p>取值范围： [0, 32]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="15_CNR.html#cvi-isp-setcnrattr">CVI_ISP_SetCNRAttr</a></p></li>
+<li><p><a class="reference internal" href="15_CNR.html#cvi-isp-getcnrattr">CVI_ISP_GetCNRAttr</a></p></li>
+</ul>
+</section>
+<section id="isp-cnr-auto-attr-s">
+<h3><span class="section-number">15.3.2. </span>ISP_CNR_AUTO_ATTR_S<a class="headerlink" href="15_CNR.html#isp-cnr-auto-attr-s" title="永久链接至标题">¶</a></h3>
+<p>【说明】</p>
+<p>定义自动CNR 参数属性</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_CNR_AUTO_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">MedianFltKsize</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 2]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">CnrByMotion</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 31]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">CnrRefYStr</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 31]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">CnrRefUVStr</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 31]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">CnrYRange</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 3]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">CnrYThr</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 31]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">CnrYPrcStr</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 2]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">CnrYStrH</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 32]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">CnrYStrT</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 32]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">CnrUVRange</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 4]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">CnrUVThr</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 32]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">CnrUVPrcStr</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 3]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">CnrUVStrH</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 64]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">CnrUVStrT</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 64]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">CnrSatRange</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 3]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">CnrSatPrtThr</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 31]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">CnrSatPrcStr</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 2]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">CnrSatStrH</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 32]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">CnrSatStrT</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 32]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">CnrSatBldCoring</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 32]*/</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_CNR_AUTO_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>MedianFltKsize</p></td>
+<td><p>Filter size selection for CMF。</p>
+<p>取值范围： [0, 2]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>CnrByMotion</p></td>
+<td><p>控制不同运动状态下的CNR强度。CnrByMotion[0]~CnrByMotion[2]分别对应静止区、转换区、运动区。</p>
+<p>取值范围： [0, 31]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>CnrRefYStr</p></td>
+<td><p>在 Y 通道上的色度参考权重。</p>
+<p>取值范围： [0, 31]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>CnrRefUVStr</p></td>
+<td><p>在 UV 通道上的色度参考权重。</p>
+<p>取值范围： [0, 31]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>CnrYRange</p></td>
+<td><p>在 Y 通道上的亮度差阈值。值越大，高亮度差阈值越大，CnrYStrH对高亮度差区域的影响范围越大。</p>
+<p>取值范围： [0, 3]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>CnrYThr</p></td>
+<td><p>在 Y 通道上的亮度差阈值。亮度差低于CnrYThr的部分，CNR强度由CnrYStrH控制。</p>
+<p>取值范围： [0, 31]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>CnrYPrcStr</p></td>
+<td><p>Chroma adaptation weighting precision for Y channel。</p>
+<p>0: 8; 1: 16; 2: 32;</p>
+<p>取值范围： [0, 2]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>CnrYStrH</p></td>
+<td><p>在 Y 通道上控制亮度差异较小的区域的CNR强度。值越大，去噪强度越大。</p>
+<p>取值范围： [0, 32]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>CnrYStrT</p></td>
+<td><p>在 Y 通道上控制亮度差异较大的区域的CNR强度。值越大，去噪强度越大。</p>
+<p>取值范围： [0, 32]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>CnrUVRange</p></td>
+<td><p>在 UV 通道上控制高色差阈值。值越大，高色差阈值越大，CnrUVStrH对高色差区域的影响范围越大。</p>
+<p>0: 8; 1: 16; 2: 32; 3: 64; 4: 128; 7-5: Reserved;</p>
+<p>取值范围： [0, 4]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>CnrUVThr</p></td>
+<td><p>在 UV 通道上控制高饱和阈值。值越大，高饱和阈值越大，CnrSatStrH对高饱和区域的影响范围越大。</p>
+<p>取值范围： [0, 32]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>CnrUVPrcStr</p></td>
+<td><p>Chroma adaptation weighting precision for UV channels。</p>
+<p>0: 8; 1: 16; 2: 32; 3: 64;</p>
+<p>取值范围： [0, 3]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>CnrUVStrH</p></td>
+<td><p>在 UV 通道上控制低色差区域的CNR强度。值越大，去噪强度越大。</p>
+<p>取值范围： [0, 64]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>CnrUVStrT</p></td>
+<td><p>在 UV 通道上控制高色差区域的CNR强度。值越大，去噪强度越大。</p>
+<p>取值范围： [0, 64]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>CnrSatRange</p></td>
+<td><p>控制高饱和阈值。值越大，高饱和阈值越大，CnrSatStrH对高饱和区域的影响范围越大。</p>
+<p>0: 8; 1: 16; 2: 32; 3: 64;</p>
+<p>取值范围： [0, 3]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>CnrSatPrtThr</p></td>
+<td><p>低饱和度阈值。饱和度低于CnrSatPrtThr的部分，CNR强度由CnrSatStrH控制。</p>
+<p>取值范围： [0, 31]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>CnrSatPrcStr</p></td>
+<td><p>Chroma adaptation weighting precision for Saturation。</p>
+<p>0: 8; 1: 16; 2: 32;</p>
+<p>取值范围： [0, 2]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>CnrSatStrH</p></td>
+<td><p>控制低饱和度区域的CNR强度。值越大，去噪强度越大。</p>
+<p>取值范围： [0, 32]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>CnrSatStrT</p></td>
+<td><p>控制高饱和度区域的CNR强度。值越大，去噪强度越大。</p>
+<p>取值范围： [0, 32]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>CnrSatBldCoring</p></td>
+<td><p>Chroma adaptation weighting for Saturation blending。</p>
+<p>取值范围： [0, 32]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="15_CNR.html#cvi-isp-setcnrattr">CVI_ISP_SetCNRAttr</a></p></li>
+<li><p><a class="reference internal" href="15_CNR.html#cvi-isp-getcnrattr">CVI_ISP_GetCNRAttr</a></p></li>
+</ul>
+</section>
+<section id="isp-cnr-attr-s">
+<h3><span class="section-number">15.3.3. </span>ISP_CNR_ATTR_S<a class="headerlink" href="15_CNR.html#isp-cnr-attr-s" title="永久链接至标题">¶</a></h3>
+<p>【说明】</p>
+<p>定义CNR 参数属性</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_CNR_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">Enable</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">ISP_OP_TYPE_E</span><span class="w"> </span><span class="n">enOpType</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">UpdateInterval</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[1, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">MedianFltEnable</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">CnrEnable</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">CnrSatBldEnable</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">SubSclSel</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">CnrDebugMode</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 6]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">CnrBypass1</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">CnrBypass2</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">ISP_CNR_SCALE_FACTOR_E</span><span class="w"> </span><span class="n">SubImgSclFactor</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">ISP_CNR_MANUAL_ATTR_S</span><span class="w"> </span><span class="n">stManual</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">ISP_CNR_AUTO_ATTR_S</span><span class="w"> </span><span class="n">stAuto</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_CNR_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Enable</p></td>
+<td><p>模块使能开关</p>
+<p>取值范围： [0, 1]</p>
+<p>数据类型： CVI_BOOL</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>enOpType</p></td>
+<td><p>工作类型</p>
+<p>OP_TYPE_AUTO：自动模式</p>
+<p>OP_TYPE_MANUAL：手动模式</p>
+<p>数据类型： ISP_OP_TYPE_E</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>UpdateInterval</p></td>
+<td><p>影响参数更新间隔,值越大画面变化越慢,效能越好。</p>
+<p>取值范围： [1, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>MedianFltEnable</p></td>
+<td><p>UV通道预滤波处理使能。Enable = 1时生效。</p>
+<p>取值范围： [0, 1]</p>
+<p>数据类型： CVI_BOOL</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>CnrEnable</p></td>
+<td><p>CNR 模块使能</p>
+<p>取值范围： [0, 1]</p>
+<p>数据类型： CVI_BOOL</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>CnrSatBldEnable</p></td>
+<td><p>enable sat blend</p>
+<p>取值范围： [0, 1]</p>
+<p>数据类型： CVI_BOOL</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>SubSclSel</p></td>
+<td><p>Selection sub-image output flow:</p>
+<p>0: output sub image after LCA;</p>
+<p>1: output sub image before CMF。</p>
+<p>取值范围： [0, 1]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>CnrDebugMode</p></td>
+<td><p>Register debug mode</p>
+<p>0: no debug, normal output; 1: debug output wY, wUV, w;</p>
+<p>2: debug output abs distU, distV,distUV; 3: debug output sat weight; 4: debug output SAT blend out; 5: debug output cnr motion;</p>
+<p>6: debug output subimg sclupimg;</p>
+<p>取值范围： [0, 6]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>CnrBypass1</p></td>
+<td><p>Set 1 to bypass chra(LCA)</p>
+<p>取值范围： [0, 1]</p>
+<p>数据类型： CVI_BOOL</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>CnrBypass2</p></td>
+<td><p>根据亮度差、饱和度、色差、运动状态调整CNR强度的功能使能。</p>
+<p>取值范围： [0, 1]</p>
+<p>数据类型： CVI_BOOL</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>SubImgSclFactor</p></td>
+<td><p>Sub image scaling factor</p>
+<p>数据类型： ISP_CNR_SCALE_FACTOR_E</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>stManual</p></td>
+<td><p>手动参数</p></td>
+</tr>
+<tr class="row-even"><td><p>stAuto</p></td>
+<td><p>自动参数</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="15_CNR.html#cvi-isp-setcnrattr">CVI_ISP_SetCNRAttr</a></p></li>
+<li><p><a class="reference internal" href="15_CNR.html#cvi-isp-getcnrattr">CVI_ISP_GetCNRAttr</a></p></li>
+</ul>
+</section>
+<section id="isp-cnr-filter-manual-attr-s">
+<h3><span class="section-number">15.3.4. </span>ISP_CNR_FILTER_MANUAL_ATTR_S<a class="headerlink" href="15_CNR.html#isp-cnr-filter-manual-attr-s" title="永久链接至标题">¶</a></h3>
+<p>【说明】</p>
+<p>定义手动CNR FILTER 参数属性</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_CNR_FILTER_MANUAL_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">SubImgNrFltKsize</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 3]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">SubImgNrEdgeDirPN</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">SubImgNrEdgeDirHV</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">SubImgNrEdgeKsize</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">SubImgNrYCRef</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 31]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">SubImgNrUVCRef</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 31]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">OutierThY</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 7]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">OutierThUV</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 7]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">YOutierDifTh</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">UOutierDifTh</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">VOutierDifTh</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">SubImgNrRefCThrYDif</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">SubImgNrRefCStrY</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 8]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">SubImgNrRefCThrUVDif</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">SubImgNrRefCStrUV</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 8]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">SubImgNrDirFltThrY</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">SubImgNrDirFltStrY</span><span class="p">[</span><span class="mi">6</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 16]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">SubImgNrDirFltThrU</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">SubImgNrDirFltStrU</span><span class="p">[</span><span class="mi">6</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 16]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">SubImgNrDirFltThrV</span><span class="p">[</span><span class="mi">5</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">SubImgNrDirFltStrV</span><span class="p">[</span><span class="mi">6</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 16]*/</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_CNR_FILTER_MANUAL_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>SubImgNrFltKsize</p></td>
+<td><p>Filter size selection for Y/UV channels</p>
+<p>0: 3x3; 1: 5x5; 2: 7x7; 3: 9x9;</p>
+<p>取值范围： [0, 3]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SubImgNrEdgeDirPN</p></td>
+<td><p>正(负)45度方向判断阈值。值越大，越容易判断为无方向。值过大，容易造成边缘渗色问题。</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>SubImgNrEdgeDirHV</p></td>
+<td><p>水平/垂直方向判断阈值。值越大，越容易判断为无方向。值过大，容易造成边缘渗色问题。</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SubImgNrEdgeKsize</p></td>
+<td><p>Edge kernel size selection。</p>
+<p>0: 3x3; 1: 5x5;</p>
+<p>取值范围： [0, 1]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>SubImgNrYCRef</p></td>
+<td><p>Reference center weighting for Y channel</p>
+<p>取值范围： [0, 31]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SubImgNrUVCRef</p></td>
+<td><p>Reference center weighting for UV channel</p>
+<p>取值范围： [0, 31]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>OutierThY</p></td>
+<td><p>Reference center outlier threshold of Y channel</p>
+<p>取值范围： [0, 7]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>OutierThUV</p></td>
+<td><p>Reference center outlier threshold of UV channel</p>
+<p>取值范围： [0, 7]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>YOutierDifTh</p></td>
+<td><p>Reference center outlier difference threshold for Y channel</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>UOutierDifTh</p></td>
+<td><p>Reference center outlier difference threshold for U channel</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>VOutierDifTh</p></td>
+<td><p>Reference center outlier difference threshold for V channel</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SubImgNrRefCThrYDif</p></td>
+<td><p>Range filter threshold for reference center of Y channel</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>SubImgNrRefCStrY</p></td>
+<td><p>Range filter weighting for 0x0] reference center of Y channel</p>
+<p>取值范围： [0, 8]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SubImgNrRefCThrUVDif</p></td>
+<td><p>Range filter threshold for reference center of UV channel</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>SubImgNrRefCStrUV</p></td>
+<td><p>Range filter weighting for 0x0] reference center of UV channel</p>
+<p>取值范围： [0, 8]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SubImgNrDirFltThrY</p></td>
+<td><p>Filter threshold for Y channel</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>SubImgNrDirFltStrY</p></td>
+<td><p>Filter weighting for Y channel</p>
+<p>取值范围： [0, 16]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SubImgNrDirFltThrU</p></td>
+<td><p>Filter threshold for U channel, 和SubImgNrDirFltStrU共同控制U通道的降噪强度</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>SubImgNrDirFltStrU</p></td>
+<td><p>Filter threshold for U channel, 和SubImgNrDirFltThrU共同控制U通道的降噪强度</p>
+<p>取值范围： [0, 16]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SubImgNrDirFltThrV</p></td>
+<td><p>Filter threshold for V channel, 和SubImgNrDirFltStrV共同控制V通道的降噪强度</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>SubImgNrDirFltStrV</p></td>
+<td><p>Filter threshold for V channel, 和SubImgNrDirFltThrV共同控制V通道的降噪强度</p>
+<p>取值范围： [0, 16]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="15_CNR.html#cvi-isp-setcnrfilterattr">CVI_ISP_SetCNRFilterAttr</a></p></li>
+<li><p><a class="reference internal" href="15_CNR.html#cvi-isp-getcnrfilterattr">CVI_ISP_GetCNRFilterAttr</a></p></li>
+</ul>
+</section>
+<section id="isp-cnr-filter-auto-attr-s">
+<h3><span class="section-number">15.3.5. </span>ISP_CNR_FILTER_AUTO_ATTR_S<a class="headerlink" href="15_CNR.html#isp-cnr-filter-auto-attr-s" title="永久链接至标题">¶</a></h3>
+<p>【说明】</p>
+<p>定义自动CNR FILTER 参数属性</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_CNR_FILTER_AUTO_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">SubImgNrFltKsize</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 3]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">SubImgNrEdgeDirPN</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">SubImgNrEdgeDirHV</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">SubImgNrEdgeKsize</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">SubImgNrYCRef</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 31]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">SubImgNrUVCRef</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 31]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">OutierThY</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 7]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">OutierThUV</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 7]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">YOutierDifTh</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">UOutierDifTh</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">VOutierDifTh</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">SubImgNrRefCThrYDif</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">SubImgNrRefCStrY</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 8]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">SubImgNrRefCThrUVDif</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">SubImgNrRefCStrUV</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 8]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">SubImgNrDirFltThrY</span><span class="p">[</span><span class="mi">5</span><span class="p">][</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">SubImgNrDirFltStrY</span><span class="p">[</span><span class="mi">6</span><span class="p">][</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 16]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">SubImgNrDirFltThrU</span><span class="p">[</span><span class="mi">5</span><span class="p">][</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">SubImgNrDirFltStrU</span><span class="p">[</span><span class="mi">6</span><span class="p">][</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 16]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">SubImgNrDirFltThrV</span><span class="p">[</span><span class="mi">5</span><span class="p">][</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">SubImgNrDirFltStrV</span><span class="p">[</span><span class="mi">6</span><span class="p">][</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 16]*/</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_CNR_FILTER_AUTO_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>SubImgNrFltKsize</p></td>
+<td><p>Filter size selection for Y/UV channels</p>
+<p>0: 3x3; 1: 5x5; 2: 7x7; 3: 9x9;</p>
+<p>取值范围： [0, 3]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SubImgNrEdgeDirPN</p></td>
+<td><p>正(负)45度方向判断阈值。值越大，越容易判断为无方向。值过大，容易造成边缘渗色问题。</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>SubImgNrEdgeDirHV</p></td>
+<td><p>水平/垂直方向判断阈值。值越大，越容易判断为无方向。值过大，容易造成边缘渗色问题。</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SubImgNrEdgeKsize</p></td>
+<td><p>Edge kernel size selection。</p>
+<p>0: 3x3; 1: 5x5;</p>
+<p>取值范围： [0, 1]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>SubImgNrYCRef</p></td>
+<td><p>Reference center weighting for Y channel</p>
+<p>取值范围： [0, 31]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SubImgNrUVCRef</p></td>
+<td><p>Reference center weighting for UV channel</p>
+<p>取值范围： [0, 31]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>OutierThY</p></td>
+<td><p>Reference center outlier threshold of Y channel</p>
+<p>取值范围： [0, 7]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>OutierThUV</p></td>
+<td><p>Reference center outlier threshold of UV channel</p>
+<p>取值范围： [0, 7]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>YOutierDifTh</p></td>
+<td><p>Reference center outlier difference threshold for Y channel</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>UOutierDifTh</p></td>
+<td><p>Reference center outlier difference threshold for U channel</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>VOutierDifTh</p></td>
+<td><p>Reference center outlier difference threshold for V channel</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SubImgNrRefCThrYDif</p></td>
+<td><p>Range filter threshold for reference center of Y channel</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>SubImgNrRefCStrY</p></td>
+<td><p>Range filter weighting for 0x0] reference center of Y channel</p>
+<p>取值范围： [0, 8]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SubImgNrRefCThrUVDif</p></td>
+<td><p>Range filter threshold for reference center of UV channel</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>SubImgNrRefCStrUV</p></td>
+<td><p>Range filter weighting for 0x0] reference center of UV channel</p>
+<p>取值范围： [0, 8]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SubImgNrDirFltThrY</p></td>
+<td><p>Filter threshold for Y channel</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>SubImgNrDirFltStrY</p></td>
+<td><p>Filter weighting for Y channel</p>
+<p>取值范围： [0, 16]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SubImgNrDirFltThrU</p></td>
+<td><p>Filter threshold for U channel, 和SubImgNrDirFltStrU共同控制U通道的降噪强度</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>SubImgNrDirFltStrU</p></td>
+<td><p>Filter threshold for U channel, 和SubImgNrDirFltThrU共同控制U通道的降噪强度</p>
+<p>取值范围： [0, 16]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SubImgNrDirFltThrV</p></td>
+<td><p>Filter threshold for V channel, 和SubImgNrDirFltStrV共同控制V通道的降噪强度</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>SubImgNrDirFltStrV</p></td>
+<td><p>Filter threshold for V channel, 和SubImgNrDirFltThrV共同控制V通道的降噪强度</p>
+<p>取值范围： [0, 16]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="15_CNR.html#cvi-isp-setcnrfilterattr">CVI_ISP_SetCNRFilterAttr</a></p></li>
+<li><p><a class="reference internal" href="15_CNR.html#cvi-isp-getcnrfilterattr">CVI_ISP_GetCNRFilterAttr</a></p></li>
+</ul>
+</section>
+<section id="isp-cnr-filter-attr-s">
+<h3><span class="section-number">15.3.6. </span>ISP_CNR_FILTER_ATTR_S<a class="headerlink" href="15_CNR.html#isp-cnr-filter-attr-s" title="永久链接至标题">¶</a></h3>
+<p>【说明】</p>
+<p>定义CNR FILTER 参数属性</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_CNR_FILTER_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">SubImgNrEnable</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">YNrEnable</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">EdgeDebugEnable</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">RefCenterDebugEnable</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">ISP_CNR_FILTER_MANUAL_ATTR_S</span><span class="w"> </span><span class="n">stManual</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">ISP_CNR_FILTER_AUTO_ATTR_S</span><span class="w"> </span><span class="n">stAuto</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_CNR_FILTER_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>SubImgNrEnable</p></td>
+<td><p>Set 1 to enable filter for ife2 sub image。</p>
+<p>取值范围： [0, 1]</p>
+<p>数据类型： CVI_BOOL</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>YNrEnable</p></td>
+<td><p>IFE2 enable key for Y。</p>
+<p>取值范围： [0, 1]</p>
+<p>数据类型： CVI_BOOL</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>EdgeDebugEnable</p></td>
+<td><p>Debug key for Edge map in IFE2。</p>
+<p>取值范围： [0, 1]</p>
+<p>数据类型： CVI_BOOL</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>RefCenterDebugEnable</p></td>
+<td><p>Debug key for Ref center filter in IFE2。</p>
+<p>取值范围： [0, 1]</p>
+<p>数据类型： CVI_BOOL</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>stManual</p></td>
+<td><p>手动参数</p></td>
+</tr>
+<tr class="row-odd"><td><p>stAuto</p></td>
+<td><p>自动参数</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="15_CNR.html#cvi-isp-setcnrfilterattr">CVI_ISP_SetCNRFilterAttr</a></p></li>
+<li><p><a class="reference internal" href="15_CNR.html#cvi-isp-getcnrfilterattr">CVI_ISP_GetCNRFilterAttr</a></p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="14_BNR.html" class="btn btn-neutral float-left" title="14. BNR" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="16_TNR.html" class="btn btn-neutral float-right" title="16. TNR" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2025, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

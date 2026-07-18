@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV184X SDK 编译使用手册 &mdash; SDKCompilationandUsageGuide master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="1. 声明" href="1_disclaimer.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html#" class="icon icon-home"> SDKCompilationandUsageGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html">2. 建构CVITEK软件编译环境</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Burning_Instructions.html">3. 烧录说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_EVB_Interface_Description.html">4. EVB接口说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_Root_File_System.html">5. 根文件系统(rootfs)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_Accelerate_Development_with_NFS.html">6. 使用NFS加速开发</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_SD_Boot_Guide.html">7. SD Boot 使用指南</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html#">SDKCompilationandUsageGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html#" class="icon icon-home"></a> &raquo;</li>
+      <li>CV184X SDK 编译使用手册</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cv184x-sdk">
+<h1>CV184X SDK 编译使用手册<a class="headerlink" href="index.html#cv184x-sdk" title="永久链接至标题">¶</a></h1>
+<p><strong>修订记录</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 13%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Revision</p></th>
+<th class="head"><p>Date</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1.0.0</p></td>
+<td><p>2025/02/26</p></td>
+<td><p>Initial.</p></td>
+</tr>
+<tr class="row-odd"><td><p>1.0.1</p></td>
+<td><p>2025/05/30</p></td>
+<td><p>Update boards, github download, configuration, figures</p></td>
+</tr>
+<tr class="row-even"><td><p>1.0.2</p></td>
+<td><p>2025/06/26</p></td>
+<td><p>Update Partition, Memmap Configuration</p></td>
+</tr>
+<tr class="row-odd"><td><p>1.1.0</p></td>
+<td><p>2025/09/04</p></td>
+<td><p>Update configuration for dual_os and single_os</p></td>
+</tr>
+</tbody>
+</table>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html">2. 建构CVITEK软件编译环境</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#linux">2.1. Linux 服务器</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#virtualboxvmubuntu">2.1.1. 于VirtualBoxVM安装Ubuntu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#ubuntu">2.1.2. Ubuntu 开机设定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#ssh-server">2.1.3. 安装SSH Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#samba-server">2.1.4. 安装Samba Server</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#id1">2.2. 建构编译环境</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#docker">2.2.1. 使用 Docker 编译</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#github">2.3. 配置github账号</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#sdk">2.4. 获取 SDK 的方式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#id3">2.5. 文件结构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#id4">2.6. 编译</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#id5">2.6.1. 环境变量说明</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#id6">2.6.2. SDK 编译</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#id7">2.7. 编译组态设定</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#id8">2.7.1. 单系统或双系统的编译设定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#id9">2.7.2. 工具链切换</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#id10">2.7.3. 修改分区</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#id11">2.7.4. 内存映射设定</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#id12">2.7.4.1. 内存映射</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#id13">2.7.4.2. 内存映射修改</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3_Burning_Instructions.html">3. 烧录说明</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3_Burning_Instructions.html#id2">3.1. 使用前准备</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_Burning_Instructions.html#id3">3.2. 操作过程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_Burning_Instructions.html#id4">3.3. 操作实例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_Burning_Instructions.html#id5">3.4. 打包烧录器烧录镜像</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_Burning_Instructions.html#id6">3.5. 注意事项</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="4_EVB_Interface_Description.html">4. EVB接口说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_Root_File_System.html">5. 根文件系统(rootfs)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="5_Root_File_System.html#id1">5.1. 根文件系统简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Root_File_System.html#id2">5.2. Rootfs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="5_Root_File_System.html#pre-build-rootfs">5.2.1. Pre-build rootfs 架构</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Root_File_System.html#buildroot-rootfs">5.2.2. 编译来自buildroot 的rootfs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="5_Root_File_System.html#id3">5.2.2.1. 编译</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Root_File_System.html#buildroot">5.2.2.2. 图形化菜单界面配置Buildroot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Root_File_System.html#arch-info-toolchain-packages">5.2.2.3. 设置 Arch Info &amp; Toolchain &amp; Packages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Root_File_System.html#etc-init-d-sxx-ko">5.2.2.4. 打包 /etc/init.d/Sxx 与 ko 自动加载</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Root_File_System.html#br2-target-generic-remount-rootfs-rw">5.2.2.5. BR2_TARGET_GENERIC_REMOUNT_ROOTFS_RW</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Root_File_System.html#id4">5.2.2.6. 产生新的 ROOTFS 可烧录映象档</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="5_Root_File_System.html#id5">5.2.3. 将rootfs 包装成可烧录映像档</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Root_File_System.html#linux-kernel-rootfs">5.2.4. Linux kernel 自动加载rootfs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="6_Accelerate_Development_with_NFS.html">6. 使用NFS加速开发</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="6_Accelerate_Development_with_NFS.html#ubuntu-server">6.1. Ubuntu Server 端设置说明：</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Accelerate_Development_with_NFS.html#evb-mount">6.2. EVB 板端mount说明：</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Accelerate_Development_with_NFS.html#id1">6.3. 注意事项：</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="7_SD_Boot_Guide.html">7. SD Boot 使用指南</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="7_SD_Boot_Guide.html#id1">7.1. SD Boot 简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7_SD_Boot_Guide.html#id2">7.2. SD Boot 编译流程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7_SD_Boot_Guide.html#sd">7.3. SD 镜像分区布局</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7_SD_Boot_Guide.html#id3">7.4. 修改 SD 分区大小</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7_SD_Boot_Guide.html#buildroot-sd-boot">7.5. Buildroot 与 SD Boot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7_SD_Boot_Guide.html#id4">7.6. 烧录与板端验证</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="1_disclaimer.html" class="btn btn-neutral float-right" title="1. 声明" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

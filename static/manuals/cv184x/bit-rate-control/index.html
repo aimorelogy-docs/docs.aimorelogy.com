@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV184x 处理器码率控制使用手册 &mdash; BitRateControlApplicationNotes master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="1. 声明" href="1_disclaimer.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html#" class="icon icon-home"> BitRateControlApplicationNotes
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Meaning_and_Usage_of_Bitrate_Control_Parameters.html">2. 码率控制参数意义和使用方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Meaning_and_Usage_of_GOP_Structure_Parameters.html">3. GOP结构参数意义和使用方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_Bitrate_Control_Topic.html">4. 码率控制专题</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html#">BitRateControlApplicationNotes</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html#" class="icon icon-home"></a> &raquo;</li>
+      <li>CV184x 处理器码率控制使用手册</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cv184x">
+<h1>CV184x 处理器码率控制使用手册<a class="headerlink" href="index.html#cv184x" title="永久链接至标题">¶</a></h1>
+<p><strong>修订记录</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 13%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Revision</p></th>
+<th class="head"><p>Date</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0.1</p></td>
+<td><p>2025/03/26</p></td>
+<td><p>初稿</p></td>
+</tr>
+</tbody>
+</table>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Meaning_and_Usage_of_Bitrate_Control_Parameters.html">2. 码率控制参数意义和使用方法</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_Meaning_and_Usage_of_Bitrate_Control_Parameters.html#cbr">2.1. CBR参数说明及使用方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Meaning_and_Usage_of_Bitrate_Control_Parameters.html#vbr">2.2. VBR参数说明及使用方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Meaning_and_Usage_of_Bitrate_Control_Parameters.html#avbr">2.3. AVBR参数说明及使用方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Meaning_and_Usage_of_Bitrate_Control_Parameters.html#id2">2.4. 宏块级码率控制参数说明及使用方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Meaning_and_Usage_of_Bitrate_Control_Parameters.html#id3">2.5. 码率过高丢帧参数及使用说明</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3_Meaning_and_Usage_of_GOP_Structure_Parameters.html">3. GOP结构参数意义和使用方法</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3_Meaning_and_Usage_of_GOP_Structure_Parameters.html#pgop">3.1. 单参考P帧GOP结构属性说明及使用方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_Meaning_and_Usage_of_GOP_Structure_Parameters.html#id1">3.2. 智能P帧GOP结构属性说明及使用方法</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="4_Bitrate_Control_Topic.html">4. 码率控制专题</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="4_Bitrate_Control_Topic.html#id2">4.1. 码率稳定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_Bitrate_Control_Topic.html#id3">4.2. 图像质量提升</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_Bitrate_Control_Topic.html#id4">4.3. 调节呼吸效应</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_Bitrate_Control_Topic.html#i">4.4. 限制I帧幅度</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_Bitrate_Control_Topic.html#id5">4.5. 减少运动拖影</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_Bitrate_Control_Topic.html#id6">4.6. 减少色度偏移</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_Bitrate_Control_Topic.html#qp">4.7. 码率控制的起始QP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_Bitrate_Control_Topic.html#id7">4.8. 低码率场景</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_Bitrate_Control_Topic.html#id8">4.9. 注意事项</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="1_disclaimer.html" class="btn btn-neutral float-right" title="1. 声明" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

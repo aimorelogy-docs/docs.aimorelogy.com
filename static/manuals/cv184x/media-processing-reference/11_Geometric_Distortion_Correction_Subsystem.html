@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>11. 几何畸变矫正子系统 &mdash; MediaProcessingSoftwareDevelopmentReference master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="11.1. 功能概述" href="11_Geometric_Distortion_Correction_Subsystem/Function_Overview.html" />
+    <link rel="prev" title="10.7. 范例码及板端初步测试" href="10_Audio_Frequency/Sample_Code_and_Board-side_Component_Preliminary_Testing.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> MediaProcessingSoftwareDevelopmentReference
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_System_Overview.html">2. 系统概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_System_Control.html">3. 系统控制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_Video_Input.html">4. 视频输入</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_Video_Output.html">5. 视频输出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_Video_Processing_Subsystem.html">6. 视频处理子系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_Video_Encoding.html">7. 视频编码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_Video_Decoding.html">8. 视频解码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_Regional_Management.html">9. 区域管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_Audio_Frequency.html">10. 音频</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="11_Geometric_Distortion_Correction_Subsystem.html#">11. 几何畸变矫正子系统</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/Function_Overview.html">11.1. 功能概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/Design_Overview.html">11.2. 设计概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/API_Reference.html">11.3. API参考</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/Data_Types.html">11.4. 数据类型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/Error_Codes.html">11.5. 错误码</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="12_Proc_Debugging_Information_Explanation.html">12. Proc 调试信息说明</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MediaProcessingSoftwareDevelopmentReference</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">11. </span>几何畸变矫正子系统</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/11_Geometric_Distortion_Correction_Subsystem.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">11. </span>几何畸变矫正子系统<a class="headerlink" href="11_Geometric_Distortion_Correction_Subsystem.html#id1" title="永久链接至标题">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/Function_Overview.html">11.1. 功能概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/Design_Overview.html">11.2. 设计概述</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/Design_Overview.html#id2">11.2.1. 系统架构</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/API_Reference.html">11.3. API参考</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/API_Reference.html#cvi-gdc-init">11.3.1. CVI_GDC_Init</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/API_Reference.html#cvi-gdc-deinit">11.3.2. CVI_GDC_DeInit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/API_Reference.html#cvi-gdc-beginjob">11.3.3. CVI_GDC_BeginJob</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/API_Reference.html#cvi-gdc-endjob">11.3.4. CVI_GDC_EndJob</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/API_Reference.html#cvi-gdc-canceljob">11.3.5. CVI_GDC_CancelJob</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/API_Reference.html#cvi-gdc-setjobidentity">11.3.6. CVI_GDC_SetJobIdentity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/API_Reference.html#cvi-gdc-addrotationtask">11.3.7. CVI_GDC_AddRotationTask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/API_Reference.html#cvi-gdc-genldcmesh">11.3.8. CVI_GDC_GenLDCMesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/API_Reference.html#cvi-gdc-addldctask">11.3.9. CVI_GDC_AddLDCTask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/API_Reference.html#cvi-gdc-loadldcmesh">11.3.10. CVI_GDC_LoadLDCMesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/API_Reference.html#cvi-gdc-dumpmesh">11.3.11. CVI_GDC_DumpMesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/API_Reference.html#cvi-gdc-loadmesh">11.3.12. CVI_GDC_LoadMesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/API_Reference.html#cvi-gdc-loadmeshwithbuf">11.3.13. CVI_GDC_LoadMeshWithBuf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/API_Reference.html#cvi-gdc-getworkjob">11.3.14. CVI_GDC_GetWorkJob</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/API_Reference.html#cvi-gdc-getchnframe">11.3.15. CVI_GDC_GetChnFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/API_Reference.html#cvi-gdc-suspend">11.3.16. CVI_GDC_Suspend</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/API_Reference.html#cvi-gdc-resume">11.3.17. CVI_GDC_Resume</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/Data_Types.html">11.4. 数据类型</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/Data_Types.html#gdc-handle">11.4.1. GDC_HANDLE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/Data_Types.html#ldc-align">11.4.2. LDC_ALIGN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/Data_Types.html#gdc-proc-job-info-num">11.4.3. GDC_PROC_JOB_INFO_NUM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/Data_Types.html#gdc-min-image-width">11.4.4. GDC_MIN_IMAGE_WIDTH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/Data_Types.html#gdc-min-image-height">11.4.5. GDC_MIN_IMAGE_HEIGHT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/Data_Types.html#gdc-max-image-width">11.4.6. GDC_MAX_IMAGE_WIDTH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/Data_Types.html#gdc-max-image-height">11.4.7. GDC_MAX_IMAGE_HEIGHT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/Data_Types.html#gdc-task-attr-s">11.4.8. GDC_TASK_ATTR_S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/Data_Types.html#ldc-attr-s">11.4.9. LDC_ATTR_S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/Data_Types.html#grid-info-attr-s">11.4.10. GRID_INFO_ATTR_S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/Data_Types.html#mesh-dump-attr-s">11.4.11. MESH_DUMP_ATTR_S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/Data_Types.html#vi-mesh-attr-s">11.4.12. VI_MESH_ATTR_S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/Data_Types.html#vpss-mesh-attr-s">11.4.13. VPSS_MESH_ATTR_S</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/Error_Codes.html">11.5. 错误码</a></li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="10_Audio_Frequency/Sample_Code_and_Board-side_Component_Preliminary_Testing.html" class="btn btn-neutral float-left" title="10.7. 范例码及板端初步测试" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="11_Geometric_Distortion_Correction_Subsystem/Function_Overview.html" class="btn btn-neutral float-right" title="11.1. 功能概述" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

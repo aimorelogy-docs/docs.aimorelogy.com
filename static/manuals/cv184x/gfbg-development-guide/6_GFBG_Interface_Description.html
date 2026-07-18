@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>6. GFBG接口说明 &mdash; GFBGDevelopmentGuide master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="prev" title="5. 应用开发流程" href="5_GFBG_Application_Example.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> GFBGDevelopmentGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_GFBG_Overview.html">2. GFBG概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_GFBG_Function_Description.html">3. GFBG功能描述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_GFBG_Module_Loading.html">4. 模块加载</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_GFBG_Application_Example.html">5. 应用开发流程</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="6_GFBG_Interface_Description.html#">6. GFBG接口说明</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="6_GFBG_Interface_Description.html#ioctl">6.1. ioctl函数</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioget-vscreeninfo">6.1.1. FBIOGET_VSCREENINFO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioput-vscreeninfo">6.1.2. FBIOPUT_VSCREENINFO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioget-fscreeninfo">6.1.3. FBIOGET_FSCREENINFO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_GFBG_Interface_Description.html#fbiopan-display">6.1.4. FBIOPAN_DISPLAY</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioget-screen-origin-gfbg">6.1.5. FBIOGET_SCREEN_ORIGIN_GFBG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioput-screen-origin-gfbg">6.1.6. FBIOPUT_SCREEN_ORIGIN_GFBG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioget-show-gfbg">6.1.7. FBIOGET_SHOW_GFBG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioput-show-gfbg">6.1.8. FBIOPUT_SHOW_GFBG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioget-colorkey-gfbg">6.1.9. FBIOGET_COLORKEY_GFBG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioput-colorkey-gfbg">6.1.10. FBIOPUT_COLORKEY_GFBG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioget-ver-blank-gfbg">6.1.11. FBIOGET_VER_BLANK_GFBG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioput-layer-info">6.1.12. FBIOPUT_LAYER_INFO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioget-layer-info">6.1.13. FBIOGET_LAYER_INFO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioget-canvas-buf">6.1.14. FBIOGET_CANVAS_BUF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_GFBG_Interface_Description.html#fbio-refresh">6.1.15. FBIO_REFRESH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioput-screen-size">6.1.16. FBIOPUT_SCREEN_SIZE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioget-screen-size">6.1.17. FBIOGET_SCREEN_SIZE</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">GFBGDevelopmentGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">6. </span>GFBG接口说明</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/6_GFBG_Interface_Description.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="gfbg">
+<h1><span class="section-number">6. </span>GFBG接口说明<a class="headerlink" href="6_GFBG_Interface_Description.html#gfbg" title="永久链接至标题">¶</a></h1>
+<p>GFBG的API主要分为文件操作类（open、close等）、显存映射类（mmap、munmap等）、显存控制和状态查询类（像素格式、颜色深度等）和层间效果控制和状态查询类（显示原点、显示状态等）四大类。每一类的函数都具有特定的功能和用途，开发者可以根据实际需求选择合适的函数进行调用。
+其中第一类和第二类是Linux提供的常用标准接口，本小节不会赘述，主要介绍第三类和第四类的接口函数。</p>
+<section id="ioctl">
+<h2><span class="section-number">6.1. </span>ioctl函数<a class="headerlink" href="6_GFBG_Interface_Description.html#ioctl" title="永久链接至标题">¶</a></h2>
+<p>GFBG 的用户态接口以 ioctl 形式体现，其形式如下：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">ioctl</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">cmd</span><span class="p">,</span><span class="w"> </span><span class="p">...);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>GFBG只需要3个参数，即形式为：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">ioctl</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">cmd</span><span class="p">,</span><span class="w"> </span><span class="n">CMD_DATA_TYPE</span><span class="w"> </span><span class="o">*</span><span class="n">cmd_data</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>该功能模块为用户提供以下API：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioget-vscreeninfo">FBIOGET_VSCREENINFO</a> ：获取屏幕的可变信息。</p></li>
+<li><p><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioput-vscreeninfo">FBIOPUT_VSCREENINFO</a> ：设置 Framebuffer 的屏幕分辨率和像素格式等。</p></li>
+<li><p><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioget-fscreeninfo">FBIOGET_FSCREENINFO</a> ：获取 Framebuffer 的固定信息。</p></li>
+<li><p><a class="reference internal" href="6_GFBG_Interface_Description.html#fbiopan-display">FBIOPAN_DISPLAY</a> ：设置从虚拟分辨率中的不同偏移处开始显示。</p></li>
+<li><p><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioget-screen-origin-gfbg">FBIOGET_SCREEN_ORIGIN_GFBG</a> ：获取叠加层在屏幕上显示的起始点坐标。</p></li>
+<li><p><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioput-screen-origin-gfbg">FBIOPUT_SCREEN_ORIGIN_GFBG</a> ：设置叠加层在屏幕上显示的起始点坐标。</p></li>
+<li><p><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioget-show-gfbg">FBIOGET_SHOW_GFBG</a> ：获取当前叠加层的显示状态。</p></li>
+<li><p><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioput-show-gfbg">FBIOPUT_SHOW_GFBG</a> ：显示或隐藏该叠加层。</p></li>
+<li><p><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioget-colorkey-gfbg">FBIOGET_COLORKEY_GFBG</a> ：获取叠加层的 colorkey。</p></li>
+<li><p><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioput-colorkey-gfbg">FBIOPUT_COLORKEY_GFBG</a> ：设置叠加层的 colorkey。</p></li>
+<li><p><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioget-ver-blank-gfbg">FBIOGET_VER_BLANK_GFBG</a> ：等待叠加层的垂直消隐区到来。</p></li>
+<li><p><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioput-layer-info">FBIOPUT_LAYER_INFO</a> ：设置图层信息。</p></li>
+<li><p><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioget-layer-info">FBIOGET_LAYER_INFO</a> ：获取图层信息。</p></li>
+<li><p><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioget-canvas-buf">FBIOGET_CANVAS_BUF</a> ：获取画布信息。</p></li>
+<li><p><a class="reference internal" href="6_GFBG_Interface_Description.html#fbio-refresh">FBIO_REFRESH</a> ：扩展模式下，启动刷新操作。</p></li>
+<li><p><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioput-screen-size">FBIOPUT_SCREEN_SIZE</a> ：设置图层在屏幕上的显示大小。</p></li>
+<li><p><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioget-screen-size">FBIOGET_SCREEN_SIZE</a> ：获取图层在屏幕上的显示大小。</p></li>
+</ul>
+<section id="fbioget-vscreeninfo">
+<h3><span class="section-number">6.1.1. </span>FBIOGET_VSCREENINFO<a class="headerlink" href="6_GFBG_Interface_Description.html#fbioget-vscreeninfo" title="永久链接至标题">¶</a></h3>
+<p>【描述】</p>
+<p>获取屏幕的可变信息。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">ioctl</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">FBIOGET_VSCREENINFO</span><span class="p">,</span><span class="w"> </span><span class="k">struct</span> <span class="nc">fb_var_screeninfo</span><span class="w"> </span><span class="o">*</span><span class="n">var</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>fd</p></td>
+<td><p>Framebuffer 设备文件描述符</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>FBIOGET_VSCREENINFO</p></td>
+<td><p>ioctl 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>var</p></td>
+<td><p>可变信息结构体指针</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>失败。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_comm_fb.h</p></li>
+</ul>
+<p>【注意】</p>
+<p>【举例】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">fb_var_screeninfo</span><span class="w"> </span><span class="n">vinfo</span><span class="p">;</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ioctl</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">FBIOGET_VSCREENINFO</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">vinfo</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioput-vscreeninfo">FBIOPUT_VSCREENINFO</a></p>
+</section>
+<section id="fbioput-vscreeninfo">
+<h3><span class="section-number">6.1.2. </span>FBIOPUT_VSCREENINFO<a class="headerlink" href="6_GFBG_Interface_Description.html#fbioput-vscreeninfo" title="永久链接至标题">¶</a></h3>
+<p>【描述】</p>
+<p>设置 Framebuffer 的屏幕分辨率和像素格式等。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">ioctl</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">FBIOPUT_VSCREENINFO</span><span class="p">,</span><span class="w"> </span><span class="k">struct</span> <span class="nc">fb_var_screeninfo</span><span class="w"> </span><span class="o">*</span><span class="n">var</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>fd</p></td>
+<td><p>Framebuffer 设备文件描述符</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>FBIOPUT_VSCREENINFO</p></td>
+<td><p>ioctl 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>var</p></td>
+<td><p>可变信息结构体指针</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>失败。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_comm_fb.h</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>分辨率的大小必须在各叠加层支持的分辨率范围内。</p></li>
+<li><p>必须保证实际分辨率与偏移的和在虚拟分辨率范围内，否则系统会自动调整实际分辨率的大小让其在虚拟分辨率范围内。</p></li>
+<li><p>对于隔行显示设备，要求分辨率的高度必须为偶数。</p></li>
+<li><p>如果图形层支持缩放，可以设置显示分辨率大于设备分辨率，这时候显示图像的一部分。</p></li>
+</ul>
+<p>【举例】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">fb_var_screeninfo</span><span class="w"> </span><span class="n">vinfo</span><span class="p">;</span><span class="w"></span>
+<span class="n">vinfo</span><span class="p">.</span><span class="n">xres</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1920</span><span class="p">;</span><span class="w"></span>
+<span class="n">vinfo</span><span class="p">.</span><span class="n">yres</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1080</span><span class="p">;</span><span class="w"></span>
+<span class="n">vinfo</span><span class="p">.</span><span class="n">bits_per_pixel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">32</span><span class="p">;</span><span class="w"></span>
+<span class="n">vinfo</span><span class="p">.</span><span class="n">xres_virtual</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1920</span><span class="p">;</span><span class="w"></span>
+<span class="w">     </span><span class="n">vinfo</span><span class="p">.</span><span class="n">yres_virtual</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2160</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ioctl</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">FBIOPUT_VSCREENINFO</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">vinfo</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioget-vscreeninfo">FBIOGET_VSCREENINFO</a></p>
+</section>
+<section id="fbioget-fscreeninfo">
+<h3><span class="section-number">6.1.3. </span>FBIOGET_FSCREENINFO<a class="headerlink" href="6_GFBG_Interface_Description.html#fbioget-fscreeninfo" title="永久链接至标题">¶</a></h3>
+<p>【描述】</p>
+<p>获取 Framebuffer 的固定信息。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">ioctl</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">FBIOGET_FSCREENINFO</span><span class="p">,</span><span class="w"> </span><span class="k">struct</span> <span class="nc">fb_fix_screeninfo</span><span class="w"> </span><span class="o">*</span><span class="n">fix</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>fd</p></td>
+<td><p>Framebuffer 设备文件描述符</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>FBIOGET_FSCREENINFO</p></td>
+<td><p>ioctl 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>fix</p></td>
+<td><p>固定信息结构体指针</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>失败。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_comm_fb.h</p></li>
+</ul>
+<p>【注意】</p>
+<p>无。</p>
+<p>【举例】</p>
+<p>无。</p>
+<p>【相关主题】</p>
+<p>无。</p>
+</section>
+<section id="fbiopan-display">
+<h3><span class="section-number">6.1.4. </span>FBIOPAN_DISPLAY<a class="headerlink" href="6_GFBG_Interface_Description.html#fbiopan-display" title="永久链接至标题">¶</a></h3>
+<p>【描述】</p>
+<p>设置从虚拟分辨率中的不同偏移处开始显示。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">ioctl</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">FBIOPAN_DISPLAY</span><span class="p">,</span><span class="w"> </span><span class="k">struct</span> <span class="nc">fb_var_screeninfo</span><span class="w"> </span><span class="o">*</span><span class="n">var</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>fd</p></td>
+<td><p>Framebuffer 设备文件描述符</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>FBIOPAN_DISPLAY</p></td>
+<td><p>ioctl 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>var</p></td>
+<td><p>可变信息结构体指针</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>失败。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_comm_fb.h</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>此接口只应在 FB 标准模式中使用。</p></li>
+<li><p>必须保证实际分辨率与偏移的和在虚拟分辨率范围内，否则设置不成功。</p></li>
+<li><p>最好保证 xoffset 与 yoffset 形成的偏移地址是 16byte 对齐的，否则会将 xoffset 的值减少到能使偏移地址是 16byte 对齐的位置。</p></li>
+<li><p>对于隔行显示设备，要求分辨率的高度必须为偶数。</p></li>
+<li><p>使用此接口设置从虚拟分辨率中的不同偏移处开始显示，实际的分辨率不变。如下图所示：（xres_virtual, yres_virtual）是虚拟分辨率，（xres, yres）是实际显示的分辨率，(xoffset, yoffset)是显示的偏移。</p></li>
+</ul>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="_images/image6-1.png"><img alt="_images/image6-1.png" src="_images/image6-1.png" style="width: 5.76806in; height: 4.15069in;" /></a>
+<figcaption>
+<p><span class="caption-number">图 6.1 </span><span class="caption-text">FBIOPAN_DISPLAY示意图</span><a class="headerlink" href="6_GFBG_Interface_Description.html#id1" title="永久链接至图片">¶</a></p>
+</figcaption>
+</figure>
+<p>【举例】
+无。</p>
+<p>【相关主题】</p>
+<p>无。</p>
+</section>
+<section id="fbioget-screen-origin-gfbg">
+<h3><span class="section-number">6.1.5. </span>FBIOGET_SCREEN_ORIGIN_GFBG<a class="headerlink" href="6_GFBG_Interface_Description.html#fbioget-screen-origin-gfbg" title="永久链接至标题">¶</a></h3>
+<p>【描述】</p>
+<p>获取叠加层在屏幕上显示的起始点坐标。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">ioctl</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">FBIOGET_SCREEN_ORIGIN_GFBG</span><span class="p">,</span><span class="w"> </span><span class="n">cvi_fb_point</span><span class="w"> </span><span class="o">*</span><span class="n">point</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>fd</p></td>
+<td><p>Framebuffer 设备文件描述符</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>FBIOGET_SCREEN_ORIGIN_GFBG</p></td>
+<td><p>ioctl 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>point</p></td>
+<td><p>坐标原点结构体指针</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>失败。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_comm_gfbg.h</p></li>
+</ul>
+<p>【注意】</p>
+<p>【举例】</p>
+<p>无。</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioput-screen-origin-gfbg">FBIOPUT_SCREEN_ORIGIN_GFBG</a></p>
+</section>
+<section id="fbioput-screen-origin-gfbg">
+<h3><span class="section-number">6.1.6. </span>FBIOPUT_SCREEN_ORIGIN_GFBG<a class="headerlink" href="6_GFBG_Interface_Description.html#fbioput-screen-origin-gfbg" title="永久链接至标题">¶</a></h3>
+<p>【描述】</p>
+<p>设置叠加层在屏幕上显示的起始点坐标。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">ioctl</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">FBIOPUT_SCREEN_ORIGIN_GFBG</span><span class="p">,</span><span class="w"> </span><span class="n">cvi_fb_point</span><span class="w"> </span><span class="o">*</span><span class="n">point</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>fd</p></td>
+<td><p>Framebuffer 设备文件描述符</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>FBIOPUT_SCREEN_ORIGIN_GFBG</p></td>
+<td><p>ioctl 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>point</p></td>
+<td><p>坐标原点结构体指针</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>失败。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_comm_gfbg.h</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>如果叠加层坐标原点超出了范围（x_pos &gt; (max_width-min_width) 或 y_pos &gt; (max_height-min_height)），默认将坐标原点设置为（max_width-min_width，max_height-min_height），其中 max_width 和 max_height 的值是设备时序定义的最大宽高；min_width 和 min_height 分别表示可加载的最小图像的宽和高，可通过 <cite>FBIOGET_CAPABILITY_GFBG</cite> 接口中的 min_width 和 min_height 成员获取。</p></li>
+<li><p>对于隔行显示设备，要求坐标原点的纵坐标值为偶数。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无。</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioget-screen-origin-gfbg">FBIOGET_SCREEN_ORIGIN_GFBG</a></p>
+</section>
+<section id="fbioget-show-gfbg">
+<h3><span class="section-number">6.1.7. </span>FBIOGET_SHOW_GFBG<a class="headerlink" href="6_GFBG_Interface_Description.html#fbioget-show-gfbg" title="永久链接至标题">¶</a></h3>
+<p>【描述】</p>
+<p>获取当前叠加层的显示状态。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">ioctl</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">FBIOGET_SHOW_GFBG</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="o">*</span><span class="n">show</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>fd</p></td>
+<td><p>Framebuffer 设备文件描述符</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>FBIOGET_SHOW_GFBG</p></td>
+<td><p>ioctl 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>show</p></td>
+<td><p>该叠加层的显示状态：
+- * show = CVI_TRUE: 显示当前叠加层
+- * show = CVI_FALSE: 隐藏当前叠加层</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>失败。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_comm_gfbg.h</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>对软鼠标不适用。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无。</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioput-show-gfbg">FBIOPUT_SHOW_GFBG</a></p>
+</section>
+<section id="fbioput-show-gfbg">
+<h3><span class="section-number">6.1.8. </span>FBIOPUT_SHOW_GFBG<a class="headerlink" href="6_GFBG_Interface_Description.html#fbioput-show-gfbg" title="永久链接至标题">¶</a></h3>
+<p>【描述】</p>
+<p>显示或隐藏该叠加层。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">ioctl</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">FBIOPUT_SHOW_GFBG</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="o">*</span><span class="n">show</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>fd</p></td>
+<td><p>Framebuffer 设备文件描述符</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>FBIOPUT_SHOW_GFBG</p></td>
+<td><p>ioctl 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>show</p></td>
+<td><p>该叠加层的显示状态：
+- * show = CVI_TRUE: 显示当前叠加层
+- * show = CVI_FALSE: 隐藏当前叠加层</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>失败。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_comm_gfbg.h</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>为正常显示，在显示之前，应将 show 的值设为 CVI_TRUE 调用 ioctl(fd, FBIOPUT_SHOW_GFBG, &amp;show)。</p></li>
+<li><p>显示时应保证图形层的分辨率不超出设备分辨率。</p></li>
+<li><p>保证显示设备的能力支持所要显示的分辨率。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无。</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioget-show-gfbg">FBIOGET_SHOW_GFBG</a></p>
+</section>
+<section id="fbioget-colorkey-gfbg">
+<h3><span class="section-number">6.1.9. </span>FBIOGET_COLORKEY_GFBG<a class="headerlink" href="6_GFBG_Interface_Description.html#fbioget-colorkey-gfbg" title="永久链接至标题">¶</a></h3>
+<p>【描述】</p>
+<p>获取叠加层的 colorkey。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">ioctl</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">FBIOGET_COLORKEY_GFBG</span><span class="p">,</span><span class="w"> </span><span class="n">cvi_fb_colorkey</span><span class="w"> </span><span class="o">*</span><span class="n">colorkey</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>fd</p></td>
+<td><p>Framebuffer 设备文件描述符</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>FBIOGET_COLORKEY_GFBG</p></td>
+<td><p>ioctl 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>colorkey</p></td>
+<td><p>colorkey 结构体指针</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>失败。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_comm_gfbg.h</p></li>
+</ul>
+<p>【注意】</p>
+<p>【举例】</p>
+<p>无。</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioput-colorkey-gfbg">FBIOPUT_COLORKEY_GFBG</a></p>
+</section>
+<section id="fbioput-colorkey-gfbg">
+<h3><span class="section-number">6.1.10. </span>FBIOPUT_COLORKEY_GFBG<a class="headerlink" href="6_GFBG_Interface_Description.html#fbioput-colorkey-gfbg" title="永久链接至标题">¶</a></h3>
+<p>【描述】</p>
+<p>设置叠加层的 colorkey。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">ioctl</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">FBIOPUT_COLORKEY_GFBG</span><span class="p">,</span><span class="w"> </span><span class="n">cvi_fb_colorkey</span><span class="w"> </span><span class="o">*</span><span class="n">colorkey</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>fd</p></td>
+<td><p>Framebuffer 设备文件描述符</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>FBIOPUT_COLORKEY_GFBG</p></td>
+<td><p>ioctl 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>colorkey</p></td>
+<td><p>colorkey 结构体指针</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>失败。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_comm_gfbg.h</p></li>
+</ul>
+<p>【注意】</p>
+<p>【举例】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">cvi_fb_colorkey</span><span class="w"> </span><span class="n">colorkey</span><span class="p">;</span><span class="w"></span>
+<span class="n">colorkey</span><span class="p">.</span><span class="n">enable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_TRUE</span><span class="p">;</span><span class="w"></span>
+<span class="n">colorkey</span><span class="p">.</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xFFFF0000</span><span class="p">;</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ioctl</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">FBIOPUT_COLORKEY_GFBG</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">colorkey</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioget-colorkey-gfbg">FBIOGET_COLORKEY_GFBG</a></p>
+</section>
+<section id="fbioget-ver-blank-gfbg">
+<h3><span class="section-number">6.1.11. </span>FBIOGET_VER_BLANK_GFBG<a class="headerlink" href="6_GFBG_Interface_Description.html#fbioget-ver-blank-gfbg" title="永久链接至标题">¶</a></h3>
+<p>【描述】</p>
+<p>为了操作显存时不引起撕裂现象，建议在该叠加层的消隐区对显存进行操作，通过该接口可以等待该叠加层消隐区的到来，底层原理是等待vo的下一个中断到来。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">ioctl</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">FBIOGET_VER_BLANK_GFBG</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>fd</p></td>
+<td><p>Framebuffer 设备文件描述符</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>FBIOGET_VER_BLANK_GFBG</p></td>
+<td><p>ioctl 号</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>失败。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_comm_gfbg.h</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>垂直消隐间隔较短，一般在几十毫秒，建议操作时间尽量短，以保证在垂直消隐区结束前完成。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无。</p>
+<p>【相关主题】</p>
+<p>无。</p>
+</section>
+<section id="fbioput-layer-info">
+<h3><span class="section-number">6.1.12. </span>FBIOPUT_LAYER_INFO<a class="headerlink" href="6_GFBG_Interface_Description.html#fbioput-layer-info" title="永久链接至标题">¶</a></h3>
+<p>【描述】</p>
+<p>设置图层信息，用于完成从 FB 的标准模式到 FB 的扩展模式切换或是 FB 的扩展模式之间的切换，同时能设置扩展模式下的刷新信息。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">ioctl</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">FBIOPUT_LAYER_INFO</span><span class="p">,</span><span class="w"> </span><span class="n">cvi_fb_layer_info</span><span class="w"> </span><span class="o">*</span><span class="n">layer_info</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>fd</p></td>
+<td><p>Framebuffer 设备文件描述符</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>FBIOPUT_LAYER_INFO</p></td>
+<td><p>ioctl 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>layer_info</p></td>
+<td><p>图层信息结构体指针</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>失败。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_comm_gfbg.h</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>在设置完某项属性后，必须通过设置 layer_info 的 mask 设置相应的掩码，否则该项设置不会生效。</p></li>
+<li><p>对于隔行显示设备，要求显存分辨率与屏幕显示分辨率的高度都必须为偶数。</p></li>
+<li><p>芯片中图层自带的缩放功能可以参考 FBIOPUT_SCREEN_SIZE。</p></li>
+</ul>
+<p>【举例】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">cvi_fb_layer_info</span><span class="w"> </span><span class="n">layer_info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">};</span><span class="w"></span>
+<span class="n">layer_info</span><span class="p">.</span><span class="n">buf_mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_FB_LAYER_BUF_NONE</span><span class="p">;</span><span class="w"></span>
+<span class="n">layer_info</span><span class="p">.</span><span class="n">mask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_FB_LAYER_MASK_BUF_MODE</span><span class="p">;</span><span class="w"></span>
+<span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ioctl</span><span class="p">(</span><span class="n">s32Fd</span><span class="p">,</span><span class="w"> </span><span class="n">FBIOPUT_LAYER_INFO</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">layer_info</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【相关主题】</p>
+<p>无。</p>
+</section>
+<section id="fbioget-layer-info">
+<h3><span class="section-number">6.1.13. </span>FBIOGET_LAYER_INFO<a class="headerlink" href="6_GFBG_Interface_Description.html#fbioget-layer-info" title="永久链接至标题">¶</a></h3>
+<p>【描述】</p>
+<p>获取图层信息，包括刷新模式屏幕起始点位置、画布分辨率、显存分辨率、屏幕显示分辨率。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">ioctl</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">FBIOGET_LAYER_INFO</span><span class="p">,</span><span class="w"> </span><span class="n">cvi_fb_layer_info</span><span class="w"> </span><span class="o">*</span><span class="n">layer_info</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>fd</p></td>
+<td><p>Framebuffer 设备文件描述符</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>FBIOGET_LAYER_INFO</p></td>
+<td><p>ioctl 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>layer_info</p></td>
+<td><p>图层信息结构体指针</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>失败。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_comm_gfbg.h</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>该接口获取到的接口数据 cvi_fb_layer_info 中，mask 成员是没有意义的，始终被填充为 CVI_FB_LAYER_MASK_BUTT。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无。</p>
+<p>【相关主题】</p>
+<p>无。</p>
+</section>
+<section id="fbioget-canvas-buf">
+<h3><span class="section-number">6.1.14. </span>FBIOGET_CANVAS_BUF<a class="headerlink" href="6_GFBG_Interface_Description.html#fbioget-canvas-buf" title="永久链接至标题">¶</a></h3>
+<p>【描述】</p>
+<p>获取画布信息。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">ioctl</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">FBIOGET_CANVAS_BUF</span><span class="p">,</span><span class="w"> </span><span class="n">cvi_fb_buf</span><span class="w"> </span><span class="o">*</span><span class="n">canvas_buf</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>fd</p></td>
+<td><p>Framebuffer 设备文件描述符</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>FBIOGET_CANVAS_BUF</p></td>
+<td><p>ioctl 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>canvas_buf</p></td>
+<td><p>画布信息结构体指针</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>失败。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_comm_gfbg.h</p></li>
+</ul>
+<p>【注意】</p>
+<p>【举例】</p>
+<p>无。</p>
+<p>【相关主题】</p>
+<p>无。</p>
+</section>
+<section id="fbio-refresh">
+<h3><span class="section-number">6.1.15. </span>FBIO_REFRESH<a class="headerlink" href="6_GFBG_Interface_Description.html#fbio-refresh" title="永久链接至标题">¶</a></h3>
+<p>【描述】</p>
+<p>扩展模式下，启动刷新操作。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">ioctl</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">FBIO_REFRESH</span><span class="p">,</span><span class="w"> </span><span class="n">cvi_fb_buf</span><span class="w"> </span><span class="o">*</span><span class="n">buf_info</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>fd</p></td>
+<td><p>Framebuffer 设备文件描述符</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>FBIO_REFRESH</p></td>
+<td><p>ioctl 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>buf_info</p></td>
+<td><p>cvi_fb_buf 结构体指针</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>失败。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_comm_gfbg.h</p></li>
+</ul>
+<p>【注意】
+无。</p>
+<p>【举例】</p>
+<p>无。</p>
+<p>【相关主题】</p>
+<p>无。</p>
+</section>
+<section id="fbioput-screen-size">
+<h3><span class="section-number">6.1.16. </span>FBIOPUT_SCREEN_SIZE<a class="headerlink" href="6_GFBG_Interface_Description.html#fbioput-screen-size" title="永久链接至标题">¶</a></h3>
+<p>【描述】</p>
+<p>设置图层在屏幕上的显示大小。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">ioctl</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">FBIOPUT_SCREEN_SIZE</span><span class="p">,</span><span class="w"> </span><span class="n">cvi_fb_size</span><span class="w"> </span><span class="o">*</span><span class="n">cvi_fb_size</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>fd</p></td>
+<td><p>Framebuffer 设备文件描述符</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>FBIOPUT_SCREEN_SIZE</p></td>
+<td><p>ioctl 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>cvi_fb_size</p></td>
+<td><p>cvi_fb_size 类型指针，宽高要求 2 对齐。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>失败。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_comm_gfbg.h</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>通过设置屏幕显示分辨率，可以对图像进行缩放。如图像大小为 800x600，则设置屏幕显示大小为 1280x720 可将图像放大到 1280x720 显示。</p></li>
+<li><p>图形层缩放限制：输入分辨率超过 1920x1080，不支持放大。</p></li>
+<li><p>支持缩放倍数 1~15 倍。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无。</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioget-screen-size">FBIOGET_SCREEN_SIZE</a></p>
+</section>
+<section id="fbioget-screen-size">
+<h3><span class="section-number">6.1.17. </span>FBIOGET_SCREEN_SIZE<a class="headerlink" href="6_GFBG_Interface_Description.html#fbioget-screen-size" title="永久链接至标题">¶</a></h3>
+<p>【描述】</p>
+<p>获取图层在屏幕上的显示大小。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">ioctl</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">FBIOGET_SCREEN_SIZE</span><span class="p">,</span><span class="w"> </span><span class="n">cvi_fb_size</span><span class="w"> </span><span class="o">*</span><span class="n">cvi_fb_size</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>fd</p></td>
+<td><p>Framebuffer 设备文件描述符</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>FBIOGET_SCREEN_SIZE</p></td>
+<td><p>ioctl 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>cvi_fb_size</p></td>
+<td><p>cvi_fb_size 类型指针</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>失败。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_comm_gfbg.h</p></li>
+</ul>
+<p>【注意】</p>
+<p>无。</p>
+<p>【举例】</p>
+<p>无。</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioput-screen-size">FBIOPUT_SCREEN_SIZE</a></p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="5_GFBG_Application_Example.html" class="btn btn-neutral float-left" title="5. 应用开发流程" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>10. AE相关验证 &mdash; Sensor_Debugging_Guide master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="11. 常见问题" href="11_Common_Problem.html" />
+    <link rel="prev" title="9. 完善其它功能" href="9_Complete_Other_Functions.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Sensor_Debugging_Guide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Introduction_to_Sensor_Drivers.html">2. Sensor驱动介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Confirm_Specifications.html">3. 确认规格</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_Image_Output_Debugging.html">4. 图像输出调试(Linux非快启)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_Image_Output_Debugging.html">5. 图像输出调试(Alios快启)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_Image_Output_Verification.html">6. 图像输出验证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_Basic_Functions_of_ISP.html">7. ISP基本功能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_Complete_the_AE_Configuration_Function.html">8. 完成AE配置功能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_Complete_Other_Functions.html">9. 完善其它功能</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="10_AE_Related_Verification.html#">10. AE相关验证</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="10_AE_Related_Verification.html#blc">10.1. BLC确认和验证</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_AE_Related_Verification.html#id2">10.2. 曝光线性度验证</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_AE_Related_Verification.html#id3">10.3. 增益线性度验证</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_AE_Related_Verification.html#id4">10.4. 进阶验证</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_AE_Related_Verification.html#response-frame">10.5. Response Frame验证</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_AE_Related_Verification.html#id5">10.6. 曝光增益同步生效验证</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_AE_Related_Verification.html#fps">10.7. FPS可控性验证</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="11_Common_Problem.html">11. 常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_Color_Noise_Reduction_and_Other_Corrections.html">12. 颜色、去噪等矫正</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_Debugging_Tool.html">13. 调试工具</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Sensor_Debugging_Guide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">10. </span>AE相关验证</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/10_AE_Related_Verification.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ae">
+<span id="id1"></span><h1><span class="section-number">10. </span>AE相关验证<a class="headerlink" href="10_AE_Related_Verification.html#ae" title="永久链接至标题">¶</a></h1>
+<p>当完成图像验证后就可以进行AE交接工作，AE交接要确保基本的曝光、增益是线性的，还有反应帧、同步问题等需要验证。</p>
+<p>主要是完成SensorPorting_AE(sensor_test)这份表格的验证。验证工作需要用到灯箱和sensor_test测试程序。</p>
+<p>注意：在进行AE相关验证时，需要将之前注释的代码给放开。</p>
+<section id="blc">
+<h2><span class="section-number">10.1. </span>BLC确认和验证<a class="headerlink" href="10_AE_Related_Verification.html#blc" title="永久链接至标题">¶</a></h2>
+<p>sensor spec上一般都会写blc offset的值，可直接写入xxx_cmos_param.h。</p>
+<p>如果没有可通过以下方式测试得出实际blc值：</p>
+<p>修改xxx_cmos_param.h，将下面红色圈出的部分，273表示blc offset, 全部改为0。</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/AERela002.png"><img alt="_images/AERela002.png" src="_images/AERela002.png" style="width: 80%;" /></a>
+</figure>
+<p>遮住镜头，在纯黑环境下运行sensor_test，输入CMD</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>5
+2 0 70 0 0
+</pre></div>
+</div>
+<p>打印出Luma值再乘4就是对应的blc offset值。</p>
+<p>比如下面对应的blc offset为74x4=286。</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/AERela003.png"><img alt="_images/AERela003.png" src="_images/AERela003.png" style="width: 80%;" /></a>
+</figure>
+<p>最后将测试出来的blc offset代入公式gain = 4095/（4095 - offset）*1024 得到 1106，
+将确认好的blc和gain填入xxx_cmos_param.h。</p>
+</section>
+<section id="id2">
+<h2><span class="section-number">10.2. </span>曝光线性度验证<a class="headerlink" href="10_AE_Related_Verification.html#id2" title="永久链接至标题">¶</a></h2>
+<p>将镜头对着灯箱环境下运行sensor_test，linear模式下输入CMD</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>5
+2 0 71 0 0
+</pre></div>
+</div>
+<p>Wdr模式下长曝光输入CMD</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>5
+2 0 75 0 0
+</pre></div>
+</div>
+<p>Wdr模式下短曝光输入CMD</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>5
+2 0 76 0 0
+</pre></div>
+</div>
+<p>要满足AE 亮度的统计值在 1/60s 的曝光时间应为 1/30s 的一半，
+AE亮度的统计值在1/120s 的曝光时间应为 1/60s 的一半这样的关系，
+比如下图所示结果就是符合的。</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/AERela014.png"><img alt="_images/AERela014.png" src="_images/AERela014.png" style="width: 80%;" /></a>
+</figure>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/image5.png"><img alt="_images/image5.png" src="_images/image5.png" style="width: 80%;" /></a>
+</figure>
+</section>
+<section id="id3">
+<h2><span class="section-number">10.3. </span>增益线性度验证<a class="headerlink" href="10_AE_Related_Verification.html#id3" title="永久链接至标题">¶</a></h2>
+<p>将镜头对着灯箱环境下运行sensor_test，linear模式下输入CMD</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>5
+2 0 72 0 0
+</pre></div>
+</div>
+<p>Wdr模式下输入CMD</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>5
+2 0 77 0 0
+</pre></div>
+</div>
+<p>下图是测试结果，linear mode下again从1024增加到8192，
+luma值从74变到607，基本符合8倍的关系。</p>
+<p>Wdr mode下again从1024改变成2048，luma从51变成100, 基本符合2倍的关系。</p>
+<p>所以下图的luma和again能够满足线性关系。</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/AERela015.png"><img alt="_images/AERela015.png" src="_images/AERela015.png" style="width: 80%;" /></a>
+</figure>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/image7.png"><img alt="_images/image7.png" src="_images/image7.png" style="width: 80%;" /></a>
+</figure>
+</section>
+<section id="id4">
+<h2><span class="section-number">10.4. </span>进阶验证<a class="headerlink" href="10_AE_Related_Verification.html#id4" title="永久链接至标题">¶</a></h2>
+<p>如果想要精确验证曝光线性度，需要用到CMD</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>5
+8 SID FID startExpTime endExptime
+</pre></div>
+</div>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/AERela006.png"><img alt="_images/AERela006.png" src="_images/AERela006.png" style="width: 80%;" /></a>
+</figure>
+<p>可以测试连续的曝光线性度，表示从startExpTime到endExpTime每隔%5的精度进行递增。</p>
+<p>SID表示sensorID, FID表示frameID,0表示长帧，1表示短帧。</p>
+<p>如果想要精确验证增益线性度，需要用到CMD</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>5
+7 SID FID time StartISO EndISO
+</pre></div>
+</div>
+<p>可以测试连续的增益线性度，表示从StartISO到EndISO遍历gaintable进行递增。这里ISO 100表示1x，即gain=1024.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/AERela007.png"><img alt="_images/AERela007.png" src="_images/AERela007.png" style="width: 80%;" /></a>
+</figure>
+</section>
+<section id="response-frame">
+<h2><span class="section-number">10.5. </span>Response Frame验证<a class="headerlink" href="10_AE_Related_Verification.html#response-frame" title="永久链接至标题">¶</a></h2>
+<p>不同的sensor参数生效时间不一样，比如有些sensor要过5 frame时间后才能生效，有些只要过4 frame或者3 frame就能生效。</p>
+<p>即使同一颗sensor，不同的寄存器设定，生效时间也有可能不一样，因此需要验证AE相关的寄存器的反应帧。</p>
+<p>运行sensor_test，linear模式下输入CMD</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>5
+2 0 71 0 0
+</pre></div>
+</div>
+<p>这样测出shutter设定后要过多少frame后才会生效。</p>
+<p>下图看出shutter从33333改变成16666后，要过4个frame后Luma值才发生改变。</p>
+<p>所以曝光的ResponseFrame为4.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/image10.png"><img alt="_images/image10.png" src="_images/image10.png" style="width: 80%;" /></a>
+</figure>
+<p>输入CMD</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>5
+2 0 72 0 0
+</pre></div>
+</div>
+<p>这样测出gain设定后要过多少frame后才会生效。</p>
+<p>下图看出again从1024改变成2048后，要过4个frame后Luma值才发生改变。</p>
+<p>所以增益的ResponseFrame为4.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/AERela016.png"><img alt="_images/AERela016.png" src="_images/AERela016.png" style="width: 80%;" /></a>
+</figure>
+<p>测试完曝光、增益的ResponseFrame后，ResponseFrame填入xxx_cmos.c中的cmos_get_ae_default函数中，如下图：</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/AERela009.png"><img alt="_images/AERela009.png" src="_images/AERela009.png" style="width: 80%;" /></a>
+</figure>
+</section>
+<section id="id5">
+<h2><span class="section-number">10.6. </span>曝光增益同步生效验证<a class="headerlink" href="10_AE_Related_Verification.html#id5" title="永久链接至标题">¶</a></h2>
+<p>有时候不是所有的sensor都是gain 、shutter同时生效，例如可能会出现gain的ResponseFrame是4，
+shutter的ResponseFrame是3，需要进行曝光增益同步机制验证。</p>
+<p>运行sensor_test，linear模式下输入CMD</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>5
+2 0 73 0 0
+</pre></div>
+</div>
+<p>这个CMD表示同时改变 shutter/gain,
+AE 的统计值要过多久才会发生变化。</p>
+<p>下面的图可以看到同时改变shutter和again都是在4frame后同步生效。</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/AERela017.png"><img alt="_images/AERela017.png" src="_images/AERela017.png" style="width: 80%;" /></a>
+</figure>
+<p>如果同时加大增益、曝光后，AE 的统计值出现跳变，比如像下面这样的结果，则说明增益、曝光没有同步生效。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">L</span><span class="p">:</span><span class="mi">479</span>  <span class="n">T</span><span class="p">:</span><span class="mi">33333</span>  <span class="n">AG</span><span class="p">:</span><span class="mi">8192</span>
+
+<span class="n">L</span><span class="p">:</span><span class="mi">479</span>  <span class="n">T</span><span class="p">:</span><span class="mi">33333</span>  <span class="n">AG</span><span class="p">:</span><span class="mi">8192</span>
+
+<span class="n">L</span><span class="p">:</span><span class="mi">479</span>  <span class="n">T</span><span class="p">:</span><span class="mi">1000</span>   <span class="n">AG</span><span class="p">:</span><span class="mi">1024</span>
+
+<span class="n">L</span><span class="p">:</span><span class="mi">479</span>  <span class="n">T</span><span class="p">:</span><span class="mi">1000</span>   <span class="n">AG</span><span class="p">:</span><span class="mi">1024</span>
+
+<span class="n">L</span><span class="p">:</span><span class="mi">299</span>  <span class="n">T</span><span class="p">:</span><span class="mi">1000</span>   <span class="n">AG</span><span class="p">:</span><span class="mi">1024</span>
+
+<span class="n">L</span><span class="p">:</span><span class="mi">211</span>  <span class="n">T</span><span class="p">:</span><span class="mi">1000</span>   <span class="n">AG</span><span class="p">:</span><span class="mi">1024</span>
+
+<span class="n">L</span><span class="p">:</span><span class="mi">3</span>    <span class="n">T</span><span class="p">:</span><span class="mi">1000</span>   <span class="n">AG</span><span class="p">:</span><span class="mi">1024</span>
+
+<span class="n">L</span><span class="p">:</span><span class="mi">3</span>    <span class="n">T</span><span class="p">:</span><span class="mi">1000</span>   <span class="n">AG</span><span class="p">:</span><span class="mi">1024</span>
+
+<span class="n">L</span><span class="p">:</span><span class="mi">3</span>    <span class="n">T</span><span class="p">:</span><span class="mi">1000</span>   <span class="n">AG</span><span class="p">:</span><span class="mi">1024</span>
+
+<span class="n">L</span><span class="p">:</span><span class="mi">3</span>    <span class="n">T</span><span class="p">:</span><span class="mi">1000</span>   <span class="n">AG</span><span class="p">:</span><span class="mi">1024</span>
+</pre></div>
+</div>
+<p>此时需要对gain或者shutter进行delay让其同步生效，
+修改xxx_cmos.c中的 cmos_get_sns_regs_info函数，修改register的delay设定。</p>
+<p>比如下图就是对gain进行delay了2 frame，表示要相对于其他的register设定要晚2帧。</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/AERela010.png"><img alt="_images/AERela010.png" src="_images/AERela010.png" style="width: 80%;" /></a>
+</figure>
+</section>
+<section id="fps">
+<h2><span class="section-number">10.7. </span>FPS可控性验证<a class="headerlink" href="10_AE_Related_Verification.html#fps" title="永久链接至标题">¶</a></h2>
+<p>用sensor_test运行后输入CMD</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>5
+4 SID FPS
+</pre></div>
+</div>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/AERela011.png"><img alt="_images/AERela011.png" src="_images/AERela011.png" style="width: 80%;" /></a>
+</figure>
+<p>默认运行起来后fps是25fps，可以查看vi_dbg 查看sensor输出的fps是多少。</p>
+<p>Linux: cat /proc/cvitek/vi_dbg</p>
+<p>Alios: 运行sensor_test 后输入7 –&gt; 1</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/image16.png"><img alt="_images/image16.png" src="_images/image16.png" style="width: 80%;" /></a>
+</figure>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="9_Complete_Other_Functions.html" class="btn btn-neutral float-left" title="9. 完善其它功能" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="11_Common_Problem.html" class="btn btn-neutral float-right" title="11. 常见问题" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

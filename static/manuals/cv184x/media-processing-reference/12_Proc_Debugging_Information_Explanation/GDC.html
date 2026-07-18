@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>12.13. GDC &mdash; MediaProcessingSoftwareDevelopmentReference master 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="../_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/qrious.js"></script>
+    <script src="../_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="12.14. REGION" href="REGION.html" />
+    <link rel="prev" title="12.12. VB" href="VB.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> MediaProcessingSoftwareDevelopmentReference
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_System_Overview.html">2. 系统概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_System_Control.html">3. 系统控制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_Video_Input.html">4. 视频输入</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5_Video_Output.html">5. 视频输出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6_Video_Processing_Subsystem.html">6. 视频处理子系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7_Video_Encoding.html">7. 视频编码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../8_Video_Decoding.html">8. 视频解码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../9_Regional_Management.html">9. 区域管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10_Audio_Frequency.html">10. 音频</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../11_Geometric_Distortion_Correction_Subsystem.html">11. 几何畸变矫正子系统</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../12_Proc_Debugging_Information_Explanation.html">12. Proc 调试信息说明</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Function_Overview.html">12.1. 功能概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AI.html">12.2. AI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AO.html">12.3. AO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VENC.html">12.4. VENC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="H265E.html">12.5. H265E</a></li>
+<li class="toctree-l2"><a class="reference internal" href="H264E.html">12.6. H264E</a></li>
+<li class="toctree-l2"><a class="reference internal" href="JPEGE.html">12.7. JPEGE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="RC.html">12.8. RC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VDEC.html">12.9. VDEC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LOG.html">12.10. LOG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SYS.html">12.11. SYS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VB.html">12.12. VB</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="GDC.html#">12.13. GDC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="REGION.html">12.14. REGION</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VI.html">12.15. VI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VO.html">12.16. VO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="VPSS.html">12.17. VPSS</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MediaProcessingSoftwareDevelopmentReference</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../12_Proc_Debugging_Information_Explanation.html"><span class="section-number">12. </span>Proc 调试信息说明</a> &raquo;</li>
+      <li><span class="section-number">12.13. </span>GDC</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="../_sources/12_Proc_Debugging_Information_Explanation/GDC.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="gdc">
+<h1><span class="section-number">12.13. </span>GDC<a class="headerlink" href="GDC.html#gdc" title="永久链接至标题">¶</a></h1>
+<p>【调试信息】</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>cat /proc/cvitek/gdc
+
+<span class="go">Module: [GDC], Build Time[#1 SMP PREEMPT Wed Feb 24 15:02:47 CST 2021]</span>
+
+<span class="go">-------------------------------RECENT JOB INFO----------------------------</span>
+<span class="go">    SeqNo   ModName   TaskNum     State       InSize(pixel)      OutSize(pixel)        CostTime(us)HwTime(us)</span>
+<span class="gp">      # </span><span class="m">0</span>        VO     <span class="m">1</span>     SUCCESS <span class="m">921600</span>   <span class="m">921600</span>     <span class="m">3952</span>     <span class="m">3539</span>
+<span class="gp">      # </span><span class="m">1</span>        VO     <span class="m">1</span>     SUCCESS <span class="m">921600</span>   <span class="m">921600</span>     <span class="m">3941</span>     <span class="m">3534</span>
+<span class="gp">      # </span><span class="m">2</span>        VO     <span class="m">1</span>     SUCCESS <span class="m">921600</span>   <span class="m">921600</span>     <span class="m">3952</span>     <span class="m">3553</span>
+<span class="gp">      # </span><span class="m">3</span>        VO     <span class="m">1</span>     SUCCESS <span class="m">921600</span>   <span class="m">921600</span>     <span class="m">3938</span>     <span class="m">3540</span>
+<span class="gp">      # </span><span class="m">4</span>        VO     <span class="m">1</span>     SUCCESS <span class="m">921600</span>   <span class="m">921600</span>     <span class="m">3947</span>     <span class="m">3547</span>
+<span class="gp">      # </span><span class="m">5</span>        VO     <span class="m">1</span>     SUCCESS <span class="m">921600</span>   <span class="m">921600</span>     <span class="m">3936</span>     <span class="m">3536</span>
+<span class="gp">      # </span><span class="m">6</span>        VO     <span class="m">1</span>     SUCCESS <span class="m">921600</span>   <span class="m">921600</span>     <span class="m">3948</span>     <span class="m">3551</span>
+<span class="gp">      # </span><span class="m">7</span>        VO     <span class="m">1</span>     SUCCESS <span class="m">921600</span>   <span class="m">921600</span>     <span class="m">3926</span>     <span class="m">3530</span>
+
+<span class="go">-------------------------------MAX WASTE TIME JOB INFO--------------------</span>
+<span class="go">  ModName   TaskNum     State       InSize(pixel)      OutSize(pixel)        CostTime(us)HwTime(us)</span>
+<span class="go">VO   1    SUCCESS921600   921600     4007</span>
+<span class="go">3530</span>
+
+<span class="go">-------------------------------GDC JOB STATUS-----------------------------</span>
+<span class="go">  Success      Fail    Cancel  BeginNum   BusyNumProcingNum</span>
+<span class="go">      754         0         0 000</span>
+
+<span class="go">-------------------------------GDC TASK STATUS----------------------------</span>
+<span class="go">  Success      Fail    Cancel   BusyNum</span>
+<span class="go">      754         0         0 0</span>
+
+<span class="go">-------------------------------GDC INT STATUS-----------------------------</span>
+<span class="go">    IntNumIntTm(us)       HalProcTm(us)</span>
+<span class="go">      754     3536      126</span>
+
+<span class="go">-------------------------------GDC CALL CORRECTION STATUS-----------------</span>
+<span class="go">  TaskSuc  TaskFail    EndSuc   EndFail     CbCnt</span>
+<span class="go">0         0      0  0     0</span>
+</pre></div>
+</div>
+<p>【调试信息分析】</p>
+<p>记录GDC模块最近完成的若干任务、最近耗时最大的任务、历史累计信息。</p>
+<p>【参数说明】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数</p></th>
+<th class="head"></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>RECENT JOB INFO最近完成的job的信息</p></td>
+<td><p>SeqNo</p></td>
+<td><p>打印序号。 取值范围：[0， 7]</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ModName</p></td>
+<td><p>提交该job的模块名。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>TaskNum</p></td>
+<td><p>该job包含的task数目。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>State</p></td>
+<td><p>该job的处理状态。</p>
+<p>取值范围：{FA        IL、SUCCESS、WORKING}</p>
+<p>FAIL：表示job执行失败</p>
+<p>SUC CESS：表示job执行成功</p>
+<p>WOR KING：表示job正在处理</p>
+</td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>InSize(pixel)</p></td>
+<td><p>该job下各task的输入图像面积之和</p>
+<p>单位：像素</p>
+<p>每向该job添加一个task，此项就加 上该task的输入面积。</p>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>OutSize(pixel)</p></td>
+<td><p>该job下各task的输出图像面积之和</p>
+<p>单位：像素</p>
+<p>每向该job添加一个task，此项就加 上该task的输出面积。</p>
+</td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CostTime(us)</p></td>
+<td><p>该job从提 交到完成的耗时时长。</p>
+<p>单位：us。</p>
+<p>该时间包括针对该任务的软件、硬件及中 断服务程序处理时间。</p>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>HwTime(us)</p></td>
+<td><p>该job在硬件中处理耗时时长。</p>
+<p>单位：us。</p>
+<p>该时  间是硬件处理的时间， 一般比CostTime要短。</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>MAX WASTE TIME JOBINFO最  近耗时最大的job信息</p></td>
+<td><p>各项同RECENT最JOB INFO的成员      INFO的成</p></td>
+<td><p>500个任务中耗时最长的job的信息。 其各项同RECENT JOB   ，具体意义请参见前述。</p>
+<blockquote>
+<div><p>当出现耗时更长的任务或任务总数已超过 500时，就更新该组值。</p>
+<p>通过该组值可知最近的GDC运行 性能，以及是否出现过 GDC处理不及时的情况。</p>
+</div></blockquote>
+</td>
+</tr>
+<tr class="row-odd"><td><p>GDC JOB STATUSGDC任务状态</p></td>
+<td><p>Success 当硬</p></td>
+<td><p>累计成功处理的job数。</p>
+<p>理成功时加1。</p>
+</td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Fail</p></td>
+<td><p>累计处理失败的job数。</p>
+<p>当GDC提交任务给驱动层并失败时加 1。该值增加时可通过查 看日志了解失败原因。</p>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Cancel</p></td>
+<td><p>累计的取消的job数。</p>
+<p>当调用    cancleJob接口时加1。</p>
+</td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>BeginNum</p></td>
+<td><p>用户已    创建任务但还未提交（ EndJob接口）的job数。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>BusyNum</p></td>
+<td><p>用户已提交（EndJob接口）但还未提交 给硬件处理的任务数。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ProcingNum</p></td>
+<td><p>正在进行硬件处理的任务数。</p></td>
+</tr>
+<tr class="row-odd"><td><p>GDC TASK STATUSGDC Task状态</p></td>
+<td><p>Success</p></td>
+<td><p>累计成功处理的Task数。 一个job包含1到多个缩放 task，所以1个job成功 表明其下的多个task都 成功，故该值累加的比 job的Success项更快。</p>
+<p>当硬件处理一个Job成功时，该 值累加job下的task数。</p>
+</td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Fail</p></td>
+<td><p>累计处理失败的Task数。</p>
+<p>一个job失败将导致其下的所有task失败。当 Job执行失败时，该项累 加其下失败的task数。</p>
+<p>该值增加时可通过查看日志了解失败原因。</p>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Cancel</p></td>
+<td><p>累计Cancel的Task数。</p>
+<p>当调用cancleJob接口时， 即取消了job下的所有t ask的执行，该项累加。</p>
+</td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>BusyNum</p></td>
+<td><p>已添加到Job下，但还未提 交给硬件处理的task数</p></td>
+</tr>
+<tr class="row-odd"><td><p>GDC INT STATUSGDC中断状态</p></td>
+<td><p>IntNum 硬件</p></td>
+<td><p>GDC中断个数。</p>
+<p>成一个job，该值加1。</p>
+</td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>IntTm(us)</p></td>
+<td><p>GDC平均中断处理时间。</p>
+<p>单位：us</p>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>HalProcTm(us)</p></td>
+<td><p>平均将Job提交给驱动层的 时间，内部调试使用。</p>
+<p>单位：us</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>GDC CALL CORRECTIONSTATUSFISHEYE校正处理状态</p></td>
+<td><p>TaskSuc</p></td>
+<td><p>添加FISHEYEtask成功的次数。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>TaskFail</p></td>
+<td><p>添加FISHEYEtask失败的次数。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>EndSuc</p></td>
+<td><p>GDC提交FISHEYEjob成功的次数。</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>EndFail</p></td>
+<td><p>GDC提交FISHEYEjob失败的次数。</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CbCnt</p></td>
+<td><p>GDC校正任务处理完成后回调的次数。</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="VB.html" class="btn btn-neutral float-left" title="12.12. VB" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="REGION.html" class="btn btn-neutral float-right" title="12.14. REGION" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

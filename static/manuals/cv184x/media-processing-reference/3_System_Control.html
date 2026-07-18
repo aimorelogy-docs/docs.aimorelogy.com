@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3. 系统控制 &mdash; MediaProcessingSoftwareDevelopmentReference master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="3.1. 功能概述" href="3_System_Control/Function_Overview.html" />
+    <link rel="prev" title="2.2. 设计概述" href="2_System_Overview/Design_Overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> MediaProcessingSoftwareDevelopmentReference
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_System_Overview.html">2. 系统概述</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="3_System_Control.html#">3. 系统控制</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/Function_Overview.html">3.1. 功能概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/Design_Overview.html">3.2. 设计概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/API_Reference.html">3.3. API参考</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/Data_Types.html">3.4. 数据类型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/Error_Codes.html">3.5. 错误码</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="4_Video_Input.html">4. 视频输入</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_Video_Output.html">5. 视频输出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_Video_Processing_Subsystem.html">6. 视频处理子系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_Video_Encoding.html">7. 视频编码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_Video_Decoding.html">8. 视频解码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_Regional_Management.html">9. 区域管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_Audio_Frequency.html">10. 音频</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem.html">11. 几何畸变矫正子系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_Proc_Debugging_Information_Explanation.html">12. Proc 调试信息说明</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MediaProcessingSoftwareDevelopmentReference</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">3. </span>系统控制</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/3_System_Control.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">3. </span>系统控制<a class="headerlink" href="3_System_Control.html#id1" title="永久链接至标题">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="3_System_Control/Function_Overview.html">3.1. 功能概述</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/Function_Overview.html#id2">3.1.1. 目的</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/Function_Overview.html#id3">3.1.2. 定义及缩写</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3_System_Control/Design_Overview.html">3.2. 设计概述</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/Design_Overview.html#id2">3.2.1. 视频内存区块池</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/Design_Overview.html#id5">3.2.2. 系统绑定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/Design_Overview.html#vivpss">3.2.3. VI和VPSS的工作模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/Design_Overview.html#vpss">3.2.4. VPSS的工作模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/Design_Overview.html#video-pipelinealignment">3.2.5. Video Pipeline的Alignment需求</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/Design_Overview.html#id8">3.2.6. 双系统消息通信</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3_System_Control/API_Reference.html">3.3. API参考</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-sys-init">3.3.1. CVI_SYS_Init</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-sys-exit">3.3.2. CVI_SYS_Exit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-sys-bind">3.3.3. CVI_SYS_Bind</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-sys-unbind">3.3.4. CVI_SYS_UnBind</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-sys-getbindbydest">3.3.5. CVI_SYS_GetBindbyDest</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-sys-getbindbysrc">3.3.6. CVI_SYS_GetBindbySrc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-sys-getversion">3.3.7. CVI_SYS_GetVersion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-sys-getchipid">3.3.8. CVI_SYS_GetChipId</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-sys-mmap">3.3.9. CVI_SYS_Mmap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-sys-mmapcache">3.3.10. CVI_SYS_MmapCache</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-sys-munmap">3.3.11. CVI_SYS_Munmap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-sys-ionalloc">3.3.12. CVI_SYS_IonAlloc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-sys-ionalloc-cached">3.3.13. CVI_SYS_IonAlloc_Cached</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-sys-ionflushcache">3.3.14. CVI_SYS_IonFlushCache</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-sys-ioninvalidatecache">3.3.15. CVI_SYS_IonInvalidateCache</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-sys-ionfree">3.3.16. CVI_SYS_IonFree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-sys-setvivpssmode">3.3.17. CVI_SYS_SetVIVPSSMode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-sys-getvivpssmode">3.3.18. CVI_SYS_GetVIVPSSMode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-sys-getmodname">3.3.19. CVI_SYS_GetModName</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-sys-getchipversion">3.3.20. CVI_SYS_GetChipVersion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-sys-getpoweronreason">3.3.21. CVI_SYS_GetPowerOnReason</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-sys-getcurpts">3.3.22. CVI_SYS_GetCurPTS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-vb-setconfig">3.3.23. CVI_VB_SetConfig</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-vb-getconfig">3.3.24. CVI_VB_GetConfig</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-vb-init">3.3.25. CVI_VB_Init</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-vb-exit">3.3.26. CVI_VB_Exit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-vb-getblock">3.3.27. CVI_VB_GetBlock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-vb-releaseblock">3.3.28. CVI_VB_ReleaseBlock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-vb-createpool">3.3.29. CVI_VB_CreatePool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-vb-createexpool">3.3.30. CVI_VB_CreateExPool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-vb-destroypool">3.3.31. CVI_VB_DestroyPool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-vb-physaddr2handle">3.3.32. CVI_VB_PhysAddr2Handle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-vb-handle2physaddr">3.3.33. CVI_VB_Handle2PhysAddr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-vb-handle2poolid">3.3.34. CVI_VB_Handle2PoolId</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-vb-inquireusercnt">3.3.35. CVI_VB_InquireUserCnt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-vb-mmappool">3.3.36. CVI_VB_MmapPool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-vb-munmappool">3.3.37. CVI_VB_MunmapPool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-vb-getblockviraddr">3.3.38. CVI_VB_GetBlockVirAddr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-vb-printpool">3.3.39. CVI_VB_PrintPool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-log-setlevelconf">3.3.40. CVI_LOG_SetLevelConf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-log-getlevelconf">3.3.41. CVI_LOG_GetLevelConf</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3_System_Control/Data_Types.html">3.4. 数据类型</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/Data_Types.html#id2">3.4.1. 基础型别</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/Data_Types.html#mod-id-e">3.4.2. MOD_ID_E</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/Data_Types.html#vb-source-e">3.4.3. VB_SOURCE_E</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/Data_Types.html#rotation-e">3.4.4. ROTATION_E</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/Data_Types.html#border-s">3.4.5. BORDER_S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/Data_Types.html#point-s">3.4.6. POINT_S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/Data_Types.html#size-s">3.4.7. SIZE_S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/Data_Types.html#rect-s">3.4.8. RECT_S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/Data_Types.html#mmf-chn-s">3.4.9. MMF_CHN_S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/Data_Types.html#mmf-bind-dest-s">3.4.10. MMF_BIND_DEST_S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/Data_Types.html#bind-node-s">3.4.11. BIND_NODE_S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/Data_Types.html#mmf-version-s">3.4.12. MMF_VERSION_S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/Data_Types.html#vb-config-s">3.4.13. VB_CONFIG_S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/Data_Types.html#vb-pool-config-s">3.4.14. VB_POOL_CONFIG_S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/Data_Types.html#vb-user-block-s">3.4.15. VB_USER_BLOCK_S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/Data_Types.html#vb-pool-config-ex-s">3.4.16. VB_POOL_CONFIG_EX_S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/Data_Types.html#vb-cal-config-s">3.4.17. VB_CAL_CONFIG_S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/Data_Types.html#vi-vpss-mode-e">3.4.18. VI_VPSS_MODE_E</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/Data_Types.html#vi-vpss-mode-s">3.4.19. VI_VPSS_MODE_S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/Data_Types.html#aspect-ratio-e">3.4.20. ASPECT_RATIO_E</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/Data_Types.html#aspect-ratio-s">3.4.21. ASPECT_RATIO_S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/Data_Types.html#pixel-format-e">3.4.22. PIXEL_FORMAT_E</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/Data_Types.html#video-frame-s">3.4.23. VIDEO_FRAME_S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/Data_Types.html#video-frame-info-s">3.4.24. VIDEO_FRAME_INFO_S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/Data_Types.html#bitmap-s">3.4.25. BITMAP_S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/Data_Types.html#wdr-mode-e">3.4.26. WDR_MODE_E</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3_System_Control/Error_Codes.html">3.5. 错误码</a></li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="2_System_Overview/Design_Overview.html" class="btn btn-neutral float-left" title="2.2. 设计概述" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="3_System_Control/Function_Overview.html" class="btn btn-neutral float-right" title="3.1. 功能概述" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>7.2. 设计概述 &mdash; MediaProcessingSoftwareDevelopmentReference master 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="../_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/qrious.js"></script>
+    <script src="../_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="7.3. API参考" href="API_Reference.html" />
+    <link rel="prev" title="7.1. 功能概述" href="Function_Overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> MediaProcessingSoftwareDevelopmentReference
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_System_Overview.html">2. 系统概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_System_Control.html">3. 系统控制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_Video_Input.html">4. 视频输入</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5_Video_Output.html">5. 视频输出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6_Video_Processing_Subsystem.html">6. 视频处理子系统</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../7_Video_Encoding.html">7. 视频编码</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Function_Overview.html">7.1. 功能概述</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="Design_Overview.html#">7.2. 设计概述</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Design_Overview.html#id2">7.2.1. 编码数据流程图</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Design_Overview.html#id3">7.2.2. 视频编码信道</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Design_Overview.html#id4">7.2.3. 码率控制</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Design_Overview.html#fixed-qp">7.2.4. Fixed QP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Design_Overview.html#cbr">7.2.5. CBR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Design_Overview.html#vbr">7.2.6. VBR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Design_Overview.html#avbr">7.2.7. AVBR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Design_Overview.html#gop">7.2.8. GOP结构</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Design_Overview.html#id5">7.2.9. 高级跳帧</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Design_Overview.html#roi">7.2.10. ROI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Design_Overview.html#id6">7.2.11. 编码码流帧配置模式</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Design_Overview.html#id7">7.2.12. 多编码器并行编码</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Design_Overview.html#id8">7.2.13. 编码帧缓存计算</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="API_Reference.html">7.3. API参考</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Data_Types.html">7.4. 数据类型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Error_Codes.html">7.5. 错误码</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../8_Video_Decoding.html">8. 视频解码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../9_Regional_Management.html">9. 区域管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10_Audio_Frequency.html">10. 音频</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../11_Geometric_Distortion_Correction_Subsystem.html">11. 几何畸变矫正子系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../12_Proc_Debugging_Information_Explanation.html">12. Proc 调试信息说明</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MediaProcessingSoftwareDevelopmentReference</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../7_Video_Encoding.html"><span class="section-number">7. </span>视频编码</a> &raquo;</li>
+      <li><span class="section-number">7.2. </span>设计概述</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="../_sources/7_Video_Encoding/Design_Overview.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">7.2. </span>设计概述<a class="headerlink" href="Design_Overview.html#id1" title="永久链接至标题">¶</a></h1>
+<section id="id2">
+<h2><span class="section-number">7.2.1. </span>编码数据流程图<a class="headerlink" href="Design_Overview.html#id2" title="永久链接至标题">¶</a></h2>
+<a class="reference internal image-reference" href="../_images/设计概3002.png"><img alt="../_images/设计概3002.png" src="../_images/设计概3002.png" style="width: 5.76806in; height: 0.95491in;" /></a>
+<p>VENC模块的输入为待编码的影像，输出为编码后的Bitstream。VENC含有两个子模块，Receiver和Encoder。</p>
+<p>Receiver</p>
+<ul class="simple">
+<li><p>接收影像的输入</p></li>
+</ul>
+<p>Encoder</p>
+<ul>
+<li><p>将收到的影像进行图片及视频编码，转换成 Encoded Bitstream，目前支持的视讯标准为</p>
+<ul>
+<li><p>JPEG</p>
+<blockquote>
+<div><p>支持的影像格式为</p>
+<p>YUV422</p>
+<p>YUV420</p>
+<p>NV12 / NV21</p>
+</div></blockquote>
+</li>
+<li><p>MJPEG</p>
+<blockquote>
+<div><p>支持的影像格式和JPEG相同</p>
+</div></blockquote>
+</li>
+<li><p>H.264</p>
+<blockquote>
+<div><p>支持的影像格式为</p>
+<blockquote>
+<div><p>NV12</p>
+</div></blockquote>
+</div></blockquote>
+</li>
+<li><p>H.265</p>
+<blockquote>
+<div><p>支持的影像格式为</p>
+<blockquote>
+<div><p>NV12</p>
+</div></blockquote>
+</div></blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id3">
+<h2><span class="section-number">7.2.2. </span>视频编码信道<a class="headerlink" href="Design_Overview.html#id3" title="永久链接至标题">¶</a></h2>
+<a class="reference internal image-reference" href="../_images/设计概3003.png"><img alt="../_images/设计概3003.png" src="../_images/设计概3003.png" style="width: 5.76806in; height: 1.524in;" /></a>
+<p>视频编码信道为视频编码的基本操作单元，内部主要包含VENC相关功能，信道相关设定。系统上可以有多个视频编码信道，各信道独立运作。各信道建立后，用户可以依需求设定通道基本参数，如影像分辨率、编码 Bitrate、RC机制等，相关的参数会对VENC初始化。</p>
+</section>
+<section id="id4">
+<h2><span class="section-number">7.2.3. </span>码率控制<a class="headerlink" href="Design_Overview.html#id4" title="永久链接至标题">¶</a></h2>
+<p>RC为Encoder中控制Bitrate和Video Quality的主要模块，主要藉由各视讯标准中的QP这个参数，进一步控制影像质量，当QP变大时，编码出来的数据量会变小，但Video Quality会变差；当QP变小时，编码出来的数据量会变大，但Video Quality会变好。</p>
+<p>视频编码通常会与RC同时运作，如果是图片编码 (如 JPEG)，因为只有单张图片，不会需要此模块。</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>模式</p></td>
+<td><p>JPEG</p></td>
+<td><p>H.264</p></td>
+<td><p>H.265</p></td>
+</tr>
+<tr class="row-even"><td><p>Fixed QP</p></td>
+<td><p>支持</p></td>
+<td><p>支持</p></td>
+<td><p>支持</p></td>
+</tr>
+<tr class="row-odd"><td><p>CBR</p></td>
+<td><p>支持</p></td>
+<td><p>支持</p></td>
+<td><p>支持</p></td>
+</tr>
+<tr class="row-even"><td><p>VBR</p></td>
+<td><p>不支持</p></td>
+<td><p>支持</p></td>
+<td><p>支持</p></td>
+</tr>
+<tr class="row-odd"><td><p>AVBR</p></td>
+<td><p>不支持</p></td>
+<td><p>支持</p></td>
+<td><p>支持</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="fixed-qp">
+<h2><span class="section-number">7.2.4. </span>Fixed QP<a class="headerlink" href="Design_Overview.html#fixed-qp" title="永久链接至标题">¶</a></h2>
+<p>在统计时间内，影像中的所有MB使用同一个QP值。</p>
+</section>
+<section id="cbr">
+<h2><span class="section-number">7.2.5. </span>CBR<a class="headerlink" href="Design_Overview.html#cbr" title="永久链接至标题">¶</a></h2>
+<p>CBR (Constant Bit Rate) 固定码率， 动态控制QP，使得 Encoded Bitstream 在设定的时间区间内，维持在想要的 bitrate。</p>
+<p>主要的参数如下：</p>
+<ul>
+<li><p>u32StatTime Bitrate统计时间</p>
+<ul>
+<li><div class="line-block">
+<div class="line">单位时间为秒 (second)，encoder会在设定时间内统计Bitrate进而调整影像质量，符合想要的Bitrate。</div>
+<div class="line">当此值愈小时，统计区间小，影像品质变化幅度会相对比较大，</div>
+<div class="line">每一张 Frame 压缩完后，对接下来的压缩有较大的影响，视讯质量比较不稳定。</div>
+<div class="line">此值大时，统计区间大，每一张Frame压缩完后的影响程度比较小，影像变化的幅度比较小，视讯质量比较稳定。</div>
+</div>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="vbr">
+<h2><span class="section-number">7.2.6. </span>VBR<a class="headerlink" href="Design_Overview.html#vbr" title="永久链接至标题">¶</a></h2>
+<p>VBR(Variable Bit Rate) 可变码率，允许码率在设定的统计时间内，动态调整整体Bitrate，可使得影像质量相对稳定。</p>
+<ul class="simple">
+<li><p>u32MaxBitRate 最大码率</p>
+<ul>
+<li><p>设定在统计时间内，最大可使用的码率</p></li>
+</ul>
+</li>
+<li><p>u32MinQp</p>
+<ul>
+<li><p>设定最小可使用的 MB QP，限制影像的最佳质量，不会使用过高的Bitrate</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="avbr">
+<h2><span class="section-number">7.2.7. </span>AVBR<a class="headerlink" href="Design_Overview.html#avbr" title="永久链接至标题">¶</a></h2>
+<p>AVBR(Adaptive Variable Bit Rate)自适应可变码率。依场景运动程度动态调整统计时间目标码率，码率控制内部作场景运动程度判断。场景运动程度越大，目标码率越高，而当场景偏向静止时，将自动降低目标码率。</p>
+<ul class="simple">
+<li><p>u32MaxBitRate 最大码率</p>
+<ul>
+<li><p>设定在统计时间内，最大可使用的码率</p></li>
+</ul>
+</li>
+<li><p>u32MinStillPercent</p>
+<ul>
+<li><p>场景静止状态时，目标码率与最大码率之百分比</p></li>
+<li><p>MinBitrate = MaxBitrate*ChangePos*MinStillPercnet</p></li>
+</ul>
+</li>
+<li><p>根据场景运动程度，目标码率在MinBitrate与MaxBitrate间调适</p></li>
+<li><p>U32MaxStillQp</p>
+<ul>
+<li><p>场景完全静止时，maxQp趋向MaxStillQp。以保证静止场景画面质量。</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="gop">
+<h2><span class="section-number">7.2.8. </span>GOP结构<a class="headerlink" href="Design_Overview.html#gop" title="永久链接至标题">¶</a></h2>
+<p>H.264 和 H.265 对于GOP结构支持的状况如下。</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>GOP模式</p></th>
+<th class="head"><p>H.264</p></th>
+<th class="head"><p>H.265</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>NormalP</p></td>
+<td><p>支持</p></td>
+<td><p>支持</p></td>
+</tr>
+<tr class="row-odd"><td><p>SmartP</p></td>
+<td><p>支持</p></td>
+<td><p>支持</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>NormalP的GOP结构如下</p>
+<ul>
+<li><p>IDR 帧出现周期为 u32Gop</p></li>
+</ul>
+</li>
+</ul>
+<a class="reference internal image-reference" href="../_images/设计概3004.png"><img alt="../_images/设计概3004.png" src="../_images/设计概3004.png" style="width: 5.77222in; height: 2.12292in;" /></a>
+<ul class="simple">
+<li><p>SmartP的GOP结构如下</p>
+<ul>
+<li><p>VI帧出现周期为u32Gop，该帧只向前参考邻近之IDR帧</p></li>
+<li><p>IDR帧出现周期为u32BgInterval，该 IDR 帧为长期参考帧</p></li>
+</ul>
+</li>
+</ul>
+<a class="reference internal image-reference" href="../_images/设计概3005.png"><img alt="../_images/设计概3005.png" src="../_images/设计概3005.png" style="width: 5.77222in; height: 3.16389in;" /></a>
+<a class="reference internal image-reference" href="../_images/设计概3006.png"><img alt="../_images/设计概3006.png" src="../_images/设计概3006.png" style="width: 5.77222in; height: 3.09097in;" /></a>
+</section>
+<section id="id5">
+<h2><span class="section-number">7.2.9. </span>高级跳帧<a class="headerlink" href="Design_Overview.html#id5" title="永久链接至标题">¶</a></h2>
+<p>H.264 和 H.265均支持1倍、2倍、以及4倍跳帧参考模式。默认为1倍(不跳帧) 。</p>
+<ul class="simple">
+<li><p>2倍跳帧参考模式示意如下</p></li>
+</ul>
+<a class="reference internal image-reference" href="../_images/设计概3007.png"><img alt="../_images/设计概3007.png" src="../_images/设计概3007.png" style="width: 6.16667in; height: 2.77166in;" /></a>
+</section>
+<section id="roi">
+<h2><span class="section-number">7.2.10. </span>ROI<a class="headerlink" href="Design_Overview.html#roi" title="永久链接至标题">¶</a></h2>
+<p>ROI（Region Of Interest）编码：感兴趣区域编码。</p>
+<ul class="simple">
+<li><p>用户可以通过配置 ROI 区域，调适该区域的图像 Qp，实现图像中局部区域画质的差异化。</p></li>
+<li><p>H.264 和 H.265均支持 8 个 ROI 设置，重复区域按照 0～7 的ROI索引号依次提高优先级</p></li>
+<li><p>ROI 区域可配置绝对Qp和相对Qp两种模式。</p>
+<ul>
+<li><p>绝对Qp 模式：ROI 区域的Qp为用户设定的 Qp 值。</p></li>
+<li><p>相对Qp模式：ROI区域的Qp为码率控制之Qp加上用户设定的Qp偏移值。</p></li>
+</ul>
+</li>
+<li><p>注意事项</p>
+<ul>
+<li><p>当码率控制模式不为Fixed QP模式时，ROI区域可配置。</p></li>
+<li><p>H.264当ROI始能时，宏块级码率控制失效。</p></li>
+<li><p>绝对Qp模式因为码率控制调适宏块QP，实际编码QP与设置之QP可能会有些差异。</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="id6">
+<h2><span class="section-number">7.2.11. </span>编码码流帧配置模式<a class="headerlink" href="Design_Overview.html#id6" title="永久链接至标题">¶</a></h2>
+<p>压缩后的编码码流，使用CVI_VENC_GetStream取得Encoded Bitstream，相关信息如下：</p>
+<ul>
+<li><p>u32PackCount</p>
+<ul>
+<li><div class="line-block">
+<div class="line">此张Frame含有多少个NAL packet，</div>
+<div class="line">例如目前压缩格式为H.264，第一张 为I frame，此值会为 3 (含SPS，PPS，1 Slice)，</div>
+<div class="line">第二张Frame为 1(含1 Slice)。</div>
+</div>
+</li>
+</ul>
+</li>
+<li><p>pstPack</p>
+<ul>
+<li><div class="line-block">
+<div class="line">根据u32PackCount的数量，会含有pstPack[0] ~ pstPack[u32PackCount - 1] 的资料。</div>
+<div class="line">如第一张I Frame，会有pstPack[0]，pstPack[1]，pstPack[2]</div>
+</div>
+</li>
+</ul>
+</li>
+<li><p>下图为第一张 I Frame的Bitstream资料</p></li>
+</ul>
+<a class="reference internal image-reference" href="../_images/设计概3009.png"><img alt="../_images/设计概3009.png" src="../_images/设计概3009.png" style="width: 5.76806in; height: 1.69306in;" /></a>
+</section>
+<section id="id7">
+<h2><span class="section-number">7.2.12. </span>多编码器并行编码<a class="headerlink" href="Design_Overview.html#id7" title="永久链接至标题">¶</a></h2>
+<p>H.264 和 H.265 支持多路编码，目前默认最多为 8 路并行编码，以下为注意事项</p>
+<ul class="simple">
+<li><p>编码整体效能需要低于硬件设计限制，超过会无法达到设定的framerate</p></li>
+<li><p>所需要的Frame Buffer会随着路数的增加成正比增加，DRAM使用量亦随之增加</p></li>
+</ul>
+</section>
+<section id="id8">
+<h2><span class="section-number">7.2.13. </span>编码帧缓存计算<a class="headerlink" href="Design_Overview.html#id8" title="永久链接至标题">¶</a></h2>
+<p>编码帧缓存（参考帧和重构帧）分配支持两种方式：PrivateVB 池方式和 UserVB 池方式。 编码 PrivateVB 池方式：创建编码通道时由 VENC 创建私有VB池作为该通道的参考帧和重构帧Buffer。编码UserVB池方式（仅 H.264/H.265
+编码支持）：创建编码通道时不分配参考帧和重构帧Buffer，而是由用户调用接口CVI_VB_CreatePool</p>
+<p>创建一个视频缓存VB池，再通过调用接口CVI_VENC_AttachVbPool把某个编码通道绑定到固定的视频缓存VB池中。两种方式可通过调用 CVI_VENC_SetModParam接口设置相应的模块参数来选择。 模块参数设置为
+VB_SOURCE_PRIVATE表示使用编码PrivateVB池方式；设置为 VB_SOURCE_USER表示使用编码UserVB池方式。</p>
+<p>UserVB模式下，编码帧消耗内存最大值参考如下</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>H.264</p></th>
+<th class="head"><p>H.265</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>FrameSize</p></td>
+<td><p>(align(width,32)) x (align(height,32)) x 1.5 x 2</p></td>
+<td><p>align((width x height x 1.5), 4096) x 2</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Function_Overview.html" class="btn btn-neutral float-left" title="7.1. 功能概述" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="API_Reference.html" class="btn btn-neutral float-right" title="7.3. API参考" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

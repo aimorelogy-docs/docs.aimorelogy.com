@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4. 智能编码设置 &mdash; SmartCodingUserGuide master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="prev" title="3. 感兴趣区域设置" href="3_Encoder_Input_Message.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> SmartCodingUserGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_GOP_Structure_and_Applicable_Scenarios.html">2. GOP结构和适用场景</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Encoder_Input_Message.html">3. 感兴趣区域设置</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="4_Encoder_Output_Message.html#">4. 智能编码设置</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="4_Encoder_Output_Message.html#id2">4.1. 智能编码接口定义</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="4_Encoder_Output_Message.html#cvi-venc-enablesvc">4.1.1. CVI_VENC_EnableSvc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Encoder_Output_Message.html#cvi-venc-setsvcparam">4.1.2. CVI_VENC_SetSvcParam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Encoder_Output_Message.html#cvi-venc-getsvcparam">4.1.3. CVI_VENC_GetSvcParam</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SmartCodingUserGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">4. </span>智能编码设置</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/4_Encoder_Output_Message.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">4. </span>智能编码设置<a class="headerlink" href="4_Encoder_Output_Message.html#id1" title="永久链接至标题">¶</a></h1>
+<p>智能编码技术是一种基于AI的视频压缩优化方案，其核心在于实现对关键目标的精准保护与码率的高效控制。该技术通过人工智能算法智能识别场景中的关键目标，
+并借助图像信号处理（ISP）技术实时分析物体运动状态及场景复杂度。基于这些分析数据，编码器可动态调整码率控制等关键参数，从而在保证重点区域画质的同时，
+显著降低整体码率，实现存储资源的高效利用。</p>
+<section id="id2">
+<h2><span class="section-number">4.1. </span>智能编码接口定义<a class="headerlink" href="4_Encoder_Output_Message.html#id2" title="永久链接至标题">¶</a></h2>
+<div class="line-block">
+<div class="line"><strong>SVC（Smart Video Code）智能编码</strong></div>
+</div>
+<section id="cvi-venc-enablesvc">
+<h3><span class="section-number">4.1.1. </span>CVI_VENC_EnableSvc<a class="headerlink" href="4_Encoder_Output_Message.html#cvi-venc-enablesvc" title="永久链接至标题">¶</a></h3>
+<blockquote>
+<div><p>【描述】</p>
+<p>是否开启H.264/H.265智能编码。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">CVI_VENC_EnableSvc</span><span class="p">(</span><span class="n">VENC_CHN</span><span class="w"> </span><span class="n">VeChn</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">enable</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VeChn</p></td>
+<td><p>VENC 通道号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>enable</p></td>
+<td><p>是否开启</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CVI_SUCCESS</p></td>
+<td><p>成功</p></td>
+</tr>
+<tr class="row-odd"><td><p>非0</p></td>
+<td><p>失败，其值为错误码</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_comm_venc.h、cvi_venc.h</p></li>
+<li><p>库文件：libvenc.a</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="cvi-venc-setsvcparam">
+<h3><span class="section-number">4.1.2. </span>CVI_VENC_SetSvcParam<a class="headerlink" href="4_Encoder_Output_Message.html#cvi-venc-setsvcparam" title="永久链接至标题">¶</a></h3>
+<blockquote>
+<div><p>【描述】</p>
+<p>设置H.264/H.265智能编码属性。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">CVI_VENC_SetSvcParam</span><span class="p">(</span><span class="n">VENC_CHN</span><span class="w"> </span><span class="n">VeChn</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">VENC_SVC_PARAM_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstSvcParam</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VeChn</p></td>
+<td><p>VENC 通道号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstSvcParam</p></td>
+<td><p>智能编码参数</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CVI_SUCCESS</p></td>
+<td><p>成功</p></td>
+</tr>
+<tr class="row-odd"><td><p>非0</p></td>
+<td><p>失败，其值为错误码</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_comm_venc.h、cvi_venc.h</p></li>
+<li><p>库文件：libvenc.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul>
+<li><p>fg_protect_en：是否启用前景增强功能。</p>
+<blockquote>
+<div><p>开启：1 禁用：0</p>
+</div></blockquote>
+</li>
+<li><p>fg_dealt_qp：当前帧级qp和运动qp的差值。</p>
+<blockquote>
+<div><p>只有正值，值越大区域保护越明显，建议值：4，取值范围[0-8]</p>
+</div></blockquote>
+</li>
+<li><p>complex_scene_detect_en：是否开启场景复杂度检测。</p>
+<blockquote>
+<div><p>开启：1 禁用：0</p>
+</div></blockquote>
+</li>
+<li><p>complex_scene_low_th：被认为是简单场景的最大阈值。</p>
+<blockquote>
+<div><p>范围[0, 512]，默认值256，根据直方图离散度统计，小于该值将被认为是简单场景，推荐值：150</p>
+</div></blockquote>
+</li>
+<li><p>complex_scene_height_th：被认为是复杂场景的最小阈值。</p>
+<blockquote>
+<div><p>范围[0, 512]，默认值318，根据直方图离散度统计，大于该值将被认为是复杂场景，推荐值：318</p>
+</div></blockquote>
+</li>
+<li><p>middle_min_percent：普通场景静态时的最小码率比例。</p>
+<blockquote>
+<div><p>范围[0，100]，默认值：50</p>
+</div></blockquote>
+</li>
+<li><p>complex_min_percent：复杂场景静态时最小码率比例。</p>
+<blockquote>
+<div><p>范围[0，100]，默认值：80</p>
+</div></blockquote>
+</li>
+<li><p>smart_ai_en：是否开启ai map。</p>
+<blockquote>
+<div><p>开启：1 禁用：0，开启后需要配置ai生成roimap使用才能生效</p>
+</div></blockquote>
+</li>
+</ul>
+<p>【举例】</p>
+<ul class="simple">
+<li><p>无</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="cvi-venc-getsvcparam">
+<h3><span class="section-number">4.1.3. </span>CVI_VENC_GetSvcParam<a class="headerlink" href="4_Encoder_Output_Message.html#cvi-venc-getsvcparam" title="永久链接至标题">¶</a></h3>
+<blockquote>
+<div><p>【描述】</p>
+<p>获取H.264/H.265通道的智能编码属性。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">CVI_VENC_GetSvcParam</span><span class="p">(</span><span class="n">VENC_CHN</span><span class="w"> </span><span class="n">VeChn</span><span class="p">,</span><span class="w"> </span><span class="n">VENC_SVC_PARAM_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstSvcParam</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VeChn</p></td>
+<td><p>VENC Channel号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstSvcParam</p></td>
+<td><p>智能编码参数</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CVI_SUCCESS</p></td>
+<td><p>成功</p></td>
+</tr>
+<tr class="row-odd"><td><p>非0</p></td>
+<td><p>失败，其值为错误码</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_comm_venc.h、cvi_venc.h</p></li>
+<li><p>库文件：libvenc.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>用户必须在编码通道创建之后，编码通道销毁之前设置调用此接口</p></li>
+<li><p>建议用户在调用CVI_VENC_SetSvcParam接口之前，先调用此接口，获取当前通道的参数配置后再进行设置</p></li>
+</ul>
+<p>【举例】</p>
+<ul class="simple">
+<li><p>无</p></li>
+</ul>
+</div></blockquote>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="3_Encoder_Input_Message.html" class="btn btn-neutral float-left" title="3. 感兴趣区域设置" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

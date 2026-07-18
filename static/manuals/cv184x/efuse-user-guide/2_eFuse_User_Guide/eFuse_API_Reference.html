@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2.4. eFuse API参考 &mdash; eFuseUserGuide master 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="../_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/qrious.js"></script>
+    <script src="../_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="2.5. 数据类型" href="Data_Types.html" />
+    <link rel="prev" title="2.3. eFuse u-boot命令参考" href="eFuse_U-boot_Command_Reference.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> eFuseUserGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../2_eFuse_User_Guide.html">2. eFuse使用指南</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="eFuse_Overview.html">2.1. eFuse概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Secure_Boot_eFuse_Setup_Process.html">2.2. 安全启动eFuse设置流程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eFuse_U-boot_Command_Reference.html">2.3. eFuse u-boot命令参考</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="eFuse_API_Reference.html#">2.4. eFuse API参考</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="eFuse_API_Reference.html#cvi-efuse-getsize">2.4.1. CVI_EFUSE_GetSize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="eFuse_API_Reference.html#cvi-efuse-read">2.4.2. CVI_EFUSE_Read</a></li>
+<li class="toctree-l3"><a class="reference internal" href="eFuse_API_Reference.html#cvi-efuse-write">2.4.3. CVI_EFUSE_Write</a></li>
+<li class="toctree-l3"><a class="reference internal" href="eFuse_API_Reference.html#cvi-efuse-enablesecureboot">2.4.4. CVI_EFUSE_EnableSecureBoot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="eFuse_API_Reference.html#cvi-efuse-issecurebootenabled">2.4.5. CVI_EFUSE_IsSecureBootEnabled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="eFuse_API_Reference.html#cvi-efuse-enablefastboot">2.4.6. CVI_EFUSE_EnableFastBoot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="eFuse_API_Reference.html#cvi-efuse-isfastbootenabled">2.4.7. CVI_EFUSE_IsFastBootEnabled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="eFuse_API_Reference.html#cvi-efuse-lock">2.4.8. CVI_EFUSE_Lock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="eFuse_API_Reference.html#cvi-efuse-islocked">2.4.9. CVI_EFUSE_IsLocked</a></li>
+<li class="toctree-l3"><a class="reference internal" href="eFuse_API_Reference.html#cvi-efuse-lockwrite">2.4.10. CVI_EFUSE_LockWrite</a></li>
+<li class="toctree-l3"><a class="reference internal" href="eFuse_API_Reference.html#cvi-efuse-iswritelocked">2.4.11. CVI_EFUSE_IsWriteLocked</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Data_Types.html">2.5. 数据类型</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">eFuseUserGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../2_eFuse_User_Guide.html"><span class="section-number">2. </span>eFuse使用指南</a> &raquo;</li>
+      <li><span class="section-number">2.4. </span>eFuse API参考</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="../_sources/2_eFuse_User_Guide/eFuse_API_Reference.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="efuse-api">
+<h1><span class="section-number">2.4. </span>eFuse API参考<a class="headerlink" href="eFuse_API_Reference.html#efuse-api" title="永久链接至标题">¶</a></h1>
+<p>eFuse API位于EFUSE 模块，提供以下 API:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="eFuse_API_Reference.html#cvi-efuse-getsize">CVI_EFUSE_GetSize</a>: 查询eFuse区域大小。</p></li>
+<li><p><a class="reference internal" href="eFuse_API_Reference.html#cvi-efuse-read">CVI_EFUSE_Read</a>: 读取eFuse区域。</p></li>
+<li><p><a class="reference internal" href="eFuse_API_Reference.html#cvi-efuse-write">CVI_EFUSE_Write</a>:写入eFuse区域。</p></li>
+<li><p><a class="reference internal" href="eFuse_API_Reference.html#cvi-efuse-enablesecureboot">CVI_EFUSE_EnableSecureBoot</a>: 使能安全启动。</p></li>
+<li><p><a class="reference internal" href="eFuse_API_Reference.html#cvi-efuse-issecurebootenabled">CVI_EFUSE_IsSecureBootEnabled</a>: 查询安全启动状态。</p></li>
+<li><p><a class="reference internal" href="eFuse_API_Reference.html#cvi-efuse-enablefastboot">CVI_EFUSE_EnableFastBoot</a>: 使能快速启动。</p></li>
+<li><p><a class="reference internal" href="eFuse_API_Reference.html#cvi-efuse-isfastbootenabled">CVI_EFUSE_IsFastBootEnabled</a>: 查询快速启动状态。</p></li>
+<li><p><a class="reference internal" href="eFuse_API_Reference.html#cvi-efuse-lock">CVI_EFUSE_Lock</a>: 锁定eFuse区域。</p></li>
+<li><p><a class="reference internal" href="eFuse_API_Reference.html#cvi-efuse-islocked">CVI_EFUSE_IsLocked</a>: 查询eFuse区域是否被锁定。</p></li>
+<li><p><a class="reference internal" href="eFuse_API_Reference.html#cvi-efuse-lockwrite">CVI_EFUSE_LockWrite</a>: 锁定eFuse区域写。</p></li>
+<li><p><a class="reference internal" href="eFuse_API_Reference.html#cvi-efuse-iswritelocked">CVI_EFUSE_IsWriteLocked</a>: 查询eFuse区域写是否被锁定。</p></li>
+</ul>
+<section id="cvi-efuse-getsize">
+<h2><span class="section-number">2.4.1. </span>CVI_EFUSE_GetSize<a class="headerlink" href="eFuse_API_Reference.html#cvi-efuse-getsize" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>查询eFuse区域大小。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_EFUSE_GetSize</span><span class="p">(</span><span class="n">CVI_EFUSE_AREA_E</span><span class="w"> </span><span class="n">area</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_U32</span><span class="w"> </span><span class="o">*</span><span class="n">size</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>area</p></td>
+<td><p>指定eFuse区域</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>size</p></td>
+<td><p>eFuse区域大小 (单位：字节)</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>&gt;= 0</p></td>
+<td><p>成功</p></td>
+</tr>
+<tr class="row-odd"><td><p>&lt; 0</p></td>
+<td><p>参考错误码</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_type.h cvi_efuse.h</p></li>
+<li><p>库文件：libefuse.a</p></li>
+</ul>
+<p>【注意】</p>
+<blockquote>
+<div><p>无。</p>
+</div></blockquote>
+<p>【举例】</p>
+<blockquote>
+<div><p>参考 <code class="docutils literal notranslate"><span class="pre">sample_efuse.c</span></code> 。</p>
+</div></blockquote>
+</section>
+<section id="cvi-efuse-read">
+<h2><span class="section-number">2.4.2. </span>CVI_EFUSE_Read<a class="headerlink" href="eFuse_API_Reference.html#cvi-efuse-read" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>读取eFuse区域。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_EFUSE_Read</span><span class="p">(</span><span class="n">CVI_EFUSE_AREA_E</span><span class="w"> </span><span class="n">area</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_U8</span><span class="w"> </span><span class="o">*</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">buf_size</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>area</p></td>
+<td><p>指定eFuse区域</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>buf</p></td>
+<td><p>用于存放eFuse数据</p></td>
+<td><p>输出</p></td>
+</tr>
+<tr class="row-even"><td><p>buf_size</p></td>
+<td><p>数据的长度（单位：字节）</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>&gt;= 0</p></td>
+<td><p>成功</p></td>
+</tr>
+<tr class="row-odd"><td><p>&lt; 0</p></td>
+<td><p>参考错误码</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_type.h cvi_efuse.h</p></li>
+<li><p>库文件：libefuse.a</p></li>
+</ul>
+<p>【注意】</p>
+<blockquote>
+<div><p>无。</p>
+</div></blockquote>
+<p>【举例】</p>
+<blockquote>
+<div><p>参考 <code class="docutils literal notranslate"><span class="pre">sample_efuse.c</span></code> 。</p>
+</div></blockquote>
+</section>
+<section id="cvi-efuse-write">
+<h2><span class="section-number">2.4.3. </span>CVI_EFUSE_Write<a class="headerlink" href="eFuse_API_Reference.html#cvi-efuse-write" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>写入eFuse区域。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_EFUSE_Write</span><span class="p">(</span><span class="n">CVI_EFUSE_AREA_E</span><span class="w"> </span><span class="n">area</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">CVI_U8</span><span class="w"> </span><span class="o">*</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">buf_size</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>area</p></td>
+<td><p>指定eFuse区域</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>buf</p></td>
+<td><p>用于写入eFuse数据</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>buf_size</p></td>
+<td><p>数据的长度（单位：字节）</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>&gt;= 0</p></td>
+<td><p>成功</p></td>
+</tr>
+<tr class="row-odd"><td><p>&lt; 0</p></td>
+<td><p>参考错误码</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_type.h cvi_efuse.h</p></li>
+<li><p>库文件：libefuse.a</p></li>
+</ul>
+<p>【注意】</p>
+<blockquote>
+<div><p>无。</p>
+</div></blockquote>
+<p>【举例】</p>
+<blockquote>
+<div><p>参考 <code class="docutils literal notranslate"><span class="pre">sample_efuse.c</span></code> 。</p>
+</div></blockquote>
+</section>
+<section id="cvi-efuse-enablesecureboot">
+<h2><span class="section-number">2.4.4. </span>CVI_EFUSE_EnableSecureBoot<a class="headerlink" href="eFuse_API_Reference.html#cvi-efuse-enablesecureboot" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>使能安全启动。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_EFUSE_EnableSecureBoot</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<blockquote>
+<div><p>无。</p>
+</div></blockquote>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>&gt;= 0</p></td>
+<td><p>安全启动已使能</p></td>
+</tr>
+<tr class="row-odd"><td><p>&lt; 0</p></td>
+<td><p>参考错误码</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_type.h cvi_efuse.h</p></li>
+<li><p>库文件：libefuse.a</p></li>
+</ul>
+<p>【注意】</p>
+<blockquote>
+<div><p>无。</p>
+</div></blockquote>
+<p>【举例】</p>
+<blockquote>
+<div><p>参考 <code class="docutils literal notranslate"><span class="pre">sample_efuse.c</span></code> 。</p>
+</div></blockquote>
+</section>
+<section id="cvi-efuse-issecurebootenabled">
+<h2><span class="section-number">2.4.5. </span>CVI_EFUSE_IsSecureBootEnabled<a class="headerlink" href="eFuse_API_Reference.html#cvi-efuse-issecurebootenabled" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>判断安全启动是否已使能。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_EFUSE_IsSecureBootEnabled</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<blockquote>
+<div><p>无。</p>
+</div></blockquote>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>&gt; 0</p></td>
+<td><p>安全启动已使能</p></td>
+</tr>
+<tr class="row-odd"><td><p>0</p></td>
+<td><p>安全启动尚未使能</p></td>
+</tr>
+<tr class="row-even"><td><p>&lt; 0</p></td>
+<td><p>参考错误码</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_type.h cvi_efuse.h</p></li>
+<li><p>库文件：libefuse.a</p></li>
+</ul>
+<p>【注意】</p>
+<blockquote>
+<div><p>无。</p>
+</div></blockquote>
+<p>【举例】</p>
+<blockquote>
+<div><p>参考 <code class="docutils literal notranslate"><span class="pre">sample_efuse.c</span></code> 。</p>
+</div></blockquote>
+</section>
+<section id="cvi-efuse-enablefastboot">
+<h2><span class="section-number">2.4.6. </span>CVI_EFUSE_EnableFastBoot<a class="headerlink" href="eFuse_API_Reference.html#cvi-efuse-enablefastboot" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>使能快速启动。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_EFUSE_EnableFastBoot</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<blockquote>
+<div><p>无。</p>
+</div></blockquote>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>快速启动已使能</p></td>
+</tr>
+<tr class="row-odd"><td><p>&lt; 0</p></td>
+<td><p>参考错误码</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_type.h cvi_efuse.h</p></li>
+<li><p>库文件：libefuse.a</p></li>
+</ul>
+<p>【注意】</p>
+<blockquote>
+<div><p>无。</p>
+</div></blockquote>
+<p>【举例】</p>
+<blockquote>
+<div><p>参考 <code class="docutils literal notranslate"><span class="pre">sample_fastboot.c</span></code> 。</p>
+</div></blockquote>
+<div class="admonition attention">
+<p class="admonition-title">注意</p>
+<p>快速启动使能后无法再变更</p>
+</div>
+</section>
+<section id="cvi-efuse-isfastbootenabled">
+<h2><span class="section-number">2.4.7. </span>CVI_EFUSE_IsFastBootEnabled<a class="headerlink" href="eFuse_API_Reference.html#cvi-efuse-isfastbootenabled" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>判断快速启动是否已使能。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_EFUSE_IsFastBootEnabled</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<blockquote>
+<div><p>无。</p>
+</div></blockquote>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>快速启动已使能</p></td>
+</tr>
+<tr class="row-odd"><td><p>&lt; 0</p></td>
+<td><p>快速启动尚未使能</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_type.h cvi_efuse.h</p></li>
+<li><p>库文件：libefuse.a</p></li>
+</ul>
+<p>【注意】</p>
+<blockquote>
+<div><p>无。</p>
+</div></blockquote>
+<p>【举例】</p>
+<blockquote>
+<div><p>参考 <code class="docutils literal notranslate"><span class="pre">sample_efuse.c</span></code> 。</p>
+</div></blockquote>
+</section>
+<section id="cvi-efuse-lock">
+<h2><span class="section-number">2.4.8. </span>CVI_EFUSE_Lock<a class="headerlink" href="eFuse_API_Reference.html#cvi-efuse-lock" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>锁定eFuse区域。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_EFUSE_Lock</span><span class="p">(</span><span class="n">CVI_EFUSE_LOCK_E</span><span class="w"> </span><span class="n">lock</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>area</p></td>
+<td><p>指定要锁定的eFuse区域</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>&gt;= 0</p></td>
+<td><p>指定的eFuse分区已锁定</p></td>
+</tr>
+<tr class="row-odd"><td><p>&lt; 0</p></td>
+<td><p>参考错误码</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_type.h cvi_efuse.h</p></li>
+<li><p>库文件：libefuse.a</p></li>
+</ul>
+<p>【注意】</p>
+<blockquote>
+<div><p>无。</p>
+</div></blockquote>
+<p>【举例】</p>
+<blockquote>
+<div><p>参考 <code class="docutils literal notranslate"><span class="pre">sample_efuse.c</span></code> 。</p>
+</div></blockquote>
+</section>
+<section id="cvi-efuse-islocked">
+<h2><span class="section-number">2.4.9. </span>CVI_EFUSE_IsLocked<a class="headerlink" href="eFuse_API_Reference.html#cvi-efuse-islocked" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>查询eFuse区域是否被锁定。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_EFUSE_IsLocked</span><span class="p">(</span><span class="n">CVI_EFUSE_LOCK_E</span><span class="w"> </span><span class="n">lock</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>area</p></td>
+<td><p>指定要锁定的eFuse区域</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>&gt; 0</p></td>
+<td><p>指定的eFuse分区已锁定</p></td>
+</tr>
+<tr class="row-odd"><td><p>0</p></td>
+<td><p>指定的eFuse分区尚未锁定</p></td>
+</tr>
+<tr class="row-even"><td><p>&lt; 0</p></td>
+<td><p>参考错误码</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_type.h cvi_efuse.h</p></li>
+<li><p>库文件：libefuse.a</p></li>
+</ul>
+<p>【注意】</p>
+<blockquote>
+<div><p>无。</p>
+</div></blockquote>
+<p>【举例】</p>
+<blockquote>
+<div><p>参考 <code class="docutils literal notranslate"><span class="pre">sample_efuse.c</span></code> 。</p>
+</div></blockquote>
+</section>
+<section id="cvi-efuse-lockwrite">
+<h2><span class="section-number">2.4.10. </span>CVI_EFUSE_LockWrite<a class="headerlink" href="eFuse_API_Reference.html#cvi-efuse-lockwrite" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>锁定eFuse区域写。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_EFUSE_LockWrite</span><span class="p">(</span><span class="n">CVI_EFUSE_LOCK_E</span><span class="w"> </span><span class="n">lock</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>area</p></td>
+<td><p>指定要锁定写的eFuse区域</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>&gt;= 0</p></td>
+<td><p>指定的eFuse分区写已锁定</p></td>
+</tr>
+<tr class="row-odd"><td><p>&lt; 0</p></td>
+<td><p>参考错误码</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_type.h cvi_efuse.h</p></li>
+<li><p>库文件：libefuse.a</p></li>
+</ul>
+<p>【注意】</p>
+<blockquote>
+<div><p>无。</p>
+</div></blockquote>
+<p>【举例】</p>
+<blockquote>
+<div><p>参考 <code class="docutils literal notranslate"><span class="pre">sample_efuse.c</span></code> 。</p>
+</div></blockquote>
+</section>
+<section id="cvi-efuse-iswritelocked">
+<h2><span class="section-number">2.4.11. </span>CVI_EFUSE_IsWriteLocked<a class="headerlink" href="eFuse_API_Reference.html#cvi-efuse-iswritelocked" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>查询eFuse区域写是否被锁定。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_EFUSE_IsWriteLocked</span><span class="p">(</span><span class="n">CVI_EFUSE_LOCK_E</span><span class="w"> </span><span class="n">lock</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>area</p></td>
+<td><p>指定要锁定写的eFuse区域</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>&gt; 0</p></td>
+<td><p>指定的eFuse分区已锁定写</p></td>
+</tr>
+<tr class="row-odd"><td><p>0</p></td>
+<td><p>指定的eFuse分区尚未锁定写</p></td>
+</tr>
+<tr class="row-even"><td><p>&lt; 0</p></td>
+<td><p>参考错误码</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_type.h cvi_efuse.h</p></li>
+<li><p>库文件：libefuse.a</p></li>
+</ul>
+<p>【注意】</p>
+<blockquote>
+<div><p>无。</p>
+</div></blockquote>
+<p>【举例】</p>
+<blockquote>
+<div><p>参考 <code class="docutils literal notranslate"><span class="pre">sample_efuse.c</span></code> 。</p>
+</div></blockquote>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="eFuse_U-boot_Command_Reference.html" class="btn btn-neutral float-left" title="2.3. eFuse u-boot命令参考" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Data_Types.html" class="btn btn-neutral float-right" title="2.5. 数据类型" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>6. 视频处理子系统 &mdash; MediaProcessingSoftwareDevelopmentReference master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="6.1. 功能概述" href="6_Video_Processing_Subsystem/Function_Overview.html" />
+    <link rel="prev" title="5.5. 错误码" href="5_Video_Output/Error_Codes.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> MediaProcessingSoftwareDevelopmentReference
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_System_Overview.html">2. 系统概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_System_Control.html">3. 系统控制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_Video_Input.html">4. 视频输入</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_Video_Output.html">5. 视频输出</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="6_Video_Processing_Subsystem.html#">6. 视频处理子系统</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Function_Overview.html">6.1. 功能概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Design_Overview.html">6.2. 设计概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html">6.3. API参考</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html">6.4. 数据类型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Error_Codes.html">6.5. 错误码</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="7_Video_Encoding.html">7. 视频编码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_Video_Decoding.html">8. 视频解码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_Regional_Management.html">9. 区域管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_Audio_Frequency.html">10. 音频</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem.html">11. 几何畸变矫正子系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_Proc_Debugging_Information_Explanation.html">12. Proc 调试信息说明</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MediaProcessingSoftwareDevelopmentReference</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">6. </span>视频处理子系统</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/6_Video_Processing_Subsystem.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">6. </span>视频处理子系统<a class="headerlink" href="6_Video_Processing_Subsystem.html#id1" title="永久链接至标题">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="6_Video_Processing_Subsystem/Function_Overview.html">6.1. 功能概述</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Function_Overview.html#id2">6.1.1. 目的</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Function_Overview.html#id3">6.1.2. 定义及缩写</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="6_Video_Processing_Subsystem/Design_Overview.html">6.2. 设计概述</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Design_Overview.html#id2">6.2.1. 系统架构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Design_Overview.html#id3">6.2.2. 注意事项</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html">6.3. API参考</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-setmode">6.3.1. CVI_VPSS_SetMode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-getmode">6.3.2. CVI_VPSS_GetMode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-creategrp">6.3.3. CVI_VPSS_CreateGrp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-destroygrp">6.3.4. CVI_VPSS_DestroyGrp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-getavailablegrp">6.3.5. CVI_VPSS_GetAvailableGrp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-getgrpattr">6.3.6. CVI_VPSS_GetGrpAttr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-setgrpattr">6.3.7. CVI_VPSS_SetGrpAttr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-startgrp">6.3.8. CVI_VPSS_StartGrp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-stopgrp">6.3.9. CVI_VPSS_StopGrp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-resetgrp">6.3.10. CVI_VPSS_ResetGrp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-getgrpprocampctrl">6.3.11. CVI_VPSS_GetGrpProcAmpCtrl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-getgrpprocamp">6.3.12. CVI_VPSS_GetGrpProcAmp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-setgrpprocamp">6.3.13. CVI_VPSS_SetGrpProcAmp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-getallprocamp">6.3.14. CVI_VPSS_GetAllProcAmp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-setgrpparamfrombin">6.3.15. CVI_VPSS_SetGrpParamfromBin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-getbinscene">6.3.16. CVI_VPSS_GetBinScene</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-getchnattr">6.3.17. CVI_VPSS_GetChnAttr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-setchnattr">6.3.18. CVI_VPSS_SetChnAttr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-enablechn">6.3.19. CVI_VPSS_EnableChn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-disablechn">6.3.20. CVI_VPSS_DisableChn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-setgrpcrop">6.3.21. CVI_VPSS_SetGrpCrop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-getgrpcrop">6.3.22. CVI_VPSS_GetGrpCrop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-sendframe">6.3.23. CVI_VPSS_SendFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-getchnframe">6.3.24. CVI_VPSS_GetChnFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-sendchnframe">6.3.25. CVI_VPSS_SendChnFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-releasechnframe">6.3.26. CVI_VPSS_ReleaseChnFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-setchncrop">6.3.27. CVI_VPSS_SetChnCrop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-getchncrop">6.3.28. CVI_VPSS_GetChnCrop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-setchnrotation">6.3.29. CVI_VPSS_SetChnRotation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-getchnrotation">6.3.30. CVI_VPSS_GetChnRotation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-setchnldcattr">6.3.31. CVI_VPSS_SetChnLDCAttr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-getchnldcattr">6.3.32. CVI_VPSS_GetChnLDCAttr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-getchnfd">6.3.33. CVI_VPSS_GetChnFd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-closefd">6.3.34. CVI_VPSS_CloseFd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-attachvbpool">6.3.35. CVI_VPSS_AttachVbPool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-detachvbpool">6.3.36. CVI_VPSS_DetachVbPool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-setchnalign">6.3.37. CVI_VPSS_SetChnAlign</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-getchnalign">6.3.38. CVI_VPSS_GetChnAlign</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-setchnyratio">6.3.39. CVI_VPSS_SetChnYRatio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-getchnyratio">6.3.40. CVI_VPSS_GetChnYRatio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-setchnscalecoeflevel">6.3.41. CVI_VPSS_SetChnScaleCoefLevel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-getchnscalecoeflevel">6.3.42. CVI_VPSS_GetChnScaleCoefLevel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-setchndrawrect">6.3.43. CVI_VPSS_SetChnDrawRect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-getchndrawrect">6.3.44. CVI_VPSS_GetChnDrawRect</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-setchnconvert">6.3.45. CVI_VPSS_SetChnConvert</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-getchnconvert">6.3.46. CVI_VPSS_GetChnConvert</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-setchnbufwrapattr">6.3.47. CVI_VPSS_SetChnBufWrapAttr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-getchnbufwrapattr">6.3.48. CVI_VPSS_GetChnBufWrapAttr</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-getwrapbuffersize">6.3.49. CVI_VPSS_GetWrapBufferSize</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-showchn">6.3.50. CVI_VPSS_ShowChn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-hidechn">6.3.51. CVI_VPSS_HideChn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-suspend">6.3.52. CVI_VPSS_Suspend</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-resume">6.3.53. CVI_VPSS_Resume</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html">6.4. 数据类型</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-device-num">6.4.1. VPSS_DEVICE_NUM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-ip-num">6.4.2. VPSS_IP_NUM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-max-grp-num">6.4.3. VPSS_MAX_GRP_NUM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-online-num">6.4.4. VPSS_ONLINE_NUM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-max-chn-num">6.4.5. VPSS_MAX_CHN_NUM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-max-phy-chn-num">6.4.6. VPSS_MAX_PHY_CHN_NUM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-min-image-width">6.4.7. VPSS_MIN_IMAGE_WIDTH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-min-image-height">6.4.8. VPSS_MIN_IMAGE_HEIGHT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-max-image-width">6.4.9. VPSS_MAX_IMAGE_WIDTH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-max-image-height">6.4.10. VPSS_MAX_IMAGE_HEIGHT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss0-hw-limit-width">6.4.11. VPSS0_HW_LIMIT_WIDTH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss1-hw-limit-width">6.4.12. VPSS1_HW_LIMIT_WIDTH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss2-hw-limit-width">6.4.13. VPSS2_HW_LIMIT_WIDTH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss3-hw-limit-width">6.4.14. VPSS3_HW_LIMIT_WIDTH</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-max-zoomin">6.4.15. VPSS_MAX_ZOOMIN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-max-zoomout">6.4.16. VPSS_MAX_ZOOMOUT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-rect-num">6.4.17. VPSS_RECT_NUM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-chn0">6.4.18. VPSS_CHN0</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-chn1">6.4.19. VPSS_CHN1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-chn2">6.4.20. VPSS_CHN2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-chn3">6.4.21. VPSS_CHN3</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-invalid-chn">6.4.22. VPSS_INVALID_CHN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-invalid-grp">6.4.23. VPSS_INVALID_GRP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-grp">6.4.24. VPSS_GRP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-chn">6.4.25. VPSS_CHN</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-mode-e">6.4.26. VPSS_MODE_E</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-input-e">6.4.27. VPSS_INPUT_E</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-mode-s">6.4.28. VPSS_MODE_S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-rounding-e">6.4.29. VPSS_ROUNDING_E</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-crop-coordinate-e">6.4.30. VPSS_CROP_COORDINATE_E</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-normalize-s">6.4.31. VPSS_NORMALIZE_S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-crop-info-s">6.4.32. VPSS_CROP_INFO_S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-grp-attr-s">6.4.33. VPSS_GRP_ATTR_S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-chn-attr-s">6.4.34. VPSS_CHN_ATTR_S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-mod-param-s">6.4.35. VPSS_MOD_PARAM_S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#proc-amp-e">6.4.36. PROC_AMP_E</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#proc-amp-ctrl-s">6.4.37. PROC_AMP_CTRL_S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-proc-amp-cfg">6.4.38. vpss_proc_amp_cfg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-all-proc-amp-s">6.4.39. VPSS_ALL_PROC_AMP_S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-ldc-attr-s">6.4.40. VPSS_LDC_ATTR_S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-chn-buf-wrap-s">6.4.41. VPSS_CHN_BUF_WRAP_S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-scale-coef-e">6.4.42. VPSS_SCALE_COEF_E</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-rect-s">6.4.43. VPSS_RECT_S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-draw-rect-s">6.4.44. VPSS_DRAW_RECT_S</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-convert-s">6.4.45. VPSS_CONVERT_S</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="6_Video_Processing_Subsystem/Error_Codes.html">6.5. 错误码</a></li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="5_Video_Output/Error_Codes.html" class="btn btn-neutral float-left" title="5.5. 错误码" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="6_Video_Processing_Subsystem/Function_Overview.html" class="btn btn-neutral float-right" title="6.1. 功能概述" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

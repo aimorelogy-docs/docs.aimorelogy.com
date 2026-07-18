@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>8. DATA 分区（userdata）签名与验签 &mdash; SecureBootUserGuide master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="prev" title="7. SquashFS RootFS 签名与内核验签" href="7_RootFS_Signature.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> SecureBootUserGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Secure_Boot_Introduction.html">2. 安全启动介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Secure_Image_Generation.html">3. 安全镜像生成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_eFuse_Burning.html">4. eFuse 烧写</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_FIP_Secure_Boot.html">5. FIP 签名与加密及 eFuse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_FIT_Image_Secure_Boot.html">6. FIT 镜像安全启动</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_RootFS_Signature.html">7. SquashFS RootFS 签名与内核验签</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="8_DATA_Partition_Signature.html#">8. DATA 分区（userdata）签名与验签</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="8_DATA_Partition_Signature.html#id1">8.1. 概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="8_DATA_Partition_Signature.html#id2">8.2. 使用与验证方式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="8_DATA_Partition_Signature.html#id3">8.3. 相关文件一览</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SecureBootUserGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">8. </span>DATA 分区（userdata）签名与验签</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/8_DATA_Partition_Signature.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="data-userdata">
+<h1><span class="section-number">8. </span>DATA 分区（userdata）签名与验签<a class="headerlink" href="8_DATA_Partition_Signature.html#data-userdata" title="永久链接至标题">¶</a></h1>
+<section id="id1">
+<h2><span class="section-number">8.1. </span>概述<a class="headerlink" href="8_DATA_Partition_Signature.html#id1" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><strong>目的</strong>：DATA 分区（JFFS2）在烧录前做 <strong>SHA256 + RSA 签名</strong>，设备启动挂载前先 <strong>验签</strong>；通过则挂载 JFFS2，失败或未签名则挂载 tmpfs，避免使用被篡改或未授权数据。</p></li>
+<li><p><strong>算法</strong>：对 payload 做 SHA256，再对 32 字节哈希做 PKCS#1 v1.5 裸 RSA 签名（2048-bit）；验签使用公钥的模数 N 与指数 e，与签名私钥成对。</p></li>
+<li><p><strong>密钥</strong>：签名使用 <code class="docutils literal notranslate"><span class="pre">ramdisk/keys/test_reeos.key</span></code>；验签公钥由 <code class="docutils literal notranslate"><span class="pre">gen_data_sig_pubkey_h.py</span></code> 从该私钥（或对应证书）提取并生成 C 头文件；设备端无 OpenSSL，使用 mbedTLS 做 RSA 验签。</p></li>
+</ul>
+</section>
+<section id="id2">
+<h2><span class="section-number">8.2. </span>使用与验证方式<a class="headerlink" href="8_DATA_Partition_Signature.html#id2" title="永久链接至标题">¶</a></h2>
+<ol class="arabic simple">
+<li><p>menuconfig-&gt;Kernel options-&gt;Enable kernel secure boot。</p></li>
+<li><p>执行 <strong>build_all</strong>，或按需 <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">data</span></code>、<code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">rootfs</span></code>：前者生成并签名 <strong>data.spinor</strong>，后者将 <code class="docutils literal notranslate"><span class="pre">verify_data_sig</span></code> 等装入 rootfs。</p></li>
+<li><p>烧录时将 <code class="docutils literal notranslate"><span class="pre">install/.../data.spinor</span></code> 整文件写入 DATA（userdata）分区起始位置；镜像路径随板型变化，具体分区名与烧录工具以板级为准。</p></li>
+<li><p>设备启动后，对 DATA 分区执行 <code class="docutils literal notranslate"><span class="pre">verify_data_sig</span></code>，验签通过则挂载 JFFS2，失败或未签名则挂载 tmpfs。</p></li>
+<li><p>在设备上执行 <code class="docutils literal notranslate"><span class="pre">mount</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">/mnt/data</span></code> ，若输出中出现 jffs2，即表示 DATA 验签成功并已挂载 JFFS2；若为 tmpfs，则表示验签未通过或未签名。</p></li>
+</ol>
+</section>
+<section id="id3">
+<h2><span class="section-number">8.3. </span>相关文件一览<a class="headerlink" href="8_DATA_Partition_Signature.html#id3" title="永久链接至标题">¶</a></h2>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 39%" />
+<col style="width: 61%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>文件</p></th>
+<th class="head"><p>作用</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">build/scripts/append_image_sig.py</span></code></p></td>
+<td><p>对 data 镜像做 SHA256 + RSA 签名并追加 trailer</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">build/scripts/gen_data_sig_pubkey_h.py</span></code></p></td>
+<td><p>从密钥或证书生成 <code class="docutils literal notranslate"><span class="pre">verify_data_sig_key.h</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">build/scripts/verify_data_sig.c</span></code></p></td>
+<td><p>设备端与本机验签程序（mbedTLS）</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">build/scripts/verify_data_sig_key.h</span></code></p></td>
+<td><p>公钥 N/e（由 gen_data_sig_pubkey_h.py 生成）</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">build/tools/common/image_tool/mkjffs2.py</span></code></p></td>
+<td><p>制作 JFFS2 <strong>data.spinor</strong> 并预留 trailer 空间</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">build/tools/common/image_tool/create_automount.py</span></code></p></td>
+<td><p>生成挂载脚本（含 DATA 验签分支）</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">build/Makefile</span></code></p></td>
+<td><p>编译 <code class="docutils literal notranslate"><span class="pre">verify_data_sig</span></code> / <code class="docutils literal notranslate"><span class="pre">verify_data_sig_host</span></code>，构建 host/ARM 用 mbedTLS</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="7_RootFS_Signature.html" class="btn btn-neutral float-left" title="7. SquashFS RootFS 签名与内核验签" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

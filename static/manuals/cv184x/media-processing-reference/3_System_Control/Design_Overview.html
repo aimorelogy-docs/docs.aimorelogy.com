@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3.2. 设计概述 &mdash; MediaProcessingSoftwareDevelopmentReference master 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="../_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/qrious.js"></script>
+    <script src="../_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="3.3. API参考" href="API_Reference.html" />
+    <link rel="prev" title="3.1. 功能概述" href="Function_Overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> MediaProcessingSoftwareDevelopmentReference
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_System_Overview.html">2. 系统概述</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../3_System_Control.html">3. 系统控制</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Function_Overview.html">3.1. 功能概述</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="Design_Overview.html#">3.2. 设计概述</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Design_Overview.html#id2">3.2.1. 视频内存区块池</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Design_Overview.html#id5">3.2.2. 系统绑定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Design_Overview.html#vivpss">3.2.3. VI和VPSS的工作模式</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Design_Overview.html#vpss">3.2.4. VPSS的工作模式</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Design_Overview.html#video-pipelinealignment">3.2.5. Video Pipeline的Alignment需求</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Design_Overview.html#id8">3.2.6. 双系统消息通信</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="API_Reference.html">3.3. API参考</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Data_Types.html">3.4. 数据类型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Error_Codes.html">3.5. 错误码</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../4_Video_Input.html">4. 视频输入</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5_Video_Output.html">5. 视频输出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6_Video_Processing_Subsystem.html">6. 视频处理子系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7_Video_Encoding.html">7. 视频编码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../8_Video_Decoding.html">8. 视频解码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../9_Regional_Management.html">9. 区域管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10_Audio_Frequency.html">10. 音频</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../11_Geometric_Distortion_Correction_Subsystem.html">11. 几何畸变矫正子系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../12_Proc_Debugging_Information_Explanation.html">12. Proc 调试信息说明</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MediaProcessingSoftwareDevelopmentReference</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../3_System_Control.html"><span class="section-number">3. </span>系统控制</a> &raquo;</li>
+      <li><span class="section-number">3.2. </span>设计概述</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="../_sources/3_System_Control/Design_Overview.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">3.2. </span>设计概述<a class="headerlink" href="Design_Overview.html#id1" title="永久链接至标题">¶</a></h1>
+<section id="id2">
+<span id="id3"></span><h2><span class="section-number">3.2.1. </span>视频内存区块池<a class="headerlink" href="Design_Overview.html#id2" title="永久链接至标题">¶</a></h2>
+<p>视频内存区块池主要向各模块(VI/VPSS/VO/VDEC/VENC/GDC…)提供大块物理内存管理功能，
+负责内存的取得、分配和回收，让物理内存资源在各个媒体处理模块中分享使用，
+并免除不必要的复制动作。</p>
+<p>多组大小相同、物理地址连续的区块组成一个视频区块池。
+必须在系统初始化之前配置公共视频区块池。
+根据所需功能的不同，公共区块池的数量、区块的大小和数量应对应有所增减。</p>
+<hr class="docutils" />
+<p>视频区块池所需的数量，所需考虑的点如下：</p>
+<ol class="arabic simple">
+<li><p>每多一个channel就需要增加两个(ping-pong buffer)。</p></li>
+<li><p>VO为条件一的例外，是根据DisplayBufLen来决定，最小为3。</p></li>
+<li><p>若channel的u32Depth不为0，则需要增加u32Depth的数量。</p></li>
+<li><p>每增加一个GDC的功能(lens distortion, rotation, etc)，就需要加一个。</p></li>
+</ol>
+<p>在内存空间足够的情况下，可以取最大的空间来建立一个公共视频区块池即可；若是要精简内存的使用量，建议使用多个不同大小的公共视频区块池。</p>
+<hr class="docutils" />
+<p>所有的视频处理通道都可以从公共视频区块池中获取视频区块用于保存采集的图像，
+如 <a class="reference internal" href="Design_Overview.html#id4"><span class="std std-ref">图</span></a> 和 <a class="reference internal" href="Design_Overview.html#cvi-buffer-h"><span class="std std-ref">表</span></a> 中。</p>
+<ol class="arabic simple">
+<li><p>VI 先从公共视频区块池 A 中获取视频区块 Ai用以存放从Sensor所接收下来的视频数据。</p></li>
+<li><p>当VI完成撷取，区块Ai 经 VI发送给 VPSS，VPSS 通道 0跟1同样从公共视频区块池 A 中获取视频区块Aj、Ak。</p></li>
+<li><p>当VPSS完成工作后，输入区块 Ai被释放回公共视频区块池，Aj作为输出图像区块 buffer 发送给 VENC，Ak 作为 输出图像区块 buffer 发送给 VO。</p></li>
+<li><p>Aj 经 VENC 编码完之后释放回公共视频区块池， Ak 经 VO 显示完之后释放回公共视频区块池 。</p></li>
+</ol>
+<figure class="align-center" id="id9">
+<span id="id4"></span><img alt="../_images/公共视频区块池.png" src="../_images/公共视频区块池.png" />
+<figcaption>
+<p><span class="caption-number">图 3.1 </span><span class="caption-text">公共视频区块池</span><a class="headerlink" href="Design_Overview.html#id9" title="永久链接至图片">¶</a></p>
+</figcaption>
+</figure>
+<span id="cvi-buffer-h"></span><table class="colwidths-given docutils align-center" id="id10">
+<caption><span class="caption-number">表 3.1 </span><span class="caption-text">cvi_buffer.h 中视频区块池大小计算接口简介</span><a class="headerlink" href="Design_Overview.html#id10" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>视频区块池大小计算接口</p></th>
+<th class="head"><p>接口简介</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>COMMON_GetPicBufferConfig</p></td>
+<td><p>一般linear 格式的各部分数据大小</p></td>
+</tr>
+<tr class="row-odd"><td><p>COMMON_GetPicBufferSize</p></td>
+<td><p>一般linear 格式的区块池</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id5">
+<h2><span class="section-number">3.2.2. </span>系统绑定<a class="headerlink" href="Design_Overview.html#id5" title="永久链接至标题">¶</a></h2>
+<p>SDK提供系统绑定接口（CVI_SYS_Bind） ，
+即通过绑定数据源和数据接收者来建立两者之间的关联关系。
+绑定后，数据源生成的数据将自动发送给接收者。
+一个数据源可以绑定多个数据接收者，
+若数据源未绑定，则最终会自动返回视频内存区块池。</p>
+<p>目前支持的绑定关系如 <a class="reference internal" href="Design_Overview.html#id6"><span class="std std-ref">下表</span></a> 所示。</p>
+<table class="docutils align-default" id="id6">
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 60%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>数据源</p></th>
+<th class="head"><p>数据接收者</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="line-block">
+<div class="line">VI</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">VPSS</div>
+<div class="line">VENC</div>
+<div class="line">VO</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="line-block">
+<div class="line">VPSS</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">VO</div>
+<div class="line">VENC</div>
+<div class="line">VPSS</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="line-block">
+<div class="line">VDEC</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">VPSS</div>
+<div class="line">VENC</div>
+<div class="line">VO</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><div class="line-block">
+<div class="line">AI</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">AENC</div>
+<div class="line">AO</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><div class="line-block">
+<div class="line">ADEC</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">AO</div>
+<div class="line"><br /></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="vivpss">
+<h2><span class="section-number">3.2.3. </span>VI和VPSS的工作模式<a class="headerlink" href="Design_Overview.html#vivpss" title="永久链接至标题">¶</a></h2>
+<p>VI和 VPSS 各自的工作模式分为在线，离线模式，工作模式说明如 <a class="reference internal" href="Design_Overview.html#id7"><span class="std std-ref">下表</span></a> 所示。</p>
+<table class="docutils align-default" id="id7">
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 48%" />
+<col style="width: 47%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>模式</p></th>
+<th class="head"><p>VI_CAP与VI_PROC</p></th>
+<th class="head"><p>VI_PROC与VPSS</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>在线模式</p></td>
+<td><p>VI_CAP与VI_PROC之间在线数据流传输，此模式下VI_CAP是直接把数据流送给VI_PROC，而不会写出RAW数据到内存。</p></td>
+<td><p>VI_PROC与VPSS之间的在线数据流传输，此模式下VI_PROC是直接把数据流送给VPSS，而不会写出YUV数据到内存。</p></td>
+</tr>
+<tr class="row-odd"><td><p>离线模式</p></td>
+<td><p>VI_CAP写出RAW数据到内存，然后VI_PROC从内存读取RAW数据进行后处理。</p></td>
+<td><p>VI_PROC写出YUV数据到内存，然后VPSS从内存读取YUV数据进行后处理。</p></td>
+</tr>
+</tbody>
+</table>
+<hr class="docutils" />
+<p>VI PIPE可以设置成多种工作模式，情况如下：</p>
+<ul>
+<li><p>第 0 个(长曝) PIPE 可以 有 4 种模式：</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>VI 在线 VPSS 离线</p></li>
+<li><p>VI 在线 VPSS 在线</p></li>
+<li><p>VI 离线 VPSS 离线</p></li>
+<li><p>VI 离线 VPSS 在线</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>其他 PIPE，若在以下工作模式表格中，标示为”-“，表示无法独立运作输出YUV，只能跟前一个PIPE在HDR下共同运作。</p></li>
+</ul>
+<table class="docutils align-default" id="vi-pipe">
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>PIPE ID</p></th>
+<th class="head"><p>0 (长曝)</p></th>
+<th class="head"><p>1 (短曝)</p></th>
+<th class="head"><p>2 (长曝)</p></th>
+<th class="head"><p>3 (短曝)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>模式分布1</p></td>
+<td><p>离线</p></td>
+<td><p>离线</p></td>
+<td><p>离线</p></td>
+<td><p>离线</p></td>
+</tr>
+<tr class="row-odd"><td><p>模式分布2</p></td>
+<td><p>在线</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+<td><p>在线</p></td>
+<td><ul class="simple">
+<li></li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="vpss">
+<h2><span class="section-number">3.2.4. </span>VPSS的工作模式<a class="headerlink" href="Design_Overview.html#vpss" title="永久链接至标题">¶</a></h2>
+<p>VPSS可以有两种模式SINGLE或DUAL，可通过调用CVI_VPSS_SetMode进行设置。</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 27%" />
+<col style="width: 20%" />
+<col style="width: 27%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>处理器</p></th>
+<th class="head"><p>模式</p></th>
+<th class="head"><p>装置</p></th>
+<th class="head"><p>通道数</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CV184x</p></td>
+<td><p>SINGLE</p></td>
+<td><p>0</p></td>
+<td><p>4</p></td>
+</tr>
+<tr class="row-odd"><td><div class="line-block">
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">DUAL</div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">0</div>
+<div class="line">1</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">1</div>
+<div class="line">3</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>预设为SINGLE。</p></li>
+<li><p>若非SINGLE时，需在VPSS组创建时，指定运作的VPSS设备。</p></li>
+</ul>
+</section>
+<section id="video-pipelinealignment">
+<h2><span class="section-number">3.2.5. </span>Video Pipeline的Alignment需求<a class="headerlink" href="Design_Overview.html#video-pipelinealignment" title="永久链接至标题">¶</a></h2>
+<p>在处理从MEMORY的数据时，各个处理器的模块有不同的需求。
+Alignment是图像处理时每一条line数据的读写量，需要为此的倍数。
+此外，内存地址均应按照 4096 字节（4K）的整数倍进行对齐，VB默认是4K对齐。</p>
+<p>例如：720x480的YUV420 PLANAR格式。</p>
+<p>Y因此为ALIGN(720, 64) x 480 = 768 x 480的资料量；U/V则为ALIGN(360, 64) x 240 = 384 x 240。</p>
+<p>可透过CVI_VPSS_SetChnAlign等API做修改，但不可小于硬件的限制。</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 26%" />
+<col style="width: 41%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>处理器</p></th>
+<th class="head"><p>模块</p></th>
+<th class="head"><p>Alignment</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="line-block">
+<div class="line">CV184x</div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+<div class="line"><br /></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">VI</div>
+<div class="line">VPSS</div>
+<div class="line">VO</div>
+<div class="line">GDC</div>
+<div class="line">VENC</div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">64</div>
+<div class="line">64</div>
+<div class="line">64</div>
+<div class="line">64</div>
+<div class="line">64</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id8">
+<h2><span class="section-number">3.2.6. </span>双系统消息通信<a class="headerlink" href="Design_Overview.html#id8" title="永久链接至标题">¶</a></h2>
+<p>如果是双系统SDK，需要一开始调用CVI_SYS_Init，此接口会对双核通信消息初始化，建立和小核的通信后才可以调用后续的API，相应的CVI_SYS_Exit是最后一个调用的接口。</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Function_Overview.html" class="btn btn-neutral float-left" title="3.1. 功能概述" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="API_Reference.html" class="btn btn-neutral float-right" title="3.3. API参考" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

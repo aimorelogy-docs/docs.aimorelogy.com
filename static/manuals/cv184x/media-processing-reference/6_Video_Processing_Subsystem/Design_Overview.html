@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>6.2. 设计概述 &mdash; MediaProcessingSoftwareDevelopmentReference master 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="../_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/qrious.js"></script>
+    <script src="../_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="6.3. API参考" href="API_Reference.html" />
+    <link rel="prev" title="6.1. 功能概述" href="Function_Overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> MediaProcessingSoftwareDevelopmentReference
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_System_Overview.html">2. 系统概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_System_Control.html">3. 系统控制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_Video_Input.html">4. 视频输入</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5_Video_Output.html">5. 视频输出</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../6_Video_Processing_Subsystem.html">6. 视频处理子系统</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Function_Overview.html">6.1. 功能概述</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="Design_Overview.html#">6.2. 设计概述</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Design_Overview.html#id2">6.2.1. 系统架构</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Design_Overview.html#id3">6.2.2. 注意事项</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="API_Reference.html">6.3. API参考</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Data_Types.html">6.4. 数据类型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Error_Codes.html">6.5. 错误码</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../7_Video_Encoding.html">7. 视频编码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../8_Video_Decoding.html">8. 视频解码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../9_Regional_Management.html">9. 区域管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10_Audio_Frequency.html">10. 音频</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../11_Geometric_Distortion_Correction_Subsystem.html">11. 几何畸变矫正子系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../12_Proc_Debugging_Information_Explanation.html">12. Proc 调试信息说明</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MediaProcessingSoftwareDevelopmentReference</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../6_Video_Processing_Subsystem.html"><span class="section-number">6. </span>视频处理子系统</a> &raquo;</li>
+      <li><span class="section-number">6.2. </span>设计概述</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="../_sources/6_Video_Processing_Subsystem/Design_Overview.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">6.2. </span>设计概述<a class="headerlink" href="Design_Overview.html#id1" title="永久链接至标题">¶</a></h1>
+<section id="id2">
+<h2><span class="section-number">6.2.1. </span>系统架构<a class="headerlink" href="Design_Overview.html#id2" title="永久链接至标题">¶</a></h2>
+<p>以下为VPSS基本概念</p>
+<ul class="simple">
+<li><p>GROUP</p></li>
+</ul>
+<p>VPSS对用户提供组（ GROUP ）的 概念。 最大个数请参见VPSS_MAX_GRP_NUM 定义， 各 GROUP分时复用 VPSS 硬件，硬件依次处理各个组提交的任务。</p>
+<ul class="simple">
+<li><p>CHANNEL</p></li>
+</ul>
+<p>VPSS组的通道。VPSS 硬件提供多个物理信道，每个信道具有缩放、裁剪等功能。它通过绑定物理信道，将物理信道输出作为自己的输入，把图像缩放成用户设置的目标分辨率输出 。</p>
+<ul class="simple">
+<li><p>Crop</p></li>
+</ul>
+<p>裁剪，分为 2种：组裁剪以及物理通道裁剪</p>
+<p>− 组裁剪， VPSS 对输入图像进行裁剪。</p>
+<p>− 物理信道裁剪， VPSS 对各个物理通道的输出图像进行裁剪。</p>
+<ul class="simple">
+<li><p>像素格式转换</p></li>
+</ul>
+<p>支持输入输出图像的数据格式转换。</p>
+<p>−支持YUV420 planar, YUV422 planar, RGB planar, RGB packed, BGR packed互相转换。</p>
+<ul class="simple">
+<li><p>Scale</p></li>
+</ul>
+<p>缩放对图像进行缩小放大 。 物理通道水平、垂直最小支持 128 倍缩小，最大支持128倍放大。</p>
+<ul class="simple">
+<li><p>Mirror/Flip</p></li>
+</ul>
+<p>Mirror即水平镜像 Flip 即上下翻转。 可使用 Mirror + Flip 实现 180 旋转。</p>
+<ul class="simple">
+<li><p>Overlay/Overlayex</p></li>
+</ul>
+<p>视频叠加区域，调用RGN 对 VPSS 通道的输出图像叠加位图，支持位图 格式ARGB4444 、 ARGB1555 、 ARGB8888 、256 LUT(ARGB4444), Font-based。</p>
+<ul class="simple">
+<li><p>固定角度旋转</p></li>
+</ul>
+<p>调用GDC对 VPSS 通道的输出图像处理。支持90度以及270度固定角度的旋转功能。</p>
+<p>Vpss模块在系统中的位置如下图所示：</p>
+<a class="reference internal image-reference" href="../_images/设计概2002.png"><img alt="../_images/设计概2002.png" src="../_images/设计概2002.png" style="width: 5.89202in; height: 2.61458in;" /></a>
+<p>通过调用SYS模块提供的binding接口，VPSS模块可以与VI/VDEC等输入模块进行绑定，将解码以及Sensor的数据送到VPSS进行处理，可以实现图像的缩放以及色彩空间的转换等功能。同时也可以通过binding接口，将VPSS模块处理之后的图像，经过OSD的合成送到VO/VENC模块，也支持
+做一些简单的Deep Learning前处理，然后将处理后的图片送到TPU进行Deep Learning运算。</p>
+<p>表格6- 1 VPSS 功能限制</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>工作模式</p></th>
+<th class="head"><p>功能</p></th>
+<th class="head"></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+<td><p>组裁剪</p></td>
+<td><p>缩放</p></td>
+<td><p>通道裁剪</p></td>
+</tr>
+<tr class="row-odd"><td><p>VI_OFFLINE_VPSS_OFFLINE</p></td>
+<td><p>支持</p></td>
+<td><p>支持</p></td>
+<td><p>支持</p></td>
+</tr>
+<tr class="row-even"><td><p>VI_OFFLINE_VPSS_ONLINE</p></td>
+<td><p>不支持</p></td>
+<td><p>支持</p></td>
+<td><p>支持</p></td>
+</tr>
+<tr class="row-odd"><td><p>VI_ONLINE_VPSS_OFFLINE</p></td>
+<td><p>支持</p></td>
+<td><p>支持</p></td>
+<td><p>支持</p></td>
+</tr>
+<tr class="row-even"><td><p>VI_ONLINE_VPSS_ONLINE</p></td>
+<td><p>不支持</p></td>
+<td><p>支持</p></td>
+<td><p>支持</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition attention">
+<p class="admonition-title">注意</p>
+<p>注意：当VPSS ONLINE时，最多只能有两组GRP分别接收前端两个sensor来的数据，无法服务其他不同源的需求</p>
+</div>
+</section>
+<section id="id3">
+<h2><span class="section-number">6.2.2. </span>注意事项<a class="headerlink" href="Design_Overview.html#id3" title="永久链接至标题">¶</a></h2>
+<p>VPSS数据处理流程图如下图6-1，有两组INPUT。当单一INPUT使用时，可以有四组通道输出；当两组INPUT使用时，则第一组INPUT只有一组通道输出，第二组INPUT只有三组通道输出。</p>
+<p>图表6- 1 CV184x的数据流程图</p>
+<a class="reference internal image-reference" href="../_images/设计概2003.png"><img alt="../_images/设计概2003.png" src="../_images/设计概2003.png" style="width: 5.76806in; height: 2.42558in;" /></a>
+<p><em>CV184x VPSS硬件规格</em></p>
+<a class="reference internal image-reference" href="../_images/硬件规格.png"><img alt="../_images/硬件规格.png" src="../_images/硬件规格.png" style="width: 5.77222in; height: 2.37569in;" /></a>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Function_Overview.html" class="btn btn-neutral float-left" title="6.1. 功能概述" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="API_Reference.html" class="btn btn-neutral float-right" title="6.3. API参考" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>6. SPI 操作指南 &mdash; PeripheralDriver master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="7. GPIO操作指南" href="7_GPIO_Operation_Guide.html" />
+    <link rel="prev" title="5. I2C 操作指南" href="5_I2C_Operation_Guide.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> PeripheralDriver
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Ethernet_Operation_Guide.html">2. Ethernet 操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_USB_Operation_Guide.html">3. USB操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_SD_MMC_Card_Operation_Guide.html">4. SD/MMC 卡操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_I2C_Operation_Guide.html">5. I2C 操作指南</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="6_SPI_Operation_Guide.html#">6. SPI 操作指南</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="6_SPI_Operation_Guide.html#id1">6.1. 操作准备</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="6_SPI_Operation_Guide.html#spi-dma">6.1.1. 使能内核 SPI 与 DMA 配置</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_SPI_Operation_Guide.html#spi1">6.1.2. 在设备树中将 SPI1 使能</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_SPI_Operation_Guide.html#id2">6.1.3. SPI1 引脚切换</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="6_SPI_Operation_Guide.html#id3">6.2. 操作过程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_SPI_Operation_Guide.html#id4">6.3. SPI 环回测试</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_SPI_Operation_Guide.html#id5">6.4. 操作示例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_SPI_Operation_Guide.html#id6">6.5. 内核态 SPI 读写程序示例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_SPI_Operation_Guide.html#id7">6.6. 用户态 SPI 读写程序示例</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="7_GPIO_Operation_Guide.html">7. GPIO操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_UART_Operation_Guide.html">8. UART 操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_Watchdog_Operation_Guide.html">9. Watchdog 操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_PWM_Operation_Guide.html">10. PWM 操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_ADC_Operation_Guide.html">11. ADC 操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_CVI_PINMUX_Operation_Guide.html">12. CVI PINMUX 操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_DMA_mem_to_mem_Operation_Guide.html">13. DMA 操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_Thermal_Control_Operation_Guide.html">14. 温控策略与测试操作指南</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PeripheralDriver</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">6. </span>SPI 操作指南</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/6_SPI_Operation_Guide.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="spi">
+<h1><span class="section-number">6. </span>SPI 操作指南<a class="headerlink" href="6_SPI_Operation_Guide.html#spi" title="永久链接至标题">¶</a></h1>
+<p>本文档说明在 CV184x 平台上使用 SPI 总线进行读写操作、环回测试以及内核态/用户态编程的流程。</p>
+<p><strong>平台说明</strong> ：CV184x 上的 SPI 控制器仅支持主机（Master）模式，不支持配置为从机（Slave）模式。即本平台只能作为 SPI 总线的主设备发起传输、连接 Flash/传感器等从设备，无法作为从设备被其他主控通过 SPI 访问。本平台 SPI 时钟最高支持 46.8MHz，设备树与驱动中 <code class="docutils literal notranslate"><span class="pre">spi-max-frequency</span></code> 仅可配置至 46800000（Hz），超出该值可能工作异常或不支持。</p>
+<section id="id1">
+<h2><span class="section-number">6.1. </span>操作准备<a class="headerlink" href="6_SPI_Operation_Guide.html#id1" title="永久链接至标题">¶</a></h2>
+<p>使用 SPI 前需满足以下条件：</p>
+<ul class="simple">
+<li><p>使用官方发布的 SDK 编译后的内核镜像（默认已包含 SPI 相关驱动）。</p></li>
+</ul>
+<section id="spi-dma">
+<h3><span class="section-number">6.1.1. </span>使能内核 SPI 与 DMA 配置<a class="headerlink" href="6_SPI_Operation_Guide.html#spi-dma" title="永久链接至标题">¶</a></h3>
+<p>本步骤分为三部分：在板级内核配置中开启 SPI 与 DMA 相关选项；在设备树中为 SPI1 启用 DMA；如需使用 DMA 通道重映射，则在板级 DTS 根节点下配置 <code class="docutils literal notranslate"><span class="pre">sysdma_remap</span></code>。路径中的”板名”请替换为实际使用的板级目录名（如 <code class="docutils literal notranslate"><span class="pre">cv1842hp_wevb_0014a_spinor</span></code>），具体以 SDK 为准。</p>
+<p>（1）内核与 DMA 相关配置</p>
+<p>在板级内核配置文件中确保以下选项已开启。配置文件路径一般为 <code class="file docutils literal notranslate"><span class="pre">build/boards/cv184x/板名/linux/板名_defconfig</span></code> 。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>CONFIG_DMADEVICES=y
+CONFIG_DW_DMAC_CVITEK=y
+CONFIG_SPI=y
+CONFIG_SPI_MASTER=y
+CONFIG_SPI_SPIDEV=y
+CONFIG_SPI_DESIGNWARE=y
+CONFIG_SPI_DW_DMA=y
+CONFIG_SPI_DW_MMIO=y
+</pre></div>
+</div>
+<p>若不需要 DMA 传输（例如调试、对比性能或外设不兼容 DMA），可将 <code class="docutils literal notranslate"><span class="pre">CONFIG_SPI_DW_DMA</span></code> 注释掉，使 SPI 控制器回退到 PIO（中断/轮询）模式：</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>CONFIG_DMADEVICES=y
+CONFIG_DW_DMAC_CVITEK=y
+CONFIG_SPI=y
+CONFIG_SPI_MASTER=y
+CONFIG_SPI_SPIDEV=y
+CONFIG_SPI_DESIGNWARE=y
+# CONFIG_SPI_DW_DMA is not set
+CONFIG_SPI_DW_MMIO=y
+</pre></div>
+</div>
+<p>同时需在设备树中将对应 SPI 节点的 <code class="docutils literal notranslate"><span class="pre">#if</span> <span class="pre">1</span></code> 改为 <code class="docutils literal notranslate"><span class="pre">#if</span> <span class="pre">0</span></code>，关闭 DMA 属性（见下文（2）中的示例）。修改后重新编译内核与设备树并烧录至开发板即可。</p>
+<p>（2）在设备树中为 SPI1 启用 DMA</p>
+<p>在板级 DTS 或其所包含的 DTSI 中，找到 SPI1 节点（如 <code class="docutils literal notranslate"><span class="pre">spi1&#64;04190000</span></code>），将其中的 <code class="docutils literal notranslate"><span class="pre">#if</span></code> 预编译开关置为 <code class="docutils literal notranslate"><span class="pre">1</span></code>，使 <code class="docutils literal notranslate"><span class="pre">dmas</span></code>、<code class="docutils literal notranslate"><span class="pre">dma-names</span></code>、<code class="docutils literal notranslate"><span class="pre">capability</span></code> 等 DMA 相关属性被编译进设备树，从而开启 SPI1 的 DMA 功能。若 <code class="docutils literal notranslate"><span class="pre">#if</span></code> 为 <code class="docutils literal notranslate"><span class="pre">0</span></code> 或未定义该块，则 SPI1 使用 PIO 模式。</p>
+<div class="highlight-dts notranslate"><div class="highlight"><pre><span></span><span class="nl">spi1</span><span class="p">:</span> <span class="nf">spi1</span><span class="o">@</span><span class="mi">04190000</span><span class="cm"> </span><span class="p">{</span>
+   <span class="kr">compatible</span> <span class="o">=</span> <span class="s">&quot;snps,dw-apb-ssi&quot;</span><span class="p">;</span>
+   <span class="kr">reg</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mh">0x0</span> <span class="mh">0x04190000</span> <span class="mh">0x0</span> <span class="mh">0x10000</span><span class="o">&gt;</span><span class="p">;</span>
+   <span class="n">clocks</span> <span class="o">=</span> <span class="o">&lt;&amp;</span><span class="na">clk</span> <span class="na">CV184X_CLK_APB_SPI1</span><span class="o">&gt;</span><span class="p">;</span>
+   <span class="kr">#address-cells</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">;</span>
+   <span class="kr">#size-cells</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mi">0</span><span class="o">&gt;</span><span class="p">;</span>
+   <span class="o">#</span><span class="na">if</span> <span class="mi">1</span>
+   <span class="n">dmas</span> <span class="o">=</span> <span class="o">&lt;&amp;</span><span class="na">dmac</span> <span class="mi">2</span> <span class="mi">1</span> <span class="mi">1</span>
+          <span class="o">&amp;</span><span class="na">dmac</span> <span class="mi">3</span> <span class="mi">1</span> <span class="mi">1</span><span class="o">&gt;</span><span class="p">;</span>
+   <span class="n">dma-names</span> <span class="o">=</span> <span class="s">&quot;rx&quot;</span><span class="p">,</span> <span class="s">&quot;tx&quot;</span><span class="p">;</span>
+   <span class="n">capability</span> <span class="o">=</span> <span class="s">&quot;txrx&quot;</span><span class="p">;</span>
+   <span class="o">#</span><span class="na">endif</span>
+   <span class="kr">status</span> <span class="o">=</span> <span class="s">&quot;okay&quot;</span><span class="p">;</span>
+   <span class="n">num-cs</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">;</span>
+   <span class="nf">spidev</span><span class="o">@</span><span class="mi">0</span><span class="cm"> </span><span class="p">{</span>
+      <span class="kr">compatible</span> <span class="o">=</span> <span class="s">&quot;rohm,dh2228fv&quot;</span><span class="p">;</span>
+      <span class="n">spi-max-frequency</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mi">1000000</span><span class="o">&gt;</span><span class="p">;</span>   <span class="cm">/* 最高支持 46.8MHz，可设为 46800000 */</span>
+      <span class="kr">reg</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mi">0</span><span class="o">&gt;</span><span class="p">;</span>
+   <span class="p">};</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">spi-max-frequency</span></code> 单位为 Hz，本平台 SPI IP 仅支持最高 46.8MHz，请勿配置超过 46800000。</p>
+<p>（3）DMA 通道重映射</p>
+<p>若板级需要指定 DMA 通道与外设的对应关系，可在板级 DTS 的根节点 <code class="docutils literal notranslate"><span class="pre">/</span></code> 下添加或合并 <code class="docutils literal notranslate"><span class="pre">sysdma_remap</span></code> 节点。板级 DTS 路径一般为 <code class="file docutils literal notranslate"><span class="pre">build/boards/cv184x/板名/dts_arm/板名.dts</span></code> 。下例中 <code class="docutils literal notranslate"><span class="pre">CVI_SPI1_RX</span></code>、<code class="docutils literal notranslate"><span class="pre">CVI_SPI1_TX</span></code> 与 SPI1 设备节点中的 DMA 通道 2 和 3 对应，其余通道按实际需求配置。</p>
+<div class="highlight-dts notranslate"><div class="highlight"><pre><span></span><span class="nf">/</span><span class="cm"> </span><span class="p">{</span>
+   <span class="nf">sysdma_remap</span><span class="cm"> </span><span class="p">{</span>
+      <span class="n">ch-remap</span> <span class="o">=</span> <span class="o">&lt;</span><span class="na">CVI_I2S0_RX</span> <span class="na">CVI_I2S2_TX</span> <span class="na">CVI_SPI1_RX</span> <span class="na">CVI_SPI1_TX</span>
+                  <span class="na">CVI_SPI_NOR_RX</span> <span class="na">CVI_SPI_NOR_TX</span> <span class="na">CVI_I2S2_RX</span> <span class="na">CVI_I2S3_TX</span><span class="o">&gt;</span><span class="p">;</span>
+   <span class="p">};</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+</section>
+<section id="spi1">
+<h3><span class="section-number">6.1.2. </span>在设备树中将 SPI1 使能<a class="headerlink" href="6_SPI_Operation_Guide.html#spi1" title="永久链接至标题">¶</a></h3>
+<p>在板级 DTS 中将 SPI1 节点设为 <code class="docutils literal notranslate"><span class="pre">status</span> <span class="pre">=</span> <span class="pre">&quot;okay&quot;</span></code>，其余不使用的 SPI 节点设为 <code class="docutils literal notranslate"><span class="pre">status</span> <span class="pre">=</span> <span class="pre">&quot;disabled&quot;</span></code>。</p>
+</section>
+<section id="id2">
+<h3><span class="section-number">6.1.3. </span>SPI1 引脚切换<a class="headerlink" href="6_SPI_Operation_Guide.html#id2" title="永久链接至标题">¶</a></h3>
+<p><strong>说明</strong> ：以下”需切换两次引脚功能”仅为 <strong>SPI1</strong> 的特殊情况（先切到 MUX 再指到具体功能）。其他 SPI 控制器或外设的 Pinmux 请根据实际板级原理图与引脚定义操作，可能只需一次切换或不同顺序，以 pinout文档为准。</p>
+<p><strong>步骤 1. 将 PAD_MIPIRX3P 切 MUX_SPI1_MOSI</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cvi_pinmux -w PAD_MIPIRX3P/MUX_SPI1_MOSI
+</pre></div>
+</div>
+<p><strong>步骤 2. 将 MUX_SPI1_MOSI 切 SPI1_SDO</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cvi_pinmux -w MUX_SPI1_MOSI/SPI1_SDO
+</pre></div>
+</div>
+<p><strong>步骤 3. MISO 引脚</strong></p>
+<p>按同样方式进行切换（先切换到 MUX_SPI1_MISO，再切到 SPI1_SDI ，具体以板级引脚定义为准）。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cvi_pinmux -w PAD_MIPIRX3N/MUX_SPI1_MISO
+
+cvi_pinmux -w MUX_SPI1_MISO/SPI1_SDI
+</pre></div>
+</div>
+</section>
+</section>
+<section id="id3">
+<h2><span class="section-number">6.2. </span>操作过程<a class="headerlink" href="6_SPI_Operation_Guide.html#id3" title="永久链接至标题">¶</a></h2>
+<ol class="arabic simple">
+<li><p><strong>启动系统</strong>
+SPI 相关驱动已编入内核，无需单独加载模块；启动后即可使用 SPI。</p></li>
+<li><p><strong>进行 SPI 读写</strong>
+在串口或 SSH 终端中运行 SPI 读写命令，或在内核态/用户态编写程序，对挂载在 SPI 控制器上的从设备进行读写。</p></li>
+</ol>
+</section>
+<section id="id4">
+<h2><span class="section-number">6.3. </span>SPI 环回测试<a class="headerlink" href="6_SPI_Operation_Guide.html#id4" title="永久链接至标题">¶</a></h2>
+<p>环回测试用于验证 SPI 控制器与引脚是否工作正常：将 SPI1 的 MOSI 与 MISO 短接，发送数据后读回，比对是否一致。</p>
+<p><strong>步骤 1：短接 SPI1 的 MOSI 与 MISO 引脚</strong></p>
+<p><strong>步骤 2：完成 SPI1 内核配置与设备树使能</strong></p>
+<p>按上文「操作准备」中的「使能内核 SPI 与 DMA 配置」和「在设备树中将 SPI1 使能」两节完成配置，重新编译内核与设备树并烧录至开发板。</p>
+<p><strong>步骤 3：确认 spidev 节点</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ls /dev/spidev*
+<span class="c1"># 示例输出：/dev/spidev1.0，后续命令中的设备节点需与输出一致</span>
+</pre></div>
+</div>
+<p><strong>步骤 4：执行 cvi_pinmux 切换</strong></p>
+<p>以下「需切换两次引脚功能」仅为 <strong>SPI1</strong> 的特殊情况（先切到 MUX 再指到具体功能）。其他 SPI 控制器或外设的 Pinmux 请根据实际板级原理图与引脚定义操作，可能只需一次切换或不同顺序，以 pinout 文档为准。</p>
+<p><strong>步骤 4.1 将 PAD_MIPIRX3P 切 MUX_SPI1_MOSI</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cvi_pinmux -w PAD_MIPIRX3P/MUX_SPI1_MOSI
+</pre></div>
+</div>
+<p><strong>步骤 4.2 将 MUX_SPI1_MOSI 切 SPI1_SDO</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cvi_pinmux -w MUX_SPI1_MOSI/SPI1_SDO
+</pre></div>
+</div>
+<p><strong>步骤 4.3 MISO 引脚</strong></p>
+<p>按同样方式进行切换（先切换到 MUX_SPI1_MISO，再切到 SPI1_SDI，具体以板级引脚定义为准）。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cvi_pinmux -w PAD_MIPIRX3N/MUX_SPI1_MISO
+
+cvi_pinmux -w MUX_SPI1_MISO/SPI1_SDI
+</pre></div>
+</div>
+<p><strong>步骤 5：编译并部署 spidev_test</strong></p>
+<p>在 SDK 的linux_5.10/tools/spi 目录下执行 <code class="docutils literal notranslate"><span class="pre">make</span></code>，将生成的 <code class="docutils literal notranslate"><span class="pre">spidev_test</span></code> 拷贝到板端。</p>
+<p><strong>步骤 6：生成测试数据</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>dd <span class="k">if</span><span class="o">=</span>/dev/urandom <span class="nv">of</span><span class="o">=</span>data.bin <span class="nv">bs</span><span class="o">=</span>2k <span class="nv">count</span><span class="o">=</span><span class="m">1</span>
+</pre></div>
+</div>
+<p><strong>步骤 7：执行环回测试</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./spidev_test -D /dev/spidev1.0 -s <span class="m">10000000</span> -i data.bin -o data_out.bin
+<span class="c1"># -D 为设备节点，-s 为速率(Hz)，-i 为输入文件，-o 为输出文件</span>
+</pre></div>
+</div>
+<p><strong>步骤 8：比对数据</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>diff data.bin data_out.bin
+<span class="c1"># 无输出表示两文件一致，环回测试通过</span>
+</pre></div>
+</div>
+<p>环回测试通过后，可连接实际 SPI 从设备进行读写操作。</p>
+</section>
+<section id="id5">
+<h2><span class="section-number">6.4. </span>操作示例<a class="headerlink" href="6_SPI_Operation_Guide.html#id5" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="id6">
+<h2><span class="section-number">6.5. </span>内核态 SPI 读写程序示例<a class="headerlink" href="6_SPI_Operation_Guide.html#id6" title="永久链接至标题">¶</a></h2>
+<p>以下说明在内核驱动中通过 SPI 子系统访问从设备的典型流程与示例代码。</p>
+<p><strong>流程概述：</strong></p>
+<ol class="arabic simple">
+<li><p>使用 <code class="docutils literal notranslate"><span class="pre">spi_busnum_to_master(bus_num)</span></code> 获取 SPI 控制器（<code class="docutils literal notranslate"><span class="pre">spi_master</span></code>），<code class="docutils literal notranslate"><span class="pre">bus_num</span></code> 为目标设备所在的总线号。</p></li>
+<li><p>根据总线名与片选号找到 <code class="docutils literal notranslate"><span class="pre">spi_device``（如通过</span> <span class="pre">``bus_find_device_by_name</span></code> 等）。</p></li>
+<li><p>填充 <code class="docutils literal notranslate"><span class="pre">spi_transfer</span></code> 并加入 <code class="docutils literal notranslate"><span class="pre">spi_message</span></code>，再调用 <code class="docutils literal notranslate"><span class="pre">spi_sync</span></code> 或 <code class="docutils literal notranslate"><span class="pre">spi_async</span></code> 执行同步或异步传输。</p></li>
+</ol>
+<p><strong>步骤 1：获取 SPI 控制器</strong></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">master</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">spi_busnum_to_master</span><span class="p">(</span><span class="n">bus_num</span><span class="p">);</span><span class="w"></span>
+<span class="cm">/* bus_num：设备所在 SPI 总线号；master：spi_master 指针 */</span><span class="w"></span>
+</pre></div>
+</div>
+<p><strong>步骤 2：获取 SPI 从设备</strong></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">snprintf</span><span class="p">(</span><span class="n">str</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">str</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;%s.%u&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dev_name</span><span class="p">(</span><span class="o">&amp;</span><span class="n">master</span><span class="o">-&gt;</span><span class="n">dev</span><span class="p">),</span><span class="w"> </span><span class="n">cs</span><span class="p">);</span><span class="w"></span>
+<span class="n">dev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bus_find_device_by_name</span><span class="p">(</span><span class="o">&amp;</span><span class="n">spi_bus_type</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">str</span><span class="p">);</span><span class="w"></span>
+<span class="n">spi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">to_spi_device</span><span class="p">(</span><span class="n">dev</span><span class="p">);</span><span class="w"></span>
+<span class="cm">/* cs：片选号；spi：spi_device 指针 */</span><span class="w"></span>
+</pre></div>
+</div>
+<p><strong>步骤 3：组织 spi_message</strong></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">spi_message_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">m</span><span class="p">);</span><span class="w"></span>
+<span class="n">spi_message_add_tail</span><span class="p">(</span><span class="o">&amp;</span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">m</span><span class="p">);</span><span class="w"></span>
+<span class="cm">/* t：spi_transfer；m：spi_message */</span><span class="w"></span>
+</pre></div>
+</div>
+<p><strong>步骤 4：发起传输</strong></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">spi_sync</span><span class="p">(</span><span class="n">spi</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">m</span><span class="p">);</span><span class="w">   </span><span class="cm">/* 同步 */</span><span class="w"></span>
+<span class="cm">/* 或 status = spi_async(spi, &amp;m);  异步 */</span><span class="w"></span>
+</pre></div>
+</div>
+<p><strong>完整示例代码（仅供参考，非可直接运行的完整模块）：</strong></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/spi/spi.h&gt;</span><span class="cp"></span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="k">static</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">busnum</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 4</span><span class="n">module_param</span><span class="p">(</span><span class="n">busnum</span><span class="p">,</span><span class="w"> </span><span class="n">uint</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 5</span><span class="n">MODULE_PARM_DESC</span><span class="p">(</span><span class="n">busnum</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;SPI bus number (default=0)&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 6</span>
+<span class="linenos"> 7</span><span class="k">static</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">cs</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 8</span><span class="n">module_param</span><span class="p">(</span><span class="n">cs</span><span class="p">,</span><span class="w"> </span><span class="n">uint</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 9</span><span class="n">MODULE_PARM_DESC</span><span class="p">(</span><span class="n">cs</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;SPI chip select (default=0)&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="k">extern</span><span class="w"> </span><span class="k">struct</span> <span class="nc">bus_type</span><span class="w"> </span><span class="n">spi_bus_type</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">12</span><span class="k">static</span><span class="w"> </span><span class="k">struct</span> <span class="nc">spi_master</span><span class="w"> </span><span class="o">*</span><span class="n">master</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">13</span><span class="k">static</span><span class="w"> </span><span class="k">struct</span> <span class="nc">spi_device</span><span class="w"> </span><span class="o">*</span><span class="n">spi_device</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">14</span>
+<span class="linenos">15</span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">__init</span><span class="w"> </span><span class="n">spidev_init</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">16</span><span class="p">{</span><span class="w"></span>
+<span class="linenos">17</span><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">spi_name</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">18</span><span class="w">    </span><span class="k">struct</span> <span class="nc">device</span><span class="w"> </span><span class="o">*</span><span class="n">dev</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">19</span>
+<span class="linenos">20</span><span class="w">    </span><span class="n">master</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">spi_busnum_to_master</span><span class="p">(</span><span class="n">busnum</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">21</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">master</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">22</span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="n">ENODEV</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">23</span>
+<span class="linenos">24</span><span class="w">    </span><span class="n">spi_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kzalloc</span><span class="p">(</span><span class="n">strlen</span><span class="p">(</span><span class="n">dev_name</span><span class="p">(</span><span class="o">&amp;</span><span class="n">master</span><span class="o">-&gt;</span><span class="n">dev</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="n">GFP_KERNEL</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">25</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">spi_name</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">26</span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="n">ENOMEM</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">27</span>
+<span class="linenos">28</span><span class="w">    </span><span class="n">snprintf</span><span class="p">(</span><span class="n">spi_name</span><span class="p">,</span><span class="w"> </span><span class="n">strlen</span><span class="p">(</span><span class="n">dev_name</span><span class="p">(</span><span class="o">&amp;</span><span class="n">master</span><span class="o">-&gt;</span><span class="n">dev</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">29</span><span class="w">             </span><span class="s">&quot;%s.%u&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">dev_name</span><span class="p">(</span><span class="o">&amp;</span><span class="n">master</span><span class="o">-&gt;</span><span class="n">dev</span><span class="p">),</span><span class="w"> </span><span class="n">cs</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">30</span><span class="w">    </span><span class="n">dev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bus_find_device_by_name</span><span class="p">(</span><span class="o">&amp;</span><span class="n">spi_bus_type</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">,</span><span class="w"> </span><span class="n">spi_name</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">31</span><span class="w">    </span><span class="n">kfree</span><span class="p">(</span><span class="n">spi_name</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">32</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">dev</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">33</span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="n">ENODEV</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">34</span>
+<span class="linenos">35</span><span class="w">    </span><span class="n">spi_device</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">to_spi_device</span><span class="p">(</span><span class="n">dev</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">36</span><span class="w">    </span><span class="n">put_device</span><span class="p">(</span><span class="n">dev</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">37</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">spi_device</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">38</span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="n">ENODEV</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">39</span>
+<span class="linenos">40</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">41</span><span class="p">}</span><span class="w"></span>
+<span class="linenos">42</span>
+<span class="linenos">43</span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">spi_dev_write</span><span class="p">(</span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">len</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">buswidth</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">44</span><span class="p">{</span><span class="w"></span>
+<span class="linenos">45</span><span class="w">    </span><span class="k">struct</span> <span class="nc">spi_transfer</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">46</span><span class="w">        </span><span class="p">.</span><span class="n">speed_hz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2000000</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">47</span><span class="w">        </span><span class="p">.</span><span class="n">tx_buf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">48</span><span class="w">        </span><span class="p">.</span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">len</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">49</span><span class="w">    </span><span class="p">};</span><span class="w"></span>
+<span class="linenos">50</span><span class="w">    </span><span class="k">struct</span> <span class="nc">spi_message</span><span class="w"> </span><span class="n">m</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">51</span>
+<span class="linenos">52</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">spi_device</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">53</span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="n">ENODEV</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">54</span>
+<span class="linenos">55</span><span class="w">    </span><span class="n">spi_device</span><span class="o">-&gt;</span><span class="n">mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SPI_MODE_0</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">56</span><span class="w">    </span><span class="n">t</span><span class="p">.</span><span class="n">bits_per_word</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">buswidth</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">16</span><span class="p">)</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="mi">16</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="mi">8</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">57</span>
+<span class="linenos">58</span><span class="w">    </span><span class="n">spi_message_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">m</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">59</span><span class="w">    </span><span class="n">spi_message_add_tail</span><span class="p">(</span><span class="o">&amp;</span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">m</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">60</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">spi_sync</span><span class="p">(</span><span class="n">spi_device</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">m</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">61</span><span class="p">}</span><span class="w"></span>
+<span class="linenos">62</span>
+<span class="linenos">63</span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">spi_dev_read</span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">devaddr</span><span class="p">,</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">reg_addr</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">64</span><span class="w">                        </span><span class="kt">void</span><span class="w"> </span><span class="o">*</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">len</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">65</span><span class="p">{</span><span class="w"></span>
+<span class="linenos">66</span><span class="w">    </span><span class="n">u8</span><span class="w"> </span><span class="n">txbuf</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="n">devaddr</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">reg_addr</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="linenos">67</span><span class="w">    </span><span class="k">struct</span> <span class="nc">spi_transfer</span><span class="w"> </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">68</span><span class="w">        </span><span class="p">.</span><span class="n">speed_hz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2000000</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">69</span><span class="w">        </span><span class="p">.</span><span class="n">tx_buf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">txbuf</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">70</span><span class="w">        </span><span class="p">.</span><span class="n">rx_buf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">71</span><span class="w">        </span><span class="p">.</span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">len</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">72</span><span class="w">    </span><span class="p">};</span><span class="w"></span>
+<span class="linenos">73</span><span class="w">    </span><span class="k">struct</span> <span class="nc">spi_message</span><span class="w"> </span><span class="n">m</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">74</span>
+<span class="linenos">75</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">spi_device</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">76</span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="n">ENODEV</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">77</span>
+<span class="linenos">78</span><span class="w">    </span><span class="n">spi_device</span><span class="o">-&gt;</span><span class="n">mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SPI_MODE_0</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">79</span><span class="w">    </span><span class="cm">/* txbuf 长度与位宽需根据从设备协议填写，此处为示例 */</span><span class="w"></span>
+<span class="linenos">80</span><span class="w">    </span><span class="n">spi_message_init</span><span class="p">(</span><span class="o">&amp;</span><span class="n">m</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">81</span><span class="w">    </span><span class="n">spi_message_add_tail</span><span class="p">(</span><span class="o">&amp;</span><span class="n">t</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">m</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">82</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">spi_sync</span><span class="p">(</span><span class="n">spi_device</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">m</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">83</span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="id7">
+<h2><span class="section-number">6.6. </span>用户态 SPI 读写程序示例<a class="headerlink" href="6_SPI_Operation_Guide.html#id7" title="永久链接至标题">¶</a></h2>
+<p>以下说明在用户空间通过 spidev 设备节点与 ioctl 进行 SPI 读写的步骤。完整实现可参考 SDK 中 tools/spi/spidev_test.c。</p>
+<p><strong>步骤 1：打开设备节点</strong></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">device</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;/dev/spidev1.0&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">open</span><span class="p">(</span><span class="n">device</span><span class="p">,</span><span class="w"> </span><span class="n">O_RDWR</span><span class="p">);</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">fd</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="cm">/* 错误处理 */</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>设备节点与 SPI 控制器对应关系（以实际 <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">/dev/spidev*</span></code> 为准）：</p>
+<ul class="simple">
+<li><p>正常情况：SPI 控制器 0 默认为 <code class="file docutils literal notranslate"><span class="pre">/dev/spidev1.0</span></code>，SPI 控制器 1 为 <code class="file docutils literal notranslate"><span class="pre">/dev/spidev2.0</span></code>，以此类推（控制器 N 对应 spidev(N+1).0）。</p></li>
+<li><p>若禁用了某个 SPI 控制器（如禁用控制器 0），则其后控制器节点号前移：此时 SPI 控制器 1 为 <code class="file docutils literal notranslate"><span class="pre">/dev/spidev1.0</span></code>，控制器 2 为 <code class="file docutils literal notranslate"><span class="pre">/dev/spidev2.0</span></code>，以此类推。</p></li>
+</ul>
+<p>其余操作与控制器 0 相同。</p>
+</div>
+<p><strong>步骤 2：设置 SPI 模式</strong></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ioctl</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">SPI_IOC_WR_MODE32</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">mode</span><span class="p">);</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="cm">/* 错误处理 */</span><span class="p">;</span><span class="w"></span>
+<span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ioctl</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">SPI_IOC_RD_MODE32</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">mode</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">mode</span></code> 取值参见内核头文件 <code class="docutils literal notranslate"><span class="pre">include/linux/spi/spi.h</span></code>，例如：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define SPI_CPHA  0x01  </span><span class="cm">/* 时钟相位 */</span><span class="cp"></span>
+<span class="cp">#define SPI_CPOL  0x02  </span><span class="cm">/* 时钟极性 */</span><span class="cp"></span>
+<span class="cp">#define SPI_MODE_0  (0|0)</span>
+<span class="cp">#define SPI_MODE_1  (0|SPI_CPHA)</span>
+<span class="cp">#define SPI_MODE_2  (SPI_CPOL|0)</span>
+<span class="cp">#define SPI_MODE_3  (SPI_CPOL|SPI_CPHA)</span>
+<span class="cm">/* 示例：mode = SPI_MODE_3 | SPI_LSB_FIRST; */</span><span class="w"></span>
+</pre></div>
+</div>
+<p><strong>步骤 3：设置每字位数（bits per word）</strong></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ioctl</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">SPI_IOC_WR_BITS_PER_WORD</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">bits</span><span class="p">);</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="cm">/* 错误处理 */</span><span class="p">;</span><span class="w"></span>
+<span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ioctl</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">SPI_IOC_RD_BITS_PER_WORD</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">bits</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p><strong>步骤 4：设置传输速率</strong></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ioctl</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">SPI_IOC_WR_MAX_SPEED_HZ</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">speed</span><span class="p">);</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="cm">/* 错误处理 */</span><span class="p">;</span><span class="w"></span>
+<span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ioctl</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">SPI_IOC_RD_MAX_SPEED_HZ</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">speed</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>一般建议 <code class="docutils literal notranslate"><span class="pre">speed</span></code> 不超过 25MHz，具体以从设备规格为准。</p>
+<p><strong>步骤 5：发送/接收一帧数据</strong></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ioctl</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">SPI_IOC_MESSAGE</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="o">&amp;</span><span class="n">tr</span><span class="p">);</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="cm">/* 错误处理 */</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">tr</span></code> 为 <code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">spi_ioc_transfer</span></code> 数组首地址，用于描述本帧传输的缓冲区与长度。</p>
+<p><strong>完整可运行示例</strong></p>
+<p>将上述步骤串联，并加上头文件、<code class="docutils literal notranslate"><span class="pre">struct</span> <span class="pre">spi_ioc_transfer</span></code> 的填充与缓冲区，即可得到可直接编译运行的程序（需内核提供 <code class="docutils literal notranslate"><span class="pre">/dev/spidev*</span></code> 及对应头文件）：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="linenos"> 2</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="linenos"> 3</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
+<span class="linenos"> 4</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;errno.h&gt;</span><span class="cp"></span>
+<span class="linenos"> 5</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;fcntl.h&gt;</span><span class="cp"></span>
+<span class="linenos"> 6</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span><span class="cp"></span>
+<span class="linenos"> 7</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;sys/ioctl.h&gt;</span><span class="cp"></span>
+<span class="linenos"> 8</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;linux/spi/spidev.h&gt;</span><span class="cp"></span>
+<span class="linenos"> 9</span>
+<span class="linenos">10</span><span class="cp">#define SPI_DEV   &quot;/dev/spidev1.0&quot;</span>
+<span class="linenos">11</span><span class="cp">#define SPI_SPEED 10000000</span>
+<span class="linenos">12</span><span class="cp">#define SPI_BITS  8</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">15</span><span class="p">{</span><span class="w"></span>
+<span class="linenos">16</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">17</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">18</span><span class="w">    </span><span class="n">__u8</span><span class="w"> </span><span class="n">mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SPI_MODE_0</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">19</span><span class="w">    </span><span class="n">__u8</span><span class="w"> </span><span class="n">bits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SPI_BITS</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">20</span><span class="w">    </span><span class="n">__u32</span><span class="w"> </span><span class="n">speed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SPI_SPEED</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">21</span><span class="w">    </span><span class="n">__u8</span><span class="w"> </span><span class="n">tx_buf</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mh">0x01</span><span class="p">,</span><span class="w"> </span><span class="mh">0x02</span><span class="p">,</span><span class="w"> </span><span class="mh">0x03</span><span class="p">,</span><span class="w"> </span><span class="mh">0x04</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="linenos">22</span><span class="w">    </span><span class="n">__u8</span><span class="w"> </span><span class="n">rx_buf</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">};</span><span class="w"></span>
+<span class="linenos">23</span>
+<span class="linenos">24</span><span class="w">    </span><span class="k">struct</span> <span class="nc">spi_ioc_transfer</span><span class="w"> </span><span class="n">tr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">25</span><span class="w">        </span><span class="p">.</span><span class="n">tx_buf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="p">)</span><span class="n">tx_buf</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">26</span><span class="w">        </span><span class="p">.</span><span class="n">rx_buf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="p">)</span><span class="n">rx_buf</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">27</span><span class="w">        </span><span class="p">.</span><span class="n">len</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">28</span><span class="w">        </span><span class="p">.</span><span class="n">speed_hz</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">speed</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">29</span><span class="w">        </span><span class="p">.</span><span class="n">bits_per_word</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bits</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">30</span><span class="w">    </span><span class="p">};</span><span class="w"></span>
+<span class="linenos">31</span>
+<span class="linenos">32</span><span class="w">    </span><span class="n">fd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">open</span><span class="p">(</span><span class="n">SPI_DEV</span><span class="p">,</span><span class="w"> </span><span class="n">O_RDWR</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">33</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">fd</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">34</span><span class="w">        </span><span class="n">perror</span><span class="p">(</span><span class="s">&quot;open &quot;</span><span class="w"> </span><span class="n">SPI_DEV</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">35</span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">EXIT_FAILURE</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">36</span><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">37</span>
+<span class="linenos">38</span><span class="w">    </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ioctl</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">SPI_IOC_WR_MODE</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">mode</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">39</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">40</span><span class="w">        </span><span class="n">perror</span><span class="p">(</span><span class="s">&quot;SPI_IOC_WR_MODE&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">41</span><span class="w">        </span><span class="n">close</span><span class="p">(</span><span class="n">fd</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">42</span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">EXIT_FAILURE</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">43</span><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">44</span>
+<span class="linenos">45</span><span class="w">    </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ioctl</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">SPI_IOC_WR_BITS_PER_WORD</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">bits</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">46</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">47</span><span class="w">        </span><span class="n">perror</span><span class="p">(</span><span class="s">&quot;SPI_IOC_WR_BITS_PER_WORD&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">48</span><span class="w">        </span><span class="n">close</span><span class="p">(</span><span class="n">fd</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">49</span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">EXIT_FAILURE</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">50</span><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">51</span>
+<span class="linenos">52</span><span class="w">    </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ioctl</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">SPI_IOC_WR_MAX_SPEED_HZ</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">speed</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">53</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">-1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">54</span><span class="w">        </span><span class="n">perror</span><span class="p">(</span><span class="s">&quot;SPI_IOC_WR_MAX_SPEED_HZ&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">55</span><span class="w">        </span><span class="n">close</span><span class="p">(</span><span class="n">fd</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">56</span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">EXIT_FAILURE</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">57</span><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">58</span>
+<span class="linenos">59</span><span class="w">    </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ioctl</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">SPI_IOC_MESSAGE</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="o">&amp;</span><span class="n">tr</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">60</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">61</span><span class="w">        </span><span class="n">perror</span><span class="p">(</span><span class="s">&quot;SPI_IOC_MESSAGE&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">62</span><span class="w">        </span><span class="n">close</span><span class="p">(</span><span class="n">fd</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">63</span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">EXIT_FAILURE</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">64</span><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">65</span>
+<span class="linenos">66</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;TX: %02x %02x %02x %02x</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">tx_buf</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="n">tx_buf</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="n">tx_buf</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="n">tx_buf</span><span class="p">[</span><span class="mi">3</span><span class="p">]);</span><span class="w"></span>
+<span class="linenos">67</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;RX: %02x %02x %02x %02x</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">rx_buf</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="n">rx_buf</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="w"> </span><span class="n">rx_buf</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="w"> </span><span class="n">rx_buf</span><span class="p">[</span><span class="mi">3</span><span class="p">]);</span><span class="w"></span>
+<span class="linenos">68</span>
+<span class="linenos">69</span><span class="w">    </span><span class="n">close</span><span class="p">(</span><span class="n">fd</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">70</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">EXIT_SUCCESS</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">71</span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>编译与运行：<code class="docutils literal notranslate"><span class="pre">arm-none-linux-uclibcgnueabihf-gcc</span> <span class="pre">-o</span> <span class="pre">spidev_demo</span> <span class="pre">spidev_demo.c</span> <span class="pre">-static</span></code>，在目标板上执行 <code class="docutils literal notranslate"><span class="pre">./spidev_demo</span></code>。设备节点与 SPI 控制器对应关系见上文备注；速率、模式、字长可按从设备要求修改。</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="5_I2C_Operation_Guide.html" class="btn btn-neutral float-left" title="5. I2C 操作指南" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="7_GPIO_Operation_Guide.html" class="btn btn-neutral float-right" title="7. GPIO操作指南" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2025, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

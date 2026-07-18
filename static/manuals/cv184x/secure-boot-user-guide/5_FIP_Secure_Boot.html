@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5. FIP 签名与加密及 eFuse &mdash; SecureBootUserGuide master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="6. FIT 镜像安全启动" href="6_FIT_Image_Secure_Boot.html" />
+    <link rel="prev" title="4. eFuse 烧写" href="4_eFuse_Burning.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> SecureBootUserGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Secure_Boot_Introduction.html">2. 安全启动介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Secure_Image_Generation.html">3. 安全镜像生成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_eFuse_Burning.html">4. eFuse 烧写</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="5_FIP_Secure_Boot.html#">5. FIP 签名与加密及 eFuse</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="5_FIP_Secure_Boot.html#fip">5.1. 生成 FIP 用的密钥</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_FIP_Secure_Boot.html#fsbl">5.2. 打开 FSBL 安全启动并编译</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_FIP_Secure_Boot.html#id1">5.3. 对 FIP 做签名与加密</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_FIP_Secure_Boot.html#efuse">5.4. 获取 eFuse 要烧写的值（开发机）</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="5_FIP_Secure_Boot.html#hash0-public-64">5.4.1. HASH0_PUBLIC（64 位十六进制）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_FIP_Secure_Boot.html#loader-ek-32">5.4.2. LOADER_EK（32 位十六进制）</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="5_FIP_Secure_Boot.html#efuse-u-boot">5.5. 烧写 eFuse（U-Boot 中，一次性、不可逆）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_FIP_Secure_Boot.html#id2">5.6. 烧录镜像（eFuse 烧写完成之后）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_FIP_Secure_Boot.html#id3">5.7. 流程简表（FIP 侧）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_FIP_Secure_Boot.html#fip-my-fip-keys">5.8. FIP 密钥一览（my_fip_keys/）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_FIP_Secure_Boot.html#fit">5.9. 与 FIT 的关系</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="6_FIT_Image_Secure_Boot.html">6. FIT 镜像安全启动</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_RootFS_Signature.html">7. SquashFS RootFS 签名与内核验签</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_DATA_Partition_Signature.html">8. DATA 分区（userdata）签名与验签</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SecureBootUserGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">5. </span>FIP 签名与加密及 eFuse</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/5_FIP_Secure_Boot.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="fip-efuse">
+<h1><span class="section-number">5. </span>FIP 签名与加密及 eFuse<a class="headerlink" href="5_FIP_Secure_Boot.html#fip-efuse" title="永久链接至标题">¶</a></h1>
+<p>本章说明在本仓库中对 <strong>fip.bin</strong> 做 <strong>签名与加密</strong>，并配合 <strong>eFuse 烧录</strong>，使 ROM/BL1 只执行受信任的 FIP。若还需 <strong>boot.spinor</strong> 内 FIT 的验签或加密，见 <a class="reference internal" href="6_FIT_Image_Secure_Boot.html"><span class="doc">FIT 镜像安全启动</span></a>。</p>
+<p>所有命令均在 <strong>mars 根目录</strong> 执行（U-Boot 内 eFuse 命令除外）；须先依次执行 <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">build/envsetup_soc.sh</span></code> 与 <code class="docutils literal notranslate"><span class="pre">defconfig</span></code> ，将后者参数换为实际板型名。</p>
+<section id="fip">
+<h2><span class="section-number">5.1. </span>生成 FIP 用的密钥<a class="headerlink" href="5_FIP_Secure_Boot.html#fip" title="永久链接至标题">¶</a></h2>
+<p>只做一次，密钥妥善保存。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">KEY_DIR=&quot;$(pwd)/my_fip_keys&quot;</span>
+<span class="go">mkdir -p &quot;$KEY_DIR&quot;</span>
+<span class="go">openssl genrsa -out &quot;${KEY_DIR}/rsa_hash0.pem&quot; -F4 2048</span>
+<span class="go">openssl genrsa -out &quot;${KEY_DIR}/bl_priv.pem&quot; -F4 2048</span>
+<span class="go">head -c 16 /dev/random &gt; &quot;${KEY_DIR}/loader_ek.key&quot;</span>
+<span class="go">head -c 16 /dev/random &gt; &quot;${KEY_DIR}/bl_ek.key&quot;</span>
+<span class="go">chmod 600 &quot;${KEY_DIR}&quot;/*.pem &quot;${KEY_DIR}&quot;/*.key 2&gt;/dev/null || true</span>
+</pre></div>
+</div>
+<p>得到：<strong>rsa_hash0.pem</strong>、<strong>bl_priv.pem</strong>、<strong>loader_ek.key</strong>、<strong>bl_ek.key</strong>。</p>
+</section>
+<section id="fsbl">
+<h2><span class="section-number">5.2. </span>打开 FSBL 安全启动并编译<a class="headerlink" href="5_FIP_Secure_Boot.html#fsbl" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>在 <code class="docutils literal notranslate"><span class="pre">menuconfig</span></code> 中：<strong>FIP setting</strong> → 勾选 <strong>Add secure boot support to FSBL</strong> → 保存退出。</p></li>
+</ul>
+<p>或直接在板级 defconfig 中加入：</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>CONFIG_FSBL_SECURE_BOOT_SUPPORT=y
+</pre></div>
+</div>
+<p>执行 <code class="docutils literal notranslate"><span class="pre">build_all</span></code> 完成编译。完成后在 <code class="docutils literal notranslate"><span class="pre">install/</span></code> 下对应板型的 <code class="docutils literal notranslate"><span class="pre">soc_*</span></code> 子目录中可得到 <strong>fip.bin</strong> 等（具体以板级配置为准）。</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>若启用内核 FIT 安全启动，还需按 <a class="reference internal" href="6_FIT_Image_Secure_Boot.html"><span class="doc">FIT 镜像安全启动</span></a> 配置内核与 U-Boot，并与本章 <strong>build_all</strong> 在同一套配置下完成。</p>
+</div>
+</section>
+<section id="id1">
+<h2><span class="section-number">5.3. </span>对 FIP 做签名与加密<a class="headerlink" href="5_FIP_Secure_Boot.html#id1" title="永久链接至标题">¶</a></h2>
+<p>在 mars 根目录执行（将 <code class="docutils literal notranslate"><span class="pre">KEY_DIR</span></code>、<code class="docutils literal notranslate"><span class="pre">FIP_IN</span></code>、<code class="docutils literal notranslate"><span class="pre">FIP_OUT</span></code> 换成实际路径与板子输出目录）：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">KEY_DIR=&quot;$(pwd)/my_fip_keys&quot;</span>
+<span class="go">FIP_IN=install/soc_cv1842hp_wevb_0014a_spinor/fip.bin</span>
+<span class="go">FIP_OUT=install/soc_cv1842hp_wevb_0014a_spinor/fip_enc.bin</span>
+<span class="go">python3 fsbl/plat/cvitek/cv184x/common/fipsign.py sign-enc \</span>
+<span class="go">         --root-priv=&quot;${KEY_DIR}/rsa_hash0.pem&quot; \</span>
+<span class="go">         --bl-priv=&quot;${KEY_DIR}/bl_priv.pem&quot; \</span>
+<span class="go">         --ldr-ek=&quot;${KEY_DIR}/loader_ek.key&quot; \</span>
+<span class="go">         --bl-ek=&quot;${KEY_DIR}/bl_ek.key&quot; \</span>
+<span class="go">         &quot;$FIP_IN&quot; &quot;$FIP_OUT&quot;</span>
+</pre></div>
+</div>
+<p>得到形如 <code class="docutils literal notranslate"><span class="pre">install/soc_xxx/fip_enc.bin</span></code> 的输出（<code class="docutils literal notranslate"><span class="pre">xxx</span></code> 为板型目录名）。仅签名不加密时可改用 <code class="docutils literal notranslate"><span class="pre">sign</span></code> 子命令，参数见 <code class="docutils literal notranslate"><span class="pre">fipsign.py</span> <span class="pre">--help</span></code>。</p>
+</section>
+<section id="efuse">
+<h2><span class="section-number">5.4. </span>获取 eFuse 要烧写的值（开发机）<a class="headerlink" href="5_FIP_Secure_Boot.html#efuse" title="永久链接至标题">¶</a></h2>
+<section id="hash0-public-64">
+<h3><span class="section-number">5.4.1. </span>HASH0_PUBLIC（64 位十六进制）<a class="headerlink" href="5_FIP_Secure_Boot.html#hash0-public-64" title="永久链接至标题">¶</a></h3>
+<p>需安装 PyCryptodome：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">python3 -c &quot;</span>
+<span class="go">from Crypto.PublicKey import RSA</span>
+<span class="go">from Crypto.Hash import SHA256</span>
+<span class="go">key = RSA.import_key(open(&#39;my_fip_keys/rsa_hash0.pem&#39;).read())</span>
+<span class="go">n = key.n.to_bytes(256, &#39;big&#39;)</span>
+<span class="go">print(SHA256.new(n).digest().hex())</span>
+<span class="go">&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="loader-ek-32">
+<h3><span class="section-number">5.4.2. </span>LOADER_EK（32 位十六进制）<a class="headerlink" href="5_FIP_Secure_Boot.html#loader-ek-32" title="永久链接至标题">¶</a></h3>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">xxd -p -c 256 my_fip_keys/loader_ek.key | tr -d &#39;\n&#39;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="efuse-u-boot">
+<h2><span class="section-number">5.5. </span>烧写 eFuse（U-Boot 中，一次性、不可逆）<a class="headerlink" href="5_FIP_Secure_Boot.html#efuse-u-boot" title="永久链接至标题">¶</a></h2>
+<p>将占位符替换为上一节得到的值后，在 U-Boot 中按顺序执行：</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>efusew HASH0_PUBLIC &lt;64位十六进制&gt;
+efusew LOADER_EK &lt;32位十六进制&gt;
+efusew LOCK_WRITE_LOADER_EK  01
+efusew LOCK_WRITE_HASH0_PUBLIC  01
+efusew SECUREBOOT 02
+</pre></div>
+</div>
+<p>顺序以芯片与厂商文档为准；锁与 <strong>SECUREBOOT</strong> 烧写后即生效，<strong>无法撤销</strong>。</p>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p><strong>注意事项</strong></p>
+<p>eFuse 烧写为不可逆行为，执行前请确认镜像与密钥规划已核对无误。</p>
+</div>
+</section>
+<section id="id2">
+<h2><span class="section-number">5.6. </span>烧录镜像（eFuse 烧写完成之后）<a class="headerlink" href="5_FIP_Secure_Boot.html#id2" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><strong>FIP 分区</strong>：将 <strong>fip_enc.bin</strong> 作为实际烧写内容，按原 <strong>fip.bin</strong> 用法并 <strong>改名为 fip.bin</strong> 后烧录。勿使用未签名的原始 <strong>fip.bin</strong> 或 <strong>fip_spl.bin</strong>。</p></li>
+<li><p><strong>其它分区</strong>：与平时一致，例如 <strong>boot.spinor</strong> → BOOT，<strong>rootfs.spinor</strong> → ROOTFS，<strong>data.spinor</strong> → DATA，<strong>yoc.bin</strong> → 2nd 等。</p></li>
+<li><p><strong>顺序</strong>：先完成 eFuse 烧录，再烧录镜像及各分区。若先烧加密 FIP 再烧 eFuse，可能无法启动，需用未加密的 <strong>fip.bin</strong> 重烧 FIP 等方式恢复。</p></li>
+</ul>
+</section>
+<section id="id3">
+<h2><span class="section-number">5.7. </span>流程简表（FIP 侧）<a class="headerlink" href="5_FIP_Secure_Boot.html#id3" title="永久链接至标题">¶</a></h2>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 11%" />
+<col style="width: 71%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>阶段</p></th>
+<th class="head"><p>步骤</p></th>
+<th class="head"><p>内容</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>准备</p></td>
+<td><p>0</p></td>
+<td><p>（可选）FIT 安全启动见 <a class="reference internal" href="6_FIT_Image_Secure_Boot.html"><span class="doc">FIT 镜像安全启动</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>密钥</p></td>
+<td><p>1</p></td>
+<td><p>生成 FIP 密钥目录 my_fip_keys</p></td>
+</tr>
+<tr class="row-even"><td><p>配置与编译</p></td>
+<td><p>2</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">menuconfig</span></code> 打开 FSBL Add secure boot support；<code class="docutils literal notranslate"><span class="pre">build_all</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>签名加密</p></td>
+<td><p>3</p></td>
+<td><p>fipsign.py sign-enc 得到 fip_enc.bin</p></td>
+</tr>
+<tr class="row-even"><td><p>eFuse 取值</p></td>
+<td><p>4</p></td>
+<td><p>开发机计算 HASH0_PUBLIC；读取 LOADER_EK</p></td>
+</tr>
+<tr class="row-odd"><td><p>eFuse 烧录</p></td>
+<td><p>5</p></td>
+<td><p>U-Boot 中 efusew（HASH0_PUBLIC、LOADER_EK、LOCK、SECUREBOOT）</p></td>
+</tr>
+<tr class="row-even"><td><p>分区烧录</p></td>
+<td><p>6</p></td>
+<td><p>以 fip_enc.bin 替换原 fip.bin 并仍命名为 fip.bin 后烧 FIP；其它分区照旧</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="fip-my-fip-keys">
+<h2><span class="section-number">5.8. </span>FIP 密钥一览（my_fip_keys/）<a class="headerlink" href="5_FIP_Secure_Boot.html#fip-my-fip-keys" title="永久链接至标题">¶</a></h2>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 31%" />
+<col style="width: 69%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>文件</p></th>
+<th class="head"><p>用途</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>rsa_hash0.pem</p></td>
+<td><p>签署 FSBL（BL2）的 RSA 私钥；其公钥哈希烧入 eFuse <strong>HASH0_PUBLIC</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>bl_priv.pem</p></td>
+<td><p>签署 Monitor/U-Boot 的 RSA 私钥</p></td>
+</tr>
+<tr class="row-even"><td><p>loader_ek.key</p></td>
+<td><p>加密 FSBL 的 AES 密钥（16 字节）；烧入 eFuse <strong>LOADER_EK</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>bl_ek.key</p></td>
+<td><p>加密 Monitor/U-Boot 的 AES 密钥（16 字节）</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="fit">
+<h2><span class="section-number">5.9. </span>与 FIT 的关系<a class="headerlink" href="5_FIP_Secure_Boot.html#fit" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><strong>FIT</strong>：保护 <strong>boot.spinor</strong>，由 U-Boot 验签或解密，见 <a class="reference internal" href="6_FIT_Image_Secure_Boot.html"><span class="doc">FIT 镜像安全启动</span></a>。</p></li>
+<li><p><strong>FIP</strong>：保护 <strong>fip.bin</strong>，由 ROM/BL1 验签与解密。</p></li>
+</ul>
+<p>两者可同时使用：先完成 FIT 侧打包与烧录策略，再对 <strong>fip.bin</strong> 做 <code class="docutils literal notranslate"><span class="pre">sign-enc</span></code>；烧录时用 <strong>fip_enc.bin</strong> 替换并改名为 <strong>fip.bin</strong> 写 FIP 分区，BOOT 分区写已签名或加密的 <strong>boot.spinor</strong>。</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="4_eFuse_Burning.html" class="btn btn-neutral float-left" title="4. eFuse 烧写" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="6_FIT_Image_Secure_Boot.html" class="btn btn-neutral float-right" title="6. FIT 镜像安全启动" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

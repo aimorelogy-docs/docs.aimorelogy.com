@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5. VQE算法功能介绍 &mdash; AudioQualityTuningGuide master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="6. Block Diagram:" href="6_Block_Diagram.html" />
+    <link rel="prev" title="4. 常见问题：" href="4_FAQ.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> AudioQualityTuningGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Introduction.html">2. 介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Echo_Cancellation_Debugging.html">3. 回声消除调试</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_FAQ.html">4. 常见问题：</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="5_VQE_Algorithm_Function_Introduction.html#">5. VQE算法功能介绍</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="5_VQE_Algorithm_Function_Introduction.html#id1">5.1. 语音音质增强 (VQE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_VQE_Algorithm_Function_Introduction.html#aec-aes-acoustic-echo-cancellation-acoustic-echo-suppression">5.2. AEC/AES (Acoustic Echo Cancellation/Acoustic Echo Suppression)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_VQE_Algorithm_Function_Introduction.html#nr-noise-reduction">5.3. NR (Noise Reduction)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_VQE_Algorithm_Function_Introduction.html#agc-automatic-gain-control">5.4. AGC (Automatic Gain Control)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_VQE_Algorithm_Function_Introduction.html#notch-filter">5.5. Notch Filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_VQE_Algorithm_Function_Introduction.html#dg-digital-gain">5.6. DG (Digital Gain)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_VQE_Algorithm_Function_Introduction.html#delay">5.7. Delay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_VQE_Algorithm_Function_Introduction.html#equalizer">5.8. Equalizer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="6_Block_Diagram.html">6. Block Diagram:</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">AudioQualityTuningGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">5. </span>VQE算法功能介绍</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/5_VQE_Algorithm_Function_Introduction.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="vqe">
+<h1><span class="section-number">5. </span>VQE算法功能介绍<a class="headerlink" href="5_VQE_Algorithm_Function_Introduction.html#vqe" title="永久链接至标题">¶</a></h1>
+<section id="id1">
+<h2><span class="section-number">5.1. </span>语音音质增强 (VQE)<a class="headerlink" href="5_VQE_Algorithm_Function_Introduction.html#id1" title="永久链接至标题">¶</a></h2>
+<p>针对语音讯号处理（SSP）算法，当近端语音讯号遭受到来自远端的回声干扰或是近端stationary noise的干扰时，可采用SSP内的算法功能来抑制这些干扰，进而提高语音讯号的品质。SSP内提供的解决方案，包括线性回声消除（AEC）、非线性回声抑制（AES）、语音降噪（NR）、自动增益控制（AGC
+）、…等功能。SSP算法支持8kHz及16kHz采样率、单声道、16位采样长度的语音讯号。在接下来的页面会介绍每个算法功能及所使用的参数。</p>
+<p>参数para_fun_config对应至档案 cvi_comm_aio.h 内的u32OpenMask, 可控制麦克风路径的SSP算法功能，参数para_spk_fun_config可控制扬声器路径SSP算法功能，各个位对应的算法功能如下表所述。</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>para_fun_config</p></th>
+<th class="head"><p>描述(麦克风路径)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>位元0</p></td>
+<td><div class="line-block">
+<div class="line">0:关闭AEC</div>
+<div class="line">1:开启AEC</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>位元1</p></td>
+<td><div class="line-block">
+<div class="line">0:关闭AES</div>
+<div class="line">1:开启AES</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>位元2</p></td>
+<td><div class="line-block">
+<div class="line">0:关闭NR</div>
+<div class="line">1:开启NR</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>位元3</p></td>
+<td><div class="line-block">
+<div class="line">0:关闭AGC</div>
+<div class="line">1:开启AGC</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>位元4</p></td>
+<td><div class="line-block">
+<div class="line">0:关闭Notch Filter</div>
+<div class="line">1:开启Notch Filter</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>位元5</p></td>
+<td><div class="line-block">
+<div class="line">0:关闭DC Filter</div>
+<div class="line">1:开启DC Filter</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>位元6</p></td>
+<td><div class="line-block">
+<div class="line">0:关闭DG</div>
+<div class="line">1:开启DG</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>位元7</p></td>
+<td><div class="line-block">
+<div class="line">0:关闭Delay</div>
+<div class="line">1:开启Delay</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>para_spk_fun_config</p></th>
+<th class="head"><p>描述 (扬声器路径)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>位元0</p></td>
+<td><div class="line-block">
+<div class="line">0:关闭AGC</div>
+<div class="line">1:开启AGC</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>位元1</p></td>
+<td><div class="line-block">
+<div class="line">0:关闭EQ</div>
+<div class="line">1:开启EQ</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>表: para_fun_config/para_spk_fun_config参数说明</p>
+</section>
+<section id="aec-aes-acoustic-echo-cancellation-acoustic-echo-suppression">
+<h2><span class="section-number">5.2. </span>AEC/AES (Acoustic Echo Cancellation/Acoustic Echo Suppression)<a class="headerlink" href="5_VQE_Algorithm_Function_Introduction.html#aec-aes-acoustic-echo-cancellation-acoustic-echo-suppression" title="永久链接至标题">¶</a></h2>
+<p>任何双工通话系统的架构都存在着回声的干扰。回声消除器可以消除通过近端声学路径
+耦合回麦克风的扬声器输出的回声。采用所提供的解决方案，线性自适应滤波器模块
+（AEC）搭配非线性回声抑制模块（AES）可以有效地抑制回声，从而提高语音通话品质。</p>
+<a class="reference internal image-reference" href="_images/VQEAlg002.png"><img alt="Chart Description automatically generated" src="_images/VQEAlg002.png" style="width: 4.80556in; height: 2.77778in;" /></a>
+<p>图: AEC+AES处理前后的性能</p>
+<p>提供四个可调参数，用于调适AEC/AES的性能，它们分别是：</p>
+<p><strong>para_aec_init_filter_len/para_aec_filter_len</strong>: 自适应滤波器的长度。根据不同样机回声拖尾的时间调整适当的滤波器长度。若选择较长的长度，会导致较高的MIPS和功耗。</p>
+<p><strong>para_aec_init_filter_len</strong>: 仅用于一开始出现回声时的调适。</p>
+<p><strong>para_aes_std_thrd</strong>: 残留回声判断阈值。值设较大时，近端语音品质较佳但残留回声较多。反之，值设较小时，近端语音品质较差但残留回声较少。</p>
+<p><strong>para_aes_supp_coeff</strong>: 残留回声抑制力道。值设越大，对残留回声抑制力道越大，但同时也会对近端语音带来越多细节音的丢失/损伤。</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>AEC/AES参数</p></td>
+<td><p>可调范围</p></td>
+<td><p>描述</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>para_aec_init_filter_len/para_aec_filter_len</strong></p></td>
+<td><p>1 - 13</p></td>
+<td><div class="line-block">
+<div class="line">8kHz采样率: [1,13]对应[20ms,260ms]</div>
+<div class="line">16kHz采样率: [1,13]对应[10ms,130ms]</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>para_aes_std_thrd</strong></p></td>
+<td><p>0 - 39</p></td>
+<td><div class="line-block">
+<div class="line">0: 残留回声判断阈值最小</div>
+<div class="line">39: 残留回声判断阈值最大</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p><strong>para_aes_supp_coeff</strong></p></td>
+<td><p>0 - 100</p></td>
+<td><div class="line-block">
+<div class="line">0: 残留回声抑制力道最小</div>
+<div class="line">100: 残留回声抑制力道最大</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>表: AEC/AES参数说明</p>
+</section>
+<section id="nr-noise-reduction">
+<h2><span class="section-number">5.3. </span>NR (Noise Reduction)<a class="headerlink" href="5_VQE_Algorithm_Function_Introduction.html#nr-noise-reduction" title="永久链接至标题">¶</a></h2>
+<p>NR模块可以抑制周围环境的stationary noise，例如风扇噪音，空调噪音，
+引擎噪音，白/粉红杂讯，…等等。凭靠着专有的语音智能Speech VAD算法，
+NR可以保持住语音信号，同时又可以有效地抑制stationary noise，
+从而提高语音通话的品质。</p>
+<img alt="_images/VQEAlg003.png" class="align-center" src="_images/VQEAlg003.png" />
+<p>图: NR处理前后的性能</p>
+<p>提供三个可调参数，用于调适NR的性能，它们分别是：</p>
+<p><strong>para_nr_init_sile_time:**初始静音的时间长度。CODEC开电瞬间会产生随机无意义的噪音讯号， **para_nr_init_sile_time</strong> 可将这段讯号设置成静音。</p>
+<p><strong>para_nr_snr_coeff:</strong> signal-to-Noise Ratio（SNR）跟踪系数。若参数值较大，
+则NR会具有较高的降噪能力，但语音信号可能会较容易失真。相反地​​，参数值较小，
+则NR将抑制较少的噪声信号，但会具有较好的语音品质性能。下表是基于不同SNR环境下，
+此参数合适的调整范围，在每种SNR情况下，参数值越大，对stationary noise的抑制力道就越大。</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>NR参数</p></td>
+<td><p>可调范围</p></td>
+<td><p>描述</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>para_nr_init_sile_time</strong></p></td>
+<td><p>0 - 250</p></td>
+<td><div class="line-block">
+<div class="line">对应0s至5s，</div>
+<div class="line">每阶20ms</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>表: NR参数说明</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>周遭的SNR环境</p></td>
+<td><p>调整范围</p></td>
+<td><p>描述</p></td>
+</tr>
+<tr class="row-even"><td><p>低</p></td>
+<td><p>0 - 3</p></td>
+<td><div class="line-block">
+<div class="line">0: 在降噪方面最不积极</div>
+<div class="line">3: 在降噪方面最积极</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>中</p></td>
+<td><p>4 - 10</p></td>
+<td><div class="line-block">
+<div class="line">4: 在降噪方面最不积极</div>
+<div class="line">10: 在降噪方面最积极</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>高</p></td>
+<td><p>11 - 25</p></td>
+<td><div class="line-block">
+<div class="line">11: 在降噪方面最不积极</div>
+<div class="line">25: 在降噪方面最积极</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>表: para_nr_snr_coeff参数说明</p>
+</section>
+<section id="agc-automatic-gain-control">
+<h2><span class="section-number">5.4. </span>AGC (Automatic Gain Control)<a class="headerlink" href="5_VQE_Algorithm_Function_Introduction.html#agc-automatic-gain-control" title="永久链接至标题">¶</a></h2>
+<p>AGC模块可以自动将输出电平调整到预定范围，以提供更舒适的听觉体验。
+如果输入信号低于“Target Low”，则AGC会将输出电平往“Target Low”调整。
+另一方面，如果输入信号高于“Target High”，则AGC会将输出电平往“Target High”调整。</p>
+<img alt="_images/VQEAlg004.png" class="align-center" src="_images/VQEAlg004.png" />
+<p>图: AGC调整信号电平</p>
+<img alt="_images/VQEAlg005.png" class="align-center" src="_images/VQEAlg005.png" />
+<p>图: AGC处理前后的性能</p>
+<p>提供四个可调参数，用于调适麦克风路径的AGC性能，它们分别是：</p>
+<p><strong>para_agc_max_gain:</strong> 此参数是信号可以被放大的最大增益。</p>
+<p><strong>para_agc_target_high:</strong> 此参数是AGC将会去达到的“Target High”水平。
+对于高于 <strong>para_agc_target_high**的输入信号，AGC会将其收敛到 **para_agc_target_high</strong>。</p>
+<p><strong>para_agc_target_low:</strong> 此参数是AGC将会去达到的“Target Low”水平。
+对于低于 <strong>para_agc_target_low**的输入信号，AGC会将其收敛到 **para_agc_target_low</strong>。
+若在达到 <strong>para_agc_target_low**之前就已达到 **para_agc_max_gain</strong> ，
+则AGC仅会收敛到 <strong>para_agc_max_gain</strong> 。</p>
+<p><strong>para_agc_vad_ena:</strong> Speech-activated AGC功能。开启此功能并同时开
+启NR及AEC/AES功能时，能使AGC避免放大背景残留stationary noise及残留回
+声，以获得较佳的效果。</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>AGC参数</p></td>
+<td><p>可调范围</p></td>
+<td><p>描述</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>para_agc_max_gain</strong></p></td>
+<td><p>0 - 6</p></td>
+<td><div class="line-block">
+<div class="line">[0,6]对应的</div>
+<div class="line">最大提升增益为[6dB,42dB]，每阶6dB</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>para_agc_target_high</strong></p></td>
+<td><p>0 - 36</p></td>
+<td><p>0至36对应0dB至-36dB</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>para_agc_target_low</strong></p></td>
+<td><p>0 - 72</p></td>
+<td><p>0至72对应0dB至-72dB</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>para_agc_vad_ena</strong></p></td>
+<td><p>0 - 1</p></td>
+<td><div class="line-block">
+<div class="line">0: 关闭Speech-activated AGC功能</div>
+<div class="line">1: 开启Speech-activated AGC功能</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>表: 麦克风路径的AGC参数说明</p>
+<p><strong>para_spk_agc_max_gain、para_spk_agc_target_high、para_spk_agc_target_low</strong>
+这三个参数用于调适扬声器路径的AGC性能, 其参数定义及调适范围与麦克风路径的AGC相同。</p>
+</section>
+<section id="notch-filter">
+<h2><span class="section-number">5.5. </span>Notch Filter<a class="headerlink" href="5_VQE_Algorithm_Function_Introduction.html#notch-filter" title="永久链接至标题">¶</a></h2>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Notch Filter参数</p></td>
+<td><p>可调范围</p></td>
+<td><p>描述</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>para_notch_freq</strong></p></td>
+<td><p>0 - 1</p></td>
+<td><div class="line-block">
+<div class="line">0: notch frequency为1kHz</div>
+<div class="line">1: notch frequency为4kHz</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dg-digital-gain">
+<h2><span class="section-number">5.6. </span>DG (Digital Gain)<a class="headerlink" href="5_VQE_Algorithm_Function_Introduction.html#dg-digital-gain" title="永久链接至标题">¶</a></h2>
+<p>此功能有助于降低residual echo及 residual stationary noise。
+若mic channel中的讯号gain level较小，则不建议开启此功能。</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>DG参数</p></td>
+<td><p>可调范围</p></td>
+<td><p>描述</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>para_dg_target</strong></p></td>
+<td><p>1 - 12</p></td>
+<td><div class="line-block">
+<div class="line">1: 对残留回声/噪声抑制最不积极，但语音质量最好</div>
+<div class="line">12: 对残留回声/噪声抑制最积极，但语音质量最差</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="delay">
+<h2><span class="section-number">5.7. </span>Delay<a class="headerlink" href="5_VQE_Algorithm_Function_Introduction.html#delay" title="永久链接至标题">¶</a></h2>
+<p>此功能用于延迟参考信号，可使AEC/AES加速收敛一开始出现的回声。
+若已通过调整参数para_aec_init_filter_len加速收敛首端的回声，
+则不建议开启此功能。</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Delay参数</p></td>
+<td><p>可调范围</p></td>
+<td><p>描述</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>para_delay_sample</strong></p></td>
+<td><p>1 - 3000</p></td>
+<td><p>1至3000对应1至3000 samples</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="equalizer">
+<h2><span class="section-number">5.8. </span>Equalizer<a class="headerlink" href="5_VQE_Algorithm_Function_Introduction.html#equalizer" title="永久链接至标题">¶</a></h2>
+<p>此功能是针对语音讯号进行均衡处理，可经由调适band的center frequency，</p>
+<p>gain以及quality factor，调节出所想要语音讯号呈现的频率响应，也可以补偿</p>
+<p>硬件或喇叭单体所造成的不完美频率响应。</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Equalizer参数</p></td>
+<td><p>可调范围</p></td>
+<td><p>描述</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>para_spk_eq_nband</strong></p></td>
+<td><p>1 - 5</p></td>
+<td><p>1至5对应1至5 bands</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>para_spk_eq_freq[]</strong></p></td>
+<td><div class="line-block">
+<div class="line">8kHz Fs: 0 - 9</div>
+<div class="line">16kHz Fs: 0 - 10</div>
+</div>
+</td>
+<td><p>band的center frequen cy，参照para_spk_eq_freq表</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>para_spk_eq_gain[]</strong></p></td>
+<td><p>0 - 60</p></td>
+<td><p>band的gain，参照para_spk_eq_gain表</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>para_spk_eq_qfactor[]</strong></p></td>
+<td><p>0 - 17</p></td>
+<td><div class="line-block">
+<div class="line">band的quality factor。</div>
+<div class="line">0: 以para_spk_eq_freq为中心的频率响应曲线最平滑，但对其附近频率影响
+的范围最广</div>
+<div class="line">17: 以para_spk_eq_freq为中心的频率响应曲线最尖锐，但
+对其附近频率影响的范围最窄</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>【注意】:</p>
+<p>当para_spk_eq_nband配置为1时，需同时配置所对应的para_spk_eq_freq[0]、para_spk_eq_gain[0]、para_spk_eq_qfactor[0]。</p>
+<p>当para_spk_eq_nband配置为2时，需同时配置所对应的para_spk_eq_freq[0]、
+para_spk_eq_gain[0]、para_spk_eq_qfactor[0] 以及 para_spk_eq_freq[1]、
+para_spk_eq_gain[1]、para_spk_eq_qfactor[1]，其中阵列index 0的参数会对
+应到第一个band，阵列index 1的参数会对应到第二个band。以此类推。</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>para_spk_eq_freq</strong> 参数</p></th>
+<th class="head"><p>应的center frequency (Hz)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>0</strong></p></td>
+<td><p>100</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>1</strong></p></td>
+<td><p>200</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2</strong></p></td>
+<td><p>250</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>3</strong></p></td>
+<td><p>350</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>4</strong></p></td>
+<td><p>500</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>5</strong></p></td>
+<td><p>800</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>6</strong></p></td>
+<td><p>1200</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>7</strong></p></td>
+<td><p>2500</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>8</strong></p></td>
+<td><p>3300</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>9</strong></p></td>
+<td><p>3990</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>10(</strong> 只适用于采样率16kHz <strong>)</strong></p></td>
+<td><p>7990</p></td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>para_spk_eq_gain</strong> 参数</p></th>
+<th class="head"><p>对应的gain(dB)</p></th>
+<th class="head"><p>para_spk_eq_gain参数</p></th>
+<th class="head"><p>对应的gain(dB)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>0</strong></p></td>
+<td><p>-40</p></td>
+<td><p>31</p></td>
+<td><p>-9</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>1</strong></p></td>
+<td><p>-39</p></td>
+<td><p>32</p></td>
+<td><p>-8</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2</strong></p></td>
+<td><p>-38</p></td>
+<td><p>33</p></td>
+<td><p>-7</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>3</strong></p></td>
+<td><p>-37</p></td>
+<td><p>34</p></td>
+<td><p>-6</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>4</strong></p></td>
+<td><p>-36</p></td>
+<td><p>35</p></td>
+<td><p>-5</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>5</strong></p></td>
+<td><p>-35</p></td>
+<td><p>36</p></td>
+<td><p>-4</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>6</strong></p></td>
+<td><p>-34</p></td>
+<td><p>37</p></td>
+<td><p>-3</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>7</strong></p></td>
+<td><p>-33</p></td>
+<td><p>38</p></td>
+<td><p>-2</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>8</strong></p></td>
+<td><p>-32</p></td>
+<td><p>39</p></td>
+<td><p>-1</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>9</strong></p></td>
+<td><p>-31</p></td>
+<td><p>40</p></td>
+<td><p>+0</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>10</strong></p></td>
+<td><p>-30</p></td>
+<td><p>41</p></td>
+<td><p>+1</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>11</strong></p></td>
+<td><p>-29</p></td>
+<td><p>42</p></td>
+<td><p>+2</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>12</strong></p></td>
+<td><p>-28</p></td>
+<td><p>43</p></td>
+<td><p>+3</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>13</strong></p></td>
+<td><p>-27</p></td>
+<td><p>44</p></td>
+<td><p>+4</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>14</strong></p></td>
+<td><p>-26</p></td>
+<td><p>45</p></td>
+<td><p>+5</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>15</strong></p></td>
+<td><p>-25</p></td>
+<td><p>46</p></td>
+<td><p>+6</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>16</strong></p></td>
+<td><p>-24</p></td>
+<td><p>47</p></td>
+<td><p>+7</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>17</strong></p></td>
+<td><p>-23</p></td>
+<td><p>48</p></td>
+<td><p>+8</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>18</strong></p></td>
+<td><p>-22</p></td>
+<td><p>49</p></td>
+<td><p>+9</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>19</strong></p></td>
+<td><p>-21</p></td>
+<td><p>50</p></td>
+<td><p>+10</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>20</strong></p></td>
+<td><p>-20</p></td>
+<td><p>51</p></td>
+<td><p>+11</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>21</strong></p></td>
+<td><p>-19</p></td>
+<td><p>52</p></td>
+<td><p>+12</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>22</strong></p></td>
+<td><p>-18</p></td>
+<td><p>53</p></td>
+<td><p>+13</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>23</strong></p></td>
+<td><p>-17</p></td>
+<td><p>54</p></td>
+<td><p>+14</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>24</strong></p></td>
+<td><p>-16</p></td>
+<td><p>55</p></td>
+<td><p>+15</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>25</strong></p></td>
+<td><p>-15</p></td>
+<td><p>56</p></td>
+<td><p>+16</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>26</strong></p></td>
+<td><p>-14</p></td>
+<td><p>57</p></td>
+<td><p>+17</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>27</strong></p></td>
+<td><p>-13</p></td>
+<td><p>58</p></td>
+<td><p>+18</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>28</strong></p></td>
+<td><p>-12</p></td>
+<td><p>59</p></td>
+<td><p>+19</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>29</strong></p></td>
+<td><p>-11</p></td>
+<td><p>60</p></td>
+<td><p>+20</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>30</strong></p></td>
+<td><p>-10</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>VQE 针对 Audio Input 和 Audio Output 两条通路的异同点，分别通过 UpVQE 和 DnVQE 两个调度逻辑来
+处理两个通路的数据，UpVQE包含AEC、AES、NR、AGC。DnVQE目前不支持。对应参数
+可参考表头档cvi_comm_aio.h。</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="4_FAQ.html" class="btn btn-neutral float-left" title="4. 常见问题：" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="6_Block_Diagram.html" class="btn btn-neutral float-right" title="6. Block Diagram:" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

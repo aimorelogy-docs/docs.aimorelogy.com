@@ -1,0 +1,2875 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4.4. 数据类型 &mdash; MediaProcessingSoftwareDevelopmentReference master 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="../_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/qrious.js"></script>
+    <script src="../_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="4.5. 错误码" href="Error_Codes.html" />
+    <link rel="prev" title="4.3. API参考" href="API_Reference.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> MediaProcessingSoftwareDevelopmentReference
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_System_Overview.html">2. 系统概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_System_Control.html">3. 系统控制</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../4_Video_Input.html">4. 视频输入</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Function_Overview.html">4.1. 功能概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Design_Overview.html">4.2. 设计概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="API_Reference.html">4.3. API参考</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="Data_Types.html#">4.4. 数据类型</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-max-dev-num">4.4.1. VI_MAX_DEV_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-max-phy-pipe-num">4.4.2. VI_MAX_PHY_PIPE_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-max-vir-pipe-num">4.4.3. VI_MAX_VIR_PIPE_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-max-pipe-num">4.4.4. VI_MAX_PIPE_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-max-wdr-num">4.4.5. VI_MAX_WDR_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-max-vir-chn-num">4.4.6. VI_MAX_VIR_CHN_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-max-phy-chn-num">4.4.7. VI_MAX_PHY_CHN_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-max-ext-chn-num">4.4.8. VI_MAX_EXT_CHN_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-ext-chn-start">4.4.9. VI_EXT_CHN_START</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-max-chn-num">4.4.10. VI_MAX_CHN_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-max-wdr-frame-num">4.4.11. VI_MAX_WDR_FRAME_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-max-extchn-bind-per-chn">4.4.12. VI_MAX_EXTCHN_BIND_PER_CHN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-pipe1-max-width">4.4.13. VI_PIPE1_MAX_WIDTH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-pixel-format">4.4.14. VI_PIXEL_FORMAT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-vpss-extra-buf">4.4.15. VI_VPSS_EXTRA_BUF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-chn-0-buf">4.4.16. VI_CHN_0_BUF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-chn-1-buf">4.4.17. VI_CHN_1_BUF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-chn-2-buf">4.4.18. VI_CHN_2_BUF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-chn-3-buf">4.4.19. VI_CHN_3_BUF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-buf">4.4.20. VI_BUF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-cmp-param-size">4.4.21. VI_CMP_PARAM_SIZE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-max-adchn-num">4.4.22. VI_MAX_ADCHN_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-compmask-num">4.4.23. VI_COMPMASK_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-sharpen-gain-num">4.4.24. VI_SHARPEN_GAIN_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-auto-iso-strength-num">4.4.25. VI_AUTO_ISO_STRENGTH_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-invalid-chn">4.4.26. VI_INVALID_CHN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-data-type-e">4.4.27. VI_DATA_TYPE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-dev-attr-s">4.4.28. VI_DEV_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-dev-bind-pipe-s">4.4.29. VI_DEV_BIND_PIPE_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-pipe-attr-s">4.4.30. VI_PIPE_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-dump-type-e">4.4.31. VI_DUMP_TYPE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-dump-attr-s">4.4.32. VI_DUMP_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-chn-attr-s">4.4.33. VI_CHN_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-crop-info-s">4.4.34. VI_CROP_INFO_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-dev-timing-attr-s">4.4.35. VI_DEV_TIMING_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-pipe-status-s">4.4.36. VI_PIPE_STATUS_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-chn-status-s">4.4.37. VI_CHN_STATUS_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-pipe-frame-source-e">4.4.38. VI_PIPE_FRAME_SOURCE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-ldc-attr-s">4.4.39. VI_LDC_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-state-e">4.4.40. VI_STATE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-sync-cfg-s">4.4.41. VI_SYNC_CFG_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-bt656-sync-cfg-s">4.4.42. VI_BT656_SYNC_CFG_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-pipe-bypass-mode-e">4.4.43. VI_PIPE_BYPASS_MODE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-crop-coordinate-e">4.4.44. VI_CROP_COORDINATE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-mod-param-s">4.4.45. VI_MOD_PARAM_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-early-interrupt-s">4.4.46. VI_EARLY_INTERRUPT_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#mlsc-gain-lut-s">4.4.47. MLSC_GAIN_LUT_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-dump-register-table-s">4.4.48. VI_DUMP_REGISTER_TABLE_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-pm-ops-s">4.4.49. VI_PM_OPS_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-smooth-raw-dump-info-s">4.4.50. VI_SMOOTH_RAW_DUMP_INFO_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-intf-mode-e">4.4.51. VI_INTF_MODE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-input-mode-e">4.4.52. VI_INPUT_MODE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-work-mode-e">4.4.53. VI_WORK_MODE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-scan-mode-e">4.4.54. VI_SCAN_MODE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-yuv-data-seq-e">4.4.55. VI_YUV_DATA_SEQ_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-clk-edge-e">4.4.56. VI_CLK_EDGE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-component-mode-e">4.4.57. VI_COMPONENT_MODE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-combine-mode-e">4.4.58. VI_COMBINE_MODE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-vsync-e">4.4.59. VI_VSYNC_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-vsync-neg-e">4.4.60. VI_VSYNC_NEG_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-hsync-e">4.4.61. VI_HSYNC_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-hsync-neg-e">4.4.62. VI_HSYNC_NEG_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-vsync-valid-e">4.4.63. VI_VSYNC_VALID_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-vsync-valid-neg-e">4.4.64. VI_VSYNC_VALID_NEG_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-wdr-attr-s">4.4.65. VI_WDR_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-timing-blank-s">4.4.66. VI_TIMING_BLANK_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-bt656-fixcode-e">4.4.67. VI_BT656_FIXCODE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-bt656-field-polar-e">4.4.68. VI_BT656_FIELD_POLAR_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-dev-attr-ex-s">4.4.69. VI_DEV_ATTR_EX_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-ext-chn-source-e">4.4.70. VI_EXT_CHN_SOURCE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vi-ext-chn-attr-s">4.4.71. VI_EXT_CHN_ATTR_S</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Error_Codes.html">4.5. 错误码</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../5_Video_Output.html">5. 视频输出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6_Video_Processing_Subsystem.html">6. 视频处理子系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7_Video_Encoding.html">7. 视频编码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../8_Video_Decoding.html">8. 视频解码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../9_Regional_Management.html">9. 区域管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10_Audio_Frequency.html">10. 音频</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../11_Geometric_Distortion_Correction_Subsystem.html">11. 几何畸变矫正子系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../12_Proc_Debugging_Information_Explanation.html">12. Proc 调试信息说明</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MediaProcessingSoftwareDevelopmentReference</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../4_Video_Input.html"><span class="section-number">4. </span>视频输入</a> &raquo;</li>
+      <li><span class="section-number">4.4. </span>数据类型</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="../_sources/4_Video_Input/Data_Types.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<span id="id2"></span><h1><span class="section-number">4.4. </span>数据类型<a class="headerlink" href="Data_Types.html#id1" title="永久链接至标题">¶</a></h1>
+<p>视频输入相关数据类型定义如下，处理器差异的部分参见 <a class="reference internal" href="Design_Overview.html#id3"><span class="std std-ref">各处理器支持能力</span></a> 。</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="Data_Types.html#vi-max-dev-num">VI_MAX_DEV_NUM</a> ：定义 VI 设备的最大个数。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-max-phy-pipe-num">VI_MAX_PHY_PIPE_NUM</a> ：定义 VI 物理 PIPE 的最大个数。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-max-vir-pipe-num">VI_MAX_VIR_PIPE_NUM</a> ：定义 VI 虚拟 PIPE 的最大个数。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-max-pipe-num">VI_MAX_PIPE_NUM</a> ：定义 VI PIPE 的最大个数。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-max-wdr-num">VI_MAX_WDR_NUM</a> ：定义 VI 支持最大WDR设备个数。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-max-vir-chn-num">VI_MAX_VIR_CHN_NUM</a> ：定义 VI 虚拟通道的最大个数。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-max-phy-chn-num">VI_MAX_PHY_CHN_NUM</a> ：定义 VI 物理通道的最大个数。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-max-ext-chn-num">VI_MAX_EXT_CHN_NUM</a> ：定义 VI 扩展通道的最大个数。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-ext-chn-start">VI_EXT_CHN_START</a> ：定义 VI 扩展通道起始通道号。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-max-extchn-bind-per-chn">VI_MAX_EXTCHN_BIND_PER_CHN</a> ：定义 VI 每个通道绑定扩展通道的最大个数。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-max-chn-num">VI_MAX_CHN_NUM</a> ：定义 VI 物理信道和扩展信道的总个数。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-max-wdr-frame-num">VI_MAX_WDR_FRAME_NUM</a> ：定义 VI 设备WDR模式下所支持的最大帧数。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-pipe1-max-width">VI_PIPE1_MAX_WIDTH</a> ：VI PIPE1 处理图像的最大宽度。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-pixel-format">VI_PIXEL_FORMAT</a> ：VI 图像格式。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-vpss-extra-buf">VI_VPSS_EXTRA_BUF</a> ：定义 VI VPSS 额外缓冲区数量。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-chn-0-buf">VI_CHN_0_BUF</a> ：定义 VI 通道 0 缓冲区数量。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-chn-1-buf">VI_CHN_1_BUF</a> ：定义 VI 通道 1 缓冲区数量。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-chn-2-buf">VI_CHN_2_BUF</a> ：定义 VI 通道 2 缓冲区数量。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-chn-3-buf">VI_CHN_3_BUF</a> ：定义 VI 通道 3 缓冲区数量。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-buf">VI_BUF</a> ：定义 VI 通道缓冲区数量。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-cmp-param-size">VI_CMP_PARAM_SIZE</a> ：定义 VI 比较参数大小。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-max-adchn-num">VI_MAX_ADCHN_NUM</a> ：定义 VI 最大模拟数字通道数。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-compmask-num">VI_COMPMASK_NUM</a> ：定义 VI 比较掩码数量。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-sharpen-gain-num">VI_SHARPEN_GAIN_NUM</a> ：定义 VI 锐化增益参数数量。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-auto-iso-strength-num">VI_AUTO_ISO_STRENGTH_NUM</a> ：定义 VI 自动ISO强度参数数量。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-invalid-chn">VI_INVALID_CHN</a> ：定义 VI 无效的视频输入通道编号。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-data-type-e">VI_DATA_TYPE_E</a> ：VI 输入数据类型枚举。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-dev-attr-s">VI_DEV_ATTR_S</a> ：定义视频输入设备的属性。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-dev-bind-pipe-s">VI_DEV_BIND_PIPE_S</a> ：定义 VI DEV 与 PIPE 的绑定关系。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#id3">VI_PIPE_ATTR_S</a> ：定义 VI PIPE 属性。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-dump-type-e">VI_DUMP_TYPE_E</a> ：枚举 dump 类型。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#id4">VI_DUMP_ATTR_S</a> ：定义 VI PIPE dump 属性。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-chn-attr-s">VI_CHN_ATTR_S</a> ：定义 VI 通道属性。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-crop-info-s">VI_CROP_INFO_S</a> ：定义 VI CROP 信息结构体。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#id5">VI_DEV_TIMING_ATTR_S</a> ：自产生时序属性。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-pipe-status-s">VI_PIPE_STATUS_S</a> ：定义 VI PIPE 状态信息。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-chn-status-s">VI_CHN_STATUS_S</a> ：定义 VI 通道状态信息。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-pipe-frame-source-e">VI_PIPE_FRAME_SOURCE_E</a> ：定义 VI PIPE 数据的来源类型。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#id6">VI_LDC_ATTR_S</a> ：定义VI镜头畸变矫正结构体。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-state-e">VI_STATE_E</a> ：枚举 VI 状态信息。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-sync-cfg-s">VI_SYNC_CFG_S</a> ：BT.601或DC定时的同步信息。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-bt656-sync-cfg-s">VI_BT656_SYNC_CFG_S</a> ：BT.656的同步信息。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-pipe-bypass-mode-e">VI_PIPE_BYPASS_MODE_E</a> ：VI pipeline bypass模式。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-crop-coordinate-e">VI_CROP_COORDINATE_E</a> ：裁剪坐标的不同类型。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-mod-param-s">VI_MOD_PARAM_S</a> ：VI模块参数。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-early-interrupt-s">VI_EARLY_INTERRUPT_S</a> ：提前中断的参数。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#mlsc-gain-lut-s">MLSC_GAIN_LUT_S</a> ：增益查找表。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-dump-register-table-s">VI_DUMP_REGISTER_TABLE_S</a> ：寄存器转存数据。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-pm-ops-s">VI_PM_OPS_S</a> ：电源管理相关操作。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-smooth-raw-dump-info-s">VI_SMOOTH_RAW_DUMP_INFO_S</a> ：连续raw图转存信息。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-intf-mode-e">VI_INTF_MODE_E</a> ：视频输入接口模式。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-input-mode-e">VI_INPUT_MODE_E</a> ：输入模式。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-work-mode-e">VI_WORK_MODE_E</a> ：工作模式。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-scan-mode-e">VI_SCAN_MODE_E</a> ：扫描模式。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-yuv-data-seq-e">VI_YUV_DATA_SEQ_E</a> ：YUV数据序列。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-clk-edge-e">VI_CLK_EDGE_E</a> ：时钟边缘模式。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-component-mode-e">VI_COMPONENT_MODE_E</a> ：组件模式。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-combine-mode-e">VI_COMBINE_MODE_E</a> ：亮度色度信号组合模式。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-vsync-e">VI_VSYNC_E</a> ：垂直同步信号的属性。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-vsync-neg-e">VI_VSYNC_NEG_E</a> ：垂直同步信号的极性。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-hsync-e">VI_HSYNC_E</a> ：水平同步信号的属性。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-hsync-neg-e">VI_HSYNC_NEG_E</a> ：水平同步信号的极性。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-vsync-valid-e">VI_VSYNC_VALID_E</a> ：有效垂直同步信号的属性。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-vsync-valid-neg-e">VI_VSYNC_VALID_NEG_E</a> ：有效垂直同步信号的极性。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-wdr-attr-s">VI_WDR_ATTR_S</a> ：WDR属性。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-timing-blank-s">VI_TIMING_BLANK_S</a> ：输入时序的消隐信息。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-bt656-fixcode-e">VI_BT656_FIXCODE_E</a> ：BT.656定时参考码的最高位。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-bt656-field-polar-e">VI_BT656_FIELD_POLAR_E</a> ：BT.656定时参考码的字段指示符位（F）的极性。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-dev-attr-ex-s">VI_DEV_ATTR_EX_S</a> ：VI设备的扩展属性。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-ext-chn-source-e">VI_EXT_CHN_SOURCE_E</a> ：VI扩展通道数据源类型。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vi-ext-chn-attr-s">VI_EXT_CHN_ATTR_S</a> ：VI扩展通道属性结构体。</p></li>
+<li><p>VI_USERPIC_BGC_S：结构体已弃用。</p></li>
+<li><p>VI_LOW_DELAY_INFO_S：结构体已弃用。</p></li>
+<li><p>VI_CMP_PARAM_S：结构体已弃用。</p></li>
+<li><p>VI_USERPIC_ATTR_S：结构体已弃用。</p></li>
+<li><p>VI_PIPE_SHARPEN_ATTR_S：结构体已弃用。</p></li>
+<li><p>VI_PIPE_REPEAT_MODE_E：结构体已弃用。</p></li>
+<li><p>VI_NR_VERSION_E：结构体已弃用。</p></li>
+<li><p>NRX_PARAM_MANUAL_V1_S：结构体已弃用。</p></li>
+<li><p>NRX_PARAM_AUTO_V1_S：结构体已弃用。</p></li>
+<li><p>tV500_VI_SFy：结构体已弃用。</p></li>
+<li><p>VI_PIPE_NRX_PARAM_V2_S：结构体已弃用。</p></li>
+<li><p>NRX_PARAM_AUTO_V2_S：结构体已弃用。</p></li>
+<li><p>NRX_PARAM_V2_S：结构体已弃用。</p></li>
+<li><p>VI_PIPE_NRX_PARAM_S：结构体已弃用。</p></li>
+<li><p>VI_RAW_INFO_S：结构体已弃用。</p></li>
+</ul>
+<hr class="docutils" />
+<section id="vi-max-dev-num">
+<h2><span class="section-number">4.4.1. </span>VI_MAX_DEV_NUM<a class="headerlink" href="Data_Types.html#vi-max-dev-num" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VI 设备的最大个数。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VI_MAX_DEV_NUM (VI_MAX_PHY_DEV_NUM + VI_MAX_VIR_DEV_NUM)</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-max-phy-pipe-num">
+<h2><span class="section-number">4.4.2. </span>VI_MAX_PHY_PIPE_NUM<a class="headerlink" href="Data_Types.html#vi-max-phy-pipe-num" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VI 物理 PIPE 的最大个数。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VI_MAX_PHY_PIPE_NUM 5</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-max-vir-pipe-num">
+<h2><span class="section-number">4.4.3. </span>VI_MAX_VIR_PIPE_NUM<a class="headerlink" href="Data_Types.html#vi-max-vir-pipe-num" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VI 虚拟 PIPE 的最大个数。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VI_MAX_VIR_PIPE_NUM 0</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-max-pipe-num">
+<h2><span class="section-number">4.4.4. </span>VI_MAX_PIPE_NUM<a class="headerlink" href="Data_Types.html#vi-max-pipe-num" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VI PIPE 的最大个数。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VI_MAX_PIPE_NUM (VI_MAX_PHY_PIPE_NUM + VI_MAX_VIR_PIPE_NUM)</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-max-wdr-num">
+<h2><span class="section-number">4.4.5. </span>VI_MAX_WDR_NUM<a class="headerlink" href="Data_Types.html#vi-max-wdr-num" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VI 支持最大WDR设备个数。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VI_MAX_WDR_NUM 1</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-max-vir-chn-num">
+<h2><span class="section-number">4.4.6. </span>VI_MAX_VIR_CHN_NUM<a class="headerlink" href="Data_Types.html#vi-max-vir-chn-num" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VI 虚拟通道的最大个数。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VI_MAX_VIR_CHN_NUM 2</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-max-phy-chn-num">
+<h2><span class="section-number">4.4.7. </span>VI_MAX_PHY_CHN_NUM<a class="headerlink" href="Data_Types.html#vi-max-phy-chn-num" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VI 物理通道的最大个数。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VI_MAX_PHY_CHN_NUM 3</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-max-ext-chn-num">
+<h2><span class="section-number">4.4.8. </span>VI_MAX_EXT_CHN_NUM<a class="headerlink" href="Data_Types.html#vi-max-ext-chn-num" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VI 扩展通道的最大个数。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VI_MAX_EXT_CHN_NUM 3</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-ext-chn-start">
+<h2><span class="section-number">4.4.9. </span>VI_EXT_CHN_START<a class="headerlink" href="Data_Types.html#vi-ext-chn-start" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VI 扩展通道起始通道号。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VI_EXT_CHN_START VI_MAX_CHN_NUM</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-max-chn-num">
+<h2><span class="section-number">4.4.10. </span>VI_MAX_CHN_NUM<a class="headerlink" href="Data_Types.html#vi-max-chn-num" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VI 物理信道和扩展信道的总个数。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VI_MAX_CHN_NUM 1</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-max-wdr-frame-num">
+<h2><span class="section-number">4.4.11. </span>VI_MAX_WDR_FRAME_NUM<a class="headerlink" href="Data_Types.html#vi-max-wdr-frame-num" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VI 设备WDR模式下所支持的最大帧数。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VI_MAX_WDR_FRAME_NUM 2</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-max-extchn-bind-per-chn">
+<h2><span class="section-number">4.4.12. </span>VI_MAX_EXTCHN_BIND_PER_CHN<a class="headerlink" href="Data_Types.html#vi-max-extchn-bind-per-chn" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VI 每个通道绑定扩展通道的最大个数。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VI_MAX_EXTCHN_BIND_PER_CHN 1</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-pipe1-max-width">
+<h2><span class="section-number">4.4.13. </span>VI_PIPE1_MAX_WIDTH<a class="headerlink" href="Data_Types.html#vi-pipe1-max-width" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>VI PIPE1 处理图像的最大宽度。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VI_PIPE1_MAX_WIDTH 2880</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-pixel-format">
+<h2><span class="section-number">4.4.14. </span>VI_PIXEL_FORMAT<a class="headerlink" href="Data_Types.html#vi-pixel-format" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>VI 图像格式。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VI_PIXEL_FORMAT PIXEL_FORMAT_NV21</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-vpss-extra-buf">
+<h2><span class="section-number">4.4.15. </span>VI_VPSS_EXTRA_BUF<a class="headerlink" href="Data_Types.html#vi-vpss-extra-buf" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VI VPSS 额外缓冲区数量。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VI_VPSS_EXTRA_BUF 0</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-chn-0-buf">
+<h2><span class="section-number">4.4.16. </span>VI_CHN_0_BUF<a class="headerlink" href="Data_Types.html#vi-chn-0-buf" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VI 通道 0 缓冲区数量。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VI_CHN_0_BUF (2 + VI_VPSS_EXTRA_BUF)</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-chn-1-buf">
+<h2><span class="section-number">4.4.17. </span>VI_CHN_1_BUF<a class="headerlink" href="Data_Types.html#vi-chn-1-buf" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VI 通道 1 缓冲区数量。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VI_CHN_1_BUF (2 + VI_VPSS_EXTRA_BUF)</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-chn-2-buf">
+<h2><span class="section-number">4.4.18. </span>VI_CHN_2_BUF<a class="headerlink" href="Data_Types.html#vi-chn-2-buf" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VI 通道 2 缓冲区数量。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VI_CHN_2_BUF (2 + VI_VPSS_EXTRA_BUF)</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-chn-3-buf">
+<h2><span class="section-number">4.4.19. </span>VI_CHN_3_BUF<a class="headerlink" href="Data_Types.html#vi-chn-3-buf" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VI 通道 3 缓冲区数量。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VI_CHN_3_BUF (2 + VI_VPSS_EXTRA_BUF)</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-buf">
+<h2><span class="section-number">4.4.20. </span>VI_BUF<a class="headerlink" href="Data_Types.html#vi-buf" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VI 通道缓冲区数量。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VI_BUF (VI_CHN_0_BUF + VI_CHN_1_BUF + VI_CHN_2_BUF + VI_CHN_3_BUF)</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-cmp-param-size">
+<h2><span class="section-number">4.4.21. </span>VI_CMP_PARAM_SIZE<a class="headerlink" href="Data_Types.html#vi-cmp-param-size" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VI 比较参数大小。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VI_CMP_PARAM_SIZE 152</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-max-adchn-num">
+<h2><span class="section-number">4.4.22. </span>VI_MAX_ADCHN_NUM<a class="headerlink" href="Data_Types.html#vi-max-adchn-num" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VI 最大模拟数字通道数。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VI_MAX_ADCHN_NUM 4</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-compmask-num">
+<h2><span class="section-number">4.4.23. </span>VI_COMPMASK_NUM<a class="headerlink" href="Data_Types.html#vi-compmask-num" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VI 比较掩码数量。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VI_COMPMASK_NUM 2</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-sharpen-gain-num">
+<h2><span class="section-number">4.4.24. </span>VI_SHARPEN_GAIN_NUM<a class="headerlink" href="Data_Types.html#vi-sharpen-gain-num" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VI 锐化增益参数数量。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VI_SHARPEN_GAIN_NUM 32</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-auto-iso-strength-num">
+<h2><span class="section-number">4.4.25. </span>VI_AUTO_ISO_STRENGTH_NUM<a class="headerlink" href="Data_Types.html#vi-auto-iso-strength-num" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VI 自动ISO强度参数数量。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VI_AUTO_ISO_STRENGTH_NUM 16</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-invalid-chn">
+<h2><span class="section-number">4.4.26. </span>VI_INVALID_CHN<a class="headerlink" href="Data_Types.html#vi-invalid-chn" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VI 无效的视频输入通道编号。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VI_INVALID_CHN -1</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-data-type-e">
+<h2><span class="section-number">4.4.27. </span>VI_DATA_TYPE_E<a class="headerlink" href="Data_Types.html#vi-data-type-e" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>VI 输入数据类型枚举。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_VI_DATA_TYPE_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_DATA_TYPE_YUV</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_DATA_TYPE_RGB</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_DATA_TYPE_YUV_EARLY</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_DATA_TYPE_BUTT</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VI_DATA_TYPE_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VI_DATA_TYPE_YUV</p></td>
+<td><p>数据类型YUV</p></td>
+</tr>
+<tr class="row-odd"><td><p>VI_DATA_TYPE_RGB</p></td>
+<td><p>数据类型RGB</p></td>
+</tr>
+<tr class="row-even"><td><p>VI_DATA_TYPE_YUV_EARLY</p></td>
+<td><p>数据类型YUV（中断提前）</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-dev-attr-s">
+<h2><span class="section-number">4.4.28. </span>VI_DEV_ATTR_S<a class="headerlink" href="Data_Types.html#vi-dev-attr-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义VI设备的属性。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VI_DEV_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_INTF_MODE_E</span><span class="w"> </span><span class="n">enIntfMode</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_WORK_MODE_E</span><span class="w"> </span><span class="n">enWorkMode</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_SCAN_MODE_E</span><span class="w"> </span><span class="n">enScanMode</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">as32AdChnId</span><span class="p">[</span><span class="n">VI_MAX_ADCHN_NUM</span><span class="p">];</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_YUV_DATA_SEQ_E</span><span class="w"> </span><span class="n">enDataSeq</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_SYNC_CFG_S</span><span class="w"> </span><span class="n">stSynCfg</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_DATA_TYPE_E</span><span class="w"> </span><span class="n">enInputDataType</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">SIZE_S</span><span class="w"> </span><span class="n">stSize</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_WDR_ATTR_S</span><span class="w"> </span><span class="n">stWDRAttr</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">BAYER_FORMAT_E</span><span class="w"> </span><span class="n">enBayerFormat</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">chn_num</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">snrFps</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U64</span><span class="w"> </span><span class="n">phy_addr</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">phy_size</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">isMux</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">switchGpioIdx</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">switchGpioPin</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">switchGPioPol</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">disEnableSbm</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">isFrmCtrl</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">dstFrm</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VI_DEV_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>enIntfMode</p></td>
+<td><p>Sensor接口模式。</p></td>
+</tr>
+<tr class="row-odd"><td><p>enWorkMode</p></td>
+<td><p>1、2、4 路复合工作模式。</p></td>
+</tr>
+<tr class="row-even"><td><p>enScanMode</p></td>
+<td><p>输入扫描模式 (逐行、隔行)。</p></td>
+</tr>
+<tr class="row-odd"><td><p>as32AdChnId[VI_MAX_ADCHN_NUM]</p></td>
+<td><p>取值范围[-1,3]，推荐统一设置为默认值-1，此参数无意义。</p></td>
+</tr>
+<tr class="row-even"><td><p>enDataSeq</p></td>
+<td><p>输入数据顺序 (仅支持 yuv格式)。</p></td>
+</tr>
+<tr class="row-odd"><td><p>stSynCfg</p></td>
+<td><p>同步时序配置，BT.601模式时必须配置，其它模式时无效。</p></td>
+</tr>
+<tr class="row-even"><td><p>enInputDataType</p></td>
+<td><p>输入数据类型，Sensor输入一般为 RGB，AD 输入一般为 YUV。</p></td>
+</tr>
+<tr class="row-odd"><td><p>stSize</p></td>
+<td><p>VI 设备可设置要捕获图像的高宽，捕获图像的最小宽高与最大宽高：</p>
+<p>宽度：[VI_DEV_MIN_WIDTH，VI_DEV_MAX_WIDTH]。</p>
+<p>高度：[VI_DEV_MIN_HEIGHT，VI_DEV_MAX_HEIGHT]。</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>stWDRAttr</p></td>
+<td><p>WDR 属性。</p></td>
+</tr>
+<tr class="row-odd"><td><p>enBayerFormat</p></td>
+<td><p>设备的bayer format，当inputDataType为RGB必须设置此属性。</p></td>
+</tr>
+<tr class="row-even"><td><p>chn_num</p></td>
+<td><p>设备的通道数。</p></td>
+</tr>
+<tr class="row-odd"><td><p>snrFps</p></td>
+<td><p>设备的初始帧率。</p></td>
+</tr>
+<tr class="row-even"><td><p>phy_addr</p></td>
+<td><p>仅ALIOS/DUAL OS支持, 若不为0, VI使用用户分配的物理地址,使用前需保证物理地址的合法性.</p></td>
+</tr>
+<tr class="row-odd"><td><p>phy_size</p></td>
+<td><p>仅ALIOS/DUAL OS支持, 所使用物理地址内存大小.</p></td>
+</tr>
+<tr class="row-even"><td><p>isMux</p></td>
+<td><p>是否多sensor使用同一个dev。</p></td>
+</tr>
+<tr class="row-odd"><td><p>switchGpioIdx</p></td>
+<td><p>仅ALIOS/DUAL OS支持。gpio bank,-1表示不使用gpio。</p></td>
+</tr>
+<tr class="row-even"><td><p>switchGpioPin</p></td>
+<td><p>gpio引脚，-1表示不使用gpio。</p></td>
+</tr>
+<tr class="row-odd"><td><p>switchGPioPol</p></td>
+<td><p>gpio值[0,1]，-1表示不使用gpio</p></td>
+</tr>
+<tr class="row-even"><td><p>disEnableSbm</p></td>
+<td><p>传感器定时是否支持SBM。</p></td>
+</tr>
+<tr class="row-odd"><td><p>isFrmCtrl</p></td>
+<td><p>仅ALIOS/DUAL OS支持。是否启用帧控制</p></td>
+</tr>
+<tr class="row-even"><td><p>dstFrm</p></td>
+<td><p>仅ALIOS/DUAL OS支持。switch设置目标帧数</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<ul class="simple">
+<li><p>stSize 中 u32Width 必须等于实际输入图像的宽度，u32Height 必须等于实际输入图像的高度，否则会导致没有图像输出。</p></li>
+</ul>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-dev-bind-pipe-s">
+<h2><span class="section-number">4.4.29. </span>VI_DEV_BIND_PIPE_S<a class="headerlink" href="Data_Types.html#vi-dev-bind-pipe-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VI DEV 与 PIPE 的绑定关系。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VI_DEV_BIND_PIPE_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32Num</span><span class="p">;</span><span class="w"> </span><span class="cm">/* RW;Range [1,VI_MAX_PIPE_NUM] */</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">PipeId</span><span class="p">[</span><span class="n">VI_MAX_PIPE_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/* RW;Array of pipe ID */</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VI_DEV_BIND_PIPE_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>U32Num</p></td>
+<td><p>该 VI Dev 所绑定的 PIPE数目，取值范围[1, VI_MAX_PIPE_NUM]。</p></td>
+</tr>
+<tr class="row-odd"><td><p>PipeId</p></td>
+<td><p>该 VI Dev 绑定的 PIPE 号。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+<hr class="docutils" />
+</section>
+<section id="vi-pipe-attr-s">
+<span id="id3"></span><h2><span class="section-number">4.4.30. </span>VI_PIPE_ATTR_S<a class="headerlink" href="Data_Types.html#vi-pipe-attr-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VI PIPE 属性。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VI_PIPE_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_PIPE_BYPASS_MODE_E</span><span class="w"> </span><span class="n">enPipeBypassMode</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bYuvSkip</span><span class="p">;</span><span class="w"> </span><span class="cm">/* RW;YUV skip enable */</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bIspBypass</span><span class="p">;</span><span class="w"> </span><span class="cm">/* RW;ISP bypass enable */</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32MaxW</span><span class="p">;</span><span class="w"> </span><span class="cm">/* RW;Range[VI_PIPE_MIN_WIDTH,VI_PIPE_MAX_WIDTH];Maximum width */</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32MaxH</span><span class="p">;</span><span class="w"> </span><span class="cm">/* RW;Range[VI_PIPE_MIN_HEIGHT,VI_PIPE_MAX_HEIGHT];Maximum height */</span><span class="w"></span>
+<span class="w">   </span><span class="n">PIXEL_FORMAT_E</span><span class="w"> </span><span class="n">enPixFmt</span><span class="p">;</span><span class="w"> </span><span class="cm">/* RW;Pixel format */</span><span class="w"></span>
+<span class="w">   </span><span class="n">COMPRESS_MODE_E</span><span class="w"> </span><span class="n">enCompressMode</span><span class="p">;</span><span class="w"> </span><span class="cm">/* RW;Compress mode.*/</span><span class="w"></span>
+<span class="w">   </span><span class="n">DATA_BITWIDTH_E</span><span class="w"> </span><span class="n">enBitWidth</span><span class="p">;</span><span class="w"> </span><span class="cm">/* RW;Bit width*/</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bNrEn</span><span class="p">;</span><span class="w"> </span><span class="cm">/* RW;3DNR enable */</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bSharpenEn</span><span class="p">;</span><span class="w"> </span><span class="cm">/* RW;Sharpen enable*/</span><span class="w"></span>
+<span class="w">   </span><span class="n">FRAME_RATE_CTRL_S</span><span class="w"> </span><span class="n">stFrameRate</span><span class="p">;</span><span class="w"> </span><span class="cm">/* RW;Frame rate */</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bDiscardProPic</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bYuvBypassPath</span><span class="p">;</span><span class="w"></span>
+<span class="w">         </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">b3dnrBypass</span><span class="p">;</span><span class="w"> </span><span class="cm">/* RW;ISP 3dnr bypass enable */</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VI_PIPE_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>enPipeBypassMode</p></td>
+<td><p>VI PIPE 的 Bypass 模式。</p></td>
+</tr>
+<tr class="row-odd"><td><p>bYuvSkip</p></td>
+<td><p>是否关闭下采样和 CSC。</p>
+<p>CVI_FALSE：yuv skip 不使能。</p>
+<p>CVI_TRUE：yuv skip 使能。</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>bIspBypass</p></td>
+<td><p>ISP 是否 bypass。</p>
+<p>CVI_FALSE：ISP 正常运行。</p>
+<p>CVI_TRUE：ISP bypass，不运行 ISP。</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>u32MaxW</p></td>
+<td><p>输入图像宽度。静态属性，创建 PIPE时设定，不可更改。</p>
+<p>在线模式 下取值范围：[VI_PIPE_ONLINE_MIN_WIDTH，VI_PIPE_ONLINE_MAX_WIDTH]。</p>
+<p>离线模式 下取值范围：[VI_PIPE_OFFLINE_MIN_WIDTH，VI_PIPE_OFFLINE_MAX_WIDTH]。</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>u32MaxH</p></td>
+<td><p>输入图像高度。</p>
+<p>在线模式下取值范围：[VI_PIPE_ONLINE_MIN_HEIGHT，VI_PIPE_ONLINE_MAX_HEIGHT]。</p>
+<p>离线模式下取值范围：[VI_PIPE_OFFLINE_MIN_HEIGHT，VI_PIPE_OFFLINE_MAX_HEIGHT]。</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>enPixFmt</p></td>
+<td><p>像素格式。</p></td>
+</tr>
+<tr class="row-even"><td><p>enCompressMode</p></td>
+<td><p>数据压缩格式。</p></td>
+</tr>
+<tr class="row-odd"><td><p>enBitWidth</p></td>
+<td><p>输入图像的 bit 位宽。创建 PIPE时设定，不可更改，仅当像素格式 enPixFmt为 YUV 像素格式时有效。</p></td>
+</tr>
+<tr class="row-even"><td><p>bNrEn</p></td>
+<td><p>NR 使能开关。</p>
+<p>CVI_FALSE：不使能。</p>
+<p>CVI_TRUE：使能。</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>bSharpenEn</p></td>
+<td><p>Sharpen 使能开关。</p></td>
+</tr>
+<tr class="row-even"><td><p>stFrameRate</p></td>
+<td><p>帧率控制。</p></td>
+</tr>
+<tr class="row-odd"><td><p>bDiscardProPic</p></td>
+<td><p>是否丢弃长曝光的帧。</p></td>
+</tr>
+<tr class="row-even"><td><p>bYuvBypassPath</p></td>
+<td><p>是否YUV直通模式。</p></td>
+</tr>
+<tr class="row-odd"><td><p>b3dnrBypass</p></td>
+<td><p>仅ALIOS/DUAL OS支持。是否开启3dnr bypass。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-dump-type-e">
+<h2><span class="section-number">4.4.31. </span>VI_DUMP_TYPE_E<a class="headerlink" href="Data_Types.html#vi-dump-type-e" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>枚举 dump 类型。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_VI_DUMP_TYPE_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_DUMP_TYPE_RAW</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_DUMP_TYPE_YUV</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_DUMP_TYPE_IR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_DUMP_TYPE_BUTT</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VI_DUMP_TYPE_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VI_DUMP_TYPE_RAW</p></td>
+<td><p>Dump RAW 数据。</p></td>
+</tr>
+<tr class="row-odd"><td><p>VI_DUMP_TYPE_YUV</p></td>
+<td><p>Dump YUV 数据。</p></td>
+</tr>
+<tr class="row-even"><td><p>VI_DUMP_TYPE_IR</p></td>
+<td><p>Dump IR 分量数据。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<ul class="simple">
+<li><p>不支持Dump IR数据</p></li>
+<li><p>Dump YUV请使用CVI_VI_GetChnFrame</p></li>
+</ul>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+<hr class="docutils" />
+</section>
+<section id="vi-dump-attr-s">
+<span id="id4"></span><h2><span class="section-number">4.4.32. </span>VI_DUMP_ATTR_S<a class="headerlink" href="Data_Types.html#vi-dump-attr-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 PIPE dump 属性。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VI_DUMP_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bEnable</span><span class="p">;</span><span class="w"> </span><span class="cm">/* RW;Whether dump is enable */</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32Depth</span><span class="p">;</span><span class="w"> </span><span class="cm">/* RW;Range [0,8];Depth */</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_DUMP_TYPE_E</span><span class="w"> </span><span class="n">enDumpType</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VI_DUMP_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>bEnable</p></td>
+<td><p>是否使能 dump。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32Depth</p></td>
+<td><p>Dump 数据的队列深度。取值范围：[0, 8]。</p></td>
+</tr>
+<tr class="row-even"><td><p>enDumpType</p></td>
+<td><p>Dump 数据类型。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-setpipedumpattr"><span class="std std-ref">CVI_VI_SetPipeDumpAttr</span></a></p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-getpipedumpattr"><span class="std std-ref">CVI_VI_GetPipeDumpAttr</span></a></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="vi-chn-attr-s">
+<h2><span class="section-number">4.4.33. </span>VI_CHN_ATTR_S<a class="headerlink" href="Data_Types.html#vi-chn-attr-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VI 通道属性。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VI_CHN_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">SIZE_S</span><span class="w"> </span><span class="n">stSize</span><span class="p">;</span><span class="w"> </span><span class="cm">/* RW;Channel out put size */</span><span class="w"></span>
+<span class="w">   </span><span class="n">PIXEL_FORMAT_E</span><span class="w"> </span><span class="n">enPixelFormat</span><span class="p">;</span><span class="w"> </span><span class="cm">/* RW;Pixel format */</span><span class="w"></span>
+<span class="w">   </span><span class="n">DYNAMIC_RANGE_E</span><span class="w"> </span><span class="n">enDynamicRange</span><span class="p">;</span><span class="w"> </span><span class="cm">/* RW;Dynamic Range */</span><span class="w"></span>
+<span class="w">   </span><span class="n">VIDEO_FORMAT_E</span><span class="w"> </span><span class="n">enVideoFormat</span><span class="p">;</span><span class="w"> </span><span class="cm">/* RW;Video format */</span><span class="w"></span>
+<span class="w">   </span><span class="n">COMPRESS_MODE_E</span><span class="w"> </span><span class="n">enCompressMode</span><span class="p">;</span><span class="w"> </span><span class="cm">/* RW;256B Segment compress or no compress. */</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bMirror</span><span class="p">;</span><span class="w"> </span><span class="cm">/* RW;Mirror enable */</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bFlip</span><span class="p">;</span><span class="w"> </span><span class="cm">/* RW;Flip enable */</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32Depth</span><span class="p">;</span><span class="w"> </span><span class="cm">/* RW;Range [0,8];Depth */</span><span class="w"></span>
+<span class="w">   </span><span class="n">FRAME_RATE_CTRL_S</span><span class="w"> </span><span class="n">stFrameRate</span><span class="p">;</span><span class="w"> </span><span class="cm">/* RW;Frame rate */</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32BindVbPool</span><span class="p">;</span><span class="w"> </span><span class="cm">/*chn bind vb*/</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VI_CHN_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>stSize</p></td>
+<td><p>目标图像大小。</p>
+<p>目标图像的最小宽高与最大宽高：</p>
+<p>在线模式下高度 [VI_PHYCHN_ONLINE_MIN_HEIGHT，VI_PHYCHN_ONLINE_MAX_HEIGHT]。</p>
+<p>离线模式下高度 [VI_PHYCHN_OFFLINE_MIN_HEIGHT，VI_PHYCHN_OFFLINE_MAX_HEIGHT]。</p>
+<p>在线模式下宽度 [VI_PHYCHN_ONLINE_MIN_WIDTH， VI_PHYCHN_ONLINE_MAX_WIDTH]。</p>
+<p>离线模式下宽度 [VI_PHYCHN_OFFLINE_MIN_WIDTH，VI_PHYCHN_OFFLINE_MAX_WIDTH]。</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>enPixelFormat</p></td>
+<td><p>目标图像像素格式。</p></td>
+</tr>
+<tr class="row-even"><td><p>enDynamicRange</p></td>
+<td><p>目标图像动态范围。</p></td>
+</tr>
+<tr class="row-odd"><td><p>enVideoFormat</p></td>
+<td><p>目标图像视频数据格式。</p></td>
+</tr>
+<tr class="row-even"><td><p>enCompressMode</p></td>
+<td><p>目标图像压缩格式。</p></td>
+</tr>
+<tr class="row-odd"><td><p>bMirror</p></td>
+<td><p>Mirror 使能开关。</p>
+<p>CVI_FALSE：不使能。</p>
+<p>CVI_TRUE：使能。</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>bFlip</p></td>
+<td><p>Flip 使能开关。</p>
+<p>CVI_FALSE：不使能。</p>
+<p>CVI_TRUE：使能。</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>u32Depth</p></td>
+<td><p>用户获取图像的队列深度。</p></td>
+</tr>
+<tr class="row-even"><td><p>stFrameRate</p></td>
+<td><p>帧率控制。源帧率取值范围：(0, 240]，以及-1。目标帧率取值范围：[-1, 240]。当源帧率为-1时，目标帧率必须为-1(不进行帧率控制)，其他情况下，目标帧率不能大于源帧率。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32BindVbPool</p></td>
+<td><p>通道绑定的vb池id。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<ul class="simple">
+<li><p>目前VI不支持帧率控制</p></li>
+</ul>
+<p>【相关数据类型及接口】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-setchnattr"><span class="std std-ref">CVI_VI_SetChnAttr</span></a></p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-getchnattr"><span class="std std-ref">CVI_VI_GetChnAttr</span></a></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="vi-crop-info-s">
+<h2><span class="section-number">4.4.34. </span>VI_CROP_INFO_S<a class="headerlink" href="Data_Types.html#vi-crop-info-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VI CROP 信息结构体。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VI_CROP_INFO_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bEnable</span><span class="p">;</span><span class="w"> </span><span class="cm">/* RW;CROP enable*/</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_CROP_COORDINATE_E</span><span class="w"> </span><span class="n">enCropCoordinate</span><span class="p">;</span><span class="w"> </span><span class="cm">/* RW;Coordinate mode of the crop start point*/</span><span class="w"></span>
+<span class="w">   </span><span class="n">RECT_S</span><span class="w"> </span><span class="n">stCropRect</span><span class="p">;</span><span class="w"> </span><span class="cm">/* RW;CROP rectangular*/</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VI_CROP_INFO_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>bEnable</p></td>
+<td><p>CROP 使能开关。</p></td>
+</tr>
+<tr class="row-odd"><td><p>enCropCoordinate</p></td>
+<td><p>CROP 起点坐标模式。</p></td>
+</tr>
+<tr class="row-even"><td><p>stCropRect</p></td>
+<td><p>CROP 的矩形区域。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+<hr class="docutils" />
+</section>
+<section id="vi-dev-timing-attr-s">
+<span id="id5"></span><h2><span class="section-number">4.4.35. </span>VI_DEV_TIMING_ATTR_S<a class="headerlink" href="Data_Types.html#vi-dev-timing-attr-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>用户自定义时序属性。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VI_DEV_TIMING_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bEnable</span><span class="p">;</span><span class="w"> </span><span class="cm">/* RW;Whether enable VI generate timing */</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">s32FrmRate</span><span class="p">;</span><span class="w"> </span><span class="cm">/* RW;Generate timing Frame rate*/</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VI_DEV_TIMING_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>bEnable</p></td>
+<td><p>用户自定义时序使能开关。</p></td>
+</tr>
+<tr class="row-odd"><td><p>s32FrmRate</p></td>
+<td><p>用户自定义时序的帧率。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<ul class="simple">
+<li><p>当使能用户自定义时序后，若用户设置的帧率超过设备最大帧率时，系统自动以设备最大帧率为有效值。</p></li>
+</ul>
+<p>【相关数据类型及接口】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-setdevtimingattr"><span class="std std-ref">CVI_VI_SetDevTimingAttr</span></a></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="vi-pipe-status-s">
+<h2><span class="section-number">4.4.36. </span>VI_PIPE_STATUS_S<a class="headerlink" href="Data_Types.html#vi-pipe-status-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VI PIPE 的状态信息。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VI_PIPE_STATUS_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bEnable</span><span class="p">;</span><span class="w"> </span><span class="cm">/* RO;Whether this pipe is enabled */</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32IntCnt</span><span class="p">;</span><span class="w"> </span><span class="cm">/* RO;The video frame interrupt count */</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32FrameRate</span><span class="p">;</span><span class="w"> </span><span class="cm">/* RO;Current frame rate */</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32LostFrame</span><span class="p">;</span><span class="w"> </span><span class="cm">/* RO;Lost frame count */</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32VbFail</span><span class="p">;</span><span class="w"> </span><span class="cm">/* RO;Video buffer malloc failure */</span><span class="w"></span>
+<span class="w">   </span><span class="n">SIZE_S</span><span class="w"> </span><span class="n">stSize</span><span class="p">;</span><span class="w"> </span><span class="cm">/* RO;Current pipe output size */</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VI_PIPE_STATUS_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>bEnable</p></td>
+<td><p>当前 PIPE 是否使能。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32IntCnt</p></td>
+<td><p>中断计数。</p></td>
+</tr>
+<tr class="row-even"><td><p>u32FrameRate</p></td>
+<td><p>VI PIPE 的实时帧率。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32LostFrame</p></td>
+<td><p>丢帧计数。</p></td>
+</tr>
+<tr class="row-even"><td><p>u32VbFail</p></td>
+<td><p>VB 申请失败计数。</p></td>
+</tr>
+<tr class="row-odd"><td><p>stSize</p></td>
+<td><p>PIPE 当前图像大小。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-chn-status-s">
+<h2><span class="section-number">4.4.37. </span>VI_CHN_STATUS_S<a class="headerlink" href="Data_Types.html#vi-chn-status-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VI 通道的状态信息。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VI_CHN_STATUS_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bEnable</span><span class="p">;</span><span class="w"> </span><span class="cm">/* RO;Whether this channel is enabled */</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32FrameRate</span><span class="p">;</span><span class="w"> </span><span class="cm">/* RO;current frame rate */</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U64</span><span class="w"> </span><span class="n">u64PrevTime</span><span class="p">;</span><span class="w"> </span><span class="c1">// latest time (us)</span>
+<span class="w">   </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32FrameNum</span><span class="p">;</span><span class="w">  </span><span class="c1">//The number of Frame in one second</span>
+<span class="w">   </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32LostFrame</span><span class="p">;</span><span class="w"> </span><span class="cm">/* RO;Lost frame count */</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32VbFail</span><span class="p">;</span><span class="w"> </span><span class="cm">/* RO;Video buffer malloc failure */</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32IntCnt</span><span class="p">;</span><span class="w"> </span><span class="cm">/* RO;Receive frame int count */</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32RecvPic</span><span class="p">;</span><span class="w"> </span><span class="cm">/* RO;Receive frame count */</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32TotalMemByte</span><span class="p">;</span><span class="w"> </span><span class="cm">/* RO;VI buffer malloc failure */</span><span class="w"></span>
+<span class="w">   </span><span class="n">SIZE_S</span><span class="w"> </span><span class="n">stSize</span><span class="p">;</span><span class="w"> </span><span class="cm">/* RO;chn output size */</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VI_CHN_STATUS_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>bEnable</p></td>
+<td><p>当前 PIPE 是否使能。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32FrameRate</p></td>
+<td><p>Chn 的实时帧率。</p></td>
+</tr>
+<tr class="row-even"><td><p>u64PrevTime</p></td>
+<td><p>记录前次时间，用于计算u32FrameNum。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32FrameNum</p></td>
+<td><p>一秒时间内的帧数。</p></td>
+</tr>
+<tr class="row-even"><td><p>u32LostFrame</p></td>
+<td><p>丢帧计数。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32VbFail</p></td>
+<td><p>VB 申请失败计数。</p></td>
+</tr>
+<tr class="row-even"><td><p>u32IntCnt</p></td>
+<td><p>Chn接收的帧数。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32RecvPic</p></td>
+<td><p>Chn接收的帧数。</p></td>
+</tr>
+<tr class="row-even"><td><p>u32TotalMemByte</p></td>
+<td><p>暂无使用。</p></td>
+</tr>
+<tr class="row-odd"><td><p>stSize</p></td>
+<td><p>Chn 当前图像大小。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-pipe-frame-source-e">
+<h2><span class="section-number">4.4.38. </span>VI_PIPE_FRAME_SOURCE_E<a class="headerlink" href="Data_Types.html#vi-pipe-frame-source-e" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义 VI PIPE 数据的来源类型。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_VI_PIPE_FRAME_SOURCE_E</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_PIPE_FRAME_SOURCE_DEV</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="cm">/* RW;Source from dev */</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_PIPE_FRAME_SOURCE_USER_FE</span><span class="p">,</span><span class="w"> </span><span class="cm">/* RW;User send to FE */</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_PIPE_FRAME_SOURCE_USER_BE</span><span class="p">,</span><span class="w"> </span><span class="cm">/* RW;User send to BE */</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_PIPE_FRAME_SOURCE_BUTT</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VI_PIPE_FRAME_SOURCE_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VI_PIPE_FRAME_SOURCE_DEV</p></td>
+<td><p>数据来自设备。</p></td>
+</tr>
+<tr class="row-odd"><td><p>VI_PIPE_FRAME_SOURCE_USER_FE</p></td>
+<td><p>数据来自用户从 FE 送进来的数据。</p></td>
+</tr>
+<tr class="row-even"><td><p>VI_PIPE_FRAME_SOURCE_USER_BE</p></td>
+<td><p>数据来自用户从 BE 送进来的数据。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<ul class="simple">
+<li><p>不支持从 BE 进数据。</p></li>
+</ul>
+<p>【相关数据类型及接口】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-setpipeframesource"><span class="std std-ref">CVI_VI_SetPipeFrameSource</span></a></p></li>
+</ul>
+<hr class="docutils" />
+</section>
+<section id="vi-ldc-attr-s">
+<span id="id6"></span><h2><span class="section-number">4.4.39. </span>VI_LDC_ATTR_S<a class="headerlink" href="Data_Types.html#vi-ldc-attr-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义VI镜头畸变矫正结构体</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VI_LDC_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bEnable</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">LDC_ATTR_S</span><span class="w"> </span><span class="n">stAttr</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VI_LDC_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>bEnable</p></td>
+<td><p>LDC使能</p></td>
+</tr>
+<tr class="row-odd"><td><p>stAttr</p></td>
+<td><p>LDC设定属性</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../11_Geometric_Distortion_Correction_Subsystem/Data_Types.html#ldc-attr-s"><span class="std std-ref">LDC_ATTR_S</span></a></p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-getchnldcattr"><span class="std std-ref">CVI_VI_GetChnLDCAttr</span></a></p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vi-setchnldcattr"><span class="std std-ref">CVI_VI_SetChnLDCAttr</span></a></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="vi-state-e">
+<h2><span class="section-number">4.4.40. </span>VI_STATE_E<a class="headerlink" href="Data_Types.html#vi-state-e" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>枚举 VI 状态信息。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_VI_STATE</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_RUNNING</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_SUSPEND</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_MAX</span><span class="p">,</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VI_STATE_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VI_RUNNING</p></td>
+<td><p>VI处于运行状态。</p></td>
+</tr>
+<tr class="row-odd"><td><p>VI_SUSPEND</p></td>
+<td><p>VI处于休眠状态。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-sync-cfg-s">
+<h2><span class="section-number">4.4.41. </span>VI_SYNC_CFG_S<a class="headerlink" href="Data_Types.html#vi-sync-cfg-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>BT.601或DC定时的同步信息。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VI_SYNC_CFG_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_VSYNC_E</span><span class="w"> </span><span class="n">enVsync</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_VSYNC_NEG_E</span><span class="w"> </span><span class="n">enVsyncNeg</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_HSYNC_E</span><span class="w"> </span><span class="n">enHsync</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_HSYNC_NEG_E</span><span class="w"> </span><span class="n">enHsyncNeg</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_VSYNC_VALID_E</span><span class="w"> </span><span class="n">enVsyncValid</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_VSYNC_VALID_NEG_E</span><span class="w"> </span><span class="n">enVsyncValidNeg</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_TIMING_BLANK_S</span><span class="w"> </span><span class="n">stTimingBlank</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VI_SYNC_CFG_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>enVsync</p></td>
+<td><p>垂直同步信号的配置。</p></td>
+</tr>
+<tr class="row-odd"><td><p>enVsyncNeg</p></td>
+<td><p>垂直同步信号的有效状态。</p></td>
+</tr>
+<tr class="row-even"><td><p>enHsync</p></td>
+<td><p>水平同步信号的配置。</p></td>
+</tr>
+<tr class="row-odd"><td><p>enHsyncNeg</p></td>
+<td><p>水平同步信号的有效状态。</p></td>
+</tr>
+<tr class="row-even"><td><p>enVsyncValid</p></td>
+<td><p>垂直同步有效信号的配置。</p></td>
+</tr>
+<tr class="row-odd"><td><p>enVsyncValidNeg</p></td>
+<td><p>垂直同步有效信号的有效状态。</p></td>
+</tr>
+<tr class="row-even"><td><p>stTimingBlank</p></td>
+<td><p>时序空白相关的参数。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-bt656-sync-cfg-s">
+<h2><span class="section-number">4.4.42. </span>VI_BT656_SYNC_CFG_S<a class="headerlink" href="Data_Types.html#vi-bt656-sync-cfg-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>BT.656的同步信息。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VI_BT656_SYNC_CFG_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_BT656_FIXCODE_E</span><span class="w"> </span><span class="n">enFixCode</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_BT656_FIELD_POLAR_E</span><span class="w"> </span><span class="n">enFieldPolar</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VI_BT656_SYNC_CFG_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>enFixCode</p></td>
+<td><p>固定码的配置。</p></td>
+</tr>
+<tr class="row-odd"><td><p>enFieldPolar</p></td>
+<td><p>场极性的配置。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-pipe-bypass-mode-e">
+<h2><span class="section-number">4.4.43. </span>VI_PIPE_BYPASS_MODE_E<a class="headerlink" href="Data_Types.html#vi-pipe-bypass-mode-e" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>VI pipeline bypass模式。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_VI_PIPE_BYPASS_MODE_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_PIPE_BYPASS_NONE</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_PIPE_BYPASS_FE</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_PIPE_BYPASS_BE</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_PIPE_BYPASS_BUTT</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VI_PIPE_BYPASS_MODE_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VI_PIPE_BYPASS_NONE</p></td>
+<td><p>VI pipeline no bypass。</p></td>
+</tr>
+<tr class="row-odd"><td><p>VI_PIPE_BYPASS_FE</p></td>
+<td><p>VI pipeline fe bypass。</p></td>
+</tr>
+<tr class="row-even"><td><p>VI_PIPE_BYPASS_BE</p></td>
+<td><p>VI pipeline be bypas。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-crop-coordinate-e">
+<h2><span class="section-number">4.4.44. </span>VI_CROP_COORDINATE_E<a class="headerlink" href="Data_Types.html#vi-crop-coordinate-e" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>裁剪坐标的不同类型。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_VI_CROP_COORDINATE_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_CROP_RATIO_COOR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_CROP_ABS_COOR</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_CROP_BUTT</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VI_CROP_COORDINATE_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VI_CROP_RATIO_COOR</p></td>
+<td><p>裁剪坐标使用比率坐标。</p></td>
+</tr>
+<tr class="row-odd"><td><p>VI_CROP_ABS_COOR</p></td>
+<td><p>裁剪坐标使用绝对坐标。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-mod-param-s">
+<h2><span class="section-number">4.4.45. </span>VI_MOD_PARAM_S<a class="headerlink" href="Data_Types.html#vi-mod-param-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>存储VI模块参数。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VI_MOD_PARAM_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">s32DetectErrFrame</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32DropErrFrame</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VI_MOD_PARAM_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>s32DetectErrFrame</p></td>
+<td><p>检测到的错误帧数。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32DropErrFrame</p></td>
+<td><p>丢弃的错误帧数。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-early-interrupt-s">
+<h2><span class="section-number">4.4.46. </span>VI_EARLY_INTERRUPT_S<a class="headerlink" href="Data_Types.html#vi-early-interrupt-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>提前中断的参数。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VI_EARLY_INTERRUPT_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bEnable</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32LineCnt</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VI_EARLY_INTERRUPT_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>bEnable</p></td>
+<td><p>是否启用提前中断功能。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32LineCnt</p></td>
+<td><p>提前中断相关的行计数。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="mlsc-gain-lut-s">
+<h2><span class="section-number">4.4.47. </span>MLSC_GAIN_LUT_S<a class="headerlink" href="Data_Types.html#mlsc-gain-lut-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>增益查找表。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_MLSC_GAIN_LUT_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U16</span><span class="w"> </span><span class="o">*</span><span class="n">RGain</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U16</span><span class="w"> </span><span class="o">*</span><span class="n">GGain</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U16</span><span class="w"> </span><span class="o">*</span><span class="n">BGain</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">MLSC_GAIN_LUT_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>RGain</p></td>
+<td><p>指向红色增益值的查找表。</p></td>
+</tr>
+<tr class="row-odd"><td><p>GGain</p></td>
+<td><p>指向绿色增益值的查找表。</p></td>
+</tr>
+<tr class="row-even"><td><p>BGain</p></td>
+<td><p>指向蓝色增益值的查找表。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-dump-register-table-s">
+<h2><span class="section-number">4.4.48. </span>VI_DUMP_REGISTER_TABLE_S<a class="headerlink" href="Data_Types.html#vi-dump-register-table-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>寄存器转存数据。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VI_DUMP_REGISTER_TABLE_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">         </span><span class="n">MLSC_GAIN_LUT_S</span><span class="w"> </span><span class="n">MlscGainLut</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VI_DUMP_REGISTER_TABLE_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>MlscGainLut</p></td>
+<td><p>增益查找表。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-pm-ops-s">
+<h2><span class="section-number">4.4.49. </span>VI_PM_OPS_S<a class="headerlink" href="Data_Types.html#vi-pm-ops-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>电源管理相关操作。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VI_PM_OPS_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">pfnViDevPmOps</span><span class="w"> </span><span class="n">pfnSnsSuspend</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">pfnViDevPmOps</span><span class="w"> </span><span class="n">pfnSnsResume</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">pfnViDevPmOps</span><span class="w"> </span><span class="n">pfnMipiSuspend</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">pfnViDevPmOps</span><span class="w"> </span><span class="n">pfnMipiResume</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VI_PM_OPS_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>pfnSnsSuspend</p></td>
+<td><p>sensor休眠操作。</p></td>
+</tr>
+<tr class="row-odd"><td><p>pfnSnsResume</p></td>
+<td><p>sensor唤醒操作。</p></td>
+</tr>
+<tr class="row-even"><td><p>pfnMipiSuspend</p></td>
+<td><p>mipi休眠操作。</p></td>
+</tr>
+<tr class="row-odd"><td><p>pfnMipiResume</p></td>
+<td><p>mipi唤醒操作。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-smooth-raw-dump-info-s">
+<h2><span class="section-number">4.4.50. </span>VI_SMOOTH_RAW_DUMP_INFO_S<a class="headerlink" href="Data_Types.html#vi-smooth-raw-dump-info-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>连续raw图转存信息。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VI_SMOOTH_RAW_DUMP_INFO_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">RECT_S</span><span class="w">  </span><span class="n">stCropRect</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U8</span><span class="w">  </span><span class="n">u8BlkCnt</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">phy_size</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U64</span><span class="w"> </span><span class="o">*</span><span class="n">phy_addr_list</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">padding</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VI_SMOOTH_RAW_DUMP_INFO_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>vi pipe。</p></td>
+</tr>
+<tr class="row-odd"><td><p>stCropRect</p></td>
+<td><p>裁剪的矩形区域。</p></td>
+</tr>
+<tr class="row-even"><td><p>u8BlkCnt</p></td>
+<td><p>缓冲区的块数量。</p></td>
+</tr>
+<tr class="row-odd"><td><p>phy_size</p></td>
+<td><p>仅ALIOS/DUAL OS支持, 每块缓冲区的大小。</p></td>
+</tr>
+<tr class="row-even"><td><p>phy_addr_list</p></td>
+<td><p>物理地址列表。</p></td>
+</tr>
+<tr class="row-odd"><td><p>padding</p></td>
+<td><p>仅ALIOS/DUAL OS支持, 填充字段</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-intf-mode-e">
+<h2><span class="section-number">4.4.51. </span>VI_INTF_MODE_E<a class="headerlink" href="Data_Types.html#vi-intf-mode-e" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>视频输入接口模式。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_VI_INTF_MODE_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_MODE_BT656</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_MODE_BT601</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_MODE_DIGITAL_CAMERA</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_MODE_BT1120_STANDARD</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_MODE_BT1120_INTERLEAVED</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_MODE_MIPI</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_MODE_MIPI_YUV420_NORMAL</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_MODE_MIPI_YUV420_LEGACY</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_MODE_MIPI_YUV422</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_MODE_LVDS</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_MODE_HISPI</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_MODE_SLVS</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_MODE_BUTT</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VI_INTF_MODE_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VI_MODE_BT656</p></td>
+<td><p>BT656 模式。</p></td>
+</tr>
+<tr class="row-odd"><td><p>VI_MODE_BT601</p></td>
+<td><p>BT601 模式。</p></td>
+</tr>
+<tr class="row-even"><td><p>VI_MODE_DIGITAL_CAMERA</p></td>
+<td><p>digatal camera模式。</p></td>
+</tr>
+<tr class="row-odd"><td><p>VI_MODE_BT1120_STANDARD</p></td>
+<td><p>BT.1120 progressive模式。</p></td>
+</tr>
+<tr class="row-even"><td><p>VI_MODE_BT1120_INTERLEAVED</p></td>
+<td><p>BT.1120 interstage模式。</p></td>
+</tr>
+<tr class="row-odd"><td><p>VI_MODE_MIPI</p></td>
+<td><p>MIPI RAW模式。</p></td>
+</tr>
+<tr class="row-even"><td><p>VI_MODE_MIPI_YUV420_NORMAL</p></td>
+<td><p>MIPI YUV420 normal模式。</p></td>
+</tr>
+<tr class="row-odd"><td><p>VI_MODE_MIPI_YUV420_LEGACY</p></td>
+<td><p>MIPI YUV420 legacy模式。</p></td>
+</tr>
+<tr class="row-even"><td><p>VI_MODE_MIPI_YUV422</p></td>
+<td><p>MIPI YUV422模式。</p></td>
+</tr>
+<tr class="row-odd"><td><p>VI_MODE_LVDS</p></td>
+<td><p>LVDS模式。</p></td>
+</tr>
+<tr class="row-even"><td><p>VI_MODE_HISPI</p></td>
+<td><p>HISPI模式。</p></td>
+</tr>
+<tr class="row-odd"><td><p>VI_MODE_SLVS</p></td>
+<td><p>SLVS模式。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-input-mode-e">
+<h2><span class="section-number">4.4.52. </span>VI_INPUT_MODE_E<a class="headerlink" href="Data_Types.html#vi-input-mode-e" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>输入模式。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_VI_INPUT_MODE_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_INPUT_MODE_BT656</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_INPUT_MODE_BT601</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_INPUT_MODE_DIGITAL_CAMERA</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_INPUT_MODE_INTERLEAVED</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_INPUT_MODE_MIPI</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_INPUT_MODE_LVDS</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_INPUT_MODE_HISPI</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_INPUT_MODE_SLVS</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_INPUT_MODE_BUTT</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VI_INPUT_MODE_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VI_INPUT_MODE_BT656</p></td>
+<td><p>BT656 模式。</p></td>
+</tr>
+<tr class="row-odd"><td><p>VI_INPUT_MODE_BT601</p></td>
+<td><p>BT601 模式。</p></td>
+</tr>
+<tr class="row-even"><td><p>VI_INPUT_MODE_DIGITAL_CAMERA</p></td>
+<td><p>digatal camera模式。</p></td>
+</tr>
+<tr class="row-odd"><td><p>VI_INPUT_MODE_INTERLEAVED</p></td>
+<td><p>interstage 模式。</p></td>
+</tr>
+<tr class="row-even"><td><p>VI_INPUT_MODE_MIPI</p></td>
+<td><p>MIPI模式。</p></td>
+</tr>
+<tr class="row-odd"><td><p>VI_INPUT_MODE_LVDS</p></td>
+<td><p>LVDS模式。</p></td>
+</tr>
+<tr class="row-even"><td><p>VI_INPUT_MODE_HISPI</p></td>
+<td><p>HiSPi模式。</p></td>
+</tr>
+<tr class="row-odd"><td><p>VI_INPUT_MODE_SLVS</p></td>
+<td><p>SLVS模式。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-work-mode-e">
+<h2><span class="section-number">4.4.53. </span>VI_WORK_MODE_E<a class="headerlink" href="Data_Types.html#vi-work-mode-e" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>工作模式。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_VI_WORK_MODE_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_WORK_MODE_1Multiplex</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_WORK_MODE_2Multiplex</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_WORK_MODE_3Multiplex</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_WORK_MODE_4Multiplex</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_WORK_MODE_BUTT</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VI_WORK_MODE_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VI_WORK_MODE_1Multiplex</p></td>
+<td><p>1多路复用模式。</p></td>
+</tr>
+<tr class="row-odd"><td><p>VI_WORK_MODE_2Multiplex</p></td>
+<td><p>2多路复用模式。</p></td>
+</tr>
+<tr class="row-even"><td><p>VI_WORK_MODE_3Multiplex</p></td>
+<td><p>3多路复用模式。</p></td>
+</tr>
+<tr class="row-odd"><td><p>VI_WORK_MODE_4Multiplex</p></td>
+<td><p>4多路复用模式。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-scan-mode-e">
+<h2><span class="section-number">4.4.54. </span>VI_SCAN_MODE_E<a class="headerlink" href="Data_Types.html#vi-scan-mode-e" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>扫描模式。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_VI_SCAN_MODE_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_SCAN_INTERLACED</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_SCAN_PROGRESSIVE</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_SCAN_BUTT</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VI_SCAN_MODE_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VI_SCAN_INTERLACED</p></td>
+<td><p>隔行扫描模式</p></td>
+</tr>
+<tr class="row-odd"><td><p>VI_SCAN_PROGRESSIVE</p></td>
+<td><p>逐行扫描模式</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-yuv-data-seq-e">
+<h2><span class="section-number">4.4.55. </span>VI_YUV_DATA_SEQ_E<a class="headerlink" href="Data_Types.html#vi-yuv-data-seq-e" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>YUV数据序列。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_VI_YUV_DATA_SEQ_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_DATA_SEQ_VUVU</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_DATA_SEQ_UVUV</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_DATA_SEQ_UYVY</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_DATA_SEQ_VYUY</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_DATA_SEQ_YUYV</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_DATA_SEQ_YVYU</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_DATA_SEQ_BUTT</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VI_YUV_DATA_SEQ_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VI_DATA_SEQ_VUVU</p></td>
+<td><p>BT.1120模式下第二个组件（仅包含u和v）的输入序列为VUVU</p></td>
+</tr>
+<tr class="row-odd"><td><p>VI_DATA_SEQ_UVUV</p></td>
+<td><p>BT.1120模式下第二个组件（仅包含u和v）的输入序列为UVUV</p></td>
+</tr>
+<tr class="row-even"><td><p>VI_DATA_SEQ_UYVY</p></td>
+<td><p>UYVY序列</p></td>
+</tr>
+<tr class="row-odd"><td><p>VI_DATA_SEQ_VYUY</p></td>
+<td><p>VYUY序列</p></td>
+</tr>
+<tr class="row-even"><td><p>VI_DATA_SEQ_YUYV</p></td>
+<td><p>YUYV序列</p></td>
+</tr>
+<tr class="row-odd"><td><p>VI_DATA_SEQ_YVYU</p></td>
+<td><p>YVYU序列</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-clk-edge-e">
+<h2><span class="section-number">4.4.56. </span>VI_CLK_EDGE_E<a class="headerlink" href="Data_Types.html#vi-clk-edge-e" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>时钟边缘模式。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_VI_CLK_EDGE_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_CLK_EDGE_SINGLE_UP</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_CLK_EDGE_SINGLE_DOWN</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_CLK_EDGE_BUTT</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VI_CLK_EDGE_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VI_CLK_EDGE_SINGLE_UP</p></td>
+<td><p>单边模式和上升沿触发</p></td>
+</tr>
+<tr class="row-odd"><td><p>VI_CLK_EDGE_SINGLE_DOWN</p></td>
+<td><p>单边模式和下降沿触发</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-component-mode-e">
+<h2><span class="section-number">4.4.57. </span>VI_COMPONENT_MODE_E<a class="headerlink" href="Data_Types.html#vi-component-mode-e" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>组件模式。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_VI_COMPONENT_MODE_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_COMPONENT_MODE_SINGLE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_COMPONENT_MODE_DOUBLE</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_COMPONENT_MODE_BUTT</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VI_COMPONENT_MODE_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VI_COMPONENT_MODE_SINGLE</p></td>
+<td><p>单一组件模式</p></td>
+</tr>
+<tr class="row-odd"><td><p>VI_COMPONENT_MODE_DOUBLE</p></td>
+<td><p>双组件模式</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-combine-mode-e">
+<h2><span class="section-number">4.4.58. </span>VI_COMBINE_MODE_E<a class="headerlink" href="Data_Types.html#vi-combine-mode-e" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>亮度色度信号组合模式。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_VI_COMBINE_MODE_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_COMBINE_COMPOSITE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_COMBINE_SEPARATE</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_COMBINE_BUTT</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VI_COMBINE_MODE_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VI_COMBINE_COMPOSITE</p></td>
+<td><p>复合模式</p></td>
+</tr>
+<tr class="row-odd"><td><p>VI_COMBINE_SEPARATE</p></td>
+<td><p>独立模式</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-vsync-e">
+<h2><span class="section-number">4.4.59. </span>VI_VSYNC_E<a class="headerlink" href="Data_Types.html#vi-vsync-e" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>垂直同步信号的属性。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_VI_VSYNC_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_VSYNC_FIELD</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_VSYNC_PULSE</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_VSYNC_BUTT</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VI_VSYNC_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VI_VSYNC_FIELD</p></td>
+<td><p>场/切换模式：信号反转表示新帧</p></td>
+</tr>
+<tr class="row-odd"><td><p>VI_VSYNC_PULSE</p></td>
+<td><p>脉冲/有效模式：脉冲或有效信号表示新帧</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-vsync-neg-e">
+<h2><span class="section-number">4.4.60. </span>VI_VSYNC_NEG_E<a class="headerlink" href="Data_Types.html#vi-vsync-neg-e" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>垂直同步信号的极性。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_VI_VSYNC_NEG_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_VSYNC_NEG_HIGH</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_VSYNC_NEG_LOW</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_VSYNC_NEG_BUTT</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VI_VSYNC_NEG_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VI_VSYNC_NEG_HIGH</p></td>
+<td><p>高电平有效/正脉冲有效</p></td>
+</tr>
+<tr class="row-odd"><td><p>VI_VSYNC_NEG_LOW</p></td>
+<td><p>低电平有效/负脉冲有效</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-hsync-e">
+<h2><span class="section-number">4.4.61. </span>VI_HSYNC_E<a class="headerlink" href="Data_Types.html#vi-hsync-e" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>水平同步信号的属性。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_VI_HSYNC_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_HSYNC_VALID_SINGNAL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_HSYNC_PULSE</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_HSYNC_BUTT</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VI_HSYNC_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VI_HSYNC_VALID_SINGNAL</p></td>
+<td><p>有效信号模式</p></td>
+</tr>
+<tr class="row-odd"><td><p>VI_HSYNC_PULSE</p></td>
+<td><p>脉冲模式</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-hsync-neg-e">
+<h2><span class="section-number">4.4.62. </span>VI_HSYNC_NEG_E<a class="headerlink" href="Data_Types.html#vi-hsync-neg-e" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>水平同步信号的极性。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_VI_HSYNC_NEG_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_HSYNC_NEG_HIGH</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_HSYNC_NEG_LOW</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_HSYNC_NEG_BUTT</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VI_HSYNC_NEG_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VI_HSYNC_NEG_HIGH</p></td>
+<td><p>高电平有效/正脉冲有效</p></td>
+</tr>
+<tr class="row-odd"><td><p>VI_HSYNC_NEG_BUTT</p></td>
+<td><p>低电平有效/负脉冲有效</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-vsync-valid-e">
+<h2><span class="section-number">4.4.63. </span>VI_VSYNC_VALID_E<a class="headerlink" href="Data_Types.html#vi-vsync-valid-e" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>有效垂直同步信号的属性。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_VI_VSYNC_VALID_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_VSYNC_NORM_PULSE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_VSYNC_VALID_SIGNAL</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_VSYNC_VALID_BUTT</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VI_VSYNC_VALID_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VI_VSYNC_NORM_PULSE</p></td>
+<td><p>脉冲模式</p></td>
+</tr>
+<tr class="row-odd"><td><p>VI_VSYNC_VALID_SIGNAL</p></td>
+<td><p>有效信号模式</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-vsync-valid-neg-e">
+<h2><span class="section-number">4.4.64. </span>VI_VSYNC_VALID_NEG_E<a class="headerlink" href="Data_Types.html#vi-vsync-valid-neg-e" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>有效垂直同步信号的极性。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_VI_VSYNC_VALID_NEG_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_VSYNC_VALID_NEG_HIGH</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_VSYNC_VALID_NEG_LOW</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_VSYNC_VALID_NEG_BUTT</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VI_VSYNC_VALID_NEG_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VI_VSYNC_VALID_NEG_HIGH</p></td>
+<td><p>高电平有效/正脉冲有效</p></td>
+</tr>
+<tr class="row-odd"><td><p>VI_VSYNC_VALID_NEG_LOW</p></td>
+<td><p>高低电平有效/负脉冲有效</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-wdr-attr-s">
+<h2><span class="section-number">4.4.65. </span>VI_WDR_ATTR_S<a class="headerlink" href="Data_Types.html#vi-wdr-attr-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>WDR属性。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VI_WDR_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">WDR_MODE_E</span><span class="w"> </span><span class="n">enWDRMode</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32CacheLine</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bSyntheticWDR</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VI_WDR_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】d</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>enWDRMode</p></td>
+<td><p>WDR模式</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32CacheLine</p></td>
+<td><p>WDR缓存行</p></td>
+</tr>
+<tr class="row-even"><td><p>bSyntheticWDR</p></td>
+<td><p>合成宽动态范围模式</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-timing-blank-s">
+<h2><span class="section-number">4.4.66. </span>VI_TIMING_BLANK_S<a class="headerlink" href="Data_Types.html#vi-timing-blank-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>输入时序的消隐信息。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VI_TIMING_BLANK_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32HsyncHfb</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32HsyncAct</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32HsyncHbb</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32VsyncVfb</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32VsyncVact</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32VsyncVbb</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32VsyncVbfb</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32VsyncVbact</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32VsyncVbbb</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VI_TIMING_BLANK_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】d</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>u32HsyncHfb</p></td>
+<td><p>水平前隐宽度</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32HsyncAct</p></td>
+<td><p>水平消隐有效宽度</p></td>
+</tr>
+<tr class="row-even"><td><p>u32HsyncHbb</p></td>
+<td><p>水平后隐宽度</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32VsyncVfb</p></td>
+<td><p>垂直前隐高度</p></td>
+</tr>
+<tr class="row-even"><td><p>u32VsyncVact</p></td>
+<td><p>垂直消隐有效宽度</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32VsyncVbb</p></td>
+<td><p>垂直后隐高度</p></td>
+</tr>
+<tr class="row-even"><td><p>u32VsyncVbfb</p></td>
+<td><p>隔行扫描时，场垂直前消隐高度</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32VsyncVbact</p></td>
+<td><p>隔行扫描时，场垂直消隐有效宽度</p></td>
+</tr>
+<tr class="row-even"><td><p>u32VsyncVbbb</p></td>
+<td><p>隔行扫描时，场垂直后消隐高度</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-bt656-fixcode-e">
+<h2><span class="section-number">4.4.67. </span>VI_BT656_FIXCODE_E<a class="headerlink" href="Data_Types.html#vi-bt656-fixcode-e" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>BT.656定时参考码的最高位。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_VI_BT656_FIXCODE_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_BT656_FIXCODE_1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_BT656_FIXCODE_0</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_BT656_FIXCODE_BUTT</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VI_BT656_FIXCODE_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】d</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VI_BT656_FIXCODE_1</p></td>
+<td><p>BT.656协议上EAV/SAV数据的最高位始终为1</p></td>
+</tr>
+<tr class="row-odd"><td><p>VI_BT656_FIXCODE_0</p></td>
+<td><p>BT.656协议上EAV/SAV数据的最高位始终为0</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-bt656-field-polar-e">
+<h2><span class="section-number">4.4.68. </span>VI_BT656_FIELD_POLAR_E<a class="headerlink" href="Data_Types.html#vi-bt656-field-polar-e" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>BT.656定时参考码的字段指示符位（F）的极性。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VI_BT656_FIELD_POLAR_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_BT656_FIELD_POLAR_STD</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_BT656_FIELD_POLAR_NSTD</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_BT656_FIELD_POLAR_BUTT</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VI_BT656_FIELD_POLAR_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】d</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VI_BT656_FIELD_POLAR_STD</p></td>
+<td><p>标准BT.656模式，第一个字段F=0，第二个字段F=1</p></td>
+</tr>
+<tr class="row-odd"><td><p>VI_BT656_FIELD_POLAR_NSTD</p></td>
+<td><p>标准BT.656模式，第一个字段F=1，第二个字段F=0</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-dev-attr-ex-s">
+<h2><span class="section-number">4.4.69. </span>VI_DEV_ATTR_EX_S<a class="headerlink" href="Data_Types.html#vi-dev-attr-ex-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>VI设备的扩展属性。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VI_DEV_ATTR_EX_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_INPUT_MODE_E</span><span class="w"> </span><span class="n">enInputMode</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_WORK_MODE_E</span><span class="w"> </span><span class="n">enWorkMode</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_COMBINE_MODE_E</span><span class="w"> </span><span class="n">enCombineMode</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_COMPONENT_MODE_E</span><span class="w"> </span><span class="n">enComponentMode</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_CLK_EDGE_E</span><span class="w"> </span><span class="n">enClkEdge</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">au32ComponentMask</span><span class="p">[</span><span class="n">VI_COMPMASK_NUM</span><span class="p">];</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_SCAN_MODE_E</span><span class="w"> </span><span class="n">enScanMode</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">as32AdChnId</span><span class="p">[</span><span class="n">VI_MAX_ADCHN_NUM</span><span class="p">];</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_YUV_DATA_SEQ_E</span><span class="w"> </span><span class="n">enDataSeq</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_SYNC_CFG_S</span><span class="w"> </span><span class="n">stSynCfg</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_BT656_SYNC_CFG_S</span><span class="w"> </span><span class="n">stBT656SynCfg</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_DATA_TYPE_E</span><span class="w"> </span><span class="n">enInputDataType</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bDataReverse</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">SIZE_S</span><span class="w"> </span><span class="n">stSize</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_WDR_ATTR_S</span><span class="w"> </span><span class="n">stWDRAttr</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VI_DEV_ATTR_EX_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>enInputMode</p></td>
+<td><p>输入模式</p></td>
+</tr>
+<tr class="row-odd"><td><p>enWorkMode</p></td>
+<td><p>工作模式</p></td>
+</tr>
+<tr class="row-even"><td><p>enCombineMode</p></td>
+<td><p>亮度色度信号组合模式</p></td>
+</tr>
+<tr class="row-odd"><td><p>enComponentMode</p></td>
+<td><p>组件模式</p></td>
+</tr>
+<tr class="row-even"><td><p>enClkEdge</p></td>
+<td><p>时钟边缘模式</p></td>
+</tr>
+<tr class="row-odd"><td><p>au32ComponentMask</p></td>
+<td><p>组件掩码</p></td>
+</tr>
+<tr class="row-even"><td><p>enScanMode</p></td>
+<td><p>扫描模式</p></td>
+</tr>
+<tr class="row-odd"><td><p>as32AdChnId</p></td>
+<td><p>AD通道id</p></td>
+</tr>
+<tr class="row-even"><td><p>enDataSeq</p></td>
+<td><p>YUV数据序列</p></td>
+</tr>
+<tr class="row-odd"><td><p>stSynCfg</p></td>
+<td><p>BT.601或DC定时的同步信息</p></td>
+</tr>
+<tr class="row-even"><td><p>stBT656SynCfg</p></td>
+<td><p>BT.656的同步信息</p></td>
+</tr>
+<tr class="row-odd"><td><p>enInputDataType</p></td>
+<td><p>VI 输入数据类型枚举</p></td>
+</tr>
+<tr class="row-even"><td><p>bDataReverse</p></td>
+<td><p>数据反转</p></td>
+</tr>
+<tr class="row-odd"><td><p>stSize</p></td>
+<td><p>输入大小</p></td>
+</tr>
+<tr class="row-even"><td><p>stWDRAttr</p></td>
+<td><p>WDR属性</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-ext-chn-source-e">
+<h2><span class="section-number">4.4.70. </span>VI_EXT_CHN_SOURCE_E<a class="headerlink" href="Data_Types.html#vi-ext-chn-source-e" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>VI扩展通道数据源类型。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_VI_EXT_CHN_SOURCE_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_EXT_CHN_SOURCE_TAIL</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_EXT_CHN_SOURCE_HEAD</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_EXT_CHN_SOURCE_BUTT</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VI_EXT_CHN_SOURCE_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VI_EXT_CHN_SOURCE_TAIL</p></td>
+<td><p>VI扩展通道的尾部数据源</p></td>
+</tr>
+<tr class="row-odd"><td><p>VI_EXT_CHN_SOURCE_HEAD</p></td>
+<td><p>VI扩展通道的头部数据源</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+<hr class="docutils" />
+<section id="vi-ext-chn-attr-s">
+<h2><span class="section-number">4.4.71. </span>VI_EXT_CHN_ATTR_S<a class="headerlink" href="Data_Types.html#vi-ext-chn-attr-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>VI扩展通道属性结构体。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VI_EXT_CHN_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_EXT_CHN_SOURCE_E</span><span class="w"> </span><span class="n">enSource</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">VI_CHN</span><span class="w"> </span><span class="n">s32BindChn</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">SIZE_S</span><span class="w"> </span><span class="n">stSize</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">PIXEL_FORMAT_E</span><span class="w"> </span><span class="n">enPixelFormat</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32Depth</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">FRAME_RATE_CTRL_S</span><span class="w"> </span><span class="n">stFrameRate</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VI_EXT_CHN_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>enSource</p></td>
+<td><p>扩展通道的数据源</p></td>
+</tr>
+<tr class="row-odd"><td><p>s32BindChn</p></td>
+<td><p>扩展通道绑定的物理通道编号</p></td>
+</tr>
+<tr class="row-even"><td><p>stSize</p></td>
+<td><p>扩展通道的输出图像尺寸</p></td>
+</tr>
+<tr class="row-odd"><td><p>enPixelFormat</p></td>
+<td><p>扩展通道的像素格式</p></td>
+</tr>
+<tr class="row-even"><td><p>u32Depth</p></td>
+<td><p>扩展通道的帧缓存深度</p></td>
+</tr>
+<tr class="row-odd"><td><p>stFrameRate</p></td>
+<td><p>扩展通道的帧率控制属性</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无。</p>
+<p>【相关数据类型及接口】</p>
+<p>无。</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="API_Reference.html" class="btn btn-neutral float-left" title="4.3. API参考" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Error_Codes.html" class="btn btn-neutral float-right" title="4.5. 错误码" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

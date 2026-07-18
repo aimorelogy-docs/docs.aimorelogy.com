@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>7. ISP基本功能 &mdash; Sensor_Debugging_Guide master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="8. 完成AE配置功能" href="8_Complete_the_AE_Configuration_Function.html" />
+    <link rel="prev" title="6. 图像输出验证" href="6_Image_Output_Verification.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Sensor_Debugging_Guide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Introduction_to_Sensor_Drivers.html">2. Sensor驱动介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Confirm_Specifications.html">3. 确认规格</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_Image_Output_Debugging.html">4. 图像输出调试(Linux非快启)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_Image_Output_Debugging.html">5. 图像输出调试(Alios快启)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_Image_Output_Verification.html">6. 图像输出验证</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="7_Basic_Functions_of_ISP.html#">7. ISP基本功能</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="7_Basic_Functions_of_ISP.html#id1">7.1. 开发流程</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7_Basic_Functions_of_ISP.html#id2">7.2. 注意事项</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="8_Complete_the_AE_Configuration_Function.html">8. 完成AE配置功能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_Complete_Other_Functions.html">9. 完善其它功能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_AE_Related_Verification.html">10. AE相关验证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_Common_Problem.html">11. 常见问题</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_Color_Noise_Reduction_and_Other_Corrections.html">12. 颜色、去噪等矫正</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_Debugging_Tool.html">13. 调试工具</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Sensor_Debugging_Guide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">7. </span>ISP基本功能</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/7_Basic_Functions_of_ISP.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="isp">
+<h1><span class="section-number">7. </span>ISP基本功能<a class="headerlink" href="7_Basic_Functions_of_ISP.html#isp" title="永久链接至标题">¶</a></h1>
+<p>Sensor驱动功能皆由operation callbacks实现。本章节以使用者以详悉Sensor datasheet为前提描述ISP Callbacks应实现的基本功能。调试ISP相关callback时，请重新打开之前注解的 SAMPLE_COMM_ISP_Run ,
+xxx_default_reg_init的调用。</p>
+<section id="id1">
+<h2><span class="section-number">7.1. </span>开发流程<a class="headerlink" href="7_Basic_Functions_of_ISP.html#id1" title="永久链接至标题">¶</a></h2>
+<p>请依序实现以下ISP基本功能callbacks</p>
+<ol class="arabic simple">
+<li><p>pfn_cmos_sensor_init</p></li>
+<li><p>pfn_cmos_sensor_exit</p></li>
+<li><p>pfn_cmos_sensor_global_init</p></li>
+<li><p>pfn_cmos_set_image_mode</p></li>
+<li><p>pfn_cmos_set_wdr_mode</p></li>
+<li><p>pfn_cmos_get_isp_default</p></li>
+<li><p>pfn_cmos_get_sns_reg_info</p></li>
+</ol>
+</section>
+<section id="id2">
+<h2><span class="section-number">7.2. </span>注意事项<a class="headerlink" href="7_Basic_Functions_of_ISP.html#id2" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><p>pfn_cmos_sensor_init： 使用Sensor沟通接口(I2C/SPI)实现厂商提供的初始序列.</p>
+<p>应注意沟通接口结构的正确性.</p>
+<p>因为AE相关的Callbacks也会在sensor init之前呼叫, 需在sensor开始输出数据之前设定Sensor AE缓存器。</p>
+<p>可参考xxxx_sensor_ctrl.c 内的xxxx_default_reg_init。</p>
+</li>
+<li><p>pfn_cmos_sensor_exit： 关闭使用的沟通接口。</p></li>
+<li><p>pfn_cmos_sensor_global_init： 初始化sensor驱动参数。</p></li>
+<li><p>pfn_cmos_set_image_mode： 设定sensor输出的格式。Sensor驱动应选择最接近的分辨率作输出格式。</p></li>
+<li><p>pfn_cmos_set_wdr_mode： 设定sensor输出是否为WDR模式。</p></li>
+<li><p>pfn_cmos_get_isp_default： 提供与sensor相关的ISP参数。</p></li>
+<li><p>pfn_cmos_get_sns_reg_info： 提供储存在Sensor驱动里的AE同步讯息。为了同步AE设定与Sensor输出的影像，</p>
+<p>当AE callbacks被呼叫时，Sensor驱动不会立刻写入sensor的缓存器，而是储存修改的设定；</p>
+<p>Firmware会在固定周期呼叫pfn_cmos_get_sns_reg_info获得同步信息并且传递给kernel space的ISP驱动。</p>
+<p>ISP驱动负责同步写入sensor缓存器。</p>
+<p>此外Sensor可能有不同的WDR输出格式，因此影像的大小、Crop位置与MIPI-RX设定也可能随着不同的曝光值重新计算与设定。</p>
+<p>Sensor驱动须询问厂商计算公式，ISP驱动会依此更新对应的模块。</p>
+</li>
+<li><p>pfn_cmos_get_sns_reg_info回传的结构分三大类：</p></li>
+</ul>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_SNS_SYNC_INFO_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">ISP_SNS_REGS_INFO_S</span><span class="w"> </span><span class="n">snsCfg</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">ISP_SNS_ISP_INFO_S</span><span class="w"> </span><span class="n">ispCfg</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">ISP_SNS_CIF_INFO_S</span><span class="w"> </span><span class="n">cifCfg</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_SNS_SYNC_INFO_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>snsCfg表示需要同步的sensor缓存器，ispCfg表示需要同步的Crop信息，cifCfg表示需要同步的mipi-rx设定.</p>
+<p>当need_update为True时，表示这类的同步数据需要ISP在指定的u8DelayFrmNum更新。</p>
+<p>snsCfg内每一个缓存器也有bUpdate指示缓存器是否需要更新。</p>
+<p>第一次调用pfn_cmos_get_sns_reg_info会进行配置i2c相关讯息，
+建立register地址映像、获取sns、crop、wdr size等信息，如下图。</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/image17.png"><img alt="_images/image17.png" src="_images/image17.png" style="width: 80%;" /></a>
+</figure>
+<p>后面反复调用pfn_cmos_get_sns_reg_info则是进行对修改的AE register讯息做出暂存，如下图。</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/image23.png"><img alt="_images/image23.png" src="_images/image23.png" style="width: 80%;" /></a>
+</figure>
+<p>暂存后的AE寄存器讯息最终会call isp_snsSync_info_set将AE资料updata到ISP driver，ISP driver会在delayFrmNum后下i2c，设定sensor寄存器。</p>
+<ul>
+<li><p>pfn_cmos_get_isp_black_level：</p>
+<p>部分sensor有默认的black leve offset，例如imx577，将偏移填入下方数组。</p>
+</li>
+</ul>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/image32.png"><img alt="_images/image32.png" src="_images/image32.png" style="width: 80%;" /></a>
+</figure>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="6_Image_Output_Verification.html" class="btn btn-neutral float-left" title="6. 图像输出验证" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="8_Complete_the_AE_Configuration_Function.html" class="btn btn-neutral float-right" title="8. 完成AE配置功能" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>10.2. 设计概述 &mdash; MediaProcessingSoftwareDevelopmentReference master 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="../_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/qrious.js"></script>
+    <script src="../_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="10.3. API参考" href="API_Reference.html" />
+    <link rel="prev" title="10.1. 功能概述" href="Function_Overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> MediaProcessingSoftwareDevelopmentReference
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_System_Overview.html">2. 系统概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_System_Control.html">3. 系统控制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_Video_Input.html">4. 视频输入</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5_Video_Output.html">5. 视频输出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6_Video_Processing_Subsystem.html">6. 视频处理子系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7_Video_Encoding.html">7. 视频编码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../8_Video_Decoding.html">8. 视频解码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../9_Regional_Management.html">9. 区域管理</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../10_Audio_Frequency.html">10. 音频</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Function_Overview.html">10.1. 功能概述</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="Design_Overview.html#">10.2. 设计概述</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Design_Overview.html#id2">10.2.1. 系统架构</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Design_Overview.html#id3">10.2.2. 音频输入与输出</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Design_Overview.html#audio-inputaudio-output">10.2.2.1. 音频接口及Audio Input、Audio Output设备</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Design_Overview.html#id4">10.2.2.2. 录音与播放原理</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Design_Overview.html#id5">10.2.2.3. 音频接口时序</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Design_Overview.html#id6">10.2.2.4. 重采样</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Design_Overview.html#vqe">10.2.2.5. 语音音质增强 (VQE)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Design_Overview.html#id7">10.2.3. 音频编码与解码</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Design_Overview.html#id8">10.2.3.1. 音频编解码流程</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Design_Overview.html#id9">10.2.3.2. 音频编解码协议</a></li>
+<li class="toctree-l4"><a class="reference internal" href="Design_Overview.html#id10">10.2.3.3. 语音帧结构</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="API_Reference.html">10.3. API参考</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Data_Types.html">10.4. 数据类型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Error_Codes.html">10.5. 错误码</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Related_Tests.html">10.6. 相关测试</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Sample_Code_and_Board-side_Component_Preliminary_Testing.html">10.7. 范例码及板端初步测试</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../11_Geometric_Distortion_Correction_Subsystem.html">11. 几何畸变矫正子系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../12_Proc_Debugging_Information_Explanation.html">12. Proc 调试信息说明</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MediaProcessingSoftwareDevelopmentReference</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../10_Audio_Frequency.html"><span class="section-number">10. </span>音频</a> &raquo;</li>
+      <li><span class="section-number">10.2. </span>设计概述</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="../_sources/10_Audio_Frequency/Design_Overview.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">10.2. </span>设计概述<a class="headerlink" href="Design_Overview.html#id1" title="永久链接至标题">¶</a></h1>
+<section id="id2">
+<h2><span class="section-number">10.2.1. </span>系统架构<a class="headerlink" href="Design_Overview.html#id2" title="永久链接至标题">¶</a></h2>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/设计概6002.png"><img alt="../_images/设计概6002.png" src="../_images/设计概6002.png" style="width: 5.76806in; height: 6.18542in;" /></a>
+</figure>
+<p>如上图所示，对应缩写名称及中文请参考10.1.2, 本文提及的音频模块(音频输入模块、音频输出模块、音频编码模块、音频解碼模块、语音音质增强模块、重采样)属于Middleware多媒体层接口之一，往上负责与应用层或客户业务层API对接，使用者可以透过（CVI_AI_，CVI_AO_，CVI_ADE
+C_，CVI_AENC_相关前缀开头等）函数往下控制对应音频组件，应用层或称客户业务层(Application/Customize Layer)如需了解音频API接口，可参照本文档10.3:
+API参考做详细了解，如需相关API调用逻辑，可参照SDK内 <code class="docutils literal notranslate"><span class="pre">cvi_sample_audio.c</span></code> 内范例了解基本音频模块间(下图)的使用顺序。</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/设计概6003.png"><img alt="../_images/设计概6003.png" src="../_images/设计概6003.png" style="width: 4.27083in; height: 2.15625in;" /></a>
+</figure>
+<p>CVI_AUDIO往下对接Linux内核层(Kernel Layer)相关驱动程序，透过Linux 标准声音体系(ALSA: Advanced Linux Sound Architecture)，实现基本音频输入及输出功能，因此可知，使用者调用cvi_audio_xxx/ cvi_axx_xx(ex.
+cvi_adec_xxx) API时内部的基本及最小的音频单位为Frame(本文内所称音框、音帧皆指Audio Frame)，文档内音框的计量单位为取样点数(1 Frame = numbers of
+samples)，而不采用位(bytes)计算。Frame的大小范围，在不使用语音音质增进(VQE)模块下，可以设定160/320/480取样点为音框大小(请勿超过512)。在使用VQE的状态下，必须设定音框大小最小单位为160取样点的倍数，此方式是为了配合内部VQE模块设计。</p>
+<p>对于用户而言，除了Audio Codec功能或是有相关调试需求，基本功能皆透过libcvi_audio、libcvi_xxx 相关so档实现，而不会直接呼叫IOCTL函示控制内核层，用以确保系统内部资源分配的稳定性及可靠性。</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/设计概6004.png"><img alt="../_images/设计概6004.png" src="../_images/设计概6004.png" style="width: 5.79365in; height: 0.76042in;" /></a>
+</figure>
+<p>上图描述音频输入及编码的关系，AENC使用RISC-V编码不透过内核层将码流储存于DDR内，并由收音端(支持麦克风收音及语音线路收音)到编码端依序使能。在使能Audio Input、AENC模块时，内部API参数设定需尽量一致(采样率、音框大小，通道数)，否则编码后获取的音频异常。</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/设计概6005.png"><img alt="../_images/设计概6005.png" src="../_images/设计概6005.png" style="width: 5.76806in; height: 1.04167in;" /></a>
+</figure>
+<p>上图描述音频解碼及输出的关系，用户可以直接放入pcm/raw 原始音档到存储设备内并呼叫ADEC/Audio Output API播音，并依序由解码端到输出端使能，ADEC及Audio Output参数设定请尽量一致，否则播放音频异常。</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/设计概6006.png"><img alt="../_images/设计概6006.png" src="../_images/设计概6006.png" style="width: 5.37383in; height: 1.19792in;" /></a>
+</figure>
+<p>上图描述了VQE前后的关系，音频收音后及编码前，用户可以透过VQE相关API(参阅10-3)开启AEC/ANR/AGC功能，此时音框单位需设定为160的倍数，工作频率支持8Khz/16Khz。</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/设计概6007.png"><img alt="../_images/设计概6007.png" src="../_images/设计概6007.png" style="width: 5.76042in; height: 1.08333in;" /></a>
+</figure>
+<p>VQE包含了前端VQE(图10-5)，及上图描述播音端VQE(后端VQE)，目前不支持后端VQE。</p>
+</section>
+<section id="id3">
+<h2><span class="section-number">10.2.2. </span>音频输入与输出<a class="headerlink" href="Design_Overview.html#id3" title="永久链接至标题">¶</a></h2>
+<section id="audio-inputaudio-output">
+<h3><span class="section-number">10.2.2.1. </span>音频接口及Audio Input、Audio Output设备<a class="headerlink" href="Design_Overview.html#audio-inputaudio-output" title="永久链接至标题">¶</a></h3>
+<p>音频接口分两类，输入(Audio Input)及输出(Audio Output)接口，各负责声音的录制和播放。与 Audio Codec 对接并负责抽象音频接口输入功能的单元，称之为 Audio Input 设备; Audio Output 设备则是负责抽象音频接口输出的功能，依据该接口支持的功能，分别与 Audio Input 设备和 Audio Output 设备建立映射。</p>
+<p>音频输入输出接口简称为 AIO（Audio Input/Output）接口，用于和 Audio Codec 对接，完成声音的录制和播放。AIO 接口分为两种类型：只支持输入或只支持输出，当为输入类型时，又称为 AIP，当为输出类型时，又称为 AOP。 AIP0 只支持音频信号输入，则 AIP0
+映像为 AiDev0；AOP0 只支持音频信号输出，AOP0 映像为 AoDev0。</p>
+<p>音频输入接口(Audio Input)支持PCM及I2S输入， 输出依照Linux内核标准规范对接ALSA PCM device，Cvitek支持一组预设输入及输出，若以Linux ALSA 架构来看，对应设备可视为card 0、card 1，其关系如下图:</p>
+<figure class="align-center">
+<img alt="../_images/image1.png" src="../_images/image1.png" />
+</figure>
+<p>AIP0仅可支持输入，AOP0仅可支持音频输出，在输入及输出对接的状况下，例如:
+实时录音及拨音或语音对讲，此时Audio Input/Audio Output设备的取样率及位宽度需相同，信道数目必须一致，采样率也必须一致。为因应客制化产品需求，Cvitek有多两组I2S，可随产品或客户应用需要将多出的两组I2S更动设定为AiDev(输入)对接口，或是改为AoDev(输出)对接口。</p>
+</section>
+<section id="id4">
+<h3><span class="section-number">10.2.2.2. </span>录音与播放原理<a class="headerlink" href="Design_Overview.html#id4" title="永久链接至标题">¶</a></h3>
+<p>CVI_AUDIO API 所处理的音框皆为数字化后的信号，然而实际在收音端及播音端皆为模拟信号，数字及仿真信号是透过Audio Codec做转换，Audio Codec透过I2S或PCM时序将输入的仿真信号源转换并传给Audio Input模块，同理，Audio Output端播音时也透过Audio
+Codec将数字音频以I2S或PCM时序做DAC转换后向Speaker发送仿真信号。</p>
+<p>数据的搬移由RISC-V控制DMA移动内存DDR内的数据，用户呼叫CVI_AUDIO API时仅在初始或结束对Audio Codec做呼叫，用以实现Codec硬件的标准初始与标准结束，过程中并不会涉及仿真讯号的撷取，亦无法直接对RISC-V使用DMA方式做更动，Audio
+Codec为工作域的转换者，而RISC-V/DMA则是数据搬移者的角色。(参阅下图10-7)</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="../_images/设计概6008.png"><img alt="../_images/设计概6008.png" src="../_images/设计概6008.png" style="width: 5.95238in; height: 2.34375in;" /></a>
+</figure>
+</section>
+<section id="id5">
+<h3><span class="section-number">10.2.2.3. </span>音频接口时序<a class="headerlink" href="Design_Overview.html#id5" title="永久链接至标题">¶</a></h3>
+<p>cvitek音频时序接口支持I2S、PCM时序模式，并依据客制化提供多种方式与Audio Codec对接，详细处理器硬件规格可参阅硬件相关文件。Audio Input/Audio Output 控制时钟以同步时序，使用者可参阅cvi_sample_audio.c内部SAMPLE_COMM_AUDIO_Cfg Acodec
+API，内置Audio Codec或是外部Audio Codec时序设置方式会有所不同，但对于cvi_audio API使用者而言，仅需在初始Audio Codec时确认kernel可支持并初始化Codec。对于音框采样率，Cvitek使用RISC-V 软件采样，并不会与主时钟有直接关联。Audio Input
+设备使用多路复用的 I2S 接收模式时，标准的 I2S 协议只有左右声道这个概念，Audio Input 设备最大支持左右声道各接收 128bit 音频数据，Codec细部内容请参阅10.4.4章节。</p>
+</section>
+<section id="id6">
+<h3><span class="section-number">10.2.2.4. </span>重采样<a class="headerlink" href="Design_Overview.html#id6" title="永久链接至标题">¶</a></h3>
+<p>音框重采样支持任意两种不同采样率的转换，主要是以8kHz倍频为主。重采样支持的输入采样率为：8kHz、11.025kHz、16kHz、22.05kHz、24kHz、32kHz、44.1kHz、48kHz;
+支持的输出采样率为：8kHz、11.025kHz，16kHz、22.05kHz、24kHz、32kHz、44.1kHz、48kHz。用者须注意，重采样可支持处理单声道、双声道。Audio Input 的重采样，则重采样的输入采样率与 Audio Input 设备属性配置的采样率相同， 重采样的输出采样率必须与 Audio Input
+设备属性配置的采样率不相同 ；Audio Output 的重采样，则重采样的输出采样率与 Audio Output 设备属性配置的采样率相 同，重采样的输入采样率必须与 Audio Output 设备属性配置的采样率不相同。</p>
+<p>Audio Input-Audio Output 的数据传输方式为系统绑定方式(system bind)，Audio Input 或 Audio Output 的重采样无效。使用者在user-get mode状态下，启用 Audio Input 重采样功能，则可在 CVI_AI_GetFrame 获取数据会取得对应的重采样数据。 Audio Output如果启用重采样功能，则音频数据在发送给 Audio Output
+之前，需先执行重采样处理，处理完成后再发送给 Audio Output 通道(CVI_AO_SendFrame)进行播放。</p>
+<p>对应API:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="API_Reference.html#cvi-resampler-create"><span class="std std-ref">CVI_Resampler_Create</span></a>: 创建并初始audio resample。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-resampler-getmaxoutputnum"><span class="std std-ref">CVI_Resampler_GetMaxOutputNum</span></a>: 依据输入的样本点数，得到重采样后的对应点数。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-resampler-process"><span class="std std-ref">CVI_Resampler_Process</span></a>: 透过此API，持续传入音框样本数，进行实际的重采样。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-resampler-destroy"><span class="std std-ref">CVI_Resampler_Destroy</span></a>:　结束重采样流程。</p></li>
+</ul>
+</section>
+<section id="vqe">
+<h3><span class="section-number">10.2.2.5. </span>语音音质增强 (VQE)<a class="headerlink" href="Design_Overview.html#vqe" title="永久链接至标题">¶</a></h3>
+<p>针对语音讯号处理算法，当近端语音讯号遭受到来自远端的回声干扰或是近端平稳噪声的干扰时，可采用VQE内的算法功能，进而提高语音讯号的品质。VQE提供四种解决方案，包括线性回声消除（AEC），非线性回声抑制（AES），语音降噪（NR）和自动增益控制（AGC），算法可支持8kHz及16kHz采样率，单声道
+，16位采样长度。在接下来的页面会介绍常用功能及所使用的参数，若想更详细的了解请参考音频质量调试指南。</p>
+<p>参数 <strong>para_fun_config</strong> 可以控制AEC、AES、NR和AGC功能。参数 <strong>para_spk_fun_config</strong> 可控制扬声器路径SSP算法功能，属于UpVQE。各个位对应的算法功能如下表所示。</p>
+<table class="colwidths-given docutils align-default" id="id11">
+<caption><span class="caption-number">表 10.1 </span><span class="caption-text">para_fun_config 参数说明</span><a class="headerlink" href="Design_Overview.html#id11" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>para_fun_config</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>位0</p></td>
+<td><p>0: 关闭AEC</p>
+<p>1: 开启AEC</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>位1</p></td>
+<td><p>0: 关闭AES</p>
+<p>1: 开启AES</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>位2</p></td>
+<td><p>0: 关闭NR</p>
+<p>1: 开启NR</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>位3</p></td>
+<td><p>0: 关闭AGC</p>
+<p>1: 开启AGC</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>位4</p></td>
+<td><p>0: 关闭Notch Filter</p>
+<p>1: 开启Notch Filter</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>位5</p></td>
+<td><p>0: 关闭DC Filter</p>
+<p>1: 开启DC Filter</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>位6</p></td>
+<td><p>0: 关闭DG</p>
+<p>1: 开启DG</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>位7</p></td>
+<td><p>0: 关闭Delay</p>
+<p>1: 开启Delay</p>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-given docutils align-default" id="id12">
+<caption><span class="caption-number">表 10.2 </span><span class="caption-text">para_spk_fun_config参数说明</span><a class="headerlink" href="Design_Overview.html#id12" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>para_spk_fun_config</p></th>
+<th class="head"><p>描述 (扬声器路径)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>位0</p></td>
+<td><p>0: 关闭AGC</p>
+<p>1: 开启AGC</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>位1</p></td>
+<td><p>0: 关闭EQ</p>
+<p>1: 开启EQ</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>VQE 针对 Audio Input 和 Audio Output 两条通路的异同点，分别通过 UpVQE 和 DnVQE 两个调度逻辑来处理两个通路的数据，UpVQE包含AEC、AES、NR、AGC。DnVQE 目前不支持。</p>
+<p>对应参数可参考表头檔 <code class="docutils literal notranslate"><span class="pre">cvi_comm_aio.h</span></code> 。</p>
+<p>AGC数据结构如下:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S8</span><span class="w"> </span><span class="n">para_agc_max_gain</span><span class="p">;</span><span class="w"></span>
+<span class="n">CVI_S8</span><span class="w"> </span><span class="n">para_agc_target_high</span><span class="p">;</span><span class="w"></span>
+<span class="n">CVI_S8</span><span class="w"> </span><span class="n">para_agc_target_low</span><span class="p">;</span><span class="w"></span>
+<span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">para_agc_vad_ena</span><span class="p">;;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>NR数据结构如下:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">para_nr_snr_coeff</span><span class="p">;</span><span class="w"></span>
+<span class="n">CVI_U16</span><span class="w"> </span><span class="n">para_nr_init_sile_time</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">CVI_AI_SetTalkVqeAttr</span></code> 中的AI_TALKVQE_CONFIG_S *pstVqeConfig参数，设定u32OpenMask来决定要开启VQE何种功能，详细AGC，NR成员描述请参阅下方对应子章节。</p>
+<p>范例如下表格:</p>
+<table class="colwidths-given docutils align-default" id="id13">
+<caption><span class="caption-number">表 10.3 </span><span class="caption-text">pstVqeConfig参数说明</span><a class="headerlink" href="Design_Overview.html#id13" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>pstAiVqeAttr.u32OpenMask</p></td>
+<td><p>描述</p></td>
+</tr>
+<tr class="row-even"><td><p>pstAiVqeAttr.u32OpenMask = AI_TALKVQE_MASK_AGC;</p></td>
+<td><p>开启AGC</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstAiVqeAttr.u32OpenMask = AI_TALKVQE_MASK_ANR;</p></td>
+<td><p>开启NR</p></td>
+</tr>
+<tr class="row-even"><td><p>pstAiVqeAttr.u32OpenMask = (AI_TALKVQE_MASK_ANR |AI_TALKVQE_MASK_AGC);</p></td>
+<td><p>开启NR, 开启AGC</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p><strong>AEC/AES (Acoustic Echo Cancellation/Acoustic Echo Suppression)</strong></p></li>
+</ul>
+<p>任何双工通话系统的架构都存在着回声的干扰。回声消除器可以消除通过近端声学路径耦合回麦克风的扬声器输出的回声。采用所提供的解决方案，线性自适应滤波器模块（AEC）搭配非线性回声抑制模块（AES）可以有效地抑制回声，从而提高语音通话品质。</p>
+<figure class="align-center" id="id14">
+<a class="reference internal image-reference" href="../_images/设计概6009.png"><img alt="../_images/设计概6009.png" src="../_images/设计概6009.png" style="width: 5.40625in; height: 3.00487in;" /></a>
+<figcaption>
+<p><span class="caption-number">图 10.1 </span><span class="caption-text">AEC+AES处理前后的性能</span><a class="headerlink" href="Design_Overview.html#id14" title="永久链接至图片">¶</a></p>
+</figcaption>
+</figure>
+<p>提供三个可调参数，用于调整AEC/AES的性能，它们分别是：</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>para_aec_filter_len</strong>: 自适应滤波器的长度。根据不同样机回声拖尾的时间调整适当的滤波器长度。若选择较长的长度，会导致较高的MIPS和功耗。</p></li>
+<li><p><strong>para_aes_std_thrd</strong>: 残留回声判断阈值。值设较大时，近端语音品质较佳但残留回声较多。反之，值设较小时，近端语音品质较差但残留回声较少。</p></li>
+<li><p><strong>para_aes_supp_coeff</strong>: 残留回声抑制力道。值设越大，对残留回声抑制力道越大，但同时也会对近端语音带来越多细节音的丢失/损伤。</p></li>
+</ul>
+</div></blockquote>
+<table class="colwidths-given docutils align-default" id="id15">
+<caption><span class="caption-number">表 10.4 </span><span class="caption-text">AEC/AES参数说明</span><a class="headerlink" href="Design_Overview.html#id15" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 17%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>AEC/AES参数</p></th>
+<th class="head"><p>可调范围</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>para_aec_filter_len</p></td>
+<td><p>1 - 13</p></td>
+<td><p>8kHz采样率: [1,13]对应[20ms,260ms]</p>
+<p>16kHz采样率: [1,13]对应[10ms,130ms]</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>para_aes_std_thrd</p></td>
+<td><p>0 - 39</p></td>
+<td><p>0: 残留回声判断阈值最小</p>
+<p>39: 残留回声判断阈值最大</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>para_aes_supp_coeff</p></td>
+<td><p>0 - 100</p></td>
+<td><p>0: 残留回声抑制力道最小</p>
+<p>100: 残留回声抑制力道最大</p>
+</td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p><strong>NR (Noise Reduction)</strong></p></li>
+</ul>
+<p>NR模块可以抑制周围的平稳噪音，例如风扇噪音，空调噪音，引擎噪音，白/粉红杂讯，…等等。凭靠着专有的语音智能Voice Activity Detection（VAD）算法，NR可以保持住语音信号，同时又可以有效地抑制平稳噪声，从而提高语音通话的品质。</p>
+<figure class="align-center" id="id16">
+<a class="reference internal image-reference" href="../_images/设计概6010.png"><img alt="../_images/设计概6010.png" src="../_images/设计概6010.png" style="width: 4.30208in; height: 2.48945in;" /></a>
+<figcaption>
+<p><span class="caption-number">图 10.2 </span><span class="caption-text">NR处理前后的性能</span><a class="headerlink" href="Design_Overview.html#id16" title="永久链接至图片">¶</a></p>
+</figcaption>
+</figure>
+<p>提供三个可调参数，用于调适NR的性能，它们分别是：</p>
+<blockquote>
+<div><ul>
+<li><p>para_nr_init_sile_time: 初始静音的时间长度。CODEC开电瞬间会产生随机无意义的噪音讯号</p></li>
+<li><p>para_nr_init_sile_time: 可将这段讯号设置成静音。</p></li>
+<li><p>para_nr_snr_coeff: signal-to-Noise。 Ratio（SNR）跟踪系数。</p>
+<p>若参数值较大，则NR会具有较高的降噪能力，但语音信号可能会较容易失真。</p>
+<p>相反地​​，参数值较小，则NR将抑制较少的噪声信号，但会具有较好的语音品质性能。</p>
+<p>下表是基于不同SNR环境下，此参数合适的调整范围，在每种SNR情况下，参数值越大，对stationary noise的抑制力道就越大。</p>
+</li>
+</ul>
+</div></blockquote>
+<table class="colwidths-given docutils align-default" id="id17">
+<caption><span class="caption-number">表 10.5 </span><span class="caption-text">NR参数说明</span><a class="headerlink" href="Design_Overview.html#id17" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 20%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>NR参数</p></th>
+<th class="head"><p>可调范围</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>para_nr_init_sile_time</p></td>
+<td><p>0 - 250</p></td>
+<td><p>对应0s至5s，</p>
+<p>每阶20ms</p>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-given docutils align-default" id="id18">
+<caption><span class="caption-number">表 10.6 </span><span class="caption-text">para_nr_snr_coeff参数说明</span><a class="headerlink" href="Design_Overview.html#id18" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 60%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>周遭的SNR环境</p></th>
+<th class="head"><p>调整范围</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>低</p></td>
+<td><p>0 - 3</p></td>
+<td><p>0: 在降噪方面最不积极</p>
+<p>3: 在降噪方面最积极</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>中</p></td>
+<td><p>4 - 10</p></td>
+<td><p>4: 在降噪方面最不积极</p>
+<p>10: 在降噪方面最积极</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>高</p></td>
+<td><p>11 - 20</p></td>
+<td><p>11: 在降噪方面最不积极</p>
+<p>20: 在降噪方面最积极</p>
+</td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p><strong>AGC (Automatic Gain Control)</strong></p></li>
+</ul>
+<p>AGC模块是一种信号处理功能，可以自动将输出电平调整到预定范围，以提供更舒适的听觉体验。如果输入信号低于“Target Low”，则AGC会将输出电平往“Target Low”调整。另一方面，如果输入信号高于“Target High”，则AGC会将输出电平往“Target High”调整。</p>
+<figure class="align-default" id="id19">
+<a class="reference internal image-reference" href="../_images/设计概6011.png"><img alt="../_images/设计概6011.png" src="../_images/设计概6011.png" style="width: 4.13542in; height: 2.47846in;" /></a>
+<figcaption>
+<p><span class="caption-number">图 10.3 </span><span class="caption-text">图10-3: AGC调整信号电平</span><a class="headerlink" href="Design_Overview.html#id19" title="永久链接至图片">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-center" id="id20">
+<a class="reference internal image-reference" href="../_images/设计概6012.png"><img alt="../_images/设计概6012.png" src="../_images/设计概6012.png" style="width: 4.32785in; height: 2.5in;" /></a>
+<figcaption>
+<p><span class="caption-number">图 10.4 </span><span class="caption-text">图10-4: AGC处理前后的性能</span><a class="headerlink" href="Design_Overview.html#id20" title="永久链接至图片">¶</a></p>
+</figcaption>
+</figure>
+<p>提供四个可调参数，用于调整AGC的性能，它们分别是：</p>
+<ul class="simple">
+<li><p><strong>para_agc_max_gain:</strong> 此参数是信号可以被放大的最大增益。</p></li>
+<li><p><strong>para_agc_target_high:</strong> 此参数是AGC将会去达到的“Target High”水平。对于高于 <strong>para_agc_target_high</strong> 的输入信号，AGC会将其收敛到 <strong>para_agc_target_high</strong> 。</p></li>
+<li><p><strong>para_agc_target_low:</strong> 此参数是AGC将会去达到的“Target Low”水平。对于低于 <strong>para_agc_target_low</strong> 的输入信号，AGC会将其收敛到 <strong>para_agc_target_low</strong> 。若在达到 <strong>para_agc_target_low</strong> 之前就已达到 <strong>para_agc_max_gain</strong> ，则AGC仅会收敛到 <strong>para_agc_max_gain</strong> 。</p></li>
+<li><p><strong>para_agc_vad_ena:</strong> Speech-activated AGC功能。开启此功能并同时开启NR及AEC/AES功能时，能使AGC避免放大背景平稳噪声及残留回声，以获得较佳的效果。</p></li>
+</ul>
+<table class="colwidths-given docutils align-default" id="id21">
+<caption><span class="caption-number">表 10.7 </span><span class="caption-text">AGC参数说明</span><a class="headerlink" href="Design_Overview.html#id21" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 17%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>AGC参数</p></th>
+<th class="head"><p>可调范围</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>para_agc_max_gain</p></td>
+<td><p>0 - 6</p></td>
+<td><p>[0,6]对应的最大   提升增益为[6dB,42dB]，每阶为6dB</p></td>
+</tr>
+<tr class="row-odd"><td><p>para_agc_target_high</p></td>
+<td><p>0 - 36</p></td>
+<td><p>0至36对应0dB至-36dB</p></td>
+</tr>
+<tr class="row-even"><td><p>para_agc_target_low</p></td>
+<td><p>0 - 72</p></td>
+<td><p>0至36对应0dB至-72dB</p></td>
+</tr>
+<tr class="row-odd"><td><p>para_agc_vad_ena</p></td>
+<td><p>0 - 1</p></td>
+<td><p>0: 关闭Speech-activated AGC功能</p>
+<p>1: 开启Speech-activated AGC功能</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id7">
+<h2><span class="section-number">10.2.3. </span>音频编码与解码<a class="headerlink" href="Design_Overview.html#id7" title="永久链接至标题">¶</a></h2>
+<section id="id8">
+<h3><span class="section-number">10.2.3.1. </span>音频编解码流程<a class="headerlink" href="Design_Overview.html#id8" title="永久链接至标题">¶</a></h3>
+<p>Cvitek音频编解码支持G711-A-law、G711-Mu-law、G726、ADPCM_IMA，以上编解码使用RISC-V软件编解码。用户可以使用bind
+mode(绑定模式)并通过CVI_Aud_SYS_Bind，将Audio Input与AENC绑定，进行音框后的编码，亦可将Audio Output与ADEC绑定后，进行接收编码音框后的解码程序，将音框还原为PCM/Raw信号。若不使用绑定模式(bind mode)，而使用user get
+mode(用户获取模式)，用户可通过CVI_AENC_SendFrame将实际单一音框送入编码程序进行编码，相对应的也可使用CVI_ADEC_GetFrame，进行单一音框的解码，请注意在使用用户获取模式时，用户如果调用延迟过久，则有可能造成内部缓存阻塞，致使回传失败的音框。</p>
+</section>
+<section id="id9">
+<h3><span class="section-number">10.2.3.2. </span>音频编解码协议<a class="headerlink" href="Design_Overview.html#id9" title="永久链接至标题">¶</a></h3>
+<p>音频编码主要专责音框数据转换，Cvitek支持G.711、G.726、LDPCM相关编码，编码后的音框数据较小，但语音编码属于有损压缩(lossy compression)，音质会有所差异，不同编码使用的bit rate/sample
+rate亦有所不同，用户需要知道该编码协议的规范并设定对应API，否则函式将回报错误。</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 11%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 11%" />
+<col style="width: 11%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Codec</p></th>
+<th class="head"><p>Sampling Rate (KHZ)</p></th>
+<th class="head"><p>Bit Rate (Kbps)</p></th>
+<th class="head"><p>Playload (原始音框)</p></th>
+<th class="head"><p>Compress Rate (压缩率)</p></th>
+<th class="head"><p>MOS (音质测量)</p></th>
+<th class="head"><p>Nominal Bandwidth (Kbps)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>G.711*</p></td>
+<td><p>8/16</p></td>
+<td><p>64</p></td>
+<td><p>160/320</p></td>
+<td><p>1:2</p></td>
+<td><p>4.1</p></td>
+<td><p>87.2</p></td>
+</tr>
+<tr class="row-odd"><td><p>G.726</p></td>
+<td><p>8</p></td>
+<td><p>16/24/32/40</p></td>
+<td><p>160/320/480</p></td>
+<td><p>1:4</p></td>
+<td><p>3.85</p></td>
+<td><p>47.2/55.2</p></td>
+</tr>
+<tr class="row-even"><td><p>ADPCM-IMA</p></td>
+<td><p>8</p></td>
+<td><p>32</p></td>
+<td><p>160/320/480</p></td>
+<td><p>1:4</p></td>
+<td><p>3.7</p></td>
+<td><p>38.4</p></td>
+</tr>
+</tbody>
+</table>
+<p>*G.711 包含a-law/mu-law</p>
+</section>
+<section id="id10">
+<h3><span class="section-number">10.2.3.3. </span>语音帧结构<a class="headerlink" href="Design_Overview.html#id10" title="永久链接至标题">¶</a></h3>
+<p>Cvitek与音帧结构并未附加额外头文件，内部收音、播音是以音框为单位，而每一个音框皆为RAW/PCM数据，G711、G726、ADPCM 格式的编解码，对应的音框也不会增加多余标头，使用者必须透过CVI_AUDIO_AENC_/CVI_AUDIO_ADEC_
+相关API去获得目前编译码音框的信息。此作法优点为，当使用者透过get_frame API 或是相关debug 函式去获取音框时，可以立即的辨识该音框是否合乎对应编译码的规则，而不需再去解析标头，并可在做存盘后于计算机端用相关第三方软件验证编译码的结果是否正常。</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Function_Overview.html" class="btn btn-neutral float-left" title="10.1. 功能概述" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="API_Reference.html" class="btn btn-neutral float-right" title="10.3. API参考" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

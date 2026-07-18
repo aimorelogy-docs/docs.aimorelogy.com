@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2. 编译环境 &mdash; AliOS_Compilation_and_Usage_Instructions master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="3. 运行说明" href="3_Instructions_for_Running.html" />
+    <link rel="prev" title="1. 声明" href="1_disclaimer.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> AliOS_Compilation_and_Usage_Instructions
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="2_Compilation_Environment.html#">2. 编译环境</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_Compilation_Environment.html#pythonpip">2.1. 安装python及pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Compilation_Environment.html#yoctool">2.2. 安装YOCTOOL工具</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Compilation_Environment.html#sdk">2.3. SDK文件说明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Compilation_Environment.html#id2">2.4. 快速模式和正常启动模式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Compilation_Environment.html#alios">2.5. 如何编译AliOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Compilation_Environment.html#id3">2.6. 镜像说明</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3_Instructions_for_Running.html">3. 运行说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_Commands_Detailed_Explanation.html">4. Alios 指令集使用</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">AliOS_Compilation_and_Usage_Instructions</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">2. </span>编译环境</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/2_Compilation_Environment.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">2. </span>编译环境<a class="headerlink" href="2_Compilation_Environment.html#id1" title="永久链接至标题">¶</a></h1>
+<section id="pythonpip">
+<h2><span class="section-number">2.1. </span>安装python及pip<a class="headerlink" href="2_Compilation_Environment.html#pythonpip" title="永久链接至标题">¶</a></h2>
+<ol class="arabic simple">
+<li><p>安装 <a class="reference external" href="https://www.python.org/">Python3</a></p></li>
+<li><p>下载 <a class="reference external" href="https://bootstrap.pypa.io/get-pip.py">PIP脚本</a></p></li>
+<li><p>安装pip，执行如下命令</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">python get-pip.py</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>安装python的serial和usb驱动模块，执行如下命令</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip3 install pyserial pyusb</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>安装yaml模块，执行如下命令</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pip3 install pyyaml</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注解</p>
+<p>如果上面pyyaml安装失败，可以使用下面命令安装</p>
+<p>pip3 install pyyaml -i <a class="reference external" href="http://pypi.douban.com/simple">http://pypi.douban.com/simple</a> –trusted-host <a class="reference external" href="http://pypi.douban.com">pypi.douban.com</a></p>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">注意</p>
+<p>PS：ubuntu版本推荐高于20.0.4</p>
+</div>
+</section>
+<section id="yoctool">
+<h2><span class="section-number">2.2. </span>安装YOCTOOL工具<a class="headerlink" href="2_Compilation_Environment.html#yoctool" title="永久链接至标题">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Linux环境中使用指令安装yoctool</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo pip install yoctools -U</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>使用 yoc -V查看对应版本，确保版本处于或者高于2.0.25</p></li>
+</ol>
+<figure class="align-default">
+<img alt="_images/image1.png" src="_images/image1.png" />
+</figure>
+<ol class="arabic simple" start="3">
+<li><p>输入product version 查看product的版本，确保product安装成功</p></li>
+</ol>
+<figure class="align-default">
+<img alt="_images/image2.png" src="_images/image2.png" />
+</figure>
+</section>
+<section id="sdk">
+<h2><span class="section-number">2.3. </span>SDK文件说明<a class="headerlink" href="2_Compilation_Environment.html#sdk" title="永久链接至标题">¶</a></h2>
+<figure class="align-default">
+<img alt="_images/image3.png" src="_images/image3.png" />
+</figure>
+<ol class="arabic simple">
+<li><p>顶层目录中各个文件夹说明：</p></li>
+</ol>
+<ul class="simple">
+<li><p>boards: 存放板卡相关配置</p></li>
+<li><p>components: 存放各种类型组件，例如aos内核，cli命令行，网络组件，以及CSI驱动</p></li>
+<li><p>host-tools: 为交叉编译工具链，AliOS使用玄铁交叉编译工具链Xuantie-900-gcc-elf-newlib-x86_64-V2.6.1</p></li>
+<li><p>solutions: 为解决方案目录，主要存放业务逻辑，运行bin档等，可支持快速启动和正常启动两种解决方案。</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p>solutions下各目录作用说明：</p></li>
+</ol>
+<ul class="simple">
+<li><p>application 主要是应用相关部分</p></li>
+<li><p>customization 客户应用相关以及不同产品形态配置，其下各个主要文件说明：</p></li>
+</ul>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>custom_sysparam.c</p></td>
+<td><p>vb配置</p></td>
+</tr>
+<tr class="row-even"><td><p>custom_viparam.c</p></td>
+<td><p>vi配置 sensor相关都放置在这里</p></td>
+</tr>
+<tr class="row-odd"><td><p>custom_voparam.c</p></td>
+<td><p>vo配置</p></td>
+</tr>
+<tr class="row-even"><td><p>custom_vpssparam.c</p></td>
+<td><p>主要是vpss配置</p></td>
+</tr>
+<tr class="row-odd"><td><p>custom_vencparam.c</p></td>
+<td><p>主要是venc的配置</p></td>
+</tr>
+<tr class="row-even"><td><p>custom_moduleparam.c</p></td>
+<td><p>主要是各模块的通用配置</p></td>
+</tr>
+<tr class="row-odd"><td><p>custom_platform.c</p></td>
+<td><p>平台相关配置，如pinmux设定，GPIO拉高等操作</p></td>
+</tr>
+<tr class="row-even"><td><p>custom_event.c</p></td>
+<td><p>系统/模块事件相关配置</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>py_tool：python的工具</p></li>
+<li><p>script：编译的脚本</p></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p>package.yaml文件说明</p></li>
+</ol>
+<p><a class="reference external" href="https://help.aliyun.com/document_detail/308617.html">https://help.aliyun.com/document_detail/308617.html</a></p>
+<p>package.yaml主要用于定义和开启功能宏比如选择不同的Sensor，以及需要依赖的组件选择</p>
+</section>
+<section id="id2">
+<h2><span class="section-number">2.4. </span>快速模式和正常启动模式<a class="headerlink" href="2_Compilation_Environment.html#id2" title="永久链接至标题">¶</a></h2>
+</section>
+<section id="alios">
+<h2><span class="section-number">2.5. </span>如何编译AliOS<a class="headerlink" href="2_Compilation_Environment.html#alios" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>设定环境变量(以cv1842hp_wevb_0014a_spinor为例)</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">source</span> build/envsetup_soc.sh
+<span class="go"> -------------------------------------------------------------------------------------------------------</span>
+<span class="go">   Usage:</span>
+<span class="go">   (1) menuconfig - Use menu to configure your board.</span>
+<span class="go">       ex: $ menuconfig</span>
+
+<span class="go">   (2) defconfig $CHIP_ARCH - List EVB boards($BOARD) by CHIP_ARCH.</span>
+<span class="go">      ** cv184x ** -&gt; [&#39;cv184x&#39;, &#39;cv1841c&#39;, &#39;cv1842cp&#39;, &#39;cv1842hp&#39;, &#39;cv1843hp&#39;]</span>
+<span class="go">       ex: $ defconfig cv184x</span>
+
+<span class="go">  (3) defconfig $BOARD - Choose EVB board settings.</span>
+<span class="go">       ex: $ defconfig cv1842hp_wevb_0014a_spinor</span>
+<span class="go">       ex: $ defconfig cv1842cp_wevb_0015a_spinand</span>
+<span class="go"> -------------------------------------------------------------------------------------------------------</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>选定EVB cv1842hp_wevb_0014a_spinor</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>defconfig cv1842hp_wevb_0014a_spinor
+<span class="go">====== Environment Variables =======</span>
+<span class="go">PROJECT: cv1842hp_wevb_0014a_spinor, DDR_CFG=ddr3_2133_x16</span>
+<span class="go">CHIP_ARCH: CV184X, DEBUG=0</span>
+<span class="go">SDK VERSION: musl_arm, RPC=0</span>
+<span class="go">ATF options: ATF_KEY_SEL=default, BL32=1</span>
+<span class="go">Linux source folder:linux_5.10, Uboot source folder: u-boot-2021.10</span>
+<span class="go">ENABLE_DUAL_OS: y</span>
+<span class="go">CROSS_COMPILE_PREFIX: arm-none-linux-musleabihf-</span>
+<span class="go">ENABLE_BOOTLOGO: 0</span>
+<span class="go">Flash layout xml: build/boards/cv184x/cv1842hp_wevb_0014a_spinor/partition/partition_spinor.xml</span>
+<span class="go">Sensor tuning bin: cvsens_cv2003</span>
+<span class="go">Output path: install/soc_cv1842hp_wevb_0014a_spinor</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>双系统配置</p></li>
+</ul>
+<p>通过menuconfig命令，勾选对应配置，即可编译AliOS镜像。</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/image4.png"><img alt="_images/image4.png" src="_images/image4.png" style="width: 80%;" /></a>
+</figure>
+<p>默认是正常启动模式。可以通过勾选对应配置，在快速启动模式和正常模式之间切换。</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/image5.png"><img alt="_images/image5.png" src="_images/image5.png" style="width: 80%;" /></a>
+</figure>
+<ul class="simple">
+<li><p>编译AliOS</p></li>
+</ul>
+<p>AliOS镜像文件被打包到启动镜像中通常通过一条命令。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>build_uboot
+<span class="go"> Run build_uboot() function</span>
+<span class="go"> Run _link_uboot_logo() function</span>
+<span class="go"> ......</span>
+<span class="go"> [TARGET] alios-depends</span>
+<span class="go"> ......</span>
+<span class="go"> [TARGET] alios-build</span>
+<span class="go"> ......</span>
+<span class="go"> INFO: raw2cimg small part size</span>
+<span class="go"> INFO: size:b5c42, offset:200000, part_sz:100000, crc:38896f66</span>
+<span class="go"> INFO: Packing yoc.bin done!</span>
+</pre></div>
+</div>
+<p>编译完成后，生成的AliOS镜像文件yoc.bin将被拷贝到install目录中。</p>
+</section>
+<section id="id3">
+<h2><span class="section-number">2.6. </span>镜像说明<a class="headerlink" href="2_Compilation_Environment.html#id3" title="永久链接至标题">¶</a></h2>
+<p>在/solutions/normboot的生成文件中：</p>
+<ol class="arabic simple">
+<li><p>yoc.elf：完整的可执行文件等，可以被 objdump 或 readelf 工具解析</p></li>
+<li><p>yoc.bin：运行程序bin档案，烧录到Flash 的小核镜像文件</p></li>
+<li><p>yoc.asm：反汇编文件</p></li>
+<li><p>yoc.map：内存映射文件</p></li>
+<li><p>yoc_sdk/lib/*.a：静态库</p></li>
+<li><p>generated：AliOS 系统的固件镜像文件结构，文件结构描述如下：</p></li>
+</ol>
+<ul class="simple">
+<li><p>boot0：一级 Bootloader（FSBL）的二进制文件</p></li>
+<li><p>boot：二级 Bootloader 的二进制文件（如 U-Boot）</p></li>
+<li><p>config.yaml：分区表和固件配置的核心文件</p></li>
+<li><p>imtb：镜像表（Image Table）二进制文件</p></li>
+<li><p>imtb.hex：镜像表的 HEX 格式</p></li>
+<li><p>prim：主系统镜像（yoc.bin 的别名）</p></li>
+<li><p>prim.hex：主系统镜像的 HEX 格式</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="1_disclaimer.html" class="btn btn-neutral float-left" title="1. 声明" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="3_Instructions_for_Running.html" class="btn btn-neutral float-right" title="3. 运行说明" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2025, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

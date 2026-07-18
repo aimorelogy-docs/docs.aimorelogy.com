@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>28. DRC &mdash; ISPDevelopmentReference master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="29. MONO" href="29_Mono.html" />
+    <link rel="prev" title="27. FSHDR" href="27_FSHDR.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> ISPDevelopmentReference
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Preface.html">2. 概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_System_Control.html">3. 系统控制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_AE.html">4. AE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_AWB.html">5. AWB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_AF.html">6. AF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_IMP.html">7. IMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_BlackLevel.html">8. BLC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_DPC.html">9. DPC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_LSC.html">10. LSC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_RLSC.html">11. RLSC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_CCM.html">12. CCM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_Noise_Profile.html">13. Noise profile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_BNR.html">14. BNR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15_CNR.html">15. CNR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="16_TNR.html">16. TNR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="17_Crosstalk.html">17. Crosstalk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18_Demosaic.html">18. DEMOSAIC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19_Sharpen.html">19. SHARPEN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="20_PreSharpen.html">20. PRESHARPEN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21_RGB_Gamma.html">21. RGBGAMMA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="22_DCI.html">22. DCI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="23_LDCI.html">23. LDCI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="24_ColorTone.html">24. ColorTone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="25_Saturation.html">25. Saturation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="26_PFR.html">26. PFR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="27_FSHDR.html">27. FSHDR</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="28_DRC.html#">28. DRC</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="28_DRC.html#id1">28.1. 功能描述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="28_DRC.html#api">28.2. API 参考</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="28_DRC.html#cvi-isp-setdrcattr">28.2.1. CVI_ISP_SetDRCAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="28_DRC.html#cvi-isp-getdrcattr">28.2.2. CVI_ISP_GetDRCAttr</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="28_DRC.html#id2">28.3. 数据类型</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="28_DRC.html#isp-drc-manual-attr-s">28.3.1. ISP_DRC_MANUAL_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="28_DRC.html#isp-drc-auto-attr-s">28.3.2. ISP_DRC_AUTO_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="28_DRC.html#isp-drc-attr-s">28.3.3. ISP_DRC_ATTR_S</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="29_Mono.html">29. MONO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="30_YCONTRAST.html">30. YCONTRAST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="31_CA.html">31. CA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="32_CA2.html">32. CA2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="33_CLUT.html">33. CLUT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="34_CSC.html">34. CSC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="35_VC.html">35. VC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="36_Statistical_Information.html">36. 统计讯息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="37_Query_Internal_Status_Messages.html">37. 查询内部状态消息</a></li>
+<li class="toctree-l1"><a class="reference internal" href="38_Debug.html">38. Debug</a></li>
+<li class="toctree-l1"><a class="reference internal" href="39_Error_Code.html">39. 错误码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="40_3A_Development_User_Guide_Overview.html">40. 3A 开发指南概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="41_3A_Development_User_Guide.html">41. 3A 开发用户指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="42_Developer_Guide.html">42. 开发者指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="43_Appendix.html">43. 附录</a></li>
+<li class="toctree-l1"><a class="reference internal" href="44_Abbreviations.html">44. 缩略语</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ISPDevelopmentReference</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">28. </span>DRC</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/28_DRC.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="drc">
+<h1><span class="section-number">28. </span>DRC<a class="headerlink" href="28_DRC.html#drc" title="永久链接至标题">¶</a></h1>
+<section id="id1">
+<h2><span class="section-number">28.1. </span>功能描述<a class="headerlink" href="28_DRC.html#id1" title="永久链接至标题">¶</a></h2>
+<p>整幅图像的动态范围，使之能在显示设备上的显示效果与人眼视觉感受一致。</p>
+</section>
+<section id="api">
+<h2><span class="section-number">28.2. </span>API 参考<a class="headerlink" href="28_DRC.html#api" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="28_DRC.html#cvi-isp-setdrcattr">CVI_ISP_SetDRCAttr</a> ： 设置DRC属性参数</p></li>
+<li><p><a class="reference internal" href="28_DRC.html#cvi-isp-getdrcattr">CVI_ISP_GetDRCAttr</a> ： 获取DRC属性参数</p></li>
+</ul>
+<section id="cvi-isp-setdrcattr">
+<h3><span class="section-number">28.2.1. </span>CVI_ISP_SetDRCAttr<a class="headerlink" href="28_DRC.html#cvi-isp-setdrcattr" title="永久链接至标题">¶</a></h3>
+<p>【描述】</p>
+<blockquote>
+<div><p>设置DRC属性参数</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_SetDRCAttr</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ISP_DRC_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstDRCAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>VI_PIPE 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstDRCAttr</p></td>
+<td><p>DRC属性参数</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，其值为 <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件: cvi_isp.h, cvi_comm_isp.h</p></li>
+<li><p>库文件: libisp.so</p></li>
+</ul>
+<p>【注意】</p>
+<p>无</p>
+<p>【举例】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="n">ISP_DRC_ATTR_S</span><span class="w"> </span><span class="n">stAttr</span><span class="p">;</span><span class="w"></span>
+<span class="n">CVI_ISP_GetDRCAttr</span><span class="p">(</span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">stAttr</span><span class="p">);</span><span class="w"></span>
+<span class="n">stAttr</span><span class="p">.</span><span class="n">enOpType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OP_TYPE_AUTO</span><span class="p">;</span><span class="w"></span>
+<span class="n">CVI_ISP_SetDRCAttr</span><span class="p">(</span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">stAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="28_DRC.html#cvi-isp-getdrcattr">CVI_ISP_GetDRCAttr</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-getdrcattr">
+<h3><span class="section-number">28.2.2. </span>CVI_ISP_GetDRCAttr<a class="headerlink" href="28_DRC.html#cvi-isp-getdrcattr" title="永久链接至标题">¶</a></h3>
+<p>【描述】</p>
+<p>获取DRC属性参数</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_GetDRCAttr</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ISP_DRC_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstDRCAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>VI_PIPE 号</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstDRCAttr</p></td>
+<td><p>DRC属性参数</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，其值为 <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">错误码</span></a>。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件: cvi_isp.h, cvi_comm_isp.h</p></li>
+<li><p>库文件: libisp.so</p></li>
+</ul>
+<p>【注意】</p>
+<p>无</p>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="28_DRC.html#cvi-isp-setdrcattr">CVI_ISP_SetDRCAttr</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id2">
+<h2><span class="section-number">28.3. </span>数据类型<a class="headerlink" href="28_DRC.html#id2" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="28_DRC.html#isp-drc-manual-attr-s">ISP_DRC_MANUAL_ATTR_S</a> ： 定义手动DRC属性参数</p></li>
+<li><p><a class="reference internal" href="28_DRC.html#isp-drc-auto-attr-s">ISP_DRC_AUTO_ATTR_S</a> ： 定义自动DRC属性参数</p></li>
+<li><p><a class="reference internal" href="28_DRC.html#isp-drc-attr-s">ISP_DRC_ATTR_S</a> ： 定义DRC属性参数</p></li>
+</ul>
+<section id="isp-drc-manual-attr-s">
+<h3><span class="section-number">28.3.1. </span>ISP_DRC_MANUAL_ATTR_S<a class="headerlink" href="28_DRC.html#isp-drc-manual-attr-s" title="永久链接至标题">¶</a></h3>
+<p>【说明】</p>
+<p>定义手动DRC属性参数</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_DRC_MANUAL_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">Strength</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">StrengthMin</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">StrengthMax</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_DRC_MANUAL_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Strength</p></td>
+<td><p>控制DRC的整体强度。值越大，强度越强。</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>StrengthMin</p></td>
+<td><p>autoMode=1时生效，控制自动算出来的drc强度*gain的范围。</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>StrengthMax</p></td>
+<td><p>autoMode=1时生效，控制自动算出来的drc强度*gain的范围。</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="28_DRC.html#cvi-isp-setdrcattr">CVI_ISP_SetDRCAttr</a></p></li>
+<li><p><a class="reference internal" href="28_DRC.html#cvi-isp-getdrcattr">CVI_ISP_GetDRCAttr</a></p></li>
+</ul>
+</section>
+<section id="isp-drc-auto-attr-s">
+<h3><span class="section-number">28.3.2. </span>ISP_DRC_AUTO_ATTR_S<a class="headerlink" href="28_DRC.html#isp-drc-auto-attr-s" title="永久链接至标题">¶</a></h3>
+<p>【说明】</p>
+<p>定义自动DRC属性参数</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_DRC_AUTO_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">Strength</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">StrengthMin</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">StrengthMax</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_DRC_AUTO_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Strength</p></td>
+<td><p>控制DRC的整体强度。值越大，强度越强。</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>StrengthMin</p></td>
+<td><p>autoMode=1时生效，控制自动算出来的drc强度*gain的范围。</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>StrengthMax</p></td>
+<td><p>autoMode=1时生效，控制自动算出来的drc强度*gain的范围。</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="28_DRC.html#cvi-isp-setdrcattr">CVI_ISP_SetDRCAttr</a></p></li>
+<li><p><a class="reference internal" href="28_DRC.html#cvi-isp-getdrcattr">CVI_ISP_GetDRCAttr</a></p></li>
+</ul>
+</section>
+<section id="isp-drc-attr-s">
+<h3><span class="section-number">28.3.3. </span>ISP_DRC_ATTR_S<a class="headerlink" href="28_DRC.html#isp-drc-attr-s" title="永久链接至标题">¶</a></h3>
+<p>【说明】</p>
+<p>定义DRC属性参数</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_DRC_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">Enable</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">ISP_OP_TYPE_E</span><span class="w"> </span><span class="n">enOpType</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">UpdateInterval</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">AutoMode</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">SaturationLow</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 4095]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">SaturationHigh</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 4095]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">ContrastLow</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 4095]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">ContrastHigh</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 4095]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">BlockNumW</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[7, 47]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">GainUB</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">GainLB</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">GainProtStr</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">FSBPstr</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">DeFlareMode</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 2]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">DeFlareRatio</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">DeFlareSlope</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">AdaptiveLowStr</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 4095]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">AdaptiveHighStr</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 4095]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">AdaptiveRatio</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1000]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">ColorProtStr</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">ColorProtThr</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 4095]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">ISP_DRC_MANUAL_ATTR_S</span><span class="w"> </span><span class="n">stManual</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">ISP_DRC_AUTO_ATTR_S</span><span class="w"> </span><span class="n">stAuto</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_DRC_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Enable</p></td>
+<td><p>模块使能开关</p>
+<p>取值范围： [0, 1]</p>
+<p>数据类型： CVI_BOOL</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>enOpType</p></td>
+<td><p>工作类型</p>
+<p>OP_TYPE_AUTO：自动模式</p>
+<p>OP_TYPE_MANUAL：手动模式</p>
+<p>数据类型： ISP_OP_TYPE_E</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>UpdateInterval</p></td>
+<td><p>影响参数更新间隔,值越大画面变化越慢,效能越好。</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>AutoMode</p></td>
+<td><p>控制auto drc</p>
+<p>取值范围： [0, 1]</p>
+<p>数据类型： CVI_BOOL</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>SaturationLow</p></td>
+<td><p>控制Y和localMax的融合比例</p>
+<p>取值范围： [0, 4095]</p>
+<p>数据类型： CVI_U16</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SaturationHigh</p></td>
+<td><p>控制Y和local Max的融合比例</p>
+<p>取值范围： [0, 4095]</p>
+<p>数据类型： CVI_U16</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>ContrastLow</p></td>
+<td><p>控制第一轮融合的输出和raw的融合比例</p>
+<p>取值范围： [0, 4095]</p>
+<p>数据类型： CVI_U16</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>ContrastHigh</p></td>
+<td><p>控制第一轮融合的输出和raw的融合比例</p>
+<p>取值范围： [0, 4095]</p>
+<p>数据类型： CVI_U16</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>BlockNumW</p></td>
+<td><p>控制局部亮度控制的范围</p>
+<p>取值范围： [7, 47]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>GainUB</p></td>
+<td><p>1为1倍，限制算出来的out_luma为in_luma的多少倍以内</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>GainLB</p></td>
+<td><p>256为1倍，限制算出来的out_luma为in_luma的多少倍以上</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>GainProtStr</p></td>
+<td><p>限制产生色彩偏移的DRC gain，值越大，限制强度越大，色彩保护越强</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>FSBPstr</p></td>
+<td><p>对高反差区域做特别处理</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>DeFlareMode</p></td>
+<td><p>光晕抑制的模式。0：关闭，1：手动抑制模式，2：自适应抑制模式</p>
+<p>取值范围： [0, 2]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>DeFlareRatio</p></td>
+<td><p>控制光晕抑制的强度，Ratio越小，抑制程度越大，光晕越弱，对比度越弱</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>DeFlareSlope</p></td>
+<td><p>控制光晕抑制的强度，Slope越小，抑制程度越大，光晕越弱，对比度越弱</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>AdaptiveLowStr</p></td>
+<td><p>根据亮度自适应控制DRC的强度的下限</p>
+<p>取值范围： [0, 4095]</p>
+<p>数据类型： CVI_U16</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>AdaptiveHighStr</p></td>
+<td><p>根据亮度自适应控制DRC的强度的上限</p>
+<p>取值范围： [0, 4095]</p>
+<p>数据类型： CVI_U16</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>AdaptiveRatio</p></td>
+<td><p>根据亮度自适应控制DRC的强度的过渡斜率</p>
+<p>取值范围： [0, 1000]</p>
+<p>数据类型： CVI_U16</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>ColorProtStr</p></td>
+<td><p>限制产生色彩偏移的DRC gain，值越大，限制强度越大，色彩保护越强</p>
+<p>取值范围： [0, 255]</p>
+<p>数据类型： CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>ColorProtThr</p></td>
+<td><p>控制色彩保护的范围，值越大，开启保护的亮度越偏向高亮区</p>
+<p>取值范围： [0, 4095]</p>
+<p>数据类型： CVI_U16</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>stManual</p></td>
+<td><p>手动参数</p></td>
+</tr>
+<tr class="row-even"><td><p>stAuto</p></td>
+<td><p>自动参数</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="28_DRC.html#cvi-isp-setdrcattr">CVI_ISP_SetDRCAttr</a></p></li>
+<li><p><a class="reference internal" href="28_DRC.html#cvi-isp-getdrcattr">CVI_ISP_GetDRCAttr</a></p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="27_FSHDR.html" class="btn btn-neutral float-left" title="27. FSHDR" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="29_Mono.html" class="btn btn-neutral float-right" title="29. MONO" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2025, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

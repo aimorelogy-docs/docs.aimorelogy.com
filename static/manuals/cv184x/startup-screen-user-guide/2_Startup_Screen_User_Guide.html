@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2. 开机画面使用指南 &mdash; StartupScreenUserGuide master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="prev" title="1. 声明" href="1_disclaimer.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> StartupScreenUserGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="2_Startup_Screen_User_Guide.html#">2. 开机画面使用指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Startup_Screen_User_Guide.html#uboot">3. uboot</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_Startup_Screen_User_Guide.html#id2">3.1. uboot命令</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Startup_Screen_User_Guide.html#id3">3.2. uboot函数相关代码</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Startup_Screen_User_Guide.html#id4">3.3. uboot命令范例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Startup_Screen_User_Guide.html#id5">3.4. 使用储存装置并启用开机画面</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_Startup_Screen_User_Guide.html#id6">3.4.1. 准备开机图片</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2_Startup_Screen_User_Guide.html#id7">3.5. 注意事项</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2_Startup_Screen_User_Guide.html#alios">4. alios</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_Startup_Screen_User_Guide.html#id8">4.1. 启用alios开机画面</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_Startup_Screen_User_Guide.html#id9">4.1.1. 准备开机图片</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2_Startup_Screen_User_Guide.html#id10">4.2. alios开机画面原理</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">StartupScreenUserGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">2. </span>开机画面使用指南</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/2_Startup_Screen_User_Guide.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">2. </span>开机画面使用指南<a class="headerlink" href="2_Startup_Screen_User_Guide.html#id1" title="永久链接至标题">¶</a></h1>
+<p>此指南用以说明如何在uboot及alios下，显示出开机画面。</p>
+</section>
+<section id="uboot">
+<h1><span class="section-number">3. </span>uboot<a class="headerlink" href="2_Startup_Screen_User_Guide.html#uboot" title="永久链接至标题">¶</a></h1>
+<p>uboot提供以下功能：</p>
+<ul class="simple">
+<li><p>提供boot环境下VO设备的开关，包含VO不同接口和时序。</p></li>
+<li><p>提供boot环境下VL视频层的开关。</p></li>
+<li><p>提供boot环境下VO设备背景色的设置。</p></li>
+<li><p>VL视频层默认格式为YUV420 PLANAR。</p></li>
+</ul>
+<section id="id2">
+<h2><span class="section-number">3.1. </span>uboot命令<a class="headerlink" href="2_Startup_Screen_User_Guide.html#id2" title="永久链接至标题">¶</a></h2>
+<ul>
+<li><dl>
+<dt><strong>startvo：启动VO设备</strong></dt><dd><p>参数：设备号，接口型别，时序。</p>
+<img alt="_images/image1.png" src="_images/image1.png" />
+<ul class="simple">
+<li><p>&lt;dev&gt; 设备号，请参考 图表1-1</p></li>
+<li><p>&lt;intf-type&gt; 接口型别，请参考 图表1-1</p></li>
+<li><p>&lt;timing&gt; 时序</p></li>
+</ul>
+<p>&lt;&gt; MIPI_TX、LVDS、I80不参考时序变量，会根据目前对应driver来设置时序</p>
+<p>CV184X上的标准时序如下：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span><span class="p">(</span><span class="mi">1080</span><span class="n">P24</span><span class="p">),</span><span class="w">  </span><span class="mi">3</span><span class="p">(</span><span class="mi">1080</span><span class="n">P25</span><span class="p">),</span><span class="w">  </span><span class="mi">4</span><span class="p">(</span><span class="mi">1080</span><span class="n">P30</span><span class="p">),</span><span class="w">  </span><span class="mi">5</span><span class="p">(</span><span class="mi">720</span><span class="n">P50</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w">  </span><span class="mi">6</span><span class="p">(</span><span class="mi">720</span><span class="n">P60</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"></span>
+<span class="mi">7</span><span class="p">(</span><span class="mi">1080</span><span class="n">P50</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w">  </span><span class="mi">8</span><span class="p">(</span><span class="mi">1080</span><span class="n">P60</span><span class="p">),</span><span class="w">  </span><span class="mi">9</span><span class="p">(</span><span class="mi">576</span><span class="n">P50</span><span class="p">),</span><span class="w">  </span><span class="mi">10</span><span class="p">(</span><span class="mi">480</span><span class="n">P60</span><span class="p">),</span><span class="w">  </span><span class="mi">11</span><span class="p">(</span><span class="mi">800</span><span class="n">x600</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>stopvo：关闭VO设备</strong></dt><dd><p>参数：设备号</p>
+<img alt="_images/image2.png" src="_images/image2.png" />
+<ul class="simple">
+<li><p>&lt;dev&gt; 设备号，请参考 图表1-1</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>startvl：启动VL视频层</strong></dt><dd><p>参数：视频层号，图文件地址，视频地址，图文件大小，VO对齐</p>
+<img alt="_images/image3.png" src="_images/image3.png" />
+<ul class="simple">
+<li><p>&lt;layer&gt; 视频层号，请参考 图表1-1</p></li>
+<li><p>&lt;addr_in&gt; 图文件地址</p></li>
+<li><p>&lt;addr_out&gt; 视频地址</p></li>
+<li><p>&lt;size&gt; 图档大小</p></li>
+<li><p>&lt;alignment&gt; VO对齐</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>stopvl：关闭VL视频层</strong></dt><dd><p>参数：视频层号</p>
+<img alt="_images/image4.png" src="_images/image4.png" />
+<ul class="simple">
+<li><p>&lt;layer&gt; 视频层号，请参考 图表1-1</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>setvobg：设定VO设备背景色</strong></dt><dd><p>参数：设备号，背景色</p>
+<ul class="simple">
+<li><p>&lt;dev&gt; 设备号，请参考 图表1-1</p></li>
+<li><p>&lt;bgcolor&gt; 背景色 (10bit RGB排列，bit[29:20]为R，bit[19:10]为G，bit[9:0]为B)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><cite>图表 1-1</cite></p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>处理器类型</p></th>
+<th class="head"><p>设备</p></th>
+<th class="head"><p>视频层</p></th>
+<th class="head"><p>图形层</p></th>
+<th class="head"><p>接口类别</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CV184X</p></td>
+<td><p>[0]</p></td>
+<td><p>[0]</p></td>
+<td><p>[0]</p></td>
+<td><p>64(BT.1120), 1024(LCD_18BIT), 2048(LCD_24BIT), 4096(LCD_30BIT), 8192(MIPI_TX), 65536(I80)</p></td>
+</tr>
+</tbody>
+</table>
+<p><cite>图表 1-2</cite></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>处理器类型</p></th>
+<th class="head"><p>视频层最大分辨率</p></th>
+<th class="head"><p>图形层最大分辨率</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CV184X</p></td>
+<td><p>1920x1080</p></td>
+<td><p>1920x1080</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id3">
+<h2><span class="section-number">3.2. </span>uboot函数相关代码<a class="headerlink" href="2_Startup_Screen_User_Guide.html#id3" title="永久链接至标题">¶</a></h2>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cmd/Makefile</span>
+<span class="go">cmd/cvi_vo.c</span>
+<span class="go">drivers/video/Makefile</span>
+<span class="go">drivers/video/cvitek/ (包含以下子目录)</span>
+<span class="go">include/cvitek/cvi_disp.h</span>
+<span class="go">include/cvitek/cvi_mipi.h</span>
+<span class="go">include/cvitek/cvi_lvds.h</span>
+<span class="go">include/cvitek/cvi_i80.h</span>
+<span class="go">include/cvitek/cvi_panels/ (包含以下子目录)</span>
+</pre></div>
+</div>
+</section>
+<section id="id4">
+<h2><span class="section-number">3.3. </span>uboot命令范例<a class="headerlink" href="2_Startup_Screen_User_Guide.html#id4" title="永久链接至标题">¶</a></h2>
+<p>以下以CV184X处理器操作，配置设备DHD的时序MIPI_TX 720*1080&#64;60输出为例。</p>
+<p>&lt;&gt; 各DDR放置图片地址不同，请根据处理器来使用DDR地址。</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>把JPEG档载入到内存</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">fatload mmc 1:1 0x84080000 logo.jpg</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>解码JPEG到内存（cvi_jpeg jpg_buf_addr dest_buf_addr jpg_size）</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cvi_jpeg 0x84080000 0x82080000 0x80000</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>DHD0设备启动</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">startvo 0 8192 0  (MIPI_TX)</span>
+<span class="go">startvo 0 1024 0  (单路6bit LVDS)</span>
+<span class="go">startvo 0 2048 0  (单路8bit LVDS)</span>
+<span class="go">startvo 0 4096 0  (单路10bit LVDS，暂不支持)</span>
+<span class="go">startvo 0 65536 0  (I80)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>VL视频层启动</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">startvl 0 0x84080000 0x82080000 0x80000 16</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>设置VO背景色为黑色</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">setvobg 0 0x00000000</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>VL视频层关闭</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Stopvl 0</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>DHD0设备关闭</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Stopvo 0</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="id5">
+<h2><span class="section-number">3.4. </span>使用储存装置并启用开机画面<a class="headerlink" href="2_Startup_Screen_User_Guide.html#id5" title="永久链接至标题">¶</a></h2>
+<section id="id6">
+<h3><span class="section-number">3.4.1. </span>准备开机图片<a class="headerlink" href="2_Startup_Screen_User_Guide.html#id6" title="永久链接至标题">¶</a></h3>
+<p>SDK 提供了 <code class="docutils literal notranslate"><span class="pre">build/tools/common/bootlogo/process_images.py</span></code> 工具，可将原始图片转换为 SDK 所需的 <code class="docutils literal notranslate"><span class="pre">logo.jpg</span></code> 格式（MJPEG 裸流）。</p>
+<p><strong>安装依赖：</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">apt install ffmpeg python3-pil</span>
+</pre></div>
+</div>
+<p><strong>使用示例：</strong></p>
+<p>单张图片（uboot 仅支持单张），竖屏 720x1280 旋转 90 度：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">python build/tools/common/bootlogo/process_images.py \</span>
+<span class="go">    -i my_logo.png -o bootlogo/ -r 720 1280 --rotate 90</span>
+</pre></div>
+</div>
+<p>单张图片，不旋转，使用原图分辨率：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">python build/tools/common/bootlogo/process_images.py \</span>
+<span class="go">    -i my_logo.png -o bootlogo/</span>
+</pre></div>
+</div>
+<p>参数说明：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-i</span></code>  输入图片路径（支持 jpg/png）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-o</span></code>  输出目录（默认当前目录，生成 logo.jpg）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-r</span></code>  输出分辨率 WIDTH HEIGHT（不指定则以输入图片为准）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--rotate</span></code>  旋转角度：0/90/180/270</p></li>
+</ul>
+<p>生成 <code class="docutils literal notranslate"><span class="pre">logo.jpg</span></code> 后，继续以下配置步骤。</p>
+<ol class="arabic">
+<li><p>将开机图档 logo.jpg (I80屏需要BMP格式图文件)拷贝至板卡目录下 bootlogo/logo.jpg。</p></li>
+<li><p>在build/boards/cv184x/cv184x_wevb/u-boot/cv184x_defconfig配置CONFIG_BOOTLOGO为y。</p></li>
+<li><p>如需使用reset、power、backligt功能，需在build/boards/default/dts/cv184x/cv184x_base.dtsi中的vo节点添加gpio相关信息如：</p>
+<blockquote>
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">reset-gpio = &lt;&amp;porte 2 GPIO_ACTIVE_LOW&gt;;</span>
+<span class="go">pwm-gpio = &lt;&amp;porte 0 GPIO_ACTIVE_HIGH&gt;;</span>
+<span class="go">power-ct-gpio = &lt;&amp;porte 1 GPIO_ACTIVE_HIGH&gt;;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>编译时使用menuconfig在SDK options中使能Pack BOOTLOGO，该配置会将logo.jpg打包到烧录文件。</p></li>
+<li><p>使用下列命令编译BSP。</p>
+<blockquote>
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">source build/envsetup_soc.sh</span>
+<span class="go">defconfig cv184x_wevb</span>
+<span class="go">menuconfig</span>
+<span class="go">Build_all</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+</section>
+</section>
+<section id="id7">
+<h2><span class="section-number">3.5. </span>注意事项<a class="headerlink" href="2_Startup_Screen_User_Guide.html#id7" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>配置开机画面，通过BT.1120/656接口显示时，外接处理器的驱动需自行移植实现。</p></li>
+<li><p>如果开机画面使用的是MIPI_TX、LVDS或I80接口时，若有不支持的mipi_dsi、lvds或者i80 panel，可参考u-boot-2021.10/include/cvitek/cvi_panels内的headers，新增相对应的header。只要按u-boot-2021.10/include/cvitek/cvi_panels/cvi_panels.h参照其他panel修改即可对应不同的mipi_dsi、lvds或i80 panel。</p></li>
+<li><p>使用储存装置并储存开机画面时，需于 CV184x_asic.dtsi 配置一块内存空间(默认为0x82080000)，并确保u-boot/include/configs/CV184x-asic.h中的 LOGO_RESERVED_ADDR 设置为同样内存空间。</p></li>
+</ul>
+</section>
+</section>
+<section id="alios">
+<h1><span class="section-number">4. </span>alios<a class="headerlink" href="2_Startup_Screen_User_Guide.html#alios" title="永久链接至标题">¶</a></h1>
+<ul class="simple">
+<li><p>alios开机画面目前仅支持MIPI_DSI接口，提供同linux一致的mipi_tx_xx接口(可参考Screen_Docking_Guide.pdf的MIPI_DSI章节)。用户通过在solution中调用这些接口实现VO设备的初始化。</p></li>
+</ul>
+<section id="id8">
+<h2><span class="section-number">4.1. </span>启用alios开机画面<a class="headerlink" href="2_Startup_Screen_User_Guide.html#id8" title="永久链接至标题">¶</a></h2>
+<ol class="arabic">
+<li><p>在cvi_alios/components/cvi_mmf_sdk/cvi_middleware/cvi_panel下添加panel的header，可参考Screen_Docking_Guide.pdf或已支持panel实现combo_dev_cfg_s等数据结构。</p></li>
+<li><p>在cvi_alios/components/cvi_mmf_sdk/cvi_middleware/cvi_panel/dsi_panels.h中实现新panel的panel_desc_s结构体。</p></li>
+<li><p>在cvi_alios/solutions/normboot/package_yamls/package.yaml.turnkey中添加config选项并开启如：</p>
+<blockquote>
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">CONFIG_PANEL_HX8394: 1  //可添加其他屏幕</span>
+<span class="go">CONFIG_RTOS_INIT_MEDIA: 1</span>
+<span class="go">CONFIG_SUPPORT_VO: 1</span>
+<span class="go">CONFIG_ALIOSLOGO: 1</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>在cvi_alios/solutions/normboot/customization/cv1842hp_gc8613/pipeline/custom_moduleparam.c中修改配置如：</p>
+<blockquote>
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">.alios_sys_mode = 0,</span>
+<span class="go">.alios_vi_mode = 0,</span>
+<span class="go">.alios_vpss_mode = 0,</span>
+<span class="go">.alios_venc_mode = 0,</span>
+<span class="go">.alios_vo_mode = 1,</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>在cvi_alios/solutions/normboot/customization/cv1842hp_gc8613/pipeline/custom_voparam.c中修改配置如：</p>
+<blockquote>
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">.u8Bindmode = false,</span>
+
+<span class="go">//可添加其他屏幕</span>
+<span class="gp">#</span><span class="k">if</span> <span class="o">(</span><span class="nv">CONFIG_PANEL_HX8394</span> <span class="o">==</span> <span class="m">1</span> <span class="o">||</span> <span class="nv">CONFIG_PANEL_ILI9488</span> <span class="o">==</span> <span class="m">1</span> <span class="o">||</span> <span class="nv">CONFIG_PANEL_OTA7290B</span> <span class="o">==</span> <span class="m">1</span><span class="o">)</span>
+<span class="go">    .u8VoCnt = 1,</span>
+<span class="gp">#</span><span class="k">else</span>
+<span class="go">    .u8VoCnt = 0,</span>
+<span class="gp">#</span>endif
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>如需使用reset、power、backligt功能，需在cvi_alios/solutions/normboot/customization/cv1842hp_gc8613/src/custom_platform.c中PLATFORM_PanelInit()接口自行添加gpio相关信息如：</p>
+<blockquote>
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span><span class="k">if</span> <span class="o">(</span>!defined<span class="o">(</span>CONFIG_SUPPORT_VO<span class="o">)</span> <span class="o">||</span> <span class="o">(</span>CONFIG_SUPPORT_VO<span class="o">))</span>
+<span class="gp">#</span><span class="k">if</span> CONFIG_PANEL_HX8394
+<span class="go">    u8 pw_port, pw_pin, bl_port, bl_pin, rst_port, rst_pin;</span>
+<span class="go">    pw_port = 4;</span>
+<span class="go">    pw_pin = 1;</span>
+<span class="go">    bl_port = 4;</span>
+<span class="go">    bl_pin = 0;</span>
+<span class="go">    rst_port = 4;</span>
+<span class="go">    rst_pin = 2;</span>
+<span class="go">    _GPIOSetValue(pw_port, pw_pin, 1);</span>
+<span class="go">    _GPIOSetValue(bl_port, bl_pin, 1);</span>
+<span class="go">    _GPIOSetValue(rst_port, rst_pin, 1);</span>
+<span class="go">    udelay(20 * 1000);</span>
+<span class="go">    _GPIOSetValue(rst_port, rst_pin, 0);</span>
+<span class="go">    udelay(20 * 1000);</span>
+<span class="go">    _GPIOSetValue(rst_port, rst_pin, 1);</span>
+<span class="go">    udelay(20 * 1000);</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+<section id="id9">
+<h3><span class="section-number">4.1.1. </span>准备开机图片<a class="headerlink" href="2_Startup_Screen_User_Guide.html#id9" title="永久链接至标题">¶</a></h3>
+<p>SDK 提供了 <code class="docutils literal notranslate"><span class="pre">build/tools/common/bootlogo/process_images.py</span></code> 工具来生成 <code class="docutils literal notranslate"><span class="pre">logo.jpg</span></code>。</p>
+<p><strong>安装依赖：</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">apt install ffmpeg python3-pil</span>
+</pre></div>
+</div>
+<p><strong>使用示例：</strong></p>
+<p>单张图片：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">python build/tools/common/bootlogo/process_images.py \</span>
+<span class="go">    -i my_logo.png -o bootlogo/ -r 720 1280 --rotate 90</span>
+</pre></div>
+</div>
+<p>多张图片（alios 支持动画 logo，轮流播放多张 JPEG）：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">python build/tools/common/bootlogo/process_images.py \</span>
+<span class="go">    -i ./frames/ -o bootlogo/ -r 720 1280 --rotate 90 -f 15</span>
+</pre></div>
+</div>
+<p>参数说明：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-i</span></code>  输入图片或文件夹路径</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-o</span></code>  输出目录</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-r</span></code>  输出分辨率 WIDTH HEIGHT</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--rotate</span></code>  旋转角度：0/90/180/270</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-f</span></code>  帧率（fps），仅多张图片模式有效，默认 10</p></li>
+</ul>
+<p><strong>重要：必须设置 ``CONFIG_RTOS_LOGO_SIZE``</strong>，该值需大于实际 <code class="docutils literal notranslate"><span class="pre">logo.jpg</span></code> 文件的大小，且该内存不会被释放。</p>
+<p>生成 <code class="docutils literal notranslate"><span class="pre">logo.jpg</span></code> 后，继续以下配置步骤。</p>
+<ol class="arabic" start="7">
+<li><p>将开机图档 logo.jpg 拷贝至板卡目录下 bootlogo/logo.jpg，编译SDK，编译时使用menuconfig在SDK options中使能Pack BOOTLOGO，指令如下：</p>
+<blockquote>
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">source build/envsetup_soc.sh</span>
+<span class="go">defconfig cv184x_wevb</span>
+<span class="go">menuconfig</span>
+<span class="go">Build_all</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+</section>
+</section>
+<section id="id10">
+<h2><span class="section-number">4.2. </span>alios开机画面原理<a class="headerlink" href="2_Startup_Screen_User_Guide.html#id10" title="永久链接至标题">¶</a></h2>
+<ol class="arabic simple">
+<li><p>将开机图档 logo.jpg 拷贝至$BOOTLOGO_PATH，编译SDK。</p></li>
+<li><p>在cvi_alios/components/cvi_platform/media/src/media_logo.c代码中，构建VDEC_STREAM_S结构体，并指定pu8Buf等于宏CVIMMAP_RTOS_LOGO_ADDR，该地址保存着logo.jpg数据。</p></li>
+<li><p>调用CVI_VB_Init()初始化VB。</p></li>
+<li><p>初始化VDEC设备(可参考MediaProcessingSoftwareDevelopmentReference_zh.pdf第八章)。</p></li>
+<li><p>调用CVI_VDEC_SendStream()将jpeg数据送VDEC解码。</p></li>
+<li><p>调用CVI_VDEC_GetFrame()获取解码完成的VIDEO_FRAME_INFO_S结构体。</p></li>
+<li><p>调用CVI_VO_SendLogoFromIon()送显，该接口目前仅支持NV21格式。</p></li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="1_disclaimer.html" class="btn btn-neutral float-left" title="1. 声明" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

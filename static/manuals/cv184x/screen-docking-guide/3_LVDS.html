@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3. LVDS &mdash; ScreenDockingGuide master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="4. MIPI DSI(SDK V6.3.4开始)" href="4_MIPI_DSI.html" />
+    <link rel="prev" title="2. MIPI DSI" href="2_MIPI_DSI.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> ScreenDockingGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_MIPI_DSI.html">2. MIPI DSI</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="3_LVDS.html#">3. LVDS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3_LVDS.html#id1">3.1. 环境准备</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3_LVDS.html#id2">3.1.1. LVDS屏幕接口介绍</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_LVDS.html#id3">3.1.2. 硬件连线确认</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3_LVDS.html#id4">3.2. 配置LVDS屏</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3_LVDS.html#u-bootlvds">3.2.1. 在u-boot中配置LVDS屏</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#id5">3.2.1.1. 配置LVDS设备属性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#id6">3.2.1.2. 添加头文件的引用</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#lvdsbacklight">3.2.1.3. 配置LVDS屏BACKLIGHT管脚</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#u-boot">3.2.1.4. 配置u-boot环境变量</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#logo">3.2.1.5. 更换logo图片</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#id7">3.2.1.6. 编译烧写验证</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="3_LVDS.html#kernellvds">3.2.2. 在kernel中配置LVDS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#id8">3.2.2.1. 配置LVDS设备属性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#id9">3.2.2.2. 添加头文件的引用</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#id10">3.2.2.3. 配置LVDS屏BACKLIGHT管脚</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#id11">3.2.2.4. 编译验证</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="3_LVDS.html#id12">3.2.3. 在双系统中配置LVDS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#id13">3.2.3.1. 配置LVDS设备属性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#cvi-alios">3.2.3.2. 打开cvi_alios中的配置开关</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#id14">3.2.3.3. 添加头文件的引用</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#id15">3.2.3.4. 配置LVDS屏BACKLIGHT管脚</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#id16">3.2.3.5. 编译验证</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="4_MIPI_DSI.html">4. MIPI DSI(SDK V6.3.4开始)</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ScreenDockingGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">3. </span>LVDS</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/3_LVDS.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="lvds">
+<h1><span class="section-number">3. </span>LVDS<a class="headerlink" href="3_LVDS.html#lvds" title="永久链接至标题">¶</a></h1>
+<p><strong>概述</strong></p>
+<p>Low Votage Differential Signal(LVDS)，即低电压差分信号。LVDS接口又称RS644总线接口，1994年由美国国家半导体公司（NS）提出的为克服以TTL电平方式传输宽带高码率数据时功耗大、EMI电磁干扰大等缺点而研制的一种视频信号传输模式，是一种电平标准，广泛应用于
+液晶屏接口。LVDS屏总体和MIPI类似，但是还有一些区别。本章节介绍如何在CVITEK处理器解决方案上开发调试LVDS LCD 屏。</p>
+<section id="id1">
+<h2><span class="section-number">3.1. </span>环境准备<a class="headerlink" href="3_LVDS.html#id1" title="永久链接至标题">¶</a></h2>
+<section id="id2">
+<h3><span class="section-number">3.1.1. </span>LVDS屏幕接口介绍<a class="headerlink" href="3_LVDS.html#id2" title="永久链接至标题">¶</a></h3>
+<p>LVDS屏幕一般有以下几种信号，如图所示。</p>
+<ul class="simple">
+<li><p>LVDS 时钟线（CLK）</p></li>
+<li><p>LVDS数据线（DATA）（单路6bit：3 lane， 单路8bit：4 lane，单路10bit：5 lane，双路6bit：6 lane，双路6bit：8 lane，双路6bit：10 lane，目前仅支持单路6bit和单路8bit）</p></li>
+<li><p>背光控制信号（BACKLIGHT）</p></li>
+</ul>
+<p><strong>LVDS 接口连线示意图</strong></p>
+<a class="reference internal image-reference" href="_images/LVDS002.png"><img alt="图示 描述已自动生成" src="_images/LVDS002.png" style="width: 4.4639in; height: 2.93708in;" /></a>
+</section>
+<section id="id3">
+<h3><span class="section-number">3.1.2. </span>硬件连线确认<a class="headerlink" href="3_LVDS.html#id3" title="永久链接至标题">¶</a></h3>
+<p>检查硬件连线，确认无异常。具体有些引脚差异，需对照屏幕厂商提供的规格书及电路原理图确认。</p>
+</section>
+</section>
+<section id="id4">
+<h2><span class="section-number">3.2. </span>配置LVDS屏<a class="headerlink" href="3_LVDS.html#id4" title="永久链接至标题">¶</a></h2>
+<p>根据上节环境准备的内容，在接口和连线上了解了屏幕对接的配置，在这一节中将对屏幕对接时在软件方面需要进行的配置进行说明。</p>
+<p>CVITEK 有两种方案进行LVDS屏幕的对接，和MIPI 屏类似，分别是在u-boot及kernel中进行屏的初始化。实际应用中根据需求二者选其一。</p>
+<section id="u-bootlvds">
+<h3><span class="section-number">3.2.1. </span>在u-boot中配置LVDS屏<a class="headerlink" href="3_LVDS.html#u-bootlvds" title="永久链接至标题">¶</a></h3>
+<p>u-boot中配置MIPI屏是通过CVITEK开发的showlogo命令，设备上电后，敲回车进入u-boot命令行，printenv可以看到showlogo命令，bootcmd在引导内核之前会执行该命令进行屏的初始化并显示logo。</p>
+<p>示例：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">showlogo</span><span class="o">=</span><span class="n">mmc</span> <span class="n">dev</span> <span class="mi">0</span><span class="p">;</span><span class="n">mmc</span> <span class="n">read</span> <span class="mh">0x84080000</span> <span class="mh">0xA000</span> <span class="mh">0x400</span><span class="p">;</span> <span class="n">cvi_jpeg</span> <span class="mh">0x84080000</span> <span class="mh">0x81800000</span> <span class="mh">0x80000</span><span class="p">;</span> <span class="n">startvo</span> <span class="mi">0</span> <span class="mi">2048</span> <span class="mi">0</span><span class="p">;</span><span class="n">startvl</span> <span class="mi">0</span> <span class="mh">0x84080000</span> <span class="mh">0x81800000</span> <span class="mh">0x80000</span> <span class="mi">16</span><span class="p">;</span><span class="n">setvobg</span> <span class="mi">0</span> <span class="mh">0xffffffff</span>
+</pre></div>
+</div>
+<p>注：单路6bit为1024， 单路8bit为2048，单路10bit为4096。</p>
+<p>本文档重点讲解屏的初始化部分，显示logo具体请参考《CVITEK开机画面使用指南》。其中，屏的初始化部分在“startvo 0 2048 0”中实现。</p>
+<section id="id5">
+<h4><span class="section-number">3.2.1.1. </span>配置LVDS设备属性<a class="headerlink" href="3_LVDS.html#id5" title="永久链接至标题">¶</a></h4>
+<p>根据屏的规格书，实现每个屏的配置头文件，并放置在路径</p>
+<p>u-boot-2021.10/include/cvitek/cvi_panels/下，客户可以参照其余的头文件模板新增自己的panel头文件。</p>
+<p><strong>cvi_lvds_cfg_s结构体定义</strong></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">cvi_lvds_cfg_s</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">enum</span><span class="w"> </span><span class="n">LVDS_OUT_BIT</span><span class="w"> </span><span class="n">out_bits</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">enum</span><span class="w"> </span><span class="n">LVDS_MODE</span><span class="w"> </span><span class="n">mode</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">chn_num</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">data_big_endian</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">enum</span><span class="w"> </span><span class="n">lvds_lane_id</span><span class="w"> </span><span class="n">lane_id</span><span class="p">[</span><span class="n">LANE_MAX_NUM</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">lane_pn_swap</span><span class="p">[</span><span class="n">LANE_MAX_NUM</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="k">struct</span> <span class="nc">sync_info_s</span><span class="w"> </span><span class="n">sync_info</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w"> </span><span class="n">u16FrameRate</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">pixelclock</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>out_bits</p></td>
+<td><p>LVDS_OUT_6BIT、LVDS_OUT_8BIT、LVDS_OUT_10BIT</p></td>
+</tr>
+<tr class="row-odd"><td><p>mode</p></td>
+<td><p>LVDS_MODE_JEI DA、LVDS_MODE_VESA，一般设置为LVDS_MODE_VESA</p></td>
+</tr>
+<tr class="row-even"><td><p>chn_num</p></td>
+<td><p>通道数1、2，现在处理器仅支持1通道</p></td>
+</tr>
+<tr class="row-odd"><td><p>data_big_endian</p></td>
+<td><p>发送数据的大小端顺序，一般设置false</p></td>
+</tr>
+<tr class="row-even"><td><p>Lane_id</p></td>
+<td><div class="line-block">
+<div class="line">主控端和屏端Lane号的对应关系，未使用的Lane填-1即可。</div>
+<div class="line">共5个成员，依序分别代表主控端的VO_LVDS_LANE_0 ~ VO_LVDS_LA NE_4，
+实际填写的内容需要根据对应到屏端的LVDS lane号。</div>
+<div class="line">例如，第一个成员是主控LANE 0，查电路原理图，对应到屏端lane 3，
+就填写为VO_LVDS_LANE_3。</div>
+<div class="line">对应关系不正确，将导致屏幕无法点亮。</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>lane_pn_swap</p></td>
+<td><div class="line-block">
+<div class="line">LVDS的Lane P/N极是否交换</div>
+<div class="line">true：交换</div>
+<div class="line">false:不交换</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>sync_info</p></td>
+<td><p>LVDS设备的同步信息</p></td>
+</tr>
+<tr class="row-odd"><td><p>pixel_clk</p></td>
+<td><div class="line-block">
+<div class="line">像素时钟，单位为KHz。</div>
+<div class="line">计算公式：</div>
+<div class="line">pixel_clk=(htotal*vtotal)*fps/1000</div>
+<div class="line">其中：</div>
+<div class="line">htotal=vid_hsa_pixels+ vid_hbp_pixels+</div>
+<div class="line">vid_hfp_pixels+ vid_hline_pixels</div>
+<div class="line">vtotal= vid_vsa_lines+ vid_vbp_lines+</div>
+<div class="line">vid_vfp_lines+ vid_active_lines</div>
+<div class="line">fps:帧率，默认60</div>
+<div class="line">lane_clk根据pixel_clk反推，换算公式：</div>
+<div class="line">lane_clk= pixel_clk*24/4/2(24表示RGB888、单路8bit，
+每个pixel占24bits，4表示使用了4条Data Lane，2表示lvds clk是双边沿触发)</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>示例：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">cvi_lvds_cfg_s</span><span class="w"> </span><span class="n">lvds_ek79202_cfg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="n">mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LVDS_MODE_VESA</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="n">out_bits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LVDS_OUT_8BIT</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="n">chn_num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="n">lane_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">VO_LVDS_LANE_0</span><span class="p">,</span><span class="w"> </span><span class="n">VO_LVDS_LANE_1</span><span class="p">,</span><span class="w"> </span><span class="n">VO_LVDS_LANE_2</span><span class="p">,</span><span class="w"> </span><span class="n">VO_LVDS_LANE_3</span><span class="p">,</span><span class="w"> </span><span class="n">VO_LVDS_LANE_CLK</span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="n">lane_pn_swap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="nb">false</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="n">sync_info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="n">vid_hsa_pixels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="n">vid_hbp_pixels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">88</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="n">vid_hfp_pixels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">62</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="n">vid_hline_pixels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1280</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="n">vid_vsa_lines</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="n">vid_vbp_lines</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="n">vid_vfp_lines</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="n">vid_active_lines</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">800</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="n">vid_vsa_pos_polarity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="n">vid_hsa_pos_polarity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="n">u16FrameRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="n">pixelclock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">72403</span><span class="p">,</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p><strong>sync_info_s结构体定义</strong></p>
+<p>与MIPI类似，参见2.2.1.1。</p>
+<img alt="_images/LVDS004.png" class="align-center" src="_images/LVDS004.png" />
+</section>
+<section id="id6">
+<h4><span class="section-number">3.2.1.2. </span>添加头文件的引用<a class="headerlink" href="3_LVDS.html#id6" title="永久链接至标题">¶</a></h4>
+<p>添加对该新增的头文件的引用，在u-boot-2021.10/include/cvitek/cvi_panels/cvi_panels.h中增加对上一节中新增头文件的引用。</p>
+<p>示例：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#if defined(LVDS_PANEL_EK79202)</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;lvds_ek79202.h&quot;</span><span class="cp"></span>
+<span class="k">static</span><span class="w"> </span><span class="k">struct</span> <span class="nc">panel_desc_s</span><span class="w"> </span><span class="n">panel_desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="n">lvds_cfg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">lvds_ek79202_cfg</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+<span class="cp">#endif</span>
+</pre></div>
+</div>
+</section>
+<section id="lvdsbacklight">
+<h4><span class="section-number">3.2.1.3. </span>配置LVDS屏BACKLIGHT管脚<a class="headerlink" href="3_LVDS.html#lvdsbacklight" title="永久链接至标题">¶</a></h4>
+<p>LVDS屏的BACKLIGHT可以配置为GPIO或者PWM。</p>
+<section id="gpio">
+<h5><span class="section-number">3.2.1.3.1. </span>配置为GPIO<a class="headerlink" href="3_LVDS.html#gpio" title="永久链接至标题">¶</a></h5>
+<p>可通过修改build/boards/cv184x/cv184xxx/u-boot/cvitek.h中VO_GPIO_PWM_PORT、VO_GPIO_PWM_INDEX、VO_GPIO_PWM_ACTIVE实现。</p>
+</section>
+<section id="pwm">
+<h5><span class="section-number">3.2.1.3.2. </span>配置为PWM<a class="headerlink" href="3_LVDS.html#pwm" title="永久链接至标题">¶</a></h5>
+<p>一般通过PWM，这样可实现亮度调节。实现与MIPI屏类似，参见2.2.1.6小节。</p>
+</section>
+</section>
+<section id="u-boot">
+<h4><span class="section-number">3.2.1.4. </span>配置u-boot环境变量<a class="headerlink" href="3_LVDS.html#u-boot" title="永久链接至标题">¶</a></h4>
+<p>实现与MIPI屏类似，参见2.2.1.7小节。</p>
+</section>
+<section id="logo">
+<h4><span class="section-number">3.2.1.5. </span>更换logo图片<a class="headerlink" href="3_LVDS.html#logo" title="永久链接至标题">¶</a></h4>
+<p>实现与MIPI屏类似，参见2.2.1.8小节。</p>
+</section>
+<section id="id7">
+<h4><span class="section-number">3.2.1.6. </span>编译烧写验证<a class="headerlink" href="3_LVDS.html#id7" title="永久链接至标题">¶</a></h4>
+<p>在上述步骤均完成以后，重新编译烧写新的u-boot。上电，敲回车进入u-boot命令行。执行run showlogo，顺利的话就可以看到屏幕显示出logo图片。如果未显示出logo，请确认以下。</p>
+<ul class="simple">
+<li><p>确认背光点亮</p></li>
+<li><p>确认屏幕供电正常</p></li>
+<li><p>执行mw 0x0a088094 0x0701000a，输出VO的test pattern，假如屏幕初始化成功，此时会看到colorbar</p></li>
+</ul>
+<p>test pattern寄存器如下图</p>
+<a class="reference internal image-reference" href="_images/LVDS003.png"><img alt="表格 描述已自动生成" src="_images/LVDS003.png" style="width: 5.80159in; height: 1.38194in;" /></a>
+<p>发现有以上任何异常请回头检查此前的流程是否设置正确及达到预期。</p>
+<p>假如以上均未发现异常，则需要再检查LVDS Lane顺序、PWM等是否配置正确，并使用万用表/示波器等确认电路电平状态符合预期，假如均符合预期，则可能是屏幕本身的问题，请咨询屏幕厂商。</p>
+<p>如以上配置正确，硬件电路没有异常，这时通常需要调整sync_info_s中的各参数。</p>
+</section>
+</section>
+<section id="kernellvds">
+<h3><span class="section-number">3.2.2. </span>在kernel中配置LVDS<a class="headerlink" href="3_LVDS.html#kernellvds" title="永久链接至标题">¶</a></h3>
+<p>在kernel中配置LVDS屏的方法跟在u-boot中几乎是一样的，只是实现流程不一样。当无需显示logo的时候，可选择此种方式。</p>
+<p>另外，也可以先用kernel方式调通，再移植到u-boot，避免频繁烧写u-boot。</p>
+<section id="id8">
+<h4><span class="section-number">3.2.2.1. </span>配置LVDS设备属性<a class="headerlink" href="3_LVDS.html#id8" title="永久链接至标题">¶</a></h4>
+<p>根据屏的规格书，实现每个屏的配置头文件，并放置在路径cvi_mpi/component/panel/下，客户可以参照其余的头文件模板新增自己的panel头文件。</p>
+<p>参见3.2.1.1节。</p>
+</section>
+<section id="id9">
+<h4><span class="section-number">3.2.2.2. </span>添加头文件的引用<a class="headerlink" href="3_LVDS.html#id9" title="永久链接至标题">¶</a></h4>
+<p>添加对该新增的头文件的引用，在cvi_mpi/sample_app/sample_panel/sample_panel.c中增加对上两节中新增头文件的引用。</p>
+<p>示例：</p>
+<p>如要点亮屏幕LCM185X56，首先在cvi_mpi/sample_app/sample_panel/ample_panel.h中include该屏幕的头文件lvds_lcm185x56.h，然后确保cvi_mpi/sample_app/sample_panel/sample_panel.c文件中
+的字符数组static char *s_panel_model_type_arr[ ] 里有”LCM185X56字符，没有则自己添加。接着在该文件屏幕枚举类型PANEL_MODEL中添加与该字符索引值相等的枚举量LVDS_PANEL_LCM185X56，最后
+在SAMPLE_SET_PANEL_DESC函数中添加对该屏幕相关参数进行调用的case，如下所示：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">case</span><span class="w"> </span><span class="nl">LVDS_PANEL_LCM185X56</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="n">g_panel_desc</span><span class="p">.</span><span class="n">panel_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PANEL_MODE_LVDS</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">g_panel_desc</span><span class="p">.</span><span class="n">stVoPubAttr</span><span class="p">.</span><span class="n">enIntfType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">VO_INTF_LCD_24BIT</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">g_panel_desc</span><span class="p">.</span><span class="n">stVoPubAttr</span><span class="p">.</span><span class="n">enIntfSync</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">VO_OUTPUT_USER</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">VO_SYNC_INFO_S</span><span class="w"> </span><span class="n">stLcm185x56_SyncInfo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{.</span><span class="n">bSynm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">bIop</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">u16FrameRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">60</span><span class="w"></span>
+<span class="w">        </span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">u16Vact</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">768</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">u16Vbb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">u16Vfb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="w"></span>
+<span class="w">        </span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">u16Hact</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1366</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">u16Hbb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">u16Hfb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">88</span><span class="w"></span>
+<span class="w">        </span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">u16Vpw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">u16Hpw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">bIdv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">bIhs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">bIvs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">};</span><span class="w"></span>
+<span class="w">        </span><span class="n">g_panel_desc</span><span class="p">.</span><span class="n">stVoPubAttr</span><span class="p">.</span><span class="n">stSyncInfo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stLcm185x56_SyncInfo</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">g_panel_desc</span><span class="p">.</span><span class="n">stVoPubAttr</span><span class="p">.</span><span class="n">stLvdsAttr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lvds_lcm185x56_cfg</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>其中，enIntfType可以根据实际需求选择VO_INTF_LCD_18BIT、VO_INTF_LCD_24BIT或VO_INTF_LCD_30BIT，enIntfSync可以参考《CV184x 媒体软件开发指南》查看支持的其他输出时序类型，
+也可以选择自定义时序模式VO_OUTPUT_USER，自定义时序时需填写stSyncInfo，类似本示例中的stLcm185x56_SyncInfo。</p>
+</section>
+<section id="id10">
+<h4><span class="section-number">3.2.2.3. </span>配置LVDS屏BACKLIGHT管脚<a class="headerlink" href="3_LVDS.html#id10" title="永久链接至标题">¶</a></h4>
+<p>在路径cvi_mpi/component/panel/下找到对应的头文件，配置LVDS的gpio信息，如果没有该管脚或者由APP控制，则直接不写或者gpio_num赋值为-1即可。</p>
+<p>示例：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="n">backlight_pin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="n">gpio_num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GPIOE_02</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="n">active</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GPIO_ACTIVE_HIGH</span><span class="p">,</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+</pre></div>
+</div>
+<p>说明：</p>
+<p>为调试方便，背光可先用GPIO控制，切记先不要在u-boot中配置pinmux为PWM功能，否则可能无法控制。</p>
+<p>后续根据需求，如果需要调节亮度，再在u-boot中配置pinmux功能为PWM，删除头文件中的此配置或者gpio_num赋值为-1，同时APP中用PWM方式控制。</p>
+</section>
+<section id="id11">
+<h4><span class="section-number">3.2.2.4. </span>编译验证<a class="headerlink" href="3_LVDS.html#id11" title="永久链接至标题">¶</a></h4>
+<p>执行build_middleware编译middleware，在路径cvi_mpi/component/panel/下会生成sample_panel可执行文件。
+该程序和在u-boot中“startvo 0 2048 0”做的事情是一样的，切换到LP模式向屏幕发送初始化序列，然后切回HS模式。</p>
+<p>将sample_panel拷贝至设备，执行命令./sample_panel后会弹出该命令的执行方式，按提示运行即可。</p>
+<p>示例：./sample_panel –panel=LCM185X56</p>
+<p>如未能正常显示，可参见3.2.1.6.</p>
+</section>
+</section>
+<section id="id12">
+<h3><span class="section-number">3.2.3. </span>在双系统中配置LVDS<a class="headerlink" href="3_LVDS.html#id12" title="永久链接至标题">¶</a></h3>
+<p>在双系统中配置LVDS屏的方法跟在kernel中几乎是一样的，下面简要说明一下异同。</p>
+<section id="id13">
+<h4><span class="section-number">3.2.3.1. </span>配置LVDS设备属性<a class="headerlink" href="3_LVDS.html#id13" title="永久链接至标题">¶</a></h4>
+<p>根据屏的规格书，实现每个屏的配置头文件，并放置在路径cvi_mpi/component/panel/下，客户可以参照其余的头文件模板新增自己的panel头文件。</p>
+<p>参见3.2.1.1节。</p>
+</section>
+<section id="cvi-alios">
+<h4><span class="section-number">3.2.3.2. </span>打开cvi_alios中的配置开关<a class="headerlink" href="3_LVDS.html#cvi-alios" title="永久链接至标题">¶</a></h4>
+<p>在cvi_alios/solutions/normboot/package_yamls/package.yaml.turnkey中打开对应芯片和屏幕类型的开关，</p>
+<p>示例，选择CONFIG_BOARD_CV181XH芯片，打开如下开关：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="nl">CONFIG_BOARD_CV181XC</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="nl">CONFIG_BOARD_CV181XH</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="id14">
+<h4><span class="section-number">3.2.3.3. </span>添加头文件的引用<a class="headerlink" href="3_LVDS.html#id14" title="永久链接至标题">¶</a></h4>
+<p>请参考3.2.2.2节。</p>
+</section>
+<section id="id15">
+<h4><span class="section-number">3.2.3.4. </span>配置LVDS屏BACKLIGHT管脚<a class="headerlink" href="3_LVDS.html#id15" title="永久链接至标题">¶</a></h4>
+<p>在cvi_alios/solutions/normboot/customization/cv1811c_cv2003_1l_triple/src/custom_platform.c中_MipiTxPinmux接口里
+添加对RESET、POWER、BACKLIGHT管脚的复用，然后直接在应用层直接控制GPIO。</p>
+<p>示例：</p>
+<p>对于CONFIG_BOARD_CV181XH芯片，一般要拉引脚为：reset：GPIOE2，pwm：GPIOE0，power：GPIOE01。</p>
+<p>因此需要以下操作去拉对应引脚：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">devmem</span><span class="w"> </span><span class="mh">0x03022004</span><span class="w"> </span><span class="mi">32</span><span class="w"> </span><span class="mh">0x0</span><span class="w"></span>
+<span class="n">devmem</span><span class="w"> </span><span class="mh">0x03022000</span><span class="w"> </span><span class="mi">32</span><span class="w"> </span><span class="mh">0x0</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="mi">352</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">export</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="mi">353</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">export</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="mi">354</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">export</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio352</span><span class="o">/</span><span class="n">direction</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio353</span><span class="o">/</span><span class="n">direction</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio354</span><span class="o">/</span><span class="n">direction</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio354</span><span class="o">/</span><span class="n">value</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio352</span><span class="o">/</span><span class="n">value</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio353</span><span class="o">/</span><span class="n">value</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="id16">
+<h4><span class="section-number">3.2.3.5. </span>编译验证<a class="headerlink" href="3_LVDS.html#id16" title="永久链接至标题">¶</a></h4>
+<p>请参考3.2.2.4节。</p>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="2_MIPI_DSI.html" class="btn btn-neutral float-left" title="2. MIPI DSI" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="4_MIPI_DSI.html" class="btn btn-neutral float-right" title="4. MIPI DSI(SDK V6.3.4开始)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2025, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

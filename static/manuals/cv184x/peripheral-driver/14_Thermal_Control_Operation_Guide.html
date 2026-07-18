@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>14. 温控策略与测试操作指南 &mdash; PeripheralDriver master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="prev" title="13. DMA 操作指南" href="13_DMA_mem_to_mem_Operation_Guide.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> PeripheralDriver
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Ethernet_Operation_Guide.html">2. Ethernet 操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_USB_Operation_Guide.html">3. USB操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_SD_MMC_Card_Operation_Guide.html">4. SD/MMC 卡操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_I2C_Operation_Guide.html">5. I2C 操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_SPI_Operation_Guide.html">6. SPI 操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_GPIO_Operation_Guide.html">7. GPIO操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_UART_Operation_Guide.html">8. UART 操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_Watchdog_Operation_Guide.html">9. Watchdog 操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_PWM_Operation_Guide.html">10. PWM 操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_ADC_Operation_Guide.html">11. ADC 操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_CVI_PINMUX_Operation_Guide.html">12. CVI PINMUX 操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_DMA_mem_to_mem_Operation_Guide.html">13. DMA 操作指南</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="14_Thermal_Control_Operation_Guide.html#">14. 温控策略与测试操作指南</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="14_Thermal_Control_Operation_Guide.html#id2">14.1. 操作准备</a></li>
+<li class="toctree-l2"><a class="reference internal" href="14_Thermal_Control_Operation_Guide.html#id3">14.2. 操作流程</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="14_Thermal_Control_Operation_Guide.html#cpu-tpu">14.2.1. 查看 CPU/TPU 时钟</a></li>
+<li class="toctree-l3"><a class="reference internal" href="14_Thermal_Control_Operation_Guide.html#id4">14.2.2. 查看当前温度</a></li>
+<li class="toctree-l3"><a class="reference internal" href="14_Thermal_Control_Operation_Guide.html#trip">14.2.3. 温控策略（与 trip 对应关系）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="14_Thermal_Control_Operation_Guide.html#hysteresis">14.2.4. 迟滞（hysteresis）说明</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="14_Thermal_Control_Operation_Guide.html#id5">14.3. 操作示例</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="14_Thermal_Control_Operation_Guide.html#id6">14.3.1. 模拟温度测试步骤</a></li>
+<li class="toctree-l3"><a class="reference internal" href="14_Thermal_Control_Operation_Guide.html#id7">14.3.2. 基线</a></li>
+<li class="toctree-l3"><a class="reference internal" href="14_Thermal_Control_Operation_Guide.html#c">14.3.3. 模拟到 90°C（应进入第一档降频）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="14_Thermal_Control_Operation_Guide.html#id8">14.3.4. 模拟到 100°C（应进入第二档降频）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="14_Thermal_Control_Operation_Guide.html#id9">14.3.5. 模拟降到 95°C（有迟滞，频率应保持第二档不变）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="14_Thermal_Control_Operation_Guide.html#id10">14.3.6. 模拟降到 94°C（低于迟滞退档边界，应升回第一档或高档，视策略而定）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="14_Thermal_Control_Operation_Guide.html#c-critical">14.3.7. 模拟到 120°C（触发 critical，强制关机）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="14_Thermal_Control_Operation_Guide.html#id11">14.3.8. 在设备树中修改温控阈值、关机温度与迟滞</a></li>
+<li class="toctree-l3"><a class="reference internal" href="14_Thermal_Control_Operation_Guide.html#id12">14.3.9. 板级覆盖示例</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="14_Thermal_Control_Operation_Guide.html#id13">14.4. 相关文件索引</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PeripheralDriver</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">14. </span>温控策略与测试操作指南</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/14_Thermal_Control_Operation_Guide.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">14. </span>温控策略与测试操作指南<a class="headerlink" href="14_Thermal_Control_Operation_Guide.html#id1" title="永久链接至标题">¶</a></h1>
+<p>本文档说明在 CV184x 平台上查看 CPU/TPU 时钟与温度、温控策略与 trip 对应关系、迟滞（hysteresis）含义、模拟温度测试步骤，以及在设备树中修改温控阈值与迟滞的方法。</p>
+<section id="id2">
+<h2><span class="section-number">14.1. </span>操作准备<a class="headerlink" href="14_Thermal_Control_Operation_Guide.html#id2" title="永久链接至标题">¶</a></h2>
+<p><strong>1. 内核要求</strong></p>
+<ul class="simple">
+<li><p>使用 SDK 提供的内核，并确保内核配置中已开启 <code class="docutils literal notranslate"><span class="pre">CONFIG_THERMAL_EMULATION=y</span></code> （进行模拟温度测试时需开启，否则 <code class="docutils literal notranslate"><span class="pre">emul_temp</span></code> 写入无效，不会驱动温控逻辑）。</p></li>
+</ul>
+</section>
+<section id="id3">
+<h2><span class="section-number">14.2. </span>操作流程<a class="headerlink" href="14_Thermal_Control_Operation_Guide.html#id3" title="永久链接至标题">¶</a></h2>
+<section id="cpu-tpu">
+<h3><span class="section-number">14.2.1. </span>查看 CPU/TPU 时钟<a class="headerlink" href="14_Thermal_Control_Operation_Guide.html#cpu-tpu" title="永久链接至标题">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat /sys/kernel/debug/clk/clk_summary <span class="p">|</span> grep -E <span class="s1">&#39;\b(clk_cpu|clk_tpu)\b&#39;</span>
+</pre></div>
+</div>
+<p>会显示 CPU 和 TPU 的当前频率。</p>
+</section>
+<section id="id4">
+<h3><span class="section-number">14.2.2. </span>查看当前温度<a class="headerlink" href="14_Thermal_Control_Operation_Guide.html#id4" title="永久链接至标题">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat /sys/class/thermal/thermal_zone0/temp
+</pre></div>
+</div>
+<p>单位为 <strong>millicelsius</strong> （毫摄氏度），例如 <code class="docutils literal notranslate"><span class="pre">90000</span></code> 表示 90°C。</p>
+</section>
+<section id="trip">
+<h3><span class="section-number">14.2.3. </span>温控策略（与 trip 对应关系）<a class="headerlink" href="14_Thermal_Control_Operation_Guide.html#trip" title="永久链接至标题">¶</a></h3>
+<p>温控通过 <strong>thermal zone 的 trip</strong> 与 <strong>cooling device 档位</strong> 绑定；档位对应的 <strong>CPU/TPU 频率</strong> 由 <code class="docutils literal notranslate"><span class="pre">cv184x_cooling</span></code> 节点的 <code class="docutils literal notranslate"><span class="pre">dev-freqs</span></code> 决定（该节点定义于 <code class="docutils literal notranslate"><span class="pre">build/boards/default/dts/cv184x_arm/cv184x_base_arm.dtsi</span></code>）。</p>
+<table class="colwidths-given docutils align-default" id="id14">
+<caption><span class="caption-number">表 14.1 </span><span class="caption-text">温度区间与频率、说明</span><a class="headerlink" href="14_Thermal_Control_Operation_Guide.html#id14" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+<col style="width: 44%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>温度区间</p></th>
+<th class="head"><p>CPU 频率 (Hz)</p></th>
+<th class="head"><p>TPU 频率 (Hz)</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>tmp &lt; 90°C</p></td>
+<td><p>1000000000</p></td>
+<td><p>500000000</p></td>
+<td><p>未触发第一档 passive trip，cooling state 0</p></td>
+</tr>
+<tr class="row-odd"><td><p>90 ≤ tmp &lt; 100°C</p></td>
+<td><p>500000000</p></td>
+<td><p>375000000</p></td>
+<td><p>触发 trip_0，cooling state 1</p></td>
+</tr>
+<tr class="row-even"><td><p>100 ≤ tmp &lt; 120°C</p></td>
+<td><p>500000000</p></td>
+<td><p>300000000</p></td>
+<td><p>触发 trip_1，cooling state 2</p></td>
+</tr>
+<tr class="row-odd"><td><p>tmp ≥ 120°C</p></td>
+<td><p>—</p></td>
+<td><p>—</p></td>
+<td><p><strong>强制关机</strong> （critical trip）</p></td>
+</tr>
+</tbody>
+</table>
+<p>若板级或 SoC 的 <code class="docutils literal notranslate"><span class="pre">dev-freqs</span></code> 与上表不完全一致，以 <code class="docutils literal notranslate"><span class="pre">build/boards/default/dts/cv184x_arm/cv184x_base_arm.dtsi</span></code> 中 <code class="docutils literal notranslate"><span class="pre">cv184x_cooling</span> <span class="pre">{</span> <span class="pre">dev-freqs</span> <span class="pre">=</span> <span class="pre">...</span> <span class="pre">}</span></code> 及实际 <code class="docutils literal notranslate"><span class="pre">clk_summary</span></code> 为准。默认 ARM 侧 DTS 常见为三档：<code class="docutils literal notranslate"><span class="pre">(1100M,750M)</span> <span class="pre">/</span> <span class="pre">(500M,375M)</span> <span class="pre">/</span> <span class="pre">(500M,300M)</span></code>，与 cooling state 0/1/2 一一对应。</p>
+</section>
+<section id="hysteresis">
+<h3><span class="section-number">14.2.4. </span>迟滞（hysteresis）说明<a class="headerlink" href="14_Thermal_Control_Operation_Guide.html#hysteresis" title="永久链接至标题">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">hysteresis</span></code> 用于 <strong>降温升频</strong> 时不立刻在阈值处反复横跳，减少频率抖动。</p>
+<ul class="simple">
+<li><p>单位与 <code class="docutils literal notranslate"><span class="pre">temperature</span></code> 相同，为 <strong>millicelsius</strong>。</p></li>
+<li><p>典型配置：<strong>5000</strong> 即 <strong>5°C</strong> 迟滞。</p></li>
+<li><p><strong>升档（降频）</strong>：温度 <strong>≥</strong> trip 的 <code class="docutils literal notranslate"><span class="pre">temperature</span></code> 时进入该档。</p></li>
+<li><p><strong>降档（升频）</strong>：温度需 <strong>低于</strong> <code class="docutils literal notranslate"><span class="pre">temperature</span> <span class="pre">-</span> <span class="pre">hysteresis</span></code> 才会退出该档。</p></li>
+</ul>
+<p><strong>示例</strong> （第一档 trip 90°C、迟滞 5°C）：</p>
+<ul class="simple">
+<li><p>从 91°C 降到 89°C：<strong>仍保持</strong> 降频档（未低于 90-5=85°C，不升频）。</p></li>
+<li><p>继续降到 84°C：<strong>低于 85°C</strong> 后退出第一档，频率恢复到高档。</p></li>
+</ul>
+<p>第二档同理：若 trip 为 100°C、迟滞 5°C，则需降到 <strong>95°C 以下</strong> 才会从第二档回到第一档。</p>
+</section>
+</section>
+<section id="id5">
+<h2><span class="section-number">14.3. </span>操作示例<a class="headerlink" href="14_Thermal_Control_Operation_Guide.html#id5" title="永久链接至标题">¶</a></h2>
+<section id="id6">
+<h3><span class="section-number">14.3.1. </span>模拟温度测试步骤<a class="headerlink" href="14_Thermal_Control_Operation_Guide.html#id6" title="永久链接至标题">¶</a></h3>
+</section>
+<section id="id7">
+<h3><span class="section-number">14.3.2. </span>基线<a class="headerlink" href="14_Thermal_Control_Operation_Guide.html#id7" title="永久链接至标题">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat /sys/class/thermal/thermal_zone0/temp
+cat /sys/kernel/debug/clk/clk_summary <span class="p">|</span> grep -E <span class="s1">&#39;\b(clk_cpu|clk_tpu)\b&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="c">
+<h3><span class="section-number">14.3.3. </span>模拟到 90°C（应进入第一档降频）<a class="headerlink" href="14_Thermal_Control_Operation_Guide.html#c" title="永久链接至标题">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="m">90000</span> &gt; /sys/class/thermal/thermal_zone0/emul_temp
+cat /sys/kernel/debug/clk/clk_summary <span class="p">|</span> grep -E <span class="s1">&#39;\b(clk_cpu|clk_tpu)\b&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="id8">
+<h3><span class="section-number">14.3.4. </span>模拟到 100°C（应进入第二档降频）<a class="headerlink" href="14_Thermal_Control_Operation_Guide.html#id8" title="永久链接至标题">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="m">100000</span> &gt; /sys/class/thermal/thermal_zone0/emul_temp
+cat /sys/kernel/debug/clk/clk_summary <span class="p">|</span> grep -E <span class="s1">&#39;\b(clk_cpu|clk_tpu)\b&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="id9">
+<h3><span class="section-number">14.3.5. </span>模拟降到 95°C（有迟滞，频率应保持第二档不变）<a class="headerlink" href="14_Thermal_Control_Operation_Guide.html#id9" title="永久链接至标题">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="m">95000</span> &gt; /sys/class/thermal/thermal_zone0/emul_temp
+cat /sys/kernel/debug/clk/clk_summary <span class="p">|</span> grep -E <span class="s1">&#39;\b(clk_cpu|clk_tpu)\b&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="id10">
+<h3><span class="section-number">14.3.6. </span>模拟降到 94°C（低于迟滞退档边界，应升回第一档或高档，视策略而定）<a class="headerlink" href="14_Thermal_Control_Operation_Guide.html#id10" title="永久链接至标题">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="m">94000</span> &gt; /sys/class/thermal/thermal_zone0/emul_temp
+cat /sys/kernel/debug/clk/clk_summary <span class="p">|</span> grep -E <span class="s1">&#39;\b(clk_cpu|clk_tpu)\b&#39;</span>
+</pre></div>
+</div>
+<p>若以 100°C/5°C 迟滞为准，需低于 <strong>95°C</strong> 才退出第二档；具体以当前 DTS 中 <code class="docutils literal notranslate"><span class="pre">soc_thermal_trip_1</span></code> 的 <code class="docutils literal notranslate"><span class="pre">temperature</span></code> 与 <code class="docutils literal notranslate"><span class="pre">hysteresis</span></code> 为准。</p>
+</section>
+<section id="c-critical">
+<h3><span class="section-number">14.3.7. </span>模拟到 120°C（触发 critical，强制关机）<a class="headerlink" href="14_Thermal_Control_Operation_Guide.html#c-critical" title="永久链接至标题">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="m">120000</span> &gt; /sys/class/thermal/thermal_zone0/emul_temp
+</pre></div>
+</div>
+<p>设备将按内核 thermal critical 行为执行关机或复位，<strong>请勿</strong> 在生产环境随意执行。</p>
+</section>
+<section id="id11">
+<h3><span class="section-number">14.3.8. </span>在设备树中修改温控阈值、关机温度与迟滞<a class="headerlink" href="14_Thermal_Control_Operation_Guide.html#id11" title="永久链接至标题">¶</a></h3>
+<p>默认定义在 <code class="docutils literal notranslate"><span class="pre">build/boards/default/dts/cv184x/cv184x_base.dtsi</span></code> 的 <code class="docutils literal notranslate"><span class="pre">thermal-zones</span> <span class="pre">→</span> <span class="pre">soc_thermal_0</span> <span class="pre">→</span> <span class="pre">trips</span></code> 中：</p>
+<table class="colwidths-given docutils align-default" id="id15">
+<caption><span class="caption-number">表 14.2 </span><span class="caption-text">trip 节点默认值</span><a class="headerlink" href="14_Thermal_Control_Operation_Guide.html#id15" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 24%" />
+<col style="width: 18%" />
+<col style="width: 10%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>节点标签</p></th>
+<th class="head"><p>默认 temperature</p></th>
+<th class="head"><p>默认 hysteresis</p></th>
+<th class="head"><p>type</p></th>
+<th class="head"><p>作用</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">soc_thermal_trip_0</span></code></p></td>
+<td><p>90000 (90°C)</p></td>
+<td><p>5000 (5°C)</p></td>
+<td><p>passive</p></td>
+<td><p>第一档降频 trip</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">soc_thermal_trip_1</span></code></p></td>
+<td><p>100000 (100°C)</p></td>
+<td><p>5000 (5°C)</p></td>
+<td><p>passive</p></td>
+<td><p>第二档降频 trip</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">soc_thermal_crtical_0</span></code></p></td>
+<td><p>120000 (120°C)</p></td>
+<td><p>0</p></td>
+<td><p><strong>critical</strong></p></td>
+<td><p><strong>关机/临界温度</strong></p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>不推荐直接改默认基线 DTS</strong>，以免影响其它板型：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">build/boards/default/dts/cv184x/cv184x_base.dtsi</span></code></p></li>
+</ul>
+<p>应在 <strong>板级 DTS</strong> 里覆盖同名 trip 属性（板名替换为实际板卡名）：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">build/boards/cv184x/板名/dts_arm/板名.dts</span></code></p></li>
+<li><p>使用 <code class="docutils literal notranslate"><span class="pre">&amp;label</span></code> 进行 <strong>覆盖</strong>。</p></li>
+</ul>
+</section>
+<section id="id12">
+<h3><span class="section-number">14.3.9. </span>板级覆盖示例<a class="headerlink" href="14_Thermal_Control_Operation_Guide.html#id12" title="永久链接至标题">¶</a></h3>
+<p>在对应板子的板级 DTS（路径一般为 <code class="docutils literal notranslate"><span class="pre">build/boards/cv184x/板名/dts_arm/板名.dts</span></code>）末尾增加：</p>
+<div class="highlight-dts notranslate"><div class="highlight"><pre><span></span><span class="nf">/</span><span class="cm"> </span><span class="p">{</span>
+
+<span class="p">};</span>
+
+<span class="cm">/* 覆盖 base 中 thermal trip：temperature/hysteresis 均为 millicelsius */</span>
+
+<span class="o">&amp;</span><span class="nf">soc_thermal_trip_0</span><span class="cm"> </span><span class="p">{</span>
+     <span class="n">temperature</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mi">90000</span><span class="o">&gt;</span><span class="p">;</span>   <span class="cm">/* 第一档触发温度，例如 90°C */</span>
+     <span class="n">hysteresis</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mi">5000</span><span class="o">&gt;</span><span class="p">;</span>     <span class="cm">/* 5°C 迟滞，降到此 trip 以下 5°C 才升频退档 */</span>
+<span class="p">};</span>
+
+<span class="o">&amp;</span><span class="nf">soc_thermal_trip_1</span><span class="cm"> </span><span class="p">{</span>
+     <span class="n">temperature</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mi">100000</span><span class="o">&gt;</span><span class="p">;</span>  <span class="cm">/* 第二档触发温度，例如 100°C */</span>
+     <span class="n">hysteresis</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mi">5000</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="o">&amp;</span><span class="nf">soc_thermal_crtical_0</span><span class="cm"> </span><span class="p">{</span>
+     <span class="n">temperature</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mi">120000</span><span class="o">&gt;</span><span class="p">;</span>  <span class="cm">/* shutdown 温度，例如 120°C；type 保持 critical */</span>
+     <span class="n">hysteresis</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mi">0</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>修改后重新编译设备树并更新镜像，<code class="docutils literal notranslate"><span class="pre">cooling-maps</span></code> 仍指向同一 trip 标签，<strong>无需改 map</strong>，仅 trip 阈值变化。</p>
+</section>
+</section>
+<section id="id13">
+<h2><span class="section-number">14.4. </span>相关文件索引<a class="headerlink" href="14_Thermal_Control_Operation_Guide.html#id13" title="永久链接至标题">¶</a></h2>
+<table class="colwidths-given docutils align-default" id="id16">
+<caption><span class="caption-number">表 14.3 </span><span class="caption-text">相关文件与路径</span><a class="headerlink" href="14_Thermal_Control_Operation_Guide.html#id16" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>文件路径</p></th>
+<th class="head"><p>说明</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">build/boards/default/dts/cv184x/cv184x_base.dtsi</span></code></p></td>
+<td><p>默认 thermal-zones、trip、cooling-maps</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">build/boards/default/dts/cv184x_arm/cv184x_base_arm.dtsi</span></code></p></td>
+<td><p>cv184x_cooling 与 dev-freqs</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">linux_5.10/drivers/soc/cvitek/clock_cooling/cv184x/clock_cooling.c</span></code></p></td>
+<td><p>cooling 档位与 clk_set_rate 实现</p></td>
+</tr>
+<tr class="row-odd"><td><p>板级 <code class="docutils literal notranslate"><span class="pre">build/boards/cv184x/板名/dts_arm/板名.dts</span></code></p></td>
+<td><p>用 <code class="docutils literal notranslate"><span class="pre">&amp;soc_thermal_trip_0</span></code>、<code class="docutils literal notranslate"><span class="pre">&amp;soc_thermal_trip_1</span></code>、<code class="docutils literal notranslate"><span class="pre">&amp;soc_thermal_crtical_0</span></code> 覆盖阈值</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="13_DMA_mem_to_mem_Operation_Guide.html" class="btn btn-neutral float-left" title="13. DMA 操作指南" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2025, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

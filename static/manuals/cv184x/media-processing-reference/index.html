@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV184x MPI媒体软件开发使用手册 &mdash; MediaProcessingSoftwareDevelopmentReference master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="1. 声明" href="1_disclaimer.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html#" class="icon icon-home"> MediaProcessingSoftwareDevelopmentReference
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_System_Overview.html">2. 系统概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_System_Control.html">3. 系统控制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_Video_Input.html">4. 视频输入</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_Video_Output.html">5. 视频输出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_Video_Processing_Subsystem.html">6. 视频处理子系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_Video_Encoding.html">7. 视频编码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_Video_Decoding.html">8. 视频解码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_Regional_Management.html">9. 区域管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_Audio_Frequency.html">10. 音频</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem.html">11. 几何畸变矫正子系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_Proc_Debugging_Information_Explanation.html">12. Proc 调试信息说明</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html#">MediaProcessingSoftwareDevelopmentReference</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html#" class="icon icon-home"></a> &raquo;</li>
+      <li>CV184x MPI媒体软件开发使用手册</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cv184x-mpi">
+<h1>CV184x MPI媒体软件开发使用手册<a class="headerlink" href="index.html#cv184x-mpi" title="永久链接至标题">¶</a></h1>
+<p><strong>修订记录</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 13%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Revision</p></th>
+<th class="head"><p>Date</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1.0.0</p></td>
+<td><p>2025/3/1</p></td>
+<td><p>Initial version</p></td>
+</tr>
+</tbody>
+</table>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_System_Overview.html">2. 系统概述</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_System_Overview/Function_Overview.html">2.1. 功能概述</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_System_Overview/Function_Overview.html#id2">2.1.1. 目的</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_System_Overview/Function_Overview.html#id3">2.1.2. 定义及缩写</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2_System_Overview/Design_Overview.html">2.2. 设计概述</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_System_Overview/Design_Overview.html#id2">2.2.1. 系统架构</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3_System_Control.html">3. 系统控制</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/Function_Overview.html">3.1. 功能概述</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/Function_Overview.html#id2">3.1.1. 目的</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/Function_Overview.html#id3">3.1.2. 定义及缩写</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/Design_Overview.html">3.2. 设计概述</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/Design_Overview.html#id2">3.2.1. 视频内存区块池</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/Design_Overview.html#id5">3.2.2. 系统绑定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/Design_Overview.html#vivpss">3.2.3. VI和VPSS的工作模式</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/Design_Overview.html#vpss">3.2.4. VPSS的工作模式</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/Design_Overview.html#video-pipelinealignment">3.2.5. Video Pipeline的Alignment需求</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/Design_Overview.html#id8">3.2.6. 双系统消息通信</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/API_Reference.html">3.3. API参考</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-sys-init">3.3.1. CVI_SYS_Init</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-sys-exit">3.3.2. CVI_SYS_Exit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-sys-bind">3.3.3. CVI_SYS_Bind</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-sys-unbind">3.3.4. CVI_SYS_UnBind</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-sys-getbindbydest">3.3.5. CVI_SYS_GetBindbyDest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-sys-getbindbysrc">3.3.6. CVI_SYS_GetBindbySrc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-sys-getversion">3.3.7. CVI_SYS_GetVersion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-sys-getchipid">3.3.8. CVI_SYS_GetChipId</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-sys-mmap">3.3.9. CVI_SYS_Mmap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-sys-mmapcache">3.3.10. CVI_SYS_MmapCache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-sys-munmap">3.3.11. CVI_SYS_Munmap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-sys-ionalloc">3.3.12. CVI_SYS_IonAlloc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-sys-ionalloc-cached">3.3.13. CVI_SYS_IonAlloc_Cached</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-sys-ionflushcache">3.3.14. CVI_SYS_IonFlushCache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-sys-ioninvalidatecache">3.3.15. CVI_SYS_IonInvalidateCache</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-sys-ionfree">3.3.16. CVI_SYS_IonFree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-sys-setvivpssmode">3.3.17. CVI_SYS_SetVIVPSSMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-sys-getvivpssmode">3.3.18. CVI_SYS_GetVIVPSSMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-sys-getmodname">3.3.19. CVI_SYS_GetModName</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-sys-getchipversion">3.3.20. CVI_SYS_GetChipVersion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-sys-getpoweronreason">3.3.21. CVI_SYS_GetPowerOnReason</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-sys-getcurpts">3.3.22. CVI_SYS_GetCurPTS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-vb-setconfig">3.3.23. CVI_VB_SetConfig</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-vb-getconfig">3.3.24. CVI_VB_GetConfig</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-vb-init">3.3.25. CVI_VB_Init</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-vb-exit">3.3.26. CVI_VB_Exit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-vb-getblock">3.3.27. CVI_VB_GetBlock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-vb-releaseblock">3.3.28. CVI_VB_ReleaseBlock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-vb-createpool">3.3.29. CVI_VB_CreatePool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-vb-createexpool">3.3.30. CVI_VB_CreateExPool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-vb-destroypool">3.3.31. CVI_VB_DestroyPool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-vb-physaddr2handle">3.3.32. CVI_VB_PhysAddr2Handle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-vb-handle2physaddr">3.3.33. CVI_VB_Handle2PhysAddr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-vb-handle2poolid">3.3.34. CVI_VB_Handle2PoolId</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-vb-inquireusercnt">3.3.35. CVI_VB_InquireUserCnt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-vb-mmappool">3.3.36. CVI_VB_MmapPool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-vb-munmappool">3.3.37. CVI_VB_MunmapPool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-vb-getblockviraddr">3.3.38. CVI_VB_GetBlockVirAddr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-vb-printpool">3.3.39. CVI_VB_PrintPool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-log-setlevelconf">3.3.40. CVI_LOG_SetLevelConf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/API_Reference.html#cvi-log-getlevelconf">3.3.41. CVI_LOG_GetLevelConf</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/Data_Types.html">3.4. 数据类型</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/Data_Types.html#id2">3.4.1. 基础型别</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/Data_Types.html#mod-id-e">3.4.2. MOD_ID_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/Data_Types.html#vb-source-e">3.4.3. VB_SOURCE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/Data_Types.html#rotation-e">3.4.4. ROTATION_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/Data_Types.html#border-s">3.4.5. BORDER_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/Data_Types.html#point-s">3.4.6. POINT_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/Data_Types.html#size-s">3.4.7. SIZE_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/Data_Types.html#rect-s">3.4.8. RECT_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/Data_Types.html#mmf-chn-s">3.4.9. MMF_CHN_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/Data_Types.html#mmf-bind-dest-s">3.4.10. MMF_BIND_DEST_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/Data_Types.html#bind-node-s">3.4.11. BIND_NODE_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/Data_Types.html#mmf-version-s">3.4.12. MMF_VERSION_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/Data_Types.html#vb-config-s">3.4.13. VB_CONFIG_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/Data_Types.html#vb-pool-config-s">3.4.14. VB_POOL_CONFIG_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/Data_Types.html#vb-user-block-s">3.4.15. VB_USER_BLOCK_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/Data_Types.html#vb-pool-config-ex-s">3.4.16. VB_POOL_CONFIG_EX_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/Data_Types.html#vb-cal-config-s">3.4.17. VB_CAL_CONFIG_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/Data_Types.html#vi-vpss-mode-e">3.4.18. VI_VPSS_MODE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/Data_Types.html#vi-vpss-mode-s">3.4.19. VI_VPSS_MODE_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/Data_Types.html#aspect-ratio-e">3.4.20. ASPECT_RATIO_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/Data_Types.html#aspect-ratio-s">3.4.21. ASPECT_RATIO_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/Data_Types.html#pixel-format-e">3.4.22. PIXEL_FORMAT_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/Data_Types.html#video-frame-s">3.4.23. VIDEO_FRAME_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/Data_Types.html#video-frame-info-s">3.4.24. VIDEO_FRAME_INFO_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/Data_Types.html#bitmap-s">3.4.25. BITMAP_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_System_Control/Data_Types.html#wdr-mode-e">3.4.26. WDR_MODE_E</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3_System_Control/Error_Codes.html">3.5. 错误码</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="4_Video_Input.html">4. 视频输入</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="4_Video_Input/Function_Overview.html">4.1. 功能概述</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Function_Overview.html#id2">4.1.1. 目的</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Function_Overview.html#id3">4.1.2. 定义及缩写</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="4_Video_Input/Design_Overview.html">4.2. 设计概述</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Design_Overview.html#id2">4.2.1. 系统架构</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Design_Overview.html#pipe">4.2.2. 视频输入PIPE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Design_Overview.html#id4">4.2.3. 视频物理通道</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Design_Overview.html#id5">4.2.4. 绑定关系</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="4_Video_Input/API_Reference.html">4.3. API参考</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-setdevattr">4.3.1. CVI_VI_SetDevAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-getdevattr">4.3.2. CVI_VI_GetDevAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-enabledev">4.3.3. CVI_VI_EnableDev</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-disabledev">4.3.4. CVI_VI_DisableDev</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-setdevbindattr">4.3.5. CVI_VI_SetDevBindAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-getdevbindattr">4.3.6. CVI_VI_GetDevBindAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-setdevunbindattr">4.3.7. CVI_VI_SetDevUnbindAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-setdevtimingattr">4.3.8. CVI_VI_SetDevTimingAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-getdevtimingattr">4.3.9. CVI_VI_GetDevTimingAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-createpipe">4.3.10. CVI_VI_CreatePipe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-destroypipe">4.3.11. CVI_VI_DestroyPipe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-setpipeattr">4.3.12. CVI_VI_SetPipeAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-getpipeattr">4.3.13. CVI_VI_GetPipeAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-startpipe">4.3.14. CVI_VI_StartPipe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-stoppipe">4.3.15. CVI_VI_StopPipe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-setpipecrop">4.3.16. CVI_VI_SetPipeCrop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-getpipecrop">4.3.17. CVI_VI_GetPipeCrop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-setpipedumpattr">4.3.18. CVI_VI_SetPipeDumpAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-getpipedumpattr">4.3.19. CVI_VI_GetPipeDumpAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-setpipeframesource">4.3.20. CVI_VI_SetPipeFrameSource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-getpipeframesource">4.3.21. CVI_VI_GetPipeFrameSource</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-getpipeframe">4.3.22. CVI_VI_GetPipeFrame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-releasepipeframe">4.3.23. CVI_VI_ReleasePipeFrame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-sendpiperaw">4.3.24. CVI_VI_SendPipeRaw</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-querypipestatus">4.3.25. CVI_VI_QueryPipeStatus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-getpipefd">4.3.26. CVI_VI_GetPipeFd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-closefd">4.3.27. CVI_VI_CloseFd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-attachvbpool">4.3.28. CVI_VI_AttachVbPool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-detachvbpool">4.3.29. CVI_VI_DetachVbPool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-setchnattr">4.3.30. CVI_VI_SetChnAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-getchnattr">4.3.31. CVI_VI_GetChnAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-enablechn">4.3.32. CVI_VI_EnableChn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-disablechn">4.3.33. CVI_VI_DisableChn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-setchncrop">4.3.34. CVI_VI_SetChnCrop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-getchncrop">4.3.35. CVI_VI_GetChnCrop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-getchnframe">4.3.36. CVI_VI_GetChnFrame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-releasechnframe">4.3.37. CVI_VI_ReleaseChnFrame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-setchnrotation">4.3.38. CVI_VI_SetChnRotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-getchnrotation">4.3.39. CVI_VI_GetChnRotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-setchnldcattr">4.3.40. CVI_VI_SetChnLDCAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-getchnldcattr">4.3.41. CVI_VI_GetChnLDCAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-regchnflipmirrorcallback">4.3.42. CVI_VI_RegChnFlipMirrorCallBack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-unregchnflipmirrorcallback">4.3.43. CVI_VI_UnRegChnFlipMirrorCallBack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-setchnflipmirror">4.3.44. CVI_VI_SetChnFlipMirror</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-getchnflipmirror">4.3.45. CVI_VI_GetChnFlipMirror</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-suspend">4.3.46. CVI_VI_Suspend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-resume">4.3.47. CVI_VI_Resume</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-setdevnum">4.3.48. CVI_VI_SetDevNum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-getdevnum">4.3.49. CVI_VI_GetDevNum</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-enablepatgen">4.3.50. CVI_VI_EnablePatgen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-startsmoothrawdump">4.3.51. CVI_VI_StartSmoothRawDump</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-stopsmoothrawdump">4.3.52. CVI_VI_StopSmoothRawDump</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-getsmoothrawdump">4.3.53. CVI_VI_GetSmoothRawDump</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-putsmoothrawdump">4.3.54. CVI_VI_PutSmoothRawDump</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-dumphwregistertofile">4.3.55. CVI_VI_DumpHwRegisterToFile</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-querychnstatus">4.3.56. CVI_VI_QueryChnStatus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-regpmcallback">4.3.57. CVI_VI_RegPmCallBack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-unregpmcallback">4.3.58. CVI_VI_UnRegPmCallBack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-settuningdis">4.3.59. CVI_VI_SetTuningDis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-querydevstatus">4.3.60. CVI_VI_QueryDevStatus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-trig-ahd">4.3.61. CVI_VI_Trig_AHD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-setextchnattr">4.3.62. CVI_VI_SetExtChnAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/API_Reference.html#cvi-vi-getextchnattr">4.3.63. CVI_VI_GetExtChnAttr</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="4_Video_Input/Data_Types.html">4.4. 数据类型</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-max-dev-num">4.4.1. VI_MAX_DEV_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-max-phy-pipe-num">4.4.2. VI_MAX_PHY_PIPE_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-max-vir-pipe-num">4.4.3. VI_MAX_VIR_PIPE_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-max-pipe-num">4.4.4. VI_MAX_PIPE_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-max-wdr-num">4.4.5. VI_MAX_WDR_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-max-vir-chn-num">4.4.6. VI_MAX_VIR_CHN_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-max-phy-chn-num">4.4.7. VI_MAX_PHY_CHN_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-max-ext-chn-num">4.4.8. VI_MAX_EXT_CHN_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-ext-chn-start">4.4.9. VI_EXT_CHN_START</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-max-chn-num">4.4.10. VI_MAX_CHN_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-max-wdr-frame-num">4.4.11. VI_MAX_WDR_FRAME_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-max-extchn-bind-per-chn">4.4.12. VI_MAX_EXTCHN_BIND_PER_CHN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-pipe1-max-width">4.4.13. VI_PIPE1_MAX_WIDTH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-pixel-format">4.4.14. VI_PIXEL_FORMAT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-vpss-extra-buf">4.4.15. VI_VPSS_EXTRA_BUF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-chn-0-buf">4.4.16. VI_CHN_0_BUF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-chn-1-buf">4.4.17. VI_CHN_1_BUF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-chn-2-buf">4.4.18. VI_CHN_2_BUF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-chn-3-buf">4.4.19. VI_CHN_3_BUF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-buf">4.4.20. VI_BUF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-cmp-param-size">4.4.21. VI_CMP_PARAM_SIZE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-max-adchn-num">4.4.22. VI_MAX_ADCHN_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-compmask-num">4.4.23. VI_COMPMASK_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-sharpen-gain-num">4.4.24. VI_SHARPEN_GAIN_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-auto-iso-strength-num">4.4.25. VI_AUTO_ISO_STRENGTH_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-invalid-chn">4.4.26. VI_INVALID_CHN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-data-type-e">4.4.27. VI_DATA_TYPE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-dev-attr-s">4.4.28. VI_DEV_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-dev-bind-pipe-s">4.4.29. VI_DEV_BIND_PIPE_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-pipe-attr-s">4.4.30. VI_PIPE_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-dump-type-e">4.4.31. VI_DUMP_TYPE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-dump-attr-s">4.4.32. VI_DUMP_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-chn-attr-s">4.4.33. VI_CHN_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-crop-info-s">4.4.34. VI_CROP_INFO_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-dev-timing-attr-s">4.4.35. VI_DEV_TIMING_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-pipe-status-s">4.4.36. VI_PIPE_STATUS_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-chn-status-s">4.4.37. VI_CHN_STATUS_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-pipe-frame-source-e">4.4.38. VI_PIPE_FRAME_SOURCE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-ldc-attr-s">4.4.39. VI_LDC_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-state-e">4.4.40. VI_STATE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-sync-cfg-s">4.4.41. VI_SYNC_CFG_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-bt656-sync-cfg-s">4.4.42. VI_BT656_SYNC_CFG_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-pipe-bypass-mode-e">4.4.43. VI_PIPE_BYPASS_MODE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-crop-coordinate-e">4.4.44. VI_CROP_COORDINATE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-mod-param-s">4.4.45. VI_MOD_PARAM_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-early-interrupt-s">4.4.46. VI_EARLY_INTERRUPT_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#mlsc-gain-lut-s">4.4.47. MLSC_GAIN_LUT_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-dump-register-table-s">4.4.48. VI_DUMP_REGISTER_TABLE_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-pm-ops-s">4.4.49. VI_PM_OPS_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-smooth-raw-dump-info-s">4.4.50. VI_SMOOTH_RAW_DUMP_INFO_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-intf-mode-e">4.4.51. VI_INTF_MODE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-input-mode-e">4.4.52. VI_INPUT_MODE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-work-mode-e">4.4.53. VI_WORK_MODE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-scan-mode-e">4.4.54. VI_SCAN_MODE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-yuv-data-seq-e">4.4.55. VI_YUV_DATA_SEQ_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-clk-edge-e">4.4.56. VI_CLK_EDGE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-component-mode-e">4.4.57. VI_COMPONENT_MODE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-combine-mode-e">4.4.58. VI_COMBINE_MODE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-vsync-e">4.4.59. VI_VSYNC_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-vsync-neg-e">4.4.60. VI_VSYNC_NEG_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-hsync-e">4.4.61. VI_HSYNC_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-hsync-neg-e">4.4.62. VI_HSYNC_NEG_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-vsync-valid-e">4.4.63. VI_VSYNC_VALID_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-vsync-valid-neg-e">4.4.64. VI_VSYNC_VALID_NEG_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-wdr-attr-s">4.4.65. VI_WDR_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-timing-blank-s">4.4.66. VI_TIMING_BLANK_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-bt656-fixcode-e">4.4.67. VI_BT656_FIXCODE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-bt656-field-polar-e">4.4.68. VI_BT656_FIELD_POLAR_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-dev-attr-ex-s">4.4.69. VI_DEV_ATTR_EX_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-ext-chn-source-e">4.4.70. VI_EXT_CHN_SOURCE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Video_Input/Data_Types.html#vi-ext-chn-attr-s">4.4.71. VI_EXT_CHN_ATTR_S</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="4_Video_Input/Error_Codes.html">4.5. 错误码</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="5_Video_Output.html">5. 视频输出</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/Function_Overview.html">5.1. 功能概述</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/Function_Overview.html#id2">5.1.1. 目的</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/Design_Overview.html">5.2. 设计概述</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/Design_Overview.html#id2">5.2.1. 系统架构</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/API_Reference.html">5.3. API参考</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-enable">5.3.1. CVI_VO_Enable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-disable">5.3.2. CVI_VO_Disable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-isenabled">5.3.3. CVI_VO_IsEnabled</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-suspend">5.3.4. CVI_VO_Suspend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-resume">5.3.5. CVI_VO_Resume</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-setpubattr">5.3.6. CVI_VO_SetPubAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-getpubattr">5.3.7. CVI_VO_GetPubAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-setbtparam">5.3.8. CVI_VO_SetBTParam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-getbtparam">5.3.9. CVI_VO_GetBTParam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-setlvdsparam">5.3.10. CVI_VO_SetLVDSParam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-getlvdsparam">5.3.11. CVI_VO_GetLVDSParam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-enablevideolayer">5.3.12. CVI_VO_EnableVideoLayer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-disablevideolayer">5.3.13. CVI_VO_DisableVideoLayer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-setvideolayerattr">5.3.14. CVI_VO_SetVideoLayerAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-getvideolayerattr">5.3.15. CVI_VO_GetVideoLayerAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-getlayerprocampctrl">5.3.16. CVI_VO_GetLayerProcAmpCtrl</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-setlayerprocamp">5.3.17. CVI_VO_SetLayerProcAmp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-getlayerprocamp">5.3.18. CVI_VO_GetLayerProcAmp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-setdisplaybuflen">5.3.19. CVI_VO_SetDisplayBufLen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-getdisplaybuflen">5.3.20. CVI_VO_GetDisplayBufLen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-enablechn">5.3.21. CVI_VO_EnableChn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-disablechn">5.3.22. CVI_VO_DisableChn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-setchnattr">5.3.23. CVI_VO_SetChnAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-getchnattr">5.3.24. CVI_VO_GetChnAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-showchn">5.3.25. CVI_VO_ShowChn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-hidechn">5.3.26. CVI_VO_HideChn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-setchnrotation">5.3.27. CVI_VO_SetChnRotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-getchnrotation">5.3.28. CVI_VO_GetChnRotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-pausechn">5.3.29. CVI_VO_PauseChn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-resumechn">5.3.30. CVI_VO_ResumeChn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-clearchnbuf">5.3.31. CVI_VO_ClearChnBuf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-sendframe">5.3.32. CVI_VO_SendFrame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-setchnframerate">5.3.33. CVI_VO_SetChnFrameRate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-getchnframerate">5.3.34. CVI_VO_GetChnFrameRate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-getchnpts">5.3.35. CVI_VO_GetChnPTS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-querychnstatus">5.3.36. CVI_VO_QueryChnStatus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-closefd">5.3.37. CVI_VO_CloseFd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-get-panel-status">5.3.38. CVI_VO_Get_Panel_Status</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-regpmcallback">5.3.39. CVI_VO_RegPmCallBack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-unregpmcallback">5.3.40. CVI_VO_UnRegPmCallBack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-setgammainfo">5.3.41. CVI_VO_SetGammaInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-getgammainfo">5.3.42. CVI_VO_GetGammaInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/API_Reference.html#cvi-vo-showpattern">5.3.43. CVI_VO_ShowPattern</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/Data_Types.html">5.4. 数据类型</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-dev">5.4.1. VO_DEV</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-layer">5.4.2. VO_LAYER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-chn">5.4.3. VO_CHN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-intf-type-e">5.4.4. VO_INTF_TYPE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-intf-sync-e">5.4.5. VO_INTF_SYNC_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-lvds-mode-e">5.4.6. VO_LVDS_MODE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-lvds-out-bit-e">5.4.7. VO_LVDS_OUT_BIT_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-lvds-lane-id">5.4.8. VO_LVDS_LANE_ID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-csc-matrix-e">5.4.9. VO_CSC_MATRIX_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-mac-bt-mux-e">5.4.10. VO_MAC_BT_MUX_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-mac-d-sel-e">5.4.11. VO_MAC_D_SEL_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-bt-mode-e">5.4.12. VO_BT_MODE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-bt-data-seq-e">5.4.13. VO_BT_DATA_SEQ_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-csc-s">5.4.14. VO_CSC_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-sync-info-s">5.4.15. VO_SYNC_INFO_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-lvds-attr-s">5.4.16. VO_LVDS_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-pub-attr-s">5.4.17. VO_PUB_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-video-layer-attr-s">5.4.18. VO_VIDEO_LAYER_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-chn-attr-s">5.4.19. VO_CHN_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-min-chn-width">5.4.20. VO_MIN_CHN_WIDTH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-min-chn-height">5.4.21. VO_MIN_CHN_HEIGHT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-max-dev-num">5.4.22. VO_MAX_DEV_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-max-layer-num">5.4.23. VO_MAX_LAYER_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-max-chn-num">5.4.24. VO_MAX_CHN_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-i80-instr-s">5.4.25. VO_I80_INSTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-pm-ops-s">5.4.26. VO_PM_OPS_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-gamma-info-s">5.4.27. VO_GAMMA_INFO_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-bin-info-s">5.4.28. VO_BIN_INFO_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-pattern-mode">5.4.29. VO_PATTERN_MODE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-d-remap-s">5.4.30. VO_D_REMAP_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-pinmux-s">5.4.31. VO_PINMUX_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-bt-attr-s">5.4.32. VO_BT_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-mcu-instrs-s">5.4.33. VO_MCU_INSTRS_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-hw-mcu-cfg-s">5.4.34. VO_HW_MCU_CFG_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-chn-status-s">5.4.35. VO_CHN_STATUS_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Video_Output/Data_Types.html#vo-query-status-s">5.4.36. VO_QUERY_STATUS_S</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="5_Video_Output/Error_Codes.html">5.5. 错误码</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="6_Video_Processing_Subsystem.html">6. 视频处理子系统</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Function_Overview.html">6.1. 功能概述</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/Function_Overview.html#id2">6.1.1. 目的</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/Function_Overview.html#id3">6.1.2. 定义及缩写</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Design_Overview.html">6.2. 设计概述</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/Design_Overview.html#id2">6.2.1. 系统架构</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/Design_Overview.html#id3">6.2.2. 注意事项</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html">6.3. API参考</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-setmode">6.3.1. CVI_VPSS_SetMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-getmode">6.3.2. CVI_VPSS_GetMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-creategrp">6.3.3. CVI_VPSS_CreateGrp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-destroygrp">6.3.4. CVI_VPSS_DestroyGrp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-getavailablegrp">6.3.5. CVI_VPSS_GetAvailableGrp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-getgrpattr">6.3.6. CVI_VPSS_GetGrpAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-setgrpattr">6.3.7. CVI_VPSS_SetGrpAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-startgrp">6.3.8. CVI_VPSS_StartGrp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-stopgrp">6.3.9. CVI_VPSS_StopGrp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-resetgrp">6.3.10. CVI_VPSS_ResetGrp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-getgrpprocampctrl">6.3.11. CVI_VPSS_GetGrpProcAmpCtrl</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-getgrpprocamp">6.3.12. CVI_VPSS_GetGrpProcAmp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-setgrpprocamp">6.3.13. CVI_VPSS_SetGrpProcAmp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-getallprocamp">6.3.14. CVI_VPSS_GetAllProcAmp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-setgrpparamfrombin">6.3.15. CVI_VPSS_SetGrpParamfromBin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-getbinscene">6.3.16. CVI_VPSS_GetBinScene</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-getchnattr">6.3.17. CVI_VPSS_GetChnAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-setchnattr">6.3.18. CVI_VPSS_SetChnAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-enablechn">6.3.19. CVI_VPSS_EnableChn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-disablechn">6.3.20. CVI_VPSS_DisableChn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-setgrpcrop">6.3.21. CVI_VPSS_SetGrpCrop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-getgrpcrop">6.3.22. CVI_VPSS_GetGrpCrop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-sendframe">6.3.23. CVI_VPSS_SendFrame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-getchnframe">6.3.24. CVI_VPSS_GetChnFrame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-sendchnframe">6.3.25. CVI_VPSS_SendChnFrame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-releasechnframe">6.3.26. CVI_VPSS_ReleaseChnFrame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-setchncrop">6.3.27. CVI_VPSS_SetChnCrop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-getchncrop">6.3.28. CVI_VPSS_GetChnCrop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-setchnrotation">6.3.29. CVI_VPSS_SetChnRotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-getchnrotation">6.3.30. CVI_VPSS_GetChnRotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-setchnldcattr">6.3.31. CVI_VPSS_SetChnLDCAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-getchnldcattr">6.3.32. CVI_VPSS_GetChnLDCAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-getchnfd">6.3.33. CVI_VPSS_GetChnFd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-closefd">6.3.34. CVI_VPSS_CloseFd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-attachvbpool">6.3.35. CVI_VPSS_AttachVbPool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-detachvbpool">6.3.36. CVI_VPSS_DetachVbPool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-setchnalign">6.3.37. CVI_VPSS_SetChnAlign</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-getchnalign">6.3.38. CVI_VPSS_GetChnAlign</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-setchnyratio">6.3.39. CVI_VPSS_SetChnYRatio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-getchnyratio">6.3.40. CVI_VPSS_GetChnYRatio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-setchnscalecoeflevel">6.3.41. CVI_VPSS_SetChnScaleCoefLevel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-getchnscalecoeflevel">6.3.42. CVI_VPSS_GetChnScaleCoefLevel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-setchndrawrect">6.3.43. CVI_VPSS_SetChnDrawRect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-getchndrawrect">6.3.44. CVI_VPSS_GetChnDrawRect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-setchnconvert">6.3.45. CVI_VPSS_SetChnConvert</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-getchnconvert">6.3.46. CVI_VPSS_GetChnConvert</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-setchnbufwrapattr">6.3.47. CVI_VPSS_SetChnBufWrapAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-getchnbufwrapattr">6.3.48. CVI_VPSS_GetChnBufWrapAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-getwrapbuffersize">6.3.49. CVI_VPSS_GetWrapBufferSize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-showchn">6.3.50. CVI_VPSS_ShowChn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-hidechn">6.3.51. CVI_VPSS_HideChn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-suspend">6.3.52. CVI_VPSS_Suspend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/API_Reference.html#cvi-vpss-resume">6.3.53. CVI_VPSS_Resume</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html">6.4. 数据类型</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-device-num">6.4.1. VPSS_DEVICE_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-ip-num">6.4.2. VPSS_IP_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-max-grp-num">6.4.3. VPSS_MAX_GRP_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-online-num">6.4.4. VPSS_ONLINE_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-max-chn-num">6.4.5. VPSS_MAX_CHN_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-max-phy-chn-num">6.4.6. VPSS_MAX_PHY_CHN_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-min-image-width">6.4.7. VPSS_MIN_IMAGE_WIDTH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-min-image-height">6.4.8. VPSS_MIN_IMAGE_HEIGHT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-max-image-width">6.4.9. VPSS_MAX_IMAGE_WIDTH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-max-image-height">6.4.10. VPSS_MAX_IMAGE_HEIGHT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss0-hw-limit-width">6.4.11. VPSS0_HW_LIMIT_WIDTH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss1-hw-limit-width">6.4.12. VPSS1_HW_LIMIT_WIDTH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss2-hw-limit-width">6.4.13. VPSS2_HW_LIMIT_WIDTH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss3-hw-limit-width">6.4.14. VPSS3_HW_LIMIT_WIDTH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-max-zoomin">6.4.15. VPSS_MAX_ZOOMIN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-max-zoomout">6.4.16. VPSS_MAX_ZOOMOUT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-rect-num">6.4.17. VPSS_RECT_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-chn0">6.4.18. VPSS_CHN0</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-chn1">6.4.19. VPSS_CHN1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-chn2">6.4.20. VPSS_CHN2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-chn3">6.4.21. VPSS_CHN3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-invalid-chn">6.4.22. VPSS_INVALID_CHN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-invalid-grp">6.4.23. VPSS_INVALID_GRP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-grp">6.4.24. VPSS_GRP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-chn">6.4.25. VPSS_CHN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-mode-e">6.4.26. VPSS_MODE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-input-e">6.4.27. VPSS_INPUT_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-mode-s">6.4.28. VPSS_MODE_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-rounding-e">6.4.29. VPSS_ROUNDING_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-crop-coordinate-e">6.4.30. VPSS_CROP_COORDINATE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-normalize-s">6.4.31. VPSS_NORMALIZE_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-crop-info-s">6.4.32. VPSS_CROP_INFO_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-grp-attr-s">6.4.33. VPSS_GRP_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-chn-attr-s">6.4.34. VPSS_CHN_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-mod-param-s">6.4.35. VPSS_MOD_PARAM_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#proc-amp-e">6.4.36. PROC_AMP_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#proc-amp-ctrl-s">6.4.37. PROC_AMP_CTRL_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-proc-amp-cfg">6.4.38. vpss_proc_amp_cfg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-all-proc-amp-s">6.4.39. VPSS_ALL_PROC_AMP_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-ldc-attr-s">6.4.40. VPSS_LDC_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-chn-buf-wrap-s">6.4.41. VPSS_CHN_BUF_WRAP_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-scale-coef-e">6.4.42. VPSS_SCALE_COEF_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-rect-s">6.4.43. VPSS_RECT_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-draw-rect-s">6.4.44. VPSS_DRAW_RECT_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_Video_Processing_Subsystem/Data_Types.html#vpss-convert-s">6.4.45. VPSS_CONVERT_S</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="6_Video_Processing_Subsystem/Error_Codes.html">6.5. 错误码</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="7_Video_Encoding.html">7. 视频编码</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="7_Video_Encoding/Function_Overview.html">7.1. 功能概述</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Function_Overview.html#id2">7.1.1. 目的</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Function_Overview.html#id3">7.1.2. 定义及缩写</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="7_Video_Encoding/Design_Overview.html">7.2. 设计概述</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Design_Overview.html#id2">7.2.1. 编码数据流程图</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Design_Overview.html#id3">7.2.2. 视频编码信道</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Design_Overview.html#id4">7.2.3. 码率控制</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Design_Overview.html#fixed-qp">7.2.4. Fixed QP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Design_Overview.html#cbr">7.2.5. CBR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Design_Overview.html#vbr">7.2.6. VBR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Design_Overview.html#avbr">7.2.7. AVBR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Design_Overview.html#gop">7.2.8. GOP结构</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Design_Overview.html#id5">7.2.9. 高级跳帧</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Design_Overview.html#roi">7.2.10. ROI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Design_Overview.html#id6">7.2.11. 编码码流帧配置模式</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Design_Overview.html#id7">7.2.12. 多编码器并行编码</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Design_Overview.html#id8">7.2.13. 编码帧缓存计算</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="7_Video_Encoding/API_Reference.html">7.3. API参考</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-createchn">7.3.1. CVI_VENC_CreateChn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-destroychn">7.3.2. CVI_VENC_DestroyChn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-resetchn">7.3.3. CVI_VENC_ResetChn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-startrecvframe">7.3.4. CVI_VENC_StartRecvFrame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-stoprecvframe">7.3.5. CVI_VENC_StopRecvFrame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-querystatus">7.3.6. CVI_VENC_QueryStatus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-setchnattr">7.3.7. CVI_VENC_SetChnAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-getchnattr">7.3.8. CVI_VENC_GetChnAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-getstream">7.3.9. CVI_VENC_GetStream</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-releasestream">7.3.10. CVI_VENC_ReleaseStream</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-sendframe">7.3.11. CVI_VENC_SendFrame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-getfd">7.3.12. CVI_VENC_GetFd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-closefd">7.3.13. CVI_VENC_CloseFd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-setjpegparam">7.3.14. CVI_VENC_SetJpegParam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-getjpegparam">7.3.15. CVI_VENC_GetJpegParam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-setrcparam">7.3.16. CVI_VENC_SetRcParam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-getrcparam">7.3.17. CVI_VENC_GetRcParam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-setchnparam">7.3.18. CVI_VENC_SetChnParam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-getchnparam">7.3.19. CVI_VENC_GetChnParam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-requestidr">7.3.20. CVI_VENC_RequestIDR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-setroiattr">7.3.21. CVI_VENC_SetRoiAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-getroiattr">7.3.22. CVI_VENC_GetRoiAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-setrefparam">7.3.23. CVI_VENC_SetRefParam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-getrefparam">7.3.24. CVI_VENC_GetRefParam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-setframeloststrategy">7.3.25. CVI_VENC_SetFrameLostStrategy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-getframeloststrategy">7.3.26. CVI_VENC_GetFrameLostStrategy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-setmodparam">7.3.27. CVI_VENC_SetModParam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-getmodparam">7.3.28. CVI_VENC_GetModParam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-attachvbpool">7.3.29. CVI_VENC_AttachVbPool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-detachvbpool">7.3.30. CVI_VENC_DetachVbPool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-geth264entropy">7.3.31. CVI_VENC_GetH264Entropy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-seth264entropy">7.3.32. CVI_VENC_SetH264Entropy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-insertuserdata">7.3.33. CVI_VENC_InsertUserData</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-getcuprediction">7.3.34. CVI_VENC_GetCuPrediction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-setcuprediction">7.3.35. CVI_VENC_SetCuPrediction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-geth264trans">7.3.36. CVI_VENC_GetH264Trans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-seth264trans">7.3.37. CVI_VENC_SetH264Trans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-geth265trans">7.3.38. CVI_VENC_GetH265Trans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-seth265trans">7.3.39. CVI_VENC_SetH265Trans</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvigetmask">7.3.40. cviGetMask</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-seth264intrapred">7.3.41. CVI_VENC_SetH264IntraPred</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-geth264intrapred">7.3.42. CVI_VENC_GetH264IntraPred</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-seth264dblk">7.3.43. CVI_VENC_SetH264Dblk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-geth264dblk">7.3.44. CVI_VENC_GetH264Dblk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-seth264vui">7.3.45. CVI_VENC_SetH264Vui</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-geth264vui">7.3.46. CVI_VENC_GetH264Vui</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-seth265vui">7.3.47. CVI_VENC_SetH265Vui</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-geth265vui">7.3.48. CVI_VENC_GetH265Vui</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-seth265dblk">7.3.49. CVI_VENC_SetH265Dblk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-geth265dblk">7.3.50. CVI_VENC_GetH265Dblk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-setsuperframestrategy">7.3.51. CVI_VENC_SetSuperFrameStrategy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-getsuperframestrategy">7.3.52. CVI_VENC_GetSuperFrameStrategy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-setframeparam">7.3.53. CVI_VENC_SetFrameParam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-getframeparam">7.3.54. CVI_VENC_GetFrameParam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-enablesvc">7.3.55. CVI_VENC_EnableSvc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-setsvcparam">7.3.56. CVI_VENC_SetSvcParam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/API_Reference.html#cvi-venc-getsvcparam">7.3.57. CVI_VENC_GetSvcParam</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="7_Video_Encoding/Data_Types.html">7.4. 数据类型</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-max-chn-num">7.4.1. VENC_MAX_CHN_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-max-roi-num">7.4.2. VENC_MAX_ROI_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#max-tile-num">7.4.3. MAX_TILE_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-align-w">7.4.4. VENC_ALIGN_W</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-align-h">7.4.5. VENC_ALIGN_H</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#rc-texture-thr-size">7.4.6. RC_TEXTURE_THR_SIZE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-chn-param-s">7.4.7. VENC_CHN_PARAM_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-pack-s">7.4.8. VENC_PACK_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-stream-s">7.4.9. VENC_STREAM_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-gop-attr-s">7.4.10. VENC_GOP_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-gop-normalp-s">7.4.11. VENC_GOP_NORMALP_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-gop-smartp-s">7.4.12. VENC_GOP_SMARTP_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-recv-pic-param-s">7.4.13. VENC_RECV_PIC_PARAM_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-chn-attr-s">7.4.14. VENC_CHN_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-attr-s">7.4.15. VENC_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-attr-h264-s">7.4.16. VENC_ATTR_H264_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-attr-h265-s">7.4.17. VENC_ATTR_H265_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-stream-info-s">7.4.18. VENC_STREAM_INFO_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-chn-status-s">7.4.19. VENC_CHN_STATUS_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-jpeg-param-s">7.4.20. VENC_JPEG_PARAM_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-rc-attr-s">7.4.21. VENC_RC_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-h264-cbr-s">7.4.22. VENC_H264_CBR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-h264-vbr-s">7.4.23. VENC_H264_VBR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-h264-avbr-s">7.4.24. VENC_H264_AVBR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-h264-fixqp-s">7.4.25. VENC_H264_FIXQP_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-h264-qpmap-s">7.4.26. VENC_H264_QPMAP_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-mjpeg-fixqp-s">7.4.27. VENC_MJPEG_FIXQP_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-mjpeg-cbr-s">7.4.28. VENC_MJPEG_CBR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-h265-cbr-s">7.4.29. VENC_H265_CBR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-h265-vbr-s">7.4.30. VENC_H265_VBR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-h265-avbr-s">7.4.31. VENC_H265_AVBR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-h265-fixqp-s">7.4.32. VENC_H265_FIXQP_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-h265-qpmap-s">7.4.33. VENC_H265_QPMAP_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-rc-param-s">7.4.34. VENC_RC_PARAM_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-param-h264-cbr-s">7.4.35. VENC_PARAM_H264_CBR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-param-h264-vbr-s">7.4.36. VENC_PARAM_H264_VBR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-param-h264-avbr-s">7.4.37. VENC_PARAM_H264_AVBR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-param-h265-cbr-s">7.4.38. VENC_PARAM_H265_CBR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-param-h265-vbr-s">7.4.39. VENC_PARAM_H265_VBR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-param-h265-avbr-s">7.4.40. VENC_PARAM_H265_AVBR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-param-mod-s">7.4.41. VENC_PARAM_MOD_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-mod-h264e-s">7.4.42. VENC_MOD_H264E_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-mod-h265e-s">7.4.43. VENC_MOD_H265E_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-mod-jpege-s">7.4.44. VENC_MOD_JPEGE_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-chn-pool-s">7.4.45. VENC_CHN_POOL_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-framelost-s">7.4.46. VENC_FRAMELOST_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-h264-entropy-s">7.4.47. VENC_H264_ENTROPY_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-cu-prediction-s">7.4.48. VENC_CU_PREDICTION_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-h264-trans-s">7.4.49. VENC_H264_TRANS_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-h265-trans-s">7.4.50. VENC_H265_TRANS_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#h264e-entropy">7.4.51. H264E_ENTROPY</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#h264e-profile">7.4.52. H264E_PROFILE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#prores-framerate">7.4.53. PRORES_FRAMERATE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#prores-aspect-ratio">7.4.54. PRORES_ASPECT_RATIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-attr-prores-s">7.4.55. VENC_ATTR_PRORES_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-h264-vui-s">7.4.56. VENC_H264_VUI_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-h265-vui-s">7.4.57. VENC_H265_VUI_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-frame-type-e">7.4.58. VENC_FRAME_TYPE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#user-frame-info-s">7.4.59. USER_FRAME_INFO_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-frame-param-s">7.4.60. VENC_FRAME_PARAM_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-rc-qpmap-mode-e">7.4.61. VENC_RC_QPMAP_MODE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="7_Video_Encoding/Data_Types.html#venc-svc-param-s">7.4.62. VENC_SVC_PARAM_S</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="7_Video_Encoding/Error_Codes.html">7.5. 错误码</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="8_Video_Decoding.html">8. 视频解码</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="8_Video_Decoding/Function_Overview.html">8.1. 功能概述</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="8_Video_Decoding/Function_Overview.html#id2">8.1.1. 目的</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_Video_Decoding/Function_Overview.html#id3">8.1.2. 定义及缩写</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="8_Video_Decoding/Design_Overview.html">8.2. 设计概述</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="8_Video_Decoding/Design_Overview.html#id2">8.2.1. 码流发送方式</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_Video_Decoding/Design_Overview.html#pts">8.2.2. 时间戳（PTS）处理</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_Video_Decoding/Design_Overview.html#id3">8.2.3. 解码帧存分配方式</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="8_Video_Decoding/API_Reference.html">8.3. API参考</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="8_Video_Decoding/API_Reference.html#cvi-vdec-createchn">8.3.1. CVI_VDEC_CreateChn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_Video_Decoding/API_Reference.html#cvi-vdec-destroychn">8.3.2. CVI_VDEC_DestroyChn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_Video_Decoding/API_Reference.html#cvi-vdec-resetchn">8.3.3. CVI_VDEC_ResetChn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_Video_Decoding/API_Reference.html#cvi-vdec-getchnattr">8.3.4. CVI_VDEC_GetChnAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_Video_Decoding/API_Reference.html#cvi-vdec-setchnattr">8.3.5. CVI_VDEC_SetChnAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_Video_Decoding/API_Reference.html#cvi-vdec-startrecvstream">8.3.6. CVI_VDEC_StartRecvStream</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_Video_Decoding/API_Reference.html#cvi-vdec-stoprecvstream">8.3.7. CVI_VDEC_StopRecvStream</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_Video_Decoding/API_Reference.html#cvi-vdec-querystatus">8.3.8. CVI_VDEC_QueryStatus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_Video_Decoding/API_Reference.html#cvi-vdec-setchnparam">8.3.9. CVI_VDEC_SetChnParam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_Video_Decoding/API_Reference.html#cvi-vdec-getchnparam">8.3.10. CVI_VDEC_GetChnParam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_Video_Decoding/API_Reference.html#cvi-vdec-sendstream">8.3.11. CVI_VDEC_SendStream</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_Video_Decoding/API_Reference.html#cvi-vdec-getframe">8.3.12. CVI_VDEC_GetFrame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_Video_Decoding/API_Reference.html#cvi-vdec-releaseframe">8.3.13. CVI_VDEC_ReleaseFrame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_Video_Decoding/API_Reference.html#cvi-vdec-setmodparam">8.3.14. CVI_VDEC_SetModParam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_Video_Decoding/API_Reference.html#cvi-vdec-getmodparam">8.3.15. CVI_VDEC_GetModParam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_Video_Decoding/API_Reference.html#cvi-vdec-attachvbpool">8.3.16. CVI_VDEC_AttachVbPool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_Video_Decoding/API_Reference.html#cvi-vdec-detachvbpool">8.3.17. CVI_VDEC_DetachVbPool</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="8_Video_Decoding/Data_Types.html">8.4. 数据类型</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="8_Video_Decoding/Data_Types.html#vdec-max-chn-num">8.4.1. VDEC_MAX_CHN_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_Video_Decoding/Data_Types.html#jpegd-align-w">8.4.2. JPEGD_ALIGN_W</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_Video_Decoding/Data_Types.html#jpegd-align-h">8.4.3. JPEGD_ALIGN_H</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_Video_Decoding/Data_Types.html#jpegd-align-frm">8.4.4. JPEGD_ALIGN_FRM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_Video_Decoding/Data_Types.html#jpegd-max-width">8.4.5. JPEGD_MAX_WIDTH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_Video_Decoding/Data_Types.html#jpegd-max-height">8.4.6. JPEGD_MAX_HEIGHT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_Video_Decoding/Data_Types.html#vdec-chn-attr-s">8.4.7. VDEC_CHN_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_Video_Decoding/Data_Types.html#vdec-attr-video-s">8.4.8. VDEC_ATTR_VIDEO_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_Video_Decoding/Data_Types.html#video-mode-e">8.4.9. VIDEO_MODE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_Video_Decoding/Data_Types.html#vdec-chn-status-s">8.4.10. VDEC_CHN_STATUS_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_Video_Decoding/Data_Types.html#vdec-decode-error-s">8.4.11. VDEC_DECODE_ERROR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_Video_Decoding/Data_Types.html#vdec-chn-param-s">8.4.12. VDEC_CHN_PARAM_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_Video_Decoding/Data_Types.html#vdec-param-video-s">8.4.13. VDEC_PARAM_VIDEO_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_Video_Decoding/Data_Types.html#vdec-param-picture-s">8.4.14. VDEC_PARAM_PICTURE_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_Video_Decoding/Data_Types.html#video-output-order-e">8.4.15. VIDEO_OUTPUT_ORDER_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_Video_Decoding/Data_Types.html#compress-mode-e">8.4.16. COMPRESS_MODE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_Video_Decoding/Data_Types.html#vdec-stream-s">8.4.17. VDEC_STREAM_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_Video_Decoding/Data_Types.html#vdec-userdata-s">8.4.18. VDEC_USERDATA_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_Video_Decoding/Data_Types.html#video-display-mode-e">8.4.19. VIDEO_DISPLAY_MODE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_Video_Decoding/Data_Types.html#vdec-param-mod-s">8.4.20. VDEC_PARAM_MOD_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_Video_Decoding/Data_Types.html#vdec-video-mod-param-s">8.4.21. VDEC_VIDEO_MOD_PARAM_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_Video_Decoding/Data_Types.html#vdec-picture-mod-param-s">8.4.22. VDEC_PICTURE_MOD_PARAM_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_Video_Decoding/Data_Types.html#vdec-chn-pool-s">8.4.23. VDEC_CHN_POOL_S</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="8_Video_Decoding/Error_Codes.html">8.5. 错误码</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="9_Regional_Management.html">9. 区域管理</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="9_Regional_Management/Function_Overview.html">9.1. 功能概述</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Function_Overview.html#id2">9.1.1. 目的</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Function_Overview.html#id3">9.1.2. 定义及缩写</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="9_Regional_Management/Design_Overview.html">9.2. 设计概述</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Design_Overview.html#id2">9.2.1. 系统架构</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Design_Overview.html#id3">9.2.2. 注意事项</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="9_Regional_Management/API_Reference.html">9.3. API参考</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/API_Reference.html#cvi-rgn-create">9.3.1. CVI_RGN_Create</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/API_Reference.html#cvi-rgn-destroy">9.3.2. CVI_RGN_Destroy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/API_Reference.html#cvi-rgn-getattr">9.3.3. CVI_RGN_GetAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/API_Reference.html#cvi-rgn-setattr">9.3.4. CVI_RGN_SetAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/API_Reference.html#cvi-rgn-setbitmap">9.3.5. CVI_RGN_SetBitMap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/API_Reference.html#cvi-rgn-attachtochn">9.3.6. CVI_RGN_AttachToChn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/API_Reference.html#cvi-rgn-detachfromchn">9.3.7. CVI_RGN_DetachFromChn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/API_Reference.html#cvi-rgn-setdisplayattr">9.3.8. CVI_RGN_SetDisplayAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/API_Reference.html#cvi-rgn-getdisplayattr">9.3.9. CVI_RGN_GetDisplayAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/API_Reference.html#cvi-rgn-getcanvasinfo">9.3.10. CVI_RGN_GetCanvasInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/API_Reference.html#cvi-rgn-updatecanvas">9.3.11. CVI_RGN_UpdateCanvas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/API_Reference.html#cvi-rgn-setchnpalette">9.3.12. CVI_RGN_SetChnPalette</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="9_Regional_Management/Data_Types.html">9.4. 数据类型</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-min-width">9.4.1. RGN_MIN_WIDTH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-min-height">9.4.2. RGN_MIN_HEIGHT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-cover-max-width">9.4.3. RGN_COVER_MAX_WIDTH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-cover-max-height">9.4.4. RGN_COVER_MAX_HEIGHT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-cover-min-x">9.4.5. RGN_COVER_MIN_X</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-cover-min-y">9.4.6. RGN_COVER_MIN_Y</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-cover-max-x">9.4.7. RGN_COVER_MAX_X</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-cover-max-y">9.4.8. RGN_COVER_MAX_Y</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-coverex-max-num">9.4.9. RGN_COVEREX_MAX_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-coverex-max-width">9.4.10. RGN_COVEREX_MAX_WIDTH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-coverex-max-height">9.4.11. RGN_COVEREX_MAX_HEIGHT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-coverex-min-x">9.4.12. RGN_COVEREX_MIN_X</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-coverex-min-y">9.4.13. RGN_COVEREX_MIN_Y</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-coverex-max-x">9.4.14. RGN_COVEREX_MAX_X</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-coverex-max-y">9.4.15. RGN_COVEREX_MAX_Y</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-overlay-max-width">9.4.16. RGN_OVERLAY_MAX_WIDTH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-overlay-max-height">9.4.17. RGN_OVERLAY_MAX_HEIGHT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-overlay-min-x">9.4.18. RGN_OVERLAY_MIN_X</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-overlay-min-y">9.4.19. RGN_OVERLAY_MIN_Y</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-overlay-max-x">9.4.20. RGN_OVERLAY_MAX_X</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-overlay-max-y">9.4.21. RGN_OVERLAY_MAX_Y</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-mosaic-max-num">9.4.22. RGN_MOSAIC_MAX_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-mosaic-x-align">9.4.23. RGN_MOSAIC_X_ALIGN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-mosaic-y-align">9.4.24. RGN_MOSAIC_Y_ALIGN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-mosaic-width-align">9.4.25. RGN_MOSAIC_WIDTH_ALIGN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-mosaic-height-align">9.4.26. RGN_MOSAIC_HEIGHT_ALIGN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-mosaic-min-width">9.4.27. RGN_MOSAIC_MIN_WIDTH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-mosaic-min-height">9.4.28. RGN_MOSAIC_MIN_HEIGHT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-mosaic-max-width">9.4.29. RGN_MOSAIC_MAX_WIDTH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-mosaic-max-height">9.4.30. RGN_MOSAIC_MAX_HEIGHT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-mosaic-min-x">9.4.31. RGN_MOSAIC_MIN_X</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-mosaic-min-y">9.4.32. RGN_MOSAIC_MIN_Y</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-mosaic-max-x">9.4.33. RGN_MOSAIC_MAX_X</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-mosaic-max-y">9.4.34. RGN_MOSAIC_MAX_Y</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-max-layer-vpss">9.4.35. RGN_MAX_LAYER_VPSS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-odec-layer-vpss">9.4.36. RGN_ODEC_LAYER_VPSS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-normal-layer-vpss">9.4.37. RGN_NORMAL_LAYER_VPSS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-max-num-vpss">9.4.38. RGN_MAX_NUM_VPSS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-ex-max-num-vpss">9.4.39. RGN_EX_MAX_NUM_VPSS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-ex-max-width">9.4.40. RGN_EX_MAX_WIDTH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-max-buf-num">9.4.41. RGN_MAX_BUF_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-max-num">9.4.42. RGN_MAX_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-invalid-handle">9.4.43. RGN_INVALID_HANDLE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-cmpr-min-size">9.4.44. RGN_CMPR_MIN_SIZE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-handle">9.4.45. RGN_HANDLE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-type-e">9.4.46. RGN_TYPE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-area-type-e">9.4.47. RGN_AREA_TYPE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#osd-compress-mode-e">9.4.48. OSD_COMPRESS_MODE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#osd-compress-info-s">9.4.49. OSD_COMPRESS_INFO_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#cover-chn-attr-s">9.4.50. COVER_CHN_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#coverex-chn-attr-s">9.4.51. COVEREX_CHN_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#overlay-attr-s">9.4.52. OVERLAY_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#overlay-chn-attr-s">9.4.53. OVERLAY_CHN_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#overlayex-attr-s">9.4.54. OVERLAYEX_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#overlayex-chn-attr-s">9.4.55. OVERLAYEX_CHN_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-attr-u">9.4.56. RGN_ATTR_U</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-chn-attr-u">9.4.57. RGN_CHN_ATTR_U</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-attr-s">9.4.58. RGN_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-chn-attr-s">9.4.59. RGN_CHN_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-coordinate-e">9.4.60. RGN_COORDINATE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-quadrangle-s">9.4.61. RGN_QUADRANGLE_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#mosaic-blk-size-e">9.4.62. MOSAIC_BLK_SIZE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#mosaic-chn-attr-s">9.4.63. MOSAIC_CHN_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#invert-color-mode-e">9.4.64. INVERT_COLOR_MODE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#overlay-invert-color-s">9.4.65. OVERLAY_INVERT_COLOR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-cmpr-type-e">9.4.66. RGN_CMPR_TYPE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-line-attr-s">9.4.67. RGN_LINE_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-rect-attr-s">9.4.68. RGN_RECT_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-bitmap-attr-s">9.4.69. RGN_BITMAP_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-cmpr-obj-attr-s">9.4.70. RGN_CMPR_OBJ_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-canvas-cmpr-attr-s">9.4.71. RGN_CANVAS_CMPR_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-canvas-info-s">9.4.72. RGN_CANVAS_INFO_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-rgbquard-s">9.4.73. RGN_RGBQUARD_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-color-fmt-e">9.4.74. RGN_COLOR_FMT_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="9_Regional_Management/Data_Types.html#rgn-palette-s">9.4.75. RGN_PALETTE_S</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="9_Regional_Management/Error_Codes.html">9.5. 错误码</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="10_Audio_Frequency.html">10. 音频</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="10_Audio_Frequency/Function_Overview.html">10.1. 功能概述</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Function_Overview.html#id2">10.1.1. 目的</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Function_Overview.html#id3">10.1.2. 定义及缩写</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="10_Audio_Frequency/Design_Overview.html">10.2. 设计概述</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Design_Overview.html#id2">10.2.1. 系统架构</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Design_Overview.html#id3">10.2.2. 音频输入与输出</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Design_Overview.html#audio-inputaudio-output">10.2.2.1. 音频接口及Audio Input、Audio Output设备</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Design_Overview.html#id4">10.2.2.2. 录音与播放原理</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Design_Overview.html#id5">10.2.2.3. 音频接口时序</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Design_Overview.html#id6">10.2.2.4. 重采样</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Design_Overview.html#vqe">10.2.2.5. 语音音质增强 (VQE)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Design_Overview.html#id7">10.2.3. 音频编码与解码</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Design_Overview.html#id8">10.2.3.1. 音频编解码流程</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Design_Overview.html#id9">10.2.3.2. 音频编解码协议</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Design_Overview.html#id10">10.2.3.3. 语音帧结构</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html">10.3. API参考</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#id1">10.3.1. 模块属性API</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-audio-init">10.3.1.1. CVI_AUDIO_INIT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-audio-deinit">10.3.1.2. CVI_AUDIO_DEINIT</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-aud-sys-bind">10.3.1.3. CVI_AUD_SYS_Bind</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-aud-sys-unbind">10.3.1.4. CVI_AUD_SYS_UnBind</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#id2">10.3.2. 音频输入</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-setpubattr">10.3.2.1. CVI_AI_SetPubAttr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-getpubattr">10.3.2.2. CVI_AI_GetPubAttr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-enable">10.3.2.3. CVI_AI_Enable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-disable">10.3.2.4. CVI_AI_Disable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-enablechn">10.3.2.5. CVI_AI_EnableChn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-disablechn">10.3.2.6. CVI_AI_DisableChn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-getframe">10.3.2.7. CVI_AI_GetFrame</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-releaseframe">10.3.2.8. CVI_AI_ReleaseFrame</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-setchnparam">10.3.2.9. CVI_AI_SetChnParam</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-getchnparam">10.3.2.10. CVI_AI_GetChnParam</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-enableresmp">10.3.2.11. CVI_AI_EnableReSmp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-disableresmp">10.3.2.12. CVI_AI_DisableReSmp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-clrpubattr">10.3.2.13. CVI_AI_ClrPubAttr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-savefile">10.3.2.14. CVI_AI_SaveFile</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-queryfilestatus">10.3.2.15. CVI_AI_QueryFileStatus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-enableaecrefframe">10.3.2.16. CVI_AI_EnableAecRefFrame</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-disableaecrefframe">10.3.2.17. CVI_AI_DisableAecRefFrame</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-setvolume">10.3.2.18. CVI_AI_SetVolume</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-getvolume">10.3.2.19. CVI_AI_GetVolume</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-setstereovolume">10.3.2.20. CVI_AI_SetStereoVolume</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-getstereovolume">10.3.2.21. CVI_AI_GetStereoVolume</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#id3">10.3.3. 语音音质增强API</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-setvqeattr">10.3.3.1. CVI_AI_SetVqeAttr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-settalkvqeattr">10.3.3.2. CVI_AI_SetTalkVqeAttr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-gettalkvqeattr">10.3.3.3. CVI_AI_GetTalkVqeAttr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-setrecordvqeattr">10.3.3.4. CVI_AI_SetRecordVqeAttr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-getrecordvqeattr">10.3.3.5. CVI_AI_GetRecordVqeAttr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-enablevqe">10.3.3.6. CVI_AI_EnableVqe</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-disablevqe">10.3.3.7. CVI_AI_DisableVqe</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-settrackmode">10.3.3.8. CVI_AI_SetTrackMode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-gettrackmode">10.3.3.9. CVI_AI_GetTrackMode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ao-setvqeattr">10.3.3.10. CVI_AO_SetVqeAttr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ao-getvqeattr">10.3.3.11. CVI_AO_GetVqeAttr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ao-enablevqe">10.3.3.12. CVI_AO_EnableVqe</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ao-disablevqe">10.3.3.13. CVI_AO_DisableVqe</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-setvqevolume">10.3.3.14. CVI_AI_SetVqeVolume</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-getvqevolume">10.3.3.15. CVI_AI_GetVqeVolume</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ai-vqefunconfig">10.3.3.16. CVI_AI_VqeFunConfig</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-vqe-pathselect">10.3.3.17. CVI_VQE_PathSelect</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#id5">10.3.4. 音频输出</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ao-setpubattr">10.3.4.1. CVI_AO_SetPubAttr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ao-getpubattr">10.3.4.2. CVI_AO_GetPubAttr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ao-enable">10.3.4.3. CVI_AO_Enable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ao-disable">10.3.4.4. CVI_AO_Disable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ao-enablechn">10.3.4.5. CVI_AO_EnableChn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ao-disablechn">10.3.4.6. CVI_AO_DisableChn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ao-sendframe">10.3.4.7. CVI_AO_SendFrame</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ao-setstereovolume">10.3.4.8. CVI_AO_SetStereoVolume</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ao-getstereovolume">10.3.4.9. CVI_AO_GetStereoVolume</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ao-enableresmp">10.3.4.10. CVI_AO_EnableReSmp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ao-disableresmp">10.3.4.11. CVI_AO_DisableReSmp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ao-pausechn">10.3.4.12. CVI_AO_PauseChn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ao-resumechn">10.3.4.13. CVI_AO_ResumeChn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ao-clearchnbuf">10.3.4.14. CVI_AO_ClearChnBuf</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ao-querychnstat">10.3.4.15. CVI_AO_QueryChnStat</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ao-settrackmode">10.3.4.16. CVI_AO_SetTrackMode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ao-gettrackmode">10.3.4.17. CVI_AO_GetTrackMode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ao-setvolume">10.3.4.18. CVI_AO_SetVolume</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ao-getvolume">10.3.4.19. CVI_AO_GetVolume</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ao-setmute">10.3.4.20. CVI_AO_SetMute</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ao-getmute">10.3.4.21. CVI_AO_GetMute</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ao-savefile">10.3.4.22. CVI_AO_SaveFile</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-ao-clrpubattr">10.3.4.23. CVI_AO_ClrPubAttr</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#id9">10.3.5. 音频编码</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-aenc-createchn">10.3.5.1. CVI_AENC_CreateChn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-aenc-destroychn">10.3.5.2. CVI_AENC_DestroyChn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-aenc-sendframe">10.3.5.3. CVI_AENC_SendFrame</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-aenc-getstream">10.3.5.4. CVI_AENC_GetStream</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-aenc-releasestream">10.3.5.5. CVI_AENC_ReleaseStream</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-aenc-savefile">10.3.5.6. CVI_AENC_SaveFile</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-aenc-getstreambufinfo">10.3.5.7. CVI_AENC_GetStreamBufInfo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-aenc-setmute">10.3.5.8. CVI_AENC_SetMute</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-aenc-getmute">10.3.5.9. CVI_AENC_GetMute</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#id10">10.3.6. 音频解码</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-adec-createchn">10.3.6.1. CVI_ADEC_CreateChn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-adec-destroychn">10.3.6.2. CVI_ADEC_DestroyChn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-adec-sendstream">10.3.6.3. CVI_ADEC_SendStream</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-adec-clearchnbuf">10.3.6.4. CVI_ADEC_ClearChnBuf</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-adec-getframe">10.3.6.5. CVI_ADEC_GetFrame</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-adec-releaseframe">10.3.6.6. CVI_ADEC_ReleaseFrame</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-adec-sendendofstream">10.3.6.7. CVI_ADEC_SendEndOfStream</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#id11">10.3.7. 重采样</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-resampler-create">10.3.7.1. CVI_Resampler_Create</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-resampler-process">10.3.7.2. CVI_Resampler_Process</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-resampler-destroy">10.3.7.3. CVI_Resampler_Destroy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/API_Reference.html#cvi-resampler-getmaxoutputnum">10.3.7.4. CVI_Resampler_GetMaxOutputNum</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html">10.4. 数据类型</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#id2">10.4.1. 音频输入/输出</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#ai-dev-max-num">10.4.1.1. AI_DEV_MAX_NUM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#ao-dev-max-num">10.4.1.2. AO_DEV_MAX_NUM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#cvi-aud-max-channel-num">10.4.1.3. CVI_AUD_MAX_CHANNEL_NUM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#ai-talkvqe-mask-aec">10.4.1.4. AI_TALKVQE_MASK_AEC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#ai-talkvqe-mask-agc">10.4.1.5. AI_TALKVQE_MASK_AGC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#ai-talkvqe-mask-anr">10.4.1.6. AI_TALKVQE_MASK_ANR</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#ai-recordvqe-mask-agc">10.4.1.7. AI_RECORDVQE_MASK_AGC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#max-audio-file-path-len">10.4.1.8. MAX_AUDIO_FILE_PATH_LEN</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#max-audio-file-name-len">10.4.1.9. MAX_AUDIO_FILE_NAME_LEN</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#cvi-max-ai-device-id-num">10.4.1.10. CVI_MAX_AI_DEVICE_ID_NUM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#cvi-max-ai-card-id-num">10.4.1.11. CVI_MAX_AI_CARD_ID_NUM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#cvi-max-ao-device-id-num">10.4.1.12. CVI_MAX_AO_DEVICE_ID_NUM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#cvi-max-ao-card-id-num">10.4.1.13. CVI_MAX_AO_CARD_ID_NUM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#cvi-max-audio-frame-num">10.4.1.14. CVI_MAX_AUDIO_FRAME_NUM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#cvi-aud-max-voice-point-num">10.4.1.15. CVI_AUD_MAX_VOICE_POINT_NUM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#cvi-aud-max-audio-point-num">10.4.1.16. CVI_AUD_MAX_AUDIO_POINT_NUM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#cvi-max-audio-stream-len">10.4.1.17. CVI_MAX_AUDIO_STREAM_LEN</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#max-audio-vqe-customize-name">10.4.1.18. MAX_AUDIO_VQE_CUSTOMIZE_NAME</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#audio-clksel-e">10.4.1.19. AUDIO_CLKSEL_E</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#audio-sample-rate-e">10.4.1.20. AUDIO_SAMPLE_RATE_E</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#audio-bit-width-e">10.4.1.21. AUDIO_BIT_WIDTH_E</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#aio-mode-e">10.4.1.22. AIO_MODE_E</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#aio-i2stype-e">10.4.1.23. AIO_I2STYPE_E</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#audio-sound-mode-e">10.4.1.24. AUDIO_SOUND_MODE_E</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#audio-mod-param-s">10.4.1.25. AUDIO_MOD_PARAM_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#aio-attr-s">10.4.1.26. AIO_ATTR_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#ai-chn-param-s">10.4.1.27. AI_CHN_PARAM_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#audio-frame-s">10.4.1.28. AUDIO_FRAME_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#aec-frame-s">10.4.1.29. AEC_FRAME_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#audio-agc-config-s">10.4.1.30. AUDIO_AGC_CONFIG_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#ai-aec-config-s">10.4.1.31. AI_AEC_CONFIG_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#audio-anr-config-s">10.4.1.32. AUDIO_ANR_CONFIG_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#audio-delay-config-s">10.4.1.33. AUDIO_DELAY_CONFIG_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#vqe-workstate-e">10.4.1.34. VQE_WORKSTATE_E</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#vqe-record-type">10.4.1.35. VQE_RECORD_TYPE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#ai-talkvqe-config-s">10.4.1.36. AI_TALKVQE_CONFIG_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#ai-recordvqe-config-s">10.4.1.37. AI_RECORDVQE_CONFIG_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#audio-stream-s">10.4.1.38. AUDIO_STREAM_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#ao-chn-state-s">10.4.1.39. AO_CHN_STATE_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#audio-track-mode-e">10.4.1.40. AUDIO_TRACK_MODE_E</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#audio-fade-rate-e">10.4.1.41. AUDIO_FADE_RATE_E</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#audio-fade-s">10.4.1.42. AUDIO_FADE_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#g726-bps-e">10.4.1.43. G726_BPS_E</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#adpcm-type-e">10.4.1.44. ADPCM_TYPE_E</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#audio-save-file-info-s">10.4.1.45. AUDIO_SAVE_FILE_INFO_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#cvi-hpf-config-s">10.4.1.46. CVI_HPF_CONFIG_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#cvi-eq-config-s">10.4.1.47. CVI_EQ_CONFIG_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#cvi-drc-limiter-param">10.4.1.48. CVI_DRC_LIMITER_PARAM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#cvi-drc-expander-param">10.4.1.49. CVI_DRC_EXPANDER_PARAM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#cvi-drc-compressor-param">10.4.1.50. CVI_DRC_COMPRESSOR_PARAM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#audio-spk-eq-config-s">10.4.1.51. AUDIO_SPK_EQ_CONFIG_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#ao-vqe-config-s">10.4.1.52. AO_VQE_CONFIG_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#hpf-filter-type">10.4.1.53. HPF_FILTER_TYPE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#audio-spk-agc-config-s">10.4.1.54. AUDIO_SPK_AGC_CONFIG_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#audio-file-status-s">10.4.1.55. AUDIO_FILE_STATUS_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#vqe-module-config-s">10.4.1.56. VQE_MODULE_CONFIG_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#audio-vqe-register-s">10.4.1.57. AUDIO_VQE_REGISTER_S</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#id3">10.4.2. 音频编码</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#aenc-max-chn-num">10.4.2.1. AENC_MAX_CHN_NUM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#aenc-attr-g711-s">10.4.2.2. AENC_ATTR_G711_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#aenc-attr-g726-s">10.4.2.3. AENC_ATTR_G726_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#aenc-attr-adpcm-s">10.4.2.4. AENC_ATTR_ADPCM_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#aenc-attr-lpcm-s">10.4.2.5. AENC_ATTR_LPCM_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#aenc-chn-attr-s">10.4.2.6. AENC_CHN_ATTR_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#aac-aenc-encoder-s">10.4.2.7. AAC_AENC_ENCODER_S</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#id4">10.4.3. 音频解码</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#max-audio-frame-num">10.4.3.1. MAX_AUDIO_FRAME_NUM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#adec-max-chn-num">10.4.3.2. ADEC_MAX_CHN_NUM</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#adec-attr-g711-s">10.4.3.3. ADEC_ATTR_G711_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#adec-attr-g726-s">10.4.3.4. ADEC_ATTR_G726_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#adec-attr-adpcm-s">10.4.3.5. ADEC_ATTR_ADPCM_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#adec-attr-lpcm-s">10.4.3.6. ADEC_ATTR_LPCM_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#adec-mode-e">10.4.3.7. ADEC_MODE_E</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#adec-chn-attr-s">10.4.3.8. ADEC_CHN_ATTR_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#audio-frame-info-s">10.4.3.9. AUDIO_FRAME_INFO_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="10_Audio_Frequency/Data_Types.html#adec-decoder-s">10.4.3.10. ADEC_DECODER_S</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="10_Audio_Frequency/Error_Codes.html">10.5. 错误码</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Error_Codes.html#id2">10.5.1. 音频基础属性错误码</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Error_Codes.html#id3">10.5.2. 音频输入错误码</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Error_Codes.html#id4">10.5.3. 音频输出错误码</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Error_Codes.html#id5">10.5.4. 音频编码错误码</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Error_Codes.html#id6">10.5.5. 音频解码错误码</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="10_Audio_Frequency/Related_Tests.html">10.6. 相关测试</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Related_Tests.html#id2">10.6.1. 单元测试</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Related_Tests.html#id3">10.6.2. 功能测试</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Related_Tests.html#id4">10.6.3. 性能测试</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="10_Audio_Frequency/Sample_Code_and_Board-side_Component_Preliminary_Testing.html">10.7. 范例码及板端初步测试</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Sample_Code_and_Board-side_Component_Preliminary_Testing.html#id2">10.7.1. 范例码说明</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_Audio_Frequency/Sample_Code_and_Board-side_Component_Preliminary_Testing.html#id3">10.7.2. 板端初步测试</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem.html">11. 几何畸变矫正子系统</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/Function_Overview.html">11.1. 功能概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/Design_Overview.html">11.2. 设计概述</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/Design_Overview.html#id2">11.2.1. 系统架构</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/API_Reference.html">11.3. API参考</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/API_Reference.html#cvi-gdc-init">11.3.1. CVI_GDC_Init</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/API_Reference.html#cvi-gdc-deinit">11.3.2. CVI_GDC_DeInit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/API_Reference.html#cvi-gdc-beginjob">11.3.3. CVI_GDC_BeginJob</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/API_Reference.html#cvi-gdc-endjob">11.3.4. CVI_GDC_EndJob</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/API_Reference.html#cvi-gdc-canceljob">11.3.5. CVI_GDC_CancelJob</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/API_Reference.html#cvi-gdc-setjobidentity">11.3.6. CVI_GDC_SetJobIdentity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/API_Reference.html#cvi-gdc-addrotationtask">11.3.7. CVI_GDC_AddRotationTask</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/API_Reference.html#cvi-gdc-genldcmesh">11.3.8. CVI_GDC_GenLDCMesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/API_Reference.html#cvi-gdc-addldctask">11.3.9. CVI_GDC_AddLDCTask</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/API_Reference.html#cvi-gdc-loadldcmesh">11.3.10. CVI_GDC_LoadLDCMesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/API_Reference.html#cvi-gdc-dumpmesh">11.3.11. CVI_GDC_DumpMesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/API_Reference.html#cvi-gdc-loadmesh">11.3.12. CVI_GDC_LoadMesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/API_Reference.html#cvi-gdc-loadmeshwithbuf">11.3.13. CVI_GDC_LoadMeshWithBuf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/API_Reference.html#cvi-gdc-getworkjob">11.3.14. CVI_GDC_GetWorkJob</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/API_Reference.html#cvi-gdc-getchnframe">11.3.15. CVI_GDC_GetChnFrame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/API_Reference.html#cvi-gdc-suspend">11.3.16. CVI_GDC_Suspend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/API_Reference.html#cvi-gdc-resume">11.3.17. CVI_GDC_Resume</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/Data_Types.html">11.4. 数据类型</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/Data_Types.html#gdc-handle">11.4.1. GDC_HANDLE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/Data_Types.html#ldc-align">11.4.2. LDC_ALIGN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/Data_Types.html#gdc-proc-job-info-num">11.4.3. GDC_PROC_JOB_INFO_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/Data_Types.html#gdc-min-image-width">11.4.4. GDC_MIN_IMAGE_WIDTH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/Data_Types.html#gdc-min-image-height">11.4.5. GDC_MIN_IMAGE_HEIGHT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/Data_Types.html#gdc-max-image-width">11.4.6. GDC_MAX_IMAGE_WIDTH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/Data_Types.html#gdc-max-image-height">11.4.7. GDC_MAX_IMAGE_HEIGHT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/Data_Types.html#gdc-task-attr-s">11.4.8. GDC_TASK_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/Data_Types.html#ldc-attr-s">11.4.9. LDC_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/Data_Types.html#grid-info-attr-s">11.4.10. GRID_INFO_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/Data_Types.html#mesh-dump-attr-s">11.4.11. MESH_DUMP_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/Data_Types.html#vi-mesh-attr-s">11.4.12. VI_MESH_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/Data_Types.html#vpss-mesh-attr-s">11.4.13. VPSS_MESH_ATTR_S</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="11_Geometric_Distortion_Correction_Subsystem/Error_Codes.html">11.5. 错误码</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="12_Proc_Debugging_Information_Explanation.html">12. Proc 调试信息说明</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="12_Proc_Debugging_Information_Explanation/Function_Overview.html">12.1. 功能概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12_Proc_Debugging_Information_Explanation/AI.html">12.2. AI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12_Proc_Debugging_Information_Explanation/AO.html">12.3. AO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12_Proc_Debugging_Information_Explanation/VENC.html">12.4. VENC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12_Proc_Debugging_Information_Explanation/H265E.html">12.5. H265E</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12_Proc_Debugging_Information_Explanation/H264E.html">12.6. H264E</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12_Proc_Debugging_Information_Explanation/JPEGE.html">12.7. JPEGE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12_Proc_Debugging_Information_Explanation/RC.html">12.8. RC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12_Proc_Debugging_Information_Explanation/VDEC.html">12.9. VDEC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12_Proc_Debugging_Information_Explanation/LOG.html">12.10. LOG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12_Proc_Debugging_Information_Explanation/SYS.html">12.11. SYS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12_Proc_Debugging_Information_Explanation/VB.html">12.12. VB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12_Proc_Debugging_Information_Explanation/GDC.html">12.13. GDC</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12_Proc_Debugging_Information_Explanation/REGION.html">12.14. REGION</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12_Proc_Debugging_Information_Explanation/VI.html">12.15. VI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12_Proc_Debugging_Information_Explanation/VO.html">12.16. VO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12_Proc_Debugging_Information_Explanation/VPSS.html">12.17. VPSS</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="1_disclaimer.html" class="btn btn-neutral float-right" title="1. 声明" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

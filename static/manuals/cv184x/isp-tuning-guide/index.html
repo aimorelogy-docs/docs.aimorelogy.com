@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV184x ISP图像调优使用手册 &mdash; ISPTuningGuide master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="1. 声明" href="1_disclaimer.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html#" class="icon icon-home"> ISPTuningGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_PQ_Tuning_Text_Files_Relationship_Description.html">2. PQ调优文档关系说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_ISP_System_Overview.html">3. ISP 系统概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html">4. 图像质量调优整体概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_Module_Function.html">5. 模块功能</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html#">ISPTuningGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html#" class="icon icon-home"></a> &raquo;</li>
+      <li>CV184x ISP图像调优使用手册</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cv184x-isp">
+<h1>CV184x ISP图像调优使用手册<a class="headerlink" href="index.html#cv184x-isp" title="永久链接至标题">¶</a></h1>
+<p><strong>修订记录</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 13%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Revision</p></th>
+<th class="head"><p>Date</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0.1.0</p></td>
+<td><p>2025/03/31</p></td>
+<td><p>Initial release</p></td>
+</tr>
+</tbody>
+</table>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_PQ_Tuning_Text_Files_Relationship_Description.html">2. PQ调优文档关系说明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_ISP_System_Overview.html">3. ISP 系统概述</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3_ISP_System_Overview.html#id1">3.1. 功能简介</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_ISP_System_Overview.html#id2">3.2. 功能框图</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_ISP_System_Overview.html#id4">3.3. 各模块简介</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html">4. 图像质量调优整体概述</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#ipc">4.1. IPC应用图像调优概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#id2">4.2. 线性模式图像质量调优</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#sensor">4.2.1. Sensor对接</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#id5">4.2.2. Sensor和镜头标定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#id8">4.2.3. 亮度维度</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#id9">4.2.4. 色彩维度</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#id10">4.2.5. 对比度维度</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#id12">4.2.6. 清晰度和噪声维度</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#wdr">4.3. WDR模式图像质量调优</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#id14">4.3.1. WDR模式背光场景人脸的亮度提升调试方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#id16">4.3.2. 亮度维度</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#id17">4.3.3. 合成区的运动拖尾维度</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#id18">4.3.4. 场景的动态范围维度</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#id19">4.3.5. 色彩维度</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#id20">4.3.6. 对比度维度</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#id21">4.3.7. 清晰度和噪声维度</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#id22">4.3.8. WDR模式夜晚强光抑制场景调试方法</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#id24">4.3.9. 亮度维度</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#id25">4.3.10. 合成区的运动拖尾维度</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#id26">4.3.11. 场景的动态范围维度</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#id27">4.3.12. 色彩维度</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#id28">4.3.13. 对比度维度</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#id29">4.3.14. 清晰度和噪声维度</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="5_Module_Function.html">5. 模块功能</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="5_Module_Function.html#id2">5.1. 黑电平</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="5_Module_Function.html#id3">5.1.1. 黑电平标定方法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id5">5.1.1.1. 环境及相关器材准备</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id6">5.1.1.2. 黑电平标定工具界面</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id8">5.1.1.3. 黑电平标定步骤</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="5_Module_Function.html#dpc">5.2. DPC</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="5_Module_Function.html#id9">5.2.1. DPC调试方法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id10">5.2.1.1. 功能描述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id11">5.2.1.2. 关键参数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id13">5.2.1.3. 调试步骤</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="5_Module_Function.html#crosstalk-removal">5.3. CrossTalk Removal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="5_Module_Function.html#id16">5.3.1. CrossTalk Removal调试方法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id17">5.3.1.1. 功能描述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id20">5.3.1.2. 关键参数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id23">5.3.1.3. 调试步骤</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="5_Module_Function.html#lens-shading-correction-lsc">5.4. Lens Shading Correction (LSC)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="5_Module_Function.html#lsc">5.4.1. LSC标定方法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id26">5.4.1.1. 环境及相关器材准备</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id29">5.4.1.2. LSC标定工具界面</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id31">5.4.1.3. LSC标定步骤</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="5_Module_Function.html#id32">5.4.2. LSC调试方法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id34">5.4.2.1. 功能描述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id36">5.4.2.2. 关键参数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id38">5.4.2.3. 调试步骤</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="5_Module_Function.html#white-balance">5.5. White Balance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="5_Module_Function.html#awb">5.5.1. AWB标定方法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id43">5.5.1.1. 环境及相关器材准备</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id46">5.5.1.2. AWB标定工具界面</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id48">5.5.1.3. AWB标定步骤</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="5_Module_Function.html#id49">5.5.2. AWB调试方法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id51">5.5.2.1. 功能描述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id53">5.5.2.2. 关键参数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id56">5.5.2.3. 调试步骤</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="5_Module_Function.html#bnr">5.6. BNR</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="5_Module_Function.html#id58">5.6.1. BNR调试方法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id60">5.6.1.1. 功能描述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id62">5.6.1.2. 关键参数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id65">5.6.1.3. 调试步骤</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="5_Module_Function.html#demosaic">5.7. Demosaic</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="5_Module_Function.html#id68">5.7.1. Demosaic调试方法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id70">5.7.1.1. 功能描述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id72">5.7.1.2. 关键参数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id75">5.7.1.3. 调试步骤</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="5_Module_Function.html#wdr">5.8. WDR</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="5_Module_Function.html#id79">5.8.1. WDR调试方法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id80">5.8.1.1. 功能描述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id83">5.8.1.2. 关键参数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id86">5.8.1.3. 调试步骤</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="5_Module_Function.html#drc">5.9. DRC</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="5_Module_Function.html#id91">5.9.1. 功能描述</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Module_Function.html#id92">5.9.2. 关键参数</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Module_Function.html#id94">5.9.3. 调试步骤</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="5_Module_Function.html#pfr">5.10. PFR</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="5_Module_Function.html#id97">5.10.1. PFR调试方法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id98">5.10.1.1. 功能描述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id100">5.10.1.2. 关键参数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id103">5.10.1.3. 调试步骤</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="5_Module_Function.html#ccm">5.11. CCM</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="5_Module_Function.html#id106">5.11.1. CCM标定方法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id108">5.11.1.1. 环境及相关器材准备</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id110">5.11.1.2. CCM标定工具界面</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id112">5.11.1.3. CCM标定步骤</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="5_Module_Function.html#id113">5.11.2. CCM调试方法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id115">5.11.2.1. 功能描述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id117">5.11.2.2. 关键参数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id120">5.11.2.3. 调试步骤</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="5_Module_Function.html#gamma">5.12. Gamma</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="5_Module_Function.html#id122">5.12.1. Gamma调试方法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id124">5.12.1.1. 功能描述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id126">5.12.1.2. 关键参数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#gammacoeffislopeatzero">5.12.1.3. GammaCOEFFI和SlopeAtZero参数说明</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id129">5.12.1.4. 使用参数调试自定义曲线</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id130">5.12.1.5. 使用控制点调试自定义曲线</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="5_Module_Function.html#dehaze">5.13. Dehaze</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="5_Module_Function.html#id131">5.13.1. Dehaze调试方法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id133">5.13.1.1. 功能描述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id135">5.13.1.2. 关键参数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id138">5.13.1.3. 调试步骤</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id141">5.13.1.4. Dehaze 细调参数</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="5_Module_Function.html#clut">5.14. CLUT</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="5_Module_Function.html#id142">5.14.1. CLUT标定方法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id143">5.14.1.1. 环境及相关器材准备</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id145">5.14.1.2. CLUT标定工具界面</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id147">5.14.1.3. CLUT标定步骤</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="5_Module_Function.html#id149">5.14.2. CLUT调试方法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id150">5.14.2.1. 功能描述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id152">5.14.2.2. 关键参数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id155">5.14.2.3. 调试步骤</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="5_Module_Function.html#presharpen">5.15. PreSharpen</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="5_Module_Function.html#id160">5.15.1. PreSharpen调试方法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id161">5.15.1.1. 功能描述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id163">5.15.1.2. 关键参数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id166">5.15.1.3. 调试步骤</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="5_Module_Function.html#dnr">5.16. 3DNR</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="5_Module_Function.html#id178">5.16.1. 3DNR调试方法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id180">5.16.1.1. 功能描述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id182">5.16.1.2. 关键参数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id185">5.16.1.3. 调试步骤</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="5_Module_Function.html#cnr">5.17. CNR</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="5_Module_Function.html#id188">5.17.1. CNR调试方法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id190">5.17.1.1. 功能描述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id192">5.17.1.2. 关键参数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id195">5.17.1.3. 调试步骤</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="5_Module_Function.html#ca">5.18. CA</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="5_Module_Function.html#id202">5.18.1. CA调试方法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id203">5.18.1.1. 功能描述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id205">5.18.1.2. 关键参数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id208">5.18.1.3. 注意事项</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="5_Module_Function.html#dci">5.19. DCI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="5_Module_Function.html#id209">5.19.1. DCI调试方法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id211">5.19.1.1. 功能描述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id213">5.19.1.2. 关键参数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id216">5.19.1.3. 调试步骤</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="5_Module_Function.html#ldci">5.20. LDCI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="5_Module_Function.html#id219">5.20.1. LDCI调试方法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id221">5.20.1.1. 功能描述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id223">5.20.1.2. 关键参数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id226">5.20.1.3. 调试步骤</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="5_Module_Function.html#ca-lite">5.21. CA_Lite</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="5_Module_Function.html#id229">5.21.1. CA_Lite调试方法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id230">5.21.1.1. 功能描述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id232">5.21.1.2. 关键参数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id235">5.21.1.3. 调试步骤</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="5_Module_Function.html#sharpen">5.22. Sharpen</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="5_Module_Function.html#id237">5.22.1. Sharpen调试方法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id239">5.22.1.1. 功能描述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id241">5.22.1.2. 关键参数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id244">5.22.1.3. 调试步骤</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="5_Module_Function.html#auto-exposure">5.23. Auto Exposure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="5_Module_Function.html#id248">5.23.1. Auto Exposure调试方法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id249">5.23.1.1. 功能描述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id251">5.23.1.2. 关键参数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id253">5.23.1.3. 调试步骤</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="5_Module_Function.html#auto-focus">5.24. Auto Focus</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="5_Module_Function.html#id255">5.24.1. Auto Focus 调试方法</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id256">5.24.1.1. 功能描述</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id258">5.24.1.2. 关键参数</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Module_Function.html#id260">5.24.1.3. 调试步骤</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="1_disclaimer.html" class="btn btn-neutral float-right" title="1. 声明" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

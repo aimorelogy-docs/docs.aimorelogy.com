@@ -1,0 +1,1481 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>8.3. API参考 &mdash; MediaProcessingSoftwareDevelopmentReference master 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="../_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/qrious.js"></script>
+    <script src="../_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="8.4. 数据类型" href="Data_Types.html" />
+    <link rel="prev" title="8.2. 设计概述" href="Design_Overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> MediaProcessingSoftwareDevelopmentReference
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_System_Overview.html">2. 系统概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_System_Control.html">3. 系统控制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_Video_Input.html">4. 视频输入</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5_Video_Output.html">5. 视频输出</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6_Video_Processing_Subsystem.html">6. 视频处理子系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7_Video_Encoding.html">7. 视频编码</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../8_Video_Decoding.html">8. 视频解码</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Function_Overview.html">8.1. 功能概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Design_Overview.html">8.2. 设计概述</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="API_Reference.html#">8.3. API参考</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vdec-createchn">8.3.1. CVI_VDEC_CreateChn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vdec-destroychn">8.3.2. CVI_VDEC_DestroyChn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vdec-resetchn">8.3.3. CVI_VDEC_ResetChn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vdec-getchnattr">8.3.4. CVI_VDEC_GetChnAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vdec-setchnattr">8.3.5. CVI_VDEC_SetChnAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vdec-startrecvstream">8.3.6. CVI_VDEC_StartRecvStream</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vdec-stoprecvstream">8.3.7. CVI_VDEC_StopRecvStream</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vdec-querystatus">8.3.8. CVI_VDEC_QueryStatus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vdec-setchnparam">8.3.9. CVI_VDEC_SetChnParam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vdec-getchnparam">8.3.10. CVI_VDEC_GetChnParam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vdec-sendstream">8.3.11. CVI_VDEC_SendStream</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vdec-getframe">8.3.12. CVI_VDEC_GetFrame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vdec-releaseframe">8.3.13. CVI_VDEC_ReleaseFrame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vdec-setmodparam">8.3.14. CVI_VDEC_SetModParam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vdec-getmodparam">8.3.15. CVI_VDEC_GetModParam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vdec-attachvbpool">8.3.16. CVI_VDEC_AttachVbPool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vdec-detachvbpool">8.3.17. CVI_VDEC_DetachVbPool</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Data_Types.html">8.4. 数据类型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Error_Codes.html">8.5. 错误码</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../9_Regional_Management.html">9. 区域管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10_Audio_Frequency.html">10. 音频</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../11_Geometric_Distortion_Correction_Subsystem.html">11. 几何畸变矫正子系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../12_Proc_Debugging_Information_Explanation.html">12. Proc 调试信息说明</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MediaProcessingSoftwareDevelopmentReference</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../8_Video_Decoding.html"><span class="section-number">8. </span>视频解码</a> &raquo;</li>
+      <li><span class="section-number">8.3. </span>API参考</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="../_sources/8_Video_Decoding/API_Reference.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="api">
+<h1><span class="section-number">8.3. </span>API参考<a class="headerlink" href="API_Reference.html#api" title="永久链接至标题">¶</a></h1>
+<p>该功能模块为用户提供以下API：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vdec-createchn">CVI_VDEC_CreateChn</a> ：创建视频解码通道。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vdec-destroychn">CVI_VDEC_DestroyChn</a> ：销毁视频解码通道。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vdec-resetchn">CVI_VDEC_ResetChn</a> ：复位视频解码通道。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vdec-getchnattr">CVI_VDEC_GetChnAttr</a> ：获取视频解码通道属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vdec-setchnattr">CVI_VDEC_SetChnAttr</a> ：设置视频解码通道属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vdec-startrecvstream">CVI_VDEC_StartRecvStream</a> ：解码器开始接收用户发送的码流。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vdec-stoprecvstream">CVI_VDEC_StopRecvStream</a> ：解码器停止接收用户发送的码流。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vdec-querystatus">CVI_VDEC_QueryStatus</a> ：查询解码通道状态。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vdec-setchnparam">CVI_VDEC_SetChnParam</a> ：设置解码通道参数。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vdec-getchnparam">CVI_VDEC_GetChnParam</a> ：获取解码通道参数。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vdec-sendstream">CVI_VDEC_SendStream</a> ：向视频解码通道发送码流数据。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vdec-getframe">CVI_VDEC_GetFrame</a> ：获取视频解码通道的解码图像。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vdec-releaseframe">CVI_VDEC_ReleaseFrame</a> ：释放视频解码通道的解码图像。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vdec-setmodparam">CVI_VDEC_SetModParam</a> ：设置解码相关的模块参数。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vdec-getmodparam">CVI_VDEC_GetModParam</a> ：获取解码相关的模块参数。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vdec-attachvbpool">CVI_VDEC_AttachVbPool</a> ：将解码通道绑定到某个视频缓存 VB 池中。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vdec-detachvbpool">CVI_VDEC_DetachVbPool</a> ：将解码通道从某个视频缓存 VB 池中解绑定。</p></li>
+</ul>
+<section id="cvi-vdec-createchn">
+<h2><span class="section-number">8.3.1. </span>CVI_VDEC_CreateChn<a class="headerlink" href="API_Reference.html#cvi-vdec-createchn" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>创建视频解码通道。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VDEC_CreateChn</span><span class="p">(</span><span class="n">VDEC_CHN</span><span class="w"> </span><span class="n">VdChn</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">VDEC_CHN_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VdChn</p></td>
+<td><p>视频解码通道号。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstAttr</p></td>
+<td><p>解码通道属性指针。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，其值为 <a class="reference internal" href="Error_Codes.html#video-decoding-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vdec.h，cvi_comm_video.h，cvi_comm_vdec.h</p></li>
+<li><p>库文件：libvdec.so/libvdec.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>VDEC模块支持PT_JPEG/PT_MJPEG。</p></li>
+<li><p>系统内存不足时会返回 CVII_ERR_VDEC_NOMEM 的错误码。</p></li>
+<li><p>使用JPEG/MJPEG时要在创建解码信道之前要先创建专属于 VDEC 的模 块 VB 池，不同协议解码所需的图像 VB 块大小不同，可参考 <code class="docutils literal notranslate"><span class="pre">sample_vdec_lib.c</span></code> 内的vdecInitVBPool函式。</p></li>
+</ul>
+<p>【举例】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">SAMPLE_COMM_VDEC_Start</span><span class="p">(</span><span class="n">vdecChnCtx</span><span class="w"> </span><span class="o">*</span><span class="n">pvdchnCtx</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="c1">//设定VDEC 相关参数</span>
+<span class="w">  </span><span class="n">VDEC_CHN_ATTR_S</span><span class="w"> </span><span class="n">stChnAttr</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">pstChnAttr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">stChnAttr</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">VDEC_CHN</span><span class="w"> </span><span class="n">VdecChn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pvdchnCtx</span><span class="o">-&gt;</span><span class="n">VdecChn</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">SAMPLE_VDEC_ATTR</span><span class="w"> </span><span class="o">*</span><span class="n">psvdattr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">pvdchnCtx</span><span class="o">-&gt;</span><span class="n">stSampleVdecAttr</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">VDEC_CHN_PARAM_S</span><span class="w"> </span><span class="n">stChnParam</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">pstChnAttr</span><span class="o">-&gt;</span><span class="n">enType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">psvdattr</span><span class="o">-&gt;</span><span class="n">enType</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">pstChnAttr</span><span class="o">-&gt;</span><span class="n">enMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">psvdattr</span><span class="o">-&gt;</span><span class="n">enMode</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">pstChnAttr</span><span class="o">-&gt;</span><span class="n">u32PicWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">psvdattr</span><span class="o">-&gt;</span><span class="n">u32Width</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">pstChnAttr</span><span class="o">-&gt;</span><span class="n">u32PicHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">psvdattr</span><span class="o">-&gt;</span><span class="n">u32Height</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">pstChnAttr</span><span class="o">-&gt;</span><span class="n">u32StreamBufSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">psvdattr</span><span class="o">-&gt;</span><span class="n">u32Width</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">psvdattr</span><span class="o">-&gt;</span><span class="n">u32Height</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">pstChnAttr</span><span class="o">-&gt;</span><span class="n">u32FrameBufCnt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">psvdattr</span><span class="o">-&gt;</span><span class="n">u32FrameBufCnt</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="c1">//JPEG, MJPEG 需要设定VB buffer</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">psvdattr</span><span class="o">-&gt;</span><span class="n">enType</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">PT_JPEG</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">psvdattr</span><span class="o">-&gt;</span><span class="n">enType</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">PT_MJPEG</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">pstChnAttr</span><span class="o">-&gt;</span><span class="n">enMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">VIDEO_MODE_FRAME</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">pstChnAttr</span><span class="o">-&gt;</span><span class="n">u32FrameBufSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">VDEC_GetPicBufferSize</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="n">pstChnAttr</span><span class="o">-&gt;</span><span class="n">enType</span><span class="p">,</span><span class="w"> </span><span class="n">psvdattr</span><span class="o">-&gt;</span><span class="n">u32Width</span><span class="p">,</span><span class="w"> </span><span class="n">psvdattr</span><span class="o">-&gt;</span><span class="n">u32Height</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">psvdattr</span><span class="o">-&gt;</span><span class="n">stSapmleVdecPicture</span><span class="p">.</span><span class="n">enPixelFormat</span><span class="p">,</span><span class="w"> </span><span class="n">DATA_BITWIDTH_8</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="c1">//创建VDEC通道</span>
+<span class="w">  </span><span class="n">CHECK_CHN_RET</span><span class="p">(</span><span class="n">CVI_VDEC_CreateChn</span><span class="p">(</span><span class="n">VdecChn</span><span class="p">,</span><span class="w"> </span><span class="n">pstChnAttr</span><span class="p">),</span><span class="w"> </span><span class="n">VdecChn</span><span class="p">,</span><span class="w"></span>
+<span class="w">                                          </span><span class="s">&quot;CVI_VDEC_CreateChn&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="c1">//确认目前default 参数</span>
+<span class="w">  </span><span class="n">CHECK_CHN_RET</span><span class="p">(</span><span class="n">CVI_VDEC_GetChnParam</span><span class="p">(</span><span class="n">VdecChn</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">stChnParam</span><span class="p">),</span><span class="w"> </span><span class="n">VdecChn</span><span class="p">,</span><span class="w"></span>
+<span class="w">                                      </span><span class="s">&quot;CVI_VDEC_GetChnParam&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">psvdattr</span><span class="o">-&gt;</span><span class="n">enType</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">PT_JPEG</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">psvdattr</span><span class="o">-&gt;</span><span class="n">enType</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">PT_MJPEG</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">stChnParam</span><span class="p">.</span><span class="n">stVdecPictureParam</span><span class="p">.</span><span class="n">enPixelFormat</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">      </span><span class="n">psvdattr</span><span class="o">-&gt;</span><span class="n">stSapmleVdecPicture</span><span class="p">.</span><span class="n">enPixelFormat</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">stChnParam</span><span class="p">.</span><span class="n">stVdecPictureParam</span><span class="p">.</span><span class="n">u32Alpha</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">      </span><span class="n">psvdattr</span><span class="o">-&gt;</span><span class="n">stSapmleVdecPicture</span><span class="p">.</span><span class="n">u32Alpha</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="c1">//设定display frame..等参数</span>
+<span class="w">  </span><span class="n">stChnParam</span><span class="p">.</span><span class="n">u32DisplayFrameNum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">psvdattr</span><span class="o">-&gt;</span><span class="n">u32DisplayFrameNum</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="c1">//设定VDEC 参数</span>
+<span class="w">  </span><span class="n">CHECK_CHN_RET</span><span class="p">(</span><span class="n">CVI_VDEC_SetChnParam</span><span class="p">(</span><span class="n">VdecChn</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">stChnParam</span><span class="p">),</span><span class="w"> </span><span class="n">VdecChn</span><span class="p">,</span><span class="w"></span>
+<span class="w">                                    </span><span class="s">&quot;CVI_MPI_VDEC_GetChnParam&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="c1">//Enable VDEC frame 传输</span>
+<span class="w">  </span><span class="n">CHECK_CHN_RET</span><span class="p">(</span><span class="n">CVI_VDEC_StartRecvStream</span><span class="p">(</span><span class="n">VdecChn</span><span class="p">),</span><span class="w"> </span><span class="n">VdecChn</span><span class="p">,</span><span class="w"></span>
+<span class="w">                              </span><span class="s">&quot;CVI_MPI_VDEC_StartRecvStream&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">CVI_SUCCESS</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vdec-destroychn">CVI_VDEC_DestroyChn</a></p>
+</section>
+<section id="cvi-vdec-destroychn">
+<h2><span class="section-number">8.3.2. </span>CVI_VDEC_DestroyChn<a class="headerlink" href="API_Reference.html#cvi-vdec-destroychn" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>销毁视频解码通道。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VDEC_DestroyChn</span><span class="p">(</span><span class="n">VDEC_CHN</span><span class="w"> </span><span class="n">VdChn</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VdChn</p></td>
+<td><p>视频解码通道号。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，其值为 <a class="reference internal" href="Error_Codes.html#video-decoding-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vdec.h，cvi_comm_video.h，cvi_comm_vdec.h</p></li>
+<li><p>库文件：libvdec.so/libvdec.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>销毁前必须保证通道已创建，否则会返回通道未创建的错误。</p></li>
+<li><p>销毁前必须停止接收码流（或者尚未开始接收码流），否则返回错误。</p></li>
+</ul>
+<p>【举例】</p>
+<ul class="simple">
+<li><p>无。</p></li>
+</ul>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vdec-createchn">CVI_VDEC_CreateChn</a></p>
+</section>
+<section id="cvi-vdec-resetchn">
+<h2><span class="section-number">8.3.3. </span>CVI_VDEC_ResetChn<a class="headerlink" href="API_Reference.html#cvi-vdec-resetchn" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>复位通道。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VDEC_ResetChn</span><span class="p">(</span><span class="n">VDEC_CHN</span><span class="w"> </span><span class="n">VdChn</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VdChn</p></td>
+<td><p>通道号。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，其值为 <a class="reference internal" href="Error_Codes.html#video-decoding-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vdec.h，cvi_comm_video.h，cvi_comm_vdec.h</p></li>
+<li><p>库文件：libvdec.so/libvdec.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>Reset 并不存在的通道，返回失败CVI_FAILURE。</p></li>
+<li><p>如果一个通道没有停止接收码流而 reset 通道，则返回失败。</p></li>
+</ul>
+<p>【举例】</p>
+<ul class="simple">
+<li><p>无。</p></li>
+</ul>
+</section>
+<section id="cvi-vdec-getchnattr">
+<h2><span class="section-number">8.3.4. </span>CVI_VDEC_GetChnAttr<a class="headerlink" href="API_Reference.html#cvi-vdec-getchnattr" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>获取视频解码通道属性。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VDEC_GetChnAttr</span><span class="p">(</span><span class="n">VDEC_CHN</span><span class="w"> </span><span class="n">VdChn</span><span class="p">,</span><span class="w"> </span><span class="n">VDEC_CHN_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VdChn</p></td>
+<td><p>视频解码通道号。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstAttr</p></td>
+<td><p>解码通道属性指针。</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，其值为 <a class="reference internal" href="Error_Codes.html#video-decoding-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vdec.h，cvi_comm_video.h，cvi_comm_vdec.h</p></li>
+<li><p>库文件：libvdec.so/libvdec.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>VDEC 通道必须已经创建。</p></li>
+<li><p>此函式通常在 <a class="reference internal" href="API_Reference.html#cvi-vdec-setchnattr">CVI_VDEC_SetChnAttr</a> 前使用，或是在获取decoder frame之前呼叫，以确认通道正常。</p></li>
+</ul>
+<p>【举例】</p>
+<p>可参阅 <code class="docutils literal notranslate"><span class="pre">sample_common_vdec.c</span></code> 内的SAMPLE_COMM_VDEC_GetPic函式。</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_VOID</span><span class="w"> </span><span class="o">*</span><span class="nf">SAMPLE_COMM_VDEC_GetPic</span><span class="p">(</span><span class="n">CVI_VOID</span><span class="w"> </span><span class="o">*</span><span class="n">pArgs</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">VDEC_THREAD_PARAM_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstVdecThreadParam</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">VDEC_THREAD_PARAM_S</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">pArgs</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">fp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_NULL</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">s32Ret</span><span class="p">,</span><span class="w"> </span><span class="n">s32Cnt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">VDEC_CHN_ATTR_S</span><span class="w"> </span><span class="n">stAttr</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">VIDEO_FRAME_INFO_S</span><span class="w"> </span><span class="n">stVFrame</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_CHAR</span><span class="w"> </span><span class="n">cSaveFile</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="n">prctl</span><span class="p">(</span><span class="n">PR_SET_NAME</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;VdecGetPic&quot;</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="n">s32Ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_VDEC_GetChnAttr</span><span class="p">(</span><span class="n">pstVdecThreadParam</span><span class="o">-&gt;</span><span class="n">s32ChnId</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">stAttr</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s32Ret</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">CVI_SUCCESS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_VDEC_ERR</span><span class="p">(</span><span class="s">&quot;chn %d get chn attr fail for %#x!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">pstVdecThreadParam</span><span class="o">-&gt;</span><span class="n">s32ChnId</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">s32Ret</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">CVI_VOID</span><span class="w"> </span><span class="o">*</span><span class="p">)(</span><span class="n">CVI_FAILURE</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">stAttr</span><span class="p">.</span><span class="n">enType</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">PT_JPEG</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_VDEC_ERR</span><span class="p">(</span><span class="s">&quot;chn %d enType %d do not support save file!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">pstVdecThreadParam</span><span class="o">-&gt;</span><span class="n">s32ChnId</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">stAttr</span><span class="p">.</span><span class="n">enType</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">CVI_VOID</span><span class="w"> </span><span class="o">*</span><span class="p">)(</span><span class="n">CVI_FAILURE</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pstVdecThreadParam</span><span class="o">-&gt;</span><span class="n">eThreadCtrl</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">THREAD_CTRL_STOP</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">s32Ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_VDEC_GetFrame</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="n">pstVdecThreadParam</span><span class="o">-&gt;</span><span class="n">s32ChnId</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="o">&amp;</span><span class="n">stVFrame</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">pstVdecThreadParam</span><span class="o">-&gt;</span><span class="n">s32MilliSec</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_VDEC_TRACE</span><span class="p">(</span><span class="s">&quot;leave CVI_VDEC_GetFrame %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">s32Ret</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">...</span><span class="w"></span>
+<span class="w">    </span><span class="p">...</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vdec-setchnattr">CVI_VDEC_SetChnAttr</a></p>
+</section>
+<section id="cvi-vdec-setchnattr">
+<h2><span class="section-number">8.3.5. </span>CVI_VDEC_SetChnAttr<a class="headerlink" href="API_Reference.html#cvi-vdec-setchnattr" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>设置视频解码通道属性。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VDEC_SetChnAttr</span><span class="p">(</span><span class="n">VDEC_CHN</span><span class="w"> </span><span class="n">VdChn</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">VDEC_CHN_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VdChn</p></td>
+<td><p>视频解码通道号。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstAttr</p></td>
+<td><p>解码通道属性指针。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，其值为 <a class="reference internal" href="Error_Codes.html#video-decoding-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vdec.h，cvi_comm_video.h，cvi_comm_vdec.h</p></li>
+<li><p>库文件：libvdec.so/libvdec.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>VDEC 通道必须已经创建。</p></li>
+<li><p>切换通道属性之前必须先停止接收码流，否则返回错误。</p></li>
+</ul>
+<p>【举例】</p>
+<ul class="simple">
+<li><p>无。</p></li>
+</ul>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vdec-getchnattr">CVI_VDEC_GetChnAttr</a></p>
+</section>
+<section id="cvi-vdec-startrecvstream">
+<h2><span class="section-number">8.3.6. </span>CVI_VDEC_StartRecvStream<a class="headerlink" href="API_Reference.html#cvi-vdec-startrecvstream" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>解码器开始接收用户发送的码流。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VDEC_StartRecvStream</span><span class="p">(</span><span class="n">VDEC_CHN</span><span class="w"> </span><span class="n">VdChn</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VdChn</p></td>
+<td><p>视频解码通道号。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，其值为 <a class="reference internal" href="Error_Codes.html#video-decoding-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vdec.h，cvi_comm_video.h，cvi_comm_vdec.h</p></li>
+<li><p>库文件：libvdec.so/libvdec.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>启动接收码流前必须保证通道已创建，否则会返回错误。</p></li>
+</ul>
+<p>【举例】</p>
+<p>请参见 <a class="reference internal" href="API_Reference.html#cvi-vdec-createchn">CVI_VDEC_CreateChn</a> 举例</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vdec-createchn">CVI_VDEC_CreateChn</a></p>
+</section>
+<section id="cvi-vdec-stoprecvstream">
+<h2><span class="section-number">8.3.7. </span>CVI_VDEC_StopRecvStream<a class="headerlink" href="API_Reference.html#cvi-vdec-stoprecvstream" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>解码器停止接收用户发送的码流。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VDEC_StopRecvStream</span><span class="p">(</span><span class="n">VDEC_CHN</span><span class="w"> </span><span class="n">VdChn</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VdChn</p></td>
+<td><p>视频解码通道号。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，其值为 <a class="reference internal" href="Error_Codes.html#video-decoding-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vdec.h，cvi_comm_video.h，cvi_comm_vdec.h</p></li>
+<li><p>库文件：libvdec.so/libvdec.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>调用此接口，必须在 <a class="reference internal" href="API_Reference.html#cvi-vdec-destroychn">CVI_VDEC_DestroyChn</a> 之前。</p></li>
+</ul>
+<p>【举例】</p>
+<p>请参见 <code class="docutils literal notranslate"><span class="pre">sample_common_vdec.c</span></code> 内SAMPLE_COMM_VDEC_Stop:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">SAMPLE_COMM_VDEC_Stop</span><span class="p">(</span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">s32ChnNum</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">i</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">s32ChnNum</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">CHECK_CHN_RET</span><span class="p">(</span><span class="n">CVI_VDEC_DestroyChn</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;CVI_MPI_VDEC_DestroyChn&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">CHECK_CHN_RET</span><span class="p">(</span><span class="n">CVI_VDEC_StopRecvStream</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;CVI_MPI_VDEC_StopRecvStream&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">CVI_SUCCESS</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p>无。</p></li>
+</ul>
+</section>
+<section id="cvi-vdec-querystatus">
+<h2><span class="section-number">8.3.8. </span>CVI_VDEC_QueryStatus<a class="headerlink" href="API_Reference.html#cvi-vdec-querystatus" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>查询解码通道状态。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VDEC_QueryStatus</span><span class="p">(</span><span class="n">VDEC_CHN</span><span class="w"> </span><span class="n">VdChn</span><span class="p">,</span><span class="w"> </span><span class="n">VDEC_CHN_STATUS_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstStatus</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VdChn</p></td>
+<td><p>视频解码通道号。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstStatus</p></td>
+<td><p>视频解码通道状态结构体指针</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，其值为 <a class="reference internal" href="Error_Codes.html#video-decoding-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vdec.h，cvi_comm_video.h，cvi_comm_vdec.h</p></li>
+<li><p>库文件：libvdec.so/libvdec.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>查询解码通道状态前必须保证通道已创建，否则会返回错误。</p></li>
+</ul>
+<p>【举例】</p>
+<ul>
+<li><p>可参阅 <code class="docutils literal notranslate"><span class="pre">sample_common_vdec.c</span></code> 内之SAMPLE_COMM_VDEC_CmdCtrl用法。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vdec-querystatus">CVI_VDEC_QueryStatus</a> 让用户可以查询以下信息：</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>enType：解碼格式。</p></li>
+<li><p>bStartRecvStream：是否已经开始传送frame给予译码器。</p></li>
+<li><p>u32DecodeStreamFrames：已解碼frame数。</p></li>
+<li><p>u32LeftPics：剩余影像张数。</p></li>
+<li><p>stVdecDecErr：译码器错误状态（s32FormatErr：格式错误码，s32PicSizeErrSet：影像大小错误，s32StreamUnsprt：不支援码流格式…）。</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p>无。</p></li>
+</ul>
+</section>
+<section id="cvi-vdec-setchnparam">
+<span id="ref-cvi-vdec-setchnparam"></span><h2><span class="section-number">8.3.9. </span>CVI_VDEC_SetChnParam<a class="headerlink" href="API_Reference.html#cvi-vdec-setchnparam" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>设置解码通道参数。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VDEC_SetChnParam</span><span class="p">(</span><span class="n">VDEC_CHN</span><span class="w"> </span><span class="n">VdChn</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">VDEC_CHN_PARAM_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstParam</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VdChn</p></td>
+<td><p>视频解码通道号。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstParam</p></td>
+<td><p>通道参数。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，其值为 <a class="reference internal" href="Error_Codes.html#video-decoding-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vdec.h，cvi_comm_video.h，cvi_comm_vdec.h</p></li>
+<li><p>库文件：libvdec.so/libvdec.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>设置解码通道参数前必须保证通道已创建，否则会返回错误。</p></li>
+</ul>
+<p>【举例】</p>
+<p>参阅 <code class="docutils literal notranslate"><span class="pre">sample_common_vdec.c</span></code> 内SAMPLE_COMM_VDEC_Start函式：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">SAMPLE_COMM_VDEC_Start</span><span class="p">(</span><span class="n">vdecChnCtx</span><span class="w"> </span><span class="o">*</span><span class="n">pvdchnCtx</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">VDEC_CHN_ATTR_S</span><span class="w"> </span><span class="n">stChnAttr</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="n">pstChnAttr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">stChnAttr</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">VDEC_CHN</span><span class="w"> </span><span class="n">VdecChn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pvdchnCtx</span><span class="o">-&gt;</span><span class="n">VdecChn</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">SAMPLE_VDEC_ATTR</span><span class="w"> </span><span class="o">*</span><span class="n">psvdattr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">pvdchnCtx</span><span class="o">-&gt;</span><span class="n">stSampleVdecAttr</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">VDEC_CHN_PARAM_S</span><span class="w"> </span><span class="n">stChnParam</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">pstChnAttr</span><span class="o">-&gt;</span><span class="n">enType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">psvdattr</span><span class="o">-&gt;</span><span class="n">enType</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">pstChnAttr</span><span class="o">-&gt;</span><span class="n">enMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">psvdattr</span><span class="o">-&gt;</span><span class="n">enMode</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">pstChnAttr</span><span class="o">-&gt;</span><span class="n">u32PicWidth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">psvdattr</span><span class="o">-&gt;</span><span class="n">u32Width</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">pstChnAttr</span><span class="o">-&gt;</span><span class="n">u32PicHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">psvdattr</span><span class="o">-&gt;</span><span class="n">u32Height</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">pstChnAttr</span><span class="o">-&gt;</span><span class="n">u32StreamBufSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">psvdattr</span><span class="o">-&gt;</span><span class="n">u32Width</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">psvdattr</span><span class="o">-&gt;</span><span class="n">u32Height</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">pstChnAttr</span><span class="o">-&gt;</span><span class="n">u32FrameBufCnt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">psvdattr</span><span class="o">-&gt;</span><span class="n">u32FrameBufCnt</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">psvdattr</span><span class="o">-&gt;</span><span class="n">enType</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">PT_JPEG</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">psvdattr</span><span class="o">-&gt;</span><span class="n">enType</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">PT_MJPEG</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">pstChnAttr</span><span class="o">-&gt;</span><span class="n">enMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">VIDEO_MODE_FRAME</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">pstChnAttr</span><span class="o">-&gt;</span><span class="n">u32FrameBufSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">VDEC_GetPicBufferSize</span><span class="p">(</span><span class="w"></span>
+<span class="w">        </span><span class="n">pstChnAttr</span><span class="o">-&gt;</span><span class="n">enType</span><span class="p">,</span><span class="w"> </span><span class="n">psvdattr</span><span class="o">-&gt;</span><span class="n">u32Width</span><span class="p">,</span><span class="w"> </span><span class="n">psvdattr</span><span class="o">-&gt;</span><span class="n">u32Height</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">psvdattr</span><span class="o">-&gt;</span><span class="n">stSapmleVdecPicture</span><span class="p">.</span><span class="n">enPixelFormat</span><span class="p">,</span><span class="w"> </span><span class="n">DATA_BITWIDTH_8</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">CHECK_CHN_RET</span><span class="p">(</span><span class="n">CVI_VDEC_CreateChn</span><span class="p">(</span><span class="n">VdecChn</span><span class="p">,</span><span class="w"> </span><span class="n">pstChnAttr</span><span class="p">),</span><span class="w"> </span><span class="n">VdecChn</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;CVI_VDEC_CreateChn&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">CHECK_CHN_RET</span><span class="p">(</span><span class="n">CVI_VDEC_GetChnParam</span><span class="p">(</span><span class="n">VdecChn</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">stChnParam</span><span class="p">),</span><span class="w"> </span><span class="n">VdecChn</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;CVI_VDEC_GetChnParam&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">psvdattr</span><span class="o">-&gt;</span><span class="n">enType</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">PT_JPEG</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">psvdattr</span><span class="o">-&gt;</span><span class="n">enType</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">PT_MJPEG</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">stChnParam</span><span class="p">.</span><span class="n">stVdecPictureParam</span><span class="p">.</span><span class="n">enPixelFormat</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">      </span><span class="n">psvdattr</span><span class="o">-&gt;</span><span class="n">stSapmleVdecPicture</span><span class="p">.</span><span class="n">enPixelFormat</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">stChnParam</span><span class="p">.</span><span class="n">stVdecPictureParam</span><span class="p">.</span><span class="n">u32Alpha</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="w">      </span><span class="n">psvdattr</span><span class="o">-&gt;</span><span class="n">stSapmleVdecPicture</span><span class="p">.</span><span class="n">u32Alpha</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+<span class="w">  </span><span class="n">stChnParam</span><span class="p">.</span><span class="n">u32DisplayFrameNum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">psvdattr</span><span class="o">-&gt;</span><span class="n">u32DisplayFrameNum</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">CHECK_CHN_RET</span><span class="p">(</span><span class="n">CVI_VDEC_SetChnParam</span><span class="p">(</span><span class="n">VdecChn</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">stChnParam</span><span class="p">),</span><span class="w"> </span><span class="n">VdecChn</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;CVI_MPI_VDEC_GetChnParam&quot;</span><span class="p">);</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">CHECK_CHN_RET</span><span class="p">(</span><span class="n">CVI_VDEC_StartRecvStream</span><span class="p">(</span><span class="n">VdecChn</span><span class="p">),</span><span class="w"> </span><span class="n">VdecChn</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;CVI_MPI_VDEC_StartRecvStream&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">CVI_SUCCESS</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p>无。</p></li>
+</ul>
+</section>
+<section id="cvi-vdec-getchnparam">
+<span id="ref-cvi-vdec-getchnparam"></span><h2><span class="section-number">8.3.10. </span>CVI_VDEC_GetChnParam<a class="headerlink" href="API_Reference.html#cvi-vdec-getchnparam" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>获取解码通道参数。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VDEC_GetChnParam</span><span class="p">(</span><span class="n">VDEC_CHN</span><span class="w"> </span><span class="n">VdChn</span><span class="p">,</span><span class="w"> </span><span class="n">VDEC_CHN_PARAM_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstParam</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VdChn</p></td>
+<td><p>视频解码通道号。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstParam</p></td>
+<td><p>通道参数。</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，其值为 <a class="reference internal" href="Error_Codes.html#video-decoding-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vdec.h，cvi_comm_video.h，cvi_comm_vdec.h</p></li>
+<li><p>库文件：libvdec.so/libvdec.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>获取解码通道参数前必须保证通道已创建，否则会返回错误。</p></li>
+</ul>
+<p>【举例】</p>
+<p>可参阅 <code class="docutils literal notranslate"><span class="pre">sample_common_vdec.c</span></code> 内的SAMPLE_COMM_VDEC_Start函式。</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vdec-setchnparam">CVI_VDEC_SetChnParam</a></p>
+</section>
+<section id="cvi-vdec-sendstream">
+<h2><span class="section-number">8.3.11. </span>CVI_VDEC_SendStream<a class="headerlink" href="API_Reference.html#cvi-vdec-sendstream" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>发送码流数据至视频解码通道。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VDEC_SendStream</span><span class="p">(</span><span class="n">VDEC_CHN</span><span class="w"> </span><span class="n">VdChn</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">VDEC_STREAM_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstStream</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">s32MilliSec</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VdChn</p></td>
+<td><p>视频解码通道号。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstStream</p></td>
+<td><p>解码码流数据指针。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>s32MilliSec</p></td>
+<td><div class="line-block">
+<div class="line">送码流方式标志。</div>
+<div class="line">取值范围：</div>
+<div class="line">-1：阻塞。</div>
+<div class="line">0 ：非阻塞</div>
+<div class="line">其他正数：超时等待时间</div>
+</div>
+</td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，其值为 <a class="reference internal" href="Error_Codes.html#video-decoding-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vdec.h，cvi_comm_video.h，cvi_comm_vdec.h</p></li>
+<li><p>库文件：libvdec.so/libvdec.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>发送数据前必须保证已经调用 <a class="reference internal" href="API_Reference.html#cvi-vdec-createchn">CVI_VDEC_CreateChn</a> ， <a class="reference internal" href="API_Reference.html#cvi-vdec-startrecvstream">CVI_VDEC_StartRecvStream</a> 。</p></li>
+<li><p>此接口在mjpeg，jpeg译码状态下，送入长度0(pstStream-&gt;u32Len)会返回CVI_SUCCESS;</p></li>
+<li><p>译码失败会回传错误码：ERR_CVI_VDEC_SEND_STREAM。</p></li>
+</ul>
+<p>【举例】</p>
+<p>请参阅 <code class="docutils literal notranslate"><span class="pre">sample_common_vdec.c</span></code> 内SAMPLE_COMM_VDEC_SendStream函式。</p>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p>无。</p></li>
+</ul>
+</section>
+<section id="cvi-vdec-getframe">
+<h2><span class="section-number">8.3.12. </span>CVI_VDEC_GetFrame<a class="headerlink" href="API_Reference.html#cvi-vdec-getframe" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>获取视频解码通道的解码图像。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VDEC_GetFrame</span><span class="p">(</span><span class="n">VDEC_CHN</span><span class="w"> </span><span class="n">VdChn</span><span class="p">,</span><span class="w"> </span><span class="n">VIDEO_FRAME_INFO_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstFrameInfo</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">s32MilliSec</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VdChn</p></td>
+<td><p>视频解码通道号。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>s32MilliSec</p></td>
+<td><div class="line-block">
+<div class="line">获取图像方式标志。</div>
+<div class="line">取值范围：</div>
+<div class="line">-1：阻塞。</div>
+<div class="line">0 ：非阻塞</div>
+<div class="line">其他正数：超时等待时间</div>
+</div>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>pstFrameInfo</p></td>
+<td><p>获取的解码图像信息。</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，其值为 <a class="reference internal" href="Error_Codes.html#video-decoding-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vdec.h，cvi_comm_video.h，cvi_comm_vdec.h</p></li>
+<li><p>库文件：libvdec.so/libvdec.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>获取解码图像时必须保证通道已经被创建，否则返回错误。</p></li>
+</ul>
+<p>【举例】</p>
+<p>参阅 <code class="docutils literal notranslate"><span class="pre">sample_common_vdec.c</span></code> 内SAMPLE_COMM_VDEC_GetPic函式。</p>
+<p>【相关主题】</p>
+<p>无。</p>
+</section>
+<section id="cvi-vdec-releaseframe">
+<h2><span class="section-number">8.3.13. </span>CVI_VDEC_ReleaseFrame<a class="headerlink" href="API_Reference.html#cvi-vdec-releaseframe" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>释放视频解码通道的图像。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VDEC_ReleaseFrame</span><span class="p">(</span><span class="n">VDEC_CHN</span><span class="w"> </span><span class="n">VdChn</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">VIDEO_FRAME_INFO_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstFrameInfo</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VdChn</p></td>
+<td><p>视频解码通道号。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstFrameInfo</p></td>
+<td><p>解码后的图像信息指针</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，其值为 <a class="reference internal" href="Error_Codes.html#video-decoding-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vdec.h，cvi_comm_video.h，cvi_comm_vdec.h</p></li>
+<li><p>库文件：libvdec.so/libvdec.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>此接口需与 <a class="reference internal" href="API_Reference.html#cvi-vdec-getframe">CVI_VDEC_GetFrame</a> 配对使用，获取的数据应当在使用完之后立 即释放，如果不及时释放，会导致解码过程阻塞等待资源。</p></li>
+<li><p>释放的数据必须是 <a class="reference internal" href="API_Reference.html#cvi-vdec-getframe">CVI_VDEC_GetFrame</a> 从该通道获取的数据，不得对数据信 息结构体进行任何修改。</p></li>
+<li><p>释放视频解码信道的图像必须在信道销毁前。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无。</p>
+<p>【相关主题】</p>
+<p>无。</p>
+</section>
+<section id="cvi-vdec-setmodparam">
+<span id="ref-cvi-vdec-setmodparam"></span><h2><span class="section-number">8.3.14. </span>CVI_VDEC_SetModParam<a class="headerlink" href="API_Reference.html#cvi-vdec-setmodparam" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>设置解码相关的模块参数。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VDEC_SetModParam</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">VDEC_PARAM_MOD_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstModParam</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>pstModParam</p></td>
+<td><p>解码模块参数指针。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，其值为 <a class="reference internal" href="Error_Codes.html#video-decoding-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vdec.h，cvi_comm_video.h，cvi_comm_vdec.h</p></li>
+<li><p>库文件：libvdec.so/libvdec.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>此接口可以在通道创建前后呼叫。</p></li>
+<li><p>此接口主要用于设置对应解码VB pool获取方式，用户可透过结构体 <a class="reference internal" href="Data_Types.html#ref-vdec-param-mod-s"><span class="std std-ref">VDEC_PARAM_MOD_S</span></a> 内的 <code class="docutils literal notranslate"><span class="pre">VB_SOURCE_E</span></code> 类型变量设定VB mode。</p></li>
+</ul>
+<p>【举例】</p>
+<ul class="simple">
+<li><p>无。</p></li>
+</ul>
+</section>
+<section id="cvi-vdec-getmodparam">
+<span id="ref-cvi-vdec-getmodparam"></span><h2><span class="section-number">8.3.15. </span>CVI_VDEC_GetModParam<a class="headerlink" href="API_Reference.html#cvi-vdec-getmodparam" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>获取解码相关的模块参数。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VDEC_GetModParam</span><span class="p">(</span><span class="n">VDEC_PARAM_MOD_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstModParam</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>pstModParam</p></td>
+<td><p>解码模块参数指针。</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，其值为 <a class="reference internal" href="Error_Codes.html#video-decoding-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vdec.h，cvi_comm_video.h，cvi_comm_vdec.h</p></li>
+<li><p>库文件：libvdec.so/libvdec.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>通常在 <a class="reference internal" href="API_Reference.html#cvi-vdec-setmodparam">CVI_VDEC_SetModParam</a> 呼叫前搭配使用。</p></li>
+</ul>
+<p>【举例】</p>
+<ul class="simple">
+<li><p>无。</p></li>
+</ul>
+</section>
+<section id="cvi-vdec-attachvbpool">
+<span id="ref-cvi-vdec-attachvbpool"></span><h2><span class="section-number">8.3.16. </span>CVI_VDEC_AttachVbPool<a class="headerlink" href="API_Reference.html#cvi-vdec-attachvbpool" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>将解码通道绑定到某个视频缓存 VB 池中。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VDEC_AttachVbPool</span><span class="p">(</span><span class="n">VDEC_CHN</span><span class="w"> </span><span class="n">VdChn</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">VDEC_CHN_POOL_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstPool</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VdChn</p></td>
+<td><p>通道号。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstPool</p></td>
+<td><p>视频缓存VB 池的 Id  号</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，其值为 <a class="reference internal" href="Error_Codes.html#video-decoding-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vdec.h，cvi_comm_video.h，cvi_comm_vdec.h</p></li>
+<li><p>库文件：libvdec.so/libvdec.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>必须保证通道已创建，否则会返回CVI_FAILURE的错误码。</p></li>
+<li><p>用户必须调用接口 CVI_VB_CreatePool 创建一个视频缓存 VB 池，再通过调用 接口 <a class="reference internal" href="API_Reference.html#cvi-vdec-attachvbpool">CVI_VDEC_AttachVbPool</a> 把当前编码通道绑定到固定 PoolId 的 VB 池 中。可以把多个编码通道绑定到同一个 VB 池中，但是不能把同一个编码通道绑 定到多个 VB 池中。</p></li>
+<li><p>pstPool 必须是已创建 VB 池的有效 PoolId，包含存储 Picture 的 VB 池和存储存储 Picture 信息的 VB 池。</p></li>
+<li><p>用户调用此接口，必须确定透过 <a class="reference internal" href="API_Reference.html#cvi-vdec-setmodparam">CVI_VDEC_SetModParam</a> 设定在VB_SOURCE_USER模式。</p></li>
+</ul>
+<p>【举例】</p>
+<ul class="simple">
+<li><p>无。</p></li>
+</ul>
+</section>
+<section id="cvi-vdec-detachvbpool">
+<h2><span class="section-number">8.3.17. </span>CVI_VDEC_DetachVbPool<a class="headerlink" href="API_Reference.html#cvi-vdec-detachvbpool" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>将解码通道从某个视频缓存 VB 池中解绑定。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VDEC_DetachVbPool</span><span class="p">(</span><span class="n">VDEC_CHN</span><span class="w"> </span><span class="n">VdChn</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VdChn</p></td>
+<td><p>通道号。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败，其值为 <a class="reference internal" href="Error_Codes.html#video-decoding-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vdec.h，cvi_comm_video.h，cvi_comm_vdec.h</p></li>
+<li><p>库文件：libvdec.so/libvdec.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>必须保证通道已创建，否则会返回CVI_FAILURE的错误码。</p></li>
+</ul>
+<p>【举例】</p>
+<ul class="simple">
+<li><p>无。</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Design_Overview.html" class="btn btn-neutral float-left" title="8.2. 设计概述" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Data_Types.html" class="btn btn-neutral float-right" title="8.4. 数据类型" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

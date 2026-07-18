@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>11. 常见问题 &mdash; Sensor_Debugging_Guide master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="12. 颜色、去噪等矫正" href="12_Color_Noise_Reduction_and_Other_Corrections.html" />
+    <link rel="prev" title="10. AE相关验证" href="10_AE_Related_Verification.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Sensor_Debugging_Guide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Introduction_to_Sensor_Drivers.html">2. Sensor驱动介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Confirm_Specifications.html">3. 确认规格</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_Image_Output_Debugging.html">4. 图像输出调试(Linux非快启)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_Image_Output_Debugging.html">5. 图像输出调试(Alios快启)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_Image_Output_Verification.html">6. 图像输出验证</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_Basic_Functions_of_ISP.html">7. ISP基本功能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_Complete_the_AE_Configuration_Function.html">8. 完成AE配置功能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_Complete_Other_Functions.html">9. 完善其它功能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_AE_Related_Verification.html">10. AE相关验证</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="11_Common_Problem.html#">11. 常见问题</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="11_Common_Problem.html#proc">11.1. Proc讯息解读</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_Common_Problem.html#sensor-log">11.2. Sensor 相关log开启</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_Common_Problem.html#lane">11.3. 如何配置lane线序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_Common_Problem.html#mac">11.4. 如何选择MAC频率</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_Common_Problem.html#id2">11.5. 错误检查流程</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="11_Common_Problem.html#i2c-write-fail">11.5.1. I2C Write Fail</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_Common_Problem.html#decode-err">11.5.2. Decode err</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_Common_Problem.html#ecc-err">11.5.3. ECC err</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_Common_Problem.html#crc-err-word-count-err">11.5.4. CRC err/Word count err</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_Common_Problem.html#vi-select-timeout">11.5.5. vi_select timeout</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="12_Color_Noise_Reduction_and_Other_Corrections.html">12. 颜色、去噪等矫正</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_Debugging_Tool.html">13. 调试工具</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Sensor_Debugging_Guide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">11. </span>常见问题</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/11_Common_Problem.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">11. </span>常见问题<a class="headerlink" href="11_Common_Problem.html#id1" title="永久链接至标题">¶</a></h1>
+<section id="proc">
+<h2><span class="section-number">11.1. </span>Proc讯息解读<a class="headerlink" href="11_Common_Problem.html#proc" title="永久链接至标题">¶</a></h2>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/Common002.png"><img alt="_images/Common002.png" src="_images/Common002.png" style="width: 80%;" /></a>
+</figure>
+<p>Linux: # cat /proc/mipi-rx</p>
+<p>Alios: # proc_mipi_rx</p>
+<ul class="simple">
+<li><p>Combo DEV ATTR主要是对sensor的接口配置信息：</p></li>
+<li><p>Devno: sensor编号，0表示sensor0，1表示sensor1, 目前最大只支持2路sensor同时输入</p></li>
+<li><p>WorkMode:表示哪种接口类型（mipi/sublvds/ HISPI /BT656…）</p></li>
+<li><p>DateType:表示sensor数据格式（raw8/raw10/raw12/ YUV422_8BIT…）</p></li>
+<li><p>WDRMode:wdr模式（none表示非wdr，常见wdr mode:VC, DT, Manual）</p></li>
+<li><p>LinkId: lane线序配置</p></li>
+<li><p>PN swap:PN反转，如果有反转，要将该lane配置成1</p></li>
+<li><p>SyncMode/DataEndian/SyncCodeEnddian:对于mipi接口不支持因此无需配置，对于sublvds、hispi则需要配置</p></li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>MIPI INFO主要是mipi-rx解析到的信息：</p></li>
+<li><p>EccErr、CrcErr、HdrErr、WcErr: 如果不为0表示有出现Ecc,crc,wc等校验相关err，需要检查 lane mapping的正确性、mipi时序、lane硬件电路等。</p></li>
+<li><p>Fifofull:如果不为0表示mac速率太慢，需要提升mac clk.</p></li>
+<li><p>Decode:表示解析出的数据l类型（Raw12/raw10/raw8/YUV422…）</p></li>
+<li><p>PhySical:D0-D4表示lane总线上的数据，进入hi speed state后，D0-D4会有数据跳变。</p></li>
+<li><p>Digital：D0-D4显示进入hi speed state后的每条data lane状态。CK_HS、CK_ULPS、CK_ERR、Deskew表示clk lane状态，正常情况下CK_HS=1,其余的为0，但是非continues clk的情况下也会跳出 CK_HS=1,CK_STOP=1。</p></li>
+</ul>
+</section>
+<section id="sensor-log">
+<h2><span class="section-number">11.2. </span>Sensor 相关log开启<a class="headerlink" href="11_Common_Problem.html#sensor-log" title="永久链接至标题">¶</a></h2>
+<p>Linux操作</p>
+<p><strong>开启cif drv log:</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">echo &quot;module cvi_mipi_rx +p&quot; &gt; /sys/kernel/debug/dynamic_debug/control</span>
+
+<span class="go">dmesg -n 8</span>
+</pre></div>
+</div>
+<p><strong>开syslog打印：</strong></p>
+<p>输出到串口屏幕</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">/sbin/syslogd -l 8 -s 2048 -O /dev/console</span>
+</pre></div>
+</div>
+<p>或者输出到文件</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">/sbin/syslogd -l 8 -s 2048 -O /mnt/data/mw.txt</span>
+</pre></div>
+</div>
+</section>
+<section id="lane">
+<h2><span class="section-number">11.3. </span>如何配置lane线序<a class="headerlink" href="11_Common_Problem.html#lane" title="永久链接至标题">¶</a></h2>
+<p>注意我们要配置的lane id要以sensor为参照物来配置，lane_id数组的索引号表示的是Sensor的Lane ID，
+索引号0表示sensor clock，索引号1~4表示sensor lane 0~3。</p>
+<p>land_id数组的值表示的是soc的MIPI-Rx的Lane
+ID， 0表示MIPIRX1_PAD0，1表示MIPIRX1_PAD1，
+未使用的lane将lane_id配置成-1。</p>
+<p>假设sensor和soc的lane接线如下图所示，对应的lane id配置就是{3，4，2，0，1}.</p>
+<p>sensor</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/Common008.png"><img alt="_images/Common008.png" src="_images/Common008.png" style="width: 80%;" /></a>
+</figure>
+<p>soc</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/Common009.png"><img alt="_images/Common009.png" src="_images/Common009.png" style="width: 80%;" /></a>
+</figure>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>SENSOR管脚</p></th>
+<th class="head"><p>IPI Lane管脚</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>MIPI_CK (index = 0)</p></td>
+<td><p>MIPIRX0_3 (value = 0)</p></td>
+</tr>
+<tr class="row-odd"><td><p>MIPI_0 (index = 1)</p></td>
+<td><p>MIPIRX0_4 (value = 1)</p></td>
+</tr>
+<tr class="row-even"><td><p>MIPI_1 (index = 2)</p></td>
+<td><p>MIPIRX0_2 (value = 2)</p></td>
+</tr>
+<tr class="row-odd"><td><p>MIPI_2 (index = 3)</p></td>
+<td><p>MIPIRX0_0 (value = 3)</p></td>
+</tr>
+<tr class="row-even"><td><p>MIPI_3 (index = 4)</p></td>
+<td><p>MIPIRX0_1 (value = 4)</p></td>
+</tr>
+</tbody>
+</table>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/Common003.png"><img alt="_images/Common003.png" src="_images/Common003.png" style="width: 80%;" /></a>
+</figure>
+</section>
+<section id="mac">
+<h2><span class="section-number">11.4. </span>如何选择MAC频率<a class="headerlink" href="11_Common_Problem.html#mac" title="永久链接至标题">¶</a></h2>
+<p>MAC表示isp接收sensor数据的频率，</p>
+<p>公式MAC_Freq * pix_width = lane_num * MIPI_Freq * 2。</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>MAC_Freq：VI MAC的工作频率</p></li>
+<li><p>pixel_width：像素位宽</p></li>
+<li><p>lane_num：MIPI lane个数</p></li>
+<li><p>MIPI_Freq：每条lane的工作频率</p></li>
+</ul>
+</div></blockquote>
+<p>假设MAC freq为400M，pixel_width = 12，lane_num = 4，可支持最快MIPI_Freq = 400 * 12 / ( 4 * 2) = 600MHz。</p>
+<p> 其中MIPI_Freq是表示phy_clk，值是bps/2。比如sony imx335规格是1188Mbps每lane,  phy_clk = 1188/2=594Mhz。</p>
+<p> 反之，如果sensor给出了data rate，我们要能算出合适的mac freq.</p>
+</section>
+<section id="id2">
+<span id="id3"></span><h2><span class="section-number">11.5. </span>错误检查流程<a class="headerlink" href="11_Common_Problem.html#id2" title="永久链接至标题">¶</a></h2>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/Common004.png"><img alt="_images/Common004.png" src="_images/Common004.png" style="width: 80%;" /></a>
+</figure>
+<section id="i2c-write-fail">
+<h3><span class="section-number">11.5.1. </span>I2C Write Fail<a class="headerlink" href="11_Common_Problem.html#i2c-write-fail" title="永久链接至标题">¶</a></h3>
+<ul>
+<li><p>sensor i2c属性确认</p></li>
+<li><p>检查I2C bus id</p></li>
+<li><p>检查I2C slave addr</p></li>
+<li><p>检查sensor寄存器的addr/data位宽（8bit or 16bit）</p>
+<p>位宽配置不正确一般会报time out 错误</p>
+</li>
+</ul>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/image6.png"><img alt="_images/image6.png" src="_images/image6.png" style="width: 80%;" /></a>
+</figure>
+<ul class="simple">
+<li><p>检查 hardware是否正常</p></li>
+<li><p>确认配置中的rst, pwdn, mclk引脚配置正确</p></li>
+</ul>
+<p>Linux操作命令：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">echo &quot;snsr_on 0 1 1&quot; &gt; /proc/mipi-rx //1表示37.125M, 2表示25M, 3表示27M</span>
+
+<span class="go">echo &quot;snsr_on 1 1 1&quot; &gt; /proc/mipi-rx //1表示37.125M, 2表示25M, 3表示27M</span>
+
+<span class="go">echo &quot;snsr_r 0 0&quot; &gt; /proc/mipi-rx</span>
+
+<span class="go">echo &quot;snsr_r 1 0&quot; &gt; /proc/mipi-rx</span>
+</pre></div>
+</div>
+<p>Alios操作命令：</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>执行sensor test后输入255退出
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>用i2cdetect -y –r N命令测试i2c能否检测到。N表示sensor对应的i2c端口（Alios使用iic detect N 命令）</p></li>
+<li><p>检查power on时序是否满足spec要求（示波器测量mclk，i2c）</p></li>
+</ul>
+</section>
+<section id="decode-err">
+<h3><span class="section-number">11.5.2. </span>Decode err<a class="headerlink" href="11_Common_Problem.html#decode-err" title="永久链接至标题">¶</a></h3>
+<p>cat /proc/mipi-rx（Alios 执行proc_mipi_rx），查看proc讯息，先看是否有进入hs-state，
+当sensor驱动起来后会从low power state进入high speed state。</p>
+<p>如下图，如果mipi-rx的D0-D4有数据，并且一直跳变，则说明有进入hs-state。</p>
+<ul class="simple">
+<li><p>确认i2c通路（i2cdetect能够扫出sensor 地址）</p></li>
+<li><p>确认lane线序正确</p>
+<ol class="loweralpha simple">
+<li><p>如果proc中的data lane没有数据跳变，并且伴随CK_HS为0，表示clk lane没找对（请确认clk lane）</p></li>
+<li><p>如果proc中的data lane有数据跳变，伴随CK_HS为1，表示clk lane找对了，已进入hs模式，这时如果出现ecc、crc等错误，这时表示data lane没配置对（请确认data lane）</p></li>
+</ol>
+</li>
+<li><p>确认时序</p>
+<ol class="loweralpha simple">
+<li><p>若前两点都确认正确，但还CK_HS =0，data lane没有数据跳变，可能是时序上未能满足进入hs的条件，此时可以调整加大hs-zero, hs-trail 数值，拉长detect period。</p></li>
+<li><p>若前两点都确认正确， CK_HS =1，data lane有数据跳变, 但是还是有ecc、crc等err，则可能是 Hs-settle的设定太大或是太小，压到后面的data。</p></li>
+</ol>
+</li>
+<li><p>确认hw是否损坏</p></li>
+</ul>
+</section>
+<section id="ecc-err">
+<h3><span class="section-number">11.5.3. </span>ECC err<a class="headerlink" href="11_Common_Problem.html#ecc-err" title="永久链接至标题">¶</a></h3>
+<ul>
+<li><p>检查 lane Id mapping</p></li>
+<li><p>检查sensor tx hs-zero/hs-prepare</p>
+<p>hs-zero、hs-parepare要从sensor spec中确定是多少或者直接问sensor厂商，一般不建议调整。</p>
+</li>
+<li><p>检查mipi-rx hs-settle</p>
+<p>当hs-settle的时间太长会压到data中的“sync code” ，就会出现“sync code” 解析不到，导致ecc err。</p>
+<p>调整hs-settle可以直接修改xxx_cmos_param.h如下，填入正确的hs_settle。</p>
+</li>
+</ul>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/Common011.png"><img alt="_images/Common011.png" src="_images/Common011.png" style="width: 80%;" /></a>
+</figure>
+<p>Linux操作:调整hs-settle也可以直接ctrl+z跳出，用devmem 命令修改寄存器0x0300b048的bit[23:16]数值，调整完后输入fg跳回程序。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">devmem 0x0300b048 32 0xXYZ</span>
+</pre></div>
+</div>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/Common006.png"><img alt="_images/Common006.png" src="_images/Common006.png" style="width: 80%;" /></a>
+</figure>
+</section>
+<section id="crc-err-word-count-err">
+<h3><span class="section-number">11.5.4. </span>CRC err/Word count err<a class="headerlink" href="11_Common_Problem.html#crc-err-word-count-err" title="永久链接至标题">¶</a></h3>
+<p>调整sensor tx hs-trail，如果hs-trail拉的太快，有可能会压到后面的data，导致数据丢失，从而出现crc err和wc err，需要调整sensor 的hs-trail寄存器设定。</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/Common007.png"><img alt="_images/Common007.png" src="_images/Common007.png" style="width: 80%;" /></a>
+</figure>
+</section>
+<section id="vi-select-timeout">
+<h3><span class="section-number">11.5.5. </span>vi_select timeout<a class="headerlink" href="11_Common_Problem.html#vi-select-timeout" title="永久链接至标题">¶</a></h3>
+<ul>
+<li><p>cat /proc/mipi-rx显示是否有i2c、decode、ecc、crc、wc等err.</p>
+<p>如果前面4个步骤都已经确认无误后，</p>
+<p>cat /proc/cvitek/vi_dbg检查是否出现WidthGTCnt、WidthLSCnt、HeightGTCnt、HeightLSCnt，如果有这类报错表示sensor init setting中的crop size和给到isp的设定不一致，请对照sensor spec确认修改。</p>
+</li>
+<li><p>检查MAC clock是否太低 , 如果mac clock太低，会导致isp处理速度太慢出现fifo full,也会导致timeout。</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="10_AE_Related_Verification.html" class="btn btn-neutral float-left" title="10. AE相关验证" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="12_Color_Noise_Reduction_and_Other_Corrections.html" class="btn btn-neutral float-right" title="12. 颜色、去噪等矫正" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

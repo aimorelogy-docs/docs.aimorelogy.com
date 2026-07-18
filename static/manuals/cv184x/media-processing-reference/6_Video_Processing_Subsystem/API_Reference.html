@@ -1,0 +1,4267 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>6.3. API参考 &mdash; MediaProcessingSoftwareDevelopmentReference master 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="../_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/qrious.js"></script>
+    <script src="../_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="6.4. 数据类型" href="Data_Types.html" />
+    <link rel="prev" title="6.2. 设计概述" href="Design_Overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> MediaProcessingSoftwareDevelopmentReference
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_System_Overview.html">2. 系统概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_System_Control.html">3. 系统控制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_Video_Input.html">4. 视频输入</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5_Video_Output.html">5. 视频输出</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../6_Video_Processing_Subsystem.html">6. 视频处理子系统</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Function_Overview.html">6.1. 功能概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Design_Overview.html">6.2. 设计概述</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="API_Reference.html#">6.3. API参考</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vpss-setmode">6.3.1. CVI_VPSS_SetMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vpss-getmode">6.3.2. CVI_VPSS_GetMode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vpss-creategrp">6.3.3. CVI_VPSS_CreateGrp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vpss-destroygrp">6.3.4. CVI_VPSS_DestroyGrp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vpss-getavailablegrp">6.3.5. CVI_VPSS_GetAvailableGrp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vpss-getgrpattr">6.3.6. CVI_VPSS_GetGrpAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vpss-setgrpattr">6.3.7. CVI_VPSS_SetGrpAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vpss-startgrp">6.3.8. CVI_VPSS_StartGrp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vpss-stopgrp">6.3.9. CVI_VPSS_StopGrp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vpss-resetgrp">6.3.10. CVI_VPSS_ResetGrp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vpss-getgrpprocampctrl">6.3.11. CVI_VPSS_GetGrpProcAmpCtrl</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vpss-getgrpprocamp">6.3.12. CVI_VPSS_GetGrpProcAmp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vpss-setgrpprocamp">6.3.13. CVI_VPSS_SetGrpProcAmp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vpss-getallprocamp">6.3.14. CVI_VPSS_GetAllProcAmp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vpss-setgrpparamfrombin">6.3.15. CVI_VPSS_SetGrpParamfromBin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vpss-getbinscene">6.3.16. CVI_VPSS_GetBinScene</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vpss-getchnattr">6.3.17. CVI_VPSS_GetChnAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vpss-setchnattr">6.3.18. CVI_VPSS_SetChnAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vpss-enablechn">6.3.19. CVI_VPSS_EnableChn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vpss-disablechn">6.3.20. CVI_VPSS_DisableChn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vpss-setgrpcrop">6.3.21. CVI_VPSS_SetGrpCrop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vpss-getgrpcrop">6.3.22. CVI_VPSS_GetGrpCrop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vpss-sendframe">6.3.23. CVI_VPSS_SendFrame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vpss-getchnframe">6.3.24. CVI_VPSS_GetChnFrame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vpss-sendchnframe">6.3.25. CVI_VPSS_SendChnFrame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vpss-releasechnframe">6.3.26. CVI_VPSS_ReleaseChnFrame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vpss-setchncrop">6.3.27. CVI_VPSS_SetChnCrop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vpss-getchncrop">6.3.28. CVI_VPSS_GetChnCrop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vpss-setchnrotation">6.3.29. CVI_VPSS_SetChnRotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vpss-getchnrotation">6.3.30. CVI_VPSS_GetChnRotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vpss-setchnldcattr">6.3.31. CVI_VPSS_SetChnLDCAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vpss-getchnldcattr">6.3.32. CVI_VPSS_GetChnLDCAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vpss-getchnfd">6.3.33. CVI_VPSS_GetChnFd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vpss-closefd">6.3.34. CVI_VPSS_CloseFd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vpss-attachvbpool">6.3.35. CVI_VPSS_AttachVbPool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vpss-detachvbpool">6.3.36. CVI_VPSS_DetachVbPool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vpss-setchnalign">6.3.37. CVI_VPSS_SetChnAlign</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vpss-getchnalign">6.3.38. CVI_VPSS_GetChnAlign</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vpss-setchnyratio">6.3.39. CVI_VPSS_SetChnYRatio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vpss-getchnyratio">6.3.40. CVI_VPSS_GetChnYRatio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vpss-setchnscalecoeflevel">6.3.41. CVI_VPSS_SetChnScaleCoefLevel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vpss-getchnscalecoeflevel">6.3.42. CVI_VPSS_GetChnScaleCoefLevel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vpss-setchndrawrect">6.3.43. CVI_VPSS_SetChnDrawRect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vpss-getchndrawrect">6.3.44. CVI_VPSS_GetChnDrawRect</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vpss-setchnconvert">6.3.45. CVI_VPSS_SetChnConvert</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vpss-getchnconvert">6.3.46. CVI_VPSS_GetChnConvert</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vpss-setchnbufwrapattr">6.3.47. CVI_VPSS_SetChnBufWrapAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vpss-getchnbufwrapattr">6.3.48. CVI_VPSS_GetChnBufWrapAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vpss-getwrapbuffersize">6.3.49. CVI_VPSS_GetWrapBufferSize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vpss-showchn">6.3.50. CVI_VPSS_ShowChn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vpss-hidechn">6.3.51. CVI_VPSS_HideChn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vpss-suspend">6.3.52. CVI_VPSS_Suspend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-vpss-resume">6.3.53. CVI_VPSS_Resume</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Data_Types.html">6.4. 数据类型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Error_Codes.html">6.5. 错误码</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../7_Video_Encoding.html">7. 视频编码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../8_Video_Decoding.html">8. 视频解码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../9_Regional_Management.html">9. 区域管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10_Audio_Frequency.html">10. 音频</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../11_Geometric_Distortion_Correction_Subsystem.html">11. 几何畸变矫正子系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../12_Proc_Debugging_Information_Explanation.html">12. Proc 调试信息说明</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MediaProcessingSoftwareDevelopmentReference</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../6_Video_Processing_Subsystem.html"><span class="section-number">6. </span>视频处理子系统</a> &raquo;</li>
+      <li><span class="section-number">6.3. </span>API参考</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="../_sources/6_Video_Processing_Subsystem/API_Reference.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="api">
+<h1><span class="section-number">6.3. </span>API参考<a class="headerlink" href="API_Reference.html#api" title="永久链接至标题">¶</a></h1>
+<p>该功能模块为用户提供以下API：</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-setmode">CVI_VPSS_SetMode</a>:设置 VPSS 模式。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-getmode">CVI_VPSS_GetMode</a>:获取 VPSS 模式。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-creategrp">CVI_VPSS_CreateGrp</a>:创建一个VPSS GROUP。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-destroygrp">CVI_VPSS_DestroyGrp</a>:销毁一个VPSS GROUP。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-getavailablegrp">CVI_VPSS_GetAvailableGrp</a>:获取一个可用的VPSS GROUP号。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-getgrpattr">CVI_VPSS_GetGrpAttr</a>:获取VPSS GROUP属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-setgrpattr">CVI_VPSS_SetGrpAttr</a>:设置VPSS GROUP属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-startgrp">CVI_VPSS_StartGrp</a>:启用 VPSS GROUP。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-stopgrp">CVI_VPSS_StopGrp</a>:禁用 VPSS GROUP。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-resetgrp">CVI_VPSS_ResetGrp</a>:重置一个 VPSS GROUP。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-getgrpprocampctrl">CVI_VPSS_GetGrpProcAmpCtrl</a>: 获取一个 VPSS GROUP 的颜色控制功能描述。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-getgrpprocamp">CVI_VPSS_GetGrpProcAmp</a>: 获取一个 VPSS GROUP的颜色控制属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-setgrpprocamp">CVI_VPSS_SetGrpProcAmp</a>: 设置一个 VPSS GROUP的颜色控制属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-getallprocamp">CVI_VPSS_GetAllProcAmp</a>: 获取所有 VPSS GROUP的颜色控制属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-setgrpparamfrombin">CVI_VPSS_SetGrpParamfromBin</a>: 根据Bin设置一个 VPSS GROUP的属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-getbinscene">CVI_VPSS_GetBinScene</a>: 根据Bin得到场景设定。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-getchnattr">CVI_VPSS_GetChnAttr</a>:获取 VPSS 通道属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-setchnattr">CVI_VPSS_SetChnAttr</a>:设置 VPSS 通道属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-enablechn">CVI_VPSS_EnableChn</a>:启用 VPSS 通道。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-disablechn">CVI_VPSS_DisableChn</a>:禁用 VPSS 通道</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-setgrpcrop">CVI_VPSS_SetGrpCrop</a>:设置 VPSS GROUP CROP 功能属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-getgrpcrop">CVI_VPSS_GetGrpCrop</a>:获取 VPSS GROUP CROP 功能属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-sendframe">CVI_VPSS_SendFrame</a>:用户向VPSS发送数据。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-getchnframe">CVI_VPSS_GetChnFrame</a>:用户从通道获取一帧处理完成的图像。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-sendchnframe">CVI_VPSS_SendChnFrame</a>:用户向VPSS指定通道数据。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-releasechnframe">CVI_VPSS_ReleaseChnFrame</a>:用户释放一帧通道处理完成的图像</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-setchncrop">CVI_VPSS_SetChnCrop</a>:设置VPSS信道裁剪功能属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-getchncrop">CVI_VPSS_GetChnCrop</a>:获取VPSS信道裁剪功能属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-setchnrotation">CVI_VPSS_SetChnRotation</a>:设置 VPSS通道旋转的属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-getchnrotation">CVI_VPSS_GetChnRotation</a>:获取VPSS通道图像旋转属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-setchnldcattr">CVI_VPSS_SetChnLDCAttr</a>:设置 VPSS 通道镜头畸变矫正的属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-getchnldcattr">CVI_VPSS_GetChnLDCAttr</a>:获取 VPSS 通道镜头畸变矫正的属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-getchnfd">CVI_VPSS_GetChnFd</a>:获取VPSS通道对应的设备文件句柄。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-closefd">CVI_VPSS_CloseFd</a>:关闭VPSS设备通道的文件句柄。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-attachvbpool">CVI_VPSS_AttachVbPool</a>:将VPSS的通道绑定到某个视频缓存VB池中。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-detachvbpool">CVI_VPSS_DetachVbPool</a>:将VPSS的通道从某个视频缓存VB池中解绑定。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-setchnalign">CVI_VPSS_SetChnAlign</a>:设置 VPSS 通道输出frame宽度对齐字节数。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-getchnalign">CVI_VPSS_GetChnAlign</a>:获取 VPSS 通道输出frame宽度对齐字节数。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-setchnyratio">CVI_VPSS_SetChnYRatio</a>:设置 VPSS 通道图像Y分量的比率。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-getchnyratio">CVI_VPSS_GetChnYRatio</a>:获取 VPSS 通道图像Y分量的比率。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-setchnscalecoeflevel">CVI_VPSS_SetChnScaleCoefLevel</a>:设置 VPSS 通道图像缩放算法。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-getchnscalecoeflevel">CVI_VPSS_GetChnScaleCoefLevel</a>:获取 VPSS 通道图像缩放算法。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-setchnbufwrapattr">CVI_VPSS_SetChnBufWrapAttr</a>:设置低延时卷绕属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-getchnbufwrapattr">CVI_VPSS_GetChnBufWrapAttr</a>: 获取低延时卷绕属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-getwrapbuffersize">CVI_VPSS_GetWrapBufferSize</a>: 获取所需低延时卷绕缓存大小。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-setchndrawrect">CVI_VPSS_SetChnDrawRect</a>:设置 VPSS 通道画框属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-getchndrawrect">CVI_VPSS_GetChnDrawRect</a>:获取 VPSS 通道画框属性。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-setchnconvert">CVI_VPSS_SetChnConvert</a>:设置 VPSS 通道图像数据转换参数。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-getchnconvert">CVI_VPSS_GetChnConvert</a>:获取 VPSS 通道图像数据转换参数。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-showchn">CVI_VPSS_ShowChn</a>: 显示VPSS 通道图像。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-hidechn">CVI_VPSS_HideChn</a>: 隐藏VPSS 通道图像。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-suspend">CVI_VPSS_Suspend</a>: vpss 休眠。</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-resume">CVI_VPSS_Resume</a>: vpss 唤醒。</p></li>
+</ul>
+<hr class="docutils" />
+<section id="cvi-vpss-setmode">
+<span id="id1"></span><h2><span class="section-number">6.3.1. </span>CVI_VPSS_SetMode<a class="headerlink" href="API_Reference.html#cvi-vpss-setmode" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>设置 VPSS 模式。设置VPSS single mode或者dual mode。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VPSS_SetMode</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">VPSS_MODE_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstVPSSMode</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>pstVPSSMode</p></td>
+<td><p>VPSS Mode 属性指针。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-processing-subsystem-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_comm_vpss.h、cvi_vpss.h</p></li>
+<li><p>库文件：libvpss.a</p></li>
+</ul>
+<p>【注意】</p>
+<p>该API需作为 VPSS 模块初始化的首个调用接口</p>
+<p>【举例】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">VPSS_MODE_S</span><span class="w"> </span><span class="n">stVPSSMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{.</span><span class="n">enMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">VPSS_MODE_SINGLE</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">aenInput</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">VPSS_INPUT_MEM</span><span class="p">};</span><span class="w"></span>
+<span class="n">CVI_S32</span><span class="w"> </span><span class="n">s32Ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_SUCCESS</span><span class="w"></span>
+
+<span class="n">s32Ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_VPSS_SetMode</span><span class="p">(</span><span class="o">&amp;</span><span class="n">stVPSSMode</span><span class="p">);</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s32Ret</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">CVI_SUCCESS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">VPSS_UT_PRT</span><span class="p">(</span><span class="s">&quot;CVI_VPSS_SetMode failed with %#x!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">s32Ret</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">s32Ret</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-getmode">CVI_VPSS_GetMode</a></p></li>
+</ul>
+<hr class="docutils" />
+</section>
+<section id="cvi-vpss-getmode">
+<span id="id2"></span><h2><span class="section-number">6.3.2. </span>CVI_VPSS_GetMode<a class="headerlink" href="API_Reference.html#cvi-vpss-getmode" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>获取 VPSS 模式。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VPSS_GetMode</span><span class="p">(</span><span class="n">VPSS_MODE_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstVPSSMode</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>pstVPSSMode</p></td>
+<td><p>VPSS Mode 属性指针。</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-processing-subsystem-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_comm_vpss.h、cvi_vpss.h</p></li>
+<li><p>库文件：libvpss.a</p></li>
+</ul>
+<p>【注意】</p>
+<p>无。</p>
+<p>【举例】</p>
+<p>无。</p>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-setmode">CVI_VPSS_SetMode</a></p></li>
+</ul>
+<hr class="docutils" />
+</section>
+<section id="cvi-vpss-creategrp">
+<span id="id3"></span><h2><span class="section-number">6.3.3. </span>CVI_VPSS_CreateGrp<a class="headerlink" href="API_Reference.html#cvi-vpss-creategrp" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>创建一个VPSS GROUP</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VPSS_CreateGrp</span><span class="p">(</span><span class="n">VPSS_GRP</span><span class="w"> </span><span class="n">VpssGrp</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">VPSS_GRP_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstGrpAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VpssGrp</p></td>
+<td><p>VPSS GROUP 号。</p>
+<p>取值范围:[0, VPSS_MAX_GRP_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstGrpAttr</p></td>
+<td><p>VPSS GROUP 属性指针。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-processing-subsystem-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_comm_vpss.h、cvi_vpss.h</p></li>
+<li><p>库文件：libvpss.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>使用之前要先创建 VPSS_GRP_ATTR_S</p></li>
+</ul>
+<p>【举例】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">VPSS_GRP_ATTR_S</span><span class="w"> </span><span class="n">stVpssGrpAttr</span><span class="p">;</span><span class="w"></span>
+<span class="n">VPSS_CHN</span><span class="w"> </span><span class="n">VpssChn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">VPSS_CHN0</span><span class="p">;</span><span class="w"></span>
+<span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">abChnEnable</span><span class="p">[</span><span class="n">VPSS_MAX_PHY_CHN_NUM</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">};</span><span class="w"></span>
+<span class="n">VPSS_CHN_ATTR_S</span><span class="w"> </span><span class="n">astVpssChnAttr</span><span class="p">[</span><span class="n">VPSS_MAX_PHY_CHN_NUM</span><span class="p">];</span><span class="w"></span>
+<span class="n">CVI_S32</span><span class="w"> </span><span class="n">s32Ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_SUCCESS</span><span class="p">;</span><span class="w"></span>
+<span class="n">VPSS_CROP_INFO_S</span><span class="w"> </span><span class="n">pstCropInfo</span><span class="p">;</span><span class="w"></span>
+
+<span class="n">stVpssGrpAttr</span><span class="p">.</span><span class="n">stFrameRate</span><span class="p">.</span><span class="n">s32SrcFrameRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<span class="n">stVpssGrpAttr</span><span class="p">.</span><span class="n">stFrameRate</span><span class="p">.</span><span class="n">s32DstFrameRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<span class="n">stVpssGrpAttr</span><span class="p">.</span><span class="n">enPixelFormat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PIXEL_FORMAT_YUV_PLANAR_420</span><span class="p">;</span><span class="w"></span>
+<span class="n">stVpssGrpAttr</span><span class="p">.</span><span class="n">u32MaxW</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stSize</span><span class="p">.</span><span class="n">u32Width</span><span class="p">;</span><span class="w"></span>
+<span class="n">stVpssGrpAttr</span><span class="p">.</span><span class="n">u32MaxH</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stSize</span><span class="p">.</span><span class="n">u32Height</span><span class="p">;</span><span class="w"></span>
+
+<span class="n">astVpssChnAttr</span><span class="p">[</span><span class="n">VpssChn</span><span class="p">].</span><span class="n">u32Width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">800</span><span class="p">;</span><span class="w"></span>
+<span class="n">astVpssChnAttr</span><span class="p">[</span><span class="n">VpssChn</span><span class="p">].</span><span class="n">u32Height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">600</span><span class="p">;</span><span class="w"></span>
+<span class="n">astVpssChnAttr</span><span class="p">[</span><span class="n">VpssChn</span><span class="p">].</span><span class="n">enChnMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">VPSS_CHN_MODE_USER</span><span class="p">;</span><span class="w"></span>
+<span class="n">astVpssChnAttr</span><span class="p">[</span><span class="n">VpssChn</span><span class="p">].</span><span class="n">enVideoFormat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">VIDEO_FORMAT_LINEAR</span><span class="p">;</span><span class="w"></span>
+<span class="n">astVpssChnAttr</span><span class="p">[</span><span class="n">VpssChn</span><span class="p">].</span><span class="n">enPixelFormat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PIXEL_FORMAT_BGR_888_PLANAR</span><span class="p">;</span><span class="w"></span>
+<span class="n">astVpssChnAttr</span><span class="p">[</span><span class="n">VpssChn</span><span class="p">].</span><span class="n">stFrameRate</span><span class="p">.</span><span class="n">s32SrcFrameRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">30</span><span class="p">;</span><span class="w"></span>
+<span class="n">astVpssChnAttr</span><span class="p">[</span><span class="n">VpssChn</span><span class="p">].</span><span class="n">stFrameRate</span><span class="p">.</span><span class="n">s32DstFrameRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">30</span><span class="p">;</span><span class="w"></span>
+<span class="n">astVpssChnAttr</span><span class="p">[</span><span class="n">VpssChn</span><span class="p">].</span><span class="n">u32Depth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="n">astVpssChnAttr</span><span class="p">[</span><span class="n">VpssChn</span><span class="p">].</span><span class="n">bMirror</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_FALSE</span><span class="p">;</span><span class="w"></span>
+<span class="n">astVpssChnAttr</span><span class="p">[</span><span class="n">VpssChn</span><span class="p">].</span><span class="n">bFlip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_FALSE</span><span class="p">;</span><span class="w"></span>
+<span class="n">astVpssChnAttr</span><span class="p">[</span><span class="n">VpssChn</span><span class="p">].</span><span class="n">stAspectRatio</span><span class="p">.</span><span class="n">enMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ASPECT_RATIO_NONE</span><span class="p">;</span><span class="w"></span>
+
+<span class="cm">/*start vpss*/</span><span class="w"></span>
+<span class="n">VPSS_CHN</span><span class="w"> </span><span class="n">VpssChn</span><span class="p">;</span><span class="w"></span>
+<span class="n">s32Ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_VPSS_CreateGrp</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">stVpssGrpAttr</span><span class="p">);</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s32Ret</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">CVI_SUCCESS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">SAMPLE_PRT</span><span class="p">(</span><span class="s">&quot;CVI_VPSS_CreateGrp failed with %#x!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">s32Ret</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">CVI_FAILURE</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="n">s32Ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_VPSS_SetChnAttr</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">astVpssChnAttr</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s32Ret</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">CVI_SUCCESS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">SAMPLE_PRT</span><span class="p">(</span><span class="s">&quot;CVI_VPSS_SetChnAttr failed with %#x</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">s32Ret</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">CVI_FAILURE</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="n">s32Ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_VPSS_EnableChn</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s32Ret</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">CVI_SUCCESS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">SAMPLE_PRT</span><span class="p">(</span><span class="s">&quot;CVI_VPSS_EnableChn failed with %#x</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">s32Ret</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">CVI_FAILURE</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="n">s32Ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_VPSS_StartGrp</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s32Ret</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">CVI_SUCCESS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">SAMPLE_PRT</span><span class="p">(</span><span class="s">&quot;CVI_VPSS_StartGrp failed with %#x</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">s32Ret</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">CVI_FAILURE</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="n">s32Ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_VPSS_GetGrpCrop</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">pstCropInfo</span><span class="p">);</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s32Ret</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">CVI_SUCCESS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">SAMPLE_PRT</span><span class="p">(</span><span class="s">&quot;CVI_VPSS_ GetGrpCrop failed with %#x</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">s32Ret</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">CVI_FAILURE</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="n">pstCropInfo</span><span class="p">.</span><span class="n">stCropRect</span><span class="p">.</span><span class="n">s32X</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="n">pstCropInfo</span><span class="p">.</span><span class="n">stCropRect</span><span class="p">.</span><span class="n">s32Y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="n">pstCropInfo</span><span class="p">.</span><span class="n">stCropRect</span><span class="p">.</span><span class="n">u32Width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">600</span><span class="p">;</span><span class="w"></span>
+<span class="n">pstCropInfo</span><span class="p">.</span><span class="n">stCropRect</span><span class="p">.</span><span class="n">u32Height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">600</span><span class="p">;</span><span class="w"></span>
+
+<span class="n">s32Ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_VPSS_SetGrpCrop</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">pstCropInfo</span><span class="p">);</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s32Ret</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">CVI_SUCCESS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">SAMPLE_PRT</span><span class="p">(</span><span class="s">&quot;CVI_VPSS_ SetGrpCrop failed with %#x</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">s32Ret</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">CVI_FAILURE</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="n">s32Ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_VPSS_DisableChn</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s32Ret</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">CVI_SUCCESS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">SAMPLE_PRT</span><span class="p">(</span><span class="s">&quot;failed with %#x!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">s32Ret</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">CVI_FAILURE</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="n">s32Ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_VPSS_StopGrp</span><span class="p">(</span><span class="n">VpssGrp</span><span class="p">);</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s32Ret</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">CVI_SUCCESS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">SAMPLE_PRT</span><span class="p">(</span><span class="s">&quot;failed with %#x!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">s32Ret</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">CVI_FAILURE</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="n">s32Ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_VPSS_DestroyGrp</span><span class="p">(</span><span class="n">VpssGrp</span><span class="p">);</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s32Ret</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">CVI_SUCCESS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">SAMPLE_PRT</span><span class="p">(</span><span class="s">&quot;failed with %#x!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">s32Ret</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">CVI_FAILURE</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-destroygrp">CVI_VPSS_DestroyGrp</a></p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-setchnattr">CVI_VPSS_SetChnAttr</a></p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-enablechn">CVI_VPSS_EnableChn</a></p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-disablechn">CVI_VPSS_DisableChn</a></p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-startgrp">CVI_VPSS_StartGrp</a></p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-stopgrp">CVI_VPSS_StopGrp</a></p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-getgrpcrop">CVI_VPSS_GetGrpCrop</a></p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-setgrpcrop">CVI_VPSS_SetGrpCrop</a></p></li>
+</ul>
+<hr class="docutils" />
+</section>
+<section id="cvi-vpss-destroygrp">
+<span id="id4"></span><h2><span class="section-number">6.3.4. </span>CVI_VPSS_DestroyGrp<a class="headerlink" href="API_Reference.html#cvi-vpss-destroygrp" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>销毁一个VPSS GROUP</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VPSS_DestroyGrp</span><span class="w"> </span><span class="p">(</span><span class="n">VPSS_GRP</span><span class="w"> </span><span class="n">VpssGrp</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VpssGrp</p></td>
+<td><p>VPSS GROUP 号。</p>
+<p>取值范围:[0,  VPSS_MAX_GRP_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-processing-subsystem-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_comm_vpss.h、cvi_vpss.h</p></li>
+<li><p>库文件：libvpss.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>调用此接口之前,必须先调用CVI_VPSS_StopGrp 禁用此 GROUP</p></li>
+<li><p>该函数会释放掉该grp下的所有vb_jobs</p></li>
+</ul>
+<p>【举例】</p>
+<p>请参见 <a class="reference internal" href="API_Reference.html#cvi-vpss-creategrp">CVI_VPSS_CreateGrp</a></p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vpss-creategrp">CVI_VPSS_CreateGrp</a></p>
+<hr class="docutils" />
+</section>
+<section id="cvi-vpss-getavailablegrp">
+<span id="id5"></span><h2><span class="section-number">6.3.5. </span>CVI_VPSS_GetAvailableGrp<a class="headerlink" href="API_Reference.html#cvi-vpss-getavailablegrp" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>获取一个可用的VPSS组号。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">VPSS_GRP</span><span class="w"> </span><span class="nf">CVI_VPSS_GetAvailableGrp</span><span class="p">(</span><span class="n">CVI_VOID</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<p>无</p>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>&gt;=0</p></td>
+<td><p>有效的组号。</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>无可用的组号。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_comm_vpss.h、cvi_vpss.h</p></li>
+<li><p>库文件：libvpss.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>调用此接口获取到一个有效的组号后必须要创建组。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vpss-creategrp">CVI_VPSS_CreateGrp</a></p>
+<hr class="docutils" />
+</section>
+<section id="cvi-vpss-getgrpattr">
+<span id="id6"></span><h2><span class="section-number">6.3.6. </span>CVI_VPSS_GetGrpAttr<a class="headerlink" href="API_Reference.html#cvi-vpss-getgrpattr" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>获取 VPSS GROUP 属性.</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VPSS_GetGrpAttr</span><span class="w"> </span><span class="p">(</span><span class="n">VPSS_GRP</span><span class="w"> </span><span class="n">VpssGrp</span><span class="p">,</span><span class="w"> </span><span class="n">VPSS_GRP_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstGrpAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VpssGrp</p></td>
+<td><p>VPSS GROUP 号。</p>
+<p>取值范围:[0,  VPSS_MAX_GRP_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstGrpAttr</p></td>
+<td><p>VPSS GROUP 属性指针。</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-processing-subsystem-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_comm_vpss.h、cvi_vpss.h</p></li>
+<li><p>库文件：libvpss.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>Group必须已经创建</p></li>
+<li><p>GROUP 属性必须合法,其中部分静态属性不可动态设置,具体请参见VPSS_GRP_ATTR_S</p></li>
+</ul>
+<p>【举例】</p>
+<p>请参见 <a class="reference internal" href="API_Reference.html#cvi-vpss-creategrp">CVI_VPSS_CreateGrp</a></p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vpss-creategrp">CVI_VPSS_CreateGrp</a></p>
+<hr class="docutils" />
+</section>
+<section id="cvi-vpss-setgrpattr">
+<span id="id7"></span><h2><span class="section-number">6.3.7. </span>CVI_VPSS_SetGrpAttr<a class="headerlink" href="API_Reference.html#cvi-vpss-setgrpattr" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>设置VPSS GROUP 属性.</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VPSS_SetGrpAttr</span><span class="w"> </span><span class="p">(</span><span class="n">VPSS_GRP</span><span class="w"> </span><span class="n">VpssGrp</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">VPSS_GRP_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstGrpAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VpssGrp</p></td>
+<td><p>VPSS GROUP 号。</p>
+<p>取值范围:[0,  VPSS_MAX_GRP_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstGrpAttr</p></td>
+<td><p>VPSS GROUP 属性指针。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-processing-subsystem-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_comm_vpss.h、cvi_vpss.h</p></li>
+<li><p>库文件：libvpss.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>Group必须已经创建</p></li>
+<li><p>GROUP 属性必须合法,其中部分静态属性不可动态设置,具体请参见VPSS_GRP_ATTR_S</p></li>
+</ul>
+<p>【举例】</p>
+<p>请参见 <a class="reference internal" href="API_Reference.html#cvi-vpss-creategrp">CVI_VPSS_CreateGrp</a></p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vpss-creategrp">CVI_VPSS_CreateGrp</a></p>
+<hr class="docutils" />
+</section>
+<section id="cvi-vpss-startgrp">
+<span id="id8"></span><h2><span class="section-number">6.3.8. </span>CVI_VPSS_StartGrp<a class="headerlink" href="API_Reference.html#cvi-vpss-startgrp" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>启用VPSS GROUP.</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VPSS_StartGrp</span><span class="w"> </span><span class="p">(</span><span class="n">VPSS_GRP</span><span class="w"> </span><span class="n">VpssGrp</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VpssGrp</p></td>
+<td><p>VPSS GROUP 号。</p>
+<p>取值范围:[0,  VPSS_MAX_GRP_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-processing-subsystem-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_comm_vpss.h、cvi_vpss.h</p></li>
+<li><p>库文件：libvpss.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>Group必须已经创建</p></li>
+<li><p>重复调用该函数设置同一个组返回成功</p></li>
+</ul>
+<p>【举例】</p>
+<p>请参见 <a class="reference internal" href="API_Reference.html#cvi-vpss-creategrp">CVI_VPSS_CreateGrp</a></p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vpss-creategrp">CVI_VPSS_CreateGrp</a></p>
+<hr class="docutils" />
+</section>
+<section id="cvi-vpss-stopgrp">
+<span id="id9"></span><h2><span class="section-number">6.3.9. </span>CVI_VPSS_StopGrp<a class="headerlink" href="API_Reference.html#cvi-vpss-stopgrp" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>禁用VPSS GROUP.</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VPSS_StopGrp</span><span class="w"> </span><span class="p">(</span><span class="n">VPSS_GRP</span><span class="w"> </span><span class="n">VpssGrp</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VpssGrp</p></td>
+<td><p>VPSS GROUP 号。</p>
+<p>取值范围:[0,  VPSS_MAX_GRP_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-processing-subsystem-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_comm_vpss.h、cvi_vpss.h</p></li>
+<li><p>库文件：libvpss.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>Group必须已经创建，不然会返回失败</p></li>
+<li><p>重复禁用同一 VPSS GROUP 返回成功</p></li>
+</ul>
+<p>【举例】</p>
+<p>请参见 <a class="reference internal" href="API_Reference.html#cvi-vpss-creategrp">CVI_VPSS_CreateGrp</a></p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vpss-creategrp">CVI_VPSS_CreateGrp</a></p>
+<hr class="docutils" />
+</section>
+<section id="cvi-vpss-resetgrp">
+<span id="id10"></span><h2><span class="section-number">6.3.10. </span>CVI_VPSS_ResetGrp<a class="headerlink" href="API_Reference.html#cvi-vpss-resetgrp" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>复位VPSS GROUP.</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VPSS_ResetGrp</span><span class="w"> </span><span class="p">(</span><span class="n">VPSS_GRP</span><span class="w"> </span><span class="n">VpssGrp</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VpssGrp</p></td>
+<td><p>VPSS GROUP 号。</p>
+<p>取值范围:[0,  VPSS_MAX_GRP_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-processing-subsystem-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_comm_vpss.h、cvi_vpss.h</p></li>
+<li><p>库文件：libvpss.a</p></li>
+</ul>
+<p>【注意】</p>
+<blockquote>
+<div><p>Group必须已经创建</p>
+</div></blockquote>
+<p>【举例】</p>
+<p>请参见 <a class="reference internal" href="API_Reference.html#cvi-vpss-creategrp">CVI_VPSS_CreateGrp</a></p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vpss-creategrp">CVI_VPSS_CreateGrp</a></p>
+<hr class="docutils" />
+</section>
+<section id="cvi-vpss-getgrpprocampctrl">
+<span id="id11"></span><h2><span class="section-number">6.3.11. </span>CVI_VPSS_GetGrpProcAmpCtrl<a class="headerlink" href="API_Reference.html#cvi-vpss-getgrpprocampctrl" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>获取一个 VPSS GROUP 颜色控制功能描述.</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VPSS_GetGrpProcAmpCtrl</span><span class="p">(</span><span class="n">VPSS_GRP</span><span class="w"> </span><span class="n">VpssGrp</span><span class="p">,</span><span class="w"> </span><span class="n">PROC_AMP_E</span><span class="w"> </span><span class="n">type</span><span class="p">,</span><span class="w"> </span><span class="n">PROC_AMP_CTRL_S</span><span class="w"> </span><span class="o">*</span><span class="n">ctrl</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VpssGrp</p></td>
+<td><p>VPSS GROUP 号。</p>
+<p>取值范围:[0,  VPSS_MAX_GRP_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p>Proc Amp(颜色控制)种类</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>ctrl</p></td>
+<td><p>定义ProcAmp的特定，包含min, max, step, default等</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-processing-subsystem-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_comm_vpss.h、cvi_vpss.h</p></li>
+<li><p>库文件：libvpss.a</p></li>
+</ul>
+<p>【注意】</p>
+<p>【举例】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">PROC_AMP_CTRL_S</span><span class="w"> </span><span class="n">stAmpCtrl</span><span class="p">;</span><span class="w"></span>
+<span class="n">CVI_S32</span><span class="w"> </span><span class="n">tmp</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">CVI_VPSS_GetGrpProcAmp</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">PROC_AMP_BRIGHTNESS</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">tmp</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">CVI_SUCCESS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_TRACE_LOG</span><span class="p">(</span><span class="n">CVI_DBG_ERR</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;CVI_VPSS_GetGrpProcAmp NG on grp0!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">CVI_FAILURE</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">CVI_VPSS_GetGrpProcAmpCtrl</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">PROC_AMP_BRIGHTNESS</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">stAmpCtrl</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">CVI_SUCCESS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_TRACE_LOG</span><span class="p">(</span><span class="n">CVI_DBG_ERR</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;CVI_VPSS_GetGrpProcAmpCtrl NG on grp0!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">CVI_FAILURE</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">CVI_VPSS_SetGrpProcAmp</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">PROC_AMP_BRIGHTNESS</span><span class="p">,</span><span class="w"> </span><span class="n">stAmpCtrl</span><span class="p">.</span><span class="n">maximum</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">CVI_SUCCESS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_TRACE_LOG</span><span class="p">(</span><span class="n">CVI_DBG_ERR</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;CVI_VPSS_SetGrpProcAmp NG on grp0!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">CVI_FAILURE</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p>PROC_AMP_E</p></li>
+<li><p>PROC_AMP_CTRL_S</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-getgrpprocamp">CVI_VPSS_GetGrpProcAmp</a></p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-setgrpprocamp">CVI_VPSS_SetGrpProcAmp</a></p></li>
+</ul>
+<hr class="docutils" />
+</section>
+<section id="cvi-vpss-getgrpprocamp">
+<span id="id12"></span><h2><span class="section-number">6.3.12. </span>CVI_VPSS_GetGrpProcAmp<a class="headerlink" href="API_Reference.html#cvi-vpss-getgrpprocamp" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>获取一个 VPSS GROUP的颜色控制属性.</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VPSS_GetGrpProcAmp</span><span class="p">(</span><span class="n">VPSS_GRP</span><span class="w"> </span><span class="n">VpssGrp</span><span class="p">,</span><span class="w"> </span><span class="n">PROC_AMP_E</span><span class="w"> </span><span class="n">type</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_S32</span><span class="w"> </span><span class="o">*</span><span class="n">value</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VpssGrp</p></td>
+<td><p>VPSS GROUP 号。</p>
+<p>取值范围:[0,  VPSS_MAX_GRP_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p>Proc Amp(颜色控制)种类</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>value</p></td>
+<td><p>ProcAmp的设定</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-processing-subsystem-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_comm_vpss.h、cvi_vpss.h</p></li>
+<li><p>库文件：libvpss.a</p></li>
+</ul>
+<p>【注意】</p>
+<p>无。</p>
+<p>【举例】</p>
+<p>请参见 <a class="reference internal" href="API_Reference.html#cvi-vpss-getgrpprocampctrl">CVI_VPSS_GetGrpProcAmpCtrl</a></p>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p>PROC_AMP_E</p></li>
+<li><p>PROC_AMP_CTRL_S</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-getgrpprocampctrl">CVI_VPSS_GetGrpProcAmpCtrl</a></p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-setgrpprocamp">CVI_VPSS_SetGrpProcAmp</a></p></li>
+</ul>
+<hr class="docutils" />
+</section>
+<section id="cvi-vpss-setgrpprocamp">
+<span id="id13"></span><h2><span class="section-number">6.3.13. </span>CVI_VPSS_SetGrpProcAmp<a class="headerlink" href="API_Reference.html#cvi-vpss-setgrpprocamp" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>设置一个 VPSS GROUP的颜色控制属性.</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VPSS_SetGrpProcAmp</span><span class="p">(</span><span class="n">VPSS_GRP</span><span class="w"> </span><span class="n">VpssGrp</span><span class="p">,</span><span class="w"> </span><span class="n">PROC_AMP_E</span><span class="w"> </span><span class="n">type</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">value</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VpssGrp</p></td>
+<td><p>VPSS GROUP 号。</p>
+<p>取值范围:[0,  VPSS_MAX_GRP_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>type</p></td>
+<td><p>ProcAmp(颜色控制)种类</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>value</p></td>
+<td><p>ProcAmp的设定</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-processing-subsystem-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_comm_vpss.h、cvi_vpss.h</p></li>
+<li><p>库文件：libvpss.a</p></li>
+</ul>
+<p>【注意】</p>
+<p>无。</p>
+<p>【举例】</p>
+<p>请参见 <a class="reference internal" href="API_Reference.html#cvi-vpss-getgrpprocampctrl">CVI_VPSS_GetGrpProcAmpCtrl</a></p>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p>PROC_AMP_E</p></li>
+<li><p>PROC_AMP_CTRL_S</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-getgrpprocampctrl">CVI_VPSS_GetGrpProcAmpCtrl</a></p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-getgrpprocamp">CVI_VPSS_GetGrpProcAmp</a></p></li>
+</ul>
+<hr class="docutils" />
+</section>
+<section id="cvi-vpss-getallprocamp">
+<span id="id14"></span><h2><span class="section-number">6.3.14. </span>CVI_VPSS_GetAllProcAmp<a class="headerlink" href="API_Reference.html#cvi-vpss-getallprocamp" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>设置所有 VPSS GROUP的颜色控制属性.</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VPSS_GetAllProcAmp</span><span class="p">(</span><span class="k">struct</span> <span class="nc">vpss_all_proc_amp_cfg</span><span class="w"> </span><span class="o">*</span><span class="n">cfg</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>cfg</p></td>
+<td><p>颜色控制属性</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-processing-subsystem-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_comm_vpss.h、cvi_vpss.h</p></li>
+<li><p>库文件：libvpss.a</p></li>
+</ul>
+<p>【注意】</p>
+<p>无。</p>
+<p>【举例】</p>
+<p>无。</p>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p>vpss_all_proc_amp_cfg</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-getgrpprocampctrl">CVI_VPSS_GetGrpProcAmpCtrl</a></p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-getgrpprocamp">CVI_VPSS_GetGrpProcAmp</a></p></li>
+</ul>
+<hr class="docutils" />
+</section>
+<section id="cvi-vpss-setgrpparamfrombin">
+<span id="id15"></span><h2><span class="section-number">6.3.15. </span>CVI_VPSS_SetGrpParamfromBin<a class="headerlink" href="API_Reference.html#cvi-vpss-setgrpparamfrombin" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>根据Bin设置一个 VPSS GROUP的属性.</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VPSS_SetGrpParamfromBin</span><span class="p">(</span><span class="n">VPSS_GRP</span><span class="w"> </span><span class="n">VpssGrp</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">scene</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VpssGrp</p></td>
+<td><p>VPSS GROUP 号。</p>
+<p>取值范围:[0,  VPSS_MAX_GRP_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>scene</p></td>
+<td><p>所欲套用的VPSS输入 Bin场景设定</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-processing-subsystem-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_comm_vpss.h、cvi_vpss.h</p></li>
+<li><p>库文件：libvpss.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>若使用新的PQ bin，Group必须已经创建</p></li>
+<li><p>若PQ bin不存在，则使用默认参数</p></li>
+<li><p>目前仅支持套用ProcAmp(Brightness, Contrast, Hue, Saturation)的设定</p></li>
+</ul>
+<p>【举例】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">VPSS_GRP_ATTR_S</span><span class="w"> </span><span class="n">stVpssGrpAttr</span><span class="p">;</span><span class="w"></span>
+<span class="n">VPSS_CHN</span><span class="w"> </span><span class="n">VpssChn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">VPSS_CHN0</span><span class="p">;</span><span class="w"></span>
+<span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">abChnEnable</span><span class="p">[</span><span class="n">VPSS_MAX_PHY_CHN_NUM</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">};</span><span class="w"></span>
+<span class="n">VPSS_CHN_ATTR_S</span><span class="w"> </span><span class="n">astVpssChnAttr</span><span class="p">[</span><span class="n">VPSS_MAX_PHY_CHN_NUM</span><span class="p">];</span><span class="w"></span>
+<span class="n">CVI_S32</span><span class="w"> </span><span class="n">s32Ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_SUCCESS</span><span class="p">;</span><span class="w"></span>
+<span class="n">VPSS_CROP_INFO_S</span><span class="w"> </span><span class="n">pstCropInfo</span><span class="p">;</span><span class="w"></span>
+
+<span class="n">stVpssGrpAttr</span><span class="p">.</span><span class="n">stFrameRate</span><span class="p">.</span><span class="n">s32SrcFrameRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<span class="n">stVpssGrpAttr</span><span class="p">.</span><span class="n">stFrameRate</span><span class="p">.</span><span class="n">s32DstFrameRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<span class="n">stVpssGrpAttr</span><span class="p">.</span><span class="n">enPixelFormat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PIXEL_FORMAT_YUV_PLANAR_420</span><span class="p">;</span><span class="w"></span>
+<span class="n">stVpssGrpAttr</span><span class="p">.</span><span class="n">u32MaxW</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stSize</span><span class="p">.</span><span class="n">u32Width</span><span class="p">;</span><span class="w"></span>
+<span class="n">stVpssGrpAttr</span><span class="p">.</span><span class="n">u32MaxH</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stSize</span><span class="p">.</span><span class="n">u32Height</span><span class="p">;</span><span class="w"></span>
+
+<span class="n">astVpssChnAttr</span><span class="p">[</span><span class="n">VpssChn</span><span class="p">].</span><span class="n">u32Width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">800</span><span class="p">;</span><span class="w"></span>
+<span class="n">astVpssChnAttr</span><span class="p">[</span><span class="n">VpssChn</span><span class="p">].</span><span class="n">u32Height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">600</span><span class="p">;</span><span class="w"></span>
+<span class="n">astVpssChnAttr</span><span class="p">[</span><span class="n">VpssChn</span><span class="p">].</span><span class="n">enChnMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">VPSS_CHN_MODE_USER</span><span class="p">;</span><span class="w"></span>
+<span class="n">astVpssChnAttr</span><span class="p">[</span><span class="n">VpssChn</span><span class="p">].</span><span class="n">enVideoFormat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">VIDEO_FORMAT_LINEAR</span><span class="p">;</span><span class="w"></span>
+<span class="n">astVpssChnAttr</span><span class="p">[</span><span class="n">VpssChn</span><span class="p">].</span><span class="n">enPixelFormat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PIXEL_FORMAT_BGR_888_PLANAR</span><span class="p">;</span><span class="w"></span>
+<span class="n">astVpssChnAttr</span><span class="p">[</span><span class="n">VpssChn</span><span class="p">].</span><span class="n">stFrameRate</span><span class="p">.</span><span class="n">s32SrcFrameRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">30</span><span class="p">;</span><span class="w"></span>
+<span class="n">astVpssChnAttr</span><span class="p">[</span><span class="n">VpssChn</span><span class="p">].</span><span class="n">stFrameRate</span><span class="p">.</span><span class="n">s32DstFrameRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">30</span><span class="p">;</span><span class="w"></span>
+<span class="n">astVpssChnAttr</span><span class="p">[</span><span class="n">VpssChn</span><span class="p">].</span><span class="n">u32Depth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="n">astVpssChnAttr</span><span class="p">[</span><span class="n">VpssChn</span><span class="p">].</span><span class="n">bMirror</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_FALSE</span><span class="p">;</span><span class="w"></span>
+<span class="n">astVpssChnAttr</span><span class="p">[</span><span class="n">VpssChn</span><span class="p">].</span><span class="n">bFlip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_FALSE</span><span class="p">;</span><span class="w"></span>
+<span class="n">astVpssChnAttr</span><span class="p">[</span><span class="n">VpssChn</span><span class="p">].</span><span class="n">stAspectRatio</span><span class="p">.</span><span class="n">enMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ASPECT_RATIO_NONE</span><span class="p">;</span><span class="w"></span>
+
+<span class="cm">/*start vpss*/</span><span class="w"></span>
+<span class="n">VPSS_CHN</span><span class="w"> </span><span class="n">VpssChn</span><span class="p">;</span><span class="w"></span>
+<span class="n">s32Ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_VPSS_CreateGrp</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">stVpssGrpAttr</span><span class="p">);</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s32Ret</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">CVI_SUCCESS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">SAMPLE_PRT</span><span class="p">(</span><span class="s">&quot;CVI_VPSS_CreateGrp failed with %#x!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">s32Ret</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">CVI_FAILURE</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="cm">/*vpss grp0套用场景0*/</span><span class="w"></span>
+<span class="n">s32Ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_VPSS_SetGrpParamfromBin</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">);</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">s32Ret</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">CVI_SUCCESS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">SAMPLE_PRT</span><span class="p">(</span><span class="s">&quot;CVI_VPSS_SetGrpParamfromBin failed with %#x!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">s32Ret</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">CVI_FAILURE</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p>PROC_AMP_E</p></li>
+<li><p>PROC_AMP_CTRL_S</p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-getgrpprocampctrl">CVI_VPSS_GetGrpProcAmpCtrl</a></p></li>
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-getgrpprocamp">CVI_VPSS_GetGrpProcAmp</a></p></li>
+</ul>
+<hr class="docutils" />
+</section>
+<section id="cvi-vpss-getbinscene">
+<span id="id16"></span><h2><span class="section-number">6.3.16. </span>CVI_VPSS_GetBinScene<a class="headerlink" href="API_Reference.html#cvi-vpss-getbinscene" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>根据Bin得到场景设定。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VPSS_GetBinScene</span><span class="p">(</span><span class="n">VPSS_GRP</span><span class="w"> </span><span class="n">VpssGrp</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_U8</span><span class="w"> </span><span class="o">*</span><span class="n">scene</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VpssGrp</p></td>
+<td><p>VPSS GROUP 号。</p>
+<p>取值范围:[0,  VPSS_MAX_GRP_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>scene</p></td>
+<td><p>Bin场景设定</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-processing-subsystem-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_comm_vpss.h、cvi_vpss.h</p></li>
+<li><p>库文件：libvpss.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>若使用新的PQ bin，Group必须已经创建</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+<hr class="docutils" />
+</section>
+<section id="cvi-vpss-getchnattr">
+<span id="id17"></span><h2><span class="section-number">6.3.17. </span>CVI_VPSS_GetChnAttr<a class="headerlink" href="API_Reference.html#cvi-vpss-getchnattr" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>获取 VPSS 通道属性.</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">CVI_VPSS_GetChnAttr</span><span class="w"> </span><span class="p">(</span><span class="n">VPSS_GRP</span><span class="w"> </span><span class="n">VpssGrp</span><span class="p">,</span><span class="w"> </span><span class="n">VPSS_CHN</span><span class="w"> </span><span class="n">VpssChn</span><span class="p">,</span><span class="w"> </span><span class="n">VPSS_CHN_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstChnAttr</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VpssGrp</p></td>
+<td><p>VPSS GROUP 号。</p>
+<p>取值范围:[0, VPSS_MAX_GRP_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>VpssChn</p></td>
+<td><p>VPSS 通道号</p>
+<p>取值范围:[0, VPSS_MAX_PHY_CHN_NUM)</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>pstChnAttr</p></td>
+<td><p>VPSS 通道属性</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-processing-subsystem-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_comm_vpss.h、cvi_vpss.h</p></li>
+<li><p>库文件：libvpss.a</p></li>
+</ul>
+<p>【注意】</p>
+<p>Group必须已经创建</p>
+<p>【举例】</p>
+<p>请参见 <a class="reference internal" href="API_Reference.html#cvi-vpss-creategrp">CVI_VPSS_CreateGrp</a></p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vpss-creategrp">CVI_VPSS_CreateGrp</a></p>
+<hr class="docutils" />
+</section>
+<section id="cvi-vpss-setchnattr">
+<span id="id18"></span><h2><span class="section-number">6.3.18. </span>CVI_VPSS_SetChnAttr<a class="headerlink" href="API_Reference.html#cvi-vpss-setchnattr" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>设置 VPSS 通道属性.</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">CVI_VPSS_SetChnAttr</span><span class="w"> </span><span class="p">(</span><span class="n">VPSS_GRP</span><span class="w"> </span><span class="n">VpssGrp</span><span class="p">,</span><span class="w"> </span><span class="n">VPSS_CHN</span><span class="w"> </span><span class="n">VpssChn</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">VPSS_CHN_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstChnAttr</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VpssGrp</p></td>
+<td><p>VPSS GROUP 号。</p>
+<p>取值范围:[0, VPSS_MAX_GRP_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>VpssChn</p></td>
+<td><p>VPSS 通道号</p>
+<p>取值范围:[0, VPSS_MAX_PHY_CHN_NUM)</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>pstChnAttr</p></td>
+<td><p>VPSS 通道属性</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-processing-subsystem-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_comm_vpss.h、cvi_vpss.h</p></li>
+<li><p>库文件：libvpss.a</p></li>
+</ul>
+<p>【注意】</p>
+<blockquote>
+<div><p>Group必须已经创建</p>
+</div></blockquote>
+<p>【举例】</p>
+<p>请参见 <a class="reference internal" href="API_Reference.html#cvi-vpss-creategrp">CVI_VPSS_CreateGrp</a></p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vpss-creategrp">CVI_VPSS_CreateGrp</a></p>
+<hr class="docutils" />
+</section>
+<section id="cvi-vpss-enablechn">
+<span id="id19"></span><h2><span class="section-number">6.3.19. </span>CVI_VPSS_EnableChn<a class="headerlink" href="API_Reference.html#cvi-vpss-enablechn" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>启用 VPSS 通道.</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VPSS_EnableChn</span><span class="p">(</span><span class="n">VPSS_GRP</span><span class="w"> </span><span class="n">VpssGrp</span><span class="p">,</span><span class="w"> </span><span class="n">VPSS_CHN</span><span class="w"> </span><span class="n">VpssChn</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VpssGrp</p></td>
+<td><p>VPSS GROUP 号。</p>
+<p>取值范围:[0, VPSS_MAX_GRP_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>VpssChn</p></td>
+<td><p>VPSS 通道号</p>
+<p>取值范围:[0, VPSS_MAX_PHY_CHN_NUM)</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-processing-subsystem-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_comm_vpss.h、cvi_vpss.h</p></li>
+<li><p>库文件：libvpss.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>Group必须已经创建</p></li>
+<li><p>多次使能返回成功</p></li>
+</ul>
+<p>【举例】</p>
+<p>请参见 <a class="reference internal" href="API_Reference.html#cvi-vpss-creategrp">CVI_VPSS_CreateGrp</a></p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vpss-creategrp">CVI_VPSS_CreateGrp</a></p>
+<hr class="docutils" />
+</section>
+<section id="cvi-vpss-disablechn">
+<span id="id20"></span><h2><span class="section-number">6.3.20. </span>CVI_VPSS_DisableChn<a class="headerlink" href="API_Reference.html#cvi-vpss-disablechn" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>禁用 VPSS 通道.</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">CVI_VPSS_DisableChn</span><span class="w"> </span><span class="p">(</span><span class="n">VPSS_GRP</span><span class="w"> </span><span class="n">VpssGrp</span><span class="p">,</span><span class="w"> </span><span class="n">VPSS_CHN</span><span class="w"> </span><span class="n">VpssChn</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VpssGrp</p></td>
+<td><p>VPSS GROUP 号。</p>
+<p>取值范围:[0, VPSS_MAX_GRP_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>VpssChn</p></td>
+<td><p>VPSS 通道号。</p>
+<p>取值范围:[0, VPSS_MAX_PHY_CHN_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-processing-subsystem-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_comm_vpss.h、cvi_vpss.h</p></li>
+<li><p>库文件：libvpss.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>Group必须已经创建</p></li>
+<li><p>重复禁用返回成功</p></li>
+</ul>
+<p>【举例】</p>
+<p>请参见 <a class="reference internal" href="API_Reference.html#cvi-vpss-creategrp">CVI_VPSS_CreateGrp</a></p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vpss-creategrp">CVI_VPSS_CreateGrp</a></p>
+<hr class="docutils" />
+</section>
+<section id="cvi-vpss-setgrpcrop">
+<span id="id21"></span><h2><span class="section-number">6.3.21. </span>CVI_VPSS_SetGrpCrop<a class="headerlink" href="API_Reference.html#cvi-vpss-setgrpcrop" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>设置 VPSS CROP 功能属性.</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VPSS_SetGrpCrop</span><span class="w"> </span><span class="p">(</span><span class="n">VPSS_GRP</span><span class="w"> </span><span class="n">VpssGrp</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">VPSS_CROP_INFO_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstCropInfo</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VpssGrp</p></td>
+<td><p>VPSS GROUP 号。</p>
+<p>取值范围:[0,  VPSS_MAX_GRP_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstCropInfo</p></td>
+<td><p>CROP 功能参数。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-processing-subsystem-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_comm_vpss.h、cvi_vpss.h</p></li>
+<li><p>库文件：libvpss.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>Group必须已经创建</p></li>
+<li><p>CROP区域尺寸不能小于VPSS最小尺寸，不能超过最大尺寸，否则返回失败</p></li>
+<li><p>Online不支持group裁剪</p></li>
+<li><p>开启DIS情况下，本设置无效</p></li>
+</ul>
+<p>【举例】</p>
+<p>请参见 <a class="reference internal" href="API_Reference.html#cvi-vpss-creategrp">CVI_VPSS_CreateGrp</a></p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vpss-creategrp">CVI_VPSS_CreateGrp</a></p>
+<hr class="docutils" />
+</section>
+<section id="cvi-vpss-getgrpcrop">
+<span id="id22"></span><h2><span class="section-number">6.3.22. </span>CVI_VPSS_GetGrpCrop<a class="headerlink" href="API_Reference.html#cvi-vpss-getgrpcrop" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>获取 VPSS CROP 功能属性.</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VPSS_GetGrpCrop</span><span class="w"> </span><span class="p">(</span><span class="n">VPSS_GRP</span><span class="w"> </span><span class="n">VpssGrp</span><span class="p">,</span><span class="w"> </span><span class="n">VPSS_CROP_INFO_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstCropInfo</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VpssGrp</p></td>
+<td><p>VPSS GROUP 号。</p>
+<p>取值范围:[0,  VPSS_MAX_GRP_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstCropInfo</p></td>
+<td><p>CROP 功能参数。</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-processing-subsystem-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_comm_vpss.h、cvi_vpss.h</p></li>
+<li><p>库文件：libvpss.a</p></li>
+</ul>
+<p>【注意】</p>
+<blockquote>
+<div><p>Group必须已经创建</p>
+</div></blockquote>
+<p>【举例】</p>
+<p>请参见 <a class="reference internal" href="API_Reference.html#cvi-vpss-creategrp">CVI_VPSS_CreateGrp</a></p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vpss-creategrp">CVI_VPSS_CreateGrp</a></p>
+<hr class="docutils" />
+</section>
+<section id="cvi-vpss-sendframe">
+<span id="id23"></span><h2><span class="section-number">6.3.23. </span>CVI_VPSS_SendFrame<a class="headerlink" href="API_Reference.html#cvi-vpss-sendframe" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>用户向 VPSS 发送数据</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">CVI_VPSS_SendFrame</span><span class="w"> </span><span class="p">(</span><span class="n">VPSS_GRP</span><span class="w"> </span><span class="n">VpssGrp</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">VIDEO_FRAME_INFO_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstVideoFrame</span><span class="p">,</span><span class="w"></span>
+</pre></div>
+</div>
+<p>CVI_S32 s32MilliSec);</p>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VpssGrp</p></td>
+<td><p>VPSS GROUP 号。</p>
+<p>取值范围:[0,  VPSS_MAX_GRP_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstVideoFrame</p></td>
+<td><p>待发送的图像信息。具体描述请参见系统控制章节。</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>s32MilliSec</p></td>
+<td><p>目前版本暂未用到。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-processing-subsystem-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_comm_vpss.h、cvi_vpss.h</p></li>
+<li><p>库文件：libvpss.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>Group必须已经创建并且已经启动，不然会返回失败</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+<hr class="docutils" />
+</section>
+<section id="cvi-vpss-getchnframe">
+<span id="id24"></span><h2><span class="section-number">6.3.24. </span>CVI_VPSS_GetChnFrame<a class="headerlink" href="API_Reference.html#cvi-vpss-getchnframe" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>用户从通道获取一帧处理完成的图像</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VPSS_GetChnFrame</span><span class="p">(</span><span class="n">VPSS_GRP</span><span class="w"> </span><span class="n">VpssGrp</span><span class="p">,</span><span class="w"> </span><span class="n">VPSS_CHN</span><span class="w"> </span><span class="n">VpssChn</span><span class="p">,</span><span class="w"> </span><span class="n">VIDEO_FRAME_INFO_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstFrameInfo</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">s32MilliSec</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VpssGrp</p></td>
+<td><p>VPSS GROUP 号。</p>
+<p>取值范围:[0,  VPSS_MAX_GRP_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>VpssChn</p></td>
+<td><p>VPSS 通道号</p>
+<p>取值范围:[0,  VPSS_MAX_CHN_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>pstVideoFrame</p></td>
+<td><p>待发送的图像信息。具体描述请参见“系统控制”章节。</p></td>
+<td><p>输出</p></td>
+</tr>
+<tr class="row-odd"><td><p>s32MilliSec</p></td>
+<td><p>超时时间。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-processing-subsystem-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_comm_vpss.h、cvi_vpss.h</p></li>
+<li><p>库文件：libvpss.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>Group必须已经创建</p></li>
+<li><p>该函数将获得的图像信息保存在pstvideoFrame里面，并包含了图像的虚拟地址和物理地址</p></li>
+</ul>
+<p>【举例】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">VIDEO_FRAME_INFO_S</span><span class="w"> </span><span class="n">pstVideoFrame</span><span class="p">;</span><span class="w"></span>
+<span class="kt">FILE</span><span class="w"> </span><span class="o">*</span><span class="n">fp</span><span class="p">;</span><span class="w"></span>
+<span class="kt">size_t</span><span class="w"> </span><span class="n">image_size</span><span class="p">;</span><span class="w"></span>
+<span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">ptr</span><span class="p">[</span><span class="n">image_size</span><span class="p">];</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+
+<span class="n">CVI_VPSS_GetChnFrame</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">pstVideoFrame</span><span class="p">,</span><span class="w"> </span><span class="mi">5000</span><span class="p">);</span><span class="w"></span>
+<span class="n">image_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pstVideoFrame</span><span class="p">.</span><span class="n">stVFrame</span><span class="p">.</span><span class="n">u32Width</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">pstVideoFrame</span><span class="p">.</span><span class="n">stVFrame</span><span class="p">.</span><span class="n">u32Height</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"></span>
+<span class="n">pstVideoFrame</span><span class="p">.</span><span class="w"></span>
+<span class="n">stVFrame</span><span class="p">.</span><span class="n">u64VirAddr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_SYS_Mmap</span><span class="p">(</span><span class="n">pstVideoFrame</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">stVFrame</span><span class="w"> </span><span class="p">.</span><span class="n">u64PhyAddr</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="w"> </span><span class="n">image_size</span><span class="p">);</span><span class="w"></span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">3</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">memcpy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ptr</span><span class="p">[</span><span class="n">count</span><span class="p">],</span><span class="w"> </span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">CVI_VOID</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="n">pstVideoFrame</span><span class="p">.</span><span class="n">stVFrame</span><span class="p">.</span><span class="n">u64VirAddr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">pstVideoFrame</span><span class="p">.</span><span class="n">stVFrame</span><span class="p">.</span><span class="n">u32Length</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span><span class="w"></span>
+<span class="w">  </span><span class="n">count</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">pstVideoFrame</span><span class="p">.</span><span class="n">stVFrame</span><span class="p">.</span><span class="n">u32Length</span><span class="p">[</span><span class="n">i</span><span class="p">];</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="n">fp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">fopen</span><span class="p">(</span><span class="s">&quot;/tmp/dump.bin&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;w&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">fp</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">CVI_NULL</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_TRACE_VPSS</span><span class="p">(</span><span class="n">CVI_DBG_ERR</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;open data file error</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">CVI_FAILURE</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="n">fwrite</span><span class="p">(</span><span class="n">ptr</span><span class="p">,</span><span class="w"> </span><span class="n">image_size</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">fp</span><span class="p">);</span><span class="w"></span>
+<span class="n">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">);</span><span class="w"></span>
+<span class="n">CVI_SYS_Munmap</span><span class="p">(</span><span class="n">pstVideoFrame</span><span class="p">.</span><span class="w"></span>
+<span class="n">stVFrame</span><span class="p">.</span><span class="n">u64VirAddr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="w"> </span><span class="n">image_size</span><span class="p">);</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">CVI_VPSS_ReleaseChnFrame</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">pstVideoFrame</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="w">  </span><span class="n">SAMPLE_PRT</span><span class="p">(</span><span class="s">&quot;CVI_VI_ReleaseChnFrame NG</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vpss-releasechnframe">CVI_VPSS_ReleaseChnFrame</a></p>
+<hr class="docutils" />
+</section>
+<section id="cvi-vpss-sendchnframe">
+<span id="id25"></span><h2><span class="section-number">6.3.25. </span>CVI_VPSS_SendChnFrame<a class="headerlink" href="API_Reference.html#cvi-vpss-sendchnframe" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>用户向VPSS指定通道数据。可藉此来达到画面拼接。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VPSS_SendChnFrame</span><span class="w"> </span><span class="p">(</span><span class="n">VPSS_GRP</span><span class="w"> </span><span class="n">VpssGrp</span><span class="p">,</span><span class="w"> </span><span class="n">VPSS_CHN</span><span class="w"> </span><span class="n">VpssChn</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">VIDEO_FRAME_INFO_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstVideoFrame</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">s32MilliSec</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VpssGrp</p></td>
+<td><p>VPSS GROUP 号。</p>
+<p>取值范围:[0,  VPSS_MAX_GRP_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>VpssChn</p></td>
+<td><p>VPSS 通道号</p>
+<p>取值范围:[0,  VPSS_MAX_CHN_NUM)</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>pstVideoFrame</p></td>
+<td><p>待发送的图像信息。具体 描述请参见“系统控制”章节</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>s32MilliSec</p></td>
+<td><p>目前版本暂未用到</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-processing-subsystem-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_comm_vpss.h、cvi_vpss.h</p></li>
+<li><p>库文件：libvpss.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>Group/Chn必须已经创建</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+<hr class="docutils" />
+</section>
+<section id="cvi-vpss-releasechnframe">
+<span id="id26"></span><h2><span class="section-number">6.3.26. </span>CVI_VPSS_ReleaseChnFrame<a class="headerlink" href="API_Reference.html#cvi-vpss-releasechnframe" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>用户释放一帧通道处理完成的图像</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VPSS_ReleaseChnFrame</span><span class="w"> </span><span class="p">(</span><span class="n">VPSS_GRP</span><span class="w"> </span><span class="n">VpssGrp</span><span class="p">,</span><span class="w"> </span><span class="n">VPSS_CHN</span><span class="w"> </span><span class="n">VpssChn</span><span class="p">,</span><span class="w"> </span><span class="n">VIDEO_FRAME_INFO_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstFrameInfo</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VpssGrp</p></td>
+<td><p>VPSS GROUP 号。</p>
+<p>取值范围:[0,  VPSS_MAX_GRP_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>VpssChn</p></td>
+<td><p>VPSS 通道号</p>
+<p>取值范围:[0,  VPSS_MAX_CHN_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>pstVideoFrame</p></td>
+<td><p>待发送的图像信息。具体描述请参见“系统控制”章节。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-processing-subsystem-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_comm_vpss.h、cvi_vpss.h</p></li>
+<li><p>库文件：libvpss.a</p></li>
+</ul>
+<p>【注意】</p>
+<blockquote>
+<div><p>此接口要与 <a class="reference internal" href="API_Reference.html#cvi-vpss-getchnframe">CVI_VPSS_GetChnFrame</a> 配合使用</p>
+</div></blockquote>
+<p>【举例】</p>
+<p>请参见 <a class="reference internal" href="API_Reference.html#cvi-vpss-getchnframe">CVI_VPSS_GetChnFrame</a></p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vpss-getchnframe">CVI_VPSS_GetChnFrame</a></p>
+<hr class="docutils" />
+</section>
+<section id="cvi-vpss-setchncrop">
+<span id="id27"></span><h2><span class="section-number">6.3.27. </span>CVI_VPSS_SetChnCrop<a class="headerlink" href="API_Reference.html#cvi-vpss-setchncrop" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>设置 VPSS 信道裁剪功能属性</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">CVI_VPSS_SetChnCrop</span><span class="p">(</span><span class="n">VPSS_GRP</span><span class="w"> </span><span class="n">VpssGrp</span><span class="p">,</span><span class="w"> </span><span class="n">VPSS_CHN</span><span class="w"> </span><span class="n">VpssChn</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">VPSS_CROP_INFO_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstCropInfo</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VpssGrp</p></td>
+<td><p>VPSS GROUP 号。</p>
+<p>取值范围:[0,  VPSS_MAX_GRP_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>VpssChn</p></td>
+<td><p>VPSS 通道号</p>
+<p>取值范围:[0,  VPSS_MAX_CHN_NUM)。</p>
+</td>
+<td><p>输入/输出</p></td>
+</tr>
+<tr class="row-even"><td><p>pstCropInfo</p></td>
+<td><p>待发送的图像信息。具体描述请参见“系统控制”章节。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-processing-subsystem-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_comm_vpss.h、cvi_vpss.h</p></li>
+<li><p>库文件：libvpss.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>Group必须已创建</p></li>
+<li><p>CROP区域尺寸不能小于VPSS最小尺寸，不能超过最大尺寸，否则返回失败</p></li>
+<li><p>该函数设置的是vpss输出通道的图像，而GrpCrop设置的是vpss输入的图像</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vpss-getchncrop">CVI_VPSS_GetChnCrop</a></p>
+<hr class="docutils" />
+</section>
+<section id="cvi-vpss-getchncrop">
+<span id="id28"></span><h2><span class="section-number">6.3.28. </span>CVI_VPSS_GetChnCrop<a class="headerlink" href="API_Reference.html#cvi-vpss-getchncrop" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>获取 VPSS 信道裁剪功能属性</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">CVI_VPSS_GetChnCrop</span><span class="p">(</span><span class="n">VPSS_GRP</span><span class="w"> </span><span class="n">VpssGrp</span><span class="p">,</span><span class="w"> </span><span class="n">VPSS_CHN</span><span class="w"> </span><span class="n">VpssChn</span><span class="p">,</span><span class="w"> </span><span class="n">VPSS_CROP_INFO_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstCropInfo</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VpssGrp</p></td>
+<td><p>VPSS GROUP 号。</p>
+<p>取值范围:[0,  VPSS_MAX_GRP_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>VpssChn</p></td>
+<td><p>VPSS 通道号</p>
+<p>取值范围:[0,  VPSS_MAX_CHN_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>pstCropInfo</p></td>
+<td><p>CROP 功能参数。</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-processing-subsystem-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_comm_vpss.h、cvi_vpss.h</p></li>
+<li><p>库文件：libvpss.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>Group必须已创建</p></li>
+<li><p>该函数获得的是vpss输出通道的图像裁剪信息，而 <a class="reference internal" href="API_Reference.html#cvi-vpss-getgrpcrop">CVI_VPSS_GetGrpCrop</a> 获得的是vpss输入的图像裁剪信息</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vpss-setchncrop">CVI_VPSS_SetChnCrop</a></p>
+<hr class="docutils" />
+</section>
+<section id="cvi-vpss-setchnrotation">
+<span id="id29"></span><h2><span class="section-number">6.3.29. </span>CVI_VPSS_SetChnRotation<a class="headerlink" href="API_Reference.html#cvi-vpss-setchnrotation" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>设置 VPSS通道旋转的属性。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VPSS_SetChnRotation</span><span class="p">(</span><span class="n">VPSS_GRP</span><span class="w"> </span><span class="n">VpssGrp</span><span class="p">,</span><span class="w"> </span><span class="n">VPSS_CHN</span><span class="w"> </span><span class="n">VpssChn</span><span class="p">,</span><span class="w"> </span><span class="n">ROTATION_E</span><span class="w"> </span><span class="n">enRotation</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VpssGrp</p></td>
+<td><p>VPSS GROUP 号。</p>
+<p>取值范围:[0, VPSS_MAX_GRP_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>VpssChn</p></td>
+<td><p>VPSS 通道号</p>
+<p>取值范围:[0, VPSS_MAX_CHN_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>enRotation</p></td>
+<td><p>旋转属性。详见 ROTATION_E 说明。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-processing-subsystem-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vpss.h, cvi_comm_vpss.h</p></li>
+<li><p>库文件：libvpss.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul>
+<li><p>使用本接口前，需先调用 <a class="reference internal" href="API_Reference.html#cvi-vpss-setchnattr">CVI_VPSS_SetChnAttr</a> ，否则提示失败。</p></li>
+<li><p>必需在设置信道属性后才能设置此属性。</p></li>
+<li><p>CV184x不支持180°旋转，180°旋转可以利用mirror+flip实现。</p></li>
+<li><p>仅支持NV12、NV21及YUV400三种格式的旋转。</p></li>
+<li><div class="line-block">
+<div class="line">旋转后，信道输出的图像大小可能发生变化。</div>
+<div class="line">例如1920x1080输入的图像，旋转90度后，实际输出为1088x1920。</div>
+<div class="line">因为旋转需要64像素对齐，所以会产生无效区域，如果后端对接vo或者venc，后端模块会自动裁剪有效部分，如果是GetChnFrame,有效区域在VIDEO_FRAME_S结构体s16OffsetTop、s16OffsetBottom、s16OffsetLeft、s16OffsetRight指定。</div>
+</div>
+</li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+<hr class="docutils" />
+</section>
+<section id="cvi-vpss-getchnrotation">
+<span id="id30"></span><h2><span class="section-number">6.3.30. </span>CVI_VPSS_GetChnRotation<a class="headerlink" href="API_Reference.html#cvi-vpss-getchnrotation" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>获取 VPSS通道旋转的属性。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VPSS_GetChnRotation</span><span class="p">(</span><span class="n">VPSS_GRP</span><span class="w"> </span><span class="n">VpssGrp</span><span class="p">,</span><span class="w"> </span><span class="n">VPSS_CHN</span><span class="w"> </span><span class="n">VpssChn</span><span class="p">,</span><span class="w"> </span><span class="n">ROTATION_E</span><span class="w"> </span><span class="o">*</span><span class="n">penRotation</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VpssGrp</p></td>
+<td><p>VPSS GROUP 号。</p>
+<p>取值范围:[0, VPSS_MAX_GRP_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>VpssChn</p></td>
+<td><p>VPSS 通道号</p>
+<p>取值范围:[0, VPSS_MAX_CHN_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>penRotation</p></td>
+<td><p>旋转属性指针。 输出详见 ROTATION_E  说明。</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-processing-subsystem-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vpss.h, cvi_comm_vpss.h</p></li>
+<li><p>库文件：libvpss.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>使用本接口前，需先调用 <a class="reference internal" href="API_Reference.html#cvi-vpss-setchnattr">CVI_VPSS_SetChnAttr</a> ，否则提示失败。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vpss-setchnrotation">CVI_VPSS_SetChnRotation</a></p>
+<hr class="docutils" />
+</section>
+<section id="cvi-vpss-setchnldcattr">
+<span id="id31"></span><h2><span class="section-number">6.3.31. </span>CVI_VPSS_SetChnLDCAttr<a class="headerlink" href="API_Reference.html#cvi-vpss-setchnldcattr" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>设置 VPSS通道镜头畸变矫正的属性。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VPSS_SetChnLDCAttr</span><span class="p">(</span><span class="n">VPSS_GRP</span><span class="w"> </span><span class="n">VpssGrp</span><span class="p">,</span><span class="w"> </span><span class="n">VPSS_CHN</span><span class="w"> </span><span class="n">VpssChn</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">VPSS_LDC_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstLDCAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VpssGrp</p></td>
+<td><p>VPSS GROUP 号。</p>
+<p>取值范围:[0, VPSS_MAX_GRP_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>VpssChn</p></td>
+<td><p>VPSS 通道号</p>
+<p>取值范围:[0, VPSS_MAX_CHN_NUM)</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>pstLDCAttr</p></td>
+<td><p>镜头畸变矫正属性。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-processing-subsystem-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vpss.h, cvi_comm_vpss.h</p></li>
+<li><p>库文件：libvpss.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>使用本接口前，需先调用 <a class="reference internal" href="API_Reference.html#cvi-vpss-setchnattr">CVI_VPSS_SetChnAttr</a> ，否则提示失败。</p></li>
+<li><p>必需在设置信道属性后才能设置此属性。</p></li>
+<li><p>仅支持NV21及YUV400两种格式的旋转。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vpss-getchnldcattr">CVI_VPSS_GetChnLDCAttr</a></p>
+<p><a class="reference internal" href="Data_Types.html#vpss-ldc-attr-s"><span class="std std-ref">VPSS_LDC_ATTR_S</span></a></p>
+<hr class="docutils" />
+</section>
+<section id="cvi-vpss-getchnldcattr">
+<span id="id32"></span><h2><span class="section-number">6.3.32. </span>CVI_VPSS_GetChnLDCAttr<a class="headerlink" href="API_Reference.html#cvi-vpss-getchnldcattr" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>获取 VPSS通道镜头畸变矫正的属性。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VPSS_GetChnLDCAttr</span><span class="p">(</span><span class="n">VPSS_GRP</span><span class="w"> </span><span class="n">VpssGrp</span><span class="p">,</span><span class="w"> </span><span class="n">VPSS_CHN</span><span class="w"> </span><span class="n">VpssChn</span><span class="p">,</span><span class="w"> </span><span class="n">VPSS_LDC_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstLDCAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VpssGrp</p></td>
+<td><p>VPSS GROUP 号。</p>
+<p>取值范围:[0, VPSS_MAX_GRP_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>VpssChn</p></td>
+<td><p>VPSS 通道号</p>
+<p>取值范围:[0, VPSS_MAX_CHN_NUM)</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>pstLDCAttr</p></td>
+<td><p>镜头畸变矫正属性。</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-processing-subsystem-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vpss.h, cvi_comm_vpss.h</p></li>
+<li><p>库文件：libvpss.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>使用本接口前，需先调用 <a class="reference internal" href="API_Reference.html#cvi-vpss-setchnattr">CVI_VPSS_SetChnAttr</a> ，否则提示失败。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vpss-setchnldcattr">CVI_VPSS_SetChnLDCAttr</a></p>
+<p><a class="reference internal" href="Data_Types.html#vpss-ldc-attr-s"><span class="std std-ref">VPSS_LDC_ATTR_S</span></a></p>
+<hr class="docutils" />
+</section>
+<section id="cvi-vpss-getchnfd">
+<span id="id33"></span><h2><span class="section-number">6.3.33. </span>CVI_VPSS_GetChnFd<a class="headerlink" href="API_Reference.html#cvi-vpss-getchnfd" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>获取VPSS通道对应的设备文件句柄。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VPSS_GetChnFd</span><span class="p">(</span><span class="n">VPSS_GRP</span><span class="w"> </span><span class="n">VpssGrp</span><span class="p">,</span><span class="w"> </span><span class="n">VPSS_CHN</span><span class="w"> </span><span class="n">VpssChn</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VpssGrp</p></td>
+<td><p>VPSS GROUP 号。</p>
+<p>取值范围:[0, VPSS_MAX_GRP_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>VpssChn</p></td>
+<td><p>VPSS 通道号</p>
+<p>取值范围:[0, VPSS_MAX_CHN_NUM)</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>正数值</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非正数值</p></td>
+<td><p>无效值。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vpss.h, cvi_comm_vpss.h</p></li>
+<li><p>库文件：libvpss.a</p></li>
+</ul>
+<p>【注意】</p>
+<p>无</p>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+<hr class="docutils" />
+</section>
+<section id="cvi-vpss-closefd">
+<span id="id34"></span><h2><span class="section-number">6.3.34. </span>CVI_VPSS_CloseFd<a class="headerlink" href="API_Reference.html#cvi-vpss-closefd" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>关闭VPSS设备通道的文件句柄。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VPSS_CloseFd</span><span class="p">(</span><span class="n">CVI_VOID</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<p>无</p>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-processing-subsystem-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vpss.h, cvi_comm_vpss.h</p></li>
+<li><p>库文件：libvpss.a</p></li>
+</ul>
+<p>【注意】</p>
+<p>此接口调用后，VPSS其他 MMF接口失效。</p>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p><a class="reference internal" href="API_Reference.html#cvi-vpss-getchnfd">CVI_VPSS_GetChnFd</a></p>
+<hr class="docutils" />
+</section>
+<section id="cvi-vpss-attachvbpool">
+<span id="id35"></span><h2><span class="section-number">6.3.35. </span>CVI_VPSS_AttachVbPool<a class="headerlink" href="API_Reference.html#cvi-vpss-attachvbpool" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>将 VPSS 的通道绑定到某个视频缓存VB池中。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VPSS_AttachVbPool</span><span class="p">(</span><span class="n">VPSS_GRP</span><span class="w"> </span><span class="n">VpssGrp</span><span class="p">,</span><span class="w"> </span><span class="n">VPSS_CHN</span><span class="w"> </span><span class="n">VpssChn</span><span class="p">,</span><span class="w"> </span><span class="n">VB_POOL</span><span class="w"> </span><span class="n">hVbPool</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VpssGrp</p></td>
+<td><p>VPSS GROUP 号。</p>
+<p>取值范围:[0, VPSS_MAX_GRP_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>VpssChn</p></td>
+<td><p>VPSS 通道号</p>
+<p>取值范围:[0, VPSS_MAX_CHN_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>hVbPool</p></td>
+<td><p>视频缓存VB 池信息。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-processing-subsystem-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vpss.h, cvi_comm_vpss.h</p></li>
+<li><p>库文件：libvpss.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul>
+<li><p>Group必须已经创建</p></li>
+<li><p>重复调用该函数设置同一个组返回成功</p></li>
+<li><p>当要切换当前组绑定的VB 池时，只需再调一次接口CVI_VPSS_AttachVbPool</p></li>
+<li><p>正确配置需要绑定到的VB 池即可。</p></li>
+<li><p>hVbPool必须保证是已创建VB池的有效PoolId。</p></li>
+<li><div class="line-block">
+<div class="line">在调用CVI_VPSS_DetachVbPool后，销毁创建的VB之前，</div>
+<div class="line">需要保证VB没有被VPSS后端绑定的模块使用，</div>
+<div class="line">可以通过sleep或清除后端模块通道缓存的方式先把VB 都释放，再销毁缓存VB 池。</div>
+</div>
+</li>
+<li><p>VB大小根据VPSS通道输出图像计算，具体计算公式参考 <cite>cvi_buffer.h</cite>。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<hr class="docutils" />
+</section>
+<section id="cvi-vpss-detachvbpool">
+<span id="id36"></span><h2><span class="section-number">6.3.36. </span>CVI_VPSS_DetachVbPool<a class="headerlink" href="API_Reference.html#cvi-vpss-detachvbpool" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>将 VPSS 的通道从某个视频缓存VB池中解绑定。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VPSS_DetachVbPool</span><span class="p">(</span><span class="n">VPSS_GRP</span><span class="w"> </span><span class="n">VpssGrp</span><span class="p">,</span><span class="w"> </span><span class="n">VPSS_CHN</span><span class="w"> </span><span class="n">VpssChn</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VpssGrp</p></td>
+<td><p>VPSS GROUP 号。</p>
+<p>取值范围:[0, VPSS_MAX_GRP_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>VpssChn</p></td>
+<td><p>VPSS 通道号</p>
+<p>取值范围:[0, VPSS_MAX_CHN_NUM)</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-processing-subsystem-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vpss.h, cvi_comm_vpss.h</p></li>
+<li><p>库文件：libvpss.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>Group必须已经创建</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<hr class="docutils" />
+</section>
+<section id="cvi-vpss-setchnalign">
+<span id="id37"></span><h2><span class="section-number">6.3.37. </span>CVI_VPSS_SetChnAlign<a class="headerlink" href="API_Reference.html#cvi-vpss-setchnalign" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>设置 VPSS 通道输出frame宽度对齐字节数。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VPSS_SetChnAlign</span><span class="p">(</span><span class="n">VPSS_GRP</span><span class="w"> </span><span class="n">VpssGrp</span><span class="p">,</span><span class="w"> </span><span class="n">VPSS_CHN</span><span class="w"> </span><span class="n">VpssChn</span><span class="p">,</span><span class="w"></span>
+<span class="w"> </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32Align</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VpssGrp</p></td>
+<td><p>VPSS GROUP 号。</p>
+<p>取值范围:[0, VPSS_MAX_GRP_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>VpssChn</p></td>
+<td><p>VPSS 通道号</p>
+<p>取值范围:[0, VPSS_MAX_CHN_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>u32Align</p></td>
+<td><p>对齐字节数。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-processing-subsystem-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vpss.h, cvi_comm_vpss.h</p></li>
+<li><p>库文件：libvpss.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>必须在CVI_VPSS_SetChnAttr之后调用，默认是64 byte对齐。</p></li>
+<li><p>设置u32Align=1可以使内存宽度和输出分辨率宽度一致。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+<hr class="docutils" />
+</section>
+<section id="cvi-vpss-getchnalign">
+<span id="id38"></span><h2><span class="section-number">6.3.38. </span>CVI_VPSS_GetChnAlign<a class="headerlink" href="API_Reference.html#cvi-vpss-getchnalign" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>获取 VPSS 通道输出frame宽度对齐字节数。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VPSS_GetChnAlign</span><span class="p">(</span><span class="n">VPSS_GRP</span><span class="w"> </span><span class="n">VpssGrp</span><span class="p">,</span><span class="w"> </span><span class="n">VPSS_CHN</span><span class="w"> </span><span class="n">VpssChn</span><span class="p">,</span><span class="w"></span>
+<span class="w"> </span><span class="n">CVI_U32</span><span class="w"> </span><span class="o">*</span><span class="n">pu32Align</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VpssGrp</p></td>
+<td><p>VPSS GROUP 号。</p>
+<p>取值范围:[0, VPSS_MAX_GRP_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>VpssChn</p></td>
+<td><p>VPSS 通道号</p>
+<p>取值范围:[0, VPSS_MAX_CHN_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>pu32Align</p></td>
+<td><p>对齐字节数。</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-processing-subsystem-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vpss.h, cvi_comm_vpss.h</p></li>
+<li><p>库文件：libvpss.a</p></li>
+</ul>
+<p>【注意】</p>
+<p>无</p>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+<hr class="docutils" />
+</section>
+<section id="cvi-vpss-setchnyratio">
+<span id="id39"></span><h2><span class="section-number">6.3.39. </span>CVI_VPSS_SetChnYRatio<a class="headerlink" href="API_Reference.html#cvi-vpss-setchnyratio" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>设置 VPSS 通道图像Y分量的比率。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VPSS_SetChnYRatio</span><span class="p">(</span><span class="n">VPSS_GRP</span><span class="w"> </span><span class="n">VpssGrp</span><span class="p">,</span><span class="w"> </span><span class="n">VPSS_CHN</span><span class="w"> </span><span class="n">VpssChn</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_FLOAT</span><span class="w"> </span><span class="n">YRatio</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VpssGrp</p></td>
+<td><p>VPSS GROUP 号。</p>
+<p>取值范围:[0, VPSS_MAX_GRP_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>VpssChn</p></td>
+<td><p>VPSS 通道号</p>
+<p>取值范围:[0, VPSS_MAX_CHN_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>YRatio</p></td>
+<td><p>比率</p>
+<p>取值范围:[0, 1]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-processing-subsystem-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vpss.h, cvi_comm_vpss.h</p></li>
+<li><p>库文件：libvpss.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>必须在CVI_VPSS_SetChnAttr之后调用，通道输出格式必须是YUV，默认是100。</p></li>
+<li><p>不能和Normalize、Convert功能同时使用。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+<hr class="docutils" />
+</section>
+<section id="cvi-vpss-getchnyratio">
+<span id="id40"></span><h2><span class="section-number">6.3.40. </span>CVI_VPSS_GetChnYRatio<a class="headerlink" href="API_Reference.html#cvi-vpss-getchnyratio" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>获取 VPSS 通道图像Y分量的比率。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VPSS_GetChnYRatio</span><span class="p">(</span><span class="n">VPSS_GRP</span><span class="w"> </span><span class="n">VpssGrp</span><span class="p">,</span><span class="w"> </span><span class="n">VPSS_CHN</span><span class="w"> </span><span class="n">VpssChn</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_FLOAT</span><span class="w"> </span><span class="o">*</span><span class="n">pYRatio</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VpssGrp</p></td>
+<td><p>VPSS GROUP 号。</p>
+<p>取值范围:[0, VPSS_MAX_GRP_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>VpssChn</p></td>
+<td><p>VPSS 通道号</p>
+<p>取值范围:[0, VPSS_MAX_CHN_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>YRatio</p></td>
+<td><p>比率</p>
+<p>取值范围:[0, 1]。</p>
+</td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-processing-subsystem-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vpss.h, cvi_comm_vpss.h</p></li>
+<li><p>库文件：libvpss.a</p></li>
+</ul>
+<p>【注意】</p>
+<p>无</p>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+<hr class="docutils" />
+</section>
+<section id="cvi-vpss-setchnscalecoeflevel">
+<span id="id41"></span><h2><span class="section-number">6.3.41. </span>CVI_VPSS_SetChnScaleCoefLevel<a class="headerlink" href="API_Reference.html#cvi-vpss-setchnscalecoeflevel" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>设置 VPSS 通道图像缩放算法。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VPSS_SetChnScaleCoefLevel</span><span class="p">(</span><span class="n">VPSS_GRP</span><span class="w"> </span><span class="n">VpssGrp</span><span class="p">,</span><span class="w"> </span><span class="n">VPSS_CHN</span><span class="w"> </span><span class="n">VpssChn</span><span class="p">,</span><span class="w"></span>
+<span class="w"> </span><span class="n">VPSS_SCALE_COEF_E</span><span class="w"> </span><span class="n">enCoef</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VpssGrp</p></td>
+<td><p>VPSS GROUP 号。</p>
+<p>取值范围:[0, VPSS_MAX_GRP_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>VpssChn</p></td>
+<td><p>VPSS 通道号</p>
+<p>取值范围:[0, VPSS_MAX_CHN_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>enCoef</p></td>
+<td><p>resize算法枚举</p>
+<p>取值范围:[0, VPSS_SCALE_COEF_MAX]。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-processing-subsystem-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vpss.h, cvi_comm_vpss.h</p></li>
+<li><p>库文件：libvpss.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>Group必须已经创建。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+<hr class="docutils" />
+</section>
+<section id="cvi-vpss-getchnscalecoeflevel">
+<span id="id42"></span><h2><span class="section-number">6.3.42. </span>CVI_VPSS_GetChnScaleCoefLevel<a class="headerlink" href="API_Reference.html#cvi-vpss-getchnscalecoeflevel" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>获取 VPSS 通道图像缩放算法。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VPSS_GetChnScaleCoefLevel</span><span class="p">(</span><span class="n">VPSS_GRP</span><span class="w"> </span><span class="n">VpssGrp</span><span class="p">,</span><span class="w"> </span><span class="n">VPSS_CHN</span><span class="w"> </span><span class="n">VpssChn</span><span class="p">,</span><span class="w"></span>
+<span class="w"> </span><span class="n">VPSS_SCALE_COEF_E</span><span class="w"> </span><span class="o">*</span><span class="n">penCoef</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VpssGrp</p></td>
+<td><p>VPSS GROUP 号。</p>
+<p>取值范围:[0, VPSS_MAX_GRP_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>VpssChn</p></td>
+<td><p>VPSS 通道号</p>
+<p>取值范围:[0, VPSS_MAX_CHN_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>penCoef</p></td>
+<td><p>resize算法枚举</p>
+<p>取值范围:[0, VPSS_SCALE_COEF_MAX]。</p>
+</td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-processing-subsystem-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vpss.h, cvi_comm_vpss.h</p></li>
+<li><p>库文件：libvpss.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>Group必须已经创建。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+<hr class="docutils" />
+</section>
+<section id="cvi-vpss-setchndrawrect">
+<span id="id43"></span><h2><span class="section-number">6.3.43. </span>CVI_VPSS_SetChnDrawRect<a class="headerlink" href="API_Reference.html#cvi-vpss-setchndrawrect" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>设置 VPSS 通道画框属性。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VPSS_SetChnDrawRect</span><span class="p">(</span><span class="n">VPSS_GRP</span><span class="w"> </span><span class="n">VpssGrp</span><span class="p">,</span><span class="w"> </span><span class="n">VPSS_CHN</span><span class="w"> </span><span class="n">VpssChn</span><span class="p">,</span><span class="w"></span>
+<span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">VPSS_DRAW_RECT_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstDrawRect</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VpssGrp</p></td>
+<td><p>VPSS GROUP 号。</p>
+<p>取值范围:[0, VPSS_MAX_GRP_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>VpssChn</p></td>
+<td><p>VPSS 通道号</p>
+<p>取值范围:[0, VPSS_MAX_CHN_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>pstDrawRect</p></td>
+<td><p>画框信息。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-processing-subsystem-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vpss.h, cvi_comm_vpss.h</p></li>
+<li><p>库文件：libvpss.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>Group必须已经创建。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+<hr class="docutils" />
+</section>
+<section id="cvi-vpss-getchndrawrect">
+<span id="id44"></span><h2><span class="section-number">6.3.44. </span>CVI_VPSS_GetChnDrawRect<a class="headerlink" href="API_Reference.html#cvi-vpss-getchndrawrect" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>获取 VPSS 通道画框属性。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VPSS_GetChnDrawRect</span><span class="p">(</span><span class="n">VPSS_GRP</span><span class="w"> </span><span class="n">VpssGrp</span><span class="p">,</span><span class="w"> </span><span class="n">VPSS_CHN</span><span class="w"> </span><span class="n">VpssChn</span><span class="p">,</span><span class="w"> </span><span class="n">VPSS_DRAW_RECT_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstDrawRect</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VpssGrp</p></td>
+<td><p>VPSS GROUP 号。</p>
+<p>取值范围:[0, VPSS_MAX_GRP_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>VpssChn</p></td>
+<td><p>VPSS 通道号</p>
+<p>取值范围:[0, VPSS_MAX_CHN_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>pstDrawRect</p></td>
+<td><p>画框信息。</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-processing-subsystem-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vpss.h, cvi_comm_vpss.h</p></li>
+<li><p>库文件：libvpss.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>Group必须已经创建。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+<hr class="docutils" />
+</section>
+<section id="cvi-vpss-setchnconvert">
+<span id="id45"></span><h2><span class="section-number">6.3.45. </span>CVI_VPSS_SetChnConvert<a class="headerlink" href="API_Reference.html#cvi-vpss-setchnconvert" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>设置 VPSS 通道图像数据转换参数。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VPSS_SetChnConvert</span><span class="p">(</span><span class="n">VPSS_GRP</span><span class="w"> </span><span class="n">VpssGrp</span><span class="p">,</span><span class="w"> </span><span class="n">VPSS_CHN</span><span class="w"> </span><span class="n">VpssChn</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">VPSS_CONVERT_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstConvert</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VpssGrp</p></td>
+<td><p>VPSS GROUP 号。</p>
+<p>取值范围:[0, VPSS_MAX_GRP_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>VpssChn</p></td>
+<td><p>VPSS 通道号</p>
+<p>取值范围:[0, VPSS_MAX_CHN_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>pstConvert</p></td>
+<td><p>转换参数。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-processing-subsystem-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vpss.h, cvi_comm_vpss.h</p></li>
+<li><p>库文件：libvpss.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>Group必须已经创建。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+<hr class="docutils" />
+</section>
+<section id="cvi-vpss-getchnconvert">
+<span id="id46"></span><h2><span class="section-number">6.3.46. </span>CVI_VPSS_GetChnConvert<a class="headerlink" href="API_Reference.html#cvi-vpss-getchnconvert" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>获取 VPSS 通道图像数据转换参数。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VPSS_GetChnConvert</span><span class="p">(</span><span class="n">VPSS_GRP</span><span class="w"> </span><span class="n">VpssGrp</span><span class="p">,</span><span class="w"> </span><span class="n">VPSS_CHN</span><span class="w"> </span><span class="n">VpssChn</span><span class="p">,</span><span class="w"> </span><span class="n">VPSS_CONVERT_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstConvert</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VpssGrp</p></td>
+<td><p>VPSS GROUP 号。</p>
+<p>取值范围:[0, VPSS_MAX_GRP_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>VpssChn</p></td>
+<td><p>VPSS 通道号</p>
+<p>取值范围:[0, VPSS_MAX_CHN_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>pstConvert</p></td>
+<td><p>转换参数。</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-processing-subsystem-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vpss.h, cvi_comm_vpss.h</p></li>
+<li><p>库文件：libvpss.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>Group必须已经创建。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+<hr class="docutils" />
+</section>
+<section id="cvi-vpss-setchnbufwrapattr">
+<span id="id47"></span><h2><span class="section-number">6.3.47. </span>CVI_VPSS_SetChnBufWrapAttr<a class="headerlink" href="API_Reference.html#cvi-vpss-setchnbufwrapattr" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>设置低延时卷绕属性。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VPSS_SetChnBufWrapAttr</span><span class="p">(</span><span class="n">VPSS_GRP</span><span class="w"> </span><span class="n">VpssGrp</span><span class="p">,</span><span class="w"> </span><span class="n">VPSS_CHN</span><span class="w"> </span><span class="n">VpssChn</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">VPSS_CHN_BUF_WRAP_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstVpssChnBufWrap</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VpssGrp</p></td>
+<td><p>VPSS GROUP 号。</p>
+<p>取值范围:[0, VPSS_MAX_GRP_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>VpssChn</p></td>
+<td><p>VPSS 通道号</p>
+<p>取值范围:[0, VPSS_MAX_CHN_NUM)</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>pstVpssChnBufWrap</p></td>
+<td><p>通道buffer卷绕属性结构体。</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-processing-subsystem-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vpss.h, cvi_comm_vpss.h</p></li>
+<li><p>库文件：libvpss.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>Group必须已经创建</p></li>
+<li><p>通道使能状态下不支持。</p></li>
+<li><p>必须在已设置通道属性的前提下才能设置此接口。</p></li>
+<li><p>不支持semi-planar422 图像，不支持Flip。</p></li>
+<li><p>信道低延时卷绕开启时，通道的获取、亮度、旋转、CoverEx、OverlayEx、任意角度旋转、LDC将无效</p></li>
+<li><p>在低延时卷绕通道绑编码场景下，编码不支持软件抽帧。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<hr class="docutils" />
+</section>
+<section id="cvi-vpss-getchnbufwrapattr">
+<span id="id48"></span><h2><span class="section-number">6.3.48. </span>CVI_VPSS_GetChnBufWrapAttr<a class="headerlink" href="API_Reference.html#cvi-vpss-getchnbufwrapattr" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>获取低延时卷绕属性。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VPSS_GetChnBufWrapAttr</span><span class="p">(</span><span class="n">VPSS_GRP</span><span class="w"> </span><span class="n">VpssGrp</span><span class="p">,</span><span class="w"> </span><span class="n">VPSS_CHN</span><span class="w"> </span><span class="n">VpssChn</span><span class="p">,</span><span class="w"> </span><span class="n">VPSS_CHN_BUF_WRAP_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstVpssChnBufWrap</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VpssGrp</p></td>
+<td><p>VPSS GROUP 号。</p>
+<p>取值范围:[0, VPSS_MAX_GRP_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>VpssChn</p></td>
+<td><p>VPSS 通道号</p>
+<p>取值范围:[0, VPSS_MAX_CHN_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>pstVpssChnBufWrap</p></td>
+<td><p>通道buffer卷绕属性结构体。</p></td>
+<td><p>输出</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-processing-subsystem-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vpss.h, cvi_comm_vpss.h</p></li>
+<li><p>库文件：libvpss.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>Group必须已经创建</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<hr class="docutils" />
+</section>
+<section id="cvi-vpss-getwrapbuffersize">
+<span id="id49"></span><h2><span class="section-number">6.3.49. </span>CVI_VPSS_GetWrapBufferSize<a class="headerlink" href="API_Reference.html#cvi-vpss-getwrapbuffersize" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>获取低延时卷绕所需缓存大小。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_U32</span><span class="w"> </span><span class="nf">CVI_VPSS_GetWrapBufferSize</span><span class="p">(</span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32Width</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32Height</span><span class="p">,</span><span class="w"> </span><span class="n">PIXEL_FORMAT_E</span><span class="w"> </span><span class="n">enPixelFormat</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32BufLine</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32BufDepth</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>u32Width</p></td>
+<td><p>图像宽度</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32Height</p></td>
+<td><p>图像高度</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>enPixelFormat</p></td>
+<td><p>图像像素格式</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32BufLine</p></td>
+<td><p>单个卷绕缓存line数</p></td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-even"><td><p>u32BufDepth</p></td>
+<td><p>卷绕缓存个数</p></td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-processing-subsystem-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vpss.h, cvi_comm_vpss.h</p></li>
+<li><p>库文件：libvpss.a</p></li>
+</ul>
+<p>【注意】</p>
+<p>无</p>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+<hr class="docutils" />
+</section>
+<section id="cvi-vpss-showchn">
+<span id="id50"></span><h2><span class="section-number">6.3.50. </span>CVI_VPSS_ShowChn<a class="headerlink" href="API_Reference.html#cvi-vpss-showchn" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>显示VPSS 通道图像。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VPSS_ShowChn</span><span class="p">(</span><span class="n">VPSS_GRP</span><span class="w"> </span><span class="n">VpssGrp</span><span class="p">,</span><span class="w"> </span><span class="n">VPSS_CHN</span><span class="w"> </span><span class="n">VpssChn</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VpssGrp</p></td>
+<td><p>VPSS GROUP 号。</p>
+<p>取值范围:[0, VPSS_MAX_GRP_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>VpssChn</p></td>
+<td><p>VPSS 通道号</p>
+<p>取值范围:[0, VPSS_MAX_CHN_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-processing-subsystem-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vpss.h, cvi_comm_vpss.h</p></li>
+<li><p>库文件：libvpss.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>Group必须已经创建。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+<hr class="docutils" />
+</section>
+<section id="cvi-vpss-hidechn">
+<span id="id51"></span><h2><span class="section-number">6.3.51. </span>CVI_VPSS_HideChn<a class="headerlink" href="API_Reference.html#cvi-vpss-hidechn" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<blockquote>
+<div><p>隐藏VPSS 通道图像。</p>
+</div></blockquote>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VPSS_HideChn</span><span class="p">(</span><span class="n">VPSS_GRP</span><span class="w"> </span><span class="n">VpssGrp</span><span class="p">,</span><span class="w"> </span><span class="n">VPSS_CHN</span><span class="w"> </span><span class="n">VpssChn</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>参数名称</p></th>
+<th class="head"><p>描述</p></th>
+<th class="head"><p>输入/输出</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VpssGrp</p></td>
+<td><p>VPSS GROUP 号。</p>
+<p>取值范围:[0, VPSS_MAX_GRP_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+<tr class="row-odd"><td><p>VpssChn</p></td>
+<td><p>VPSS 通道号</p>
+<p>取值范围:[0, VPSS_MAX_CHN_NUM)。</p>
+</td>
+<td><p>输入</p></td>
+</tr>
+</tbody>
+</table>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-processing-subsystem-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_vpss.h, cvi_comm_vpss.h</p></li>
+<li><p>库文件：libvpss.a</p></li>
+</ul>
+<p>【注意】</p>
+<ul class="simple">
+<li><p>Group必须已经创建，调用本接口后图像全黑。</p></li>
+</ul>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<p>无</p>
+<hr class="docutils" />
+</section>
+<section id="cvi-vpss-suspend">
+<span id="id52"></span><h2><span class="section-number">6.3.52. </span>CVI_VPSS_Suspend<a class="headerlink" href="API_Reference.html#cvi-vpss-suspend" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>vpss 休眠, 仅双系统SDK支持。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VPSS_Suspend</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<p>无</p>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-processing-subsystem-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_comm_vpss.h、cvi_vpss.h</p></li>
+<li><p>库文件：libvpss.a</p></li>
+</ul>
+<p>【注意】</p>
+<p>无</p>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-resume">CVI_VPSS_Resume</a></p></li>
+</ul>
+<hr class="docutils" />
+</section>
+<section id="cvi-vpss-resume">
+<span id="id53"></span><h2><span class="section-number">6.3.53. </span>CVI_VPSS_Resume<a class="headerlink" href="API_Reference.html#cvi-vpss-resume" title="永久链接至标题">¶</a></h2>
+<p>【描述】</p>
+<p>vpss 唤醒, 仅双系统SDK支持。</p>
+<p>【语法】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_VPSS_Resume</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【参数】</p>
+<p>无</p>
+<p>【返回值】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>返回值</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>成功。</p></td>
+</tr>
+<tr class="row-odd"><td><p>非 0</p></td>
+<td><p>失败,请参见 <a class="reference internal" href="Error_Codes.html#video-processing-subsystem-error-codes"><span class="std std-ref">错误码</span></a> 。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【需求】</p>
+<ul class="simple">
+<li><p>头文件：cvi_comm_vpss.h、cvi_vpss.h</p></li>
+<li><p>库文件：libvpss.a</p></li>
+</ul>
+<p>【注意】</p>
+<p>无</p>
+<p>【举例】</p>
+<p>无</p>
+<p>【相关主题】</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="API_Reference.html#cvi-vpss-suspend">CVI_VPSS_Suspend</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Design_Overview.html" class="btn btn-neutral float-left" title="6.2. 设计概述" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Data_Types.html" class="btn btn-neutral float-right" title="6.4. 数据类型" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

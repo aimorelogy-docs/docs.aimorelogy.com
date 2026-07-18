@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5.2. 设计概述 &mdash; MediaProcessingSoftwareDevelopmentReference master 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="../_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/qrious.js"></script>
+    <script src="../_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="5.3. API参考" href="API_Reference.html" />
+    <link rel="prev" title="5.1. 功能概述" href="Function_Overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> MediaProcessingSoftwareDevelopmentReference
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_System_Overview.html">2. 系统概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_System_Control.html">3. 系统控制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_Video_Input.html">4. 视频输入</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../5_Video_Output.html">5. 视频输出</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Function_Overview.html">5.1. 功能概述</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="Design_Overview.html#">5.2. 设计概述</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Design_Overview.html#id2">5.2.1. 系统架构</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="API_Reference.html">5.3. API参考</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Data_Types.html">5.4. 数据类型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Error_Codes.html">5.5. 错误码</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../6_Video_Processing_Subsystem.html">6. 视频处理子系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7_Video_Encoding.html">7. 视频编码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../8_Video_Decoding.html">8. 视频解码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../9_Regional_Management.html">9. 区域管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10_Audio_Frequency.html">10. 音频</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../11_Geometric_Distortion_Correction_Subsystem.html">11. 几何畸变矫正子系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../12_Proc_Debugging_Information_Explanation.html">12. Proc 调试信息说明</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MediaProcessingSoftwareDevelopmentReference</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../5_Video_Output.html"><span class="section-number">5. </span>视频输出</a> &raquo;</li>
+      <li><span class="section-number">5.2. </span>设计概述</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="../_sources/5_Video_Output/Design_Overview.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">5.2. </span>设计概述<a class="headerlink" href="Design_Overview.html#id1" title="永久链接至标题">¶</a></h1>
+<section id="id2">
+<h2><span class="section-number">5.2.1. </span>系统架构<a class="headerlink" href="Design_Overview.html#id2" title="永久链接至标题">¶</a></h2>
+<ul class="simple">
+<li><p>显示设备</p></li>
+</ul>
+<blockquote>
+<div><p>CV184x有一个高清显示设备</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>视频层</p></li>
+</ul>
+<blockquote>
+<div><p>CV184x的高清显示设备只有一个视频层和一个图形层。</p>
+<p>处理器支持显示设备，视频层和图形层的情况请参见表 5.1。</p>
+<p>处理器设备功能对比参考表 5.2 。</p>
+<p>处理器视频层功能对比如表 5.3 所示。</p>
+<p>设备上视频输出接口支持的最大时序见表 5.4所示。视频层和显示设备的实际显示分辨率依赖于具体输出接口。</p>
+</div></blockquote>
+<table class="colwidths-given docutils align-default" id="id3">
+<caption><span class="caption-number">表 5.1 </span><span class="caption-text">支持显示设备，视频层和图形层</span><a class="headerlink" href="Design_Overview.html#id3" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>处理器名称</p></th>
+<th class="head"><p>子项</p></th>
+<th class="head"><p>高清显示设备</p></th>
+<th class="head"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="line-block">
+<div class="line">CV184x</div>
+</div>
+</td>
+<td><p>名称</p></td>
+<td><p>视频层</p></td>
+<td><p>图形层</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>说明</p></td>
+<td><p>最多支持1画面</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>输出接口</p></td>
+<td><p>BT.1120/BT.656, MIPI Tx, LCD, I80, RGB</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-given docutils align-default" id="id4">
+<caption><span class="caption-number">表 5.2 </span><span class="caption-text">显示设备功能</span><a class="headerlink" href="Design_Overview.html#id4" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 20%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>处理器</p></th>
+<th class="head"></th>
+<th class="head"><p>最大输出时序</p></th>
+<th class="head"><p>输出接口</p></th>
+<th class="head"><p>叠加拼接显示</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="line-block">
+<div class="line">CV184x</div>
+</div>
+</td>
+<td><p>高清显示设备</p></td>
+<td><div class="line-block">
+<div class="line"><a class="reference external" href="mailto:1080p&#37;&#52;&#48;60">1080p<span>&#64;</span>60</a></div>
+<div class="line"><a class="reference external" href="mailto:720p&#37;&#52;&#48;60">720p<span>&#64;</span>60</a></div>
+</div>
+</td>
+<td><div class="line-block">
+<div class="line">MIPI Tx</div>
+<div class="line">BT.1120/BT.656/</div>
+<div class="line">LCD/I80/RGB</div>
+</div>
+</td>
+<td><p>不支持</p></td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-given docutils align-default" id="id5">
+<caption><span class="caption-number">表 5.3 </span><span class="caption-text">视频层功能</span><a class="headerlink" href="Design_Overview.html#id5" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>处理器</p></th>
+<th class="head"><p>动态绑定能力</p></th>
+<th class="head"><p>缩放能力</p></th>
+<th class="head"><p>支持通道数</p></th>
+<th class="head"></th>
+<th class="head"><p>CSC</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td></td>
+<td></td>
+<td></td>
+<td><p>SIN GLE模式</p></td>
+<td><p>MU I模式</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><div class="line-block">
+<div class="line">CV184x</div>
+</div>
+</td>
+<td><p>不支持</p></td>
+<td><p>不支持</p></td>
+<td><p>1</p></td>
+<td><p>1</p></td>
+<td><p>支持</p></td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-given docutils align-default" id="id6">
+<caption><span class="caption-number">表 5.4 </span><span class="caption-text">显示设备接口最大输出时序</span><a class="headerlink" href="Design_Overview.html#id6" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>处理器</p></th>
+<th class="head"></th>
+<th class="head"><p>大输出时序</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><div class="line-block">
+<div class="line">CV184x</div>
+</div>
+</td>
+<td><p>MIPI Tx</p></td>
+<td><p><a class="reference external" href="mailto:1080P&#37;&#52;&#48;60">1080P<span>&#64;</span>60</a></p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>BT.1120</p></td>
+<td><p><a class="reference external" href="mailto:720P&#37;&#52;&#48;60">720P<span>&#64;</span>60</a></p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>BT.656</p></td>
+<td><p><a class="reference external" href="mailto:720P&#37;&#52;&#48;30">720P<span>&#64;</span>30</a></p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>LCD</p></td>
+<td><p><a class="reference external" href="mailto:720P&#37;&#52;&#48;60">720P<span>&#64;</span>60</a></p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p>通道</p></li>
+</ul>
+<blockquote>
+<div><p>SDK将信道归属于视频层管理，一个视频层上可显示多个视频。每一个视频显示区域称为一个通道，视频被限制信道内，信道被限制在视频层内。对于一个视频层，其上面的通道都是独立的。同时，不同的视频层上的通道也是独立的。</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>分辨率</p></li>
+</ul>
+<blockquote>
+<div><p>分辨率主要有以下2 种概念：</p>
+<p>− 设备分辨率由设备时序决定，决定该设备的输出有效像素点数。</p>
+<p>− 显示分辨率指在显示设备上的有效显示区域，由视频层属性中的stDispRect 成员决定。显示分辨率小于等于设备分辨率。</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>图形层绑定</p></li>
+</ul>
+<blockquote>
+<div><p>图形层绑定是指处理器支持将特定的图形层绑定到视频层上。</p>
+<p>CV184x 支持 1 个图形层固定绑定到视频层上。</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>旋转</p></li>
+</ul>
+<blockquote>
+<div><p>VO支持对进入信道的图像做旋转的操作。也就可以先做旋转，在进入通道做后续处理。</p>
+<p>通常作用在一些竖屏上，此时设置为旋转90或270度，可以达到满屏并保持图像比例。</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>输入和输出数据格式</p></li>
+</ul>
+<blockquote>
+<div><p>处理器VO支持的输入数据格式见下 表 5.5 。</p>
+<p>表中 PIXEL FORMAT 、 VIDEO FORMAT 项分别列出了处理器支持的输入像素格式、视频格式.</p>
+<p>表中数据格式可参考“2 系统控制”章节 。</p>
+</div></blockquote>
+<table class="colwidths-given docutils align-default" id="id7">
+<caption><span class="caption-number">表 5.5 </span><span class="caption-text">处理器支持的输入数据格式</span><a class="headerlink" href="Design_Overview.html#id7" title="永久链接至表格">¶</a></caption>
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>处理器</p></th>
+<th class="head"></th>
+<th class="head"><p>输入</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CV184x</p></td>
+<td><p>PIXEL FORMAT</p></td>
+<td><div class="line-block">
+<div class="line">YUV PLANAR 444</div>
+<div class="line">YUV PLANAR 422</div>
+<div class="line">YUV PLANAR 420</div>
+<div class="line">YUV 400</div>
+<div class="line">NV12</div>
+<div class="line">NV21</div>
+<div class="line">NV16</div>
+<div class="line">NV61</div>
+<div class="line">YUYV</div>
+<div class="line">YVYU</div>
+<div class="line">UYVY</div>
+<div class="line">VYUY</div>
+<div class="line">RGB PLANAR 888</div>
+<div class="line">BGR PLANAR 888</div>
+<div class="line">RGB Packed 888</div>
+<div class="line">BGR Packed 888</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>VIDEO FORMAT</p></td>
+<td><p>LINEAR</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Function_Overview.html" class="btn btn-neutral float-left" title="5.1. 功能概述" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="API_Reference.html" class="btn btn-neutral float-right" title="5.3. API参考" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

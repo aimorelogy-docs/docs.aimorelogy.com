@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2. MIPI DSI &mdash; ScreenDockingGuide master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="3. LVDS" href="3_LVDS.html" />
+    <link rel="prev" title="1. 声明" href="1_disclaimer.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> ScreenDockingGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="2_MIPI_DSI.html#">2. MIPI DSI</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_MIPI_DSI.html#id1">2.1. 环境准备</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_DSI.html#id2">2.1.1. MIPI DSI 屏幕接口介绍</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_DSI.html#id3">2.1.2. 硬件连线确认</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2_MIPI_DSI.html#mipi">2.2. 配置MIPI屏</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_DSI.html#u-bootmipi">2.2.1. 在u-boot中配置MIPI屏</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#mipi-tx">2.2.1.1. 配置MIPI Tx设备属性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#id4">2.2.1.2. 配置屏幕初始化序列</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#id5">2.2.1.3. 添加头文件的引用</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#mipireset">2.2.1.4. 配置MIPI屏RESET管脚</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#mipipower">2.2.1.5. 配置MIPI屏POWER管脚</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#mipibacklight">2.2.1.6. 配置MIPI屏BACKLIGHT管脚</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#u-boot">2.2.1.7. 配置u-boot环境变量</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#logo">2.2.1.8. 更换logo图片</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#id6">2.2.1.9. 编译烧写验证</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_DSI.html#kernelmipi">2.2.2. 在kernel中配置MIPI屏</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#id7">2.2.2.1. 配置MIPI Tx设备属性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#id8">2.2.2.2. 配置屏幕初始化序列</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#id9">2.2.2.3. 添加头文件的引用</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#mipiresetpowerbacklight">2.2.2.4. 配置MIPI屏RESET、POWER、BACKLIGHT管脚</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#id10">2.2.2.5. 编译验证</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_DSI.html#id11">2.2.3. 在双系统中配置MIPI屏</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#id12">2.2.3.1. 配置MIPI Tx设备属性</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#cvi-alios">2.2.3.2. 打开cvi_alios中的配置开关</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#id13">2.2.3.3. 配置屏幕初始化序列</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#id14">2.2.3.4. 添加头文件的引用</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#id15">2.2.3.5. 配置MIPI屏RESET、POWER、BACKLIGHT管脚</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#id16">2.2.3.6. 编译验证</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3_LVDS.html">3. LVDS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_MIPI_DSI.html">4. MIPI DSI(SDK V6.3.4开始)</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ScreenDockingGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">2. </span>MIPI DSI</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/2_MIPI_DSI.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="mipi-dsi">
+<h1><span class="section-number">2. </span>MIPI DSI<a class="headerlink" href="2_MIPI_DSI.html#mipi-dsi" title="永久链接至标题">¶</a></h1>
+<p><strong>概述</strong></p>
+<p>The Display Serial Interface（DSI）接口是移动行业处理器接口联盟
+（Mobile Industry Processor Interface alliance,MIPI联盟）
+定义的一种高速串行接口，主要用于处理器和显示模块之间的连接。</p>
+<p>本章介绍如何在CVITEK处理器解决方案上开发调试MIPI LCD 屏，以帮助客户有序快速开发MIPI LCD 业务。</p>
+<section id="id1">
+<h2><span class="section-number">2.1. </span>环境准备<a class="headerlink" href="2_MIPI_DSI.html#id1" title="永久链接至标题">¶</a></h2>
+<section id="id2">
+<h3><span class="section-number">2.1.1. </span>MIPI DSI 屏幕接口介绍<a class="headerlink" href="2_MIPI_DSI.html#id2" title="永久链接至标题">¶</a></h3>
+<p>MIPI DSI 屏幕一般有以下几种信号，如图所示。</p>
+<ul class="simple">
+<li><p>mipi 时钟线（CLK）</p></li>
+<li><p>mipi 数据线（DATA），最大为 4Lane（仅可以为1/2/4Lane）</p></li>
+<li><p>背光控制信号（BACKLIGHT）</p></li>
+<li><p>复位引脚 （RESET）</p></li>
+<li><p>Panel电源供电（POWER）</p></li>
+</ul>
+<p><strong>MIPI DSI 接口连线示意图</strong></p>
+<img alt="_images/MIPIDS002.png" class="align-center" src="_images/MIPIDS002.png" />
+</section>
+<section id="id3">
+<h3><span class="section-number">2.1.2. </span>硬件连线确认<a class="headerlink" href="2_MIPI_DSI.html#id3" title="永久链接至标题">¶</a></h3>
+<p>检查硬件连线，确认无异常。具体有些引脚差异，需对照屏幕厂商提供的规格书及电路原理图确认。</p>
+</section>
+</section>
+<section id="mipi">
+<h2><span class="section-number">2.2. </span>配置MIPI屏<a class="headerlink" href="2_MIPI_DSI.html#mipi" title="永久链接至标题">¶</a></h2>
+<p>根据上节环境准备的内容，在接口和连线上了解了屏幕对接的配置，在这一章节中将对屏幕对接时在软件方面需要进行的配置进行说明。</p>
+<p>CVITEK 有两种方案进行MIPI屏幕的对接，分别是在u-boot及kernel中进行屏的初始化，区别在于u-boot中进行初始化后，开机可以显示客户的logo图片，而带屏的产品基本都会有显示logo的需求。实际应用中根据需求二者选其一。</p>
+<section id="u-bootmipi">
+<h3><span class="section-number">2.2.1. </span>在u-boot中配置MIPI屏<a class="headerlink" href="2_MIPI_DSI.html#u-bootmipi" title="永久链接至标题">¶</a></h3>
+<p>u-boot中配置MIPI屏是通过CVITEK开发的showlogo命令，设备上电后，敲回车进入u-boot命令行，printenv可以看到showlogo命令（不同板卡命令会有区别），bootcmd在引导内核之前会执行该命令进行屏的初始化并显示logo。</p>
+<p>示例：</p>
+<p>showlogo=mmc dev 0;mmc read 0x84080000 0xA000 0x400; cvi_jpeg 0x84080000 0x81800000 0x80000; startvo 0 8192 0;startvl 0 0x84080000 0x81800000 0x80000
+32;setvobg 0 0xffffffff</p>
+<p>本文档重点讲解屏的初始化部分，显示logo具体请参考《CV184X开机画面使用指南》。其中，屏的初始化部分在“startvo 0 8192 0”中实现。</p>
+<section id="mipi-tx">
+<h4><span class="section-number">2.2.1.1. </span>配置MIPI Tx设备属性<a class="headerlink" href="2_MIPI_DSI.html#mipi-tx" title="永久链接至标题">¶</a></h4>
+<p>根据屏的规格书，实现每个屏的配置头文件，并放置在u-boot-2021.10/include/cvitek/cvi_panels/下，客户可以参照其余的头文件模板新增自己的panel头文件。</p>
+<p><strong>combo_dev_cfg_s结构体定义</strong></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">combo_dev_cfg_s</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">devno</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">enum</span><span class="w"> </span><span class="n">mipi_tx_lane_id</span><span class="w"> </span><span class="n">lane_id</span><span class="p">[</span><span class="n">LANE_MAX_NUM</span><span class="p">];</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">enum</span><span class="w"> </span><span class="n">output_mode_e</span><span class="w"> </span><span class="n">output_mode</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">enum</span><span class="w"> </span><span class="n">video_mode_e</span><span class="w"> </span><span class="n">video_mode</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">enum</span><span class="w"> </span><span class="n">output_format_e</span><span class="w"> </span><span class="n">output_format</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">struct</span> <span class="nc">sync_info_s</span><span class="w"> </span><span class="n">sync_info</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">pixel_clk</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">lane_pn_swap</span><span class="p">[</span><span class="n">LANE_MAX_NUM</span><span class="p">];</span><span class="w"></span>
+
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>devno</p></td>
+<td><p>MIPI Tx设备号，默认0</p></td>
+</tr>
+<tr class="row-odd"><td><p>lane_id</p></td>
+<td><p>主控端和屏端Lane号的对应关系，未使用的Lane填-1即可。</p>
+<p>共5个成员，依序分别代表主控端的MIPI_TX_0~MIPI_TX_4，</p>
+<p>实际填写的内容需要根据对应到屏端的MIPI lane号。</p>
+<p>例如，第一个成员是主控MIPI_TX_0，查电路原理图，对应到屏端的MIPI lane3，</p>
+<p>就填写为MIPI_TX_LANE_3。</p>
+<p>对应关系不正确，将导致屏幕无法点亮。</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>output_mode</p></td>
+<td><p>MIPI Tx输出模式，默认OUTPUT_MODE_DSI_VIDEO</p></td>
+</tr>
+<tr class="row-odd"><td><p>video_mode</p></td>
+<td><p>MIPI Tx视频模式，默认BURST_MODE</p></td>
+</tr>
+<tr class="row-even"><td><p>output_format</p></td>
+<td><p>MIPI Tx输出格式，默认OUT_FORMAT_RGB_24_BIT</p></td>
+</tr>
+<tr class="row-odd"><td><p>sync_info</p></td>
+<td><p>MIPI Tx设备的同步信息</p></td>
+</tr>
+<tr class="row-even"><td><p>pixel_clk</p></td>
+<td><p>像素时钟，单位为KHz。</p>
+<p>计算公式：</p>
+<p>pixel_clk=(htotal*vtotal)*fps/1000</p>
+<p>其中：</p>
+<p>htotal=vid_hsa_pixels+ vid_hbp_pixels+</p>
+<p>vid_hfp_pixels+ vid_hline_pixels</p>
+<p>vtotal= vid_vsa_lines+ vid_vbp_lines+</p>
+<p>vid_vfp_lines+ vid_active_lines</p>
+<p>fps:帧率，默认60</p>
+<p>lane_clk根据pixel_clk反推，换算公式：</p>
+<p>lane_clk= pixel_clk*24/4/2(24表示RGB888每个pixel占24bits，</p>
+<p>4表示使用了4条Data Lane，2表示mipi clk是双边沿触发)</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>lane_pn_swap</p></td>
+<td><p>MIPI Tx的Lane P/N极是否交换</p>
+<p>true：交换</p>
+<p>false:不交换</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>combo_dev_cfg_s中 sync_info（MIPI Tx 设备的同步信息）比较难配置，
+下面详细介绍它的配置方法。一般开始会根据屏厂提供的规格书填写参考值，
+还有问题再根据现象调整。</p>
+<p><strong>sync_info_s结构体定义</strong></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">sync_info_s</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w"> </span><span class="n">vid_hsa_pixels</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w"> </span><span class="n">vid_hbp_pixels</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w"> </span><span class="n">vid_hfp_pixels</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w"> </span><span class="n">vid_hline_pixels</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w"> </span><span class="n">vid_vsa_lines</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w"> </span><span class="n">vid_vbp_lines</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w"> </span><span class="n">vid_vfp_lines</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w"> </span><span class="n">vid_active_lines</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">vid_vsa_pos_polarity</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">vid_hsa_pos_polarity</span><span class="p">;</span><span class="w"></span>
+
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>vid_hsa_pixels</p></td>
+<td><p>水平同步脉冲(HSA)，单位为像素</p></td>
+</tr>
+<tr class="row-odd"><td><p>vid_hbp_pixels</p></td>
+<td><p>水平消隐后肩(HBP)，单位为像素</p></td>
+</tr>
+<tr class="row-even"><td><p>vid_hfp_pixels</p></td>
+<td><p>水平消隐前肩(HFP)，单位为像素</p></td>
+</tr>
+<tr class="row-odd"><td><p>vid_hline_pixels</p></td>
+<td><p>水平有效区(HACT)，单位为像素</p></td>
+</tr>
+<tr class="row-even"><td><p>vid_vsa_lines</p></td>
+<td><p>垂直同步脉冲(VSA)，单位为行</p></td>
+</tr>
+<tr class="row-odd"><td><p>vid_vbp_lines</p></td>
+<td><p>垂直消隐后肩(VBP)，单位为行</p></td>
+</tr>
+<tr class="row-even"><td><p>vid_vfp_lines</p></td>
+<td><p>垂直消隐前肩(VFP)，单位为行</p></td>
+</tr>
+<tr class="row-odd"><td><p>vid_active_lines</p></td>
+<td><p>垂直有效区(VACT)，单位为行</p></td>
+</tr>
+<tr class="row-even"><td><p>vid_vsa_pos_polarity</p></td>
+<td><p>垂直有效信号的极性，0为高有效，1为低有效</p></td>
+</tr>
+<tr class="row-odd"><td><p>vid_hsa_pos_polarity</p></td>
+<td><p>水平有效信号的极性，0为高有效，1为低有效</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>MIPI DSI协议下MIPI像素区域示意图</strong></p>
+<img alt="_images/MIPIDS003.png" class="align-center" src="_images/MIPIDS003.png" />
+<p><strong>hs_settle_s结构体定义</strong></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">hs_settle_s</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">prepare</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">zero</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">trail</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>prepare</p></td>
+<td><p>MIPI Tx prepare信号，默认值6</p></td>
+</tr>
+<tr class="row-odd"><td><p>zero</p></td>
+<td><p>MIPI Tx zero信号，默认值32</p></td>
+</tr>
+<tr class="row-even"><td><p>trail</p></td>
+<td><p>MIPI Tx trail信号，默认值1</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>MIPI Tx时序图</strong></p>
+<a class="reference internal image-reference" href="_images/MIPIDS004.png"><img alt="_images/MIPIDS004.png" src="_images/MIPIDS004.png" style="width: 6.26806in; height: 1.40625in;" /></a>
+<p>示例：</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>const struct combo_dev_cfg_s dev_cfg = {
+  .devno = 0,
+  .lane_id = {MIPI_TX_LANE_3, MIPI_TX_LANE_0, MIPI_TX_LANE_CLK, MIPI_TX_LANE_2, MIPI_TX_LANE_1},
+  .lane_pn_swap = {false, false, false, false, false},
+  .output_mode = OUTPUT_MODE_DSI_VIDEO,
+  .video_mode = BURST_MODE,
+  .output_format = OUT_FORMAT_RGB_24_BIT,
+  .sync_info = {
+    .vid_hsa_pixels = 30,
+    .vid_hbp_pixels = 100,
+    .vid_hfp_pixels = 100,
+    .vid_hline_pixels = 800,
+    .vid_vsa_lines = 4,
+    .vid_vbp_lines = 16,
+    .vid_vfp_lines = 10,
+    .vid_active_lines = 1280,
+    .vid_vsa_pos_polarity = false,
+    .vid_hsa_pos_polarity = true,
+  },
+  .pixel_clk = 80958,
+};
+const struct hs_settle_s hs_timing_cfg = { .prepare = 6, .zero = 32, .trail = 1 };
+</pre></div>
+</div>
+</section>
+<section id="id4">
+<h4><span class="section-number">2.2.1.2. </span>配置屏幕初始化序列<a class="headerlink" href="2_MIPI_DSI.html#id4" title="永久链接至标题">¶</a></h4>
+<p>屏幕一般都有初始化的过程， MIPI LCD 屏是通过 MIPI Tx D-PHY 接口来发送指定类型的数据包。初始化序列由屏厂商提供。</p>
+<p>屏的初始化序列一般包括像素格式、数据刷新方向、Gamma 配置等，初始化序列中每一个指令具体含义，请在屏厂提供的规格书或者Driver IC Datasheet中查找。初始化序列是通过MIPI Tx的Data Lane0在LP模式下发送，发送结束后会切换到HS模式。</p>
+<p><strong>dsc_instr 结构体定义</strong></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">dsc_instr</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">u8</span><span class="w"> </span><span class="n">delay</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">u8</span><span class="w"> </span><span class="n">data_type</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">u8</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">u8</span><span class="w"> </span><span class="o">*</span><span class="n">data</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>屏幕厂商提供的初始化序列一般有寄存器地址和对应的数据，需要根据屏幕厂商给的序列，填充数据类型、数据地址及数据。</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>delay</p></td>
+<td><p>发送完此命令后，延时的毫秒数</p></td>
+</tr>
+<tr class="row-odd"><td><p>data_type</p></td>
+<td><p>写命令数据类型，即</p>
+<p>DCS(DisplayCommandSet)(指令集)中的Data Type。根据数据个数选择数据类型。</p>
+<p>类型1、当只有寄存器地址没有数据时，数据类型选择0x05；</p>
+<p>类型2、有寄存器地址和一个数据时，数据类型选择0x15 或者 0x23；</p>
+<p>类型3、有寄存器地址且数据个数大于等于两个，数据类型一般用0x29或者0x39。</p>
+<p>一般情况下通用，具体使用请咨询屏幕厂商。</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>size</p></td>
+<td><p>寄存器地址和数据个数之和。</p>
+<p>例如当只有一个寄存器地址，填1；</p>
+<p>当有一个寄存器地址和1个数据填2；一个寄存器地址和2个数据填3，依此类推。</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>data</p></td>
+<td><p>命令数据指针。</p>
+<p>寄存器地址和数据。第一个一定是寄存器地址，接在后面的是数据，</p>
+<p>数据可以没有或者有多个。</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>注：对于命令数据类型参数的配置的选择，需要咨询厂商。如果没有得到厂商支持，建议没有数据时选择 0x05，有一个数据时选择 0x15，多个数据时选择 0x29。</p>
+<p>示例：</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>static u8 data_xxxx_0[] = { 0xFF, 0x98, 0x81, 0x03 };
+static u8 data_xxxx_1[] = { 0x01, 0x00 };
+static u8 data_xxxx_2[] = {0x02, 0x00 };
+......
+static u8 data_xxxx_n[] = { 0x11 };
+static u8 data_xxxx_n+1[] = { 0x29 };
+
+const struct dsc_instr dsi_init_cmds[] = {
+  { .delay = 0, .data_type = 0x29, .size = 4, .data = data_xxxx_0 },
+  { .delay = 0, .data_type = 0x15, .size = 2, .data = data_xxxx_1 },
+  { .delay = 0, .data_type = 0x15, .size = 2, .data = data_xxxx_2 },
+  ......
+  { .delay = 120, .data_type = 0x05, .size = 1, .data = data_xxxx_n },
+  { .delay = 20, .data_type = 0x05, .size = 1, .data = data_xxxx_n+1 },
+}
+</pre></div>
+</div>
+</section>
+<section id="id5">
+<h4><span class="section-number">2.2.1.3. </span>添加头文件的引用<a class="headerlink" href="2_MIPI_DSI.html#id5" title="永久链接至标题">¶</a></h4>
+<p>添加对该新增的头文件的引用，在u-boot-2021.10/include/cvitek/cvi_panels/cvi_panels.h中增加对上两节中新增头文件的引用。</p>
+<p>示例：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#ifdef MIPI_PANEL_HX8394</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;dsi_hx8394_evb.h&quot;</span><span class="cp"></span>
+<span class="k">static</span><span class="w"> </span><span class="k">struct</span> <span class="nc">panel_desc_s</span><span class="w"> </span><span class="n">panel_desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="n">panel_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;HX8394-720x1280&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="n">dev_cfg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">dev_cfg_hx8394_720x1280</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="n">hs_timing_cfg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">hs_timing_cfg_hx8394_720x1280</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="n">dsi_init_cmds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dsi_init_cmds_hx8394_720x1280</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="n">dsi_init_cmds_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ARRAY_SIZE</span><span class="p">(</span><span class="n">dsi_init_cmds_hx8394_720x1280</span><span class="p">)</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+<span class="cp">#endif</span>
+</pre></div>
+</div>
+</section>
+<section id="mipireset">
+<h4><span class="section-number">2.2.1.4. </span>配置MIPI屏RESET管脚<a class="headerlink" href="2_MIPI_DSI.html#mipireset" title="永久链接至标题">¶</a></h4>
+<p>在u-boot-2021.10/drivers/video/cvitek/cvi_mipi.c的mipi_tx_set_combo_dev_cfg函数中增加RESET/POWER/BACKLIGHT的控制。</p>
+<p>MIPI 屏一般RESET管脚用的是 GPIO 口。所以需要对 GPIO 口进行配置，同时进行屏的复位操作。</p>
+<ul class="simple">
+<li><p>查询硬件原理图，获取RESET管脚对应的管脚名。</p></li>
+<li><p>对照《CV184X_PINOUT_CN》找到管脚对应的GPIO组号及序号。</p></li>
+<li><p>修改build/boards/default/dts/cv184x/cv184x_base.dtsi中vo节点reset为对应的值。</p></li>
+<li><p>配置RESET所用的 GPIO 的复位操作时序。</p></li>
+</ul>
+<p>屏的复位操作需要参考屏幕的说明书，若无复位操作或者复位的时序与屏幕要求的不匹配，或者电平不匹配，屏幕可能会无法点亮或者工作异常。一般而言会是high-low-high的电平变化，具体请参照屏的规格书。</p>
+<p>示例：</p>
+<p>假设屏幕的RESET管脚是GPIOE 2，复位电压为低，在
+build/boards/default/dts/cv184x/cv184x_base.dtsi修改如下：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">reset</span><span class="o">-</span><span class="n">gpio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="n">porte</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">GPIO_ACTIVE_LOW</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>配置如下：</p>
+<p>gpio_request_by_name(dev, “reset-gpio”, 0, &amp;priv-&gt;ctrl_gpios.disp_reset_gpio, GPIOD_IS_OUT | GPIOD_IS_OUT_ACTIVE);</p>
+<p>操作如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>dm_gpio_set_value(&amp;ctrl_gpios.disp_reset_gpio, ctrl_gpios.disp_reset_gpio.flags &amp; GPIOD_ACTIVE_LOW ? 0 : 1);
+mdelay(10);
+dm_gpio_set_value(&amp;ctrl_gpios.disp_reset_gpio, ctrl_gpios.disp_reset_gpio.flags &amp; GPIOD_ACTIVE_LOW ? 1 : 0);
+mdelay(10);
+dm_gpio_set_value(&amp;ctrl_gpios.disp_reset_gpio, ctrl_gpios.disp_reset_gpio.flags &amp; GPIOD_ACTIVE_LOW ? 0 : 1);
+mdelay(100);
+</pre></div>
+</div>
+<p>这几句的效果将会是RESET管脚产生一个high-low-high的电平变化</p>
+</section>
+<section id="mipipower">
+<h4><span class="section-number">2.2.1.5. </span>配置MIPI屏POWER管脚<a class="headerlink" href="2_MIPI_DSI.html#mipipower" title="永久链接至标题">¶</a></h4>
+<p>MIPI屏的POWER控制一般也是用GPIO。通常只需拉高或拉低管脚电平即可控制MIPI屏的供断电。有的屏也可能直接供电，这样的话软件就无需控制。</p>
+<ul class="simple">
+<li><p>配置方法与上节RESET管脚的方法一致</p></li>
+</ul>
+<p>示例：</p>
+<p>假设屏幕的POWER管脚是GPIOE 1，工作电压为高，
+在build/boards/default/dts/cv184x/cv184x_base.dtsi修改如下：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">power</span><span class="o">-</span><span class="n">ct</span><span class="o">-</span><span class="n">gpio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="n">porte</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">GPIO_ACTIVE_HIGH</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>如不需要配置POWER直接删掉即可。</p>
+<p>配置如下：</p>
+<p>gpio_request_by_name(dev, “power-ct-gpio”, 0, &amp;priv-&gt;ctrl_gpios.disp_power_ct_gpio, GPIOD_IS_OUT | GPIOD_IS_OUT_ACTIVE);</p>
+<p>操作如下：</p>
+<p>dm_gpio_set_value(&amp;ctrl_gpios.disp_power_ct_gpio, ctrl_gpios.disp_power_ct_gpio.flags &amp; GPIOD_ACTIVE_LOW ? 0 : 1);</p>
+</section>
+<section id="mipibacklight">
+<h4><span class="section-number">2.2.1.6. </span>配置MIPI屏BACKLIGHT管脚<a class="headerlink" href="2_MIPI_DSI.html#mipibacklight" title="永久链接至标题">¶</a></h4>
+<p>MIPI屏BACKLIGHT可以配置为GPIO或者PWM。</p>
+<section id="gpio">
+<h5><span class="section-number">2.2.1.6.1. </span>配置为GPIO<a class="headerlink" href="2_MIPI_DSI.html#gpio" title="永久链接至标题">¶</a></h5>
+<ul class="simple">
+<li><p>配置方法与上节RESET管脚的方法一致</p></li>
+</ul>
+<p>示例：</p>
+<p>假设屏幕的PWM管脚是GPIOE 0，工作电压为高，
+在build/boards/default/dts/cv184x/cv184x_base.dtsi修改如下：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">pwm</span><span class="o">-</span><span class="n">gpio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="n">porte</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">GPIO_ACTIVE_HIGH</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>如不需要配置POWER直接删掉即可。</p>
+<p>配置如下：</p>
+<p>gpio_request_by_name(dev, “pwm-gpio”, 0, &amp;priv-&gt;ctrl_gpios.
+disp_pwm_gpio, GPIOD_IS_OUT | GPIOD_IS_OUT_ACTIVE);</p>
+<p>操作如下：</p>
+<p>dm_gpio_set_value(&amp;ctrl_gpios.disp_pwm_gpio, ctrl_gpios.disp_pwm_gpio.flags &amp; GPIOD_ACTIVE_LOW ? 0 : 1);</p>
+</section>
+<section id="pwm">
+<h5><span class="section-number">2.2.1.6.2. </span>配置为PWM<a class="headerlink" href="2_MIPI_DSI.html#pwm" title="永久链接至标题">¶</a></h5>
+<p>MIPI屏的BACKLIGHT一般通过PWM，这样可实现亮度调节。</p>
+<ul class="simple">
+<li><p>查询硬件原理图，获取BACKLIGHT管脚对应的管脚名。</p></li>
+<li><p>在u-boot-2021.10/board/cvitek/cv181x/board.c的board_init函数中，配置BACKLIGHT管脚复用功能为PWM功能。</p></li>
+<li><p>对照《CV184X Preliminary Datasheet》外围设备PWM章节的寄存器信息，配置PWM输出的周期、占空比、使能。</p></li>
+</ul>
+<p>PWM基地址信息，其余寄存器信息具体请参考《CV184X Preliminary Datasheet》，CV184X有3组PWM，每组6个通道</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>pwm0</p></td>
+<td><p>0x030010a4</p></td>
+</tr>
+<tr class="row-even"><td><p>pwm1:</p></td>
+<td><p>0x030010d0</p></td>
+</tr>
+<tr class="row-odd"><td><p>pwm2:</p></td>
+<td><p>0x03001058</p></td>
+</tr>
+</tbody>
+</table>
+<p>注意：这里的PWM0~2是PWM组号，而原理图或者pinlist中写的是PWM0~PWM17，如当看到PWM1，对应的是上述表格第0组的第一个通道PWM0_1。</p>
+<p>示例：</p>
+<p>假设屏幕的BACKLIGHT管脚是PWM8</p>
+<blockquote>
+<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">devmem</span><span class="w"> </span><span class="mh">0x030010A4</span><span class="w"> </span><span class="mi">32</span><span class="w"> </span><span class="mh">0x00000004</span><span class="w"> </span><span class="c1">//复用相应的引脚为PWM</span>
+
+<span class="n">echo</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">pwm</span><span class="o">/</span><span class="n">pwmchip6</span><span class="o">/</span><span class="n">export</span><span class="w"> </span><span class="c1">//配置待操作的PWM编号</span>
+
+<span class="n">echo</span><span class="w"> </span><span class="mi">1000000</span><span class="w"> </span><span class="o">&gt;/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">pwm</span><span class="o">/</span><span class="n">pwmchip6</span><span class="o">/</span><span class="n">pwm2</span><span class="o">/</span><span class="n">period</span><span class="w"> </span><span class="c1">// 设置PWM一个周期的持续时间（单位ns）</span>
+
+<span class="n">echo</span><span class="w"> </span><span class="mi">500000</span><span class="w"> </span><span class="o">&gt;/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">pwm</span><span class="o">/</span><span class="n">pwmchip6</span><span class="o">/</span><span class="n">pwm2</span><span class="o">/</span><span class="n">duty_cycle</span><span class="w"> </span><span class="c1">// 设置一个周期中的”ON”时间（单位ns），即占空比</span>
+
+<span class="n">echo</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&gt;/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">pwm</span><span class="o">/</span><span class="n">pwmchip6</span><span class="o">/</span><span class="n">pwm2</span><span class="o">/</span><span class="n">enable</span><span class="w"> </span><span class="c1">// 使能 PWM 输出</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+</section>
+<section id="u-boot">
+<h4><span class="section-number">2.2.1.7. </span>配置u-boot环境变量<a class="headerlink" href="2_MIPI_DSI.html#u-boot" title="永久链接至标题">¶</a></h4>
+<p>修改u-boot-2021.10/include/configs/cv184x-asic.h中的u-boot环境变量参数</p>
+<p>示例：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define SHOWLOGOCMD LOAD_LOGO CVI_JPEG START_VO START_VL SET_VO_BG</span>
+</pre></div>
+</div>
+<p>LOAD_LOGO将图片由MISC分区读到DRAM，CVI_JPEG将图片解析到指定位置，START_VO和START_VL开启VO并将logo显示在居中位置，SET_VO_BG设置VO背景色，屏幕除logo之外的其他区域由此颜色填充。</p>
+</section>
+<section id="logo">
+<h4><span class="section-number">2.2.1.8. </span>更换logo图片<a class="headerlink" href="2_MIPI_DSI.html#logo" title="永久链接至标题">¶</a></h4>
+<p>将客户的logo图片放置在该路径下build/tools/common/bootlogo/，编译执行build_all后会拷贝至image生成路径下。</p>
+<p>注意： I80屏幕需要24bit BMP图片，其他需要YUV420格式jpg 。</p>
+</section>
+<section id="id6">
+<h4><span class="section-number">2.2.1.9. </span>编译烧写验证<a class="headerlink" href="2_MIPI_DSI.html#id6" title="永久链接至标题">¶</a></h4>
+<p>在上述步骤均完成以后，重新编译烧写新的u-boot。上电，敲回车进入u-boot命令行。执行run showlogo，顺利的话就可以看到屏幕显示出logo图片。如果未显示出logo，请确认以下。</p>
+<ul class="simple">
+<li><p>确认背光点亮</p></li>
+<li><p>确认RESET管脚电平状态有达到预期</p></li>
+<li><p>确认屏幕供电正常</p></li>
+<li><p>执行mw 0x0a094094 0x0701000a，输出VO的test pattern，假如屏幕初始化成功，此时会看到colorbar</p></li>
+</ul>
+<p>test pattern寄存器如下图</p>
+<a class="reference internal image-reference" href="_images/MIPIDS005.png"><img alt="_images/MIPIDS005.png" src="_images/MIPIDS005.png" style="width: 6.26806in; height: 1.49306in;" /></a>
+<p>发现有以上任何异常请回头检查此前的流程是否设置正确及达到预期。</p>
+<p>假如以上均未发现异常，建议查看Driver IC datasheet或直接咨询屏幕厂商，如何开启屏的BIST mode，通常是调整初始化序列中的某个寄存器值，会显示colorbar等。</p>
+<p>假如BIST mode不正常，则需要再检查MIPI Lane顺序、RESET、POWER、PWM等是否配置正确，并使用万用表/示波器等确认电路电平状态符合预期，假如均符合预期，则可能是屏幕本身的问题，请咨询屏幕厂商。</p>
+<p>假如BIST正常，则说明以上配置正确，硬件电路没有异常，这时通常需要调整sync_info_s中的各参数。</p>
+</section>
+</section>
+<section id="kernelmipi">
+<h3><span class="section-number">2.2.2. </span>在kernel中配置MIPI屏<a class="headerlink" href="2_MIPI_DSI.html#kernelmipi" title="永久链接至标题">¶</a></h3>
+<p>在kernel中配置MIPI屏的方法跟在u-boot中几乎是一样的，只是实现流程不一样。当无需显示logo的时候，可选择此种方式。</p>
+<p>另外，也可以先用kernel方式调通，再移植到u-boot，避免频繁烧写u-boot。</p>
+<p><strong>kernel中对接 MIPI屏幕基本框图</strong></p>
+<a class="reference internal image-reference" href="_images/MIPIDS006.png"><img alt="_images/MIPIDS006.png" src="_images/MIPIDS006.png" style="width: 4.672in; height: 3.27858in;" /></a>
+<section id="id7">
+<h4><span class="section-number">2.2.2.1. </span>配置MIPI Tx设备属性<a class="headerlink" href="2_MIPI_DSI.html#id7" title="永久链接至标题">¶</a></h4>
+<p>根据屏的规格书，实现每个屏的配置头文件，并放置在路径cvi_mpi/component/panel/下，客户可以参照其余的头文件模板新增自己的panel头文件。</p>
+<p>参见2.2.1.1节</p>
+</section>
+<section id="id8">
+<h4><span class="section-number">2.2.2.2. </span>配置屏幕初始化序列<a class="headerlink" href="2_MIPI_DSI.html#id8" title="永久链接至标题">¶</a></h4>
+<p>参见2.2.1.2节</p>
+</section>
+<section id="id9">
+<h4><span class="section-number">2.2.2.3. </span>添加头文件的引用<a class="headerlink" href="2_MIPI_DSI.html#id9" title="永久链接至标题">¶</a></h4>
+<p>添加对该新增的头文件的引用，在cvi_mpi/sample_app/panel/sample_panel.c中增加对上两节中新增头文件的引用。</p>
+<p>示例：</p>
+<p>如要点屏HX8394_EVB，首先在cvi_mpi/sample_app/panel/sample_panel.h中include该屏幕的头文件dsi_hx8394_evb.h，然后确保cvi_mpi/sample_app/panel/sample_panel.c文件中
+的字符数组static char *s_panel_model_type_arr[ ]里有”HX8394_EVB”字符，没有则自己添加，接着在该文件屏幕枚举类型PANEL_MODEL中添加与该字符索引值相等的枚举量HX8394_EVB，最后
+在SAMPLE_SET_PANEL_DESC函数中添加对该屏幕相关参数进行调用的case，如下所示：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">case</span><span class="w"> </span><span class="nl">DSI_PANEL_HX8394_EVB</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="n">g_panel_desc</span><span class="p">.</span><span class="n">panel_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PANEL_MODE_DSI</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">g_panel_desc</span><span class="p">.</span><span class="n">stdsicfg</span><span class="p">.</span><span class="n">dev_cfg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">dev_cfg_hx8394_720x1280</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">g_panel_desc</span><span class="p">.</span><span class="n">stdsicfg</span><span class="p">.</span><span class="n">hs_timing_cfg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">hs_timing_cfg_hx8394_720x1280</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">g_panel_desc</span><span class="p">.</span><span class="n">stdsicfg</span><span class="p">.</span><span class="n">dsi_init_cmds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dsi_init_cmds_hx8394_720x1280</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">g_panel_desc</span><span class="p">.</span><span class="n">stdsicfg</span><span class="p">.</span><span class="n">dsi_init_cmds_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ARRAY_SIZE</span><span class="p">(</span><span class="n">dsi_init_cmds_hx8394_720x1280</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="mipiresetpowerbacklight">
+<h4><span class="section-number">2.2.2.4. </span>配置MIPI屏RESET、POWER、BACKLIGHT管脚<a class="headerlink" href="2_MIPI_DSI.html#mipiresetpowerbacklight" title="永久链接至标题">¶</a></h4>
+<p><strong>方法1：</strong></p>
+<p>在路径build/boards/default/dts/cv184x/下找到对应的dts文件，配置MIPI Tx的gpio信息，如果没有该管脚，则直接不写即可。</p>
+<p>示例：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="nl">mipi_tx</span><span class="p">:</span><span class="w"> </span><span class="n">mipi_tx</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">compatible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;cvitek,mipi_tx&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">reset</span><span class="o">-</span><span class="n">gpio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="n">porte</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">GPIO_ACTIVE_LOW</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">pwm</span><span class="o">-</span><span class="n">gpio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="n">porte</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">GPIO_ACTIVE_HIGH</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">power</span><span class="o">-</span><span class="n">ct</span><span class="o">-</span><span class="n">gpio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="n">porte</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">GPIO_ACTIVE_HIGH</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">clocks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="n">clk</span><span class="w"> </span><span class="n">CV181X_CLK_DISP_VIP</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="n">clk</span><span class="w"> </span><span class="n">CV181X_CLK_DSI_MAC_VIP</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">clock</span><span class="o">-</span><span class="n">names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;clk_disp&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;clk_dsi&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>说明：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">pwm</span><span class="o">-</span><span class="n">gpio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="n">porte</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">GPIO_ACTIVE_HIGH</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>为调试方便，背光可先用GPIO控制，切记先不要在u-boot中配置pinmux为PWM功能，否则可能无法控制。</p>
+<p>后续根据需求，如果需要调节亮度，再在u-boot中配置pinmux功能为PWM，删除dts中的此行，同时app中用PWM方式控制。</p>
+<p>系统启动后加载MIPI Tx驱动方式（一般会自动加载，可先用lsmod查看是否已加载）：</p>
+<p>insmod /mnt/system/ko/cvi_mipi_tx.ko</p>
+<p>这样当驱动加载后，会根据dts中的GPIO信息，自动申请这些GPIO，并初始化成对应的电平状态。</p>
+<p><strong>方法2：</strong></p>
+<p>无需修改内核dts文件。</p>
+<p>系统启动加载MIPI Tx驱动方式：</p>
+<p>insmod /mnt/system/ko/cvi_mipi_tx.ko gpio=354,0,353,1,352,1</p>
+<p>这三个GPIO依序分别为RESET、POWER、PWM</p>
+<p>当驱动加载后，驱动会优先使用gpio参数中的信息自动申请GPIO号对应的GPIO，并初始化成其后的电平状态。如果没有写gpio参数，驱动会根据dts中的GPIO信息申请GPIO。如果没有该管脚，则GPIO号和电平状态均写-1即可。</p>
+<p>同样，为调试方便，背光可先用GPIO控制，先不要在u-boot中配置pinmux为PWM功能。后续需要调节亮度，再在u-boot中配置pinmux功能为PWM，同时app中用PWM方式控制，并将第三个GPIO号和电平状态写成-1即可。</p>
+<p><strong>方法3：</strong></p>
+<p>直接在应用层直接控制GPIO。</p>
+<p>示例：
+假设reset：GPIOE2，pwm：GPIOE0，power：GPIOE1，可以用cat /sys/kernel/debug/gpio指令查看芯片的gpio配置，可依次得到gpiochip0至gpiochip4的编号范围，依次对应着GPIOA至GPIOE的编号范围，
+若得出gpiochip4的范围是352至383，则对于所要拉的GPIOE2来说，下面echo操作的号码可由352+2=354得到。</p>
+<p>因此需要以下操作去拉对应引脚：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="mf">1.</span><span class="w"> </span><span class="n">echo</span><span class="w"> </span><span class="mi">352</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">export</span><span class="w"></span>
+<span class="w">   </span><span class="n">echo</span><span class="w"> </span><span class="mi">353</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">export</span><span class="w"></span>
+<span class="w">   </span><span class="n">echo</span><span class="w"> </span><span class="mi">354</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">export</span><span class="w"></span>
+<span class="mf">2.</span><span class="w"> </span><span class="n">echo</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio352</span><span class="o">/</span><span class="n">direction</span><span class="w"></span>
+<span class="w">   </span><span class="n">echo</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio353</span><span class="o">/</span><span class="n">direction</span><span class="w"></span>
+<span class="w">   </span><span class="n">echo</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio354</span><span class="o">/</span><span class="n">direction</span><span class="w"></span>
+<span class="mf">3.</span><span class="w"> </span><span class="n">echo</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio352</span><span class="o">/</span><span class="n">value</span><span class="w"></span>
+<span class="w">   </span><span class="n">echo</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio353</span><span class="o">/</span><span class="n">value</span><span class="w"></span>
+<span class="w">   </span><span class="n">echo</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio354</span><span class="o">/</span><span class="n">value</span><span class="w"></span>
+<span class="w">   </span><span class="n">echo</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio354</span><span class="o">/</span><span class="n">value</span><span class="w"></span>
+<span class="w">   </span><span class="n">echo</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio354</span><span class="o">/</span><span class="n">value</span><span class="w"></span>
+</pre></div>
+</div>
+<p>说明：</p>
+<p>为调试方便，背光可先用GPIO控制，切记先不要在u-boot中配置pinmux为PWM功能，否则可能无法控制。</p>
+<p>后续根据需求，如果需要调节亮度，在u-boot中配置pinmux功能为PWM，同时app中用PWM方式控制。</p>
+</section>
+<section id="id10">
+<h4><span class="section-number">2.2.2.5. </span>编译验证<a class="headerlink" href="2_MIPI_DSI.html#id10" title="永久链接至标题">¶</a></h4>
+<p>执行build_middleware编译middleware，在路径cvi_mpi/sample_app/panel/下会生成sample_panel可执行文件。
+该程序和在u-boot中“startvo 0 65536 0”做的事情是一样的，切换到LP模式，设置MIPI Tx设备属性并通过Data Lane0向屏幕发送初始化序列，然后切回HS模式。</p>
+<p>将sample_panel拷贝至设备，执行命令./sample_panel后会弹出该命令的执行方式，按提示运行即可。</p>
+<p>示例：./sample_panel –panel=HX8394_EVB</p>
+<p>说明：</p>
+<p>RESET初始电平设置为low，将需要high-low-high时序变化。</p>
+<p>RESET初始电平设置为high，将需要low-high-low时序变化。</p>
+<p>使能VO的test pattern，寄存器如下图。执行devmem 0x0a094094 32 0x0701000a将会看到colorbar。</p>
+<a class="reference internal image-reference" href="_images/MIPIDS005.png"><img alt="_images/MIPIDS005.png" src="_images/MIPIDS005.png" style="width: 6.26806in; height: 1.49306in;" /></a>
+<p>若colorbar未正常显示，请回头检查此前的流程是否设置正确及达到预期。</p>
+<p>假如此前流程均未发现异常，建议查看Driver IC datasheet或直接咨询屏幕厂商，如何开启屏的BIST mode，通常是调整初始化序列中的某个寄存器值，会显示colorbar等。</p>
+<p>假如BIST mode不正常，则需要再检查MIPI Lane顺序、RESET、POWER、PWM等是否配置正确，并使用万用表/示波器等确认电路电平状态符合预期，假如均符合预期，则可能是屏幕本身的问题，请咨询屏幕厂商。</p>
+<p>假如BIST正常，则说明以上配置正确，硬件电路没有异常，这时通常需要调整sync_info_s中的各参数。</p>
+</section>
+</section>
+<section id="id11">
+<h3><span class="section-number">2.2.3. </span>在双系统中配置MIPI屏<a class="headerlink" href="2_MIPI_DSI.html#id11" title="永久链接至标题">¶</a></h3>
+<p>在双系统中配置MIPI屏的方法和在上述单系统中几乎是一样的，只是有一些小区别。下面说明一下其中的异同。</p>
+<p><strong>对接MIPI屏幕基本框图</strong></p>
+<a class="reference internal image-reference" href="_images/MIPIDS006.png"><img alt="_images/MIPIDS006.png" src="_images/MIPIDS006.png" style="width: 4.672in; height: 3.27858in;" /></a>
+<p>其中，上图的VO与MIPI驱动均在小核alios中完成。</p>
+<section id="id12">
+<h4><span class="section-number">2.2.3.1. </span>配置MIPI Tx设备属性<a class="headerlink" href="2_MIPI_DSI.html#id12" title="永久链接至标题">¶</a></h4>
+<p>根据屏的规格书，实现每个屏的配置头文件，并放置在路径cvi_mpi/component/panel/和
+cvi_alios/components/cvi_mmf_sdk/cvi_panel/下，客户可以参照其余的头文件模板新增自己的panel头文件。</p>
+<p>参见2.2.1.1节</p>
+</section>
+<section id="cvi-alios">
+<h4><span class="section-number">2.2.3.2. </span>打开cvi_alios中的配置开关<a class="headerlink" href="2_MIPI_DSI.html#cvi-alios" title="永久链接至标题">¶</a></h4>
+<p>在cvi_alios/solutions/{normboot/fastboot}/customization/{project_config}/package.yaml.turnkey中打开对应芯片和屏幕类型的开关，</p>
+<p>示例，若选择CONFIG_CV1842HP_GC8613芯片，CONFIG_PANEL_HX8394屏幕，则打开如下开关：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="nl">CONFIG_CV1842HP_GC8613</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+
+<span class="nl">CONFIG_PANEL_HX8394</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+</pre></div>
+</div>
+<p>注意CONFIG_CHIP_cv1842hp芯片若需同时支持sensor和panel，需改装硬件，并按需修改cvi_alios/solutions/normboot/customization/cv1842hp_gc8613/src/custom_platform.c
+中_MipiTxPinmux()接口里的引脚复用。</p>
+</section>
+<section id="id13">
+<h4><span class="section-number">2.2.3.3. </span>配置屏幕初始化序列<a class="headerlink" href="2_MIPI_DSI.html#id13" title="永久链接至标题">¶</a></h4>
+<p>参见2.2.1.2节</p>
+</section>
+<section id="id14">
+<h4><span class="section-number">2.2.3.4. </span>添加头文件的引用<a class="headerlink" href="2_MIPI_DSI.html#id14" title="永久链接至标题">¶</a></h4>
+<p>参见2.2.2.3节</p>
+</section>
+<section id="id15">
+<h4><span class="section-number">2.2.3.5. </span>配置MIPI屏RESET、POWER、BACKLIGHT管脚<a class="headerlink" href="2_MIPI_DSI.html#id15" title="永久链接至标题">¶</a></h4>
+<p>在cvi_alios/solutions/normboot/customization/cv1842hp_gc8613/src/custom_platform.c中_MipiTxPinmux接口里
+添加对RESET、POWER、BACKLIGHT管脚的复用，然后直接在应用层直接控制GPIO。</p>
+<p>示例：</p>
+<p>对于CONFIG_CHIP_cv1842hp芯片，一般要拉引脚为：reset：GPIOE2，pwm：GPIOE0，power：GPIOE01。</p>
+<p>因此需要以下操作去拉对应引脚：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">devmem</span><span class="w"> </span><span class="mh">0x03022004</span><span class="w"> </span><span class="mi">32</span><span class="w"> </span><span class="mh">0x0</span><span class="w"></span>
+<span class="n">devmem</span><span class="w"> </span><span class="mh">0x03022000</span><span class="w"> </span><span class="mi">32</span><span class="w"> </span><span class="mh">0x0</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="mi">352</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">export</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="mi">353</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">export</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="mi">354</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">export</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio352</span><span class="o">/</span><span class="n">direction</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio353</span><span class="o">/</span><span class="n">direction</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio354</span><span class="o">/</span><span class="n">direction</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio354</span><span class="o">/</span><span class="n">value</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio352</span><span class="o">/</span><span class="n">value</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio353</span><span class="o">/</span><span class="n">value</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio354</span><span class="o">/</span><span class="n">value</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio354</span><span class="o">/</span><span class="n">value</span><span class="w"></span>
+</pre></div>
+</div>
+<p>对于CONFIG_CHIP_cv1842cp芯片，一般要拉引脚为：reset：GPIOA15，pwm：GPIOA18，power：GPIOA19。</p>
+<p>因此需要以下操作去拉对应引脚：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">devmem</span><span class="w"> </span><span class="mh">0x0300103c</span><span class="w"> </span><span class="mi">32</span><span class="w"> </span><span class="mh">0x3</span><span class="w"></span>
+<span class="n">devmem</span><span class="w"> </span><span class="mh">0x03001068</span><span class="w"> </span><span class="mi">32</span><span class="w"> </span><span class="mh">0x3</span><span class="w"></span>
+<span class="n">devmem</span><span class="w"> </span><span class="mh">0x03001064</span><span class="w"> </span><span class="mi">32</span><span class="w"> </span><span class="mh">0x3</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="mi">495</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">export</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="mi">498</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">export</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="mi">499</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">export</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio495</span><span class="o">/</span><span class="n">direction</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio498</span><span class="o">/</span><span class="n">direction</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio499</span><span class="o">/</span><span class="n">direction</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio495</span><span class="o">/</span><span class="n">value</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio498</span><span class="o">/</span><span class="n">value</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio499</span><span class="o">/</span><span class="n">value</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio495</span><span class="o">/</span><span class="n">value</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio495</span><span class="o">/</span><span class="n">value</span><span class="w"></span>
+</pre></div>
+</div>
+<p>上述代码中devmem写寄存器指令是为了复用相应的引脚，若已完成相关复用，可不执行该指令。</p>
+</section>
+<section id="id16">
+<h4><span class="section-number">2.2.3.6. </span>编译验证<a class="headerlink" href="2_MIPI_DSI.html#id16" title="永久链接至标题">¶</a></h4>
+<p>参见2.2.2.5节</p>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="1_disclaimer.html" class="btn btn-neutral float-left" title="1. 声明" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="3_LVDS.html" class="btn btn-neutral float-right" title="3. LVDS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2025, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

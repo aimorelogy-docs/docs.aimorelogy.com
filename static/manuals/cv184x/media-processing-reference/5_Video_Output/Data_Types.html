@@ -1,0 +1,1509 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5.4. 数据类型 &mdash; MediaProcessingSoftwareDevelopmentReference master 文档</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="../_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/qrious.js"></script>
+    <script src="../_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="5.5. 错误码" href="Error_Codes.html" />
+    <link rel="prev" title="5.3. API参考" href="API_Reference.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> MediaProcessingSoftwareDevelopmentReference
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_System_Overview.html">2. 系统概述</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_System_Control.html">3. 系统控制</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_Video_Input.html">4. 视频输入</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../5_Video_Output.html">5. 视频输出</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Function_Overview.html">5.1. 功能概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Design_Overview.html">5.2. 设计概述</a></li>
+<li class="toctree-l2"><a class="reference internal" href="API_Reference.html">5.3. API参考</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="Data_Types.html#">5.4. 数据类型</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vo-dev">5.4.1. VO_DEV</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vo-layer">5.4.2. VO_LAYER</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vo-chn">5.4.3. VO_CHN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vo-intf-type-e">5.4.4. VO_INTF_TYPE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vo-intf-sync-e">5.4.5. VO_INTF_SYNC_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vo-lvds-mode-e">5.4.6. VO_LVDS_MODE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vo-lvds-out-bit-e">5.4.7. VO_LVDS_OUT_BIT_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vo-lvds-lane-id">5.4.8. VO_LVDS_LANE_ID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vo-csc-matrix-e">5.4.9. VO_CSC_MATRIX_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vo-mac-bt-mux-e">5.4.10. VO_MAC_BT_MUX_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vo-mac-d-sel-e">5.4.11. VO_MAC_D_SEL_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vo-bt-mode-e">5.4.12. VO_BT_MODE_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vo-bt-data-seq-e">5.4.13. VO_BT_DATA_SEQ_E</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vo-csc-s">5.4.14. VO_CSC_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vo-sync-info-s">5.4.15. VO_SYNC_INFO_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vo-lvds-attr-s">5.4.16. VO_LVDS_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vo-pub-attr-s">5.4.17. VO_PUB_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vo-video-layer-attr-s">5.4.18. VO_VIDEO_LAYER_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vo-chn-attr-s">5.4.19. VO_CHN_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vo-min-chn-width">5.4.20. VO_MIN_CHN_WIDTH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vo-min-chn-height">5.4.21. VO_MIN_CHN_HEIGHT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vo-max-dev-num">5.4.22. VO_MAX_DEV_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vo-max-layer-num">5.4.23. VO_MAX_LAYER_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vo-max-chn-num">5.4.24. VO_MAX_CHN_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vo-i80-instr-s">5.4.25. VO_I80_INSTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vo-pm-ops-s">5.4.26. VO_PM_OPS_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vo-gamma-info-s">5.4.27. VO_GAMMA_INFO_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vo-bin-info-s">5.4.28. VO_BIN_INFO_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vo-pattern-mode">5.4.29. VO_PATTERN_MODE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vo-d-remap-s">5.4.30. VO_D_REMAP_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vo-pinmux-s">5.4.31. VO_PINMUX_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vo-bt-attr-s">5.4.32. VO_BT_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vo-mcu-instrs-s">5.4.33. VO_MCU_INSTRS_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vo-hw-mcu-cfg-s">5.4.34. VO_HW_MCU_CFG_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vo-chn-status-s">5.4.35. VO_CHN_STATUS_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Data_Types.html#vo-query-status-s">5.4.36. VO_QUERY_STATUS_S</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Error_Codes.html">5.5. 错误码</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../6_Video_Processing_Subsystem.html">6. 视频处理子系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../7_Video_Encoding.html">7. 视频编码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../8_Video_Decoding.html">8. 视频解码</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../9_Regional_Management.html">9. 区域管理</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../10_Audio_Frequency.html">10. 音频</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../11_Geometric_Distortion_Correction_Subsystem.html">11. 几何畸变矫正子系统</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../12_Proc_Debugging_Information_Explanation.html">12. Proc 调试信息说明</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MediaProcessingSoftwareDevelopmentReference</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../5_Video_Output.html"><span class="section-number">5. </span>视频输出</a> &raquo;</li>
+      <li><span class="section-number">5.4. </span>数据类型</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="../_sources/5_Video_Output/Data_Types.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">5.4. </span>数据类型<a class="headerlink" href="Data_Types.html#id1" title="永久链接至标题">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="Data_Types.html#vo-dev">VO_DEV</a>:定义视频输出设备号。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vo-layer">VO_LAYER</a>:定义视频输出设备视频层号。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vo-chn">VO_CHN</a> ：定义通道号。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vo-intf-type-e">VO_INTF_TYPE_E</a>:定义视频输出设备的接口类型。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vo-intf-sync-e">VO_INTF_SYNC_E</a>:定义视频输出设备的标准时序。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vo-lvds-mode-e">VO_LVDS_MODE_E</a> : 定义LVDS接口模式。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vo-lvds-out-bit-e">VO_LVDS_OUT_BIT_E</a> : 定义LVDS接口输出位宽。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vo-lvds-lane-id">VO_LVDS_LANE_ID</a> : 定义LVDS接口的lane ID。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vo-csc-matrix-e">VO_CSC_MATRIX_E</a> : 定义CSC转换矩阵。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vo-mac-bt-mux-e">VO_MAC_BT_MUX_E</a> : 定义BT接口复用信号类型。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vo-mac-d-sel-e">VO_MAC_D_SEL_E</a> : 定义视频输出引脚选择枚举。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vo-bt-data-seq-e">VO_BT_DATA_SEQ_E</a> : 定义BT接口数据序列类型。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vo-bt-mode-e">VO_BT_MODE_E</a> : 定义BT接口模式枚举。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vo-csc-s">VO_CSC_S</a> : 定义图像输出效果结构体。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vo-sync-info-s">VO_SYNC_INFO_S</a>:定义视频输出设备的自定义时序结构体。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vo-lvds-attr-s">VO_LVDS_ATTR_S</a> : 定义LVDS接口属性结构体。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vo-pub-attr-s">VO_PUB_ATTR_S</a>:定义视频输出设备公共属性结构体。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vo-video-layer-attr-s">VO_VIDEO_LAYER_ATTR_S</a>:定义视频输出设备视频层属性结构体。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vo-chn-attr-s">VO_CHN_ATTR_S</a>:定义视频输出设备通道属性结构体。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vo-min-chn-width">VO_MIN_CHN_WIDTH</a>:定义视频输出设备通道最小宽度。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vo-min-chn-height">VO_MIN_CHN_HEIGHT</a>:定义视频输出设备通道最小高度。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vo-max-dev-num">VO_MAX_DEV_NUM</a>:定义视频输出设备最大设备数。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vo-max-layer-num">VO_MAX_LAYER_NUM</a>:定义视频输出设备最大视频层数。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vo-max-chn-num">VO_MAX_CHN_NUM</a>:定义视频输出设备最大通道数。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vo-i80-instr-s">VO_I80_INSTR_S</a> : 定义I80指令。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vo-pm-ops-s">VO_PM_OPS_S</a> : 电源管理函数指针结构体。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vo-gamma-info-s">VO_GAMMA_INFO_S</a> ：定义伽马校正信息。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vo-bin-info-s">VO_BIN_INFO_S</a> : Gamma信息结构体。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vo-pattern-mode">VO_PATTERN_MODE</a> : 定义显示图例模式。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vo-d-remap-s">VO_D_REMAP_S</a> : 定义引脚映射结构体。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vo-pinmux-s">VO_PINMUX_S</a> : 定义引脚PINMUX结构体。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vo-bt-attr-s">VO_BT_ATTR_S</a> : 定义BT接口引脚的配置结构体。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vo-mcu-instrs-s">VO_MCU_INSTRS_S</a> : 定义MCU接口初始化结构体。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vo-hw-mcu-cfg-s">VO_HW_MCU_CFG_S</a> : 定义MCU接口的配置结构体。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vo-chn-status-s">VO_CHN_STATUS_S</a> : 定义通道状态结构体。</p></li>
+<li><p><a class="reference internal" href="Data_Types.html#vo-query-status-s">VO_QUERY_STATUS_S</a> ：定义视频输出通道状态结构体。</p></li>
+</ul>
+<section id="vo-dev">
+<span id="id2"></span><h2><span class="section-number">5.4.1. </span>VO_DEV<a class="headerlink" href="Data_Types.html#vo-dev" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义视频输出设备号。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">VO_DEV</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>处理器</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CV184x</p></td>
+<td><div class="line-block">
+<div class="line">仅有一个视频输出设备。</div>
+<div class="line">支持LCD, MIPI TX, BT.656, BT.1120, RGB, I80</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="vo-layer">
+<h2><span class="section-number">5.4.2. </span>VO_LAYER<a class="headerlink" href="Data_Types.html#vo-layer" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义视频输出设备视频层号。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">VO_LAYER</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>处理器</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CV184x</p></td>
+<td><div class="line-block">
+<div class="line">仅有一个视频输出层。</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="vo-chn">
+<h2><span class="section-number">5.4.3. </span>VO_CHN<a class="headerlink" href="Data_Types.html#vo-chn" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义通道号。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">VO_CHN</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p><a class="reference internal" href="Data_Types.html#vo-chn-attr-s">VO_CHN_ATTR_S</a></p>
+</section>
+<hr class="docutils" />
+<section id="vo-intf-type-e">
+<h2><span class="section-number">5.4.4. </span>VO_INTF_TYPE_E<a class="headerlink" href="Data_Types.html#vo-intf-type-e" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义视频输出设备的接口类型。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_VO_INTF_TYPE_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_INTF_BT656</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mh">0x01L</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">7</span><span class="p">),</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_INTF_BT1120</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mh">0x01L</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">8</span><span class="p">),</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_INTF_PARALLEL_RGB</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mh">0x01L</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">9</span><span class="p">),</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_INTF_SERIAL_RGB</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mh">0x01L</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">10</span><span class="p">),</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_INTF_I80</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mh">0x01L</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">11</span><span class="p">),</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_INTF_HW_MCU</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mh">0x01L</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">12</span><span class="p">),</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_INTF_MIPI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mh">0x01L</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">13</span><span class="p">),</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_INTF_LVDS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mh">0x01L</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="mi">14</span><span class="p">),</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_INTF_BUTT</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VO_INTF_TYPE_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="vo-intf-sync-e">
+<h2><span class="section-number">5.4.5. </span>VO_INTF_SYNC_E<a class="headerlink" href="Data_Types.html#vo-intf-sync-e" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义视频输出设备的标准时序</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_VO_INTF_SYNC_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_OUTPUT_PAL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="cm">/* PAL standard*/</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_OUTPUT_NTSC</span><span class="p">,</span><span class="w"> </span><span class="cm">/* NTSC standard */</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_OUTPUT_1080P24</span><span class="p">,</span><span class="w"> </span><span class="cm">/* 1920 x 1080 at 24 Hz. */</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_OUTPUT_1080P25</span><span class="p">,</span><span class="w"> </span><span class="cm">/* 1920 x 1080 at 25 Hz. */</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_OUTPUT_1080P30</span><span class="p">,</span><span class="w"> </span><span class="cm">/* 1920 x 1080 at 30 Hz. */</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_OUTPUT_720P50</span><span class="p">,</span><span class="w"> </span><span class="cm">/* 1280 x  720 at 50 Hz. */</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_OUTPUT_720P60</span><span class="p">,</span><span class="w"> </span><span class="cm">/* 1280 x  720 at 60 Hz. */</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_OUTPUT_1080P50</span><span class="p">,</span><span class="w"> </span><span class="cm">/* 1920 x 1080 at 50 Hz. */</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_OUTPUT_1080P60</span><span class="p">,</span><span class="w"> </span><span class="cm">/* 1920 x 1080 at 60 Hz. */</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_OUTPUT_576P50</span><span class="p">,</span><span class="w"> </span><span class="cm">/* 720  x  576 at 50 Hz. */</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_OUTPUT_480P60</span><span class="p">,</span><span class="w"> </span><span class="cm">/* 720  x  480 at 60 Hz. */</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_OUTPUT_800x600_60</span><span class="p">,</span><span class="w"> </span><span class="cm">/* VESA 800 x 600 at 60 Hz (non-interlaced) */</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_OUTPUT_1024x768_60</span><span class="p">,</span><span class="w"> </span><span class="cm">/* VESA 1024 x 768 at 60 Hz (non-interlaced) */</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_OUTPUT_1280x1024_60</span><span class="p">,</span><span class="w"> </span><span class="cm">/* VESA 1280 x 1024 at 60 Hz (non-interlaced) */</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_OUTPUT_1366x768_60</span><span class="p">,</span><span class="w"> </span><span class="cm">/* VESA 1366 x 768 at 60 Hz (non-interlaced) */</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_OUTPUT_1440x900_60</span><span class="p">,</span><span class="w"> </span><span class="cm">/* VESA 1440 x 900 at 60 Hz (non-interlaced) CVT Compliant */</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_OUTPUT_1280x800_60</span><span class="p">,</span><span class="w"> </span><span class="cm">/* 1280*800@60Hz VGA@60Hz*/</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_OUTPUT_1600x1200_60</span><span class="p">,</span><span class="w"> </span><span class="cm">/* VESA 1600 x 1200 at 60 Hz (non-interlaced) */</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_OUTPUT_1680x1050_60</span><span class="p">,</span><span class="w"> </span><span class="cm">/* VESA 1680 x 1050 at 60 Hz (non-interlaced) */</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_OUTPUT_1920x1200_60</span><span class="p">,</span><span class="w"> </span><span class="cm">/* VESA 1920 x 1600 at 60 Hz (non-interlaced) CVT (Reduced Blanking)*/</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_OUTPUT_640x480_60</span><span class="p">,</span><span class="w"> </span><span class="cm">/* VESA 640 x 480 at 60 Hz (non-interlaced) CVT */</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_OUTPUT_720x1280_60</span><span class="p">,</span><span class="w"> </span><span class="cm">/* For MIPI DSI Tx 720 x1280 at 60 Hz */</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_OUTPUT_1080x1920_60</span><span class="p">,</span><span class="w"> </span><span class="cm">/* For MIPI DSI Tx 1080x1920 at 60 Hz */</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_OUTPUT_480x800_60</span><span class="p">,</span><span class="w"> </span><span class="cm">/* For MIPI DSI Tx 480x800 at 60 Hz */</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_OUTPUT_1440P60</span><span class="p">,</span><span class="w"> </span><span class="cm">/* 2560 x 1440 at 60 Hz. */</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_OUTPUT_2160P24</span><span class="p">,</span><span class="w"> </span><span class="cm">/* 3840 x 2160 at 24 Hz. */</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_OUTPUT_2160P25</span><span class="p">,</span><span class="w"> </span><span class="cm">/* 3840 x 2160 at 25 Hz. */</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_OUTPUT_2160P30</span><span class="p">,</span><span class="w"> </span><span class="cm">/* 3840 x 2160 at 30 Hz. */</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_OUTPUT_2160P50</span><span class="p">,</span><span class="w"> </span><span class="cm">/* 3840 x 2160 at 50 Hz. */</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_OUTPUT_2160P60</span><span class="p">,</span><span class="w"> </span><span class="cm">/* 3840 x 2160 at 60 Hz. */</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_OUTPUT_4096x2160P24</span><span class="p">,</span><span class="w"> </span><span class="cm">/* 4096 x 2160 at 24 Hz. */</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_OUTPUT_4096x2160P25</span><span class="p">,</span><span class="w"> </span><span class="cm">/* 4096 x 2160 at 25 Hz. */</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_OUTPUT_4096x2160P30</span><span class="p">,</span><span class="w"> </span><span class="cm">/* 4096 x 2160 at 30 Hz. */</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_OUTPUT_4096x2160P50</span><span class="p">,</span><span class="w"> </span><span class="cm">/* 4096 x 2160 at 50 Hz. */</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_OUTPUT_4096x2160P60</span><span class="p">,</span><span class="w"> </span><span class="cm">/* 4096 x 2160 at 60 Hz. */</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_OUTPUT_USER</span><span class="p">,</span><span class="w"> </span><span class="cm">/* User timing. */</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_OUTPUT_BUTT</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VO_INTF_SYNC_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="vo-lvds-mode-e">
+<h2><span class="section-number">5.4.6. </span>VO_LVDS_MODE_E<a class="headerlink" href="Data_Types.html#vo-lvds-mode-e" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义LVDS接口模式。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span><span class="w"> </span><span class="n">VO_LVDS_MODE_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_LVDS_MODE_JEIDA</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_LVDS_MODE_VESA</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_LVDS_MODE_MAX</span><span class="p">,</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="vo-lvds-out-bit-e">
+<h2><span class="section-number">5.4.7. </span>VO_LVDS_OUT_BIT_E<a class="headerlink" href="Data_Types.html#vo-lvds-out-bit-e" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义LVDS接口输出位宽。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_VO_LVDS_OUT_BIT_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">VO_LVDS_OUT_6BIT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">  </span><span class="cm">/* 6-bit */</span><span class="w"></span>
+<span class="w">    </span><span class="n">VO_LVDS_OUT_8BIT</span><span class="p">,</span><span class="w">      </span><span class="cm">/* 8-bit */</span><span class="w"></span>
+<span class="w">    </span><span class="n">VO_LVDS_OUT_10BIT</span><span class="p">,</span><span class="w">     </span><span class="cm">/* 10-bit */</span><span class="w"></span>
+<span class="w">    </span><span class="n">VO_LVDS_OUT_MAX</span><span class="p">,</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VO_LVDS_OUT_BIT_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="vo-lvds-lane-id">
+<h2><span class="section-number">5.4.8. </span>VO_LVDS_LANE_ID<a class="headerlink" href="Data_Types.html#vo-lvds-lane-id" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义LVDS接口的lane ID。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span><span class="w"> </span><span class="n">VO_LVDS_LANE_ID</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_LVDS_LANE_CLK</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_LVDS_LANE_0</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_LVDS_LANE_1</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_LVDS_LANE_2</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_LVDS_LANE_3</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_LVDS_LANE_MAX</span><span class="p">,</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="vo-csc-matrix-e">
+<h2><span class="section-number">5.4.9. </span>VO_CSC_MATRIX_E<a class="headerlink" href="Data_Types.html#vo-csc-matrix-e" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义CSC转换矩阵。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_VO_CSC_MATRIX_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_CSC_MATRIX_IDENTITY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">VO_CSC_MATRIX_601_LIMIT_YUV2RGB</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_CSC_MATRIX_601_FULL_YUV2RGB</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">VO_CSC_MATRIX_709_LIMIT_YUV2RGB</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_CSC_MATRIX_709_FULL_YUV2RGB</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">VO_CSC_MATRIX_601_LIMIT_RGB2YUV</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_CSC_MATRIX_601_FULL_RGB2YUV</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">VO_CSC_MATRIX_709_LIMIT_RGB2YUV</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_CSC_MATRIX_709_FULL_RGB2YUV</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">VO_CSC_MATRIX_BUTT</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VO_CSC_MATRIX_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VO_CSC_MATRIX_IDENTITY</p></td>
+<td><p>单位转换矩阵。</p></td>
+</tr>
+<tr class="row-odd"><td><p>VO_CSC_MATRIX_601_LIMIT_YUV2RGB</p></td>
+<td><p>BT.601 LIMIT到RGB色彩空间的CSC矩阵。</p></td>
+</tr>
+<tr class="row-even"><td><p>VO_CSC_MATRIX_601_FULL_YUV2RGB</p></td>
+<td><p>BT.601 FULL到RGB色彩空间的CSC矩阵。</p></td>
+</tr>
+<tr class="row-odd"><td><p>VO_CSC_MATRIX_709_LIMIT_YUV2RGB</p></td>
+<td><p>BT.709 LIMIT到RGB色彩空间的CSC矩阵。</p></td>
+</tr>
+<tr class="row-even"><td><p>VO_CSC_MATRIX_709_FULL_YUV2RGB</p></td>
+<td><p>BT.709 FULL到RGB色彩空间的CSC矩阵。</p></td>
+</tr>
+<tr class="row-odd"><td><p>VO_CSC_MATRIX_601_LIMIT_RGB2YUV</p></td>
+<td><p>RGB到BT.601 LIMIT色彩空间的CSC矩阵。</p></td>
+</tr>
+<tr class="row-even"><td><p>VO_CSC_MATRIX_601_FULL_RGB2YUV</p></td>
+<td><p>RGB到BT.601 FULL色彩空间的CSC矩阵。</p></td>
+</tr>
+<tr class="row-odd"><td><p>VO_CSC_MATRIX_709_LIMIT_RGB2YUV</p></td>
+<td><p>RGB到BT.709 LIMIT色彩空间的CSC矩阵。</p></td>
+</tr>
+<tr class="row-even"><td><p>VO_CSC_MATRIX_709_FULL_RGB2YUV</p></td>
+<td><p>RGB到BT.709 FULL色彩空间的CSC矩阵。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="vo-mac-bt-mux-e">
+<h2><span class="section-number">5.4.10. </span>VO_MAC_BT_MUX_E<a class="headerlink" href="Data_Types.html#vo-mac-bt-mux-e" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义BT接口复用信号类型。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_VO_MAC_BT_MUX_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_MUX_BT_VS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_MUX_BT_HS</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_MUX_BT_HDE</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_MUX_BT_DATA0</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_MUX_BT_DATA1</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_MUX_BT_DATA2</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_MUX_BT_DATA3</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_MUX_BT_DATA4</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_MUX_BT_DATA5</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_MUX_BT_DATA6</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_MUX_BT_DATA7</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_MUX_BT_DATA8</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_MUX_BT_DATA9</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_MUX_BT_DATA10</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_MUX_BT_DATA11</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_MUX_BT_DATA12</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_MUX_BT_DATA13</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_MUX_BT_DATA14</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_MUX_BT_DATA15</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_MUX_TG_HS_TILE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_MUX_TG_VS_TILE</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_MUX_BT_CLK</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_BT_MUX_MAX</span><span class="p">,</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VO_MAC_BT_MUX_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="vo-mac-d-sel-e">
+<h2><span class="section-number">5.4.11. </span>VO_MAC_D_SEL_E<a class="headerlink" href="Data_Types.html#vo-mac-d-sel-e" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义视频输出引脚选择枚举。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_VO_MAC_D_SEL</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_VIVO_CLK</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_VIV1_CLK</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_MIPI1_TXN1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_MIPI1_TXP2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_MIPI1_TXN2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_MIPI1_TXP3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_MIPI1_TXN3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_MIPI1_TXP4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_MIPI1_TXN4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_VIVO0_D10</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_VIVO0_D11</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_VIVO0_D12</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_VIVO0_D13</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_VIVO0_D14</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_VIVO0_D15</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_VIVO0_D16</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_MIPI0_TXP0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_MIPI0_TXN0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">17</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_MIPI0_TXP1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_MIPI0_TXN1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">19</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_MIPI0_TXP2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_MIPI0_TXN2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">21</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_MIPI0_TXP3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">22</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_MIPI0_TXN3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_MIPI0_TXP4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_MIPI0_TXN4</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">25</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_MIPI1_TXP0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">26</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_MIPI1_TXN0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">27</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_MIPI1_TXP1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">28</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_PAD_MAX</span><span class="p">,</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VO_MAC_D_SEL_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="vo-bt-mode-e">
+<h2><span class="section-number">5.4.12. </span>VO_BT_MODE_E<a class="headerlink" href="Data_Types.html#vo-bt-mode-e" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义BT接口模式枚举。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_VO_BT_MODE_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">VO_BT_MODE_656</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">   </span><span class="cm">/* BT.656模式 */</span><span class="w"></span>
+<span class="w">    </span><span class="n">VO_BT_MODE_1120</span><span class="p">,</span><span class="w">      </span><span class="cm">/* BT.1120模式 */</span><span class="w"></span>
+<span class="w">    </span><span class="n">VO_BT_MODE_601</span><span class="p">,</span><span class="w">       </span><span class="cm">/* BT.601模式 */</span><span class="w"></span>
+<span class="w">    </span><span class="n">VO_BT_MODE_MAX</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VO_BT_MODE_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="vo-bt-data-seq-e">
+<h2><span class="section-number">5.4.13. </span>VO_BT_DATA_SEQ_E<a class="headerlink" href="Data_Types.html#vo-bt-data-seq-e" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义BT接口数据序列类型。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_VO_BT_DATA_SEQ_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">VO_BT_DATA_SEQ0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">VO_BT_DATA_SEQ1</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">VO_BT_DATA_SEQ2</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">VO_BT_DATA_SEQ3</span><span class="p">,</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VO_BT_DATA_SEQ_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="vo-csc-s">
+<h2><span class="section-number">5.4.14. </span>VO_CSC_S<a class="headerlink" href="Data_Types.html#vo-csc-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义图像输出效果结构体。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VO_CSC_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_CSC_MATRIX_E</span><span class="w"> </span><span class="n">enCscMatrix</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VO_CSC_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>enCscMatrix</p></td>
+<td><p>CSC转换矩阵。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="vo-sync-info-s">
+<h2><span class="section-number">5.4.15. </span>VO_SYNC_INFO_S<a class="headerlink" href="Data_Types.html#vo-sync-info-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义视频输出设备的自定义时序结构体</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VO_SYNC_INFO_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bSynm</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bIop</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16FrameRate</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16Vact</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16Vbb</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16Vfb</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16Hact</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16Hbb</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16Hfb</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16Hpw</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16Vpw</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bIdv</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bIhs</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bIvs</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VO_SYNC_INFO_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>bSynm</p></td>
+<td><div class="line-block">
+<div class="line">同步讯号模式，</div>
+<div class="line">0: embedded ync,</div>
+<div class="line">1: separate sync。</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>bIop</p></td>
+<td><div class="line-block">
+<div class="line">0: interlaced,</div>
+<div class="line">1:progressive。</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>u16FrameRate</p></td>
+<td><p>每秒更新幅数</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16Vact</p></td>
+<td><p>垂直影像行数</p></td>
+</tr>
+<tr class="row-even"><td><p>u16Vbb</p></td>
+<td><p>垂直back porch行数</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16Vfb</p></td>
+<td><p>垂直front porch行数</p></td>
+</tr>
+<tr class="row-even"><td><p>u16Hact</p></td>
+<td><p>水平影像相数</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16Hbb</p></td>
+<td><p>水平back porch相数</p></td>
+</tr>
+<tr class="row-even"><td><p>u16Hfb</p></td>
+<td><p>水平front porch相数</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16Hpw</p></td>
+<td><p>水平同步相数</p></td>
+</tr>
+<tr class="row-even"><td><p>u16Vpw</p></td>
+<td><p>垂直同步行数</p></td>
+</tr>
+<tr class="row-odd"><td><p>bIdv</p></td>
+<td><p>Data valid是否反向</p></td>
+</tr>
+<tr class="row-even"><td><p>bIhs</p></td>
+<td><p>水平同步是否反向</p></td>
+</tr>
+<tr class="row-odd"><td><p>bIvs</p></td>
+<td><p>垂直同步是否反向</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="vo-lvds-attr-s">
+<h2><span class="section-number">5.4.16. </span>VO_LVDS_ATTR_S<a class="headerlink" href="Data_Types.html#vo-lvds-attr-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义LVDS接口属性结构体。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VO_LVDS_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">VO_LVDS_MODE_E</span><span class="w"> </span><span class="n">lvds_vesa_mode</span><span class="p">;</span><span class="w">           </span><span class="cm">/* LVDS模式选择 */</span><span class="w"></span>
+<span class="w">    </span><span class="n">VO_LVDS_OUT_BIT_E</span><span class="w"> </span><span class="n">out_bits</span><span class="p">;</span><span class="w">             </span><span class="cm">/* 输出位宽 */</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">chn_num</span><span class="p">;</span><span class="w">                         </span><span class="cm">/* 输出通道数 */</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">data_big_endian</span><span class="p">;</span><span class="w">               </span><span class="cm">/* 数据大小端设置 */</span><span class="w"></span>
+<span class="w">    </span><span class="n">VO_LVDS_LANE_ID</span><span class="w"> </span><span class="n">lane_id</span><span class="p">[</span><span class="n">VO_LVDS_LANE_MAX</span><span class="p">];</span><span class="w">  </span><span class="cm">/* lane映射 */</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">lane_pn_swap</span><span class="p">[</span><span class="n">VO_LVDS_LANE_MAX</span><span class="p">];</span><span class="w">    </span><span class="cm">/* lane极性交换 */</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VO_LVDS_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>lvds_vesa_mode</p></td>
+<td><p>LVDS模式：VESA或JEIDA</p></td>
+</tr>
+<tr class="row-odd"><td><p>out_bits</p></td>
+<td><p>输出位宽：6/8/10位</p></td>
+</tr>
+<tr class="row-even"><td><p>chn_num</p></td>
+<td><p>输出通道数量</p></td>
+</tr>
+<tr class="row-odd"><td><p>data_big_endian</p></td>
+<td><p>true为大端模式，false为小端模式</p></td>
+</tr>
+<tr class="row-even"><td><p>lane_id</p></td>
+<td><p>lane映射数组，-1表示未使用</p></td>
+</tr>
+<tr class="row-odd"><td><p>lane_pn_swap</p></td>
+<td><p>lane极性交换设置</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p><a class="reference internal" href="Data_Types.html#vo-lvds-mode-e">VO_LVDS_MODE_E</a> ,`VO_LVDS_OUT_BIT_E`_ ,`VO_LVDS_LANE_ID`_</p>
+<hr class="docutils" />
+</section>
+<section id="vo-pub-attr-s">
+<span id="id3"></span><h2><span class="section-number">5.4.17. </span>VO_PUB_ATTR_S<a class="headerlink" href="Data_Types.html#vo-pub-attr-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义视频输出设备公共属性结构体</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VO_PUB_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32BgColor</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_INTF_TYPE_E</span><span class="w"> </span><span class="n">enIntfType</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_INTF_SYNC_E</span><span class="w"> </span><span class="n">enIntfSync</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_SYNC_INFO_S</span><span class="w"> </span><span class="n">stSyncInfo</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VO_PUB_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>u32BgColor</p></td>
+<td><div class="line-block">
+<div class="line">背景色。</div>
+<div class="line">为RGBAAA的格式</div>
+<div class="line">bit[9:0]为B</div>
+<div class="line">bit[19:10]为G</div>
+<div class="line">bit[29:20]为R</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>enIntfType</p></td>
+<td><p>输出设备的接口。</p></td>
+</tr>
+<tr class="row-even"><td><p>enIntfSync</p></td>
+<td><p>输出设备的标准时序</p></td>
+</tr>
+<tr class="row-odd"><td><p>stSyncInfo</p></td>
+<td><p>输出设备的自定义时序，只有在enIntfSync为VO_OUTPUT_USER时作用</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p><a class="reference internal" href="Data_Types.html#vo-intf-type-e">VO_INTF_TYPE_E</a> , <a class="reference internal" href="Data_Types.html#vo-intf-sync-e">VO_INTF_SYNC_E</a> , <a class="reference internal" href="Data_Types.html#vo-sync-info-s">VO_SYNC_INFO_S</a></p>
+</section>
+<hr class="docutils" />
+<section id="vo-video-layer-attr-s">
+<h2><span class="section-number">5.4.18. </span>VO_VIDEO_LAYER_ATTR_S<a class="headerlink" href="Data_Types.html#vo-video-layer-attr-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义视频输出设备视频层属性结构体</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VO_VIDEO_LAYER_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">RECT_S</span><span class="w"> </span><span class="n">stDispRect</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">SIZE_S</span><span class="w"> </span><span class="n">stImageSize</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32DispFrmRt</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">PIXEL_FORMAT_E</span><span class="w"> </span><span class="n">enPixFormat</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VO_VIDEO_LAYER_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>stDispRect</p></td>
+<td><p>视频层的显示范围，需小于等于设备时序</p></td>
+</tr>
+<tr class="row-odd"><td><p>stImageSize</p></td>
+<td><p>影像大小，若无支持scaling，应等于stDispRect</p></td>
+</tr>
+<tr class="row-even"><td><p>u32DispFrmRt</p></td>
+<td><p>显示更新张数</p></td>
+</tr>
+<tr class="row-odd"><td><p>enPixFormat</p></td>
+<td><p>视频层的影像格式</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="vo-chn-attr-s">
+<h2><span class="section-number">5.4.19. </span>VO_CHN_ATTR_S<a class="headerlink" href="Data_Types.html#vo-chn-attr-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义视频输出设备通道属性结构体</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VO_CHN_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32Priority</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">RECT_S</span><span class="w"> </span><span class="n">stRect</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VO_CHN_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>u32Priority</p></td>
+<td><p>在多通道时，优先极高(比较小)的会在上。</p></td>
+</tr>
+<tr class="row-odd"><td><p>stRect</p></td>
+<td><p>信道的显示区域。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="vo-min-chn-width">
+<h2><span class="section-number">5.4.20. </span>VO_MIN_CHN_WIDTH<a class="headerlink" href="Data_Types.html#vo-min-chn-width" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义视频输出设备通道最小宽度</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VO_MIN_CHN_WIDTH 32</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="vo-min-chn-height">
+<h2><span class="section-number">5.4.21. </span>VO_MIN_CHN_HEIGHT<a class="headerlink" href="Data_Types.html#vo-min-chn-height" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义视频输出设备通道最小高度</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VO_MIN_CHN_HEIGHT  32</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="vo-max-dev-num">
+<h2><span class="section-number">5.4.22. </span>VO_MAX_DEV_NUM<a class="headerlink" href="Data_Types.html#vo-max-dev-num" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义视频输出设备最大设备数</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VO_MAX_DEV_NUM 1</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="vo-max-layer-num">
+<h2><span class="section-number">5.4.23. </span>VO_MAX_LAYER_NUM<a class="headerlink" href="Data_Types.html#vo-max-layer-num" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义视频输出设备最大视频层数</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VO_MAX_LAYER_NUM 1</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="vo-max-chn-num">
+<h2><span class="section-number">5.4.24. </span>VO_MAX_CHN_NUM<a class="headerlink" href="Data_Types.html#vo-max-chn-num" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义视频输出设备最大通道数</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define VO_MAX_CHN_NUM  1</span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="vo-i80-instr-s">
+<h2><span class="section-number">5.4.25. </span>VO_I80_INSTR_S<a class="headerlink" href="Data_Types.html#vo-i80-instr-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义I80指令</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VO_I80_INSTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U8</span><span class="w">  </span><span class="n">delay</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U8</span><span class="w">  </span><span class="n">data_type</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U8</span><span class="w">  </span><span class="n">data</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VO_I80_INSTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>delay</p></td>
+<td><p>指令执行后的延时。</p></td>
+</tr>
+<tr class="row-odd"><td><p>data_type</p></td>
+<td><p>Data(1)/Command(0)。</p></td>
+</tr>
+<tr class="row-even"><td><p>data</p></td>
+<td><p>需要发送的数据。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="vo-pm-ops-s">
+<h2><span class="section-number">5.4.26. </span>VO_PM_OPS_S<a class="headerlink" href="Data_Types.html#vo-pm-ops-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>电源管理函数指针结构体。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VO_PM_OPS_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">pfnVoDevPmOps</span><span class="w"> </span><span class="n">pfnPanelSuspend</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">pfnVoDevPmOps</span><span class="w"> </span><span class="n">pfnPanelResume</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VO_PM_OPS_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>pfnPanelSuspend</p></td>
+<td><p>屏幕睡眠函数指针。</p></td>
+</tr>
+<tr class="row-odd"><td><p>pfnPanelResume</p></td>
+<td><p>屏幕唤醒函数指针。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="vo-gamma-info-s">
+<h2><span class="section-number">5.4.27. </span>VO_GAMMA_INFO_S<a class="headerlink" href="Data_Types.html#vo-gamma-info-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义伽马校正信息。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VO_GAMMA_INFO_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">VO_DEV</span><span class="w"> </span><span class="n">s32VoDev</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">enable</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">osd_apply</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">value</span><span class="p">[</span><span class="n">VO_GAMMA_NODENUM</span><span class="p">];</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VO_GAMMA_INFO_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>s32VoDev</p></td>
+<td><p>即VO_DEV，设备号</p></td>
+</tr>
+<tr class="row-odd"><td><p>enable</p></td>
+<td><p>是否使能标志</p></td>
+</tr>
+<tr class="row-even"><td><p>osd_apply</p></td>
+<td><p>是否应用到osd</p></td>
+</tr>
+<tr class="row-odd"><td><p>value</p></td>
+<td><p>各节点的值，</p>
+<p>最多VO_GAMMA_NODENUM个节点。</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="vo-bin-info-s">
+<h2><span class="section-number">5.4.28. </span>VO_BIN_INFO_S<a class="headerlink" href="Data_Types.html#vo-bin-info-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>Gamma信息结构体。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VO_BIN_INFO_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_GAMMA_INFO_S</span><span class="w"> </span><span class="n">gamma_info</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">guard_magic</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VO_BIN_INFO_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>gamma_info</p></td>
+<td><p>伽马校正信息结构体。</p></td>
+</tr>
+<tr class="row-odd"><td><p>guard_magic</p></td>
+<td><p>魔数。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="vo-pattern-mode">
+<h2><span class="section-number">5.4.29. </span>VO_PATTERN_MODE<a class="headerlink" href="Data_Types.html#vo-pattern-mode" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义显示图例模式。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span><span class="w"> </span><span class="n">VO_PATTERN_MODE</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_PAT_OFF</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_PAT_SNOW</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_PAT_AUTO</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_PAT_RED</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_PAT_GREEN</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_PAT_BLUE</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_PAT_COLORBAR</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_PAT_GRAY_GRAD_H</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_PAT_GRAY_GRAD_V</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_PAT_BLACK</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_PAT_MAX</span><span class="p">,</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="vo-d-remap-s">
+<h2><span class="section-number">5.4.30. </span>VO_D_REMAP_S<a class="headerlink" href="Data_Types.html#vo-d-remap-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义引脚映射结构体。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">VO_D_REMAP</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_MAC_D_SEL_E</span><span class="w"> </span><span class="n">sel</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_MAC_BT_MUX_E</span><span class="w"> </span><span class="n">mux</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>sel</p></td>
+<td><p>引脚的pad名称。</p></td>
+</tr>
+<tr class="row-odd"><td><p>mux</p></td>
+<td><p>引脚的信号名称。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="vo-pinmux-s">
+<h2><span class="section-number">5.4.31. </span>VO_PINMUX_S<a class="headerlink" href="Data_Types.html#vo-pinmux-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义引脚PINMUX结构体。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">VO_PINMUX</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">pin_num</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">struct</span> <span class="nc">VO_D_REMAP</span><span class="w"> </span><span class="n">d_pins</span><span class="p">[</span><span class="n">MAX_VO_PINS</span><span class="p">];</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VO_PINMUX_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>pin_num</p></td>
+<td><p>引脚数。</p></td>
+</tr>
+<tr class="row-odd"><td><p>d_pins</p></td>
+<td><p>引脚的映射。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="vo-bt-attr-s">
+<h2><span class="section-number">5.4.32. </span>VO_BT_ATTR_S<a class="headerlink" href="Data_Types.html#vo-bt-attr-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义BT接口属性结构体。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VO_BT_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">pin_num</span><span class="p">;</span><span class="w">                       </span><span class="cm">/* 引脚数量 */</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bt_clk_inv</span><span class="p">;</span><span class="w">                  </span><span class="cm">/* 时钟信号是否反向 */</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bt_vs_inv</span><span class="p">;</span><span class="w">                   </span><span class="cm">/* 垂直同步信号是否反向 */</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bt_hs_inv</span><span class="p">;</span><span class="w">                   </span><span class="cm">/* 水平同步信号是否反向 */</span><span class="w"></span>
+<span class="w">    </span><span class="n">VO_BT_DATA_SEQ_E</span><span class="w"> </span><span class="n">data_seq</span><span class="p">;</span><span class="w">            </span><span class="cm">/* 数据序列类型 */</span><span class="w"></span>
+<span class="w">    </span><span class="k">struct</span> <span class="nc">VO_D_REMAP</span><span class="w"> </span><span class="n">d_pins</span><span class="p">[</span><span class="n">MAX_VO_PINS</span><span class="p">];</span><span class="cm">/* 引脚重映射配置 */</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VO_BT_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>pin_num</p></td>
+<td><p>使用的引脚数量</p></td>
+</tr>
+<tr class="row-odd"><td><p>bt_clk_inv</p></td>
+<td><p>BT时钟信号是否反向</p></td>
+</tr>
+<tr class="row-even"><td><p>bt_vs_inv</p></td>
+<td><p>垂直同步信号是否反向</p></td>
+</tr>
+<tr class="row-odd"><td><p>bt_hs_inv</p></td>
+<td><p>水平同步信号是否反向</p></td>
+</tr>
+<tr class="row-even"><td><p>data_seq</p></td>
+<td><p>数据序列类型</p></td>
+</tr>
+<tr class="row-odd"><td><p>d_pins</p></td>
+<td><p>引脚重映射配置数组</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p><a class="reference internal" href="Data_Types.html#vo-bt-data-seq-e">VO_BT_DATA_SEQ_E</a> , <a class="reference internal" href="Data_Types.html#vo-d-remap-s">VO_D_REMAP_S</a></p>
+</section>
+<hr class="docutils" />
+<section id="vo-mcu-instrs-s">
+<h2><span class="section-number">5.4.33. </span>VO_MCU_INSTRS_S<a class="headerlink" href="Data_Types.html#vo-mcu-instrs-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义MCU接口初始化结构体。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">VO_MCU_INSTRS</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">instr_num</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_I80_INSTR_S</span><span class="w"> </span><span class="n">instr_cmd</span><span class="p">[</span><span class="n">MAX_MCU_INSTR</span><span class="p">];</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VO_MCU_INSTRS_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>instr_num</p></td>
+<td><p>MCU初始化顺序数。</p></td>
+</tr>
+<tr class="row-odd"><td><p>instr_cmd</p></td>
+<td><p>MCU初始化命令。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="vo-hw-mcu-cfg-s">
+<h2><span class="section-number">5.4.34. </span>VO_HW_MCU_CFG_S<a class="headerlink" href="Data_Types.html#vo-hw-mcu-cfg-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义MCU接口初始化结构体。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VO_HW_MCU_CFG_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">enum</span><span class="w"> </span><span class="n">VO_MCU_MODE</span><span class="w"> </span><span class="n">mode</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_PINMUX_S</span><span class="w"> </span><span class="n">pins</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">lcd_power_gpio_num</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_S8</span><span class="w"> </span><span class="n">lcd_power_avtive</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">backlight_gpio_num</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_S8</span><span class="w"> </span><span class="n">backlight_avtive</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">reset_gpio_num</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_S8</span><span class="w"> </span><span class="n">reset_avtive</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">VO_MCU_INSTRS_S</span><span class="w"> </span><span class="n">instrs</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VO_HW_MCU_CFG_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>mode</p></td>
+<td><p>MCU格式模式。</p></td>
+</tr>
+<tr class="row-odd"><td><p>pins</p></td>
+<td><p>MCU数据引脚的映射。</p></td>
+</tr>
+<tr class="row-even"><td><p>lcd_power_gpio_num</p></td>
+<td><p>电源引脚的序号。</p></td>
+</tr>
+<tr class="row-odd"><td><p>lcd_power_avtive</p></td>
+<td><p>电源引脚极性。</p></td>
+</tr>
+<tr class="row-even"><td><p>backlight_gpio_num</p></td>
+<td><p>背光引脚的序号。</p></td>
+</tr>
+<tr class="row-odd"><td><p>backlight_avtive</p></td>
+<td><p>背光引脚极性。</p></td>
+</tr>
+<tr class="row-even"><td><p>reset_gpio_num</p></td>
+<td><p>复位引脚的序号。</p></td>
+</tr>
+<tr class="row-odd"><td><p>reset_avtive</p></td>
+<td><p>复位引脚极性。</p></td>
+</tr>
+<tr class="row-even"><td><p>instrs</p></td>
+<td><p>MCU初始化顺序。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="vo-chn-status-s">
+<h2><span class="section-number">5.4.35. </span>VO_CHN_STATUS_S<a class="headerlink" href="Data_Types.html#vo-chn-status-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义MCU接口初始化结构体。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VO_CHN_STATUS_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32frameCnt</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U64</span><span class="w"> </span><span class="n">u64PrevTime</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32RealFrameRate</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">}</span><span class="w"> </span><span class="n">VO_CHN_STATUS_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>u32frameCnt</p></td>
+<td><p>1秒中内触发多少次帧数。</p></td>
+</tr>
+<tr class="row-odd"><td><p>u64PrevTime</p></td>
+<td><p>当前帧的时间。</p></td>
+</tr>
+<tr class="row-even"><td><p>u32RealFrameRate;</p></td>
+<td><p>通道的真实帧率。</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+<hr class="docutils" />
+<section id="vo-query-status-s">
+<h2><span class="section-number">5.4.36. </span>VO_QUERY_STATUS_S<a class="headerlink" href="Data_Types.html#vo-query-status-s" title="永久链接至标题">¶</a></h2>
+<p>【说明】</p>
+<p>定义视频输出查询状态结构体。</p>
+<p>【定义】</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_VO_QUERY_STATUS_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32ChnBufUsed</span><span class="p">;</span><span class="w">    </span><span class="cm">/* 通道缓冲区使用情况 */</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">VO_QUERY_STATUS_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>【成员】</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>成员名称</p></th>
+<th class="head"><p>描述</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>u32ChnBufUsed</p></td>
+<td><p>已使用的通道缓冲区数量</p></td>
+</tr>
+</tbody>
+</table>
+<p>【注意事项】</p>
+<p>无</p>
+<p>【相关数据类型及接口】</p>
+<p>无</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="API_Reference.html" class="btn btn-neutral float-left" title="5.3. API参考" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Error_Codes.html" class="btn btn-neutral float-right" title="5.5. 错误码" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

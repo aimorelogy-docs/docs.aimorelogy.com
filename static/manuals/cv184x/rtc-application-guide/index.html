@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV184x RTC 操作指南 &mdash; RTCApplicationGuide master 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="next" title="1. 声明" href="1_disclaimer.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html#" class="icon icon-home"> RTCApplicationGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_RTC_Application_Guide.html">2. Cvitek RTC 具体操作指南</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_RTC_Command_in_Linux_System.html">3. Linux系统中RTC测试命令</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html#">RTCApplicationGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html#" class="icon icon-home"></a> &raquo;</li>
+      <li>CV184x RTC 操作指南</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">返回文档中心</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cv184x-rtc">
+<h1>CV184x RTC 操作指南<a class="headerlink" href="index.html#cv184x-rtc" title="永久链接至标题">¶</a></h1>
+<p><strong>修订记录</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 13%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Revision</p></th>
+<th class="head"><p>Date</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1.0.0</p></td>
+<td><p>2025/03/21</p></td>
+<td><p>初稿</p></td>
+</tr>
+<tr class="row-odd"><td><p>1.0.1</p></td>
+<td><p>2026/04/28</p></td>
+<td><p>更新 RTC 操作指南并优化</p></td>
+</tr>
+</tbody>
+</table>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">目录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. 声明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_RTC_Application_Guide.html">2. Cvitek RTC 具体操作指南</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_RTC_Application_Guide.html#id1">2.1. 模块介绍</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_RTC_Application_Guide.html#id2">2.1.1. 计数时钟频率</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2_RTC_Application_Guide.html#id3">2.2. 操作准备</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_RTC_Application_Guide.html#rtc">2.2.1. 使用 RTC（默认）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_RTC_Application_Guide.html#id4">2.2.2. 移除 RTC</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2_RTC_Application_Guide.html#id5">2.3. 应用层使用方式</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_RTC_Application_Guide.html#id6">2.3.1. 设备节点与头文件</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_RTC_Application_Guide.html#ioctl">2.3.2. 常用 ioctl 指令</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_RTC_Application_Guide.html#rtc-time">2.3.3. 结构体 rtc_time 说明</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2_RTC_Application_Guide.html#id7">2.4. 示例代码</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_RTC_Application_Guide.html#rtc-example-c">2.4.1. 用户态操作示例（rtc_example.c）</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2_RTC_Application_Guide.html#id8">2.5. 小结</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_RTC_Application_Guide.html#id9">2.6. RTC 中断定时重启（软重启）</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_RTC_Application_Guide.html#id10">2.6.1. 执行方式</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_RTC_Application_Guide.html#rtc-soc">2.6.2. 从 RTC 闹钟到 SoC 复位的流程</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_RTC_Application_Guide.html#id11">2.6.3. 关键点小结</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3_RTC_Command_in_Linux_System.html">3. Linux系统中RTC测试命令</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3_RTC_Command_in_Linux_System.html#datehwclock">3.1. date和hwclock</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="1_disclaimer.html" class="btn btn-neutral float-right" title="1. 声明" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="前往官网"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="前往文档中心"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="页面顶部"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="页面底部"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>本页二维码</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
