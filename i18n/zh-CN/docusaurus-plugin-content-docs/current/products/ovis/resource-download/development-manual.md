@@ -26,4 +26,4 @@ description: 浏览本站托管的 Ovis CV184X 开发手册。
 | GFBG 开发指南 | [HTML](pathname:///manuals/cv184x/gfbg-development-guide/index.html) | AliOS 编译和使用手册 | [HTML](pathname:///manuals/cv184x/alios-compilation-usage/index.html) |
 | IPCM 客制化通信使用手册 | [HTML](pathname:///manuals/cv184x/ipcm-customized-communication/index.html) | CIPHER API 使用手册 | [HTML](pathname:///manuals/cv184x/cipher-api-reference/index.html) |
 
-手册及其原始法律声明的版权归 CVITEK 所有。本站副本由 AIMORELOGY 基于与 Sophgo/CVITEK 的授权合作关系提供。
+手册及其原始法律声明的版权归 CVITEK 所有。本站副本由 AIMORELOGY 基于与 CVITEK 的合作关系提供。

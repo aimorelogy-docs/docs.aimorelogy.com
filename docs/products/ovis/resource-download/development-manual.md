@@ -26,4 +26,4 @@ The following CV184X software manuals are hosted on this site for Ovis developme
 | GFBG Development Guide | [HTML](pathname:///manuals/cv184x/gfbg-development-guide/index.html) | AliOS Compilation and Usage Guide | [HTML](pathname:///manuals/cv184x/alios-compilation-usage/index.html) |
 | IPCM Customized Communication Guide | [HTML](pathname:///manuals/cv184x/ipcm-customized-communication/index.html) | CIPHER API Reference | [HTML](pathname:///manuals/cv184x/cipher-api-reference/index.html) |
 
-The manuals and their original legal notices remain copyright of CVITEK. The local copies are provided under AIMORELOGY's authorized partnership with Sophgo/CVITEK.
+The manuals and their original legal notices remain copyright of CVITEK. The local copies are provided under AIMORELOGY's authorized partnership with CVITEK.
