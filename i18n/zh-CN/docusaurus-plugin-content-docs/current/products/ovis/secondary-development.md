@@ -1,6 +1,6 @@
 ---
-id: second-development
-slug: /products/ovis/second-development
+id: secondary-development
+slug: /products/ovis/secondary-development
 title: 二次开发
 description: Ovis 二次开发与集成资料。
 ---

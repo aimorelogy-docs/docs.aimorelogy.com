@@ -27,9 +27,9 @@ sidebar_position: 1
     <strong>Ovis</strong>
     <span>Product overview, setup instructions, development resources, and downloads for Ovis.</span>
   </a>
-  <a className="docs-grid__item" href="/products/ovis/second-development">
+  <a className="docs-grid__item" href="/products/ovis/secondary-development">
     <span className="docs-grid__index">02 / DEVELOPMENT</span>
-    <strong>Second development</strong>
+    <strong>Secondary development</strong>
     <span>Integration guidance and development resources for building with Ovis.</span>
   </a>
 </div>

@@ -16,7 +16,7 @@ const sidebars = {
           link: {type: 'doc', id: 'products/ovis/index'},
           items: [
             'products/ovis/getting-started',
-            'products/ovis/second-development',
+            'products/ovis/secondary-development',
             'products/ovis/resource-download',
           ],
         },

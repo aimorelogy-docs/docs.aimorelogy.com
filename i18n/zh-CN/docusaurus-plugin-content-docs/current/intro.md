@@ -26,7 +26,7 @@ sidebar_position: 1
     <strong>Ovis</strong>
     <span>查看 Ovis 产品介绍、快速开始、二次开发资料与资源下载。</span>
   </a>
-  <a className="docs-grid__item" href="/zh-CN/products/ovis/second-development">
+  <a className="docs-grid__item" href="/zh-CN/products/ovis/secondary-development">
     <span className="docs-grid__index">02 / 二次开发</span>
     <strong>二次开发</strong>
     <span>查看基于 Ovis 进行集成与开发所需的技术资料。</span>

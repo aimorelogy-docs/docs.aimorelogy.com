@@ -1,11 +1,11 @@
 ---
-id: second-development
-slug: /products/ovis/second-development
-title: Second Development
-description: Development and integration resources for Ovis.
+id: secondary-development
+slug: /products/ovis/secondary-development
+title: Secondary Development
+description: Secondary development and integration resources for Ovis.
 ---
 
-# Second Development
+# Secondary Development
 
 AIMORELOGY Ovis provides a complete SDK for application development and system customization. The SDK covers the full software stack, from boot firmware, operating systems, and device drivers to multimedia processing, AI inference, and Ovis applications. It also provides a unified workflow for configuration, compilation, and firmware packaging.
 

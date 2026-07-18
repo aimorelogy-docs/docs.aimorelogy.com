@@ -13,5 +13,5 @@ Ovis product documentation provides setup instructions, development guidance, an
 ## Documentation
 
 - [Getting Started](./getting-started.md)
-- [Second Development](./second-development.md)
+- [Secondary Development](./secondary-development.md)
 - [Resource Download](./resource-download.md)
