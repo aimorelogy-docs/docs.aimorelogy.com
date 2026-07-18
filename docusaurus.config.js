@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer').themes.dracula;
 const config = {
   title: 'AIMORELOGY Docs',
   tagline: 'Product manuals and technical resources',
-  favicon: 'img/favicon.svg',
+  favicon: 'img/favicon.ico',
 
   url: 'https://docs.aimorelogy.com',
   baseUrl: '/',
@@ -69,7 +69,11 @@ const config = {
         respectPrefersColorScheme: true,
       },
       navbar: {
-        title: 'AIMORELOGY // DOCS',
+        title: 'Docs',
+        logo: {
+          alt: 'AIMORELOGY',
+          src: 'img/aimorelogy-logo.svg',
+        },
         hideOnScroll: true,
         items: [
           {to: '/', label: 'Documentation', position: 'left', exact: true},
