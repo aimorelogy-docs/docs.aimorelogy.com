@@ -94,3 +94,66 @@ cd /workspace/aimorelogy-ovis-sdk
 ```
 
 The `--rm` option removes the container when you exit, while the bind mount keeps the SDK source code and build artifacts on the host. The `--privileged` option and `/dev` mapping provide device access where supported; the available passthrough capabilities depend on the host operating system and Docker backend. Use this configuration only on a trusted development host. Unless otherwise stated, run subsequent build commands inside this container.
+
+## Build the SDK
+
+Use the following workflow to perform a complete clean build of the Ovis SDK. Run all commands in the same Docker container terminal:
+
+```bash
+cd /workspace/aimorelogy-ovis-sdk
+source build/envsetup_soc.sh
+defconfig ovis_spinand
+export TPU_REL=1
+clean_all
+build_all
+```
+
+Each command performs the following task:
+
+1. `cd /workspace/aimorelogy-ovis-sdk`
+
+   Changes to the SDK root directory. The build scripts use paths relative to the repository root, so run all subsequent commands from this directory.
+
+2. `source build/envsetup_soc.sh`
+
+   Initializes the SDK build environment, sets the toolchain, source, and output path variables, and loads build functions such as `defconfig`, `clean_all`, and `build_all` into the current shell. Run this command again whenever you start a new container or terminal.
+
+3. `defconfig ovis_spinand`
+
+   Selects the Ovis SPI NAND board configuration and generates the active build configuration and partition information. `ovis_spinand` is the public build target for the Ovis board, and its firmware is written to `install/soc_ovis_spinand`.
+
+   > **Caution:** `defconfig` refreshes the active `build/.config` from the board defaults. If you have custom options from `menuconfig` that have not been saved to the board defconfig, back them up or verify them before continuing.
+
+4. `export TPU_REL=1`
+
+   Enables the TPU-related components, including the TPU kernel, IVE, IVS, and TDL SDK. These components are required by the on-device AI features in the complete Ovis firmware.
+
+5. `clean_all`
+
+   Removes existing build outputs for the kernel, bootloader, drivers, middleware, AI components, and Ovis applications so stale files do not affect the full build. Use this step for a first build, after changing the board configuration, or when regenerating a complete firmware set. A component-only change usually does not require a full clean.
+
+6. `build_all`
+
+   Builds the kernel, U-Boot and boot firmware, drivers, third-party libraries, multimedia and RTSP components, TPU/AI components, ISP tools, `ipcamera`, and `ovis-manager`. It then creates the partition images and packages the flashable firmware. Run this command only after `clean_all` completes successfully.
+
+### Locate the Build Outputs
+
+After a successful full build, the firmware and intermediate artifacts are available under:
+
+```text
+install/soc_ovis_spinand/
+```
+
+This directory contains partition images such as `fip.bin`, `boot.spinand`, `rootfs.spinand`, `system.spinand`, `cfg.spinand`, and `data.spinand`. For normal Ovis flashing, use the following package:
+
+```text
+install/soc_ovis_spinand/aimorelogy_ovis_firmware.zip
+```
+
+The ZIP package contains the required partition images, partition description, update scripts, and supporting tools. Before flashing, confirm that the file was generated and check its modification time:
+
+```bash
+ls -lh install/soc_ovis_spinand/aimorelogy_ovis_firmware.zip
+```
+
+Do not mix the top-level `.spinand` files, raw images under `rawimages/`, and the complete ZIP package unless a debugging or manufacturing workflow explicitly requires a specific image format.
