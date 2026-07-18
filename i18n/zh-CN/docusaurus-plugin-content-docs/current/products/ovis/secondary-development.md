@@ -11,10 +11,10 @@ AIMORELOGY Ovis 提供完整的 SDK，支持应用开发与系统定制。该 SD
 
 ## 获取 SDK
 
-Ovis SDK 源代码托管于 GitHub 的 [aimorelogy-ovis-sdk 仓库](https://github.com/IamYiranKe/aimorelogy-ovis-sdk)。请将仓库克隆到开发主机：
+Ovis SDK 源代码托管于 GitHub 的 [aimorelogy-ovis-sdk 仓库](https://github.com/aimorelogy-ovis/aimorelogy-ovis-sdk)。请将仓库克隆到开发主机：
 
 ```bash
-git clone https://github.com/IamYiranKe/aimorelogy-ovis-sdk.git
+git clone https://github.com/aimorelogy-ovis/aimorelogy-ovis-sdk.git
 cd aimorelogy-ovis-sdk
 ```
 

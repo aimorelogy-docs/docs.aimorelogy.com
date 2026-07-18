@@ -11,6 +11,6 @@ The following resources provide the Ovis SDK source code and the Docker images u
 
 | Resource | Description | Link |
 | --- | --- | --- |
-| Ovis SDK | SDK source code, board configuration, build scripts, and firmware packaging tools. | [GitHub repository](https://github.com/IamYiranKe/aimorelogy-ovis-sdk) |
+| Ovis SDK | SDK source code, board configuration, build scripts, and firmware packaging tools. | [GitHub repository](https://github.com/aimorelogy-ovis/aimorelogy-ovis-sdk) |
 | Ovis Build Docker | Preconfigured build environment for compiling the Ovis SDK. | [Docker Hub](https://hub.docker.com/repository/docker/aimorelogy/ovis-build-docker) |
 | Ovis TPU Docker | Docker image for Ovis TPU development workflows. | [Docker Hub](https://hub.docker.com/repository/docker/aimorelogy/ovis-tpu-docker) |

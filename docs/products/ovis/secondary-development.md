@@ -11,10 +11,10 @@ AIMORELOGY Ovis provides a complete SDK for application development and system c
 
 ## Get the SDK
 
-The Ovis SDK source code is hosted in the [aimorelogy-ovis-sdk repository](https://github.com/IamYiranKe/aimorelogy-ovis-sdk) on GitHub. Clone the repository to your development machine:
+The Ovis SDK source code is hosted in the [aimorelogy-ovis-sdk repository](https://github.com/aimorelogy-ovis/aimorelogy-ovis-sdk) on GitHub. Clone the repository to your development machine:
 
 ```bash
-git clone https://github.com/IamYiranKe/aimorelogy-ovis-sdk.git
+git clone https://github.com/aimorelogy-ovis/aimorelogy-ovis-sdk.git
 cd aimorelogy-ovis-sdk
 ```
 
