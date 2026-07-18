@@ -49,3 +49,48 @@ aimorelogy-ovis-sdk/
 ```
 
 `build/` 是 SDK 的主要入口，其中包含 `cv1842hp_ovis_spinand` 板级配置，并负责组织各组件的构建与固件镜像打包。`ipcamera/` 应用集成视频采集、图像处理、编码、RTSP/UVC、外设控制与端侧 AI 功能。`ovis-manager/` 服务负责设备识别、运行配置、服务控制与版本信息查询。开发者可以按需修改单个组件，再通过 SDK 构建系统将生成的产物集成到 Ovis 固件中。
+
+## 编译环境准备
+
+AIMORELOGY 为开发者提供了预配置的 Docker 编译镜像。建议在容器内编译 SDK，以统一工具链与依赖版本，减少不同主机环境导致的构建差异。
+
+### 安装 Docker
+
+请根据开发主机的操作系统安装 Docker：
+
+- Windows：[安装 Docker Desktop for Windows](https://docs.docker.com/desktop/setup/install/windows-install/)，建议使用 WSL 2 后端。
+- macOS：[安装 Docker Desktop for Mac](https://docs.docker.com/desktop/setup/install/mac-install/)。
+- Linux：[安装 Docker Engine](https://docs.docker.com/engine/install/)，并按照对应发行版的说明完成配置。
+
+安装完成后，运行以下命令确认 Docker 可以正常启动容器：
+
+```bash
+docker --version
+docker run --rm hello-world
+```
+
+### 拉取编译镜像
+
+从 Docker Hub 拉取最新的 Ovis SDK 编译镜像：
+
+```bash
+docker pull aimorelogy/ovis-build-docker:latest
+```
+
+首次拉取所需时间取决于网络状况。后续可再次执行相同命令，将本地镜像更新至最新版本。
+
+### 启动编译容器
+
+以下示例使用 Bash 语法，将主机的 `~/projects` 目录挂载到容器内的 `/workspace`。Windows 用户应在 WSL 2 终端中执行。请确保 Ovis SDK 位于 `~/projects/aimorelogy-ovis-sdk`，或根据实际存放位置调整 `-v` 参数：
+
+```bash
+docker run -it --rm --privileged -v /dev:/dev -v ~/projects:/workspace -w /workspace aimorelogy/ovis-build-docker:latest /bin/bash
+```
+
+进入容器后，切换到 SDK 根目录：
+
+```bash
+cd /workspace/aimorelogy-ovis-sdk
+```
+
+`--rm` 会在退出后自动删除容器，SDK 源代码与编译产物则通过目录挂载保留在主机上。`--privileged` 和 `/dev` 映射用于为容器提供设备访问能力；实际可用范围取决于主机操作系统与 Docker 后端，请仅在可信的开发主机上使用该配置。除非另有说明，后续编译命令均在此容器内执行。
