@@ -7,4 +7,11 @@ description: Get started with Ovis.
 
 # Getting Started
 
-Setup and first-use instructions for Ovis will be published here.
+Follow these guides to connect the Ovis hardware, flash the software, start using the device, and manage it through Ovis Web.
+
+## Guides
+
+- [Hardware Connection](./getting-started/hardware-connection.md)
+- [Software Flashing](./getting-started/software-flashing.md)
+- [Usage](./getting-started/usage.md)
+- [Ovis Web Management](./getting-started/ovis-web-management.md)
