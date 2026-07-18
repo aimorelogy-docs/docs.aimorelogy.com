@@ -13,23 +13,23 @@ sidebar_position: 1
     查阅爱谋科技边缘 AI、无人机和嵌入式产品的产品手册、集成指南与工程资料。
   </p>
   <div className="docs-home__actions">
-    <a className="button button--primary button--lg" href="/zh-CN/product-guides">浏览产品手册</a>
-    <a className="button button--outline button--secondary button--lg" href="/zh-CN/technical-resources">查看技术资料</a>
+    <a className="button button--primary button--lg" href="/zh-CN/products/ovis">了解 Ovis</a>
+    <a className="button button--outline button--secondary button--lg" href="/zh-CN/products/ovis/getting-started">快速开始</a>
   </div>
 </div>
 
 ## 快速入口
 
 <div className="docs-grid">
-  <a className="docs-grid__item" href="/zh-CN/product-guides">
-    <span className="docs-grid__index">01 / 产品</span>
-    <strong>产品手册</strong>
-    <span>爱谋科技硬件产品的安装、配置、规格参数和故障排查说明。</span>
+  <a className="docs-grid__item" href="/zh-CN/products/ovis">
+    <span className="docs-grid__index">01 / 产品 / OVIS</span>
+    <strong>Ovis</strong>
+    <span>查看 Ovis 产品介绍、快速开始、二次开发资料与资源下载。</span>
   </a>
-  <a className="docs-grid__item" href="/zh-CN/technical-resources">
-    <span className="docs-grid__index">02 / 工程</span>
-    <strong>技术资料</strong>
-    <span>SDK 参考、集成说明、通信协议与平台级技术指南。</span>
+  <a className="docs-grid__item" href="/zh-CN/products/ovis/second-development">
+    <span className="docs-grid__index">02 / 二次开发</span>
+    <strong>二次开发</strong>
+    <span>查看基于 Ovis 进行集成与开发所需的技术资料。</span>
   </a>
 </div>
 

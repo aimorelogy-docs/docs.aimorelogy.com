@@ -14,23 +14,23 @@ sidebar_position: 1
     AIMORELOGY edge AI, UAV, and embedded products.
   </p>
   <div className="docs-home__actions">
-    <a className="button button--primary button--lg" href="/product-guides">Browse product guides</a>
-    <a className="button button--outline button--secondary button--lg" href="/technical-resources">Explore technical resources</a>
+    <a className="button button--primary button--lg" href="/products/ovis">Explore Ovis</a>
+    <a className="button button--outline button--secondary button--lg" href="/products/ovis/getting-started">Get started</a>
   </div>
 </div>
 
 ## Start here
 
 <div className="docs-grid">
-  <a className="docs-grid__item" href="/product-guides">
-    <span className="docs-grid__index">01 / PRODUCTS</span>
-    <strong>Product guides</strong>
-    <span>Setup, configuration, specifications, and troubleshooting for AIMORELOGY hardware.</span>
+  <a className="docs-grid__item" href="/products/ovis">
+    <span className="docs-grid__index">01 / PRODUCTS / OVIS</span>
+    <strong>Ovis</strong>
+    <span>Product overview, setup instructions, development resources, and downloads for Ovis.</span>
   </a>
-  <a className="docs-grid__item" href="/technical-resources">
-    <span className="docs-grid__index">02 / ENGINEERING</span>
-    <strong>Technical resources</strong>
-    <span>SDK references, integration notes, protocols, and platform-level guidance.</span>
+  <a className="docs-grid__item" href="/products/ovis/second-development">
+    <span className="docs-grid__index">02 / DEVELOPMENT</span>
+    <strong>Second development</strong>
+    <span>Integration guidance and development resources for building with Ovis.</span>
   </a>
 </div>
 

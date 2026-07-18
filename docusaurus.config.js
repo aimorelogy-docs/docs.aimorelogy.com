@@ -77,8 +77,7 @@ const config = {
         hideOnScroll: true,
         items: [
           {to: '/', label: 'Documentation', position: 'left', exact: true},
-          {to: '/product-guides', label: 'Product Guides', position: 'left'},
-          {to: '/technical-resources', label: 'Technical Resources', position: 'left'},
+          {to: '/products/ovis', label: 'Products', position: 'left'},
           {
             href: 'https://aimorelogy.com',
             label: 'Company Website',
@@ -93,8 +92,9 @@ const config = {
           {
             title: 'Documentation',
             items: [
-              {label: 'Product Guides', to: '/product-guides'},
-              {label: 'Technical Resources', to: '/technical-resources'},
+              {label: 'Ovis', to: '/products/ovis'},
+              {label: 'Getting Started', to: '/products/ovis/getting-started'},
+              {label: 'Resource Download', to: '/products/ovis/resource-download'},
             ],
           },
           {
