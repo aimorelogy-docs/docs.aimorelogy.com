@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4. SD/MMC Card Operation Guide &mdash; PeripheralDriver master Documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="5. I2C Operation Guide" href="5_I2C_Operation_Guide.html" />
+    <link rel="prev" title="3. USBOperation Guide" href="3_USB_Operation_Guide.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> PeripheralDriver
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Ethernet_Operation_Guide.html">2. Ethernet Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_USB_Operation_Guide.html">3. USBOperation Guide</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="4_SD_MMC_Card_Operation_Guide.html#">4. SD/MMC Card Operation Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="4_SD_MMC_Card_Operation_Guide.html#id1">4.1. Preparation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_SD_MMC_Card_Operation_Guide.html#id2">4.2. Operation Procedure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_SD_MMC_Card_Operation_Guide.html#id3">4.3. Operation Example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="4_SD_MMC_Card_Operation_Guide.html#u-boot-sd">4.3.1. U-Boot SD Card Operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_SD_MMC_Card_Operation_Guide.html#linux-sd">4.3.2. Linux SD Card Operations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="4_SD_MMC_Card_Operation_Guide.html#id4">4.4. Issues to Note During Operation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="5_I2C_Operation_Guide.html">5. I2C Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_SPI_Operation_Guide.html">6. SPI Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_GPIO_Operation_Guide.html">7. GPIOOperation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_UART_Operation_Guide.html">8. UART Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_Watchdog_Operation_Guide.html">9. Watchdog Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_PWM_Operation_Guide.html">10. PWM Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_ADC_Operation_Guide.html">11. ADC Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_CVI_PINMUX_Operation_Guide.html">12. CVI PINMUX Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_DMA_mem_to_mem_Operation_Guide.html">13. DMA Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_Thermal_Control_Operation_Guide.html">14. Thermal Control Strategy and Test Operation Guide</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PeripheralDriver</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">4. </span>SD/MMC Card Operation Guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/4_SD_MMC_Card_Operation_Guide.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sd-mmc">
+<h1><span class="section-number">4. </span>SD/MMC Card Operation Guide<a class="headerlink" href="4_SD_MMC_Card_Operation_Guide.html#sd-mmc" title="Permalink to this heading">¶</a></h1>
+<section id="id1">
+<h2><span class="section-number">4.1. </span>Preparation<a class="headerlink" href="4_SD_MMC_Card_Operation_Guide.html#id1" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>UseSDK  of U-boot and kernel。</p></li>
+<li><div class="line-block">
+<div class="line">FileSystem：</div>
+<div class="line"> SD/MMC ，SDK SupportFATFileSystem，Supportcan can 。</div>
+<div class="line"> kernelafterneed /mnt/sdContentsor need ofContents can。</div>
+</div>
+</li>
+<li><p>can fdiskToolsImplementationPartitionof 。</p></li>
+<li><p>CV184x SD Support 2.0and3.0：</p></li>
+</ol>
+<p> before CV184x SD/MMC Support3.3V VDDIO，Use needNote。</p>
+</section>
+<section id="id2">
+<h2><span class="section-number">4.2. </span>Operation Procedure<a class="headerlink" href="4_SD_MMC_Card_Operation_Guide.html#id2" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Default SD/MMC RelatedDriverModulealready Kernel，notneed ExecuteLoadCommands。</p></li>
+<li><p> on ，Canin U-Boot under，Through fat RelatedCommandView Content。
+ Platform  kernel after， Scan SD  Node：<code class="docutils literal notranslate"><span class="pre">/dev/mmcblk0</span></code> and <code class="docutils literal notranslate"><span class="pre">/dev/mmcblk0p1</span></code>。</p></li>
+<li><p>U-Boot under notSupport Operation，kernel underSupport 。in kernel under  SD  ， Can  SD  RelatedofOperation。 OperationPlease under ”Operation Example”。</p></li>
+</ul>
+</section>
+<section id="id3">
+<h2><span class="section-number">4.3. </span>Operation Example<a class="headerlink" href="4_SD_MMC_Card_Operation_Guide.html#id3" title="Permalink to this heading">¶</a></h2>
+<section id="u-boot-sd">
+<h3><span class="section-number">4.3.1. </span>U-Boot SD Card Operations<a class="headerlink" href="4_SD_MMC_Card_Operation_Guide.html#u-boot-sd" title="Permalink to this heading">¶</a></h3>
+<p>SD/MMC in U-Boot under Support FAT FileSystem， notSupport ，mustin  U-Boot before  SD  。</p>
+<p>Steps1：Scan SD/MMC Bus</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mmc rescan
+</pre></div>
+</div>
+<p>Steps2：Confirm SD  </p>
+<p><code class="docutils literal notranslate"><span class="pre">mmc</span> <span class="pre">rescan</span></code> Successafter，need ConfirmDevice inwithandPartition Table ， after  <code class="docutils literal notranslate"><span class="pre">fatls</span></code>   <code class="docutils literal notranslate"><span class="pre">Couldn't</span> <span class="pre">find</span> <span class="pre">partition</span> <span class="pre">mmc</span> <span class="pre">0:1</span></code>。</p>
+<p><strong>a. Viewalready of MMC Device Table</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mmc list
+</pre></div>
+</div>
+<p>OutputExample：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mmc</span><span class="o">@</span><span class="mi">04300000</span><span class="p">:</span> <span class="mi">0</span> <span class="p">(</span><span class="n">SD</span><span class="p">)</span>
+<span class="n">mmc</span><span class="o">@</span><span class="mi">04310000</span><span class="p">:</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>Confirm SD  inDevice Number（on inDevice 0 is SD  ）。</p>
+<p><strong>b. Settings beforeDeviceandViewPartition Table</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mmc dev <span class="m">0</span>            <span class="c1">#  to SD  Device（Device Numberwith mmc list Outputis ）</span>
+mmc info             <span class="c1"># ViewDeviceInformation（ 、Rateetc.）</span>
+mmc part             <span class="c1">#  Partition Table，ConfirmPartition in</span>
+</pre></div>
+</div>
+<p>OutputExample：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Partition</span> <span class="n">Map</span> <span class="k">for</span> <span class="n">MMC</span> <span class="n">device</span> <span class="mi">0</span>  <span class="o">--</span>   <span class="n">Partition</span> <span class="n">Type</span><span class="p">:</span> <span class="n">DOS</span>
+
+<span class="n">Part</span>    <span class="n">Start</span> <span class="n">Sector</span>    <span class="n">Num</span> <span class="n">Sectors</span>     <span class="n">UUID</span>            <span class="n">Type</span>
+  <span class="mi">1</span>     <span class="mi">2048</span>            <span class="mi">61407232</span>        <span class="mi">00000000</span><span class="o">-</span><span class="mi">01</span>     <span class="mi">0</span><span class="n">c</span> <span class="n">Boot</span>
+</pre></div>
+</div>
+<p>on inPartition is 1（Part  ），Type 0c Indicates FAT32（LBA）。If <code class="docutils literal notranslate"><span class="pre">mmc</span> <span class="pre">part</span></code>  Output，Indicates SD  Partition，Need to in Linux or Windows underPartitionand is FAT32。</p>
+<p><strong>c.  Partition TableinofActualPartition ConfirmOperation </strong></p>
+<p>If <code class="docutils literal notranslate"><span class="pre">mmc</span> <span class="pre">part</span></code> Output Partition is 1， after CommandsUse <code class="docutils literal notranslate"><span class="pre">mmc</span> <span class="pre">0:1</span></code>；Ifis （If 2）， need Replaceis <code class="docutils literal notranslate"><span class="pre">mmc</span> <span class="pre">0:2</span></code>。</p>
+<p>Steps3：View SD  ofFile（FAT）</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>fatls mmc <span class="m">0</span>:1 /
+</pre></div>
+</div>
+<p> in <code class="docutils literal notranslate"><span class="pre">0</span></code> is <code class="docutils literal notranslate"><span class="pre">mmc</span> <span class="pre">list</span></code> ConfirmofDevice Number，<code class="docutils literal notranslate"><span class="pre">1</span></code> is <code class="docutils literal notranslate"><span class="pre">mmc</span> <span class="pre">part</span></code> ConfirmofPartition 。</p>
+<p>Steps4：willFile Memory</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>fatload mmc <span class="m">0</span>:1 0x82000000 filename.bin
+</pre></div>
+</div>
+<p>Steps5：fromMemoryWriteFileto SD  </p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>fatwrite mmc <span class="m">0</span>:1 0x82000000 newfile.bin 0x100000
+</pre></div>
+</div>
+<p> in <code class="docutils literal notranslate"><span class="pre">0x82000000</span></code> isLoadAddress，<code class="docutils literal notranslate"><span class="pre">0x100000</span></code> isWriteBytes ，Please Actual Modify。</p>
+</section>
+<section id="linux-sd">
+<h3><span class="section-number">4.3.2. </span>Linux SD Card Operations<a class="headerlink" href="4_SD_MMC_Card_Operation_Guide.html#linux-sd" title="Permalink to this heading">¶</a></h3>
+<p>Steps1： Partition</p>
+<p>  SD  after， DeviceNode：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ls /dev/mmcblk0*
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>If  <code class="docutils literal notranslate"><span class="pre">/dev/mmcblk0</span></code>  Partition（If <code class="docutils literal notranslate"><span class="pre">mmcblk0p1</span></code>），Indicates SD  Partitionor 。</p></li>
+<li><p>If  <code class="docutils literal notranslate"><span class="pre">/dev/mmcblk0p1</span></code>，IndicatesalreadyPartition，can Steps 2  。</p></li>
+</ul>
+<p>Steps2：Partitionand （If SD  Partition）</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#  Partition（ Operation）</span>
+fdisk /dev/mmcblk0
+
+<span class="c1">#  is FAT32</span>
+mkdosfs -F <span class="m">32</span> /dev/mmcblk0p1
+</pre></div>
+</div>
+<p>Steps3： </p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mount /dev/mmcblk0p1 /mnt/sd
+</pre></div>
+</div>
+<p>Steps4：Read/writeFile</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># View SD  Content</span>
+ls /mnt/sd
+
+<span class="c1"># from SD  CopyFileto （ ）</span>
+cp /mnt/sd/data.bin ./
+
+<span class="c1"># from CopyFileto SD  （ ）</span>
+cp ./data.bin /mnt/sd/
+
+<span class="c1">#  WriteandUninstall</span>
+sync
+umount /mnt/sd
+</pre></div>
+</div>
+</section>
+</section>
+<section id="id4">
+<h2><span class="section-number">4.4. </span>Issues to Note During Operation<a class="headerlink" href="4_SD_MMC_Card_Operation_Guide.html#id4" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>needEnsureSD and ，IfIf not ， can orRead/writeData Related Information，and Read/writeFailure。</p></li>
+<li><p>  SD  after， Need to Operation， Read/write SD  ；IfSD  already toFileSystem， before must Uninstall（umount）Operation， can inunder SD after nottoSD Partition。 ， Need to Uninstall 。</p></li>
+<li><p> mustEnsure SD  already Partition，andwill Partition is FATorFAT32FileSystem（LINUXunderThrough fdiskCommands，WindowsunderUse Tools）。</p></li>
+<li><p>in Operation Procedureinnot ofOperation：</p>
+<ul>
+<li><p>Read/write SD  not ， Information，and can inFileorFileSystem 。</p></li>
+<li><p>If beforeContents Contents underIf/mnt/sd  ， UninstallOperation， must beforeContentsIf/mnt/sd， UninstallOperation。</p></li>
+<li><p>SysteminRead/write Contentsof before，not UninstallOperation， must Operation Contentsof Uninstall。</p></li>
+<li><p>inOperation Procedurein ofOperation：</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>If isRead/writeDataor not FileSystem ，Read/writeSD can FileSystem Information， Need to UninstallOperation， ， and ， Read/write SD  。</p></li>
+<li><p> isSD of ， / Need to of ， afterIf ， can nottoSD of 。</p></li>
+<li><p>IfinTests in ，Use Need to  ctrl+c with tokernel shell under， not Information。</p></li>
+<li><p>SD  on withonofPartition ，CanThrough Operation not ofPartition， afterneedConfirm Operationof andUninstallOperation etc.， Ensure Uninstall of Partition。</p></li>
+</ol>
+</div></blockquote>
+</li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="3_USB_Operation_Guide.html" class="btn btn-neutral float-left" title="3. USBOperation Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="5_I2C_Operation_Guide.html" class="btn btn-neutral float-right" title="5. I2C Operation Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Go to Official Website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="Go to Documentation Center"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Back to top"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Go to bottom"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR code for this page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

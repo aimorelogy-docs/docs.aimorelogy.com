@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>12. CVI PINMUX Operation Guide &mdash; PeripheralDriver master Documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="13. DMA Operation Guide" href="13_DMA_mem_to_mem_Operation_Guide.html" />
+    <link rel="prev" title="11. ADC Operation Guide" href="11_ADC_Operation_Guide.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> PeripheralDriver
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Ethernet_Operation_Guide.html">2. Ethernet Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_USB_Operation_Guide.html">3. USBOperation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_SD_MMC_Card_Operation_Guide.html">4. SD/MMC Card Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_I2C_Operation_Guide.html">5. I2C Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_SPI_Operation_Guide.html">6. SPI Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_GPIO_Operation_Guide.html">7. GPIOOperation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_UART_Operation_Guide.html">8. UART Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_Watchdog_Operation_Guide.html">9. Watchdog Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_PWM_Operation_Guide.html">10. PWM Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_ADC_Operation_Guide.html">11. ADC Operation Guide</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="12_CVI_PINMUX_Operation_Guide.html#">12. CVI PINMUX Operation Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="12_CVI_PINMUX_Operation_Guide.html#id1">12.1. Preparation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12_CVI_PINMUX_Operation_Guide.html#id2">12.2. Operation Flow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="12_CVI_PINMUX_Operation_Guide.html#u-boot-pinmux">12.2.1. U-Boot under Pinmux Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="12_CVI_PINMUX_Operation_Guide.html#pinmux-cvi-pinmux">12.2.2. Kernelunder Pinmux Configuration（cvi_pinmux Tools）</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="12_CVI_PINMUX_Operation_Guide.html#ephy-gpio-spi">12.3. ephy Switch Pins to GPIO or SPI</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="12_CVI_PINMUX_Operation_Guide.html#gpio">12.3.1. Switch to GPIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="12_CVI_PINMUX_Operation_Guide.html#spi">12.3.2. Switch to SPI</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="13_DMA_mem_to_mem_Operation_Guide.html">13. DMA Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_Thermal_Control_Operation_Guide.html">14. Thermal Control Strategy and Test Operation Guide</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PeripheralDriver</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">12. </span>CVI PINMUX Operation Guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/12_CVI_PINMUX_Operation_Guide.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cvi-pinmux">
+<h1><span class="section-number">12. </span>CVI PINMUX Operation Guide<a class="headerlink" href="12_CVI_PINMUX_Operation_Guide.html#cvi-pinmux" title="Permalink to this heading">¶</a></h1>
+<p>This documentDescriptionin CV184x on the platformIf ConfigurationPin Multiplexing（Pinmux）：U-Boot  ConfigurationMethod、KernelunderUse cvi_pinmux Tools，withand ephy PinSwitch to GPIO/SPI ofExample。</p>
+<section id="id1">
+<h2><span class="section-number">12.1. </span>Preparation<a class="headerlink" href="12_CVI_PINMUX_Operation_Guide.html#id1" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Use SDK Providekernel；IfneedinSystem afterUse <code class="docutils literal notranslate"><span class="pre">cvi_pinmux</span></code> Tools，needin SDK BuildbeforeThrough menuconfig   Pinmux RelatedOption，BuildandBurningafter caninTerminalor SSH underExecute <code class="docutils literal notranslate"><span class="pre">cvi_pinmux</span></code>。</p></li>
+</ul>
+</section>
+<section id="id2">
+<h2><span class="section-number">12.2. </span>Operation Flow<a class="headerlink" href="12_CVI_PINMUX_Operation_Guide.html#id2" title="Permalink to this heading">¶</a></h2>
+<section id="u-boot-pinmux">
+<h3><span class="section-number">12.2.1. </span>U-Boot under Pinmux Configuration<a class="headerlink" href="12_CVI_PINMUX_Operation_Guide.html#u-boot-pinmux" title="Permalink to this heading">¶</a></h3>
+<p>U-Boot stageof pinmux inSource CodeFile <code class="docutils literal notranslate"><span class="pre">u-boot-2021.10/board/cvitek/cv184x/board.c</span></code> inThroughMacroConfiguration，for example：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define PINMUX_CONFIG(PIN_NAME, FUNC_NAME) \</span>
+<span class="cp">    mmio_clrsetbits_32(PINMUX_BASE + FMUX_GPIO_FUNCSEL_##PIN_NAME, \</span>
+<span class="cp">        FMUX_GPIO_FUNCSEL_##PIN_NAME##_MASK &lt;&lt; FMUX_GPIO_FUNCSEL_##PIN_NAME##_OFFSET, \</span>
+<span class="cp">        PIN_NAME##__##FUNC_NAME)</span>
+</pre></div>
+</div>
+<p> ：</p>
+<ul class="simple">
+<li><p><strong>PIN_NAME</strong>：Pin ，and pinlist  in  Signal Name  。</p></li>
+<li><p><strong>FUNC_NAME</strong>：Function ，and pinlist  in toofFunction（Function  ） 。</p></li>
+</ul>
+<p>Example：will UART2 of TX/RX Pin Configurationis UART4 of TX/RX Function，in <code class="docutils literal notranslate"><span class="pre">board.c</span></code> inAdd：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">PINMUX_CONFIG</span><span class="p">(</span><span class="n">UART2_TX</span><span class="p">,</span><span class="w"> </span><span class="n">UART4_TX</span><span class="p">);</span><span class="w"></span>
+<span class="n">PINMUX_CONFIG</span><span class="p">(</span><span class="n">UART2_RX</span><span class="p">,</span><span class="w"> </span><span class="n">UART4_RX</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p> PinSupport  FUNC_NAME，can  pinlist  in  Signal Name  of Function  。</p>
+</section>
+<section id="pinmux-cvi-pinmux">
+<h3><span class="section-number">12.2.2. </span>Kernelunder Pinmux Configuration（cvi_pinmux Tools）<a class="headerlink" href="12_CVI_PINMUX_Operation_Guide.html#pinmux-cvi-pinmux" title="Permalink to this heading">¶</a></h3>
+<p><strong>Tools </strong>：in SDK inExecute menuconfig，Searchand  pinmux RelatedOptionafterRebuild、Burning；System afterinTerminalor SSH in canUse <code class="docutils literal notranslate"><span class="pre">cvi_pinmux</span></code>。</p>
+<p>CommandsDescription：Execute <code class="docutils literal notranslate"><span class="pre">cvi_pinmux</span> <span class="pre">-h</span></code> canView 。CommonCommandsas follows：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cvi_pinmux -p           <span class="c1">#  Pin</span>
+cvi_pinmux -l           <span class="c1">#  Pinand beforeFunction</span>
+cvi_pinmux -r pin       <span class="c1"># Read Pinof beforeFunction</span>
+cvi_pinmux -w pin/func  <span class="c1"># willPinSettingsis Function</span>
+</pre></div>
+</div>
+<p>Example：will UART2 of TX、RX  is UART4 of TX、RX：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cvi_pinmux -w UART2_TX/UART4_TX
+cvi_pinmux -w UART2_RX/UART4_RX
+</pre></div>
+</div>
+<p>Outputin Pin 、 Function、RegisterAddressandWriteValue。canThrough <code class="docutils literal notranslate"><span class="pre">cvi_pinmux</span> <span class="pre">-l</span></code> View SoC on PinandOptionalFunction，orThrough <code class="docutils literal notranslate"><span class="pre">cvi_pinmux</span> <span class="pre">-r</span> <span class="pre">pin_name</span></code> View Pin beforeFunctionandOptionalFunction。</p>
+</section>
+</section>
+<section id="ephy-gpio-spi">
+<h2><span class="section-number">12.3. </span>ephy Switch Pins to GPIO or SPI<a class="headerlink" href="12_CVI_PINMUX_Operation_Guide.html#ephy-gpio-spi" title="Permalink to this heading">¶</a></h2>
+<p>followingwith ephy RelatedPinas an example，DescriptionIf will Switch to GPIO or SPI Functionand Verification。</p>
+<section id="gpio">
+<h3><span class="section-number">12.3.1. </span>Switch to GPIO<a class="headerlink" href="12_CVI_PINMUX_Operation_Guide.html#gpio" title="Permalink to this heading">¶</a></h3>
+<p><strong>Steps 1：ThroughRegister  GPIO Function</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>devmem 0x03009804 <span class="m">32</span> 0x1
+devmem 0x0300907C <span class="m">32</span> 0x0500
+devmem 0x03009078 <span class="m">32</span> 0x1000
+devmem 0x03009050 <span class="m">32</span> 0x4000
+devmem 0x0300907C <span class="m">32</span> 0x0
+devmem 0x03009804 <span class="m">32</span> 0x0
+
+devmem 0x03009804 <span class="m">32</span> 0x1
+devmem 0x03009808 <span class="m">32</span> 0x181
+devmem 0x03009800 <span class="m">32</span> 0x0905
+devmem 0x0300907c <span class="m">32</span> 0x0500
+devmem 0x03009078 <span class="m">32</span> 0x1f00
+devmem 0x03009074 <span class="m">32</span> 0x606
+devmem 0x03009070 <span class="m">32</span> 0x606
+</pre></div>
+</div>
+<p><strong>Steps 2：  cvi_pinmux willPin is GPIO（with PAD_ETH_TXP as an example）</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cvi_pinmux -r PAD_ETH_TXP
+cvi_pinmux -w PAD_ETH_TXP/XGPIOB_25
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/pinmux1.jpg"><img alt="_images/pinmux1.jpg" class="align-center" src="_images/pinmux1.jpg" style="width: 400px;" /></a>
+<p><strong>Steps 3：Verification GPIO Output</strong></p>
+<p>GPIOB  is 448，PAD_ETH_TXP   XGPIOB_25，  GPIO  is 448 + 25 = 473。in sysfs inExportand / ， ：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="m">473</span> &gt; /sys/class/gpio/export
+<span class="nb">echo</span> out &gt; /sys/class/gpio/gpio473/direction
+<span class="nb">echo</span> <span class="m">1</span> &gt; /sys/class/gpio/gpio473/value
+cat /sys/class/gpio/gpio473/value
+<span class="nb">echo</span> <span class="m">0</span> &gt; /sys/class/gpio/gpio473/value
+cat /sys/class/gpio/gpio473/value
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/pinmux2.jpg"><img alt="_images/pinmux2.jpg" class="align-center" src="_images/pinmux2.jpg" style="width: 400px;" /></a>
+</section>
+<section id="spi">
+<h3><span class="section-number">12.3.2. </span>Switch to SPI<a class="headerlink" href="12_CVI_PINMUX_Operation_Guide.html#spi" title="Permalink to this heading">¶</a></h3>
+<p>with PAD_ETH_TXP、PAD_ETH_TXM as an example，willPin to SPI1 of SDO、SDI after，can Loopback Test。</p>
+<p><strong>Steps 1：willPinConfigurationis SPI1 Function</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cvi_pinmux -r PAD_ETH_TXM
+cvi_pinmux -w PAD_ETH_TXM/SPI1_SDI
+cvi_pinmux -r PAD_ETH_TXP
+cvi_pinmux -w PAD_ETH_TXP/SPI1_SDO
+</pre></div>
+</div>
+<p><strong>Steps 2：  SPI of MOSI and MISO， Loopback Test</strong></p>
+<p>If <code class="docutils literal notranslate"><span class="pre">data.bin</span></code> and <code class="docutils literal notranslate"><span class="pre">data_out.bin</span></code>  ， Description SPI  ：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>dd <span class="k">if</span><span class="o">=</span>/dev/urandom <span class="nv">of</span><span class="o">=</span>data.bin <span class="nv">bs</span><span class="o">=</span>2k <span class="nv">count</span><span class="o">=</span><span class="m">1</span>
+./spidev_test -D /dev/spidev1.0 -s <span class="m">10000000</span> -i data.bin -o data_out.bin
+diff data.bin data_out.bin
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="11_ADC_Operation_Guide.html" class="btn btn-neutral float-left" title="11. ADC Operation Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="13_DMA_mem_to_mem_Operation_Guide.html" class="btn btn-neutral float-right" title="13. DMA Operation Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Go to Official Website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="Go to Documentation Center"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Back to top"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Go to bottom"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR code for this page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

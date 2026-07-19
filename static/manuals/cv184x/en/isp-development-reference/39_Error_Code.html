@@ -1,0 +1,2062 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>39. Error Code &mdash; ISPDevelopmentReference master documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="40. 3A Development Guide Overview" href="40_3A_Development_User_Guide_Overview.html" />
+    <link rel="prev" title="38. Debug" href="38_Debug.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> ISPDevelopmentReference
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Preface.html">2. Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_System_Control.html">3. System Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_AE.html">4. AE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_AWB.html">5. AWB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_AF.html">6. AF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_IMP.html">7. IMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_BlackLevel.html">8. BLC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_DPC.html">9. DPC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_LSC.html">10. LSC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_RLSC.html">11. RLSC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_CCM.html">12. CCM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_Noise_Profile.html">13. Noise profile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_BNR.html">14. BNR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15_CNR.html">15. CNR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="16_TNR.html">16. TNR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="17_Crosstalk.html">17. Crosstalk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18_Demosaic.html">18. DEMOSAIC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19_Sharpen.html">19. SHARPEN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="20_PreSharpen.html">20. PRESHARPEN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21_RGB_Gamma.html">21. RGBGAMMA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="22_DCI.html">22. DCI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="23_LDCI.html">23. LDCI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="24_ColorTone.html">24. ColorTone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="25_Saturation.html">25. Saturation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="26_PFR.html">26. PFR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="27_FSHDR.html">27. FSHDR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="28_DRC.html">28. DRC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="29_Mono.html">29. MONO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="30_YCONTRAST.html">30. YCONTRAST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="31_CA.html">31. CA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="32_CA2.html">32. CA2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="33_CLUT.html">33. CLUT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="34_CSC.html">34. CSC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="35_VC.html">35. VC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="36_Statistical_Information.html">36. Statistical Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="37_Query_Internal_Status_Messages.html">37. Query Internal Status Messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="38_Debug.html">38. Debug</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="39_Error_Code.html#">39. Error Code</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="39_Error_Code.html#proc">39.1. Proc Debug Information Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="39_Error_Code.html#id3">39.2. Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="39_Error_Code.html#id4">39.3. Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="39_Error_Code.html#isp">39.4. ISP</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="39_Error_Code.html#level1">39.4.1. Analysis of LEVEL1 Debug Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="39_Error_Code.html#level2">39.4.2. Analysis of LEVEL2 Debug Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="39_Error_Code.html#level3">39.4.3. Analysis of LEVEL3 Debug Information</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="40_3A_Development_User_Guide_Overview.html">40. 3A Development Guide Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="41_3A_Development_User_Guide.html">41. 3A Developer User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="42_Developer_Guide.html">42. Developer Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="43_Appendix.html">43. Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="44_Abbreviations.html">44. Abbreviations</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ISPDevelopmentReference</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">39. </span>Error Code</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/39_Error_Code.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<span id="id2"></span><h1><span class="section-number">39. </span>Error Code<a class="headerlink" href="39_Error_Code.html#id1" title="Permalink to this heading">¶</a></h1>
+<section id="proc">
+<h2><span class="section-number">39.1. </span>Proc Debug Information Description<a class="headerlink" href="39_Error_Code.html#proc" title="Permalink to this heading">¶</a></h2>
+</section>
+<section id="id3">
+<h2><span class="section-number">39.2. </span>Overview<a class="headerlink" href="39_Error_Code.html#id3" title="Permalink to this heading">¶</a></h2>
+<blockquote>
+<div><p>Debuginformationcaptureuseprocfs, canaccording toonlayersettings proc paramandproc level, 
+real-timereversemapISPmodegroupinside settingsparameternumber, 3Asystemstatisticalvalue, 3Aoperationresultetc.information, 
+provideopensendpersonnelsetpositionproblemandanalysisproblemuse. </p>
+</div></blockquote>
+</section>
+<section id="id4">
+<h2><span class="section-number">39.3. </span>Usage<a class="headerlink" href="39_Error_Code.html#id4" title="Permalink to this heading">¶</a></h2>
+<p>[documentcomponentContents]</p>
+<blockquote>
+<div><p>/proc/soph/isp</p>
+</div></blockquote>
+<p>[openenablemethod]</p>
+<blockquote>
+<div><p>incallCVI_ISP_MemInitafter, callCVI_ISP_SetCtrlParamsettingsISPControlparameternumberu32ProcParam=n, 
+wherennotcanis0, nindicatescollectISPinformation frequency, eachintervalnframecollectonetimeISPinformation, The default value is30</p>
+<p>callCVI_ISP_SetCtrlParamsettingsISPControlparameternumberu32ProcLevel=m, wherem  rangeis[0, 3]
+m=0whenindicatesprocfunctionDisable, 
+m=1whenindicatesprintlevel1level information, 
+m=2whenindicatesprintlevel2level information, 
+m=3whenindicatesprintlevel3level information, 
+levellevelthe moreheight, indicatesprint informationthe moredetaileddetail, 
+andandheightlevel printinsidecapacityonesetcontainlowlevel printinsidecapacity, The default value is0</p>
+<p>inuseISP_TOOL_DAEMONwhen, ifneedopenenableprocfunction, caninrunISP_TOOL_DAEMONbeforeexport PROC_LEVEL=n(nis1-3,n=0notopenenable)</p>
+</div></blockquote>
+<p>[Viewinformationmethod]</p>
+<blockquote>
+<div><p>ISP modulenormalRunafter</p>
+<p>inControlplatformthroughcallcat /proc/soph/isp, relatedlogwithafterwillprintinControlplatform, cp /proc/soph/isptopcendView. </p>
+</div></blockquote>
+</section>
+<section id="isp">
+<h2><span class="section-number">39.4. </span>ISP<a class="headerlink" href="39_Error_Code.html#isp" title="Permalink to this heading">¶</a></h2>
+<section id="level1">
+<h3><span class="section-number">39.4.1. </span>Analysis of LEVEL1 Debug Information<a class="headerlink" href="39_Error_Code.html#level1" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><p>ISP eachmoduleparameternumberprint</p>
+</div></blockquote>
+<p>[parameternumberdescription]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 60%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>parameternumber</p></th>
+<th class="head"></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>MODULE/CTRLPARAM</p></td>
+<td><p>ProcParam</p></td>
+<td><p>indicatescollectISPinformation collectfrequency</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ProcLevel</p></td>
+<td><p>indicatesISP proc levellevel</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>AEStatIntvl</p></td>
+<td><p>indicatesISP AEstatistical information update frequency</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>AWBStatIntvl</p></td>
+<td><p>indicatesISP AWBstatistical information update frequency</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>AFStatIntvl</p></td>
+<td><p>indicatesISP AFstatistical information update frequency</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>UpdatePos</p></td>
+<td><p>indicatesinterruptmorenewpositionisuseframestartinterruptalsoisinframeendinterrupt, 0isframestart</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>IntTimeOut</p></td>
+<td><p>indicatesGet ISP interruptexceedwhen maximumwheninterval</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PwmNumber</p></td>
+<td><p>indicates pwm usecase</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>PortIntDelay</p></td>
+<td><p>indicates Port interruptdelaywhenwheninterval</p></td>
+</tr>
+<tr class="row-odd"><td><p>FSWDR</p></td>
+<td><p>Enable</p></td>
+<td><p>WDR module enable</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>MotionCompEnable</p></td>
+<td><p>WDRmotiondetectionEnableopenclose</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>CombineSNRAwareEn</p></td>
+<td><p>toolSNRsenseknow widthdynamicfusionmodeEnable, canaccording toshort framenoiseadaptivetakedecidelongshort framefusionratioexample</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CombineSNRAwareLowThr</p></td>
+<td><p>short framenoiseSNRadaptivelowcriticalvalue. 
+whenshort frameestimatemeasurenoiselowinlowcriticalvaluethenperformGenerallylongshort framefusion, 
+noiseinterfaceinlowcriticalvalueandheightcriticalvalueintervalthenaccording toratiocolumnperformSNRadaptivefusion. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>CombineSNRAwareHighThr</p></td>
+<td><p>whenshort frameestimatemeasurenoiseheightinheightcriticalvaluethenaccording to
+SNRAwar eToleranceLevelstrengthperformSNRadaptivefusion, noiseinterfaceinlowcriticalvalueandheightcriticalvalueintervalthenaccording toratiocolumnperformSNRadaptivefusion. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CombineSNRAwareSmLevel</p></td>
+<td><p>short framenoiseSNRadaptiveofwhenintervaldomainchangesmoothdegree</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ExposureRatio</p></td>
+<td><p>WDR longshortexposure exposureratio</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ShortMaxVal</p></td>
+<td><p>WDR widthdynamicmaximum value</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>isManualMode</p></td>
+<td><p>manual modeorautomatic mode</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CombineLongThr</p></td>
+<td><p>long exposurelightcriticalvalue, lowinthecriticalvalue imagenumberdatawillonlyselectlong exposurelightnumberdatasynthesisWDRimage</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>CombineShortThr</p></td>
+<td><p>shortexposurecriticalvalue, exceedthroughthecriticalvalue imagenumberdatawillonlyselectshortexposurenumberdatasynthesisWDRimage</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CombineMinWeight</p></td>
+<td><p>longshortexposureimagenumberdatafusionmostlowweightvalue. weightthe larger the value, fusionwhenlong exposurelightoccupy ratioagainthe moremultiple, and vice versathenshortexposureoccupy ratioagainthe moremultiple</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>CombineMaxWeight</p></td>
+<td><p>longshortexposureimagenumberdatafusionmostheightweightvalue. weightthe larger the value, fusionwhenlong exposurelightoccupy ratioagainthe moremultiple, and vice versathenshortexposureoccupy ratioagainthe moremultiple</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>MergeMode</p></td>
+<td><p>WDRmotiondetectionmode
+0:motiondetectioninformationtakelongshort framemotioninformationmaximumvalue
+1: motiondetectioninformation islongshort framemotioninformationofetc.ratioexamplefusion, ratioexamplebyMergeModeAlphaDefine </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>MergeModeAlpha</p></td>
+<td><p>MergeModemodeis1 movementinformationfusionratioexample</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CombineSNRAwareTolLevel</p></td>
+<td><p>short framenoiseSNRadaptiveofnoisetolerancestrength</p></td>
+</tr>
+<tr class="row-odd"><td><p>Shading</p></td>
+<td><p>MeshEnable</p></td>
+<td><p>MeshLSC function enable</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>MeshisManualMode</p></td>
+<td><p>manual modeorautomatic mode</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>MeshStr</p></td>
+<td><p>LSC compensationstrength</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>MeshLscGainLut Size</p></td>
+<td><p>color temperatureadaptiveLSCcompensationgaintablequantity</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>MeshLscGainLutColorTemp</p></td>
+<td><p>color temperatureadaptiveLSCcompensationgaintablethecorrespondingofcolor temperature</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>RadialEnable</p></td>
+<td><p>RadialLSC function enable</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>RadialCenterX</p></td>
+<td><p>imagepasssenselens centerXdirectioncoordinates</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>RadialCenterY</p></td>
+<td><p>imagepasssenselens centerYdirectioncoordinates</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>RadialStr</p></td>
+<td><p>LSC compensationstrength</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Low-RadialGainLut</p></td>
+<td><p>LSC R adiusformcompensationgaintable</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>High-RadialGainLut</p></td>
+<td><p>LSC R adiusformcompensationgaintable</p></td>
+</tr>
+<tr class="row-even"><td><p>DCI</p></td>
+<td><p>Enable</p></td>
+<td><p>DCImodule enable</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Speed</p></td>
+<td><p>Smooth strength, valuethe moreheight, thenchangethe moreslow</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>DciStrength</p></td>
+<td><p>usetoControlDCI strength, the larger the value, forratiodegreethe morelarge. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>isManualMode</p></td>
+<td><p>manual modeorautomatic mode</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ContrastGain</p></td>
+<td><p>reservedeachBINmostlowdiagonalrate,the larger the valuediagonalratethe moresmall</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>BlcThr</p></td>
+<td><p>usetodeterminesdark regionrange threshold. the larger the value, contain dark regionrangethe morelarge. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>WhtThr</p></td>
+<td><p>usetodeterminesbright regionrange threshold. the smaller the value, contain bright regionrangethe morelarge. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>BlcCtrl</p></td>
+<td><p>usetodeterminesdark region forratiodegree. valuesis256when, dark regionforratiodegreenotchange. ratio256largewhen, the larger the value, dark regionforratiodegreethe morelarge; and vice versa, ratio256smallwhen, the smaller the value, dark regionforratiodegreethe moresmall. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>WhtCtrl</p></td>
+<td><p>usetodeterminesbright region forratiodegree. valuesis256when, bright regionforratiodegreenotchange. ratio256largewhen, the larger the value, bright regionforratiodegreethe morelarge; and vice versa, ratio256smallwhen, the smaller the value, bright regionforratiodegreethe moresmall. </p></td>
+</tr>
+<tr class="row-odd"><td><p>Dehaze</p></td>
+<td><p>Enable</p></td>
+<td><p>Dehazefunction enable</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>isManualMode</p></td>
+<td><p>manual modeorautomatic mode</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Strength</p></td>
+<td><p>usetoControlDehaze strength. the larger the value, defoggingthe stronger the intensity</p></td>
+</tr>
+<tr class="row-even"><td><p>BlackLevel</p></td>
+<td><p>Enable</p></td>
+<td><p>BLC module enable</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>isManualMode</p></td>
+<td><p>manual modeorautomatic mode</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>PreOffsetR</p></td>
+<td><p>BLC R pixel dark current value</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PreOffsetGr</p></td>
+<td><p>BLC GR pixel dark current value</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>PreOffsetGb</p></td>
+<td><p>BLC Gb pixel dark current value</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PreOffsetB</p></td>
+<td><p>BLC B pixel dark current value</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>PreGainR</p></td>
+<td><p>BLC R pixel dark current compensation gain</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PreGainGr</p></td>
+<td><p>BLC Gr pixel dark current compensation gain</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>PreGainGb</p></td>
+<td><p>BLC Gb pixel dark current compensation gain</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PreGainB</p></td>
+<td><p>BLC B pixel dark current compensation gain</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>PostOffsetR</p></td>
+<td><p>BLC R pixel dark current value</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PostOffsetGr</p></td>
+<td><p>BLC Gr pixel dark current value</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>PostOffsetGb</p></td>
+<td><p>BLC Gb pixel dark current value</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PostOffsetB</p></td>
+<td><p>BLC B pixel dark current value</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>PostGainR</p></td>
+<td><p>BLC R pixel dark current compensation gain</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PostGainGr</p></td>
+<td><p>BLC Gr pixel dark current compensation gain</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>PostGainGb</p></td>
+<td><p>BLC Gb pixel dark current compensation gain</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PostGainB</p></td>
+<td><p>BLC B pixel dark current compensation gain</p></td>
+</tr>
+<tr class="row-even"><td><p>DPC</p></td>
+<td><p>Enable</p></td>
+<td><p>DPCmodule enable</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>isManualMode</p></td>
+<td><p>manual modeorautomatic mode</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ClusterSize</p></td>
+<td><p>clusterdefectivepointareaupper limit, valuethe moreheightthe morecancorrectclusterdefectivepoint, butcancanwillproducebecomeheightfrequencyregionsolveimageforce decayreduce</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>BrightDefToNorPixRatio</p></td>
+<td><p>canvisualbrightdefectivepointvalueandaroundpixel xrate</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>DarkDefToNorPixRatio</p></td>
+<td><p>canvisualdarkdefectivepointvalueandaroundpixel xrate</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>FlatThreR</p></td>
+<td><p>Rchanneldiscriminationflat regioncriticalvalue, the smaller the valuethe morecanreservededgeinformation</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>FlatThreG</p></td>
+<td><p>Bchanneldiscriminationflat regioncriticalvalue, the smaller the valuethe morecanreservededgeinformation</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>FlatThreB</p></td>
+<td><p>Bchanneldiscriminationflat regioncriticalvalue, the smaller the valuethe morecanreservededgeinformation</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>FlatThreMinG</p></td>
+<td><p>Gchanneldiscriminationflat regionminimumcriticalvalue</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>FlatThreMinRB</p></td>
+<td><p>RBchanneldiscriminationflat regionminimumcriticalvalue</p></td>
+</tr>
+<tr class="row-even"><td><p>TNR</p></td>
+<td><p>Enable</p></td>
+<td><p>TNRmodule enable</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>DeflickerMode</p></td>
+<td><p>anti-flickermode</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>DeflickerToleranceLevel</p></td>
+<td><p>anti-flickermodemode4anti-flickertolerancevalue, numberthe larger the valuethe morecananti-flicker, butbright region movementghostingalsowillincrease. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>LowMtPrtEn</p></td>
+<td><p>spatial domainnoise reductionslightsmallmotionprotectionEnable</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>isManualMode</p></td>
+<td><p>manual modeorautomatic mode</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>TnrStrength0</p></td>
+<td><p>long exposurelightTNRstrengthgain</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>MapThdLow0</p></td>
+<td><p>long exposurelightTNRstrengthupper limit</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>MapThdHigh0</p></td>
+<td><p>long exposurelightTNRstrengthunderlimit</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>BrightnessNoiseLevelLE</p></td>
+<td><p>long exposurelightbrightnessnoisetolerancevalue</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>BrightnessNoiseLevelSE</p></td>
+<td><p>shortexposurebrightnessnoisetolerancevalue</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>RNoiseLevel0</p></td>
+<td><p>long exposurelightredcolorchannelnoisetolerancevalue</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>RNoiseHiLevel0</p></td>
+<td><p>long exposurelightredcolorchannelbrightpartnoisetolerancevalue</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>GNoiseLevel0</p></td>
+<td><p>long exposurelightgreenchannelnoisetolerancevalue</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>GNoiseHiLevel0</p></td>
+<td><p>long exposurelightgreenchannelbrightpartnoisetolerancevalue</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>BNoiseLevel0</p></td>
+<td><p>long exposurelightbluechannelnoisetolerancevalue</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>BNoiseHiLevel0</p></td>
+<td><p>long exposurelightbluechannelbrightpartnoisetolerancevalue</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>RNoiseLevel1</p></td>
+<td><p>shortexposureredcolorchannelnoisetolerancevalue</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>RNoiseHiLevel1</p></td>
+<td><p>shortexposureredcolorchannelbrightpartnoisetolerancevalue</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>GNoiseLevel1</p></td>
+<td><p>shortexposuregreenchannelnoisetolerancevalue</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>GNoiseHiLevel1</p></td>
+<td><p>shortexposuregreenchannelbrightpartnoisetolerancevalue</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>BNoiseLevel1</p></td>
+<td><p>shortexposurebluechannelnoisetolerancevalue</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>BNoiseHiLevel1</p></td>
+<td><p>shortexposurebluechannelbrightpartnoisetolerancevalue</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>LowMtPrtLevel</p></td>
+<td><p>protectionlimitvalue</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>L2mIn0</p></td>
+<td><p>long exposurelightTNRbrightnessforstrengthgaincharacteristictable. byfourgroupvaluesconsists of array. Define graydegreelevel, the larger the valuegraydegreethe moreheight. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>L2mOut0</p></td>
+<td><p>long exposurelightTNRbrightnessforstrengthgaincharacteristictable. byfourgroupvaluesconsists of array. Define strengthgain, the larger the valuethe stronger the intensity. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>L2mIn1</p></td>
+<td><p>shortexposureTNRbrightnessforstrengthgaincharacteristictable. byfourgroupvaluesconsists of array. Define graydegreelevel, the larger the valuegraydegreethe moreheight. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>L2mOut1</p></td>
+<td><p>shortexposureTNRbrightnessforstrengthgaincharacteristictable. byfourgroupvaluesconsists of array. Define strengthgain, the larger the valuethe stronger the intensity. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PrtctIn0</p></td>
+<td><p>long exposurelightTNRmoveamountforghost removaldegreecharacteristictable, byfourgroupvaluesconsists of array. Define motionlevelformotionobjecttrailing eliminatedegree, the larger the valuemotionamplitudethe morestrong. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>PrtctOut0</p></td>
+<td><p>long exposurelightTNRmoveamountforghost removaldegreecharacteristictable, byfourgroupvaluesconsists of array. Define motionlevelformotionobjecttrailing eliminatedegree, the smaller the valueghost removaldegreethe morestrong. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PrtctIn1</p></td>
+<td><p>shortexposureTNRmoveamountforghost removaldegreecharacteristictable, byfourgroupvaluesconsists of array. Define motionlevelformotionobjecttrailing eliminatedegree, the larger the valuemotionamplitudethe morestrong. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>PrtctOut1</p></td>
+<td><p>shortexposureTNRmoveamountforghost removaldegreecharacteristictable, byfourgroupvaluesconsists of array. Define motionlevelformotionobjecttrailing eliminatedegree, the smaller the valueghost removaldegreethe morestrong. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>LowMtPrtIn</p></td>
+<td><p>Define motionlevel</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>LowMtPrtOut</p></td>
+<td><p>the larger the value, ghostingthe morenotobvious, noisethe moreobvious</p></td>
+</tr>
+<tr class="row-odd"><td><p>CAC</p></td>
+<td><p>Enable</p></td>
+<td><p>CACmodule enable</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>VarThr</p></td>
+<td><p>edgedetection threshold. the smaller the value, the moremultipleregionisdetermineisedge. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PurpleDetRange</p></td>
+<td><p>purple fringedetection threshold. the larger the value, the moremultipleregionisdetermineispurple fringe. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>PurpleCb</p></td>
+<td><p>purplecolorinCb domain coordinates. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PurpleCr</p></td>
+<td><p>purplecolorinCr domain coordinates. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>GreenCb</p></td>
+<td><p>greeninCb domain coordinates. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>GreenCr</p></td>
+<td><p>greeninCr domain coordinates. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>isManualMode</p></td>
+<td><p>manual modeorautomatic mode</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>DePurpleStr</p></td>
+<td><p>purple fringedetection threshold. the larger the value, the moremultipleregionisdetermineispurple fringe. </p></td>
+</tr>
+<tr class="row-even"><td><p>CNR</p></td>
+<td><p>Enable</p></td>
+<td><p>CNRmodule enable. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>isManualMode</p></td>
+<td><p>manual modeorautomatic mode</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CnrStr</p></td>
+<td><p>color noisenoise reductionstrength. the larger the value, color noisethe greater the denoising strength. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>NoiseSuppressStr</p></td>
+<td><p>color noisesuppressstrength. the larger the value, color noiseremovestrengththe morelarge. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>NoiseSuppressGain</p></td>
+<td><p>color noisesuppressstrengthgain. the smaller the value, color noisethe greater the denoising strength. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>FilterType</p></td>
+<td><p>color noisenoise reductionfilterstrength. the larger the value, color noiseremovestrengththe morelarge. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>MotionNrStr</p></td>
+<td><p>Adjustobjectmotion regiondomain color noisenoise reductionstrength. the larger the value, motion regiondomain color noisethe moreless. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>DetailSmoothMode</p></td>
+<td><p>noise reductiondetailssmoothfunction enable</p></td>
+</tr>
+<tr class="row-even"><td><p>Sharpen</p></td>
+<td><p>Enable</p></td>
+<td><p>Y Sharpen module enable</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>EdgeGain</p></td>
+<td><p>edge increasestrongparameternumberthe larger the valuewhen, edgesharpeningstrengththe morelarge</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>TextureGain</p></td>
+<td><p>detailstexture increasestrongparameternumberthe larger the valuewhen, detailstexturesharpeningstrengththe morelarge</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>EdgeThr</p></td>
+<td><p>edgeandnoise partboundarythreshold, largeinthevalueisvisualisisedge, smallinthevaluethenisvisualisnoisethe larger this value, the moreless edgeisincrease; thethe smaller the value, the moremultiple edgeisincreasestrong. exposuregainthe morelargewhen, thevaluerecommendedSetthe morelarge</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>TextureThr</p></td>
+<td><p>detailstextureandnoise partboundarythreshold, largeinthevalueisvisualisisdetailstexture, smallinthevaluethenisvisualisnoise</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>LumaAdpCoringEn</p></td>
+<td><p>automaticbrightnessnoisesuppressionthresholdopenclose</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>LumaAdpGainEn</p></td>
+<td><p>brightnesssharpeningweightEnable</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>DeltaAdpGainEn</p></td>
+<td><p>sharpeningweightEnable</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>WdrCoringCompensationEn</p></td>
+<td><p>brightnesssharpeningnoisevaluein  wdrmode compensationEnable. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Wd rCoringCompensationMode</p></td>
+<td><p>brightnesssharpeningnoisevalueinwdrmode compensationmode. 
+0:according toWdrCoringHighThrdandWdrCoringLowthdcompensationbrightnesssharpeningnoise. 
+1:according toDRC tone  mapping curveautomaticcompensationbrightnesssharpeningnoise. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>WdrCoringToleranceLevel</p></td>
+<td><p>brightnesssharpeningnoisevalueinwdrmodecompensation tolerancevalue. numberthe smaller the valuesharpening effectthe moreobviousbutalsothe moreeasywillnoisesharpening. numberthe larger the valuethennoteasywillnoisesharpening, butsharpening effectthenthe morenotobvious. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>WdrCoringHighThr</p></td>
+<td><p>brightnesssharpeningnoise wdrmodecompensation heightcriticalvalue. brightnesslowinthiscriticalvaluethennotperformnoisecompensation. brightnessheightinthiscriticalvaluethenaccording toWdrCoringTol eranceLevelvaluesperformnoisecompensation. brightnessinterfaceinWdrCoringLowThrdandWdrCoringHighThrdofintervalthenaccording toratioexampleperformcompensation. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>WdrCoringLowThr</p></td>
+<td><p>brightnesssharpeningnoise wdrmodecompensation lowcriticalvalue. brightnesslowinthiscriticalvaluethennotperformnoisecompensation. brightnessheightinthiscriticalvaluethenaccording toWdrCoringTol eranceLevelvaluesperformnoisecompensation. brightnessinterfaceinW
+drCoringLowThrdandWdrCoringHighThrdofintervalthenaccording toratioexampleperformcompensation. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>isManualMode</p></td>
+<td><p>manual modeorautomatic mode</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>EdgeFreq</p></td>
+<td><p>imagetooldirectionproperty edgefrequencysegmentControl</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>TextureFreq</p></td>
+<td><p>imageNonedirectionproperty detailstexturefrequencysegmentControl</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>GlobalGain</p></td>
+<td><p>globalsharpeningweight</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>OverShootThr</p></td>
+<td><p>whiteedgesharpeningupper limitamplitude</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>UnderShootThr</p></td>
+<td><p>black bordersharpeningunderlimitamplitude</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>YNoiseLevel</p></td>
+<td><p>brightnesssharpeningnoisevalueplacelargexrate, onexis64. numberthe larger the valuebrightnesssharpeningnoisethe moreisplacelarge, and vice versathenreducesmall. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>DeltaAdpGain</p></td>
+<td><p>sharpeningweight</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>LumaAdpCoring</p></td>
+<td><p>brightnesssharpeningnoisevalue, detailstextureoredge increasestrongwillexcludethetolerancevaluethecontribution increasestrong. numberthe smaller the valuesharpening effectthe moreobviousbutalsothe moreeasywillnoisesharpening. numberthe larger the valuethennoteasywillnoisesharpening, butsharpening effectthenthe morenotobvious. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>LumaAdpGain</p></td>
+<td><p>brightnesssharpeningweight</p></td>
+</tr>
+<tr class="row-odd"><td><p>Saturation</p></td>
+<td><p>isManualMode</p></td>
+<td><p>manual modeorautomatic mode</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Saturation</p></td>
+<td><p>saturation</p></td>
+</tr>
+<tr class="row-odd"><td><p>Gamma</p></td>
+<td><p>Enable</p></td>
+<td><p>Gammafunction enable</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>enCurveType</p></td>
+<td><p>Gammacurvetype</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>isManualMode</p></td>
+<td><p>manual modeorautomatic mode</p></td>
+</tr>
+<tr class="row-even"><td><p>HSV</p></td>
+<td><p>Enable</p></td>
+<td><p>Saturation Tuning Enable</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>isManualMode</p></td>
+<td><p>manual modeorautomatic mode</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>SatCoringLinearTh</p></td>
+<td><p>saturation  coring value</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>SatCoringLinearLmt</p></td>
+<td><p>maximumoutputsaturation</p></td>
+</tr>
+<tr class="row-even"><td><p>CCM</p></td>
+<td><p>Enable</p></td>
+<td><p>CCMmodule enable</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>isManualMode</p></td>
+<td><p>manual modeorautomatic mode</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ISOActEnable</p></td>
+<td><p>lowilluminanceunderCCM Bypassfunction enable</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>TempActEnable</p></td>
+<td><p>heightlowunder the color temperatureCCMBypassfunction enable. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CCMTabNum</p></td>
+<td><p>currentconfiguration CCMmatrixnumber</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>CCM</p></td>
+<td><p>colorcorrectionmatrix</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CCMTab</p></td>
+<td><p>differentunder the color temperature CCMmatrixsystemnumber</p></td>
+</tr>
+<tr class="row-odd"><td><p>YNR</p></td>
+<td><p>Enable</p></td>
+<td><p>YNRmodule enable</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CoringParamEnable</p></td>
+<td><p>Controlwhetherusemanualcoring</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>isManualMode</p></td>
+<td><p>manual modeorautomatic mode</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>WindowType</p></td>
+<td><p>noise reductionfilteringlocaldomaindegree. itsthe smaller the value, operationusethe morelocaldomain</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>DetailSmoothMode</p></td>
+<td><p>noise reductiondetailssmoothfunction enable</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>NoiseSuppressStr</p></td>
+<td><p>noisesuppressstrength. the larger the value, brightnoiseremovestrengththe morelarge</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>FilterType</p></td>
+<td><p>noise reductionfilterstrength. the larger the value, brightnoiseremovestrengththe morelarge</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>MotionThr</p></td>
+<td><p>objectmovementamountthreshold. the smaller the value, detectionismotion regionrangethe morelarge. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>MotionNrPosGain</p></td>
+<td><p>Adjustinlargeinmovementamountthreshold regionofnoise reductionstrength. the larger the value, noisereservedthe moreless. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>MotionNrNegGain</p></td>
+<td><p>Adjustinsmallinmovementamountthreshold regionofnoise reductionstrength. the smaller the value, noisereservedthe moreless. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>VarThr</p></td>
+<td><p>detectionedge threshold. the larger the value, determineisedge quantitythe moreless. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CoringWgtLF</p></td>
+<td><p>Adjustinlowfrequencyregion randomnoisestrength. the larger the value, inlowfrequencyregionreserved noisethe moremultiple. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>CoringWgtHF</p></td>
+<td><p>Adjustinheightfrequencyregion randomnoisestrength.  the larger the value, inheightfrequencyregion reserved noisethe moremultiple. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>NonDirFiltStr</p></td>
+<td><p>Adjustinlowfrequencyregion noise reductionstrength. the larger the value, inlowfrequencyregionremove noisethe moremultiple. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>VhDirFiltStr</p></td>
+<td><p>Adjustinhorizontalandverticalregion noise reductionstrength. the larger the value, inhorizontalandverticaledgeremove noisethe moremultiple. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>AaDirFiltStr</p></td>
+<td><p>Adjustinfordiagonaledge noise reductionstrength.  the larger the value, infordiagonaledgeremove noisethe moremultiple. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>NoiseCoringBaseLuma</p></td>
+<td><p>motion regionbrightnessvalue. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>NoiseCoringBaseOffset</p></td>
+<td><p>motion regionbrightnessnoisetolerancevalue, motion region determineandTNRmotion regiondetectioncontinuousmove. the larger the value, formotion regionthe greater the denoising strength. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>NoiseCoringAdvLuma</p></td>
+<td><p>stationary regionbrightnessvalue</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>NoiseCoringAdvOffset</p></td>
+<td><p>stationary regionbrightnessnoise soundtolerancevalue, stationary region determineandTNRmotion regiondetectioncontinuousmove. the larger the value, forstationary regionthe greater the denoising strength. </p></td>
+</tr>
+<tr class="row-odd"><td><p>WDRExposureAttr</p></td>
+<td><p>ExpRatioType</p></td>
+<td><p>onlyinmultipleframesynthesisWDRmodeundervalid. 
+OP_TYPE _AUTO: according tosceneautomaticcalculatelongshort frameexposureratio; 
+OP_TYPE_MANUAL: manualconfigurationlongshort frameexposureratio. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ExpRatio</p></td>
+<td><p>onlyinmultipleframesynthesisWDRmodeundervalid. 
+whenenExpRatioTypeisOP_TYPE_AUTOwhen, au32ExpRatioinvalid. 
+whenenExpRatio  TypeisOP_TYPE_MANUALwhen, au32ExpRatiois
+canerase/write, indicatesmultipleframesynthesisWDRrelativeadjacent2frameexposureratioexpectedvalue. 
+Value Range: [0x40,0xFFF]</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ExpRatioMax</p></td>
+<td><p>onlyinmultipleframesynthesisWDRmodeundervalid. 
+whenenExpRatioTypeisOP_TYPE_AUTOwhen, u32ExpRatioMaxindicatesmostlong frameandmostshort frameexposure timeratiovaluemaximum value. 
+whenenExpRatioTypeisOP_TYPE_MANUALwhen, u32ExpRatioMaxinvalid. 
+6bitfractional precision, 0x40indicatesexposureratiois1x. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ExpRatioMin</p></td>
+<td><p>onlyinmultipleframesynthesisWDRmodeundervalid. 
+whenenExpRatioTypeis OP_TYPE_AUTOwhen, u32ExpRatioMinindicateslong frameexposure timeandshort frameexposure timeratiovalueminimum value. 
+whenenExpRatioTypeis OP_TYPE_MANUALwhen, u32ExpRatioMininvalid. 
+formatisNonesymbolNo. 6.6bitsetpoint, 0x40indicateslong frameexposure timeandshort frameexposure time ratiovalueis1x. The default value is0x40. 
+Value Range: [0x40, u32ExpRatioMax]</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Tolerance</p></td>
+<td><p>exposureratiotolerancevalue, onlyintwoframesynthesisWDRmodeundervalid. 
+whenenExpRatioTypeis OP_TYPE_AUTOwhen, the larger this value, indicatesscenedynamicrangechangeinonesetrangeinsidewhen, exposureratiokeep
+notchange. 
+The default value is0xC. 
+Value Range: [0x0, 0xFF]</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Speed</p></td>
+<td><p>automaticexposureratioAdjustspeed, onlyintwoframesynthesisWDRmodeundervalid. 
+whenenExpRatioTypeisOP_TYPE_AUTOwhen, the larger this value, automaticexposureratioAdjustspeedthe morefast. 
+The default value is0x20. 
+Value Range: [0x0, 0xFF]</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>RatioBias</p></td>
+<td><p>exposureratiobiasdifferencevalue, onlyinmultipleframesynthesisWDRmodeundervalid. 
+whenenExpRatioTypeisOP_TYPE_AUTOwhen, the larger this value, automaticexposureratiothe morelarge. 
+The default value is0x400, indicatesnotforautomaticexposureratioalgorithm calculateresultperformAdjust. 
+throughthroughthevalueAdjust exposureratiowillbe affected bytoexposureratiomaximum/minimumvalue limit. 
+Value Range: [0x0,   0xFFFF]</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>SECompensation</p></td>
+<td><p>Adjustshort frameimagetarget brightnessvalue
+Value Range: [0x0,   0xFF]</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>SEHisThr</p></td>
+<td><p>calculateshort frame frame exceedthroughlong frame frame exposureratiothreshold (1x =64)</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>SE His255CntTargetDownThr</p></td>
+<td><p>short frame histogram bin 255 quantitylargeinthisthreshold,thenadjustdecreaseshort frametarget brightness</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>SEHis255CntTargetUpThr</p></td>
+<td><p>short frame histogram bin 255 quantitysmallinthisthreshold,thenwilladjustdecrease short frametarget brightnessrestoreoriginaltotarget brightness</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>LEHisCntTargetDownRatio</p></td>
+<td><p>long frame histogram bin 255 quantitylargeinthisthreshold,thenadjustdecrease long frametarget brightness</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>LEHisCntTargetUpRatio</p></td>
+<td><p>long frame histogram bin 255 quantitysmallinthisthreshold,thenwilladjustdecrease long frametarget brightnessrestoreoriginaltotarget brightness</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>LEAdjustTargetMin</p></td>
+<td><p>long frame each LV   target min 40,40, 40, 40, 40, 40, 45, 50, 60, 60, 60, 60, 60, 60, 60, 60</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>LEAdjustTargetMax</p></td>
+<td><p>long frame each LV   target max 50,50, 50, 50, 50, 50, 60, 70, 85, 100, 110, 110, 120, 120, 120, 120</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>SEAdjustTargetMin</p></td>
+<td><p>short frame each LV   target min 20,20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>SEAdjustTargetMax</p></td>
+<td><p>short frame each LV   target max 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 60</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>DiffPixelNum</p></td>
+<td><p>long frame histogram bin 255   pixel numberthreshold, exceedthroughthisvalue, thendecreaselowlong exposuretarget brightness</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>LELowBinThr</p></td>
+<td><p>long framebrightness greater thanthisthreshold window only thencanadd AE long frame measurelight</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>LEHighBinThr</p></td>
+<td><p>long framebrightnesssmallinthisthreshold window only thencanadd AE long frame measurelight</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>SELowBinThr</p></td>
+<td><p>short framebrightness greater thanthisthreshold window only thencanadd AE short frame measurelight</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>SEHighBinTh</p></td>
+<td><p>short framebrightnesssmallinthisthreshold window only thencanadd AE short frame measurelight</p></td>
+</tr>
+<tr class="row-odd"><td><p>ExposureAttr</p></td>
+<td><p>ByPass</p></td>
+<td><p>AEmodulebypassfunction enable, DefaultisCVI_FALSE
+FSWDR modeunder, indicatescurrentmostshort frame(VS)exposure time. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>OpType</p></td>
+<td><p>automaticexposureormanualexposureopenclose, DefaultisOP_TYPE_AUTO. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>AERunInterval</p></td>
+<td><p>AEalgorithmRun  intervalinterval
+The value range is[1,255]. 
+The value is1whenindicateseachframeallRunAEalgorithm; 
+The value is2whenindicateseach2frameRun1timeAEalgorithm, relythistypepush. 
+recommendedthevalueSetnotneedlargein2, whetherthenAEAdjustspeedwillbe affected bytoaffects. 
+WDRmodewhen, thevaluerecommendedSetis1, thisformAEconvergencewillmoreaddsmooth. thevalueDefaultis1. 
+linearmodenotuseconcernthevalue. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ExpTimeOpType</p></td>
+<td><p>manualexposure timeEnable, The default value isOP_TYPE_AUTO</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>AGainOpType</p></td>
+<td><p>manualsensoranalog gainEnable, The default value isOP_TYPE_AUTO</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>DGainOpType</p></td>
+<td><p>manualsensordigital gainEnable, The default value isOP_TYPE_AUTO</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ISPDGainOpType</p></td>
+<td><p>manualISPdigital gain, 10bitfractional precision, The default value is0x400. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ExpTime</p></td>
+<td><p>manualexposure time, usingmicroseconds(us)as the unit, The default value is0x4000</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>AGain</p></td>
+<td><p>manualsensoranalog gain, 10bitfractional precision, The default value is0x400. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>DGain</p></td>
+<td><p>manualsensordigital gain, 10bitfractional precision, The default value is0x400. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ISPDGain</p></td>
+<td><p>manualISPdigital gain, 10bitfractional precision, The default value is0x400. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ISONumOpType</p></td>
+<td><p>ISO num manual/automatic modeswitch</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>UseISONum</p></td>
+<td><p>manual modewhen, use ISO num  typeformtoControlgain</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ISONum</p></td>
+<td><p>manual modewhen, settings ISO num</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ExpTimeRangeMax</p></td>
+<td><p>exposure timerange, Setmaximumvalue, usingmicroseconds(us)as the unit. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ExpTimeRangeMin</p></td>
+<td><p>exposure timerange, Setminimumvalue, usingmicroseconds(us)as the unit. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>AGainRangeMax</p></td>
+<td><p>Sensoranalog gainrange, Setmaximumvalue, 10bitfractional precision. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>AGainRangeMin</p></td>
+<td><p>Sensoranalog gainrange, Setminimumvalue, 10bitfractional precision. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>DGainRangeMax</p></td>
+<td><p>Sensordigital gainrange, Setmaximumvalue, 10bitfractional precision. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>DGainRangeMin</p></td>
+<td><p>Sensordigital gainrange, Setminimumvalue, 10bitfractional precision. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ISPDGainRangeMax</p></td>
+<td><p>ISPdigital gainrange, Setmaximumvalue, 10bitfractional precision. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ISPDGainRangeMin</p></td>
+<td><p>ISPdigital gainrange, Setminimumvalue, 10bitfractional precision. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>SysGainRangeMin</p></td>
+<td><p>systemsystemgainrange, Setminimumvalue, 10bitfractional precision</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>SysGainRangeMax</p></td>
+<td><p>systemsystemgainrange, Setmaximumvalue, 10bitfractional precision</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Speed</p></td>
+<td><p>automaticexposureAdjustwhen speed. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>BlackSpeedBias</p></td>
+<td><p>imagebydarktobright AEAdjustspeed biasdifferencevalue, the larger this value, imagefromdarktobright speedthe morefast. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Tolerance</p></td>
+<td><p>automaticexposureAdjustwhenforimagebrightness tolerancebiasdifference. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Compensation</p></td>
+<td><p>automaticexposureAdjustwhentarget brightness. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>EVBias</p></td>
+<td><p>automaticexposureAdjustwhen exposureamountbiasdifferencevalue, 10bitfractional precision</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>AEStrategyMode</p></td>
+<td><p>automaticexposurestrategy, heightlightpriorityorlowlightpriority. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>AntiflickerEnable</p></td>
+<td><p>anti-flickerattributeSet. Defaultanti-flickernotEnable. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>AntiflickerFrequency</p></td>
+<td><p>anti-flickerfrequencyvalue</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>DebugMode</p></td>
+<td><p>AE   debug mode parameternumber</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>IRCutOnLv</p></td>
+<td><p>notuse IR Cut  environment Lv value ,   precisionis 100</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>IRCutOffLv</p></td>
+<td><p>use IR Cut  environmentLv value , precisionis 100</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>HistRatioSlope</p></td>
+<td><p>currently frame  brightnessandheightlightregionbrightness blendweight</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>MaxHistOffset</p></td>
+<td><p>currently frame  brightnessandheightlightregionbrightness blendafter, raiseincrease brightnessrange</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ISONumRangeMin</p></td>
+<td><p>ISO num rangeminimum value</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ISONumRangeMax</p></td>
+<td><p>ISO num rangemaximum value</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>AdjustTargetMax</p></td>
+<td><p>each LV   target max50,50, 50, 50, 50, 50, 55, 60, 60, 60, 60, 60, 60, 65, 70, 70</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>AdjustTargetMin</p></td>
+<td><p>each LV   target min40,40, 40, 40, 40, 40, 45, 50, 50, 50, 50, 50, 50, 55, 60, 60</p></td>
+</tr>
+<tr class="row-even"><td><p>ExposureInfo</p></td>
+<td><p>ExposureTime</p></td>
+<td><p>currentexposure time , in microseconds(us). 
+FSWDR modeunder, indicatescurrentmostshort frame(VS)exposure time. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ShortExpTime</p></td>
+<td><p>FSWDR modeunder, indicatescurrentshort frame(S)exposure time, in microseconds(us). 
+linearmodenotuseconcernthevalue. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>LongExpTime</p></td>
+<td><p>FSWDR modeunder, indicatescurrentlong frame(L)exposure time, in microseconds(us). 
+linearmodenotuseconcernthevalue. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>AGain</p></td>
+<td><p>current sensor analog gain, 10bitfractional precision. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>DGain</p></td>
+<td><p>current sensor digital gain, 10bitfractional precision. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ISPDGain</p></td>
+<td><p>current ISP digital gain, 10bitfractional precision</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>AveLum</p></td>
+<td><p>averagebrightnessinformation. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ISO</p></td>
+<td><p>current sensor analog gain*sensor digital gain*ISP digital gain*100, wheregain precisionallis10bit. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>WDRShortAveLuma</p></td>
+<td><p>WDR short frameimageaveragebrightnessinformation. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>WDRExpRatio</p></td>
+<td><p>WDR long,short frame exposureratio</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>LEFrameAvgLuma</p></td>
+<td><p>WDR long frameimage averagebrightness</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>SEFrameAvgLuma</p></td>
+<td><p>WDR short frameimage averagebrightness</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>LightValue</p></td>
+<td><p>estimatestatistical environmentbrightnessvalue</p></td>
+</tr>
+<tr class="row-odd"><td><p>AE Route</p></td>
+<td><p>TotalNum</p></td>
+<td><p>exposureallocation routenodenumberpurpose, currentlymaximumis16</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>AERouteNodex.
+IntTime</p></td>
+<td><p>exposureallocation routenodeattribute nodeexposure time, in microseconds(us)</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>AERouteNodex.
+SysGain</p></td>
+<td><p>exposureallocation routenodeattribute nodegain, includesensoranalog gain, sensordigital gainandISPdigital gain, 10bitprecision. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>AERouteNodex.
+IrisFNO</p></td>
+<td><p>exposureallocation routenodeattribute nodeapertureFvaluelargesmall, only supportsP-Iris, not supportedDC-Iris</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>AERouteNodex.
+IrisFNOLin</p></td>
+<td><p>exposureallocation routenodeattribute nodeapertureFvalueequivalentgainlargesmall, only supportsP-Iris, not supportedDC-Iris</p></td>
+</tr>
+<tr class="row-even"><td><p>WBAttr</p></td>
+<td><p>ByPass</p></td>
+<td><p>white balancemoduleBypassEnable, Default ValueCVI_FALSE</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>AWBRunInterval</p></td>
+<td><p>white balancemoduleworkoperationfrequency</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>OpType</p></td>
+<td><p>automaticwhite balanceandmanualwhite balanceswitch</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>AlgType</p></td>
+<td><p>ALG_AWB ALG_AWB_SPEC</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>DebugMode</p></td>
+<td><p>debug mode</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Rgain</p></td>
+<td><p>manualwhite balanceredcolorchannel gain</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Grgain</p></td>
+<td><p>manualwhite balanceGrchannel gain</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Gbgain</p></td>
+<td><p>manualwhite balanceGbchannel gain</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Bgain</p></td>
+<td><p>manualwhite balanceGbchannel gain</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Enable</p></td>
+<td><p>automaticwhite balanceEnable</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>RefColorTemp</p></td>
+<td><p>staticwhite balance
+systemnumbercalibration environmentcolor temperature, unitKelvin. 
+recommendinMacbeth D50standardlight sourceenvironmentorindooroutsidesunny dayenvironmenttakeobtain24
+colorcard Raw numberdataperformcalibration</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>RGStrength</p></td>
+<td><p>automaticwhite balanceRchannelcalibratestrength</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>BGStrength</p></td>
+<td><p>automaticwhite balanceBchannelcalibratestrength</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Speed</p></td>
+<td><p>automaticwhite balancealgorithmconvergencespeed</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ZoneSel</p></td>
+<td><p>parameternumberis0or255when,capture usenearsimilargrayworldboundary white balancealgorithm,othervaluethenisperformparttypefilterselect,raiseincreaseprecision</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>HighColorTemp</p></td>
+<td><p>automaticwhite balancealgorithm color temperatureupper limit</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>LowColorTemp</p></td>
+<td><p>automaticwhite balancealgorithm color temperatureupper limit</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ShiftLimitEn</p></td>
+<td><p>AWBexceedthroughtypewhite pointrangegainmapmap backwhite pointrange openclose</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>GainNormEn</p></td>
+<td><p>for RGBchannel gainperformlimit, canimprovelowcolor temperature, lowilluminancescene signalnoiseratio</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>NaturalCastEn</p></td>
+<td><p>lowunder the color temperatureAWBstyle preferencegoodopenclose</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>AWBZoneWtEn</p></td>
+<td><p>imagepartregionweightopenclose,presetisDisable</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>stCTLimit.bEnable</p></td>
+<td><p>Define selfflatbalancegainrangelimitattribute</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>stCTLimit.enOpType</p></td>
+<td><p>0:AutoMode</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>stCTLimit.HighRgLimit</p></td>
+<td><p>manual modeunderheightunder the color temperature maximumRgain</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>stCTLimit.HighBgLimit</p></td>
+<td><p>manual modeunderheightunder the color temperature minimumBgain</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>stCTLimit.LowRgLimit</p></td>
+<td><p>manual modeunderlowunder the color temperature minimumRgain</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>stCTLimit.LowBgLimit</p></td>
+<td><p>manual modeunderlowunder the color temperature maximumBgain</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>stLumaHist.bEnable</p></td>
+<td><p>AW Bbrightnessandweightparameternumberopenclose</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>stLumaHist.enOpType</p></td>
+<td><p>Auto Mode</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>stCbCrTrack.bEnable</p></td>
+<td><p>AWBsystemstatisticalrangeandISO continuousmoveparameternumber</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Tolerance</p></td>
+<td><p>automaticwhite balanceAdjust biasdifferencerange, detectionerrordifferenceinthresholdrangeinsidewhen,AWBNo operationoperation</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ZoneRadius</p></td>
+<td><p>automaticwhite balancesystemstatisticalinforpixelparttypewhenuse distancerange. thethe smaller the value,AWBprecisionthe moreheight, butwilldecreaselowAWB algorithmstableproperty</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CurveLLimit</p></td>
+<td><p>automaticwhite balancecolor temperaturecurve leftedgeboundarylimit</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>CurveRLimit</p></td>
+<td><p>automaticwhite balancecolor temperaturecurve rightedgeboundarylimit</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ExtraLightEn</p></td>
+<td><p>automaticwhite balancecalculatewhenwhetherconsidercolor temperaturecurveoutside independentlight sourcepoint,mostmultiplefourindependentpoint</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>WhiteBgain</p></td>
+<td><p>speciallight sourcepoint Bchannel gain</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ExpQuant</p></td>
+<td><p>according tooutsideinbrightnessperformdetermine. 
+ExpQuant isopenenable brightnesslimitvalueFor example
+ExpQuant = 6, indicatesLV6usingunderopenenablethisWBlight sourcepoint(Generallynight sceneisLV6usingunder)
+ExpQuant =106 indicatesLV6usingonopenenable
+ExpQuant =112 indicatesLV12usingonopenenable(LV12Generallyisuseroutside)</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>LightStatus</p></td>
+<td><p>speciallight sourcepoint kindtype, 0:No operationoperation 1:addlight sourcepoint 2:remove calculations near the light-source point</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Radius</p></td>
+<td><p>speciallight sourcepoint regionlargesmall,</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>OutdoorStatus</p></td>
+<td><p>indoorinsideorindooroutsidemode(manual modeunder)</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>OutThresh</p></td>
+<td><p>determinesetindoorinsideindooroutside threshold,brightnesssmallinwhen,thendeterminesetisindoorinside,useroutsideLVlargemultipleexceedthrough15</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>LowStart</p></td>
+<td><p>willheightcolor temperature weightstretchlow,heightcolor temperatureregion startpoint,Recommended:6500K</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>LowStop</p></td>
+<td><p>willlowcolor temperature weightstretchlow,lowcolor temperatureregion terminatepoint,Recommended:4500K</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>HighStart</p></td>
+<td><p>willheightcolor temperature weightstretchlow,heightcolor temperatureregion startpoint,Recommended:6500K</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>HighStop</p></td>
+<td><p>willheightcolor temperature weightstretchlow,heightcolor temperatureregion terminatepoint,Recommended:8000K</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>GreenEnhanceEn</p></td>
+<td><p>ingreenvegetationsceneunder,forgreenchannelincrease openclose</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>OutShiftLimit</p></td>
+<td><p>whendeterminesetisuseroutsidescenewhen,AWBalgorithm white pointrangelimit</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>MultiLightSourceEn</p></td>
+<td><p>AWBdetectioncurrentscenewhetherisblendlight source,toAdjustsaturationorCCM</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>MultiLSType</p></td>
+<td><p>AdjustsaturationorisCCM</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>MultiLSScaler</p></td>
+<td><p>whenblendlight sourceunderAdjustsaturationorCCM strength</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>FineTunEn</p></td>
+<td><p>AWBspecialcolordetectionopenclose, For exampleskincolor</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>FineTunStrength</p></td>
+<td><p>skincolor, blueetc.specialcolordetection strength</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ShiftLimit</p></td>
+<td><p>whendeterminesetisuseroutsidescenewhen,AWBalgorithm white pointrangelimit</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>CurvePara</p></td>
+<td><p>CurvePara[0-2] Planckcurvesystemnumber, byAWBcalibrationprovided by the tool. Planckcurvedrawwhitecolorblockindifferentcolor temperature standardlight sourceunder colortablecurrent. 
+CurvePara[3-5] color temperaturecurvesystemnumber, byAWBcalibrationprovided by the tool. color temperaturecurvedrawwhitecolorblock colortablecurrentandcolor temperature correspondingclosesystem. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>StaticWB</p></td>
+<td><p>staticwhite balancesystemnumber, byAWBcalibrationprovided by the tool. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>AttrZoneWt</p></td>
+<td><p>32x32imageweight</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>stLumaHist.HistThresh</p></td>
+<td><p>brightnessparttype threshold value(manual modeundervalid)</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>stLumaHist.HistWt</p></td>
+<td><p>brightnessparttype weight again(manual modeundervalid)</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>stCbCrTrack.CrMax</p></td>
+<td><p>differentISOunderR/Gmaximum value</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>stCbCrTrack.CrMin</p></td>
+<td><p>differentISOunderR/Gminimum value</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>stCbCrTrack.CbMax</p></td>
+<td><p>differentISOunderB/Gmaximum value</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>stCbCrTrack.CbMin</p></td>
+<td><p>differentISOunderB/Gminimum value</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>MultiCTBin</p></td>
+<td><p>color temperaturepartsegmentparameternumber</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>MultiCTWt</p></td>
+<td><p>color temperaturepartsegmentweight</p></td>
+</tr>
+<tr class="row-even"><td><p>WBInfo</p></td>
+<td><p>Rgain</p></td>
+<td><p>currentRchannel gainvalue</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Ggain</p></td>
+<td><p>currentGchannel gainvalue</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Bgain</p></td>
+<td><p>currentBchannel gainvalue</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Saturation</p></td>
+<td><p>currentsaturationvalue</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>ColorTemp</p></td>
+<td><p>currentcolor temperaturevalue</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>InOutStatus</p></td>
+<td><p>indoorinsideoutsidedetectionresult</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Bv</p></td>
+<td><p>currentenvironmentbvvalue</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>CCM</p></td>
+<td><p>currentcolorcorrectionmatrixvalue, 8bitfractional precision. bit15issymbolNo.position, 0indicatespositivenumber, 1indicatesnegativenumber, For example0x8010indicates-16. </p></td>
+</tr>
+<tr class="row-even"><td><p>BNR</p></td>
+<td><p>Enable</p></td>
+<td><p>BNRmodule enable</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>isManualMode</p></td>
+<td><p>manual modeorautomatic mode</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>WindowType</p></td>
+<td><p>noise reductionfilteringlocaldomaindegree. itsthe smaller the value, operationusethe morelocaldomain. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>DetailSmoothMode</p></td>
+<td><p>noise reductiondetailssmoothfunction enable. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>NoiseSuppressStr</p></td>
+<td><p>noisesuppressstrength. the larger the value, brightnoiseremovestrengththe morelarge. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>FilterType</p></td>
+<td><p>noise reductionfilterstrength. the larger the value, brightnoiseremovestrengththe morelarge. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>NrLscRatio</p></td>
+<td><p>ReferenceLSCgainAdjustnoise reductionstrength. the larger the value, ReferenceLSCgain ratioexamplethe moremultiple. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>VarThr</p></td>
+<td><p>detectionedge threshold. the larger the value, determineisedge quantitythe moreless. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CoringWgtLF</p></td>
+<td><p>Adjustinlowfrequencyregion randomnoisestrength. the larger the value, inlowfrequencyregionreserved noisethe moremultiple. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>CoringWgtHF</p></td>
+<td><p>Adjustinheightfrequencyregion domain randomnoisestrength. the larger the value, inheightfrequencyregion reserved noisethe moremultiple. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>NonDirFiltStr</p></td>
+<td><p>Adjustinlowfrequencyregion noise reductionstrength. the larger the value, inlowfrequencyregionremove noisethe moremultiple. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>VhDirFiltStr</p></td>
+<td><p>Adjustinhorizontalandverticalregion noise reductionstrength. the larger the value, inhorizontalandverticaledgeremove noisethe moremultiple. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>AaDirFiltStr</p></td>
+<td><p>Adjustinfordiagonaledge noise reductionstrength. the larger the value, infordiagonaledgeremove noisethe moremultiple. </p></td>
+</tr>
+<tr class="row-odd"><td><p>Crosstalk</p></td>
+<td><p>Enable</p></td>
+<td><p>GE module enable</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>isManualMode</p></td>
+<td><p>manual modeorautomatic mode</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>Strength</p></td>
+<td><p>Gchannelflatbalanceglobalstrength</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>FlatThre</p></td>
+<td><p>flat regiondetectionnode1-4threshold</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>GrGbDiffThreSec</p></td>
+<td><p>G channelflatbalancenode1-4threshold</p></td>
+</tr>
+<tr class="row-even"><td><p>Demosaic</p></td>
+<td><p>Enable</p></td>
+<td><p>Demosaicmodule enable</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>LumaTunedCoringEn</p></td>
+<td><p>(OpType, CoringEn)
+(x,0): by noise profile
+(1,1): by ISO table
+(0,1): by manual</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>isManualMode</p></td>
+<td><p>manual modeorautomatic mode</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>CoarseEdgeThr</p></td>
+<td><p>edgecoarseadjustdetectionthreshold. the smaller the value, detectionisedge quantitythe moremultiple. Recommended companion parametersCoarseStrDebug. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>CoarseStr</p></td>
+<td><p>edgecoarseadjuststrengthvalue. the smaller the value, more directional processing. and vice versa, more non-directional processing. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>FineEdgeThr</p></td>
+<td><p>edgedetailadjustdetectionthreshold. the smaller the value, detectionisedge quantitythe moremultiple. Recommended companion parametersFineStrDebug. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>FineStr</p></td>
+<td><p>edgedetailadjuststrengthvalue. the smaller the value, more directional processing. and vice versa, more non-directional processing. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>DetailSmoothEnable</p></td>
+<td><p>detailssmoothfunction enable</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>DetailSmoothStr</p></td>
+<td><p>detailssmoothstrength. the larger the value, smooththe stronger the intensity, forfalsedetails suppressstrengththe morelarge. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>DetailWgtThr</p></td>
+<td><p>detailsreservedrangethreshold. the smaller the value, detailsreservedoperationuse rangethe morelarge. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>DetailWgtSlope</p></td>
+<td><p>detailsreservedstrength. the larger the value, detailsreservedthe moremultiple. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>DetailWgtMin</p></td>
+<td><p>edgedetailssmoothreservedallowofminimumgain. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>DetailWgtMax</p></td>
+<td><p>edgedetailssmoothreservedallowofmaximumgain. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>LumaWgtThr</p></td>
+<td><p>brightnessdetailssmoothoperationuserangethreshold. the smaller the value, detailssmoothoperationuse rangethe morelarge. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>LumaWgtSlope</p></td>
+<td><p>brightnessdetailssmoothedgereservedstrength. the larger the value, detailssmooththe stronger the intensity. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>LumaWgtMin</p></td>
+<td><p>brightnessdetailssmoothstrengthallowofminimumgain. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>LumaWgtMax</p></td>
+<td><p>brightnessdetailssmoothstrengthallowofmaximumgain. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>EdgeEnhanceEnable</p></td>
+<td><p>edgestrongtransformfunction enable</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>OverShtGain</p></td>
+<td><p>Adjustovershootdegree. the larger the value, edgestrongtransformthe morelarge. OverShtGainisonexwhen, whose value is256. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>UnderShtGain</p></td>
+<td><p>Adjustundershootdegree. the larger the value, edgestrongtransformthe morelarge. UnderShtGainis onexwhen, whose value is256. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>NoiseSuppressStr</p></td>
+<td><p>noisesuppressstrength. the larger the value, the morecansuppressnoiseisstrongtransform. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>GainTable</p></td>
+<td><p>Nonedirectioninfrequencytextureincreasestrongstrength. 
+the larger the value, Nonedirectioninfrequencytexture sharpnessthe moreheight. 
+theparameternumberisone33 array, tablecurrentisonecontinuouscontinue33segment strengthcurve. 
+valuesis128when, gainisonex. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>LumaTunedCoring</p></td>
+<td><p>noisesuppressstrength. the larger the value, the morecansuppressnoiseisstrongtransform. </p></td>
+</tr>
+<tr class="row-odd"><td><p>AE config</p></td>
+<td><p>WinWeight</p></td>
+<td><p>AE measurelightweight</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="level2">
+<h3><span class="section-number">39.4.2. </span>Analysis of LEVEL2 Debug Information<a class="headerlink" href="39_Error_Code.html#level2" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><p>inlevel1 basicon, supplementmeshLscGainLut, exposureInfo extraoutsideinformation, andGammaTable</p>
+</div></blockquote>
+<p>[parameternumberdescription]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 60%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>parameternumber</p></th>
+<th class="head"></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Module/GammaEx</p></td>
+<td><p>GammaTable</p></td>
+<td><p>Gammacurvenodevalues</p></td>
+</tr>
+<tr class="row-odd"><td><p>ShadingEx</p></td>
+<td><p>MeshLscGainLut</p></td>
+<td><p>LSC gridlineshape formredcolorchannelcompensationgaintable,containRG Bthreechannel</p></td>
+</tr>
+<tr class="row-even"><td><p>ExposureInfoEx</p></td>
+<td><p>Exposure</p></td>
+<td><p>currentexposureamount, etc.inexposure timeandexposuregain product, whereexposure time unitisexposurelinenumber, exposuregainis6bit fractional precision. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>ExposureIsMax</p></td>
+<td><p>0: ISP not yetreachtomaximumexposurehorizontal; 
+1: ISP reachtomaximumexposurehorizontal. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>HistError</p></td>
+<td><p>statistical information, AE target brightness valueandactualvalue difference
+thevalueispositiveindicatescurrentexpected brightnessinformationlargeinactual brightnessinformation, 
+thevalueisnegativetable showexpected bright degreeinformationsmallinactual brightnessinformation. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>PirisFno</p></td>
+<td><p>current P-Iris aperture F valuecorresponding equivalentgain. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>Fps</p></td>
+<td><p>actualimageframerate * 100. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>RefExpRatio</p></td>
+<td><p>Referenceexposureratio, useinestimatestatisticalcurrentscene dynamicrange, 
+willbe affected bytoISP_WDR_EXPOSURE_ATTR_S inTolerance and Speed etc.value affects. </p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>AE_RouteTotalNum</p></td>
+<td><p>exposurepartmatch routenodenumberpurpose, currentlymaximumis16</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>AERouteNodeX.IntTime</p></td>
+<td><p>exposureallocation routenodeattribute nodeexposure time, in microseconds(us)</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>AERouteNodeX.SysGain</p></td>
+<td><p>exposureallocation routenodeattribute nodegain, includesensoranalog gain, sensordigital gainandISPdigital gain, 10bitprecision. </p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>AERouteNodeX.IrisFNO</p></td>
+<td><p>exposureallocation routenodeattribute nodeapertureFvaluelargesmall, only supportP-Iris, not supportedDC-Iris</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>AE RouteNodeX.IrisFNOLin</p></td>
+<td><p>exposureallocation routenodeattribute nodeapertureFvalueequivalentgainlargesmall, only supportP-Iris, not supportedDC-Iris</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>AE_Hist256Value</p></td>
+<td><p>global 256 segmenthistogramFigurestatistical information</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="level3">
+<h3><span class="section-number">39.4.3. </span>Analysis of LEVEL3 Debug Information<a class="headerlink" href="39_Error_Code.html#level3" title="Permalink to this heading">¶</a></h3>
+<blockquote>
+<div><p>inlevel2 basicon, supplement3a systemstatisticalvalue</p>
+</div></blockquote>
+<p>[parameternumberdescription]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 20%" />
+<col style="width: 60%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>parameternumber</p></th>
+<th class="head"></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AE statistics</p></td>
+<td><p>LEGlobalAvgR</p></td>
+<td><p>long exposurelightframeglobalsystemstatistical Rcomponent statistical average</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>LEGlobalAvgGr</p></td>
+<td><p>long exposurelightframeglobalsystemstatistical GRcomponent statistical average</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>LEGlobalAvgGb</p></td>
+<td><p>long exposurelightframeglobalsystemstatistical GBcomponent statistical average</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>LEGlobalAvgB</p></td>
+<td><p>long exposurelightframeglobalsystemstatistical Bcomponent statistical average</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>SEGlobalAvgR</p></td>
+<td><p>shortexposureframeglobalsystemstatistical Rcomponent statistical average</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>SEGlobalAvgGr</p></td>
+<td><p>shortexposureframeglobalsystemstatistical GRcomponent statistical average</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>SEGlobalAvgGb</p></td>
+<td><p>shortexposureframeglobalsystemstatistical GBcomponent statistical average</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>SEGlobalAvgB</p></td>
+<td><p>shortexposureframeglobalsystemstatistical Bcomponent statistical average</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>LEHistogramMem</p></td>
+<td><p>long exposurelightframeglobalsystemstatistical pixel histogram systemstatisticalvalue</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>SEHistogramMem</p></td>
+<td><p>shortexposureframeglobalsystemstatistical pixel histogram systemstatisticalvalue</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>LEZoneRAvg</p></td>
+<td><p>long exposurelightframebetween regions Rchannel component statistical average</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>LEZoneGrAvg</p></td>
+<td><p>long exposurelightframebetween regions Grchannel component statistical average</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>LEZoneGbAvg</p></td>
+<td><p>long exposurelightframebetween regions Gbchannel component statistical average</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>LEZoneBAvg</p></td>
+<td><p>long exposurelightframebetween regions Bchannel component statistical average</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>SEZoneRAvg</p></td>
+<td><p>shortexposureframebetween regions Rchannel component statistical average</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>SEZoneGrAvg</p></td>
+<td><p>shortexposureframebetween regions Grchannel component statistical average</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>SEZoneGbAvg</p></td>
+<td><p>shortexposureframebetween regions Gbchannel component statistical average</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>SEZoneBAvg</p></td>
+<td><p>shortexposureframebetween regions Bchannel component statistical average</p></td>
+</tr>
+<tr class="row-even"><td><p>AWB statistics</p></td>
+<td><p>LEGlobalR</p></td>
+<td><p>long exposurelightframeglobalsystemstatistical Rcomponent statistical average</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>LEGlobalG</p></td>
+<td><p>long exposurelightframeglobalsystemstatistical Gcomponent statistical average</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>LEGlobalB</p></td>
+<td><p>long exposurelightframeglobalsystemstatistical Bcomponent statistical average</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>LECountAll</p></td>
+<td><p>long exposurelightframeglobalsystemstatistical pixelsystemstatisticalaveragevalue</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>SEGlobalR</p></td>
+<td><p>shortexposureframeglobalsystemstatistical Rcomponent statistical average</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>SEGlobalG</p></td>
+<td><p>shortexposureframeglobalsystemstatistical Gcomponent statistical average</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>SEGlobalB</p></td>
+<td><p>shortexposureframeglobalsystemstatistical Bcomponent statistical average</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>SECountAll</p></td>
+<td><p>shortexposureframeglobalsystemstatistical pixelsystemstatisticalaveragevalue</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>LEZoneAvgR</p></td>
+<td><p>long exposurelightframebetween regions Rcomponent statistical average</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>LEZoneAvgG</p></td>
+<td><p>long exposurelightframebetween regions Gcomponent statistical average</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>LEZoneAvgB</p></td>
+<td><p>long exposurelightframebetween regions Bcomponent statistical average</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>LEZoneCountAll</p></td>
+<td><p>long exposurelightframebetween regions pixelsystemstatisticalvalue</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>SEZoneAvgR</p></td>
+<td><p>shortexposureframebetween regions Rcomponent statistical average</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>SEZoneAvgG</p></td>
+<td><p>shortexposureframebetween regions Gcomponent statistical average</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>SEZoneAvgB</p></td>
+<td><p>shortexposureframebetween regions Bcomponent statistical average</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>SEZoneCountAll</p></td>
+<td><p>exposureframebetween regions pixelsystemstatisticalvalue</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="38_Debug.html" class="btn btn-neutral float-left" title="38. Debug" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="40_3A_Development_User_Guide_Overview.html" class="btn btn-neutral float-right" title="40. 3A Development Guide Overview" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Go to official website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="Go to Documentation Center"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Top of page"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Bottom of page"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR code for this page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

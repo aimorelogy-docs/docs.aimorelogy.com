@@ -1,0 +1,2793 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>6. AF &mdash; ISPDevelopmentReference master documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="7. IMP" href="7_IMP.html" />
+    <link rel="prev" title="5. AWB" href="5_AWB.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> ISPDevelopmentReference
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Preface.html">2. Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_System_Control.html">3. System Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_AE.html">4. AE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_AWB.html">5. AWB</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="6_AF.html#">6. AF</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="6_AF.html#id1">6.1. Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_AF.html#id2">6.2. Key Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_AF.html#id3">6.3. Functional Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_AF.html#api">6.4. API Reference</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="6_AF.html#id4">6.4.1. AF library interface</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#cvi-af-register">6.4.1.1. CVI_AF_Register</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#cvi-af-unregister">6.4.1.2. CVI_AF_UnRegister</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#cvi-af-motor-register">6.4.1.3. CVI_AF_MOTOR_Register</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#cvi-af-motor-unregister">6.4.1.4. CVI_AF_MOTOR_UnRegister</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="6_AF.html#id5">6.4.2. AF control module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#cvi-isp-afautofocus">6.4.2.1. CVI_ISP_AFAutoFocus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#cvi-isp-afgetfv">6.4.2.2. CVI_ISP_AFGetFv</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#cvi-isp-setafattr">6.4.2.3. CVI_ISP_SetAFAttr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#cvi-isp-getafattr">6.4.2.4. CVI_ISP_GetAFAttr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#cvi-isp-setafvcmattr">6.4.2.5. CVI_ISP_SetAFVcmAttr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#cvi-isp-getafvcmattr">6.4.2.6. CVI_ISP_GetAFVcmAttr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#cvi-isp-setafstatisticsconfig">6.4.2.7. CVI_ISP_SetAFStatisticsConfig</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#cvi-isp-getafstatisticsconfig">6.4.2.8. CVI_ISP_GetAFStatisticsConfig</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#cvi-isp-setafzonefocusattr">6.4.2.9. CVI_ISP_SetAFZoneFocusAttr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#cvi-isp-getafzonefocusattr">6.4.2.10. CVI_ISP_GetAFZoneFocusAttr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#cvi-isp-afqueryfocusinfo">6.4.2.11. CVI_ISP_AFQueryFocusInfo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#cvi-isp-afsetfocus">6.4.2.12. CVI_ISP_AFSetFocus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#cvi-isp-afsetfocusspeed">6.4.2.13. CVI_ISP_AFSetFocusSpeed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#cvi-isp-afsetzoom">6.4.2.14. CVI_ISP_AFSetZoom</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#cvi-isp-afsetzoomspeed">6.4.2.15. CVI_ISP_AFSetZoomSpeed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#cvi-af-getmotorcb">6.4.2.16. CVI_AF_GetMotorCB</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="6_AF.html#id6">6.5. Data Types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="6_AF.html#id7">6.5.1. Enumeration Types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#af-status">6.5.1.1. AF_STATUS</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#af-direction">6.5.1.2. AF_DIRECTION</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#af-chasingfocus-mode">6.5.1.3. AF_CHASINGFOCUS_MODE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#af-manual-type">6.5.1.4. AF_MANUAL_TYPE</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#isp-af-motor-speed-e">6.5.1.5. ISP_AF_MOTOR_SPEED_E</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#af-motor-type">6.5.1.6. AF_MOTOR_TYPE</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="6_AF.html#id8">6.5.2. Structure Types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#isp-focus-attr-s">6.5.2.1. ISP_FOCUS_ATTR_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#isp-focus-q-info-s">6.5.2.2. ISP_FOCUS_Q_INFO_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#isp-focus-manual-attr-s">6.5.2.3. ISP_FOCUS_MANUAL_ATTR_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#isp-af-vcm-attr-s">6.5.2.4. ISP_AF_VCM_ATTR_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#isp-af-zone-focus-attr-s">6.5.2.5. ISP_AF_ZONE_FOCUS_ATTR_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#isp-af-zoom-focus-tab">6.5.2.6. ISP_AF_ZOOM_FOCUS_TAB</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#isp-af-len-info-s">6.5.2.7. ISP_AF_LEN_INFO_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#isp-af-motor-func-s">6.5.2.8. ISP_AF_MOTOR_FUNC_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#isp-focus-statistics-cfg-s">6.5.2.9. ISP_FOCUS_STATISTICS_CFG_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#isp-af-cfg-s">6.5.2.10. ISP_AF_CFG_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#isp-af-crop-s">6.5.2.11. ISP_AF_CROP_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#isp-focus-zone-s">6.5.2.12. ISP_FOCUS_ZONE_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="6_AF.html#isp-af-statistics-s">6.5.2.13. ISP_AF_STATISTICS_S</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="7_IMP.html">7. IMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_BlackLevel.html">8. BLC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_DPC.html">9. DPC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_LSC.html">10. LSC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_RLSC.html">11. RLSC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_CCM.html">12. CCM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_Noise_Profile.html">13. Noise profile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_BNR.html">14. BNR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15_CNR.html">15. CNR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="16_TNR.html">16. TNR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="17_Crosstalk.html">17. Crosstalk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18_Demosaic.html">18. DEMOSAIC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19_Sharpen.html">19. SHARPEN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="20_PreSharpen.html">20. PRESHARPEN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21_RGB_Gamma.html">21. RGBGAMMA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="22_DCI.html">22. DCI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="23_LDCI.html">23. LDCI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="24_ColorTone.html">24. ColorTone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="25_Saturation.html">25. Saturation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="26_PFR.html">26. PFR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="27_FSHDR.html">27. FSHDR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="28_DRC.html">28. DRC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="29_Mono.html">29. MONO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="30_YCONTRAST.html">30. YCONTRAST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="31_CA.html">31. CA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="32_CA2.html">32. CA2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="33_CLUT.html">33. CLUT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="34_CSC.html">34. CSC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="35_VC.html">35. VC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="36_Statistical_Information.html">36. Statistical Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="37_Query_Internal_Status_Messages.html">37. Query Internal Status Messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="38_Debug.html">38. Debug</a></li>
+<li class="toctree-l1"><a class="reference internal" href="39_Error_Code.html">39. Error Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="40_3A_Development_User_Guide_Overview.html">40. 3A Development Guide Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="41_3A_Development_User_Guide.html">41. 3A Developer User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="42_Developer_Guide.html">42. Developer Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="43_Appendix.html">43. Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="44_Abbreviations.html">44. Abbreviations</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ISPDevelopmentReference</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">6. </span>AF</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/6_AF.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="af">
+<h1><span class="section-number">6. </span>AF<a class="headerlink" href="6_AF.html#af" title="Permalink to this heading">¶</a></h1>
+<section id="id1">
+<h2><span class="section-number">6.1. </span>Overview<a class="headerlink" href="6_AF.html#id1" title="Permalink to this heading">¶</a></h2>
+<p>CVI AF moduleimplement functionis: 
+according tohardwarestatistical informationmoduleoutput imagesharpnessvalue FV (Focus Value), throughautomaticfocusalgorithmfindtomostoptimalfocusposition, andControlfocusmotormovementtotheposition, usingobtainobtainmostclear image. </p>
+<p>AF algorithmcaptureusethreesegmentformfocusSearchstrategy: firstfirstcorrectsetfocusdirection, thenafterusingrelativelylargestep sizeperformcoarseSearchfindto FV peakvalueadditionalnearregion, mostafterusingsmallstep sizeperformprecisesetposition. at the same timesupportfocus tracking (zoomafterautomaticagainnewfocus) , real-timefocus tracking (detectionimagechangeautomaticagainnewfocus) , backlashcompensationetc.function. </p>
+<p>AF module workoperationneed tomotordriver support, customeruserneedimplementmotorControlcallback functionandRegisterto AF modulein. </p>
+</section>
+<section id="id2">
+<h2><span class="section-number">6.2. </span>Key Concepts<a class="headerlink" href="6_AF.html#id2" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>sharpnessvalue (FV, Focus Value) : throughanalysisimage heightfrequencycomponenttotablecharacteristicimagesharpness. imagethe moreclear, FV the larger the value. </p></li>
+<li><p>focusSearchthreestage: AF algorithmwillfocusprocesspartisthreestage——initialstep sizeSearch (InitStep) , coarseSearch (FindStep) , fine positioning (LocateStep) . </p></li>
+<li><p>focus tracking (Chasing Focus) : whenlenszoomcausefocuspositionbiasmovewhen, according to Zoom-Focus look uptableautomaticAdjustfocuspositionusingrestoreclearimage. </p></li>
+<li><p>real-timefocus tracking (Real-Time Focus) : throughcontinuousmonitormeasure FV valueandbrightnesschange, indetectiontoimagechangewhenautomatictriggersendagainnewfocus. </p></li>
+<li><p>backlashcompensation (Backlash) : motorpositivereverserotateswitchwhenstoreinmechanicalintervalgap, AF algorithmthroughreversetopremoveonesetstep sizetoeliminatetheintervalgap affects. </p></li>
+<li><p>zoomfocustrackingtable (Zoom-Focus Table) : recorddifferentzoompositioncorresponding mostoptimalfocuspositionrange, total 9 captureformpoint, useinzoomwhenfastspeedestimatecalculatefocusposition. </p></li>
+<li><p>VCM (Voice Coil Motor) : voice coilmotor, throughelectricalflowdriverlensmovement, Nonemechanicalbacklash. </p></li>
+<li><p>stepmotor (Stepper Motor) : throughstepdriver motor, storeinmechanicalbacklashneedcompensation. </p></li>
+</ul>
+</section>
+<section id="id3">
+<h2><span class="section-number">6.3. </span>Functional Description<a class="headerlink" href="6_AF.html#id3" title="Permalink to this heading">¶</a></h2>
+<p>AF modulemainlyby ISP hardwarestatistical informationmoduleand AF Controlalgorithmtwopartconsists of. </p>
+<p>ISP hardwarestatistical informationmodulenegativeresponsibilityforInputimageperformfilteringprocessingandsystemstatisticaleachregionblock heightfrequencycomponentvalue, provide H0, H1, V0 threekindfilter systemstatisticalresultandheightbrightpointstatisticalnumber (HlCnt) . </p>
+<p>AF Controlalgorithmcaptureusehavelimitstatusmachineimplement, mainlyflowinclude: motorreturnpositionInitialize, triggersendfocus, directiondetection, coarseSearch, fine positioning, focuscomplete. thisoutsidealsosupportfocus tracking (Chasing Focus) , real-timefocus (Real-Time Focus) andmotordirectionswitchwhen backlashcompensation. </p>
+</section>
+<section id="api">
+<h2><span class="section-number">6.4. </span>API Reference<a class="headerlink" href="6_AF.html#api" title="Permalink to this heading">¶</a></h2>
+<section id="id4">
+<h3><span class="section-number">6.4.1. </span>AF library interface<a class="headerlink" href="6_AF.html#id4" title="Permalink to this heading">¶</a></h3>
+<p>all AF library interfaceallonlyisfor CVI AF library, ifcustomeruserownimplement AF library, notneed toconcernthissomeinterface, andcannotusethissomeinterface. </p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#cvi-af-register">CVI_AF_Register</a> : to ISP Register AF library. </p></li>
+<li><p><a class="reference internal" href="6_AF.html#cvi-af-unregister">CVI_AF_UnRegister</a> : to ISP unregister AF library. </p></li>
+<li><p><a class="reference internal" href="6_AF.html#cvi-af-motor-register">CVI_AF_MOTOR_Register</a> : RegistermotorControlcallback function. </p></li>
+<li><p><a class="reference internal" href="6_AF.html#cvi-af-motor-unregister">CVI_AF_MOTOR_UnRegister</a> : unregistermotorControlcallback function. </p></li>
+</ul>
+<section id="cvi-af-register">
+<h4><span class="section-number">6.4.1.1. </span>CVI_AF_Register<a class="headerlink" href="6_AF.html#cvi-af-register" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>to ISP Register AF library. </p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_AF_Register</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ALG_LIB_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstAfLib</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe No.</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstAfLib</p></td>
+<td><p>AF algorithm librarystructure pointer</p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success. </p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure,See <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">Error Code</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header File: cvi_af.h</p></li>
+</ul>
+<p>[Note]</p>
+<p>None. </p>
+<p>[Related Topics]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#cvi-af-unregister">CVI_AF_UnRegister</a></p></li>
+</ul>
+</section>
+<section id="cvi-af-unregister">
+<h4><span class="section-number">6.4.1.2. </span>CVI_AF_UnRegister<a class="headerlink" href="6_AF.html#cvi-af-unregister" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>to ISP unregister AF library. </p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_AF_UnRegister</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ALG_LIB_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstAfLib</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe No.</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstAfLib</p></td>
+<td><p>AF algorithm librarystructure pointer</p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success. </p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure,See <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">Error Code</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header File: cvi_af.h</p></li>
+</ul>
+<p>[Note]</p>
+<p>None. </p>
+<p>[Related Topics]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#cvi-af-register">CVI_AF_Register</a></p></li>
+</ul>
+</section>
+<section id="cvi-af-motor-register">
+<h4><span class="section-number">6.4.1.3. </span>CVI_AF_MOTOR_Register<a class="headerlink" href="6_AF.html#cvi-af-motor-register" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>RegistermotorControlcallback function. customeruserneed toimplementmotorControlrelated callback function, includemotorInitialize, positiverotate, reverserotate, speedSet, lensinformationGetetc.. </p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_AF_MOTOR_Register</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ISP_AF_MOTOR_FUNC_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstAfMotorCb</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe No.</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstAfMotorCb</p></td>
+<td><p>motorControlcallback functionstructure pointer</p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success. </p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure,See <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">Error Code</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header File: cvi_af.h</p></li>
+</ul>
+<p>[Note]</p>
+<ul class="simple">
+<li><p>thefunctionmustincall AF algorithmofbeforeRegister. </p></li>
+<li><p>customeruserneedimplement ISP_AF_MOTOR_FUNC_S in allcallback function, include pfn_af_motor_init, pfn_af_motor_deinit, pfn_af_set_focus_in, pfn_af_set_focus_out, pfn_af_set_focus_speed, pfn_af_set_zoom_in, pfn_af_set_zoom_out, pfn_af_set_zoom_speed, pfn_af_set_zoom_focus, pfn_af_get_len_info. </p></li>
+<li><p>pfn_af_get_len_info callbackneedcorrectReturnlens hardwarecharacteristicinformation, includefocusrange, zoomrange, backlashvalue, maximumspeedetc.. </p></li>
+</ul>
+<p>[Related Topics]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#cvi-af-motor-unregister">CVI_AF_MOTOR_UnRegister</a></p></li>
+<li><p><a class="reference internal" href="6_AF.html#isp-af-motor-func-s">ISP_AF_MOTOR_FUNC_S</a></p></li>
+</ul>
+</section>
+<section id="cvi-af-motor-unregister">
+<h4><span class="section-number">6.4.1.4. </span>CVI_AF_MOTOR_UnRegister<a class="headerlink" href="6_AF.html#cvi-af-motor-unregister" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>unregistermotorControlcallback function. </p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_AF_MOTOR_UnRegister</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ISP_AF_MOTOR_FUNC_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstAfMotorCb</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe No.</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstAfMotorCb</p></td>
+<td><p>motorControlcallback functionstructure pointer</p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success. </p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure,See <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">Error Code</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header File: cvi_af.h</p></li>
+</ul>
+<p>[Note]</p>
+<p>None. </p>
+<p>[Related Topics]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#cvi-af-motor-register">CVI_AF_MOTOR_Register</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id5">
+<h3><span class="section-number">6.4.2. </span>AF control module<a class="headerlink" href="6_AF.html#id5" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-afautofocus">CVI_ISP_AFAutoFocus</a> : triggersendautomaticfocus. </p></li>
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-afgetfv">CVI_ISP_AFGetFv</a> : Getcurrentframe  FV value. </p></li>
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-setafattr">CVI_ISP_SetAFAttr</a> / <a class="reference internal" href="6_AF.html#cvi-isp-getafattr">CVI_ISP_GetAFAttr</a> : Set/Get AF attribute. </p></li>
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-setafvcmattr">CVI_ISP_SetAFVcmAttr</a> / <a class="reference internal" href="6_AF.html#cvi-isp-getafvcmattr">CVI_ISP_GetAFVcmAttr</a> : Set/Get VCM lensattribute. </p></li>
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-setafstatisticsconfig">CVI_ISP_SetAFStatisticsConfig</a> / <a class="reference internal" href="6_AF.html#cvi-isp-getafstatisticsconfig">CVI_ISP_GetAFStatisticsConfig</a> : Set/Get AF statistical information configuration. </p></li>
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-setafzonefocusattr">CVI_ISP_SetAFZoneFocusAttr</a> / <a class="reference internal" href="6_AF.html#cvi-isp-getafzonefocusattr">CVI_ISP_GetAFZoneFocusAttr</a> : Set/Get ROI focusregionattribute. </p></li>
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-afqueryfocusinfo">CVI_ISP_AFQueryFocusInfo</a> : queryfocusstatusinformation. </p></li>
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-afsetfocus">CVI_ISP_AFSetFocus</a> / <a class="reference internal" href="6_AF.html#cvi-isp-afsetfocusspeed">CVI_ISP_AFSetFocusSpeed</a> : manualfocusControl. </p></li>
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-afsetzoom">CVI_ISP_AFSetZoom</a> / <a class="reference internal" href="6_AF.html#cvi-isp-afsetzoomspeed">CVI_ISP_AFSetZoomSpeed</a> : manualzoomControl. </p></li>
+<li><p><a class="reference internal" href="6_AF.html#cvi-af-getmotorcb">CVI_AF_GetMotorCB</a> : GetmotorControlcallback function pointer. </p></li>
+</ul>
+<section id="cvi-isp-afautofocus">
+<h4><span class="section-number">6.4.2.1. </span>CVI_ISP_AFAutoFocus<a class="headerlink" href="6_AF.html#cvi-isp-afautofocus" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>triggersendautomaticfocus. callthisfunctionafter AF algorithmopenstartexecutelinethreesegmentformfocusSearch (directiondetection → coarseSearch → fine positioning) . </p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_AFAutoFocus</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe No.</p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success. </p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure,See <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">Error Code</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header File: cvi_af.h</p></li>
+</ul>
+<p>[Note]</p>
+<ul class="simple">
+<li><p>callbeforeneedcorrectprotect AF alreadycorrectInitializeandRegistermotorcallback. </p></li>
+<li><p>focusprocessin AE willistemporarilywhensuspend (locksetexposure) , focuscompleteafterautomaticrestore. </p></li>
+</ul>
+<p>[Related Topics]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-afgetfv">CVI_ISP_AFGetFv</a></p></li>
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-afqueryfocusinfo">CVI_ISP_AFQueryFocusInfo</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-afgetfv">
+<h4><span class="section-number">6.4.2.2. </span>CVI_ISP_AFGetFv<a class="headerlink" href="6_AF.html#cvi-isp-afgetfv" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>Getcurrentframe  AF sharpnessvalue (Focus Value) . FV the larger the valueindicatesimagethe moreclear. </p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_AFGetFv</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_U32</span><span class="w"> </span><span class="o">*</span><span class="n">pFv</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe No.</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>pFv</p></td>
+<td><p>indicateto FV value pointer</p></td>
+<td><p>output</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success. </p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure,See <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">Error Code</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header File: cvi_af.h</p></li>
+</ul>
+<p>[Note]</p>
+<ul class="simple">
+<li><p>FV valueneed toinverticalremovehidden intervalintervalGet, recommendedmatchcombine <code class="docutils literal notranslate"><span class="pre">CVI_ISP_GetVDTimeOut</span></code> useusingGetsynchronous systemstatisticalvalue. </p></li>
+</ul>
+<p>[Related Topics]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-afautofocus">CVI_ISP_AFAutoFocus</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-setafattr">
+<h4><span class="section-number">6.4.2.3. </span>CVI_ISP_SetAFAttr<a class="headerlink" href="6_AF.html#cvi-isp-setafattr" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>Set AF algorithmControlparameternumber. includeEnableopenclose, workoperationmode, Searchstep size, focus trackingconfiguration, ratioratethresholdetc.. </p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_SetAFAttr</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ISP_FOCUS_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstFocusAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe No.</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstFocusAttr</p></td>
+<td><p>AF attributestructure pointer</p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success. </p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure,See <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">Error Code</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header File: cvi_af.h</p></li>
+</ul>
+<p>[Note]</p>
+<ul class="simple">
+<li><p>modify AF attributewhenif AF positiveinRun, newparameternumberwillincurrentfocusperiodendaftertakes effect. </p></li>
+<li><p>u8RunInterval The value range is [0x1, 0x10]. </p></li>
+<li><p>threestep sizeparameternumber (u8InitStep/u8FindStep/u8LocateStep) Value Rangeaverageis [0x1, 0xFF]. </p></li>
+<li><p>ratiorateparameternumber (DiffRatio systemcolumn) basein AF_RATIO_BASE (1024) calculate. </p></li>
+</ul>
+<p>[Related Topics]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-getafattr">CVI_ISP_GetAFAttr</a></p></li>
+<li><p><a class="reference internal" href="6_AF.html#isp-focus-attr-s">ISP_FOCUS_ATTR_S</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-getafattr">
+<h4><span class="section-number">6.4.2.4. </span>CVI_ISP_GetAFAttr<a class="headerlink" href="6_AF.html#cvi-isp-getafattr" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>Getcurrent AF algorithmControlparameternumber. </p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_GetAFAttr</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ISP_FOCUS_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstFocusAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe No.</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstFocusAttr</p></td>
+<td><p>AF attributestructure pointer</p></td>
+<td><p>output</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success. </p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure,See <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">Error Code</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header File: cvi_af.h</p></li>
+</ul>
+<p>[Note]</p>
+<p>None. </p>
+<p>[Related Topics]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-setafattr">CVI_ISP_SetAFAttr</a></p></li>
+<li><p><a class="reference internal" href="6_AF.html#isp-focus-attr-s">ISP_FOCUS_ATTR_S</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-setafvcmattr">
+<h4><span class="section-number">6.4.2.5. </span>CVI_ISP_SetAFVcmAttr<a class="headerlink" href="6_AF.html#cvi-isp-setafvcmattr" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>Set VCM lenscalibrationattribute, includeNonefar limitposition, mostnearfocuspositionandinpointposition. </p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_SetAFVcmAttr</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ISP_AF_VCM_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstVCMAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe No.</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstVCMAttr</p></td>
+<td><p>VCM attributestructure pointer</p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success. </p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure,See <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">Error Code</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header File: cvi_af.h</p></li>
+</ul>
+<p>[Note]</p>
+<ul class="simple">
+<li><p>thissomevalueneed tothroughactualcalibrationobtainobtain. recommendeduse AF_ENTER_CAILB_FLOW calibrationtoolin  AF_RANGE_OFFSET_CALIB modeGet. </p></li>
+<li><p>u32InfinitePos indicatesNonefar limit (far areaobjectclearfocus) when lensposition. </p></li>
+<li><p>u32MacroPos indicatesmostnearfocus (slightdistance) when lensposition. </p></li>
+<li><p>u32MediumPos indicatesinintervalposition lensposition. </p></li>
+</ul>
+<p>[Related Topics]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-getafvcmattr">CVI_ISP_GetAFVcmAttr</a></p></li>
+<li><p><a class="reference internal" href="6_AF.html#isp-af-vcm-attr-s">ISP_AF_VCM_ATTR_S</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-getafvcmattr">
+<h4><span class="section-number">6.4.2.6. </span>CVI_ISP_GetAFVcmAttr<a class="headerlink" href="6_AF.html#cvi-isp-getafvcmattr" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>Get VCM lenscalibrationattribute. </p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_GetAFVcmAttr</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ISP_AF_VCM_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstVCMAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe No.</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstVCMAttr</p></td>
+<td><p>VCM attributestructure pointer</p></td>
+<td><p>output</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success. </p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure,See <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">Error Code</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header File: cvi_af.h</p></li>
+</ul>
+<p>[Note]</p>
+<p>None. </p>
+<p>[Related Topics]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-setafvcmattr">CVI_ISP_SetAFVcmAttr</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-setafstatisticsconfig">
+<h4><span class="section-number">6.4.2.7. </span>CVI_ISP_SetAFStatisticsConfig<a class="headerlink" href="6_AF.html#cvi-isp-setafstatisticsconfig" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>Set AF hardwarestatistical information configuration, includefiltersystemnumber, windowlargesmall, cropregion, weighttableetc.. </p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_SetAFStatisticsConfig</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ISP_FOCUS_STATISTICS_CFG_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstAfStatCfg</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe No.</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstAfStatCfg</p></td>
+<td><p>AF statistical information configurationstructure pointer</p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success. </p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure,See <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">Error Code</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header File: cvi_af.h</p></li>
+</ul>
+<p>[Note]</p>
+<ul class="simple">
+<li><p>systemstatisticalregionlargesmallrecommendedSetis 17 (horizontal) x 15 (vertical) . </p></li>
+<li><p>cropregion  X coordinatesrangeis [0x8, imagewidth-8], Y coordinatesrangeis [0x2, imageheight-2]. </p></li>
+<li><p>weighttablelargesmallis 15 x 17, eachweightvalueThe value range is [0x0, 0xF]. </p></li>
+<li><p>FIR filtersystemnumberneed toaccording tolenslightlearncharacteristicperformAdjust. Referenceconfigurationcanparametersee 3A Developer User Guide in  FV calculateReferencecode. </p></li>
+</ul>
+<p>[Related Topics]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-getafstatisticsconfig">CVI_ISP_GetAFStatisticsConfig</a></p></li>
+<li><p><a class="reference internal" href="6_AF.html#isp-focus-statistics-cfg-s">ISP_FOCUS_STATISTICS_CFG_S</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-getafstatisticsconfig">
+<h4><span class="section-number">6.4.2.8. </span>CVI_ISP_GetAFStatisticsConfig<a class="headerlink" href="6_AF.html#cvi-isp-getafstatisticsconfig" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>Get AF hardwarestatistical information configuration. </p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_GetAFStatisticsConfig</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ISP_FOCUS_STATISTICS_CFG_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstAfStatCfg</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe No.</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstAfStatCfg</p></td>
+<td><p>AF statistical information configurationstructure pointer</p></td>
+<td><p>output</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success. </p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure,See <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">Error Code</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header File: cvi_af.h</p></li>
+</ul>
+<p>[Note]</p>
+<p>None. </p>
+<p>[Related Topics]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-setafstatisticsconfig">CVI_ISP_SetAFStatisticsConfig</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-setafzonefocusattr">
+<h4><span class="section-number">6.4.2.9. </span>CVI_ISP_SetAFZoneFocusAttr<a class="headerlink" href="6_AF.html#cvi-isp-setafzonefocusattr" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>Set ROI focusregionattribute. canindicatesetfocusregion coordinates, largesmallandweight, useinlocalregionfocus. </p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_SetAFZoneFocusAttr</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ISP_AF_ZONE_FOCUS_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstAfZoneFocusAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe No.</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstAfZoneFocusAttr</p></td>
+<td><p>ROI focusregionattributestructure pointer</p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success. </p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure,See <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">Error Code</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header File: cvi_af.h</p></li>
+</ul>
+<p>[Note]</p>
+<ul class="simple">
+<li><p>enable is CVI_FALSE whenuseglobalweighttableperformfocus. </p></li>
+<li><p>u8ZoneWeight The value range is [0, 255]. </p></li>
+</ul>
+<p>[Related Topics]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-getafzonefocusattr">CVI_ISP_GetAFZoneFocusAttr</a></p></li>
+<li><p><a class="reference internal" href="6_AF.html#isp-af-zone-focus-attr-s">ISP_AF_ZONE_FOCUS_ATTR_S</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-getafzonefocusattr">
+<h4><span class="section-number">6.4.2.10. </span>CVI_ISP_GetAFZoneFocusAttr<a class="headerlink" href="6_AF.html#cvi-isp-getafzonefocusattr" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>Get ROI focusregionattribute. </p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_GetAFZoneFocusAttr</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ISP_AF_ZONE_FOCUS_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstAfZoneFocusAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe No.</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstAfZoneFocusAttr</p></td>
+<td><p>ROI focusregionattributestructure pointer</p></td>
+<td><p>output</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success. </p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure,See <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">Error Code</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header File: cvi_af.h</p></li>
+</ul>
+<p>[Note]</p>
+<p>None. </p>
+<p>[Related Topics]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-setafzonefocusattr">CVI_ISP_SetAFZoneFocusAttr</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-afqueryfocusinfo">
+<h4><span class="section-number">6.4.2.11. </span>CVI_ISP_AFQueryFocusInfo<a class="headerlink" href="6_AF.html#cvi-isp-afqueryfocusinfo" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>query AF algorithmRunstatusinformation, includecurrentfocusstatus, FV value, motorpositionandspeedetc.. </p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_AFQueryFocusInfo</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ISP_FOCUS_Q_INFO_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstFocusQInfo</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe No.</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstFocusQInfo</p></td>
+<td><p>focusstatusinformationstructure pointer</p></td>
+<td><p>output</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success. </p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure,See <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">Error Code</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header File: cvi_af.h</p></li>
+</ul>
+<p>[Note]</p>
+<ul class="simple">
+<li><p>canuseinDebugandmonitor AF algorithmRunstatus. </p></li>
+<li><p>eStatus charactersegmentreversemapcurrent AF statusmachine status. </p></li>
+</ul>
+<p>[Related Topics]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#isp-focus-q-info-s">ISP_FOCUS_Q_INFO_S</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-afsetfocus">
+<h4><span class="section-number">6.4.2.12. </span>CVI_ISP_AFSetFocus<a class="headerlink" href="6_AF.html#cvi-isp-afsetfocus" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>Setfocusmotormovementdirectionandstep size, useinmanualfocusmode. </p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_AFSetFocus</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">direct</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">step</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe No.</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>direct</p></td>
+<td><p>movementdirection, CVI_TRUE is FAR (far) , CVI_FALSE is NEAR (near) </p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-even"><td><p>step</p></td>
+<td><p>movementstep size</p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success. </p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure,See <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">Error Code</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header File: cvi_af.h</p></li>
+</ul>
+<p>[Note]</p>
+<ul class="simple">
+<li><p>thefunctioninmanualfocusmodeunderuse, automaticfocusprocessinnotrecommendedcall. </p></li>
+</ul>
+<p>[Related Topics]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-afsetfocusspeed">CVI_ISP_AFSetFocusSpeed</a></p></li>
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-afsetzoom">CVI_ISP_AFSetZoom</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-afsetfocusspeed">
+<h4><span class="section-number">6.4.2.13. </span>CVI_ISP_AFSetFocusSpeed<a class="headerlink" href="6_AF.html#cvi-isp-afsetfocusspeed" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>Setfocusmotormovementspeed. </p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_AFSetFocusSpeed</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ISP_AF_MOTOR_SPEED_E</span><span class="w"> </span><span class="n">eSpeed</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe No.</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>eSpeed</p></td>
+<td><p>motorspeed: 4X / 2X / 1X / halfspeed</p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success. </p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure,See <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">Error Code</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header File: cvi_af.h</p></li>
+</ul>
+<p>[Note]</p>
+<p>None. </p>
+<p>[Related Topics]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-afsetfocus">CVI_ISP_AFSetFocus</a></p></li>
+<li><p><a class="reference internal" href="6_AF.html#isp-af-motor-speed-e">ISP_AF_MOTOR_SPEED_E</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-afsetzoom">
+<h4><span class="section-number">6.4.2.14. </span>CVI_ISP_AFSetZoom<a class="headerlink" href="6_AF.html#cvi-isp-afsetzoom" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>Setzoommotormovementdirectionandstep size. </p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_AFSetZoom</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">direct</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">step</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe No.</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>direct</p></td>
+<td><p>movementdirection</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-even"><td><p>step</p></td>
+<td><p>movementstep size</p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success. </p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure,See <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">Error Code</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header File: cvi_af.h</p></li>
+</ul>
+<p>[Note]</p>
+<ul class="simple">
+<li><p>zoomoperateoperationcancantriggersendfocus tracking (if bChasingFocus alreadyEnable) . </p></li>
+</ul>
+<p>[Related Topics]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-afsetzoomspeed">CVI_ISP_AFSetZoomSpeed</a></p></li>
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-afsetfocus">CVI_ISP_AFSetFocus</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-afsetzoomspeed">
+<h4><span class="section-number">6.4.2.15. </span>CVI_ISP_AFSetZoomSpeed<a class="headerlink" href="6_AF.html#cvi-isp-afsetzoomspeed" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>Setzoommotormovementspeed, Generallynotneed toSet. </p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_AFSetZoomSpeed</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ISP_AF_MOTOR_SPEED_E</span><span class="w"> </span><span class="n">eSpeed</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe No.</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>eSpeed</p></td>
+<td><p>motorspeed: 4X / 2X / 1X / halfspeed</p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success. </p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure,See <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">Error Code</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header File: cvi_af.h</p></li>
+</ul>
+<p>[Note]</p>
+<ul class="simple">
+<li><p>thefunctionGenerallynotneed tocall, useDefaultspeedthen. </p></li>
+</ul>
+<p>[Related Topics]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-afsetzoom">CVI_ISP_AFSetZoom</a></p></li>
+<li><p><a class="reference internal" href="6_AF.html#isp-af-motor-speed-e">ISP_AF_MOTOR_SPEED_E</a></p></li>
+</ul>
+</section>
+<section id="cvi-af-getmotorcb">
+<h4><span class="section-number">6.4.2.16. </span>CVI_AF_GetMotorCB<a class="headerlink" href="6_AF.html#cvi-af-getmotorcb" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>GetmotorControlcallback function pointer. </p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">ISP_AF_MOTOR_FUNC_S</span><span class="w"> </span><span class="o">*</span><span class="nf">CVI_AF_GetMotorCB</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe No.</p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>non- NULL</p></td>
+<td><p>motorControlcallback function pointer. </p></td>
+</tr>
+<tr class="row-odd"><td><p>NULL</p></td>
+<td><p>Failure, not yetRegisteror ViPipe invalid. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header File: cvi_af.h</p></li>
+</ul>
+<p>[Note]</p>
+<p>None. </p>
+<p>[Related Topics]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#cvi-af-motor-register">CVI_AF_MOTOR_Register</a></p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="id6">
+<h2><span class="section-number">6.5. </span>Data Types<a class="headerlink" href="6_AF.html#id6" title="Permalink to this heading">¶</a></h2>
+<section id="id7">
+<h3><span class="section-number">6.5.1. </span>Enumeration Types<a class="headerlink" href="6_AF.html#id7" title="Permalink to this heading">¶</a></h3>
+<section id="af-status">
+<h4><span class="section-number">6.5.1.1. </span>AF_STATUS<a class="headerlink" href="6_AF.html#af-status" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>Define  AF algorithmstatusmachinestatus. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_AF_STATUS</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_NOT_INIT</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_INIT_POSITION</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_INIT</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_TRIGGER_FOCUS</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_DETECT_DIRECTION</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_SERACH_BEST_POS</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_LOCATE_BEST_POS</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_FOCUSED</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_REVERSE_DIRECTION</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_CHASING_FOCUS</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">AF_STATUS</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AF_NOT_INIT</p></td>
+<td><p>not yetInitializestatus. </p></td>
+</tr>
+<tr class="row-odd"><td><p>AF_INIT_POSITION</p></td>
+<td><p>initialposition, motorreturnpositionstage. willfocus/zoommotormovementtophysicaledgeboundaryperformrepeatposition. </p></td>
+</tr>
+<tr class="row-even"><td><p>AF_INIT</p></td>
+<td><p>idlestatus. etc.pendingfocustriggersend, processingexternalzoom/focuscommand. </p></td>
+</tr>
+<tr class="row-odd"><td><p>AF_TRIGGER_FOCUS</p></td>
+<td><p>triggersendfocus. suspend AE, openstartfocusSearch. </p></td>
+</tr>
+<tr class="row-even"><td><p>AF_DETECT_DIRECTION</p></td>
+<td><p>directiondetection. movementfocuslensandmonitormeasure FV valuetrendusingcorrectsetmostoptimalSearchdirection. </p></td>
+</tr>
+<tr class="row-odd"><td><p>AF_SERACH_BEST_POS</p></td>
+<td><p>coarseSearch. usingrelativelylargestep sizeperformfocusSearch, trackingmaximum FV value. </p></td>
+</tr>
+<tr class="row-even"><td><p>AF_LOCATE_BEST_POS</p></td>
+<td><p>fine positioning. usingrelativelysmallstep sizeperformprecisiondetailSearch, correctconsiderpeakvalueposition. </p></td>
+</tr>
+<tr class="row-odd"><td><p>AF_FOCUSED</p></td>
+<td><p>focuscomplete. Searchend, restore AE, morenewstable FV value. </p></td>
+</tr>
+<tr class="row-even"><td><p>AF_REVERSE_DIRECTION</p></td>
+<td><p>directionreverserotate. processingmotordirectionswitchwhen backlashcompensation. </p></td>
+</tr>
+<tr class="row-odd"><td><p>AF_CHASING_FOCUS</p></td>
+<td><p>focus tracking. zoomafteraccording to Zoom-Focus look uptablefastspeedagainnewseekfindfocuspoint. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<ul class="simple">
+<li><p>AF_STATUS mainlyusein ISP_FOCUS_Q_INFO_S   eStatus charactersegment, reversemap AF currentRunstatus. </p></li>
+</ul>
+<p>[Related Data Types and Interfaces]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#isp-focus-q-info-s">ISP_FOCUS_Q_INFO_S</a></p></li>
+</ul>
+</section>
+<section id="af-direction">
+<h4><span class="section-number">6.5.1.2. </span>AF_DIRECTION<a class="headerlink" href="6_AF.html#af-direction" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>Define focusmotormovementdirection. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_AF_DIRECTION</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_DIR_NEAR</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_DIR_FAR</span><span class="p">,</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">AF_DIRECTION</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AF_DIR_NEAR</p></td>
+<td><p>nearprocessdirection. motortoneardistancedirectionmovementlens. </p></td>
+</tr>
+<tr class="row-odd"><td><p>AF_DIR_FAR</p></td>
+<td><p>far areadirection. motortofardistancedirectionmovementlens. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<p>None. </p>
+<p>[Related Data Types and Interfaces]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#isp-focus-attr-s">ISP_FOCUS_ATTR_S</a></p></li>
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-afsetfocus">CVI_ISP_AFSetFocus</a></p></li>
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-afsetzoom">CVI_ISP_AFSetZoom</a></p></li>
+</ul>
+</section>
+<section id="af-chasingfocus-mode">
+<h4><span class="section-number">6.5.1.3. </span>AF_CHASINGFOCUS_MODE<a class="headerlink" href="6_AF.html#af-chasingfocus-mode" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>Define focus trackingmodetype. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_AF_CHASINGFOCUS_MODE</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_CHASINGFOCUS_FAST_MODE</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_CHASINGFOCUS_NORMAL_MODE</span><span class="p">,</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">AF_CHASINGFOCUS_MODE</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AF_CHASINGFOCUS_FAST_MODE</p></td>
+<td><p>fastspeedfocus trackingmode. usingmorefast speedagainnewfocus, adaptcombinedynamicscene. </p></td>
+</tr>
+<tr class="row-odd"><td><p>AF_CHASINGFOCUS_NORMAL_MODE</p></td>
+<td><p>normalfocus trackingmode. standard speedagainnewfocus. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<p>None. </p>
+<p>[Related Data Types and Interfaces]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#isp-focus-attr-s">ISP_FOCUS_ATTR_S</a></p></li>
+</ul>
+</section>
+<section id="af-manual-type">
+<h4><span class="section-number">6.5.1.4. </span>AF_MANUAL_TYPE<a class="headerlink" href="6_AF.html#af-manual-type" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>Manual Definitionoperateoperationtype. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_AF_MANUAL_TYPE</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">OP_TYPE_ZOOM</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">OP_TYPE_FOCUS</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">OP_TYPE_AUTO_FOCUS</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">OP_TYPE_ZOOM_POS</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">OP_TYPE_FOCUS_POS</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">OP_TYPE_AF_BUTT</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">AF_MANUAL_TYPE</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>OP_TYPE_ZOOM</p></td>
+<td><p>manualzoomoperateoperation. </p></td>
+</tr>
+<tr class="row-odd"><td><p>OP_TYPE_FOCUS</p></td>
+<td><p>manualfocusoperateoperation. </p></td>
+</tr>
+<tr class="row-even"><td><p>OP_TYPE_AUTO_FOCUS</p></td>
+<td><p>automaticfocusoperateoperation. </p></td>
+</tr>
+<tr class="row-odd"><td><p>OP_TYPE_ZOOM_POS</p></td>
+<td><p>Setzoomposition. </p></td>
+</tr>
+<tr class="row-even"><td><p>OP_TYPE_FOCUS_POS</p></td>
+<td><p>Setfocusposition. </p></td>
+</tr>
+<tr class="row-odd"><td><p>OP_TYPE_AF_BUTT</p></td>
+<td><p>edgeboundaryvalue, indicatesvalidtype quantity. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<p>None. </p>
+<p>[Related Data Types and Interfaces]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#isp-focus-manual-attr-s">ISP_FOCUS_MANUAL_ATTR_S</a></p></li>
+</ul>
+</section>
+<section id="isp-af-motor-speed-e">
+<h4><span class="section-number">6.5.1.5. </span>ISP_AF_MOTOR_SPEED_E<a class="headerlink" href="6_AF.html#isp-af-motor-speed-e" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>Define  AF motorspeedlevel. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_ISP_AF_MOTOR_SPEED_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_MOTOR_SPEED_4X</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_MOTOR_SPEED_2X</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_MOTOR_SPEED_1X</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_MOTOR_SPEED_HALF</span><span class="p">,</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_AF_MOTOR_SPEED_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AF_MOTOR_SPEED_4X</p></td>
+<td><p>4 xspeed. highest speed level. </p></td>
+</tr>
+<tr class="row-odd"><td><p>AF_MOTOR_SPEED_2X</p></td>
+<td><p>2 xspeed. </p></td>
+</tr>
+<tr class="row-even"><td><p>AF_MOTOR_SPEED_1X</p></td>
+<td><p>1 xspeed. standard speed. </p></td>
+</tr>
+<tr class="row-odd"><td><p>AF_MOTOR_SPEED_HALF</p></td>
+<td><p>halfspeed. mostlowspeedlevel. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<p>None. </p>
+<p>[Related Data Types and Interfaces]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-afsetfocusspeed">CVI_ISP_AFSetFocusSpeed</a></p></li>
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-afsetzoomspeed">CVI_ISP_AFSetZoomSpeed</a></p></li>
+<li><p><a class="reference internal" href="6_AF.html#isp-focus-q-info-s">ISP_FOCUS_Q_INFO_S</a></p></li>
+</ul>
+</section>
+<section id="af-motor-type">
+<h4><span class="section-number">6.5.1.6. </span>AF_MOTOR_TYPE<a class="headerlink" href="6_AF.html#af-motor-type" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>Define motortype. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_AF_MOTOR_TYPE</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_MOTOR_STEPPER</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_MOTOR_VCM</span><span class="p">,</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">AF_MOTOR_TYPE</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AF_MOTOR_STEPPER</p></td>
+<td><p>stepmotor. throughstepdriver, storeinmechanicalbacklashneedcompensation. </p></td>
+</tr>
+<tr class="row-odd"><td><p>AF_MOTOR_VCM</p></td>
+<td><p>voice coilmotor (Voice Coil Motor) . throughelectricalflowdriver, Nonemechanicalbacklash. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<ul class="simple">
+<li><p>motortypethrough pfn_af_get_len_info callbackin  ISP_AF_LEN_INFO_S Return. </p></li>
+<li><p>VCM lensbacklashcompensationis 1 framevibrationmovecompensation, stepmotorneedaccording toactualmeasureamountSet focus_backlash. </p></li>
+</ul>
+<p>[Related Data Types and Interfaces]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#isp-af-len-info-s">ISP_AF_LEN_INFO_S</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id8">
+<h3><span class="section-number">6.5.2. </span>Structure Types<a class="headerlink" href="6_AF.html#id8" title="Permalink to this heading">¶</a></h3>
+<section id="isp-focus-attr-s">
+<h4><span class="section-number">6.5.2.1. </span>ISP_FOCUS_ATTR_S<a class="headerlink" href="6_AF.html#isp-focus-attr-s" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>Define  AF mainconfigurationattribute. contain AF Enable, workoperationmode, Searchstep size, focus trackingconfiguration, ratioratethreshold, manualfocusetc.parameternumber. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_FOCUS_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bEnable</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8DebugMode</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">ISP_OP_TYPE_E</span><span class="w"> </span><span class="n">enOpType</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8RunInterval</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bRealTimeFocus</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bChasingFocus</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bReFocus</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bMixHlc</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8RtFocusStableFrm</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16RtMaxDiffFvRatio</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16MaxDiffFvRatio</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16MaxDiffLumaRatio</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16DetectDiffRatio</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16SearchDiffRatio</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16LocalDiffRatio</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8InitStep</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8FindStep</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8LocateStep</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_DIRECTION</span><span class="w"> </span><span class="n">enInitDir</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16MaxRotateCnt</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_CHASINGFOCUS_MODE</span><span class="w"> </span><span class="n">enChasingFocusMode</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">ISP_FOCUS_MANUAL_ATTR_S</span><span class="w"> </span><span class="n">stManual</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_FOCUS_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>bEnable</p></td>
+<td><p>AF Enable. is CVI_TRUE whenEnable AF, is CVI_FALSE whennotEnable. </p></td>
+</tr>
+<tr class="row-odd"><td><p>u8DebugMode</p></td>
+<td><p>Debugmode. useinSet AF Debuglevel. </p></td>
+</tr>
+<tr class="row-even"><td><p>enOpType</p></td>
+<td><p>operateoperationtype. automaticormanualfocusmodeswitch. </p></td>
+</tr>
+<tr class="row-odd"><td><p>u8RunInterval</p></td>
+<td><p>AF algorithmRunframeintervalinterval. The value range is [0x1, 0x10]. </p></td>
+</tr>
+<tr class="row-even"><td><p>bRealTimeFocus</p></td>
+<td><p>real-timefocusEnable. is CVI_TRUE whenopenenablereal-timefocus tracking, detectiontoimagechangeautomaticagainnewfocus. </p></td>
+</tr>
+<tr class="row-odd"><td><p>bChasingFocus</p></td>
+<td><p>focus trackingEnable. is CVI_TRUE whenopenenablezoomfocus tracking, zoomafterautomaticaccording to Zoom-Focus look uptableAdjustfocusposition. </p></td>
+</tr>
+<tr class="row-even"><td><p>bReFocus</p></td>
+<td><p>againnewfocusEnable. is CVI_TRUE whenimagechangeafterautomaticagainnewfocus. </p></td>
+</tr>
+<tr class="row-odd"><td><p>bMixHlc</p></td>
+<td><p>blendheightbrightpointmaskEnable. use HlCnt informationsuppresslight sourcefor FV value affects. </p></td>
+</tr>
+<tr class="row-even"><td><p>u8RtFocusStableFrm</p></td>
+<td><p>real-timefocusstableframenumber. FV changecontinuousexceedthroughthisframenumberaftertriggersendfocus tracking. The value range is [0x1, 0xFF], The default value is 5. </p></td>
+</tr>
+<tr class="row-odd"><td><p>u16RtMaxDiffFvRatio</p></td>
+<td><p>real-timefocusmaximum FV differenceratioexample. basein AF_RATIO_BASE (1024). The value range is [0x400, 0x1000]. </p></td>
+</tr>
+<tr class="row-even"><td><p>u16MaxDiffFvRatio</p></td>
+<td><p>maximum FV differenceratioexample. useindetectionimagewhethersendgeneratesignificantchange. The value range is [0x400, 0x4000]. </p></td>
+</tr>
+<tr class="row-odd"><td><p>u16MaxDiffLumaRatio</p></td>
+<td><p>maximumbrightnessdifferenceratioexample. useinbrightnesschangedetection. The value range is [0x400, 0x1000]. </p></td>
+</tr>
+<tr class="row-even"><td><p>u16DetectDiffRatio</p></td>
+<td><p>directiondetectiondifferenceratioexample. useindeterminedirectiondetectionstage FV changewhethersignificant. The value range is [0x400, 0x1000]. </p></td>
+</tr>
+<tr class="row-odd"><td><p>u16SearchDiffRatio</p></td>
+<td><p>Searchdifferenceratioexample. useincoarseSearchstagedeterminewhetheralreadythe morethrough FV peakvalue. The value range is [0x400, 0x1000]. </p></td>
+</tr>
+<tr class="row-even"><td><p>u16LocalDiffRatio</p></td>
+<td><p>setpositiondifferenceratioexample. useinfine positioningstagecorrectconsiderpeakvalue. The value range is [0x400, 0x1000]. </p></td>
+</tr>
+<tr class="row-odd"><td><p>u8InitStep</p></td>
+<td><p>initialSearchstep size. focusSearchfirststageuse motormovementstep size. The value range is [0x1, 0xFF]. </p></td>
+</tr>
+<tr class="row-even"><td><p>u8FindStep</p></td>
+<td><p>preciseSearchstep size. focusSearchsecondstage (coarseSearch) use motormovementstep size. The value range is [0x1, 0xFF]. </p></td>
+</tr>
+<tr class="row-odd"><td><p>u8LocateStep</p></td>
+<td><p>setpositionstep size. focusSearchthirdstage (fine positioning) use motormovementstep size. The value range is [0x1, 0xFF]. </p></td>
+</tr>
+<tr class="row-even"><td><p>enInitDir</p></td>
+<td><p>initialSearchdirection. focusSearchopenstartwhen motormovementdirection (NEAR or FAR) . </p></td>
+</tr>
+<tr class="row-odd"><td><p>u16MaxRotateCnt</p></td>
+<td><p>maximumrepeatpositiontimenumber. motorrepeatposition (returnpositiontophysicaledgeboundary)  maximumagaintesttimenumber. The value range is [0x400, 0x4000]. </p></td>
+</tr>
+<tr class="row-even"><td><p>enChasingFocusMode</p></td>
+<td><p>focus trackingmode. fastspeedmodeornormalmode. </p></td>
+</tr>
+<tr class="row-odd"><td><p>stManual</p></td>
+<td><p>manualfocusattribute. containmanualoperateoperationtype, direction, step sizeandposition. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<ul class="simple">
+<li><p>allratiorateparameternumberaverageusing AF_RATIO_BASE (1024) isbaseline. For example u16DetectDiffRatio = 1024 indicates 100%  differencethreshold. </p></li>
+<li><p>threestep sizeparameternumber (InitStep/FindStep/LocateStep) shouldaccording tolenscharacteristicAdjust. stepmotorrecommended InitStep=16, FindStep=8, LocateStep=2; VCM lenscanadaptwhenreducesmall. </p></li>
+</ul>
+<p>[Related Data Types and Interfaces]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-setafattr">CVI_ISP_SetAFAttr</a></p></li>
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-getafattr">CVI_ISP_GetAFAttr</a></p></li>
+<li><p><a class="reference internal" href="6_AF.html#isp-focus-manual-attr-s">ISP_FOCUS_MANUAL_ATTR_S</a></p></li>
+</ul>
+</section>
+<section id="isp-focus-q-info-s">
+<h4><span class="section-number">6.5.2.2. </span>ISP_FOCUS_Q_INFO_S<a class="headerlink" href="6_AF.html#isp-focus-q-info-s" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>Define  AF queryinformation/Runwhenstatus. useinGet AF currentRunstatus, FV value, motorpositionetc.information. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_AF_Q_INFO_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_STATUS</span><span class="w"> </span><span class="n">eStatus</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32PreFv</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32CurFv</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32MaxFv</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8PreLuma</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8CurLuma</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_DIRECTION</span><span class="w"> </span><span class="n">eZoomDir</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16ZoomStep</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16ZoomPos</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_DIRECTION</span><span class="w"> </span><span class="n">eFocusDir</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16FocusStep</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16FocusPos</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16MaxFvPos</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16ZoomMinPos</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16ZoomMaxPos</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16FocusMinPos</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16FocusMaxPos</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">ISP_AF_MOTOR_SPEED_E</span><span class="w"> </span><span class="n">eZoomSpeed</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">ISP_AF_MOTOR_SPEED_E</span><span class="w"> </span><span class="n">eFocusSpeed</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_FOCUS_Q_INFO_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>eStatus</p></td>
+<td><p>current AF status. reversemap AF_STATUS enumerationvalue. </p></td>
+</tr>
+<tr class="row-odd"><td><p>u32PreFv</p></td>
+<td><p>ononeframe FV value. </p></td>
+</tr>
+<tr class="row-even"><td><p>u32CurFv</p></td>
+<td><p>currentframe FV value. </p></td>
+</tr>
+<tr class="row-odd"><td><p>u32MaxFv</p></td>
+<td><p>Searchprocessinrecord maximum FV value. </p></td>
+</tr>
+<tr class="row-even"><td><p>u8PreLuma</p></td>
+<td><p>ononeframeaveragebrightness. </p></td>
+</tr>
+<tr class="row-odd"><td><p>u8CurLuma</p></td>
+<td><p>currentframeaveragebrightness. </p></td>
+</tr>
+<tr class="row-even"><td><p>eZoomDir</p></td>
+<td><p>currentzoommovementdirection. </p></td>
+</tr>
+<tr class="row-odd"><td><p>u16ZoomStep</p></td>
+<td><p>currentzoomstep size. </p></td>
+</tr>
+<tr class="row-even"><td><p>u16ZoomPos</p></td>
+<td><p>currentzoomposition. </p></td>
+</tr>
+<tr class="row-odd"><td><p>eFocusDir</p></td>
+<td><p>currentfocusmovementdirection. </p></td>
+</tr>
+<tr class="row-even"><td><p>u16FocusStep</p></td>
+<td><p>currentfocusstep size. </p></td>
+</tr>
+<tr class="row-odd"><td><p>u16FocusPos</p></td>
+<td><p>currentfocusposition. </p></td>
+</tr>
+<tr class="row-even"><td><p>u16MaxFvPos</p></td>
+<td><p>maximum FV valuecorresponding focusposition (mostoptimalfocuspoint) . </p></td>
+</tr>
+<tr class="row-odd"><td><p>u16ZoomMinPos</p></td>
+<td><p>zoomminimumposition. </p></td>
+</tr>
+<tr class="row-even"><td><p>u16ZoomMaxPos</p></td>
+<td><p>zoommaximumposition. </p></td>
+</tr>
+<tr class="row-odd"><td><p>u16FocusMinPos</p></td>
+<td><p>focusminimumposition. </p></td>
+</tr>
+<tr class="row-even"><td><p>u16FocusMaxPos</p></td>
+<td><p>focusmaximumposition. </p></td>
+</tr>
+<tr class="row-odd"><td><p>eZoomSpeed</p></td>
+<td><p>currentzoommotorspeed. </p></td>
+</tr>
+<tr class="row-even"><td><p>eFocusSpeed</p></td>
+<td><p>currentfocusmotorspeed. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<p>None. </p>
+<p>[Related Data Types and Interfaces]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-afqueryfocusinfo">CVI_ISP_AFQueryFocusInfo</a></p></li>
+<li><p><a class="reference internal" href="6_AF.html#af-status">AF_STATUS</a></p></li>
+<li><p><a class="reference internal" href="6_AF.html#isp-af-motor-speed-e">ISP_AF_MOTOR_SPEED_E</a></p></li>
+</ul>
+</section>
+<section id="isp-focus-manual-attr-s">
+<h4><span class="section-number">6.5.2.3. </span>ISP_FOCUS_MANUAL_ATTR_S<a class="headerlink" href="6_AF.html#isp-focus-manual-attr-s" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>Manual Definitionfocusattribute. useinmanualfocusmodeunder parameternumberconfiguration. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_FOCUS_MANUAL_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_MANUAL_TYPE</span><span class="w"> </span><span class="n">enManualOpType</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_DIRECTION</span><span class="w"> </span><span class="n">enManualDir</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16ManualStep</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16ManualPos</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_FOCUS_MANUAL_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>enManualOpType</p></td>
+<td><p>manualoperateoperationtype. zoom, focus, automaticfocusetc.. Value Rangeparametersee <a class="reference internal" href="6_AF.html#af-manual-type">AF_MANUAL_TYPE</a> . </p></td>
+</tr>
+<tr class="row-odd"><td><p>enManualDir</p></td>
+<td><p>manualoperateoperationdirection. NEAR or FAR. Value Rangeparametersee <a class="reference internal" href="6_AF.html#af-direction">AF_DIRECTION</a> . </p></td>
+</tr>
+<tr class="row-even"><td><p>u16ManualStep</p></td>
+<td><p>manualoperateoperationstep size. The value range is [0x0, 0x400]. </p></td>
+</tr>
+<tr class="row-odd"><td><p>u16ManualPos</p></td>
+<td><p>manualoperateoperationtargetposition. The value range is [0x0, 0x8000]. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<p>None. </p>
+<p>[Related Data Types and Interfaces]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#isp-focus-attr-s">ISP_FOCUS_ATTR_S</a></p></li>
+<li><p><a class="reference internal" href="6_AF.html#af-manual-type">AF_MANUAL_TYPE</a></p></li>
+</ul>
+</section>
+<section id="isp-af-vcm-attr-s">
+<h4><span class="section-number">6.5.2.4. </span>ISP_AF_VCM_ATTR_S<a class="headerlink" href="6_AF.html#isp-af-vcm-attr-s" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>Define  VCM lenscalibrationattribute. useinrecordlens Nonefar limitposition, mostnearfocuspositionandinpointposition. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_AF_VCM_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32InfinitePos</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32MacroPos</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32MediumPos</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_AF_VCM_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>u32InfinitePos</p></td>
+<td><p>Nonefar limitposition. far areaobjectclearfocuswhen lensposition, in steps (step) . </p></td>
+</tr>
+<tr class="row-odd"><td><p>u32MacroPos</p></td>
+<td><p>mostnearfocusposition. slightdistancecapturewhen lensposition, in steps (step) . </p></td>
+</tr>
+<tr class="row-even"><td><p>u32MediumPos</p></td>
+<td><p>inpointposition. Nonefar limitandmostnearfocusofinterval inintervalposition, in steps (step) . </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<ul class="simple">
+<li><p>thissomevalueneed tothroughactualcalibrationobtainobtain. recommendedusecalibrationtool AF_ENTER_CAILB_FLOW in  AF_RANGE_OFFSET_CALIB mode. </p></li>
+<li><p>calibrationcompleteafter, AF algorithmbenefitusethissomevaluecorrectsetfocusSearch reasonablerange. </p></li>
+</ul>
+<p>[Related Data Types and Interfaces]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-setafvcmattr">CVI_ISP_SetAFVcmAttr</a></p></li>
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-getafvcmattr">CVI_ISP_GetAFVcmAttr</a></p></li>
+</ul>
+</section>
+<section id="isp-af-zone-focus-attr-s">
+<h4><span class="section-number">6.5.2.5. </span>ISP_AF_ZONE_FOCUS_ATTR_S<a class="headerlink" href="6_AF.html#isp-af-zone-focus-attr-s" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>Define  ROI focusregionattribute. useinindicatesetlocalfocusregion coordinates, largesmallandweight. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_AF_ZONE_FOCUS_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">enable</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8ZoneWeight</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32ZoneX</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32ZoneY</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32ZoneWidth</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32ZoneHeight</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_AF_ZONE_FOCUS_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>enable</p></td>
+<td><p>Enableopenclose. is CVI_TRUE whenenableuse ROI focusregion, is CVI_FALSE whenuseglobalweighttable. </p></td>
+</tr>
+<tr class="row-odd"><td><p>u8ZoneWeight</p></td>
+<td><p>regionweight. The value range is [0, 255]. </p></td>
+</tr>
+<tr class="row-even"><td><p>u32ZoneX</p></td>
+<td><p>region X coordinates (leftonangle) . </p></td>
+</tr>
+<tr class="row-odd"><td><p>u32ZoneY</p></td>
+<td><p>region Y coordinates (leftonangle) . </p></td>
+</tr>
+<tr class="row-even"><td><p>u32ZoneWidth</p></td>
+<td><p>regionwidth. </p></td>
+</tr>
+<tr class="row-odd"><td><p>u32ZoneHeight</p></td>
+<td><p>regionheight. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<ul class="simple">
+<li><p>ROI focusregioncanuseinimplementpointclickfocusetc.function, userindicatesetimageina certainregionafter AF willpriorityfortheregionperformfocus. </p></li>
+</ul>
+<p>[Related Data Types and Interfaces]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-setafzonefocusattr">CVI_ISP_SetAFZoneFocusAttr</a></p></li>
+<li><p><a class="reference internal" href="6_AF.html#cvi-isp-getafzonefocusattr">CVI_ISP_GetAFZoneFocusAttr</a></p></li>
+</ul>
+</section>
+<section id="isp-af-zoom-focus-tab">
+<h4><span class="section-number">6.5.2.6. </span>ISP_AF_ZOOM_FOCUS_TAB<a class="headerlink" href="6_AF.html#isp-af-zoom-focus-tab" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>Define  Zoom-Focus look uptablesingletableitem. recordspecialsetzoompositioncorresponding focuspositionrange. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_AF_ZOOM_FOCUS_TAB</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">zoom_pos</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">focus_pos_min</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">focus_pos_max</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_AF_ZOOM_FOCUS_TAB</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>zoom_pos</p></td>
+<td><p>zoomposition. </p></td>
+</tr>
+<tr class="row-odd"><td><p>focus_pos_min</p></td>
+<td><p>thezoompositionunderfocuspositionminimum value. </p></td>
+</tr>
+<tr class="row-even"><td><p>focus_pos_max</p></td>
+<td><p>thezoompositionunderfocuspositionmaximum value. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<ul class="simple">
+<li><p>Zoom-Focus tabletotal ZOOM_FOCUS_TAB_SIZE (9) tableitem, cover the wholezoomrange. </p></li>
+<li><p>thetablethroughcalibrationtool AF_ZOOM_FOCUS_TABLE_CALIB modegeneratebecome, indifferentzoompositionrecordmostoptimalfocuspositionrange. </p></li>
+<li><p>focus trackingwhenuselinearinsertvalueintableitemofintervalestimatecalculatefocusposition. </p></li>
+</ul>
+<p>[Related Data Types and Interfaces]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#isp-af-len-info-s">ISP_AF_LEN_INFO_S</a></p></li>
+</ul>
+</section>
+<section id="isp-af-len-info-s">
+<h4><span class="section-number">6.5.2.7. </span>ISP_AF_LEN_INFO_S<a class="headerlink" href="6_AF.html#isp-af-len-info-s" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>Define lenshardwarecharacteristicinformation. throughmotordrivercallback pfn_af_get_len_info provide, containlens mechanicalandelectricalelectricalcharacteristicparameternumber. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_AF_LEN_INFO_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">ISP_AF_ZOOM_FOCUS_TAB</span><span class="w"> </span><span class="n">zoom_focus_table</span><span class="p">[</span><span class="n">ZOOM_FOCUS_TAB_SIZE</span><span class="p">];</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">focus_range</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">zoom_range</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">focus_offset</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">zoom_offset</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">focus_backlash</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">zoom_backlash</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">focus_max_speed</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">zoom_max_speed</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">focus_time_cost_one_step</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">zoom_time_cost_one_step</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">focus_max_step</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">zoom_max_step</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">AF_MOTOR_TYPE</span><span class="w"> </span><span class="n">motor_type</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_AF_LEN_INFO_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>zoom_focus_table</p></td>
+<td><p>Zoom-Focus look uptable. total 9 tableitem, recordzoompositionandfocuspositionrange mapprojectclosesystem. </p></td>
+</tr>
+<tr class="row-odd"><td><p>focus_range</p></td>
+<td><p>focusmovementrange, in steps (step) . </p></td>
+</tr>
+<tr class="row-even"><td><p>zoom_range</p></td>
+<td><p>zoommovementrange, in steps (step) . </p></td>
+</tr>
+<tr class="row-odd"><td><p>focus_offset</p></td>
+<td><p>focusbiasmoveamount, in steps (step) . indicateslenstoreachedgeboundaryafterstillhaveblur distance. </p></td>
+</tr>
+<tr class="row-even"><td><p>zoom_offset</p></td>
+<td><p>zoombiasmoveamount, in steps (step) . </p></td>
+</tr>
+<tr class="row-odd"><td><p>focus_backlash</p></td>
+<td><p>focusbacklashvalue, hardwarelimit, in steps (step) . motorreversetomotionwhenneedpremove compensationstep size. </p></td>
+</tr>
+<tr class="row-even"><td><p>zoom_backlash</p></td>
+<td><p>zoombacklashvalue, hardwarelimit, in steps (step) . </p></td>
+</tr>
+<tr class="row-odd"><td><p>focus_max_speed</p></td>
+<td><p>focusmaximumspeed. thevalueoperationis MOTOR_SPEED_4X  actualspeed. </p></td>
+</tr>
+<tr class="row-even"><td><p>zoom_max_speed</p></td>
+<td><p>zoommaximumspeed. thevalueoperationis MOTOR_SPEED_4X  actualspeed. </p></td>
+</tr>
+<tr class="row-odd"><td><p>focus_time_cost_one_step</p></td>
+<td><p>focussinglestepwhenintervalbecomethis, in microseconds (us) . </p></td>
+</tr>
+<tr class="row-even"><td><p>zoom_time_cost_one_step</p></td>
+<td><p>zoomsinglestepwhenintervalbecomethis, in microseconds (us) . </p></td>
+</tr>
+<tr class="row-odd"><td><p>focus_max_step</p></td>
+<td><p>focusmaximumstepnumber. </p></td>
+</tr>
+<tr class="row-even"><td><p>zoom_max_step</p></td>
+<td><p>zoommaximumstepnumber. </p></td>
+</tr>
+<tr class="row-odd"><td><p>motor_type</p></td>
+<td><p>motortype. stepmotoror VCM. parametersee <a class="reference internal" href="6_AF.html#af-motor-type">AF_MOTOR_TYPE</a> . </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<ul class="simple">
+<li><p>thestructurebymotordrivercallback function pfn_af_get_len_info fill, customeruserneedcorrectimplementthecallback. </p></li>
+<li><p>focus_backlash and zoom_backlash canthroughcalibrationtool AF_BACK_LASH_CALIB modemeasureamount. </p></li>
+<li><p>focus_time_cost_one_step and zoom_time_cost_one_step canthroughcalibrationtool AF_ONE_STEP_TIME_COST_CALIB modemeasureamount. </p></li>
+</ul>
+<p>[Related Data Types and Interfaces]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#isp-af-motor-func-s">ISP_AF_MOTOR_FUNC_S</a></p></li>
+<li><p><a class="reference internal" href="6_AF.html#isp-af-zoom-focus-tab">ISP_AF_ZOOM_FOCUS_TAB</a></p></li>
+<li><p><a class="reference internal" href="6_AF.html#af-motor-type">AF_MOTOR_TYPE</a></p></li>
+</ul>
+</section>
+<section id="isp-af-motor-func-s">
+<h4><span class="section-number">6.5.2.8. </span>ISP_AF_MOTOR_FUNC_S<a class="headerlink" href="6_AF.html#isp-af-motor-func-s" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>Define motorControlcallback functioncollectcombine. customeruserneedimplementallcallback functionusingdriverfocus/zoommotor. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_AF_MOTOR_CTL_FUNC_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_S32</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">pfn_af_motor_init</span><span class="p">)(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_S32</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">pfn_af_motor_deinit</span><span class="p">)(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_S32</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">pfn_af_set_zoom_in</span><span class="p">)(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">step</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_S32</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">pfn_af_set_zoom_out</span><span class="p">)(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">step</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_S32</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">pfn_af_set_zoom_speed</span><span class="p">)(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">speed</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_S32</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">pfn_af_set_focus_in</span><span class="p">)(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">step</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_S32</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">pfn_af_set_focus_out</span><span class="p">)(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">step</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_S32</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">pfn_af_set_focus_speed</span><span class="p">)(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">speed</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_S32</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">pfn_af_set_zoom_focus</span><span class="p">)(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">AF_DIRECTION</span><span class="w"> </span><span class="n">eDirz</span><span class="p">,</span><span class="w"> </span><span class="n">AF_DIRECTION</span><span class="w"> </span><span class="n">eDirf</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">zoomStep</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">focusStep</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_S32</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="n">pfn_af_get_len_info</span><span class="p">)(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ISP_AF_LEN_INFO_S</span><span class="w"> </span><span class="o">*</span><span class="n">info</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_AF_MOTOR_FUNC_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>pfn_af_motor_init</p></td>
+<td><p>motorInitializecallback. useinInitializemotorhardwareandstatus. </p></td>
+</tr>
+<tr class="row-odd"><td><p>pfn_af_motor_deinit</p></td>
+<td><p>motorreverseInitializecallback. useinreleaseplacemotorresourcesource. </p></td>
+</tr>
+<tr class="row-even"><td><p>pfn_af_set_zoom_in</p></td>
+<td><p>Setzoommotortoinsidemovementindicatesetstep size. </p></td>
+</tr>
+<tr class="row-odd"><td><p>pfn_af_set_zoom_out</p></td>
+<td><p>Setzoommotortooutsidemovementindicatesetstep size. </p></td>
+</tr>
+<tr class="row-even"><td><p>pfn_af_set_zoom_speed</p></td>
+<td><p>Setzoommotorspeedlevel. </p></td>
+</tr>
+<tr class="row-odd"><td><p>pfn_af_set_focus_in</p></td>
+<td><p>Setfocusmotortoinsidemovementindicatesetstep size. </p></td>
+</tr>
+<tr class="row-even"><td><p>pfn_af_set_focus_out</p></td>
+<td><p>Setfocusmotortooutsidemovementindicatesetstep size. </p></td>
+</tr>
+<tr class="row-odd"><td><p>pfn_af_set_focus_speed</p></td>
+<td><p>Setfocusmotorspeedlevel. </p></td>
+</tr>
+<tr class="row-even"><td><p>pfn_af_set_zoom_focus</p></td>
+<td><p>at the same timeSetzoomandfocusmotor movementdirectionandstep size. useinimplementzoomandfocusat the same timemotion. </p></td>
+</tr>
+<tr class="row-odd"><td><p>pfn_af_get_len_info</p></td>
+<td><p>Getlenshardwarecharacteristicinformation. needfill ISP_AF_LEN_INFO_S structure. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<ul class="simple">
+<li><p>allcallback functionallmustcorrectimplement, whetherthen AF algorithmcannotnormalworkoperation. </p></li>
+<li><p>through CVI_AF_MOTOR_Register Registerto AF module. </p></li>
+<li><p>pfn_af_set_zoom_focus returncallinimplementzoomandfocus linkmove, caninzoomprocessinat the same timeAdjustfocusposition. </p></li>
+</ul>
+<p>[Related Data Types and Interfaces]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#cvi-af-motor-register">CVI_AF_MOTOR_Register</a></p></li>
+<li><p><a class="reference internal" href="6_AF.html#isp-af-len-info-s">ISP_AF_LEN_INFO_S</a></p></li>
+</ul>
+</section>
+<section id="isp-focus-statistics-cfg-s">
+<h4><span class="section-number">6.5.2.9. </span>ISP_FOCUS_STATISTICS_CFG_S<a class="headerlink" href="6_AF.html#isp-focus-statistics-cfg-s" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>Define  AF hardwarestatistical information configuration. containfilterconfiguration, windowlargesmall, weighttableetc.parameternumber. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define AF_WEIGHT_ZONE_ROW    15</span>
+<span class="cp">#define AF_WEIGHT_ZONE_COLUMN 17</span>
+<span class="cp">#define FIR_H_GAIN_NUM (5)</span>
+<span class="cp">#define FIR_V_GAIN_NUM (3)</span>
+
+<span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_FOCUS_STATISTICS_CFG_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">ISP_AF_CFG_S</span><span class="w"> </span><span class="n">stConfig</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">ISP_AF_H_PARAM_S</span><span class="w"> </span><span class="n">stHParam_FIR0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">ISP_AF_H_PARAM_S</span><span class="w"> </span><span class="n">stHParam_FIR1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">ISP_AF_V_PARAM_S</span><span class="w"> </span><span class="n">stVParam_FIR</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">au8Weight</span><span class="p">[</span><span class="n">AF_WEIGHT_ZONE_ROW</span><span class="p">][</span><span class="n">AF_WEIGHT_ZONE_COLUMN</span><span class="p">];</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_FOCUS_STATISTICS_CFG_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>stConfig</p></td>
+<td><p>AF basicconfiguration. containEnable, windowlargesmall, lowpassfilteringsystemnumber, cropregion, heightpassfiltering coting valueetc.. parametersee <a class="reference internal" href="6_AF.html#isp-af-cfg-s">ISP_AF_CFG_S</a> . </p></td>
+</tr>
+<tr class="row-odd"><td><p>stHParam_FIR0</p></td>
+<td><p>horizontaldirection FIR filter 0 parameternumber (heightpassfilter) . 5 tapsystemnumber. parametersee <code class="docutils literal notranslate"><span class="pre">ISP_AF_H_PARAM_S</span></code> . </p></td>
+</tr>
+<tr class="row-even"><td><p>stHParam_FIR1</p></td>
+<td><p>horizontaldirection FIR filter 1 parameternumber (heightpassfilter) . 5 tapsystemnumber. parametersee <code class="docutils literal notranslate"><span class="pre">ISP_AF_H_PARAM_S</span></code> . </p></td>
+</tr>
+<tr class="row-odd"><td><p>stVParam_FIR</p></td>
+<td><p>verticalhistogramto FIR filterparameternumber (heightpassfilter) . 3 tapsystemnumber. parametersee <code class="docutils literal notranslate"><span class="pre">ISP_AF_V_PARAM_S</span></code> . </p></td>
+</tr>
+<tr class="row-even"><td><p>au8Weight</p></td>
+<td><p>regionblockweighttable. largesmallis 15 x 17, eachweightThe value range is [0x0, 0xF]. useinfordifferentregion  FV valueperformaddweight. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<ul class="simple">
+<li><p>systemstatisticalregionlargesmallrecommendedSetis 17 (horizontal) x 15 (vertical) , andweighttablelargesmallconsistent. </p></li>
+<li><p>FIR filtersystemnumberneed toaccording tolenslightlearncharacteristicAdjust. </p></li>
+<li><p>Referenceconfigurationcanparametersee 3A Developer User Guide in  FV calculateReferencecode. </p></li>
+</ul>
+<p>[Related Data Types and Interfaces]</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">CVI_ISP_SetAFStatisticsConfig</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CVI_ISP_GetAFStatisticsConfig</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ISP_AF_CFG_S</span></code></p></li>
+</ul>
+</section>
+<section id="isp-af-cfg-s">
+<h4><span class="section-number">6.5.2.10. </span>ISP_AF_CFG_S<a class="headerlink" href="6_AF.html#isp-af-cfg-s" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>Define  AF systemstatisticalbasicconfiguration. containEnable, windowlargesmall, filteringconfiguration, cropregion, heightbrightpointthresholdetc.. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_AF_CFG_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bEnable</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16Hwnd</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16Vwnd</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8HFltShift</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_S8</span><span class="w"> </span><span class="n">s8HVFltLpCoeff</span><span class="p">[</span><span class="n">FIR_H_GAIN_NUM</span><span class="p">];</span><span class="w"></span>
+<span class="w">    </span><span class="n">ISP_AF_RAW_CFG_S</span><span class="w"> </span><span class="n">stRawCfg</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">ISP_AF_PRE_FILTER_CFG_S</span><span class="w"> </span><span class="n">stPreFltCfg</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">ISP_AF_CROP_S</span><span class="w"> </span><span class="n">stCrop</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">H0FltCoring</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">H1FltCoring</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">V0FltCoring</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16HighLumaTh</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8ThLow</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8ThHigh</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8GainLow</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8GainHigh</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8SlopLow</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8SlopHigh</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_AF_CFG_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>bEnable</p></td>
+<td><p>Enableopenclose. is CVI_TRUE whenEnable AF systemstatistical. </p></td>
+</tr>
+<tr class="row-odd"><td><p>u16Hwnd</p></td>
+<td><p>horizontaldirectionregionblockwindowquantity. The value range is [0x2, 0x11] (that is 2~17) . </p></td>
+</tr>
+<tr class="row-even"><td><p>u16Vwnd</p></td>
+<td><p>verticalhistogramtoregionblockwindowquantity. The value range is [0x2, 0xF] (that is 2~15) . </p></td>
+</tr>
+<tr class="row-odd"><td><p>u8HFltShift</p></td>
+<td><p>horizontalfilteringmovepositionamount. The value range is [0x0, 0xF]. </p></td>
+</tr>
+<tr class="row-even"><td><p>s8HVFltLpCoeff</p></td>
+<td><p>horizontal/verticallowpass FIR filteringsystemnumber. 5 tap, The value range is [0x0, 0x1F]. </p></td>
+</tr>
+<tr class="row-odd"><td><p>stRawCfg</p></td>
+<td><p>RAW domainbeforeprocessingconfiguration. contain PreGamma Enableand 256 item Gamma look uptable. </p></td>
+</tr>
+<tr class="row-even"><td><p>stPreFltCfg</p></td>
+<td><p>prefilteringconfiguration. useineliminatesalt-and-peppernoiseforsystemstatisticalvalue affects. </p></td>
+</tr>
+<tr class="row-odd"><td><p>stCrop</p></td>
+<td><p>imagecropconfiguration. useinlimit AF systemstatistical regionrange. parametersee <a class="reference internal" href="6_AF.html#isp-af-crop-s">ISP_AF_CROP_S</a> . </p></td>
+</tr>
+<tr class="row-even"><td><p>H0FltCoring</p></td>
+<td><p>H0 filter Coring value. useinremovesmallamplitudenoise. The value range is [0x0, 0xFF]. </p></td>
+</tr>
+<tr class="row-odd"><td><p>H1FltCoring</p></td>
+<td><p>H1 filter Coring value. The value range is [0x0, 0xFF]. </p></td>
+</tr>
+<tr class="row-even"><td><p>V0FltCoring</p></td>
+<td><p>V0 filter Coring value. The value range is [0x0, 0xFF]. </p></td>
+</tr>
+<tr class="row-odd"><td><p>u16HighLumaTh</p></td>
+<td><p>heightbrightpointbrightnessthreshold. useinsuppresslight sourcefor FV value affects. The value range is [0x0, 0xFF]. </p></td>
+</tr>
+<tr class="row-even"><td><p>u8ThLow</p></td>
+<td><p>lowthreshold. useingainanddiagonalratecalculate. </p></td>
+</tr>
+<tr class="row-odd"><td><p>u8ThHigh</p></td>
+<td><p>heightthreshold. useingainanddiagonalratecalculate. </p></td>
+</tr>
+<tr class="row-even"><td><p>u8GainLow</p></td>
+<td><p>lowgainvalue. The value range is [0x0, 0xFE]. </p></td>
+</tr>
+<tr class="row-odd"><td><p>u8GainHigh</p></td>
+<td><p>heightgainvalue. The value range is [0x0, 0xFE]. </p></td>
+</tr>
+<tr class="row-even"><td><p>u8SlopLow</p></td>
+<td><p>lowdiagonalratevalue. The value range is [0x0, 0xF]. </p></td>
+</tr>
+<tr class="row-odd"><td><p>u8SlopHigh</p></td>
+<td><p>heightdiagonalratevalue. The value range is [0x0, 0xF]. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<ul class="simple">
+<li><p>AF window X regionmustin [0x8 ~ image xsize - 8] ofinterval, Y regionmustin [0x2 ~ image ysize - 2] ofinterval. </p></li>
+</ul>
+<p>[Related Data Types and Interfaces]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#isp-focus-statistics-cfg-s">ISP_FOCUS_STATISTICS_CFG_S</a></p></li>
+<li><p><a class="reference internal" href="6_AF.html#isp-af-crop-s">ISP_AF_CROP_S</a></p></li>
+</ul>
+</section>
+<section id="isp-af-crop-s">
+<h4><span class="section-number">6.5.2.11. </span>ISP_AF_CROP_S<a class="headerlink" href="6_AF.html#isp-af-crop-s" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>Define  AF statistical informationInputimagecropconfiguration. usercanthrough X, Y, W, H tolimit AF systemstatisticalregion. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_AF_CROP_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bEnable</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16X</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16Y</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16W</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16H</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_AF_CROP_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>bEnable</p></td>
+<td><p>Enableopenclose. is CVI_TRUE whenenableusecrop. </p></td>
+</tr>
+<tr class="row-odd"><td><p>u16X</p></td>
+<td><p>cropregion X startcoordinates. The value range is [0x8, 0xFFF]. </p></td>
+</tr>
+<tr class="row-even"><td><p>u16Y</p></td>
+<td><p>cropregion Y startcoordinates. The value range is [0x2, 0xFFF]. </p></td>
+</tr>
+<tr class="row-odd"><td><p>u16W</p></td>
+<td><p>cropregionwidth. The value range is [0x110, 0xFFF]. </p></td>
+</tr>
+<tr class="row-even"><td><p>u16H</p></td>
+<td><p>cropregionheight. The value range is [0xF0, 0xFFF]. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<ul class="simple">
+<li><p>X coordinatesminimumvalueis 0x8, Y coordinatesminimumvalueis 0x2, thisishardwarelimit. </p></li>
+<li><p>cropregionnotcanexceedoutputimagevalidregion. </p></li>
+</ul>
+<p>[Related Data Types and Interfaces]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_AF.html#isp-af-cfg-s">ISP_AF_CFG_S</a></p></li>
+</ul>
+</section>
+<section id="isp-focus-zone-s">
+<h4><span class="section-number">6.5.2.12. </span>ISP_FOCUS_ZONE_S<a class="headerlink" href="6_AF.html#isp-focus-zone-s" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>Define singleregionblock  AF statistical informationoutput. containheightpassfilteringvalueandheightbrightpointstatisticalnumber. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_FOCUS_ZONE_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16HlCnt</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U64</span><span class="w"> </span><span class="n">u64h0</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U64</span><span class="w"> </span><span class="n">u64h1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32v0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_FOCUS_ZONE_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>u16HlCnt</p></td>
+<td><p>heightbrightpointpixelstatisticalnumber. useindetectionwindowin throughexposurebrightpointquantity, auxiliarydeterminelight sourcefocus affects. </p></td>
+</tr>
+<tr class="row-odd"><td><p>u64h0</p></td>
+<td><p>horizontaldirection FIR filter 0  outputaccumulatevalue. </p></td>
+</tr>
+<tr class="row-even"><td><p>u64h1</p></td>
+<td><p>horizontaldirection FIR filter 1  outputaccumulatevalue. </p></td>
+</tr>
+<tr class="row-odd"><td><p>u32v0</p></td>
+<td><p>verticalhistogramto FIR filter outputaccumulatevalue. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<p>None. </p>
+<p>[Related Data Types and Interfaces]</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ISP_FE_FOCUS_STATISTICS_S</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ISP_AF_STATISTICS_S</span></code></p></li>
+</ul>
+</section>
+<section id="isp-af-statistics-s">
+<h4><span class="section-number">6.5.2.13. </span>ISP_AF_STATISTICS_S<a class="headerlink" href="6_AF.html#isp-af-statistics-s" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>Define  AF statistical informationnumberdatastructure. encapsulateinstallbeforeend (FE) AF systemstatisticaloutput. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_AF_STATISTICS_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">ISP_FE_FOCUS_STATISTICS_S</span><span class="w"> </span><span class="n">stFEAFStat</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_AF_STATISTICS_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>stFEAFStat</p></td>
+<td><p>beforeend AF statistical information. contain 15 x 17 regionblock degreeamountnumberdata. parametersee <code class="docutils literal notranslate"><span class="pre">ISP_FE_FOCUS_STATISTICS_S</span></code> . </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<ul class="simple">
+<li><p>thenumberdatastructurein ISP Runwhenbyhardwareautomaticmorenew, userthrough CVI_ISP_GetFocusStatistics Get. </p></li>
+<li><p>currently AF onlysupport Bayer domain statistical information. </p></li>
+</ul>
+<p>[Related Data Types and Interfaces]</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">CVI_ISP_GetFocusStatistics</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ISP_FOCUS_ZONE_S</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ISP_FE_FOCUS_STATISTICS_S</span></code></p></li>
+</ul>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="5_AWB.html" class="btn btn-neutral float-left" title="5. AWB" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="7_IMP.html" class="btn btn-neutral float-right" title="7. IMP" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Go to official website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="Go to Documentation Center"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Top of page"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Bottom of page"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR code for this page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

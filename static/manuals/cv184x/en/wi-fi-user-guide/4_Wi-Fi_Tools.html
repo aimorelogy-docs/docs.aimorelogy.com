@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4. Wi-FiTools &mdash; Wi-FiUserGuide master Documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="5. Wi-Fi Operation" href="5_Wi-Fi_Basic_Operation.html" />
+    <link rel="prev" title="3. Configuration Description" href="3_Configuration_Description.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Wi-FiUserGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Overview.html">2. Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Configuration_Description.html">3. Configuration Description</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="4_Wi-Fi_Tools.html#">4. Wi-FiTools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_Wi-Fi_Basic_Operation.html">5. Wi-Fi Operation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_RTL8189FS_Connection_Guide.html">6. CV184x RTL8189FS WiFi  FlowDescription</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_Tests.html">7. Tests</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Wi-FiUserGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">4. </span>Wi-FiTools</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/4_Wi-Fi_Tools.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="wi-fi">
+<h1><span class="section-number">4. </span>Wi-FiTools<a class="headerlink" href="4_Wi-Fi_Tools.html#wi-fi" title="Permalink to this heading">¶</a></h1>
+<p>Operation Wi-Fi Need toUse wpa_supplicant、wpa_cli、hostapd etc. Tools。in CViTek MediaSDK Configuration in  Rootfs packages（MenuPathusually Top → Rootfs packages）， need under andWirelessand AP/NAT Relatedof after Configuration， BuildImage：</p>
+<ul class="simple">
+<li><p>Target package wifi：will wpa_supplicant、hostapd etc.Insert rootfs（ after needEnable wireless  Option）。</p></li>
+<li><p>Target package iptables (userspace, legacy)：User space iptables；Ifneedin on  NAT、Forwarding（  <a class="reference internal" href="6_RTL8189FS_Connection_Guide.html"><span class="doc">CV184x RTL8189FS WiFi  FlowDescription</span></a> in AP   eth0 Uplinketc.Steps），Please and 。</p></li>
+</ul>
+<p>underFigureis Rootfs packages in inof Example（  wifi、iptables etc.； Tablewith Useof SDK  is ）：</p>
+<a class="reference internal image-reference" href="_images/image11_rootfs_packages.png"><img alt="_images/image11_rootfs_packages.png" src="_images/image11_rootfs_packages.png" style="width: 924px;" /></a>
+<ul class="simple">
+<li><p> can  Target package wifi afterEnable wireless Option， afterExecuteBuild（andon  Rootfs packages Menu）。</p></li>
+</ul>
+<a class="reference internal image-reference" href="_images/image1.png"><img alt="_images/image1.png" src="_images/image1.png" style="width: 924px;" /></a>
+<a class="reference internal image-reference" href="_images/image8.PNG"><img alt="_images/image8.PNG" src="_images/image8.PNG" style="width: 924px;" /></a>
+<ul class="simple">
+<li><p>orModifybuild/boards/{chip_name}/{board_name}/{board_name}_defconfigEnableas followsOption， CommandsMode， Executedefconfig $CHIP_$BOARD, with Configuration</p></li>
+</ul>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#</span>
+<span class="cp"># Rootfs packages</span>
+<span class="cp">#</span>
+<span class="p">...</span><span class="w"></span>
+<span class="n">CONFIG_TARGET_PACKAGE_WIFI</span><span class="o">=</span><span class="n">y</span><span class="w"></span>
+<span class="n">CONFIG_CP_EXT_WIRELESS</span><span class="o">=</span><span class="n">y</span><span class="w"></span>
+<span class="cp"># end of Rootfs packages</span>
+</pre></div>
+</div>
+<p>IfUser , can  <a class="reference external" href="http://w1.fi/releases">http://w1.fi/releases</a> or  <a class="reference external" href="http://www.linuxfromscratch.org/blfs/view/svn/basicnet/wireless_tools.html">http://www.linuxfromscratch.org/blfs/view/svn/basicnet/wireless_tools.html</a> Get，and Install rootfs。</p>
+<p>SDK  Buildof wpa_supplicant、hostapd etc.  <code class="docutils literal notranslate"><span class="pre">ramdisk/rootfs/public/wifi/musl_arm/``（and</span> <span class="pre">``packages_arch=musl_arm</span></code>  ）；from ContentsPackageCopyto ofSteps  <a class="reference internal" href="6_RTL8189FS_Connection_Guide.html"><span class="doc">CV184x RTL8189FS WiFi  FlowDescription</span></a>。</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="3_Configuration_Description.html" class="btn btn-neutral float-left" title="3. Configuration Description" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="5_Wi-Fi_Basic_Operation.html" class="btn btn-neutral float-right" title="5. Wi-Fi Operation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Go to Official Website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="Go to Documentation Center"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Back to top"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Go to bottom"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR code for this page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

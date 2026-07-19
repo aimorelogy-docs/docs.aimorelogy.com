@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2. Overview &mdash; CIPHERAPIReference master Documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="3. API Reference" href="3_API_Reference.html" />
+    <link rel="prev" title="1. Disclaimer" href="1_disclaimer.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> CIPHERAPIReference
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="2_Overview.html#">2. Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_Overview.html#id2">2.1. Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Overview.html#id3">2.2. Usage Flow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_Overview.html#id4">2.2.1. Single-Packet Data Encryption/Decryption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Overview.html#id5">2.2.2. Multi-Packet Data Encryption/Decryption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Overview.html#hash">2.2.3. HASH Calculation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Overview.html#hmac-note-sw">2.2.4. HMAC Calculation (NOTE SW)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Overview.html#id6">2.2.5. Generate Random Numbers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Overview.html#rsa-note-sw">2.2.6. RSA Encryption/Decryption Procedure (NOTE SW)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Overview.html#rsa">2.2.7. RSA Signing and Signature Verification Procedure</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3_API_Reference.html">3. API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_Data_Type.html">4. Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_Error_Code.html">5. Error Code</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CIPHERAPIReference</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">2. </span>Overview</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/2_Overview.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">2. </span>Overview<a class="headerlink" href="2_Overview.html#id1" title="Permalink to this headline">¶</a></h1>
+<section id="id2">
+<h2><span class="section-number">2.1. </span>Overview<a class="headerlink" href="2_Overview.html#id2" title="Permalink to this headline">¶</a></h2>
+<p>CIPHER isJingshi Intelligentnumbermediaprocessingplatformprovidesecurityalgorithmmodule, provides symmetric encryption/decryption algorithms including  AES/DES/SM4, Asymmetric Encryption/Decryption Algorithms RSA(Note SW), Random Number Generation, anddigest algorithmpacketinsertHASH, HMAC, mainneed toused to audiovideobitstreamperform encryption/decryptionprotection, authenticationuservalidnessetc.scene, eachfunctiondivideas follows:</p>
+<p><strong>Symmetric Encryption Algorithms</strong></p>
+<ul class="simple">
+<li><p>AES: supports ECB/CBC/CTR/ CCM/GCM (Note SW)etc.operating mode, where CCM/GCM modeunder, encryption/decryptionendafterneed togetonetime TAG value. </p></li>
+<li><p>DES: supports ECB/CBC/CTR/ CFB/OFB (Note SW)etc.operating mode, where CFB and OFB modesupportbit widthcan is1/8/64</p></li>
+<li><p>SM4: supports ECB/CBC/CTRetc.operating mode</p></li>
+</ul>
+<p>withonalgorithmexcept CTR/ CCM/GCM,  itsitalgorithm, modedatalengthmustpressblock sizealignment; CCM/GCM  N, A need torely onsoftwarepressstandardtheeachfieldpackagebecomeblock sizealignmentdatablock; </p>
+<p><strong>Asymmetric Encryption/Decryption Algorithms</strong></p>
+<ul class="simple">
+<li><p>RSA (Note SW): supportkeybit width 1024/2048/3072/4096</p></li>
+</ul>
+<p>RSA keybit width 1024 andwithunderalgorithmisindustryknownnotsecurityalgorithm, shouldprohibituse. </p>
+<p><strong>Random Number Generation</strong></p>
+<ul class="simple">
+<li><p>RNG: highrategetrandom number</p></li>
+</ul>
+<p><strong>Digest Algorithms</strong></p>
+<ul class="simple">
+<li><p>HASH: supports SHA1/SHA2/ SHA512/SM3 (Note SW); </p></li>
+<li><p>HMAC : supportHMAC1/HMAC224/HMAC256/HMAC384/HMAC512 (Note SW); </p></li>
+</ul>
+<p>SHA1 algorithmsecuritynessrelativelylow, notcanapplicationinreferencewithgenerate"numbersignature"scene, recommenduse SHA2 (256 bitsandwithon) algorithm. </p>
+</section>
+<section id="id3">
+<h2><span class="section-number">2.2. </span>Usage Flow<a class="headerlink" href="2_Overview.html#id3" title="Permalink to this headline">¶</a></h2>
+<section id="id4">
+<h3><span class="section-number">2.2.1. </span>Single-Packet Data Encryption/Decryption<a class="headerlink" href="2_Overview.html#id4" title="Permalink to this headline">¶</a></h3>
+<p><strong>Scenario Description</strong></p>
+<p>When physicalmemoryinhasa segmentbitstreamdataneed toperform add/decryptionwhen, getitsphysicaladdressafter, inuserlayercall CIPHER moduleimplementsinglepacketdataadd/decryption. </p>
+<p><strong>Workflow</strong></p>
+<p>fordataperform symmetric AES/DES/SM4 encryption/decryptionprocessas follows: </p>
+<p>Step 1 : CIPHERdevice initialization. Call the API CVI_UNF_CIPHER_Init completed. </p>
+<p>Step 2 : Get the CIPHER handle. Call the API CVI_UNF_CIPHER_CreateHandle completed. </p>
+<p>Step 3 : Configure CIPHER control information, includingkey, initial vector, encryption algorithm, operating modeetc.information. Call the APICVI_UNF_CIPHER_ConfigHandle orCVI_UNF_CIPHER_ConfigHandleEx completed. </p>
+<p>Step 4 : Encrypt/decrypt data. callwithunderany oneconnectportperform encryption/decryption. </p>
+<ul class="simple">
+<li><p>Single-packet encryption, CVI_UNF_CIPHER_Encrypt</p></li>
+<li><p>Single-packet decryption, CVI_UNF_CIPHER_Decrypt</p></li>
+</ul>
+<p>Step 5 : If use CCM, GCM (Note SW)mode, Call the APICVI_UNF_CIPHER_GetTagTAG value retrieval. </p>
+<p>Step 6 : Destroy the CIPHER handle. Call the API CVI_UNF_CIPHER_DestroyHandle completed. </p>
+<p>Step 7 : Close the CIPHER device.Call the API CVI_UNF_CIPHER_Deinit completed. </p>
+<p><strong>Precautions</strong></p>
+</section>
+<section id="id5">
+<h3><span class="section-number">2.2.2. </span>Multi-Packet Data Encryption/Decryption<a class="headerlink" href="2_Overview.html#id5" title="Permalink to this headline">¶</a></h3>
+<p><strong>Scenario Description</strong></p>
+<p>When physicalmemoryinhasmultiplesegmentbitstreamdataneed toperform add/decryptionwhen, getitsphysicaladdressafter, inuserlayercall CIPHER moduleimplementmultiplepacketdataadd/decryption. </p>
+<p><strong>Workflow</strong></p>
+<p>fordataperform symmetric AES/DES/SM4 encryption/decryptionprocessas follows: </p>
+<p>Step 1 : CIPHERdevice initialization. Call the API CVI_UNF_CIPHER_Init completed. </p>
+<p>Step 2 : Get the CIPHER handle. Call the API CVI_UNF_CIPHER_CreateHandle completed. </p>
+<p>Step 3 : Configure CIPHER control information, includingkey, initial vector, encryption algorithm, operating modeetc.information. Call the API CVI_UNF_CIPHER_ConfigHandle or CVI_UNF_CIPHER_ConfigHandleEx completed. </p>
+<p>Step 4 : Encrypt/decrypt data. callwithunderany oneconnectportperform encryption/decryption. </p>
+<ul class="simple">
+<li><p>Multi-packet encryption, CVI_UNF_CIPHER_EncryptMulti</p></li>
+<li><p>Multi-packet decryption, CVI_UNF_CIPHER_DecryptMulti</p></li>
+</ul>
+<p>Step 5 : Destroy the CIPHER handle. Call the API CVI_UNF_CIPHER_DestroyHandle completed. </p>
+<p>Step 6 : Close the CIPHER device.Call the API CVI_UNF_CIPHER_Deinit completed. </p>
+<p><strong>Precautions</strong></p>
+</section>
+<section id="hash">
+<h3><span class="section-number">2.2.3. </span>HASH Calculation<a class="headerlink" href="2_Overview.html#hash" title="Permalink to this headline">¶</a></h3>
+<p><strong>Scenario Description</strong></p>
+<p>calculatedataHASHvalue, can selectSHA1/SHA2/ SHA512/SM3 (Note SW)</p>
+<p><strong>Workflow</strong></p>
+<p>Step 1 : CIPHERdevice initialization. Call the API CVI_UNF_CIPHER_Init completed. </p>
+<p>Step 2 : Get HASHhandle, selectHASHalgorithm. Call the API CVI_UNF_CIPHER_HashInit completed. </p>
+<p>Step 3 : inputdata, one by onedatablocks sequentiallycalculate HASH value. Call the API CVI_UNF_CIPHER_HashUpdate completed. </p>
+<p>Step 4 : If digestunusedcalculatecomplete, thentimeexecutestep 3. </p>
+<p>Step 5 : Complete the digest calculation, end input, and obtain the result.Call the API CVI_UNF_CIPHER_HashFinal completed. </p>
+<p>Step 6 : Close the CIPHER device.Call the API CVI_UNF_CIPHER_Deinit completed. </p>
+<p><strong>Precautions</strong></p>
+</section>
+<section id="hmac-note-sw">
+<h3><span class="section-number">2.2.4. </span>HMAC Calculation (NOTE SW)<a class="headerlink" href="2_Overview.html#hmac-note-sw" title="Permalink to this headline">¶</a></h3>
+<p><strong>Scenario Description</strong></p>
+<p>based onHASHalgorithm, calculatedataHMACvalue. </p>
+<p><strong>Workflow</strong></p>
+<p>Step 1 : CIPHERdevice initialization. Call the API CVI_UNF_CIPHER_Init completed. </p>
+<p>Step 2 : Get HASHhandle, selectHASHalgorithmandconfigureHMAC Calculationkey,Call the API CVI_UNF_CIPHER_HashInitcompleted. </p>
+<p>Step 3 : inputdata, one by onedatablocks sequentiallycalculate HMAC value. Call the API CVI_UNF_CIPHER_HashUpdate completed. </p>
+<p>Step 4 : If digestunusedcalculatecomplete, thentimeexecutestep 3. </p>
+<p>Step 5 : completedigestcalculate, endinput, GetHMAC Calculationresult. Call the API CVI_UNF_CIPHER_HashFinal completed. </p>
+<p>Step 6 : Close the CIPHER device.Call the API CVI_UNF_CIPHER_Deinit completed. </p>
+<p><strong>Precautions</strong></p>
+</section>
+<section id="id6">
+<h3><span class="section-number">2.2.5. </span>Generate Random Numbers<a class="headerlink" href="2_Overview.html#id6" title="Permalink to this headline">¶</a></h3>
+<p><strong>Scenario Description</strong></p>
+<p>Obtain true random numbers generated by the hardware</p>
+<p><strong>Workflow</strong></p>
+<p>Step 1 : CIPHERdevice initialization. Call the API CVI_UNF_CIPHER_Init completed. </p>
+<p>Step 2 : Get 256bitsrandom number, Call the API CVI_UNF_CIPHER_GetRandomNumbercompleted. </p>
+<p>Step 3 : Close the CIPHER device.Call the API CVI_UNF_CIPHER_Deinit completed. </p>
+<p><strong>Precautions</strong></p>
+</section>
+<section id="rsa-note-sw">
+<h3><span class="section-number">2.2.6. </span>RSA Encryption/Decryption Procedure (NOTE SW)<a class="headerlink" href="2_Overview.html#rsa-note-sw" title="Permalink to this headline">¶</a></h3>
+<p><strong>Scenario Description</strong></p>
+<p>Perform  RSA notsymmetricalgorithmencryption/decryption. usepublic keyencryptiondata, mustuseprivate keyperform decryption. conversely, useprivate keyencryptiondata, mustusepublic keydecryption. </p>
+<p><strong>Workflow</strong></p>
+<p>Step 1 : CIPHERdevice initialization. Call the API CVI_UNF_CIPHER_Init completed. </p>
+<p>Step 2 : fordataperform encryption/decryptionorsignatureverification. according tousekeynotsame, callwithunderany oneconnectportperform encryption/decryption, signatureverification, generatekeyforetc.. </p>
+<ul class="simple">
+<li><p>public keyencryption : CVI_UNF_CIPHER_RsaPublicEncrypt</p></li>
+<li><p>private keydecryption : CVI_UNF_CIPHER_RsaPrivateDec</p></li>
+<li><p>private keyencryption : CVI_UNF_CIPHER_RsaPrivateEnc</p></li>
+<li><p>public keydecryption : CVI_UNF_CIPHER_RsaPublicDec</p></li>
+<li><p>private keysignature : CVI_UNF_CIPHER_RsaSign</p></li>
+<li><p>public keyverification : CVI_UNF_CIPHER_RsaVerify</p></li>
+</ul>
+<p>Step 3 : Close the CIPHER device.Call the API CVI_UNF_CIPHER_Deinit completed. </p>
+<p><strong>Precautions</strong></p>
+</section>
+<section id="rsa">
+<h3><span class="section-number">2.2.7. </span>RSA Signing and Signature Verification Procedure<a class="headerlink" href="2_Overview.html#rsa" title="Permalink to this headline">¶</a></h3>
+<p><strong>Scenario Description</strong></p>
+<p>Perform  RSA signatureandsignature verificationwhen, useprivate keyperform datasignature, useperform datasignature verification. </p>
+<p><strong>Workflow</strong></p>
+<p>Step 1 : CIPHERdevice initialization. Call the API CVI_UNF_CIPHER_Init completed. </p>
+<p>Step 2 : fordataperform signatureverification. </p>
+<ul class="simple">
+<li><p>private keysignature : CVI_UNF_CIPHER_RsaSign</p></li>
+<li><p>public keyverification : CVI_UNF_CIPHER_RsaVerify</p></li>
+</ul>
+<p>Step 3 : Close the CIPHER device.Call the API CVI_UNF_CIPHER_Deinit completed. </p>
+<p><strong>Precautions</strong></p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="1_disclaimer.html" class="btn btn-neutral float-left" title="1. Disclaimer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="3_API_Reference.html" class="btn btn-neutral float-right" title="3. API Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Visit official website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="Go to Documentation Center"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Top of page"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Bottom of page"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR Code for This Page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

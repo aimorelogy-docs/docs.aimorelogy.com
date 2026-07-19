@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV184X Sensor Debugging Guide &mdash; Sensor_Debugging_Guide master documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="5. Image Output Debugging(Aliosthe corresponding content)" href="5_Image_Output_Debugging.html" />
+    <link rel="prev" title="3. Confirm Specifications" href="3_Confirm_Specifications.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Sensor_Debugging_Guide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Introduction_to_Sensor_Drivers.html">2. SensorDriverIntroduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Confirm_Specifications.html">3. Confirm Specifications</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="4_Image_Output_Debugging.html#">4. Image Output Debugging(Linuxthe corresponding content)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="4_Image_Output_Debugging.html#id1">4.1. Hardwarethe corresponding content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_Image_Output_Debugging.html#id2">4.2. ConfigurationInitializethe corresponding content</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="4_Image_Output_Debugging.html#sensor">4.2.1. the corresponding contentSensorDriver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Image_Output_Debugging.html#id3">4.2.2. SensorInitializethe corresponding content</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="4_Image_Output_Debugging.html#sample-common-alios-config">4.3. Adaptationsample common the corresponding content alios config</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_Image_Output_Debugging.html#sensor-driver">4.4. the corresponding contentSetsensor driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_Image_Output_Debugging.html#sensor-ini-cfg">4.5. the corresponding contentsensor ini cfgConfiguration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_Image_Output_Debugging.html#sensor-test">4.6. the corresponding contentRunsensor_test</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="5_Image_Output_Debugging.html">5. Image Output Debugging(Aliosthe corresponding content)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_Image_Output_Verification.html">6. ImageOutput Verification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_Basic_Functions_of_ISP.html">7. ISP Basic Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_Complete_the_AE_Configuration_Function.html">8. Complete the AE Configuration Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_Complete_Other_Functions.html">9. Complete Other Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_AE_Related_Verification.html">10. AERelatedVerification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_Common_Problem.html">11. FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_Color_Noise_Reduction_and_Other_Corrections.html">12. Color, Noise Reduction, and Other Corrections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_Debugging_Tool.html">13. Debugging Tool</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Sensor_Debugging_Guide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">4. </span>Image Output Debugging(Linuxthe corresponding content)</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/4_Image_Output_Debugging.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="linux">
+<h1><span class="section-number">4. </span>Image Output Debugging(Linuxthe corresponding content)<a class="headerlink" href="4_Image_Output_Debugging.html#linux" title="Permalink to this heading">¶</a></h1>
+<section id="id1">
+<h2><span class="section-number">4.1. </span>Hardwarethe corresponding content<a class="headerlink" href="4_Image_Output_Debugging.html#id1" title="Permalink to this heading">¶</a></h2>
+<ul>
+<li><p>verifySensorthe corresponding content.</p></li>
+<li><p>verifySensor Reset GPIOthe corresponding content.</p></li>
+<li><p>verifySensorInputthe corresponding content(the corresponding contentProcessorthe corresponding content)</p></li>
+<li><p>verifyI2Cthe corresponding contentSensorthe corresponding content.</p>
+<p>the corresponding contentcallFile Systemthe corresponding contentdefaultthe corresponding contenti2c_read/i2c_writeCommandVerification.</p>
+</li>
+</ul>
+</section>
+<section id="id2">
+<h2><span class="section-number">4.2. </span>ConfigurationInitializethe corresponding content<a class="headerlink" href="4_Image_Output_Debugging.html#id2" title="Permalink to this heading">¶</a></h2>
+<p>ConfigurationInitializethe corresponding contentrecommendthe corresponding contentVersionreleasethe corresponding contentsensorDriver。</p>
+<p>the corresponding contentsensor bringuprecommendthe corresponding contentAEthe corresponding contentRelatedthe corresponding contentcallbacksthe corresponding content。</p>
+<ul class="simple">
+<li><p>modifysample_common_vi.c，the corresponding contentSAMPLE_COMM_ISP_Runcall。</p></li>
+</ul>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/image11.png"><img alt="_images/image11.png" src="_images/image11.png" style="width: 80%;" /></a>
+</figure>
+<ul class="simple">
+<li><p>modifyxxx_cmos_ctrl.cthe corresponding contentinitfunction，the corresponding contentxxx_default_reg_initcall。</p></li>
+</ul>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/image22.png"><img alt="_images/image22.png" src="_images/image22.png" style="width: 80%;" /></a>
+</figure>
+<p>the corresponding contentsensorAdaptationthe corresponding contentdisplaythe corresponding contentImagethe corresponding content，the corresponding contentOpenthe corresponding content。</p>
+<section id="sensor">
+<h3><span class="section-number">4.2.1. </span>the corresponding contentSensorDriver<a class="headerlink" href="4_Image_Output_Debugging.html#sensor" title="Permalink to this heading">¶</a></h3>
+<ul>
+<li><p>the corresponding contentSensorthe corresponding content、the corresponding contentResolutionthe corresponding contentWDRmodeselectreleasethe corresponding contentsensorDriverthe corresponding contentmodifythe corresponding contentsensorthe corresponding content。</p>
+<p>the corresponding contentcomponent/isp/user/sensor/cv18xx/xxxxthe corresponding contentxxxx_cmos.c、xxxx_cmos_ex.h、xxxx_cmos_param.hthe corresponding contentxxxx_sensor_ctl.c</p>
+</li>
+<li><p>modifyxxxx_sensor_ctl.cthe corresponding contentI2C Configurationthe corresponding contenti2c_addr, addr_bytethe corresponding contentdata_byte</p></li>
+</ul>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">const</span><span class="w"> </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">imx327_i2c_addr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x1A</span><span class="p">;</span><span class="w"></span>
+<span class="k">const</span><span class="w"> </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">imx327_addr_byte</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">;</span><span class="w"></span>
+<span class="k">const</span><span class="w"> </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">imx327_data_byte</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>the corresponding contentsensorInterfacethe corresponding content, modifyxxxx_cmos_param.hthe corresponding contentxxxx_rx_attrthe corresponding contentpfnGetRxAttr, Setmipi-rxthe corresponding content。</p></li>
+</ul>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/image31.png"><img alt="_images/image31.png" src="_images/image31.png" style="width: 80%;" /></a>
+</figure>
+<blockquote>
+<div><p>.Input_mode:SetInputmodeYesmipithe corresponding contentYesbt656the corresponding content。</p>
+<p>.Mac_clk: macthe corresponding contentFrequency</p>
+<p>.raw_date_type:datathe corresponding content</p>
+<p>.lane id:mipiDatalane、the corresponding contentlanethe corresponding contentIDConfiguration</p>
+<p>.cam: mclk ID</p>
+<p>.freq: SOCthe corresponding contentsensorthe corresponding contentInputthe corresponding content</p>
+<p>.devno:mipirxthe corresponding contentNumber，sensor ID</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>the corresponding contentsensorOutputmode, modifyxxxx_cmos_param.hthe corresponding contentg_astxxx_mode.</p></li>
+</ul>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">IMX327_MODE_S</span><span class="w"> </span><span class="n">g_astImx327_mode</span><span class="p">[</span><span class="n">IMX327_MODE_NUM</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="p">[</span><span class="n">IMX327_MODE_1080P30</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="p">.</span><span class="n">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;1080p30&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="p">.</span><span class="n">astImg</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">         </span><span class="p">.</span><span class="n">stSnsSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="n">u32Width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1948</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="n">u32Height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1097</span><span class="p">,</span><span class="w"></span>
+<span class="w">         </span><span class="p">},</span><span class="w"></span>
+<span class="w">         </span><span class="p">.</span><span class="n">stWndRect</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="n">s32X</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="n">s32Y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="n">u32Width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1920</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="n">u32Height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1080</span><span class="p">,</span><span class="w"></span>
+<span class="w">         </span><span class="p">},</span><span class="w"></span>
+<span class="w">         </span><span class="p">.</span><span class="n">stMaxSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="n">u32Width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1948</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="p">.</span><span class="n">u32Height</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1097</span><span class="p">,</span><span class="w"></span>
+<span class="w">         </span><span class="p">},</span><span class="w"></span>
+<span class="w">      </span><span class="p">},</span><span class="w"></span>
+<span class="w">      </span><span class="p">.</span><span class="n">f32MaxFps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="p">.</span><span class="n">f32MinFps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.119</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="p">.</span><span class="n">u32HtsDef</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x1130</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="p">.</span><span class="n">u32VtsDef</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1125</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="p">.</span><span class="n">stExp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">         </span><span class="p">.</span><span class="n">u16Min</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">         </span><span class="p">.</span><span class="n">u16Max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1123</span><span class="p">,</span><span class="w"></span>
+<span class="w">         </span><span class="p">.</span><span class="n">u16Def</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span><span class="w"></span>
+<span class="w">         </span><span class="p">.</span><span class="n">u16Step</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="p">},</span><span class="w"></span>
+<span class="w">      </span><span class="p">.</span><span class="n">stAgain</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">         </span><span class="p">.</span><span class="n">u16Min</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1024</span><span class="p">,</span><span class="w"></span>
+<span class="w">         </span><span class="p">.</span><span class="n">u16Max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">62416</span><span class="p">,</span><span class="w"></span>
+<span class="w">         </span><span class="p">.</span><span class="n">u16Def</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1024</span><span class="p">,</span><span class="w"></span>
+<span class="w">         </span><span class="p">.</span><span class="n">u16Step</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="p">},.</span><span class="n">stDgain</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">         </span><span class="p">.</span><span class="n">u16Min</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1024</span><span class="p">,</span><span class="w"></span>
+<span class="w">         </span><span class="p">.</span><span class="n">u16Max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">38485</span><span class="p">,</span><span class="w"></span>
+<span class="w">         </span><span class="p">.</span><span class="n">u16Def</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1024</span><span class="p">,</span><span class="w"></span>
+<span class="w">         </span><span class="p">.</span><span class="n">u16Step</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="p">},</span><span class="w"></span>
+<span class="w">      </span><span class="p">.</span><span class="n">u16RHS1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="p">.</span><span class="n">u16BRL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1109</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="p">.</span><span class="n">u16OpbSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="p">.</span><span class="n">u16MarginVtop</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="p">.</span><span class="n">u16MarginVbot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="p">},</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<ul>
+<li><p>modifypfn_cmos_set_image_mode, the corresponding contentFramethe corresponding contentsensormode.</p>
+<p>the corresponding contentinit sequencethe corresponding contentOutputmodethe corresponding contentYesthe corresponding contentResolution，the corresponding contentYesall pixel scanmode。</p>
+<p>the corresponding contentneedthe corresponding contentsensorthe corresponding contentdatathe corresponding content，the corresponding contentneedAdaptationthe corresponding contentwindow crop mode，the corresponding contentsensorthe corresponding content</p>
+<p>the corresponding contentcrop modethe corresponding contentinit sequence，orthe corresponding contentsensor specthe corresponding contentmodify。</p>
+</li>
+</ul>
+</section>
+<section id="id3">
+<h3><span class="section-number">4.2.2. </span>SensorInitializethe corresponding content<a class="headerlink" href="4_Image_Output_Debugging.html#id3" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>the corresponding contentxxxx_sensor_ctrl.cthe corresponding contentsensormodethe corresponding contentpfn_cmos_sensor_init.</p></li>
+<li><p>the corresponding contentxxxx_sensor_ctrl.c the corresponding contentxxxx_default_reg_initthe corresponding content.</p></li>
+<li><p>the corresponding contentsensor object</p></li>
+</ul>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/image41.png"><img alt="_images/image41.png" src="_images/image41.png" style="width: 80%;" /></a>
+</figure>
+</section>
+</section>
+<section id="sample-common-alios-config">
+<h2><span class="section-number">4.3. </span>Adaptationsample common the corresponding content alios config<a class="headerlink" href="4_Image_Output_Debugging.html#sample-common-alios-config" title="Permalink to this heading">¶</a></h2>
+<ul>
+<li><p>the corresponding contentsensor object externthe corresponding content</p>
+<p>build/media/sensor/sensor_cfg/sensor_cfg.c</p>
+<p>the corresponding contentgetSnsObj(SNS_TYPE_E enSnsType) functionthe corresponding content。</p>
+</li>
+</ul>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/image-output-6.png"><img alt="_images/image-output-6.png" src="_images/image-output-6.png" style="width: 80%;" /></a>
+</figure>
+<ul>
+<li><p>the corresponding content_SNS_TYPE_Ethe corresponding content</p>
+<p>build/media/sensor/sensor_cfg/sensor_cfg.h</p>
+<p>the corresponding content_SNS_TYPE_E the corresponding contentlistthe corresponding content，linearthe corresponding content，WDRthe corresponding content。</p>
+</li>
+</ul>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/image-output-5.png"><img alt="_images/image-output-5.png" src="_images/image-output-5.png" style="width: 80%;" /></a>
+</figure>
+<ul>
+<li><p>sample_common_vi.cthe corresponding contentSAMPLE_COMM_VI_GetDevAttrBySns、</p>
+<p>SAMPLE_COMM_VI_GetSizeBySensorthe corresponding contentcase。</p>
+</li>
+</ul>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/ImageO008.png"><img alt="_images/ImageO008.png" src="_images/ImageO008.png" style="width: 80%;" /></a>
+</figure>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/image101.png"><img alt="_images/image101.png" src="_images/image101.png" style="width: 80%;" /></a>
+</figure>
+<ul class="simple">
+<li><p>the corresponding contentcvi_alios/components/cvi_mmf_sdk/cvi_sensor/package.yamlthe corresponding contentsensor driverContentsthe corresponding contentFileinformation</p></li>
+</ul>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/ImageO014.png"><img alt="_images/ImageO014.png" src="_images/ImageO014.png" style="width: 80%;" /></a>
+</figure>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/ImageO015.png"><img alt="_images/ImageO015.png" src="_images/ImageO015.png" style="width: 80%;" /></a>
+</figure>
+<ul>
+<li><p>the corresponding contentLinuxthe corresponding content，sensorConfigurationusethe corresponding contentInterfacethe corresponding contentas follows，the corresponding contentsample：</p></li>
+<li><p><cite>CVI_S32 CVI_SNS_GPIO_Init(VI_PIPE ViPipe, SNS_I2C_GPIO_INFO_S *pstGpioCfg);</cite></p>
+<blockquote>
+<div><p>Configurationthe corresponding contentsensorthe corresponding contentreset GPIOinformation，SNS_I2C_GPIO_INFO_Sthe corresponding contentas follows：</p>
+<blockquote>
+<div><p>typedef struct _SNS_I2C_GPIO_INFO_S {</p>
+<p>CVI_S8 s8I2cDev;</p>
+<p>CVI_S32 s32I2cAddr;</p>
+<p>CVI_U32 u32Rst_port_idx;</p>
+<p>CVI_U32 u32Rst_pin;</p>
+<p>CVI_U32 u32Rst_pol;</p>
+<p>} SNS_I2C_GPIO_INFO_S;</p>
+</div></blockquote>
+</div></blockquote>
+</li>
+<li><p><cite>CVI_S32 CVI_SNS_GetAhdStatus(VI_PIPE ViPipe, SNS_AHD_MODE_S *pstStatus);</cite></p>
+<blockquote>
+<div><p>GetAHD Sensorthe corresponding contentstatus，the corresponding contentAHD sensor， SNS_AHD_MODE_Sthe corresponding contentas follows：</p>
+<blockquote>
+<div><p>typedef enum _SNS_AHD_MODE_E {</p>
+<p>AHD_MODE_NONE,</p>
+<p>AHD_MODE_1280X720H_NTSC,</p>
+<p>AHD_MODE_1280X720H_PAL,</p>
+<p>AHD_MODE_1280X720P25,</p>
+<p>AHD_MODE_1280X720P30,</p>
+<p>AHD_MODE_1280X720P50,</p>
+<p>AHD_MODE_1280X720P60,</p>
+<p>AHD_MODE_1920X1080P25,</p>
+<p>AHD_MODE_1920X1080P30,</p>
+<p>AHD_MODE_2304X1296P25,</p>
+<p>AHD_MODE_2304X1296P30,</p>
+<p>AHD_MODE_BUIsensor_cfg.h
+} SNS_AHD_MODE_S;</p>
+</div></blockquote>
+</div></blockquote>
+</li>
+<li><p><cite>CVI_S32 CVI_SNS_SetSnsType(VI_PIPE ViPipe, CVI_U32 SnsType);</cite></p>
+<blockquote>
+<div><p>Setthe corresponding contentPIPEthe corresponding contentsensor ID，the corresponding contentmethodneedthe corresponding contentcallOthermethodthe corresponding contentcall， SnsTypecanthe corresponding contentsensor_cfg.h</p>
+</div></blockquote>
+</li>
+<li><p><cite>CVI_S32 CVI_SNS_SetSnsRxAttr(VI_PIPE ViPipe, RX_INIT_ATTR_S *pstRxAttr);</cite></p>
+<blockquote>
+<div><p>Setthe corresponding contentsensorthe corresponding contentRXConfiguration， RX_INIT_ATTR_Sthe corresponding contentcvi_sns_ctrl.h</p>
+</div></blockquote>
+</li>
+<li><p><cite>CVI_S32 CVI_SNS_SetSnsI2c(VI_PIPE ViPipe, CVI_S32 astI2cDev, CVI_S32 s32I2cAddr);</cite></p>
+<blockquote>
+<div><p>Setthe corresponding contentsensorthe corresponding contentI2Cthe corresponding contentAddress</p>
+</div></blockquote>
+</li>
+<li><p><cite>CVI_S32 CVI_SNS_SetSnsIspAttr(VI_PIPE ViPipe, ISP_INIT_ATTR_S *pstInitAttr);</cite></p>
+<blockquote>
+<div><p>Setsensorthe corresponding contentISPthe corresponding contentConfiguration，ISP_INIT_ATTR_Sthe corresponding contentcvi_sns_ctrl.h</p>
+</div></blockquote>
+</li>
+<li><p><cite>CVI_S32 CVI_SNS_RegCallback(VI_PIPE ViPipe, ISP_DEV IspDev);</cite></p>
+<blockquote>
+<div><p>Setsensorthe corresponding contentISPthe corresponding contentcallback</p>
+</div></blockquote>
+</li>
+<li><p><cite>CVI_S32 CVI_SNS_UnRegCallback(VI_PIPE ViPipe, ISP_DEV IspDev);</cite></p>
+<blockquote>
+<div><p>the corresponding contentsensorthe corresponding contentISPthe corresponding contentcallback</p>
+</div></blockquote>
+</li>
+<li><p><cite>CVI_S32 CVI_SNS_SetSnsImgMode(VI_PIPE ViPipe, ISP_CMOS_SENSOR_IMAGE_MODE_S *stSnsrMode);</cite></p>
+<blockquote>
+<div><p>Setsensorthe corresponding contentmode，Includesfps，sizethe corresponding content，ISP_CMOS_SENSOR_IMAGE_MODE_Sthe corresponding contentcvi_comm_sns.h</p>
+</div></blockquote>
+</li>
+<li><p><cite>CVI_S32 CVI_SNS_SetSnsWdrMode(VI_PIPE ViPipe, WDR_MODE_E wdrMode);</cite></p>
+<blockquote>
+<div><p>Setsensorthe corresponding contentWDR mode，WDR_MODE_Ethe corresponding contentcvi_comm_cif.h</p>
+</div></blockquote>
+</li>
+<li><p><cite>CVI_S32 CVI_SNS_GetSnsRxAttr(VI_PIPE ViPipe, SNS_COMBO_DEV_ATTR_S *stDevAttr);</cite></p>
+<blockquote>
+<div><p>Getsensorthe corresponding contentRXConfiguration，SNS_COMBO_DEV_ATTR_Sthe corresponding contentcvi_comm_cif.h</p>
+</div></blockquote>
+</li>
+<li><p><cite>CVI_S32 CVI_SNS_SetSnsProbe(VI_PIPE ViPipe);</cite></p>
+<blockquote>
+<div><p>Setthe corresponding contentPIPEthe corresponding contentsensorthe corresponding contentprobe</p>
+</div></blockquote>
+</li>
+<li><p><cite>CVI_S32 CVI_SNS_SetSnsGpioInit(CVI_U32 devNo, CVI_U32 u32Rst_port_idx, CVI_U32 u32Rst_pin, CVI_U32 u32Rst_pol);</cite></p>
+<blockquote>
+<div><p>Configurationthe corresponding contentsensorthe corresponding contentreset GPIOinformation，u32Rst_port_idx， u32Rst_pin，u32Rst_polthe corresponding contentiniConfigurationContent</p>
+</div></blockquote>
+</li>
+<li><p><cite>CVI_S32 CVI_SNS_RstSnsGpio(CVI_U32 devNo, CVI_U32 rstEnable);</cite></p>
+<blockquote>
+<div><p>the corresponding contentsensorthe corresponding contentrstthe corresponding contentvalidthe corresponding content</p>
+</div></blockquote>
+</li>
+<li><p><cite>CVI_S32 CVI_SNS_RstMipi(CVI_U32 devNo, CVI_U32 rstEnable);</cite></p>
+<blockquote>
+<div><p>resetthe corresponding contentsensorusethe corresponding contentMIPI</p>
+</div></blockquote>
+</li>
+<li><p><cite>CVI_S32 CVI_SNS_SetMipiAttr(VI_PIPE ViPipe, CVI_U32 SnsType);</cite></p>
+<blockquote>
+<div><p>the corresponding contentsensorthe corresponding contentRXConfigurationthe corresponding contentCIF</p>
+</div></blockquote>
+</li>
+<li><p><cite>CVI_S32 CVI_SNS_EnableSnsClk(CVI_U32 devNo, CVI_U32 clkEnable);</cite></p>
+<blockquote>
+<div><p>enable sensorthe corresponding contentmclk</p>
+</div></blockquote>
+</li>
+<li><p><cite>CVI_S32 CVI_SNS_SetSnsStandby(VI_PIPE ViPipe);</cite></p>
+<blockquote>
+<div><p>Setsensorthe corresponding contentstandbystatus</p>
+</div></blockquote>
+</li>
+<li><p><cite>CVI_S32 CVI_SNS_SetSnsInit(VI_PIPE ViPipe);</cite></p>
+<blockquote>
+<div><p>Setsensorthe corresponding contentinit</p>
+</div></blockquote>
+</li>
+<li><p><cite>CVI_S32 CVI_SNS_SetVIFlipMirrorCB(VI_PIPE ViPipe, VI_DEV ViDev);</cite></p>
+<blockquote>
+<div><p>the corresponding contentsensorthe corresponding contentmirrorthe corresponding contentflipthe corresponding contentVIthe corresponding content</p>
+</div></blockquote>
+</li>
+<li><p>the corresponding contentmethodthe corresponding contentISPuse，usethe corresponding contentISPRelateddocumentationview</p></li>
+<li><p><cite>CVI_S32 CVI_SNS_GetAeDefault(VI_PIPE ViPipe, AE_SENSOR_DEFAULT_S *stAeDefault);</cite></p>
+<blockquote>
+<div><p>Getthe corresponding contentsensorthe corresponding contentAE defaultstatus</p>
+</div></blockquote>
+</li>
+<li><p><cite>CVI_S32 CVI_SNS_GetIspBlkLev(VI_PIPE ViPipe, ISP_CMOS_BLACK_LEVEL_S *stBlc);</cite></p>
+<blockquote>
+<div><p>Getthe corresponding contentsensorthe corresponding contentBLKthe corresponding content， ISP_CMOS_BLACK_LEVEL_Sthe corresponding contentcvi_comm_sns.h</p>
+</div></blockquote>
+</li>
+<li><p><cite>CVI_S32 CVI_SNS_SetSnsFps(VI_PIPE ViPipe, CVI_U8 fps, AE_SENSOR_DEFAULT_S *stSnsDft);</cite></p>
+<blockquote>
+<div><p>Setsensorthe corresponding contentOutputFPS</p>
+</div></blockquote>
+</li>
+<li><p><cite>CVI_S32 CVI_SNS_GetExpRatio(VI_PIPE ViPipe, SNS_EXP_MAX_S *stExpMax);</cite></p>
+<blockquote>
+<div><p>Getsensorthe corresponding contentExposurerange</p>
+</div></blockquote>
+</li>
+<li><p><cite>CVI_S32 CVI_SNS_SetDgainCalc(VI_PIPE ViPipe, SNS_GAIN_S *stDgain);</cite></p>
+<blockquote>
+<div><p>Setsensorthe corresponding contentGainthe corresponding content</p>
+</div></blockquote>
+</li>
+<li><p><cite>CVI_S32 CVI_SNS_SetAgainCalc(VI_PIPE ViPipe, SNS_GAIN_S *stAgain);</cite></p>
+<blockquote>
+<div><p>Setsensorthe corresponding contentGainthe corresponding content</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="sensor-driver">
+<h2><span class="section-number">4.4. </span>the corresponding contentSetsensor driver<a class="headerlink" href="4_Image_Output_Debugging.html#sensor-driver" title="Permalink to this heading">¶</a></h2>
+<p>CV184Xthe corresponding contentInterfacethe corresponding contentSetsensor driver，the corresponding contentInterfacethe corresponding contentusethe corresponding contentsensorthe corresponding contentmode，the corresponding contentInitializethe corresponding contentMIPISetGetthe corresponding content；the corresponding contentneedUserControlsensorthe corresponding contentInitialize，the corresponding contentISP，probethe corresponding contentoperation。</p>
+<ul>
+<li><p><cite>CVI_S32 CVI_SNS_ParseIni(SENSOR_CFG_S *sensor_cfg);</cite></p>
+<blockquote>
+<div><p>the corresponding contentsensor_cfg.iniConfigurationFileGetsensor_cfgConfiguration</p>
+</div></blockquote>
+</li>
+<li><p><cite>CVI_S32 CVI_SNS_GetConfigInfo(SENSOR_CFG_S *sensor_cfg);</cite></p>
+<blockquote>
+<div><p>the corresponding contentsensor_cfgConfigurationthe corresponding contentGetsensorthe corresponding contentConfigurationinformation</p>
+</div></blockquote>
+</li>
+<li><p><cite>CVI_S32 CVI_SNS_SetSnsDrvCfg(SENSOR_CFG_S *sensor_cfg);</cite></p>
+<blockquote>
+<div><p>the corresponding contentsensor_cfgConfigurationSetsensor driver</p>
+</div></blockquote>
+</li>
+</ul>
+<p>the corresponding contentapplicationthe corresponding contentcallthe corresponding content，the corresponding contentreturnSuccessafterward，the corresponding contentneedthe corresponding contentImageSizethe corresponding contentinformationthe corresponding contentsensor_cfgthe corresponding content，the corresponding contentapplicationcanthe corresponding contentneedConfigurationuse。</p>
+</section>
+<section id="sensor-ini-cfg">
+<h2><span class="section-number">4.5. </span>the corresponding contentsensor ini cfgConfiguration<a class="headerlink" href="4_Image_Output_Debugging.html#sensor-ini-cfg" title="Permalink to this heading">¶</a></h2>
+<p>Sensorthe corresponding contentcanthroughthe corresponding contentinithe corresponding contentmodifyConfiguration，the corresponding contentlanethe corresponding content、I2CportsensorOutputmodethe corresponding content。</p>
+<p>defaultthe corresponding contentmiddlewarethe corresponding contentflowthe corresponding content/mnt/data/sensor_ini.cfgthe corresponding contentReadsensorthe corresponding contentConfigurationFile，ifthe corresponding contentContentsthe corresponding contentConfigurationFile，the corresponding contentusethe corresponding content。</p>
+<p>the corresponding contentSC1336the corresponding contentdisplaythe corresponding contentsensor_cfg.iniContent:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[source]</span>
+
+<span class="c1">;type = SOURCE_USER_FE</span>
+
+<span class="na">dev_num</span> <span class="o">=</span> <span class="s">1</span>
+
+<span class="c1">; section for sensor</span>
+
+<span class="k">[sensor]</span>
+
+<span class="c1">; sensor name</span>
+
+<span class="na">name</span> <span class="o">=</span> <span class="s">0x000A0030</span>
+
+<span class="na">bus_id</span> <span class="o">=</span> <span class="s">3</span>
+
+<span class="na">mipi_dev</span> <span class="o">=</span> <span class="s">0</span>
+
+<span class="na">lane_id</span> <span class="o">=</span> <span class="s">2, 3, 1, -1, -1</span>
+
+<span class="na">pn_swap</span> <span class="o">=</span> <span class="s">1, 1, 1, 0, 0</span>
+
+<span class="na">mclk_en</span> <span class="o">=</span> <span class="s">1</span>
+
+<span class="na">mclk</span> <span class="o">=</span> <span class="s">0</span>
+
+<span class="na">port</span> <span class="o">=</span> <span class="s">0</span>
+
+<span class="na">pin</span> <span class="o">=</span> <span class="s">2</span>
+
+<span class="na">pol</span> <span class="o">=</span> <span class="s">1</span>
+
+<span class="na">fps</span> <span class="o">=</span> <span class="s">60</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>name：sensorthe corresponding contentRunmode，0x000A0030the corresponding contentTableSMS_SC1336_1L_MIPI_1M_30FPS_10BIT</p></li>
+<li><p>name the corresponding contentbuild/media/cvi_sensor/sensor_cfg/sensor_cfg.h，wherethe corresponding contentsensorSupportedlist；namethe corresponding contentas followsTable：</p></li>
+</ul>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/ImageO019.png"><img alt="_images/ImageO019.png" src="_images/ImageO019.png" style="width: 80%;" /></a>
+</figure>
+<ul>
+<li><p>Bus_id:Tablethe corresponding contentI2Cportthe corresponding content</p></li>
+<li><p>Mipi_dev:Tablethe corresponding contentmipi-rx</p></li>
+<li><p>Lane_id:Tablethe corresponding contentmipithe corresponding contentConfiguration</p></li>
+<li><p>pn_swap:Tablethe corresponding contentmipithe corresponding contentP/NYesNoneedthe corresponding content</p></li>
+<li><p>Pn_swap:Tablethe corresponding contentP/Nthe corresponding content，the corresponding contentneedthe corresponding content0，needthe corresponding contentConfigurationthe corresponding content1</p></li>
+<li><p>Mclk:Tablethe corresponding contentmclkthe corresponding content</p></li>
+<li><p>Mclk_en:Tablethe corresponding contentEnabledthe corresponding contentmclkOutput</p></li>
+<li><p>hw_sync：dual sensorFramethe corresponding content，hw_sync=1Tablethe corresponding contentslave sensor sync with master sensor</p></li>
+<li><p>sns_i2c_addr：sensorthe corresponding contenti2c DeviceAddress</p></li>
+<li><p>port：sensor RSTthe corresponding contentProcessorthe corresponding contentGPIOusethe corresponding contentportthe corresponding content A/B/C - 0/1/2</p></li>
+<li><p>pin：sensor RSTthe corresponding contentProcessorthe corresponding contentGPIOusethe corresponding contentportthe corresponding contentNumber</p></li>
+<li><p>pol：sensor RSTthe corresponding contentvalidthe corresponding content</p>
+<blockquote>
+<div><dl>
+<dt>the corresponding contentParameter Configurationas follows：</dt><dd><p>enum of_gpio_flags {</p>
+<p>OF_GPIO_ACTIVE_LOW = 0x1,</p>
+<p>OF_GPIO_SINGLE_ENDED = 0x2,</p>
+<p>OF_GPIO_OPEN_DRAIN = 0x4,</p>
+<p>OF_GPIO_TRANSITORY = 0x8,</p>
+<p>OF_GPIO_PULL_UP = 0x10,</p>
+<p>OF_GPIO_PULL_DOWN = 0x20,</p>
+<p>};</p>
+</dd>
+</dl>
+</div></blockquote>
+</li>
+<li><p>fps：sensor the corresponding contentOutputfps，defaultthe corresponding content25，OtherfpsneedSetthe corresponding contentfpsthe corresponding content</p></li>
+</ul>
+</section>
+<section id="sensor-test">
+<h2><span class="section-number">4.6. </span>the corresponding contentRunsensor_test<a class="headerlink" href="4_Image_Output_Debugging.html#sensor-test" title="Permalink to this heading">¶</a></h2>
+<p>the corresponding contentConfigurationthe corresponding content，the corresponding contentSDKthe corresponding contentContentsthe corresponding content make peripherals_test the corresponding content，the corresponding contentBurningthe corresponding contentboard side；</p>
+<p>Burningstartthe corresponding content，LinuxSerial Portthe corresponding contentsample_sensor</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/ImageO017.png"><img alt="_images/ImageO017.png" src="_images/ImageO017.png" style="width: 80%;" /></a>
+</figure>
+<p>the corresponding contentalios Serial PortInput proc/vi_dbg viewvi_dbginformation，Framethe corresponding contentdisplaynormalthe corresponding contentTablethe corresponding contentsensorthe corresponding contentnormalthe corresponding contentFigure</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/ImageO018.png"><img alt="_images/ImageO018.png" src="_images/ImageO018.png" style="width: 80%;" /></a>
+</figure>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="3_Confirm_Specifications.html" class="btn btn-neutral float-left" title="3. Confirm Specifications" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="5_Image_Output_Debugging.html" class="btn btn-neutral float-right" title="5. Image Output Debugging(Aliosthe corresponding content)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Go to the official website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="the corresponding contentdocumentationthe corresponding content"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Top of page"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Bottom of page"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR Code for This Page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

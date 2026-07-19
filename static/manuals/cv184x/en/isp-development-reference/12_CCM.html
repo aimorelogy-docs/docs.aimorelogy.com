@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>12. CCM &mdash; ISPDevelopmentReference master documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="13. Noise profile" href="13_Noise_Profile.html" />
+    <link rel="prev" title="11. RLSC" href="11_RLSC.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> ISPDevelopmentReference
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Preface.html">2. Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_System_Control.html">3. System Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_AE.html">4. AE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_AWB.html">5. AWB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_AF.html">6. AF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_IMP.html">7. IMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_BlackLevel.html">8. BLC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_DPC.html">9. DPC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_LSC.html">10. LSC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_RLSC.html">11. RLSC</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="12_CCM.html#">12. CCM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="12_CCM.html#id1">12.1. Functional Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="12_CCM.html#api">12.2. API Reference</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="12_CCM.html#cvi-isp-setccmattr">12.2.1. CVI_ISP_SetCCMAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="12_CCM.html#cvi-isp-getccmattr">12.2.2. CVI_ISP_GetCCMAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="12_CCM.html#cvi-isp-setccmsaturationattr">12.2.3. CVI_ISP_SetCCMSaturationAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="12_CCM.html#cvi-isp-getccmsaturationattr">12.2.4. CVI_ISP_GetCCMSaturationAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="12_CCM.html#cvi-isp-setsaturationattr">12.2.5. CVI_ISP_SetSaturationAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="12_CCM.html#cvi-isp-getsaturationattr">12.2.6. CVI_ISP_GetSaturationAttr</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="12_CCM.html#id2">12.3. Data Types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="12_CCM.html#isp-ccm-attr-s">12.3.1. ISP_CCM_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="12_CCM.html#isp-ccm-manual-attr-s">12.3.2. ISP_CCM_MANUAL_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="12_CCM.html#isp-ccm-auto-attr-s">12.3.3. ISP_CCM_AUTO_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="12_CCM.html#isp-colormatrix-attr-s">12.3.4. ISP_COLORMATRIX_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="12_CCM.html#isp-ccm-saturation-manual-attr-s">12.3.5. ISP_CCM_SATURATION_MANUAL_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="12_CCM.html#isp-ccm-saturation-auto-attr-s">12.3.6. ISP_CCM_SATURATION_AUTO_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="12_CCM.html#isp-ccm-saturation-attr-s">12.3.7. ISP_CCM_SATURATION_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="12_CCM.html#isp-saturation-manual-attr-s">12.3.8. ISP_SATURATION_MANUAL_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="12_CCM.html#isp-saturation-auto-attr-s">12.3.9. ISP_SATURATION_AUTO_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="12_CCM.html#isp-saturation-attr-s">12.3.10. ISP_SATURATION_ATTR_S</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="13_Noise_Profile.html">13. Noise profile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_BNR.html">14. BNR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15_CNR.html">15. CNR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="16_TNR.html">16. TNR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="17_Crosstalk.html">17. Crosstalk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18_Demosaic.html">18. DEMOSAIC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19_Sharpen.html">19. SHARPEN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="20_PreSharpen.html">20. PRESHARPEN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21_RGB_Gamma.html">21. RGBGAMMA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="22_DCI.html">22. DCI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="23_LDCI.html">23. LDCI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="24_ColorTone.html">24. ColorTone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="25_Saturation.html">25. Saturation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="26_PFR.html">26. PFR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="27_FSHDR.html">27. FSHDR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="28_DRC.html">28. DRC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="29_Mono.html">29. MONO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="30_YCONTRAST.html">30. YCONTRAST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="31_CA.html">31. CA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="32_CA2.html">32. CA2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="33_CLUT.html">33. CLUT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="34_CSC.html">34. CSC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="35_VC.html">35. VC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="36_Statistical_Information.html">36. Statistical Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="37_Query_Internal_Status_Messages.html">37. Query Internal Status Messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="38_Debug.html">38. Debug</a></li>
+<li class="toctree-l1"><a class="reference internal" href="39_Error_Code.html">39. Error Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="40_3A_Development_User_Guide_Overview.html">40. 3A Development Guide Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="41_3A_Development_User_Guide.html">41. 3A Developer User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="42_Developer_Guide.html">42. Developer Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="43_Appendix.html">43. Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="44_Abbreviations.html">44. Abbreviations</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ISPDevelopmentReference</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">12. </span>CCM</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/12_CCM.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ccm">
+<h1><span class="section-number">12. </span>CCM<a class="headerlink" href="12_CCM.html#ccm" title="Permalink to this heading">¶</a></h1>
+<section id="id1">
+<h2><span class="section-number">12.1. </span>Functional Description<a class="headerlink" href="12_CCM.html#id1" title="Permalink to this heading">¶</a></h2>
+<p>CCM is Color Correction Matrix  simplename. becauseis Sensor in RGB  responseandhuman visionnotuse, theusingneed tousethismatrixperformconversion, makebeforeendcaptureobtain imagebrightnessandhuman visionconsistent. </p>
+</section>
+<section id="api">
+<h2><span class="section-number">12.2. </span>API Reference<a class="headerlink" href="12_CCM.html#api" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="12_CCM.html#cvi-isp-setccmattr">CVI_ISP_SetCCMAttr</a> :  Setcolorcorrectionmatrixattribute parameters</p></li>
+<li><p><a class="reference internal" href="12_CCM.html#cvi-isp-getccmattr">CVI_ISP_GetCCMAttr</a> :  Getcolorcorrectionmatrixattribute parameters</p></li>
+<li><p><a class="reference internal" href="12_CCM.html#cvi-isp-setccmsaturationattr">CVI_ISP_SetCCMSaturationAttr</a> :  Setcolorsaturationattribute parameters</p></li>
+<li><p><a class="reference internal" href="12_CCM.html#cvi-isp-getccmsaturationattr">CVI_ISP_GetCCMSaturationAttr</a> :  Getcolorsaturationattribute parameters</p></li>
+<li><p><a class="reference internal" href="12_CCM.html#cvi-isp-setsaturationattr">CVI_ISP_SetSaturationAttr</a> :  Setcolorsaturationattribute parameters</p></li>
+<li><p><a class="reference internal" href="12_CCM.html#cvi-isp-getsaturationattr">CVI_ISP_GetSaturationAttr</a> :  Getcolorsaturationattribute parameters</p></li>
+</ul>
+<section id="cvi-isp-setccmattr">
+<h3><span class="section-number">12.2.1. </span>CVI_ISP_SetCCMAttr<a class="headerlink" href="12_CCM.html#cvi-isp-setccmattr" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<blockquote>
+<div><p>Setcolorcorrectionmatrixattribute parameters</p>
+</div></blockquote>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_SetCCMAttr</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ISP_CCM_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstCCMAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>VI_PIPE No.</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstCCMAttr</p></td>
+<td><p>colorcorrectionmatrixattribute parameters</p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success</p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure, whose value is <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">Error Code</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header File: cvi_isp.h, cvi_comm_isp.h</p></li>
+<li><p>Library File: libisp.so</p></li>
+</ul>
+<p>[Note]</p>
+<p>None</p>
+<p>[Example]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="n">ISP_CCM_ATTR_S</span><span class="w"> </span><span class="n">stAttr</span><span class="p">;</span><span class="w"></span>
+<span class="n">CVI_ISP_GetCCMAttr</span><span class="p">(</span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">stAttr</span><span class="p">);</span><span class="w"></span>
+<span class="n">stAttr</span><span class="p">.</span><span class="n">enOpType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OP_TYPE_AUTO</span><span class="p">;</span><span class="w"></span>
+<span class="n">CVI_ISP_SetCCMAttr</span><span class="p">(</span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">stAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Related Topics]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="12_CCM.html#cvi-isp-getccmattr">CVI_ISP_GetCCMAttr</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-getccmattr">
+<h3><span class="section-number">12.2.2. </span>CVI_ISP_GetCCMAttr<a class="headerlink" href="12_CCM.html#cvi-isp-getccmattr" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>Getcolorcorrectionmatrixattribute parameters</p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_GetCCMAttr</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ISP_CCM_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstCCMAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>VI_PIPE No.</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstCCMAttr</p></td>
+<td><p>colorcorrectionmatrixattribute parameters</p></td>
+<td><p>output</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success</p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure, whose value is <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">Error Code</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header File: cvi_isp.h, cvi_comm_isp.h</p></li>
+<li><p>Library File: libisp.so</p></li>
+</ul>
+<p>[Note]</p>
+<p>None</p>
+<p>[Example]</p>
+<p>None</p>
+<p>[Related Topics]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="12_CCM.html#cvi-isp-setccmattr">CVI_ISP_SetCCMAttr</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-setccmsaturationattr">
+<h3><span class="section-number">12.2.3. </span>CVI_ISP_SetCCMSaturationAttr<a class="headerlink" href="12_CCM.html#cvi-isp-setccmsaturationattr" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<blockquote>
+<div><p>Setcolorsaturationattribute parameters</p>
+</div></blockquote>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_SetCCMSaturationAttr</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ISP_CCM_SATURATION_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstCCMSaturationAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>VI_PIPE No.</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstCCMSaturationAttr</p></td>
+<td><p>colorsaturationattribute parameters</p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success</p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure, whose value is <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">Error Code</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header File: cvi_isp.h, cvi_comm_isp.h</p></li>
+<li><p>Library File: libisp.so</p></li>
+</ul>
+<p>[Note]</p>
+<p>None</p>
+<p>[Example]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="n">ISP_CCM_SATURATION_ATTR_S</span><span class="w"> </span><span class="n">stAttr</span><span class="p">;</span><span class="w"></span>
+<span class="n">CVI_ISP_GetCCMSaturationAttr</span><span class="p">(</span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">stAttr</span><span class="p">);</span><span class="w"></span>
+<span class="n">stAttr</span><span class="p">.</span><span class="n">enOpType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OP_TYPE_AUTO</span><span class="p">;</span><span class="w"></span>
+<span class="n">CVI_ISP_SetCCMSaturationAttr</span><span class="p">(</span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">stAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Related Topics]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="12_CCM.html#cvi-isp-getccmsaturationattr">CVI_ISP_GetCCMSaturationAttr</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-getccmsaturationattr">
+<h3><span class="section-number">12.2.4. </span>CVI_ISP_GetCCMSaturationAttr<a class="headerlink" href="12_CCM.html#cvi-isp-getccmsaturationattr" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>Getcolorsaturationattribute parameters</p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_GetCCMSaturationAttr</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ISP_CCM_SATURATION_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstCCMSaturationAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>VI_PIPE No.</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstCCMSaturationAttr</p></td>
+<td><p>colorsaturationattribute parameters</p></td>
+<td><p>output</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success</p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure, whose value is <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">Error Code</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header File: cvi_isp.h, cvi_comm_isp.h</p></li>
+<li><p>Library File: libisp.so</p></li>
+</ul>
+<p>[Note]</p>
+<p>None</p>
+<p>[Example]</p>
+<p>None</p>
+<p>[Related Topics]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="12_CCM.html#cvi-isp-setccmsaturationattr">CVI_ISP_SetCCMSaturationAttr</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-setsaturationattr">
+<h3><span class="section-number">12.2.5. </span>CVI_ISP_SetSaturationAttr<a class="headerlink" href="12_CCM.html#cvi-isp-setsaturationattr" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<blockquote>
+<div><p>Setcolorsaturationattribute parameters</p>
+</div></blockquote>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_SetSaturationAttr</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ISP_SATURATION_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstSaturationAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>VI_PIPE No.</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstSaturationAttr</p></td>
+<td><p>colorsaturationattribute parameters</p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success</p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure, whose value is <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">Error Code</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header File: cvi_isp.h, cvi_comm_isp.h</p></li>
+<li><p>Library File: libisp.so</p></li>
+</ul>
+<p>[Note]</p>
+<p>None</p>
+<p>[Example]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="n">ISP_SATURATION_ATTR_S</span><span class="w"> </span><span class="n">stAttr</span><span class="p">;</span><span class="w"></span>
+<span class="n">CVI_ISP_GetSaturationAttr</span><span class="p">(</span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">stAttr</span><span class="p">);</span><span class="w"></span>
+<span class="n">stAttr</span><span class="p">.</span><span class="n">enOpType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OP_TYPE_AUTO</span><span class="p">;</span><span class="w"></span>
+<span class="n">CVI_ISP_SetSaturationAttr</span><span class="p">(</span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">stAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Related Topics]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="12_CCM.html#cvi-isp-getsaturationattr">CVI_ISP_GetSaturationAttr</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-getsaturationattr">
+<h3><span class="section-number">12.2.6. </span>CVI_ISP_GetSaturationAttr<a class="headerlink" href="12_CCM.html#cvi-isp-getsaturationattr" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>Getcolorsaturationattribute parameters</p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_GetSaturationAttr</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ISP_SATURATION_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstSaturationAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>VI_PIPE No.</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstSaturationAttr</p></td>
+<td><p>colorsaturationattribute parameters</p></td>
+<td><p>output</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success</p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure, whose value is <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">Error Code</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header File: cvi_isp.h, cvi_comm_isp.h</p></li>
+<li><p>Library File: libisp.so</p></li>
+</ul>
+<p>[Note]</p>
+<p>None</p>
+<p>[Example]</p>
+<p>None</p>
+<p>[Related Topics]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="12_CCM.html#cvi-isp-setsaturationattr">CVI_ISP_SetSaturationAttr</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id2">
+<h2><span class="section-number">12.3. </span>Data Types<a class="headerlink" href="12_CCM.html#id2" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="12_CCM.html#isp-ccm-attr-s">ISP_CCM_ATTR_S</a> :  Define colorcorrectionmatrixattribute parameters</p></li>
+<li><p><a class="reference internal" href="12_CCM.html#isp-ccm-manual-attr-s">ISP_CCM_MANUAL_ATTR_S</a> :  Define colorcorrectionmatrixattributemanual parameters</p></li>
+<li><p><a class="reference internal" href="12_CCM.html#isp-ccm-auto-attr-s">ISP_CCM_AUTO_ATTR_S</a> :  Define colorcorrectionmatrixattributeautomatic parameters</p></li>
+<li><p><a class="reference internal" href="12_CCM.html#isp-colormatrix-attr-s">ISP_COLORMATRIX_ATTR_S</a> :  Define colorcorrectionmatrix</p></li>
+<li><p><a class="reference internal" href="12_CCM.html#isp-ccm-saturation-manual-attr-s">ISP_CCM_SATURATION_MANUAL_ATTR_S</a> :  Manual Definitioncolorsaturationattribute parameters</p></li>
+<li><p><a class="reference internal" href="12_CCM.html#isp-ccm-saturation-auto-attr-s">ISP_CCM_SATURATION_AUTO_ATTR_S</a> :  Automatic Definitioncolorsaturationattribute parameters</p></li>
+<li><p><a class="reference internal" href="12_CCM.html#isp-ccm-saturation-attr-s">ISP_CCM_SATURATION_ATTR_S</a> :  Define colorsaturationattribute parameters</p></li>
+<li><p><a class="reference internal" href="12_CCM.html#isp-saturation-manual-attr-s">ISP_SATURATION_MANUAL_ATTR_S</a> :  Manual Definitioncolorsaturationattribute parameters</p></li>
+<li><p><a class="reference internal" href="12_CCM.html#isp-saturation-auto-attr-s">ISP_SATURATION_AUTO_ATTR_S</a> :  Automatic Definitioncolorsaturationattribute parameters</p></li>
+<li><p><a class="reference internal" href="12_CCM.html#isp-saturation-attr-s">ISP_SATURATION_ATTR_S</a> :  Define colorsaturationattribute parameters</p></li>
+</ul>
+<section id="isp-ccm-attr-s">
+<h3><span class="section-number">12.3.1. </span>ISP_CCM_ATTR_S<a class="headerlink" href="12_CCM.html#isp-ccm-attr-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>Define colorcorrectionmatrixattribute parameters</p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_CCM_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">Enable</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">ISP_OP_TYPE_E</span><span class="w"> </span><span class="n">enOpType</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">UpdateInterval</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">CCMOverStr</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">CCMOverThr</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">ISP_CCM_MANUAL_ATTR_S</span><span class="w"> </span><span class="n">stManual</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">ISP_CCM_AUTO_ATTR_S</span><span class="w"> </span><span class="n">stAuto</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_CCM_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Enable</p></td>
+<td><p>module enable switch</p>
+<p>Value Range:  [0, 1]</p>
+<p>Data Types:  CVI_BOOL</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>enOpType</p></td>
+<td><p>operation type</p>
+<p>OP_TYPE_AUTO: automatic mode</p>
+<p>OP_TYPE_MANUAL: manual mode</p>
+<p>Data Types:  ISP_OP_TYPE_E</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>UpdateInterval</p></td>
+<td><p>affects the parameter update interval,the larger the value, the slower the image changes,the better the performance. </p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>CCMOverStr</p></td>
+<td><p>throughsaturationandprotectionstrength. </p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>CCMOverThr</p></td>
+<td><p>throughsaturationandprotection. throughsaturationanddeterminethreshold, the larger the value, the moreeasyentertothroughsaturationandprotectionstatus. </p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>stManual</p></td>
+<td><p>manual parameters</p>
+<p>Data Types:  ISP_CCM_MANUAL_ATTR_S</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>stAuto</p></td>
+<td><p>automatic parameters</p>
+<p>Data Types:  ISP_CCM_AUTO_ATTR_S</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<p>None</p>
+<p>[Related Data Types and Interfaces]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="12_CCM.html#cvi-isp-setccmattr">CVI_ISP_SetCCMAttr</a></p></li>
+<li><p><a class="reference internal" href="12_CCM.html#cvi-isp-getccmattr">CVI_ISP_GetCCMAttr</a></p></li>
+</ul>
+</section>
+<section id="isp-ccm-manual-attr-s">
+<h3><span class="section-number">12.3.2. </span>ISP_CCM_MANUAL_ATTR_S<a class="headerlink" href="12_CCM.html#isp-ccm-manual-attr-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>Define colorcorrectionmatrixattributemanual parameters</p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_CCM_MANUAL_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">SatEnable</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_S16</span><span class="w"> </span><span class="n">CCM</span><span class="p">[</span><span class="mi">9</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[-8192, 8191]*/</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_CCM_MANUAL_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>SatEnable</p></td>
+<td><p>manual modeunder, saturationwhethertakes effect. </p>
+<p>Value Range:  [0, 1]</p>
+<p>Data Types:  CVI_BOOL</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>CCM</p></td>
+<td><p>3x3actual color correction matrix contents</p>
+<p>Value Range:  [-8192, 8191]</p>
+<p>Data Types:  CVI_S16</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<p>None</p>
+<p>[Related Data Types and Interfaces]</p>
+</section>
+<section id="isp-ccm-auto-attr-s">
+<h3><span class="section-number">12.3.3. </span>ISP_CCM_AUTO_ATTR_S<a class="headerlink" href="12_CCM.html#isp-ccm-auto-attr-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>Define colorcorrectionmatrixattributeautomatic parameters</p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_CCM_AUTO_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">ISOActEnable</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">TempActEnable</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">CCMTabNum</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[3, 7]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">ISP_COLORMATRIX_ATTR_S</span><span class="w"> </span><span class="n">CCMTab</span><span class="p">[</span><span class="mi">7</span><span class="p">];</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_CCM_AUTO_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ISOActEnable</p></td>
+<td><p>lowilluminanceunderCCM Bypassfunction enable. </p>
+<p>0: Disable. </p>
+<p>1: Enable. </p>
+<p>Value Range:  [0, 1]</p>
+<p>Data Types:  CVI_BOOL</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>TempActEnable</p></td>
+<td><p>heightlowunder the color temperatureCCM Bypassfunction enable. </p>
+<p>0: Disable. </p>
+<p>1: Enable. </p>
+<p>Value Range:  [0, 1]</p>
+<p>Data Types:  CVI_BOOL</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>CCMTabNum</p></td>
+<td><p>currentconfiguration CCMmatrixnumber. </p>
+<p>Value Range:  [3, 7]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>CCMTab</p></td>
+<td><p>differentunder the color temperature colorcorrectionmatrix</p>
+<p>Data Types:  ISP_COLORMATRIX_ATTR_S</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<p>None</p>
+<p>[Related Data Types and Interfaces]</p>
+</section>
+<section id="isp-colormatrix-attr-s">
+<h3><span class="section-number">12.3.4. </span>ISP_COLORMATRIX_ATTR_S<a class="headerlink" href="12_CCM.html#isp-colormatrix-attr-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>Define colorcorrectionmatrix</p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_COLORMATRIX_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">ColorTemp</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[500, 30000]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_S16</span><span class="w"> </span><span class="n">CCM</span><span class="p">[</span><span class="mi">9</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[-8192, 8191]*/</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_COLORMATRIX_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ColorTemp</p></td>
+<td><p>thiscolorcorrectionmatrixadaptuse color temperature</p>
+<p>Value Range:  [500, 30000]</p>
+<p>Data Types:  CVI_U16</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>CCM</p></td>
+<td><p>3x3actual color correction matrix contents</p>
+<p>Value Range:  [-8192, 8191]</p>
+<p>Data Types:  CVI_S16</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<p>None</p>
+<p>[Related Data Types and Interfaces]</p>
+</section>
+<section id="isp-ccm-saturation-manual-attr-s">
+<h3><span class="section-number">12.3.5. </span>ISP_CCM_SATURATION_MANUAL_ATTR_S<a class="headerlink" href="12_CCM.html#isp-ccm-saturation-manual-attr-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>Manual Definitioncolorsaturationattribute parameters</p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_CCM_SATURATION_MANUAL_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">SaturationLE</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">SaturationSE</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_CCM_SATURATION_MANUAL_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>SaturationLE</p></td>
+<td><p>long exposuresaturation</p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SaturationSE</p></td>
+<td><p>shortexposuresaturation</p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<p>None</p>
+<p>[Related Data Types and Interfaces]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="12_CCM.html#cvi-isp-setccmsaturationattr">CVI_ISP_SetCCMSaturationAttr</a></p></li>
+<li><p><a class="reference internal" href="12_CCM.html#cvi-isp-getccmsaturationattr">CVI_ISP_GetCCMSaturationAttr</a></p></li>
+</ul>
+</section>
+<section id="isp-ccm-saturation-auto-attr-s">
+<h3><span class="section-number">12.3.6. </span>ISP_CCM_SATURATION_AUTO_ATTR_S<a class="headerlink" href="12_CCM.html#isp-ccm-saturation-auto-attr-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>Automatic Definitioncolorsaturationattribute parameters</p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_CCM_SATURATION_AUTO_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">SaturationLE</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">SaturationSE</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_CCM_SATURATION_AUTO_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>SaturationLE</p></td>
+<td><p>long exposuresaturation</p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SaturationSE</p></td>
+<td><p>shortexposuresaturation</p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<p>None</p>
+<p>[Related Data Types and Interfaces]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="12_CCM.html#cvi-isp-setccmsaturationattr">CVI_ISP_SetCCMSaturationAttr</a></p></li>
+<li><p><a class="reference internal" href="12_CCM.html#cvi-isp-getccmsaturationattr">CVI_ISP_GetCCMSaturationAttr</a></p></li>
+</ul>
+</section>
+<section id="isp-ccm-saturation-attr-s">
+<h3><span class="section-number">12.3.7. </span>ISP_CCM_SATURATION_ATTR_S<a class="headerlink" href="12_CCM.html#isp-ccm-saturation-attr-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>Define colorsaturationattribute parameters</p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_CCM_SATURATION_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">ISP_CCM_SATURATION_MANUAL_ATTR_S</span><span class="w"> </span><span class="n">stManual</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">ISP_CCM_SATURATION_AUTO_ATTR_S</span><span class="w"> </span><span class="n">stAuto</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_CCM_SATURATION_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>stManual</p></td>
+<td><p>manual parameters</p></td>
+</tr>
+<tr class="row-odd"><td><p>stAuto</p></td>
+<td><p>automatic parameters</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<p>None</p>
+<p>[Related Data Types and Interfaces]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="12_CCM.html#cvi-isp-setccmsaturationattr">CVI_ISP_SetCCMSaturationAttr</a></p></li>
+<li><p><a class="reference internal" href="12_CCM.html#cvi-isp-getccmsaturationattr">CVI_ISP_GetCCMSaturationAttr</a></p></li>
+</ul>
+</section>
+<section id="isp-saturation-manual-attr-s">
+<h3><span class="section-number">12.3.8. </span>ISP_SATURATION_MANUAL_ATTR_S<a class="headerlink" href="12_CCM.html#isp-saturation-manual-attr-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>Manual Definitioncolorsaturationattribute parameters</p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_SATURATION_MANUAL_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">Saturation</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_SATURATION_MANUAL_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Saturation</p></td>
+<td><p>image overallsaturation</p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<p>None</p>
+<p>[Related Data Types and Interfaces]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="12_CCM.html#cvi-isp-setsaturationattr">CVI_ISP_SetSaturationAttr</a></p></li>
+<li><p><a class="reference internal" href="12_CCM.html#cvi-isp-getsaturationattr">CVI_ISP_GetSaturationAttr</a></p></li>
+</ul>
+</section>
+<section id="isp-saturation-auto-attr-s">
+<h3><span class="section-number">12.3.9. </span>ISP_SATURATION_AUTO_ATTR_S<a class="headerlink" href="12_CCM.html#isp-saturation-auto-attr-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>Automatic Definitioncolorsaturationattribute parameters</p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_SATURATION_AUTO_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">Saturation</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_SATURATION_AUTO_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Saturation</p></td>
+<td><p>image overallsaturation</p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<p>None</p>
+<p>[Related Data Types and Interfaces]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="12_CCM.html#cvi-isp-setsaturationattr">CVI_ISP_SetSaturationAttr</a></p></li>
+<li><p><a class="reference internal" href="12_CCM.html#cvi-isp-getsaturationattr">CVI_ISP_GetSaturationAttr</a></p></li>
+</ul>
+</section>
+<section id="isp-saturation-attr-s">
+<h3><span class="section-number">12.3.10. </span>ISP_SATURATION_ATTR_S<a class="headerlink" href="12_CCM.html#isp-saturation-attr-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>Define colorsaturationattribute parameters</p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_SATURATION_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">ISP_OP_TYPE_E</span><span class="w"> </span><span class="n">enOpType</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">ISP_SATURATION_MANUAL_ATTR_S</span><span class="w"> </span><span class="n">stManual</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">ISP_SATURATION_AUTO_ATTR_S</span><span class="w"> </span><span class="n">stAuto</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_SATURATION_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>enOpType</p></td>
+<td><p>operation type</p>
+<p>OP_TYPE_AUTO: automatic mode</p>
+<p>OP_TYPE_MANUAL: manual mode</p>
+<p>Data Types:  ISP_OP_TYPE_E</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>stManual</p></td>
+<td><p>manual parameters</p></td>
+</tr>
+<tr class="row-even"><td><p>stAuto</p></td>
+<td><p>automatic parameters</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<p>None</p>
+<p>[Related Data Types and Interfaces]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="12_CCM.html#cvi-isp-setsaturationattr">CVI_ISP_SetSaturationAttr</a></p></li>
+<li><p><a class="reference internal" href="12_CCM.html#cvi-isp-getsaturationattr">CVI_ISP_GetSaturationAttr</a></p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="11_RLSC.html" class="btn btn-neutral float-left" title="11. RLSC" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="13_Noise_Profile.html" class="btn btn-neutral float-right" title="13. Noise profile" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Go to official website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="Go to Documentation Center"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Top of page"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Bottom of page"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR code for this page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

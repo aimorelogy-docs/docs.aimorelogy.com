@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2. MIPI DSI &mdash; ScreenDockingGuide master Documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="3. LVDS" href="3_LVDS.html" />
+    <link rel="prev" title="1. Disclaimer" href="1_disclaimer.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> ScreenDockingGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="2_MIPI_DSI.html#">2. MIPI DSI</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_MIPI_DSI.html#id1">2.1. Environment Preparation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_DSI.html#id2">2.1.1. MIPI DSI Panel Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_DSI.html#id3">2.1.2. Hardware Wiring Check</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2_MIPI_DSI.html#mipi">2.2. Configure the MIPI Panel</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_DSI.html#u-bootmipi">2.2.1. Configure the MIPI Panel in u-boot</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#mipi-tx">2.2.1.1. Configure MIPI Tx Device Attributes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#id4">2.2.1.2. Configure the Panel Initialization Sequence</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#id5">2.2.1.3. Add Header File Includes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#mipireset">2.2.1.4. Configure the MIPI Panel RESET Pin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#mipipower">2.2.1.5. Configure the MIPI Panel POWER Pin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#mipibacklight">2.2.1.6. Configure the MIPI Panel BACKLIGHT Pin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#u-boot">2.2.1.7. Configure u-boot Environment Variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#logo">2.2.1.8. Replace the Logo Image</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#id6">2.2.1.9. Build, Program, and Verify</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_DSI.html#kernelmipi">2.2.2. Configure the MIPI Panel in the Kernel</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#id7">2.2.2.1. Configure MIPI Tx Device Attributes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#id8">2.2.2.2. Configure the Panel Initialization Sequence</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#id9">2.2.2.3. Add Header File Includes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#mipiresetpowerbacklight">2.2.2.4. Configure the MIPI Panel RESET, POWER, and BACKLIGHT Pins</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#id10">2.2.2.5. Build verification</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_DSI.html#id11">2.2.3. Configure the MIPI Panel in the Dual-system Environment</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#id12">2.2.3.1. Configure MIPI Tx Device Attributes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#cvi-alios">2.2.3.2. Enable the Configuration Switch in cvi_alios</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#id13">2.2.3.3. Configure the Panel Initialization Sequence</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#id14">2.2.3.4. Add Header File Includes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#id15">2.2.3.5. Configure the MIPI Panel RESET, POWER, and BACKLIGHT Pins</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#id16">2.2.3.6. Build verification</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3_LVDS.html">3. LVDS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_MIPI_DSI.html">4. MIPI DSI (starting with SDK V6.3.4)</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ScreenDockingGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">2. </span>MIPI DSI</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/2_MIPI_DSI.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="mipi-dsi">
+<h1><span class="section-number">2. </span>MIPI DSI<a class="headerlink" href="2_MIPI_DSI.html#mipi-dsi" title="Permalink to this heading">¶</a></h1>
+<p><strong>Overview</strong></p>
+<p>The The Display Serial Interface (DSI) is defined by the Mobile Industry Processor Interface Alliance
+ (Mobile Industry Processor Interface alliance,MIPIAlliance) 
+definitiona type ofhighspeedseriallineconnectport, mainneed toused to processingdeviceanddisplaymodulebetweenconnectconnect. </p>
+<p>This chapter describes how to develop and debug an MIPI LCD panel on CVITEK processor solutions, helping customers develop MIPI LCD applications in an orderly and efficient way.</p>
+<section id="id1">
+<h2><span class="section-number">2.1. </span>Environment Preparation<a class="headerlink" href="2_MIPI_DSI.html#id1" title="Permalink to this heading">¶</a></h2>
+<section id="id2">
+<h3><span class="section-number">2.1.1. </span>MIPI DSI Panel Interface<a class="headerlink" href="2_MIPI_DSI.html#id2" title="Permalink to this heading">¶</a></h3>
+<p>An MIPI DSI panel generally has the following signals, as shown in the figure.</p>
+<ul class="simple">
+<li><p>MIPI clock line (CLK)</p></li>
+<li><p>MIPI data lines (DATA), up to 4 lanes (only 1/2/4 lanes are supported)</p></li>
+<li><p>Backlight control signal (BACKLIGHT)</p></li>
+<li><p>Reset pin (RESET)</p></li>
+<li><p>Panel power supply (POWER)</p></li>
+</ul>
+<p><strong>MIPI DSI interface wiring diagram</strong></p>
+<img alt="_images/MIPIDS002.png" class="align-center" src="_images/MIPIDS002.png" />
+</section>
+<section id="id3">
+<h3><span class="section-number">2.1.2. </span>Hardware Wiring Check<a class="headerlink" href="2_MIPI_DSI.html#id3" title="Permalink to this heading">¶</a></h3>
+<p>Check the hardware wiring and confirm that it is correct. For pin differences, refer to the panel vendor specifications and schematic.</p>
+</section>
+</section>
+<section id="mipi">
+<h2><span class="section-number">2.2. </span>Configure the MIPI Panel<a class="headerlink" href="2_MIPI_DSI.html#mipi" title="Permalink to this heading">¶</a></h2>
+<p>The preceding section covered the panel interface and wiring. This section describes the software configuration required for panel integration.</p>
+<p>CVITEK hastwo types ofsolutionperform MIPIpanelforconnect, respectivelyisinu-bootandkernelinperform panel initialization, areadifferenceininu-bootinperform initializationafter, bootcandisplaycustomerlogo image, andwithpanelproductalmost allwillhasdisplay the logorequirement. actualapplicationinaccording torequirementchoose one of the twoitsone. </p>
+<section id="u-bootmipi">
+<h3><span class="section-number">2.2.1. </span>Configure the MIPI Panel in u-boot<a class="headerlink" href="2_MIPI_DSI.html#u-bootmipi" title="Permalink to this heading">¶</a></h3>
+<p>u-bootMediumConfigure the MIPI PanelisthroughCVITEKdevelopmentshowlogocommand, devicepower-onafter, pressEnterenterU-Boot Commandsline, printenvcanviewtoshowlogocommand (notsameboardcommandwillhasareadifference) , bootcmdinbootinkernelbeforewillexecutethecommandperform panel initializationanddisplay the logo. </p>
+<p>Example:</p>
+<p>showlogo=mmc dev 0;mmc read 0x84080000 0xA000 0x400; cvi_jpeg 0x84080000 0x81800000 0x80000; startvo 0 8192 0;startvl 0 0x84080000 0x81800000 0x80000
+32;setvobg 0 0xffffffff</p>
+<p>this documentfocuses on explainingpanel initializationpart, display the logospecificpleasereference"CV184XbootimageuseGuide". where, panel initializationpartin"startvo 0 8192 0"inimplement. </p>
+<section id="mipi-tx">
+<h4><span class="section-number">2.2.1.1. </span>Configure MIPI Tx Device Attributes<a class="headerlink" href="2_MIPI_DSI.html#mipi-tx" title="Permalink to this heading">¶</a></h4>
+<p>Implement a configuration header for each panel according to its specification and place it under u-boot-2021.10/include/cvitek/cvi_panels/. Customers can use the other header templates as a reference when adding a panel header.</p>
+<p><strong>combo_dev_cfg_sstructuredefinition</strong></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">combo_dev_cfg_s</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">devno</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">enum</span><span class="w"> </span><span class="n">mipi_tx_lane_id</span><span class="w"> </span><span class="n">lane_id</span><span class="p">[</span><span class="n">LANE_MAX_NUM</span><span class="p">];</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">enum</span><span class="w"> </span><span class="n">output_mode_e</span><span class="w"> </span><span class="n">output_mode</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">enum</span><span class="w"> </span><span class="n">video_mode_e</span><span class="w"> </span><span class="n">video_mode</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">enum</span><span class="w"> </span><span class="n">output_format_e</span><span class="w"> </span><span class="n">output_format</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="k">struct</span> <span class="nc">sync_info_s</span><span class="w"> </span><span class="n">sync_info</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">pixel_clk</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">lane_pn_swap</span><span class="p">[</span><span class="n">LANE_MAX_NUM</span><span class="p">];</span><span class="w"></span>
+
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>devno</p></td>
+<td><p>MIPI Tx device number; the default is 0</p></td>
+</tr>
+<tr class="row-odd"><td><p>lane_id</p></td>
+<td><p>host and panel sidesLane numbercorrespondence, unuseduseLanefill-1that is, can . </p>
+<p>a total of5itemmember, sequentiallyrespectivelyrepresenthost sideMIPI_TX_0~MIPI_TX_4, </p>
+<p>actualfill incontentneed toaccording tocorrespondingtopanel sideMIPI lane number. </p>
+<p>for example, firstitemmemberishostMIPI_TX_0, checkcircuitschematic, correspondingtopanel sideMIPI lane3, </p>
+<p>thenfill inisMIPI_TX_LANE_3. </p>
+<p>correspondencenotcorrect, willcausepanelcannotlight up.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>output_mode</p></td>
+<td><p>MIPI Tx output mode; the default is OUTPUT_MODE_DSI_VIDEO</p></td>
+</tr>
+<tr class="row-odd"><td><p>video_mode</p></td>
+<td><p>MIPI Tx video mode; the default is BURST_MODE</p></td>
+</tr>
+<tr class="row-even"><td><p>output_format</p></td>
+<td><p>MIPI Tx output format; the default is OUT_FORMAT_RGB_24_BIT</p></td>
+</tr>
+<tr class="row-odd"><td><p>sync_info</p></td>
+<td><p>MIPI Tx device synchronization information</p></td>
+</tr>
+<tr class="row-even"><td><p>pixel_clk</p></td>
+<td><p>Pixel clock, in kHz.</p>
+<p>Formula:</p>
+<p>pixel_clk=(htotal*vtotal)*fps/1000</p>
+<p>Where:</p>
+<p>htotal=vid_hsa_pixels+ vid_hbp_pixels+</p>
+<p>vid_hfp_pixels+ vid_hline_pixels</p>
+<p>vtotal= vid_vsa_lines+ vid_vbp_lines+</p>
+<p>vid_vfp_lines+ vid_active_lines</p>
+<p>fps:frame rate, default60</p>
+<p>lane_clkaccording topixel_clkderive backward, conversionformula: </p>
+<p>lane_clk= pixel_clk*24/4/2(24meansRGB888eachpixeloccupy24bits, </p>
+<p>4meansuse4itemData Lane, 2meansmipi clkisdual-edge triggered)</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>lane_pn_swap</p></td>
+<td><p>MIPI TxLane P/Nextremeiswhether to swap</p>
+<p>true: swap</p>
+<p>false:notswap</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>combo_dev_cfg_sMedium sync_info (MIPI Tx devicesynchronizationinformation) relatively difficultconfigure, 
+belowdetailedIntroductionitconfiguration method. generallystartwillaccording topanelmanufacturerprovidespecificationdocumentfill inreferencevalue, 
+alsohasproblemthenaccording tophenomenonadjust. </p>
+<p><strong>sync_info_sstructuredefinition</strong></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">sync_info_s</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w"> </span><span class="n">vid_hsa_pixels</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w"> </span><span class="n">vid_hbp_pixels</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w"> </span><span class="n">vid_hfp_pixels</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w"> </span><span class="n">vid_hline_pixels</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w"> </span><span class="n">vid_vsa_lines</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w"> </span><span class="n">vid_vbp_lines</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w"> </span><span class="n">vid_vfp_lines</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w"> </span><span class="n">vid_active_lines</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">vid_vsa_pos_polarity</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">vid_hsa_pos_polarity</span><span class="p">;</span><span class="w"></span>
+
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>vid_hsa_pixels</p></td>
+<td><p>Horizontal Sync Pulse(HSA), unitispixel</p></td>
+</tr>
+<tr class="row-odd"><td><p>vid_hbp_pixels</p></td>
+<td><p>Horizontal Blankingafterporch(HBP), unitispixel</p></td>
+</tr>
+<tr class="row-even"><td><p>vid_hfp_pixels</p></td>
+<td><p>Horizontal Blankingbeforeporch(HFP), unitispixel</p></td>
+</tr>
+<tr class="row-odd"><td><p>vid_hline_pixels</p></td>
+<td><p>Horizontal active area(HACT), unitispixel</p></td>
+</tr>
+<tr class="row-even"><td><p>vid_vsa_lines</p></td>
+<td><p>Vertical Sync Pulse(VSA), unitisline</p></td>
+</tr>
+<tr class="row-odd"><td><p>vid_vbp_lines</p></td>
+<td><p>Vertical Blankingafterporch(VBP), unitisline</p></td>
+</tr>
+<tr class="row-even"><td><p>vid_vfp_lines</p></td>
+<td><p>Vertical Blankingbeforeporch(VFP), unitisline</p></td>
+</tr>
+<tr class="row-odd"><td><p>vid_active_lines</p></td>
+<td><p>Vertical active area(VACT), unitisline</p></td>
+</tr>
+<tr class="row-even"><td><p>vid_vsa_pos_polarity</p></td>
+<td><p>Vertical active-signal polarity, 0isHighvalid, 1isLowvalid</p></td>
+</tr>
+<tr class="row-odd"><td><p>vid_hsa_pos_polarity</p></td>
+<td><p>Horizontal active-signal polarity, 0isHighvalid, 1isLowvalid</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>MIPI DSIprotocolunderMIPIpixelareaillustration</strong></p>
+<img alt="_images/MIPIDS003.png" class="align-center" src="_images/MIPIDS003.png" />
+<p><strong>hs_settle_sstructuredefinition</strong></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">hs_settle_s</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">prepare</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">zero</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">trail</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>prepare</p></td>
+<td><p>MIPI Tx preparesignal, default value6</p></td>
+</tr>
+<tr class="row-odd"><td><p>zero</p></td>
+<td><p>MIPI Tx zerosignal, default value32</p></td>
+</tr>
+<tr class="row-even"><td><p>trail</p></td>
+<td><p>MIPI Tx trailsignal, default value1</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>MIPI Txtiming diagram</strong></p>
+<a class="reference internal image-reference" href="_images/MIPIDS004.png"><img alt="_images/MIPIDS004.png" src="_images/MIPIDS004.png" style="width: 6.26806in; height: 1.40625in;" /></a>
+<p>Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>const struct combo_dev_cfg_s dev_cfg = {
+  .devno = 0,
+  .lane_id = {MIPI_TX_LANE_3, MIPI_TX_LANE_0, MIPI_TX_LANE_CLK, MIPI_TX_LANE_2, MIPI_TX_LANE_1},
+  .lane_pn_swap = {false, false, false, false, false},
+  .output_mode = OUTPUT_MODE_DSI_VIDEO,
+  .video_mode = BURST_MODE,
+  .output_format = OUT_FORMAT_RGB_24_BIT,
+  .sync_info = {
+    .vid_hsa_pixels = 30,
+    .vid_hbp_pixels = 100,
+    .vid_hfp_pixels = 100,
+    .vid_hline_pixels = 800,
+    .vid_vsa_lines = 4,
+    .vid_vbp_lines = 16,
+    .vid_vfp_lines = 10,
+    .vid_active_lines = 1280,
+    .vid_vsa_pos_polarity = false,
+    .vid_hsa_pos_polarity = true,
+  },
+  .pixel_clk = 80958,
+};
+const struct hs_settle_s hs_timing_cfg = { .prepare = 6, .zero = 32, .trail = 1 };
+</pre></div>
+</div>
+</section>
+<section id="id4">
+<h4><span class="section-number">2.2.1.2. </span>Configure the Panel Initialization Sequence<a class="headerlink" href="2_MIPI_DSI.html#id4" title="Permalink to this heading">¶</a></h4>
+<p>panelgenerallyallhasinitializationprocess,  MIPI LCD panelisthrough MIPI Tx D-PHY connectporttosendspecifiedtypedatapacket. initialization sequencebypanel manufacturerprovide. </p>
+<p>panel initializationsequencecolumngenerallyincludingpixelformat, datarefreshdirection, Gamma configureetc., initialization sequenceineachoneCommandspecificmeaning, pleaseinpanelmanufacturerprovidespecificationdocumentororDriver IC Datasheetincheckfind. initialization sequenceisthroughMIPI TxData Lane0inLPmodeundersend, sendendafterwillswitchtoHSmode. </p>
+<p><strong>dsc_instr structuredefinition</strong></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">dsc_instr</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">u8</span><span class="w"> </span><span class="n">delay</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">u8</span><span class="w"> </span><span class="n">data_type</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">u8</span><span class="w"> </span><span class="n">size</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">u8</span><span class="w"> </span><span class="o">*</span><span class="n">data</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>panel manufacturerprovideinitialization sequencegenerallyhasregisteraddressandcorrespondingdata, need toaccording topanel manufacturergivesequencecolumn, populateData Types, dataaddressanddata. </p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>delay</p></td>
+<td><p>sendcompletethiscommandafter, delaymillisecondsnumber</p></td>
+</tr>
+<tr class="row-odd"><td><p>data_type</p></td>
+<td><p>writecommandData Types, that is, </p>
+<p>DCS(DisplayCommandSet)(Commandset)inData Type. according todatacountselectData Types. </p>
+<p>type1, When onlyhasregisteraddressno hasdatawhen, Data Typesselect0x05; </p>
+<p>type2, hasregisteraddressandonedatawhen, Data Typesselect0x15 oror 0x23; </p>
+<p>type3, hasregisteraddressanddatacountgreater thanetc.more than twoitem, Data Typesgenerallyuse0x29oror0x39. </p>
+<p>generallycaseundercommonuse, specificusepleaseconsultpanel manufacturer. </p>
+</td>
+</tr>
+<tr class="row-even"><td><p>size</p></td>
+<td><p>registeraddressanddatacountsum of. </p>
+<p>for exampleWhen onlyhasoneregisteraddress, fill1; </p>
+<p>When hasoneregisteraddressand1itemdatafill2; oneregisteraddressand2itemdatafill3, according tothisanalogy. </p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>data</p></td>
+<td><p>commanddatapointer. </p>
+<p>registeraddressanddata. firstitemmustisregisteraddress, connectinaftersideisdata, </p>
+<p>datacanno hasororhasmultiple. </p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Note: For commandData Typesparameterconfigureselect, need toconsultmanufacturer. If no hasobtaintomanufacturersupport, recommendno hasdatawhenselect 0x05, hasonedatawhenselect 0x15, multipledatawhenselect 0x29. </p>
+<p>Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>static u8 data_xxxx_0[] = { 0xFF, 0x98, 0x81, 0x03 };
+static u8 data_xxxx_1[] = { 0x01, 0x00 };
+static u8 data_xxxx_2[] = {0x02, 0x00 };
+......
+static u8 data_xxxx_n[] = { 0x11 };
+static u8 data_xxxx_n+1[] = { 0x29 };
+
+const struct dsc_instr dsi_init_cmds[] = {
+  { .delay = 0, .data_type = 0x29, .size = 4, .data = data_xxxx_0 },
+  { .delay = 0, .data_type = 0x15, .size = 2, .data = data_xxxx_1 },
+  { .delay = 0, .data_type = 0x15, .size = 2, .data = data_xxxx_2 },
+  ......
+  { .delay = 120, .data_type = 0x05, .size = 1, .data = data_xxxx_n },
+  { .delay = 20, .data_type = 0x05, .size = 1, .data = data_xxxx_n+1 },
+}
+</pre></div>
+</div>
+</section>
+<section id="id5">
+<h4><span class="section-number">2.2.1.3. </span>Add Header File Includes<a class="headerlink" href="2_MIPI_DSI.html#id5" title="Permalink to this heading">¶</a></h4>
+<p>Add the newnew headerfileinclude, inu-boot-2021.10/include/cvitek/cvi_panels/cvi_panels.hinincreaseforonthe two sectionsinnew headerfileinclude. </p>
+<p>Example:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#ifdef MIPI_PANEL_HX8394</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;dsi_hx8394_evb.h&quot;</span><span class="cp"></span>
+<span class="k">static</span><span class="w"> </span><span class="k">struct</span> <span class="nc">panel_desc_s</span><span class="w"> </span><span class="n">panel_desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="n">panel_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;HX8394-720x1280&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="n">dev_cfg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">dev_cfg_hx8394_720x1280</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="n">hs_timing_cfg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">hs_timing_cfg_hx8394_720x1280</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="n">dsi_init_cmds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dsi_init_cmds_hx8394_720x1280</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="n">dsi_init_cmds_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ARRAY_SIZE</span><span class="p">(</span><span class="n">dsi_init_cmds_hx8394_720x1280</span><span class="p">)</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+<span class="cp">#endif</span>
+</pre></div>
+</div>
+</section>
+<section id="mipireset">
+<h4><span class="section-number">2.2.1.4. </span>Configure the MIPI Panel RESET Pin<a class="headerlink" href="2_MIPI_DSI.html#mipireset" title="Permalink to this heading">¶</a></h4>
+<p>inu-boot-2021.10/drivers/video/cvitek/cvi_mipi.cmipi_tx_set_combo_dev_cfgfunctioninincreaseRESET/POWER/BACKLIGHTcontrol. </p>
+<p>MIPI panelgenerallyRESETpinuseis GPIO port. thereforeneed tofor GPIO portperform configure, at the same timeperform panelresetbitsoperation. </p>
+<ul class="simple">
+<li><p>queryhardwareschematic, GetRESETpincorrespondingpinname. </p></li>
+<li><p>compare with"CV184X_PINOUT_CN"findtopincorrespondingGPIOgroup numberandNo.. </p></li>
+<li><p>modifybuild/boards/default/dts/cv184x/cv184x_base.dtsiMediumvosectionpointresetiscorrespondingvalue. </p></li>
+<li><p>configurationRESETtheuse GPIO resetbitsoperationtiming. </p></li>
+</ul>
+<p>panelresetbitsoperationneed toreferencepaneldescriptiondocument, If noneresetbitsoperationororresetbitstimingwithpanelneed torequestnotmatch, ororlevelnotmatch, panelmaywillcannotlight upororworkingabnormality. generallyandwordswillishigh-low-highlevelchange, specificpleaserefer topanelspecificationdocument. </p>
+<p>Example:</p>
+<p>assumingpanelRESETpinisGPIOE 2, resetbitsvoltageisLow, in
+build/boards/default/dts/cv184x/cv184x_base.dtsimodify as follows: </p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">reset</span><span class="o">-</span><span class="n">gpio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="n">porte</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">GPIO_ACTIVE_LOW</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>configureas follows: </p>
+<p>gpio_request_by_name(dev, "reset-gpio", 0, &amp;priv-&gt;ctrl_gpios.disp_reset_gpio, GPIOD_IS_OUT | GPIOD_IS_OUT_ACTIVE);</p>
+<p>operationas follows: </p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>dm_gpio_set_value(&amp;ctrl_gpios.disp_reset_gpio, ctrl_gpios.disp_reset_gpio.flags &amp; GPIOD_ACTIVE_LOW ? 0 : 1);
+mdelay(10);
+dm_gpio_set_value(&amp;ctrl_gpios.disp_reset_gpio, ctrl_gpios.disp_reset_gpio.flags &amp; GPIOD_ACTIVE_LOW ? 1 : 0);
+mdelay(10);
+dm_gpio_set_value(&amp;ctrl_gpios.disp_reset_gpio, ctrl_gpios.disp_reset_gpio.flags &amp; GPIOD_ACTIVE_LOW ? 0 : 1);
+mdelay(100);
+</pre></div>
+</div>
+<p>thisthe effect of these lineswillwillisRESETpingenerateonehigh-low-highlevelchange</p>
+</section>
+<section id="mipipower">
+<h4><span class="section-number">2.2.1.5. </span>Configure the MIPI Panel POWER Pin<a class="headerlink" href="2_MIPI_DSI.html#mipipower" title="Permalink to this heading">¶</a></h4>
+<p>MIPIpanelPOWERcontrolgenerallyalsoisuseGPIO. usuallyonly need topullhighorpulllowpinlevelthat is, can controlMIPIpanelpower supply control. haspanelalsomaydirectlyconnectpower supply, thiswaywordssoftwarethennoneneed tocontrol. </p>
+<ul class="simple">
+<li><p>configuration methodwithonsectionRESETpinmethodonecause</p></li>
+</ul>
+<p>Example:</p>
+<p>assumingpanelPOWERpinisGPIOE 1, workingvoltageisHigh, 
+inbuild/boards/default/dts/cv184x/cv184x_base.dtsimodify as follows: </p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">power</span><span class="o">-</span><span class="n">ct</span><span class="o">-</span><span class="n">gpio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="n">porte</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">GPIO_ACTIVE_HIGH</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>ifnotneed toconfigurePOWERdirectlyconnectdelete it. </p>
+<p>configureas follows: </p>
+<p>gpio_request_by_name(dev, "power-ct-gpio", 0, &amp;priv-&gt;ctrl_gpios.disp_power_ct_gpio, GPIOD_IS_OUT | GPIOD_IS_OUT_ACTIVE);</p>
+<p>operationas follows: </p>
+<p>dm_gpio_set_value(&amp;ctrl_gpios.disp_power_ct_gpio, ctrl_gpios.disp_power_ct_gpio.flags &amp; GPIOD_ACTIVE_LOW ? 0 : 1);</p>
+</section>
+<section id="mipibacklight">
+<h4><span class="section-number">2.2.1.6. </span>Configure the MIPI Panel BACKLIGHT Pin<a class="headerlink" href="2_MIPI_DSI.html#mipibacklight" title="Permalink to this heading">¶</a></h4>
+<p>MIPIpanelBACKLIGHTcanconfigureisGPIOororPWM. </p>
+<section id="gpio">
+<h5><span class="section-number">2.2.1.6.1. </span>configureisGPIO<a class="headerlink" href="2_MIPI_DSI.html#gpio" title="Permalink to this heading">¶</a></h5>
+<ul class="simple">
+<li><p>configuration methodwithonsectionRESETpinmethodonecause</p></li>
+</ul>
+<p>Example:</p>
+<p>assumingpanelPWMpinisGPIOE 0, workingvoltageisHigh, 
+inbuild/boards/default/dts/cv184x/cv184x_base.dtsimodify as follows: </p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">pwm</span><span class="o">-</span><span class="n">gpio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="n">porte</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">GPIO_ACTIVE_HIGH</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>ifnotneed toconfigurePOWERdirectlyconnectdelete it. </p>
+<p>configureas follows: </p>
+<p>gpio_request_by_name(dev, "pwm-gpio", 0, &amp;priv-&gt;ctrl_gpios.
+disp_pwm_gpio, GPIOD_IS_OUT | GPIOD_IS_OUT_ACTIVE);</p>
+<p>operationas follows: </p>
+<p>dm_gpio_set_value(&amp;ctrl_gpios.disp_pwm_gpio, ctrl_gpios.disp_pwm_gpio.flags &amp; GPIOD_ACTIVE_LOW ? 0 : 1);</p>
+</section>
+<section id="pwm">
+<h5><span class="section-number">2.2.1.6.2. </span>configureisPWM<a class="headerlink" href="2_MIPI_DSI.html#pwm" title="Permalink to this heading">¶</a></h5>
+<p>MIPIpanelBACKLIGHTPWM is generally used to enable brightness adjustment.</p>
+<ul class="simple">
+<li><p>queryhardwareschematic, GetBACKLIGHTpincorrespondingpinname. </p></li>
+<li><p>inu-boot-2021.10/board/cvitek/cv181x/board.cboard_initfunctionin, configurationBACKLIGHTpinreusefunctionisPWMfunction. </p></li>
+<li><p>compare with"CV184X Preliminary Datasheet"outsidescopedevicePWMchaptersectionregisterinformation, configurationPWMoutputperiod, duty cycle, Enable. </p></li>
+</ul>
+<p>PWMbaseaddressinformation, itsremainingregisterinformationspecificpleasereference"CV184X Preliminary Datasheet", CV184Xhas3groupPWM, eachgroup6itemchannel</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>pwm0</p></td>
+<td><p>0x030010a4</p></td>
+</tr>
+<tr class="row-even"><td><p>pwm1:</p></td>
+<td><p>0x030010d0</p></td>
+</tr>
+<tr class="row-odd"><td><p>pwm2:</p></td>
+<td><p>0x03001058</p></td>
+</tr>
+</tbody>
+</table>
+<p>Note:herePWM0~2isPWMgroup number, andschematicororpinlistinwriteisPWM0~PWM17, ifWhen viewtoPWM1, correspondingisondescribetableNo. 0groupfirstitemchannelPWM0_1. </p>
+<p>Example:</p>
+<p>assumingpanelBACKLIGHTpinisPWM8</p>
+<blockquote>
+<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">devmem</span><span class="w"> </span><span class="mh">0x030010A4</span><span class="w"> </span><span class="mi">32</span><span class="w"> </span><span class="mh">0x00000004</span><span class="w"> </span><span class="c1">//复用相应的引脚为PWM</span>
+
+<span class="n">echo</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">pwm</span><span class="o">/</span><span class="n">pwmchip6</span><span class="o">/</span><span class="n">export</span><span class="w"> </span><span class="c1">//配置待操作的PWM编号</span>
+
+<span class="n">echo</span><span class="w"> </span><span class="mi">1000000</span><span class="w"> </span><span class="o">&gt;/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">pwm</span><span class="o">/</span><span class="n">pwmchip6</span><span class="o">/</span><span class="n">pwm2</span><span class="o">/</span><span class="n">period</span><span class="w"> </span><span class="c1">// 设置PWM一个周期的持续时间（单位ns）</span>
+
+<span class="n">echo</span><span class="w"> </span><span class="mi">500000</span><span class="w"> </span><span class="o">&gt;/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">pwm</span><span class="o">/</span><span class="n">pwmchip6</span><span class="o">/</span><span class="n">pwm2</span><span class="o">/</span><span class="n">duty_cycle</span><span class="w"> </span><span class="c1">// 设置一个周期中的”ON”时间（单位ns），即占空比</span>
+
+<span class="n">echo</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&gt;/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">pwm</span><span class="o">/</span><span class="n">pwmchip6</span><span class="o">/</span><span class="n">pwm2</span><span class="o">/</span><span class="n">enable</span><span class="w"> </span><span class="c1">// 使能 PWM 输出</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+</section>
+<section id="u-boot">
+<h4><span class="section-number">2.2.1.7. </span>Configure u-boot Environment Variables<a class="headerlink" href="2_MIPI_DSI.html#u-boot" title="Permalink to this heading">¶</a></h4>
+<p>modifyu-boot-2021.10/include/configs/cv184x-asic.hinu-bootenvironmentvariableparameter</p>
+<p>Example:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define SHOWLOGOCMD LOAD_LOGO CVI_JPEG START_VO START_VL SET_VO_BG</span>
+</pre></div>
+</div>
+<p>LOAD_LOGOwillimagebyMISCpartitionreadtoDRAM, CVI_JPEGwillimageparsetospecifiedposition, START_VOandSTART_VLEnable VOandwilllogodisplayincenterinposition, SET_VO_BGSetVObackground color, panelexceptlogoofoutsideOtherareabythiscolorpopulate. </p>
+</section>
+<section id="logo">
+<h4><span class="section-number">2.2.1.8. </span>Replace the Logo Image<a class="headerlink" href="2_MIPI_DSI.html#logo" title="Permalink to this heading">¶</a></h4>
+<p>willcustomerlogo imageplacesetinthepathunderbuild/tools/common/bootlogo/, compileexecutebuild_allafterwillcopytoimagegeneratepathunder. </p>
+<p>Note: I80panelneed to24bit BMPimage, Otherneed toYUV420formatjpg . </p>
+</section>
+<section id="id6">
+<h4><span class="section-number">2.2.1.9. </span>Build, Program, and Verify<a class="headerlink" href="2_MIPI_DSI.html#id6" title="Permalink to this heading">¶</a></h4>
+<p>inondescribestepallcompleteafter, recompileburningnewu-boot. power-on, pressEnterenterU-Boot Commandsline. executerun showlogo, if successfulcanviewtopaneldisplayoutlogo image. If unuseddisplayoutlogo, pleaseconfirmwithunder. </p>
+<ul class="simple">
+<li><p>Confirm that the backlight is on</p></li>
+<li><p>confirmRESETpinlevelstatushasreachexpected</p></li>
+<li><p>Confirm that panel power is normal</p></li>
+<li><p>executemw 0x0a094094 0x0701000a, OutputVOtest pattern, falseifpanel initializationsuccess, you will seetocolorbar</p></li>
+</ul>
+<p>test patternregisteras followsFigure </p>
+<a class="reference internal image-reference" href="_images/MIPIDS005.png"><img alt="_images/MIPIDS005.png" src="_images/MIPIDS005.png" style="width: 6.26806in; height: 1.49306in;" /></a>
+<p>findhaswithonanyabnormalitypleasego back andcheckthisbeforeflowiswhethersetcorrectandreachexpected. </p>
+<p>if the aboveonallunusedfindabnormality, recommendviewDriver IC datasheetordirectlyconnectconsultpanel manufacturer, how to enablepanelBIST mode, usuallyisadjustinitialization sequenceinaregistervalue, willdisplaycolorbaretc.. </p>
+<p>falseifBIST modenotnormal, thenneed tothencheckMIPI Laneorder, RESET, POWER, PWMetc.iswhetherconfigurecorrect, andusemultimeter/oscilloscopeetc.confirmcircuitlevelstatusas expected, if allas expected, thenmayisa panel problem, pleaseconsultpanel manufacturer. </p>
+<p>falseifBISTnormal, thendescriptionwithonconfigurecorrect, hardwarecircuitno hasabnormality, at this timeusuallyneed toadjustsync_info_sineachparameter. </p>
+</section>
+</section>
+<section id="kernelmipi">
+<h3><span class="section-number">2.2.2. </span>Configure the MIPI Panel in the Kernel<a class="headerlink" href="2_MIPI_DSI.html#kernelmipi" title="Permalink to this heading">¶</a></h3>
+<p>Configure the MIPI Panel in the Kernelmethodwithinu-bootinalmostisoneway, onlyisimplementflownotoneway. When noneneed todisplay the logowhen, can selectthis method. </p>
+<p>anotheroutside, alsocanfirstusekernelbring up using this method, then porttou-boot, avoid frequentburningu-boot. </p>
+<p><strong>kernelinforconnect MIPIpanelbasic block diagramFigure </strong></p>
+<a class="reference internal image-reference" href="_images/MIPIDS006.png"><img alt="_images/MIPIDS006.png" src="_images/MIPIDS006.png" style="width: 4.672in; height: 3.27858in;" /></a>
+<section id="id7">
+<h4><span class="section-number">2.2.2.1. </span>Configure MIPI Tx Device Attributes<a class="headerlink" href="2_MIPI_DSI.html#id7" title="Permalink to this heading">¶</a></h4>
+<p>Implement a configuration header for each panel according to its specification and place it under cvi_mpi/component/panel/. Customers can use the other header templates as a reference when adding a panel header.</p>
+<p>See 2.2.1.1section</p>
+</section>
+<section id="id8">
+<h4><span class="section-number">2.2.2.2. </span>Configure the Panel Initialization Sequence<a class="headerlink" href="2_MIPI_DSI.html#id8" title="Permalink to this heading">¶</a></h4>
+<p>See 2.2.1.2section</p>
+</section>
+<section id="id9">
+<h4><span class="section-number">2.2.2.3. </span>Add Header File Includes<a class="headerlink" href="2_MIPI_DSI.html#id9" title="Permalink to this heading">¶</a></h4>
+<p>Add the newnew headerfileinclude, incvi_mpi/sample_app/panel/sample_panel.cinincreaseforonthe two sectionsinnew headerfileinclude. </p>
+<p>Example:</p>
+<p>ifneed topointpanelHX8394_EVB, First, incvi_mpi/sample_app/panel/sample_panel.hMediumincludethepanelheader filedsi_hx8394_evb.h, Then, ensurecvi_mpi/sample_app/panel/sample_panel.cfilein
+characterarraystatic char *s_panel_model_type_arr[ ]inhas"HX8394_EVB"character, no hasthenitselfAdd , connectwithinthefilepanelenumerationtypePANEL_MODELinAdd withthecharacterindexvaluemutualetc.enumeration valueHX8394_EVB, Finally, 
+inSAMPLE_SET_PANEL_DESCfunctioninAdd the newpanelrelatedparameterperform callcase, as shown below: </p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">case</span><span class="w"> </span><span class="nl">DSI_PANEL_HX8394_EVB</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="n">g_panel_desc</span><span class="p">.</span><span class="n">panel_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PANEL_MODE_DSI</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">g_panel_desc</span><span class="p">.</span><span class="n">stdsicfg</span><span class="p">.</span><span class="n">dev_cfg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">dev_cfg_hx8394_720x1280</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">g_panel_desc</span><span class="p">.</span><span class="n">stdsicfg</span><span class="p">.</span><span class="n">hs_timing_cfg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">hs_timing_cfg_hx8394_720x1280</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">g_panel_desc</span><span class="p">.</span><span class="n">stdsicfg</span><span class="p">.</span><span class="n">dsi_init_cmds</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dsi_init_cmds_hx8394_720x1280</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">g_panel_desc</span><span class="p">.</span><span class="n">stdsicfg</span><span class="p">.</span><span class="n">dsi_init_cmds_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ARRAY_SIZE</span><span class="p">(</span><span class="n">dsi_init_cmds_hx8394_720x1280</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="mipiresetpowerbacklight">
+<h4><span class="section-number">2.2.2.4. </span>Configure the MIPI Panel RESET, POWER, and BACKLIGHT Pins<a class="headerlink" href="2_MIPI_DSI.html#mipiresetpowerbacklight" title="Permalink to this heading">¶</a></h4>
+<p><strong>method1: </strong></p>
+<p>inpathbuild/boards/default/dts/cv184x/underfindtocorrespondingdtsfile, configurationMIPI Txgpioinformation, If no hasthepin, then directlyconnectnotwritethat is, can . </p>
+<p>Example:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="nl">mipi_tx</span><span class="p">:</span><span class="w"> </span><span class="n">mipi_tx</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">compatible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;cvitek,mipi_tx&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">reset</span><span class="o">-</span><span class="n">gpio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="n">porte</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">GPIO_ACTIVE_LOW</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">pwm</span><span class="o">-</span><span class="n">gpio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="n">porte</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">GPIO_ACTIVE_HIGH</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">power</span><span class="o">-</span><span class="n">ct</span><span class="o">-</span><span class="n">gpio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="n">porte</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">GPIO_ACTIVE_HIGH</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">clocks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="n">clk</span><span class="w"> </span><span class="n">CV181X_CLK_DISP_VIP</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="n">clk</span><span class="w"> </span><span class="n">CV181X_CLK_DSI_MAC_VIP</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">clock</span><span class="o">-</span><span class="n">names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;clk_disp&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;clk_dsi&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Note:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">pwm</span><span class="o">-</span><span class="n">gpio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="n">porte</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">GPIO_ACTIVE_HIGH</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>isdebugconvenient, The backlight can first useGPIOcontrol, be sure to firstnotneed toinu-bootinconfigurepinmuxisPWMfunction, otherwisemaycannotcontrol. </p>
+<p>lateraccording torequirement, If need toadjustluma, theninu-bootinconfigurepinmuxfunctionisPWM, deletedtsinthisline, at the same timeappinusePWMmethodcontrol. </p>
+<p>systembootafterloadMIPI Txdrivermethod (generallywillautomaticload, can firstuselsmodviewiswhetheralreadyload) : </p>
+<p>insmod /mnt/system/ko/cvi_mipi_tx.ko</p>
+<p>thiswayWhen driverloadafter, willaccording todtsinGPIOinformation, automaticrequestpleasetheseGPIO, andinitializationbecomecorrespondinglevelstatus. </p>
+<p><strong>method2: </strong></p>
+<p>noneneed tomodifyinkerneldtsfile. </p>
+<p>systembootloadMIPI Txdrivermethod: </p>
+<p>insmod /mnt/system/ko/cvi_mipi_tx.ko gpio=354,0,353,1,352,1</p>
+<p>these threeGPIOsequentiallyrespectivelyisRESET, POWER, PWM</p>
+<p>When driverloadafter, driverwillpreferentiallyusegpioparameterininformationautomaticrequestpleaseGPIOnumbercorrespondingGPIO, andinitializationbecomeitsafterlevelstatus. If no haswritegpioParameters, driverwillaccording todtsinGPIOinformationrequestpleaseGPIO. If no hasthepin, thenGPIOnumberandlevelstatusallwrite-1that is, can . </p>
+<p>sameway, isdebugconvenient, The backlight can first useGPIOcontrol, firstnotneed toinu-bootinconfigurepinmuxisPWMfunction. laterneed toadjustluma, theninu-bootinconfigurepinmuxfunctionisPWM, at the same timeappinusePWMmethodcontrol, andwillthirditemGPIOnumberandlevelstatuswritebecome-1that is, can . </p>
+<p><strong>method3: </strong></p>
+<p>directlyconnectinapplicationlayerdirectlyconnectcontrolGPIO. </p>
+<p>Example:
+assumingreset: GPIOE2, pwm: GPIOE0, power: GPIOE1, canusecat /sys/kernel/debug/gpioCommandviewchipgpioconfiguration, can in sequenceobtaintogpiochip0togpiochip4numberrange, in sequencecorrespondingwithGPIOAtoGPIOEnumberrange, 
+If obtainoutgpiochip4rangeis352to383, thenFor requiredpullGPIOE2tosay, belowechooperationnumbercodecan by352+2=354obtainto. </p>
+<p>thereforeneed towithunderoperationpullcorrespondingpin: </p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="mf">1.</span><span class="w"> </span><span class="n">echo</span><span class="w"> </span><span class="mi">352</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">export</span><span class="w"></span>
+<span class="w">   </span><span class="n">echo</span><span class="w"> </span><span class="mi">353</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">export</span><span class="w"></span>
+<span class="w">   </span><span class="n">echo</span><span class="w"> </span><span class="mi">354</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">export</span><span class="w"></span>
+<span class="mf">2.</span><span class="w"> </span><span class="n">echo</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio352</span><span class="o">/</span><span class="n">direction</span><span class="w"></span>
+<span class="w">   </span><span class="n">echo</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio353</span><span class="o">/</span><span class="n">direction</span><span class="w"></span>
+<span class="w">   </span><span class="n">echo</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio354</span><span class="o">/</span><span class="n">direction</span><span class="w"></span>
+<span class="mf">3.</span><span class="w"> </span><span class="n">echo</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio352</span><span class="o">/</span><span class="n">value</span><span class="w"></span>
+<span class="w">   </span><span class="n">echo</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio353</span><span class="o">/</span><span class="n">value</span><span class="w"></span>
+<span class="w">   </span><span class="n">echo</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio354</span><span class="o">/</span><span class="n">value</span><span class="w"></span>
+<span class="w">   </span><span class="n">echo</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio354</span><span class="o">/</span><span class="n">value</span><span class="w"></span>
+<span class="w">   </span><span class="n">echo</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio354</span><span class="o">/</span><span class="n">value</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Note:</p>
+<p>isdebugconvenient, The backlight can first useGPIOcontrol, be sure to firstnotneed toinu-bootinconfigurepinmuxisPWMfunction, otherwisemaycannotcontrol. </p>
+<p>lateraccording torequirement, If need toadjustluma, inu-bootinconfigurepinmuxfunctionisPWM, at the same timeappinusePWMmethodcontrol. </p>
+</section>
+<section id="id10">
+<h4><span class="section-number">2.2.2.5. </span>Build verification<a class="headerlink" href="2_MIPI_DSI.html#id10" title="Permalink to this heading">¶</a></h4>
+<p>executebuild_middlewareCompilationmiddleware, inpathcvi_mpi/sample_app/panel/underwillgeneratesample_panelcan executefile. 
+theprogramandinu-bootMedium"startvo 0 65536 0"operationisoneway, switchtoLPmode, SetMIPI TxdeviceattributeandthroughData Lane0topanelsendinitialization sequence, Then, switch backHSmode. </p>
+<p>willsample_panelcopytodevice, executecommand./sample_panelafterwillpop upoutthecommandProcedure, presspromptrunthat is, can . </p>
+<p>Example:./sample_panel –panel=HX8394_EVB</p>
+<p>Note:</p>
+<p>RESETinitiallevelsetislow, willneed tohigh-low-hightimingchange. </p>
+<p>RESETinitiallevelsetishigh, willneed tolow-high-lowtimingchange. </p>
+<p>EnableVOtest pattern, registeras followsFigure . executedevmem 0x0a094094 32 0x0701000awillwillviewtocolorbar. </p>
+<a class="reference internal image-reference" href="_images/MIPIDS005.png"><img alt="_images/MIPIDS005.png" src="_images/MIPIDS005.png" style="width: 6.26806in; height: 1.49306in;" /></a>
+<p>If colorbarunusednormaldisplay, pleasego back andcheckthisbeforeflowiswhethersetcorrectandreachexpected. </p>
+<p>falseifthisbeforeflowallunusedfindabnormality, recommendviewDriver IC datasheetordirectlyconnectconsultpanel manufacturer, how to enablepanelBIST mode, usuallyisadjustinitialization sequenceinaregistervalue, willdisplaycolorbaretc.. </p>
+<p>falseifBIST modenotnormal, thenneed tothencheckMIPI Laneorder, RESET, POWER, PWMetc.iswhetherconfigurecorrect, andusemultimeter/oscilloscopeetc.confirmcircuitlevelstatusas expected, if allas expected, thenmayisa panel problem, pleaseconsultpanel manufacturer. </p>
+<p>falseifBISTnormal, thendescriptionwithonconfigurecorrect, hardwarecircuitno hasabnormality, at this timeusuallyneed toadjustsync_info_sineachparameter. </p>
+</section>
+</section>
+<section id="id11">
+<h3><span class="section-number">2.2.3. </span>Configure the MIPI Panel in the Dual-system Environment<a class="headerlink" href="2_MIPI_DSI.html#id11" title="Permalink to this heading">¶</a></h3>
+<p>Configure the MIPI Panel in the Dual-system Environmentmethodandinondescribesinglesysteminalmostisoneway, onlyishasonesomesmallareadifference. belowdescriptiononeunderwheredifferencesame. </p>
+<p><strong>forconnectMIPIpanelbasic block diagramFigure </strong></p>
+<a class="reference internal image-reference" href="_images/MIPIDS006.png"><img alt="_images/MIPIDS006.png" src="_images/MIPIDS006.png" style="width: 4.672in; height: 3.27858in;" /></a>
+<p>where, onFigure VOwithMIPIdriverallinsmallkernelaliosincomplete. </p>
+<section id="id12">
+<h4><span class="section-number">2.2.3.1. </span>Configure MIPI Tx Device Attributes<a class="headerlink" href="2_MIPI_DSI.html#id12" title="Permalink to this heading">¶</a></h4>
+<p>Implement a configuration header for each panel according to its specification and place it atcvi_mpi/component/panel/and
+cvi_alios/components/cvi_mmf_sdk/cvi_panel/under, customercanrefer toitsremainingheader filetemplateadd its ownpanelHeader files. </p>
+<p>See 2.2.1.1section</p>
+</section>
+<section id="cvi-alios">
+<h4><span class="section-number">2.2.3.2. </span>Enable the Configuration Switch in cvi_alios<a class="headerlink" href="2_MIPI_DSI.html#cvi-alios" title="Permalink to this heading">¶</a></h4>
+<p>incvi_alios/solutions/{normboot/fastboot}/customization/{project_config}/package.yaml.turnkeyinenablecorrespondingchip andpaneltypeswitch, </p>
+<p>Example, If selectCONFIG_CV1842HP_GC8613chip, CONFIG_PANEL_HX8394panel, thenenableas followsswitch: </p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="nl">CONFIG_CV1842HP_GC8613</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+
+<span class="nl">CONFIG_PANEL_HX8394</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+</pre></div>
+</div>
+<p>NoteCONFIG_CHIP_cv1842hpchipIf need toat the same timesupportssensorandpanel, need tochangeinstallhardware, andpressneed tomodifycvi_alios/solutions/normboot/customization/cv1842hp_gc8613/src/custom_platform.c
+Medium_MipiTxPinmux()connectin the interfacepinreuse. </p>
+</section>
+<section id="id13">
+<h4><span class="section-number">2.2.3.3. </span>Configure the Panel Initialization Sequence<a class="headerlink" href="2_MIPI_DSI.html#id13" title="Permalink to this heading">¶</a></h4>
+<p>See 2.2.1.2section</p>
+</section>
+<section id="id14">
+<h4><span class="section-number">2.2.3.4. </span>Add Header File Includes<a class="headerlink" href="2_MIPI_DSI.html#id14" title="Permalink to this heading">¶</a></h4>
+<p>See 2.2.2.3section</p>
+</section>
+<section id="id15">
+<h4><span class="section-number">2.2.3.5. </span>Configure the MIPI Panel RESET, POWER, and BACKLIGHT Pins<a class="headerlink" href="2_MIPI_DSI.html#id15" title="Permalink to this heading">¶</a></h4>
+<p>incvi_alios/solutions/normboot/customization/cv1842hp_gc8613/src/custom_platform.cMedium_MipiTxPinmuxconnectin the interface
+Add forRESET, POWER, BACKLIGHTpinreuse, Then, directlyconnectinapplicationlayerdirectlyconnectcontrolGPIO. </p>
+<p>Example:</p>
+<p>For CONFIG_CHIP_cv1842hpchip, generallypullpinis: reset: GPIOE2, pwm: GPIOE0, power: GPIOE01. </p>
+<p>thereforeneed towithunderoperationpullcorrespondingpin: </p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">devmem</span><span class="w"> </span><span class="mh">0x03022004</span><span class="w"> </span><span class="mi">32</span><span class="w"> </span><span class="mh">0x0</span><span class="w"></span>
+<span class="n">devmem</span><span class="w"> </span><span class="mh">0x03022000</span><span class="w"> </span><span class="mi">32</span><span class="w"> </span><span class="mh">0x0</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="mi">352</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">export</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="mi">353</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">export</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="mi">354</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">export</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio352</span><span class="o">/</span><span class="n">direction</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio353</span><span class="o">/</span><span class="n">direction</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio354</span><span class="o">/</span><span class="n">direction</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio354</span><span class="o">/</span><span class="n">value</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio352</span><span class="o">/</span><span class="n">value</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio353</span><span class="o">/</span><span class="n">value</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio354</span><span class="o">/</span><span class="n">value</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio354</span><span class="o">/</span><span class="n">value</span><span class="w"></span>
+</pre></div>
+</div>
+<p>For CONFIG_CHIP_cv1842cpchip, generallypullpinis: reset: GPIOA15, pwm: GPIOA18, power: GPIOA19. </p>
+<p>thereforeneed towithunderoperationpullcorrespondingpin: </p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">devmem</span><span class="w"> </span><span class="mh">0x0300103c</span><span class="w"> </span><span class="mi">32</span><span class="w"> </span><span class="mh">0x3</span><span class="w"></span>
+<span class="n">devmem</span><span class="w"> </span><span class="mh">0x03001068</span><span class="w"> </span><span class="mi">32</span><span class="w"> </span><span class="mh">0x3</span><span class="w"></span>
+<span class="n">devmem</span><span class="w"> </span><span class="mh">0x03001064</span><span class="w"> </span><span class="mi">32</span><span class="w"> </span><span class="mh">0x3</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="mi">495</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">export</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="mi">498</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">export</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="mi">499</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">export</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio495</span><span class="o">/</span><span class="n">direction</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio498</span><span class="o">/</span><span class="n">direction</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio499</span><span class="o">/</span><span class="n">direction</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio495</span><span class="o">/</span><span class="n">value</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio498</span><span class="o">/</span><span class="n">value</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio499</span><span class="o">/</span><span class="n">value</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio495</span><span class="o">/</span><span class="n">value</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio495</span><span class="o">/</span><span class="n">value</span><span class="w"></span>
+</pre></div>
+</div>
+<p>ondescribecodeindevmemwriteregisterCommandisisreusecorrespondingpin, If alreadycompleterelatedreuse, can notexecutetheCommand. </p>
+</section>
+<section id="id16">
+<h4><span class="section-number">2.2.3.6. </span>Build verification<a class="headerlink" href="2_MIPI_DSI.html#id16" title="Permalink to this heading">¶</a></h4>
+<p>See 2.2.2.5section</p>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="1_disclaimer.html" class="btn btn-neutral float-left" title="1. Disclaimer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="3_LVDS.html" class="btn btn-neutral float-right" title="3. LVDS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Go to Official Website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="Go to Documentation Center"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Top of page"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Bottom of page"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR code for this page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

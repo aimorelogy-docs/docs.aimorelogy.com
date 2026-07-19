@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV184x Screen Docking User Guide &mdash; ScreenDockingGuide master Documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="1. Disclaimer" href="1_disclaimer.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html#" class="icon icon-home"> ScreenDockingGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_MIPI_DSI.html">2. MIPI DSI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_LVDS.html">3. LVDS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_MIPI_DSI.html">4. MIPI DSI (starting with SDK V6.3.4)</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html#">ScreenDockingGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html#" class="icon icon-home"></a> &raquo;</li>
+      <li>CV184x Screen Docking User Guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cv184x">
+<h1>CV184x Screen Docking User Guide<a class="headerlink" href="index.html#cv184x" title="Permalink to this heading">¶</a></h1>
+<p><strong>Revision History</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 13%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Revision</p></th>
+<th class="head"><p>Date</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1.0</p></td>
+<td><p>2025/03/31</p></td>
+<td><p>Initial version</p></td>
+</tr>
+</tbody>
+</table>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_MIPI_DSI.html">2. MIPI DSI</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_MIPI_DSI.html#id1">2.1. Environment Preparation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_DSI.html#id2">2.1.1. MIPI DSI Panel Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_DSI.html#id3">2.1.2. Hardware Wiring Check</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2_MIPI_DSI.html#mipi">2.2. Configure the MIPI Panel</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_DSI.html#u-bootmipi">2.2.1. Configure the MIPI Panel in u-boot</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#mipi-tx">2.2.1.1. Configure MIPI Tx Device Attributes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#id4">2.2.1.2. Configure the Panel Initialization Sequence</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#id5">2.2.1.3. Add Header File Includes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#mipireset">2.2.1.4. Configure the MIPI Panel RESET Pin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#mipipower">2.2.1.5. Configure the MIPI Panel POWER Pin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#mipibacklight">2.2.1.6. Configure the MIPI Panel BACKLIGHT Pin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#u-boot">2.2.1.7. Configure u-boot Environment Variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#logo">2.2.1.8. Replace the Logo Image</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#id6">2.2.1.9. Build, Program, and Verify</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_DSI.html#kernelmipi">2.2.2. Configure the MIPI Panel in the Kernel</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#id7">2.2.2.1. Configure MIPI Tx Device Attributes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#id8">2.2.2.2. Configure the Panel Initialization Sequence</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#id9">2.2.2.3. Add Header File Includes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#mipiresetpowerbacklight">2.2.2.4. Configure the MIPI Panel RESET, POWER, and BACKLIGHT Pins</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#id10">2.2.2.5. Build verification</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_DSI.html#id11">2.2.3. Configure the MIPI Panel in the Dual-system Environment</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#id12">2.2.3.1. Configure MIPI Tx Device Attributes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#cvi-alios">2.2.3.2. Enable the Configuration Switch in cvi_alios</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#id13">2.2.3.3. Configure the Panel Initialization Sequence</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#id14">2.2.3.4. Add Header File Includes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#id15">2.2.3.5. Configure the MIPI Panel RESET, POWER, and BACKLIGHT Pins</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_MIPI_DSI.html#id16">2.2.3.6. Build verification</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3_LVDS.html">3. LVDS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3_LVDS.html#id1">3.1. Environment Preparation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3_LVDS.html#id2">3.1.1. LVDSpanel interface introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_LVDS.html#id3">3.1.2. Hardware Wiring Check</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3_LVDS.html#id4">3.2. Configure the LVDS Panel</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3_LVDS.html#u-bootlvds">3.2.1. Configure in u-boot the LVDS Panel</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#id5">3.2.1.1. Configure LVDS device attributes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#id6">3.2.1.2. Add Header File Includes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#lvdsbacklight">3.2.1.3. Configure the LVDS PanelBACKLIGHTpin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#u-boot">3.2.1.4. Configure u-boot Environment Variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#logo">3.2.1.5. Replace the Logo Image</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#id7">3.2.1.6. Build, Program, and Verify</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="3_LVDS.html#kernellvds">3.2.2. Configure in the kernelLVDS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#id8">3.2.2.1. Configure LVDS device attributes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#id9">3.2.2.2. Add Header File Includes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#id10">3.2.2.3. Configure the LVDS PanelBACKLIGHTpin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#id11">3.2.2.4. Build verification</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="3_LVDS.html#id12">3.2.3. Configure in the dual-system environmentLVDS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#id13">3.2.3.1. Configure LVDS device attributes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#cvi-alios">3.2.3.2. Enable the Configuration Switch in cvi_alios</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#id14">3.2.3.3. Add Header File Includes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#id15">3.2.3.4. Configure the LVDS PanelBACKLIGHTpin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#id16">3.2.3.5. Build verification</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="4_MIPI_DSI.html">4. MIPI DSI (starting with SDK V6.3.4)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="4_MIPI_DSI.html#id1">4.1. Environment Preparation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="4_MIPI_DSI.html#mipi-dsi">4.1.1. MIPI DSI Panel Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_MIPI_DSI.html#id2">4.1.2. Hardware Wiring Check</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="4_MIPI_DSI.html#panelsupportlist">4.2. PanelSupportList framework overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_MIPI_DSI.html#mipi">4.3. Configure the MIPI Panel (systemoneflow) </a><ul>
+<li class="toctree-l3"><a class="reference internal" href="4_MIPI_DSI.html#id3">4.3.1. Step 1: writepanelreferenceheader file</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="4_MIPI_DSI.html#id4">4.3.1.1. Naming Rules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_MIPI_DSI.html#id5">4.3.1.2. header filecontenttemplate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_MIPI_DSI.html#id6">4.3.1.3. key data-structure description</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_MIPI_DSI.html#id7">4.3.1.4. Initialization Commands</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="4_MIPI_DSI.html#id8">4.3.2. Step 2: Register the panel-parameter header file</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="4_MIPI_DSI.html#u-boot-cvi-alios-cvi-panels-h">4.3.2.1. u-boot / cvi_alios registration method (cvi_panels.h) </a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_MIPI_DSI.html#cvi-mpi-sample-panel-h-sample-panel-c">4.3.2.2. cvi_mpi registration method (sample_panel.h + sample_panel.c) </a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="4_MIPI_DSI.html#id9">4.3.3. Step 3: enable the configuration and build</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="4_MIPI_DSI.html#u-boot">4.3.3.1. u-boot configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_MIPI_DSI.html#cvi-alios">4.3.3.2. cvi_alios configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_MIPI_DSI.html#cvi-mpi">4.3.3.3. cvi_mpi configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_MIPI_DSI.html#id10">4.3.3.4. build</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="4_MIPI_DSI.html#reset-power-backlight">4.4. RESET / POWER / BACKLIGHT pin configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="4_MIPI_DSI.html#u-boot-dts">4.4.1. u-boot configuration method (DTS) </a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_MIPI_DSI.html#cvi-mpi-gpio">4.4.2. cvi_mpi configuration method (manual GPIO) </a><ul>
+<li class="toctree-l4"><a class="reference internal" href="4_MIPI_DSI.html#sample-panel">4.4.2.1. methodone: sample_panel command lineparameter (onlydebuguse, codeinalreadycomment) </a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_MIPI_DSI.html#shell-sysfs">4.4.2.2. Method 2: shell manual operation sysfs</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="4_MIPI_DSI.html#cvi-alios-platform-panelinit">4.4.3. cvi_alios configuration method (PLATFORM_PanelInit) </a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="4_MIPI_DSI.html#logo">4.5. Replace the Logo image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_MIPI_DSI.html#id11">4.6. Build, Program, and Verify</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="1_disclaimer.html" class="btn btn-neutral float-right" title="1. Disclaimer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Go to Official Website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="Go to Documentation Center"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Top of page"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Bottom of page"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR code for this page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

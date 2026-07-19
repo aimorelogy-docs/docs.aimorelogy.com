@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4. Overall Overview of Image Quality Tuning &mdash; ISPTuningGuide master documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="5. Module Functions" href="5_Module_Function.html" />
+    <link rel="prev" title="3. ISP System Overview" href="3_ISP_System_Overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> ISPTuningGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">directory</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_PQ_Tuning_Text_Files_Relationship_Description.html">2. PQ Tuning Document Relationship Description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_ISP_System_Overview.html">3. ISP System Overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="4_Overview_of_Image_Quality_Tuning.html#">4. Overall Overview of Image Quality Tuning</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#ipc">4.1. Overview of Image Tuning for IPC Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#id2">4.2. Image Quality Tuning in Linear Mode</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#sensor">4.2.1. Sensor Integration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#id5">4.2.2. Sensor and Lens Calibration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#id8">4.2.3. Brightness</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#id9">4.2.4. Color</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#id10">4.2.5. Contrast</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#id12">4.2.6. Sharpness and Noise</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#wdr">4.3. Image Quality Tuning in WDR Mode</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#id14">4.3.1. WDRmodethe relevant informationscenethe relevant informationofbrightnessthe relevant informationTuning Method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#id16">4.3.2. Brightness</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#id17">4.3.3. Motion Trailing in the Synthesis Region</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#id18">4.3.4. Scene Dynamic Range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#id19">4.3.5. Color</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#id20">4.3.6. Contrast</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#id21">4.3.7. Sharpness and Noise</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#id22">4.3.8. WDRmodenightthe relevant informationsuppressionsceneTuning Method</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#id24">4.3.9. Brightness</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#id25">4.3.10. Motion Trailing in the Synthesis Region</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#id26">4.3.11. Scene Dynamic Range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#id27">4.3.12. Color</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#id28">4.3.13. Contrast</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#id29">4.3.14. Sharpness and Noise</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="5_Module_Function.html">5. Module Functions</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ISPTuningGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">4. </span>Overall Overview of Image Quality Tuning</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/4_Overview_of_Image_Quality_Tuning.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">4. </span>Overall Overview of Image Quality Tuning<a class="headerlink" href="4_Overview_of_Image_Quality_Tuning.html#id1" title="Permalink to this heading">¶</a></h1>
+<p>The current ISP processor is mainly intended for IPC security applications, including linear and WDR modes.</p>
+<p>Because of the specific requirements of the security industry, IPC security applications focus on different image-quality aspects than general consumer applications.</p>
+<section id="ipc">
+<h2><span class="section-number">4.1. </span>Overview of Image Tuning for IPC Applications<a class="headerlink" href="4_Overview_of_Image_Quality_Tuning.html#ipc" title="Permalink to this heading">¶</a></h2>
+<p>For IPC security applications, the current ISP processor provides two modes: linear mode and WDR mode.</p>
+<p>These two modes focus on image brightness, reasonable and accurate colors, overall image transparency and sharpness, and noise suppression.</p>
+<p>WDR mode additionally focuses on a reasonable overall dynamic range, preserving dark-area detail without overexposing bright areas.</p>
+<p>The following sections describe image quality tuning methods and tuning principles for linear and WDR modes.</p>
+</section>
+<section id="id2">
+<span id="id3"></span><h2><span class="section-number">4.2. </span>Image Quality Tuning in Linear Mode<a class="headerlink" href="4_Overview_of_Image_Quality_Tuning.html#id2" title="Permalink to this heading">¶</a></h2>
+<p>Linear-mode image quality tuning focuses on four dimensions: brightness, color, transparency, and sharpness and noise. AE and LSC are related to brightness tuning;</p>
+<p>AWB, CCM, and CLUT are related to color tuning;</p>
+<p>Gamma, Dehaze, DCI, and LDCI are related to transparency tuning;</p>
+<p>DPC, BNR, Demosaic, 3DNR, CNR, and Sharpen are related to sharpness and noise suppression.</p>
+<p>IPCapplication scenarioinlinearmodeunderImage Quality Tuningthe relevant informationFigureas <a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#id4"><span class="std std-numref">Figure 4.1</span></a> as shown.</p>
+<figure class="align-default" id="id4">
+<a class="reference internal image-reference" href="_images/Overvi002.png"><img alt="_images/Overvi002.png" src="_images/Overvi002.png" style="width: 6.26806in; height: 0.66042in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 4.1 </span><span class="caption-text">IPCapplication scenariolinearmodeofimagetuningthe relevant informationFigure</span><a class="headerlink" href="4_Overview_of_Image_Quality_Tuning.html#id4" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Note: CV184x does not support static DPC defects and does not require NP calibration. The YNR module is integrated into 3DNR and is no longer a separate module.</p>
+<section id="sensor">
+<h3><span class="section-number">4.2.1. </span>Sensor Integration<a class="headerlink" href="4_Overview_of_Image_Quality_Tuning.html#sensor" title="Permalink to this heading">¶</a></h3>
+<p>Sensor integration connects the processor to a Sensor such as the IMX327. Verify that the complete path operates correctly, modes switch smoothly, module parameters drive the Sensor reasonably with default values, and basic AE functions operate as expected.</p>
+</section>
+<section id="id5">
+<h3><span class="section-number">4.2.2. </span>Sensor and Lens Calibration<a class="headerlink" href="4_Overview_of_Image_Quality_Tuning.html#id5" title="Permalink to this heading">¶</a></h3>
+<p>The Sensor and lens calibration flow is shown in <a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#id6"><span class="std std-numref">Figure 4.2</span></a> as shown, the relevant informationandofmainlyStepincludingBlack Level Calibration, Noise Profilecalibration, the relevant informationdefective pixelcalibration, LSC CalibrationandAWBandCCMcolorcalibration.</p>
+<figure class="align-default" id="id6">
+<a class="reference internal image-reference" href="_images/Overvi003.png"><img alt="_images/Overvi003.png" src="_images/Overvi003.png" style="width: 6.26389in; height: 0.63194in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 4.2 </span><span class="caption-text">Sensor and Lens CalibrationofflowFigure</span><a class="headerlink" href="4_Overview_of_Image_Quality_Tuning.html#id6" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Note: CV184x does not support static DPC defects and does not require NP calibration.</p>
+<ul class="simple">
+<li><p><strong>Black Level Calibration:</strong> ISPoverallcalibrationflowoffirst stepthe relevant informationBlack Level Calibration, itsspecificcalibrationmethodthe relevant information <a class="reference internal" href="5_Module_Function.html#id3"><span class="std std-ref">Black Level Calibrationmethod</span></a> section.</p></li>
+<li><p><strong>LSC Calibration:</strong> LSC Calibrationofmainlyitemofthe relevant informationbyinlensofthe relevant informationnotthe relevant informationandthe relevant informationofframethe relevant information, calibrationofmethodthe relevant informationis Mesh LSC (MLSC).inlowthe relevant informationunder, framethe relevant informationofnoisebecauseisShadingandthe relevant informationnotthe relevant information, canthroughMeshStrperformadjust.specificcalibrationmethodrefer to <a class="reference internal" href="5_Module_Function.html#lsc"><span class="std std-ref">LSC Calibrationmethod</span></a> section.</p></li>
+<li><p><strong>AWB Calibration:</strong> AWB Calibrationofthe relevant informationmainlyisinthe relevant informationlight sourceunderthe relevant informationpointinformation, that isR/GandB/G, the relevant informationcolor temperaturethe relevant informationcurve.byinAWBthe relevant informationSensorandlensofthe relevant informationrelated, becausethis, the relevant informationlensorthe relevant information, the relevant informationneedthe relevant informationcalibrationAWBcoefficient.specificcalibrationmethodrefer to <a class="reference internal" href="5_Module_Function.html#awb"><span class="std std-ref">AWB Calibrationmethod</span></a> section.</p></li>
+<li><p><strong>CCM Calibration:</strong> CCM Calibrationofmainlythe relevant information3x3the relevant information, the relevant informationbysensorcapturethe relevant informationof24color chartthe relevant information18the relevant informationcolor patchthe relevant informationofthe relevant informationcolorvalueandthe relevant informationvalueofdifferencethe relevant informationcanthe relevant information.generallyusethe relevant informationlight source (D50, TL84andA) underthe relevant informationofrawthe relevant informationCCMofcalibration.specificcalibrationmethodrefer to <a class="reference internal" href="5_Module_Function.html#id106"><span class="std std-ref">CCM Calibrationmethod</span></a> section.</p></li>
+</ul>
+<p>After Sensor and lens calibration is complete, tune the image quality of each ISP module, including optimization for different ISO settings.</p>
+<p>linearmodeunderthe relevant informationneedtuningofsceneincludinglaboratorystatic subjectsceneandoutdoorthe relevant informationscene.generallyandthe relevant information, the relevant informationinnotsameilluminationunderforlaboratorystatic subjectscenecompleteISPthe relevant informationmoduleofParametertuning, willimagequalityofthe relevant informationincludingbrightness, color, contrastandsharpnessandnoiseetc.tuningreasonable.the relevant information, inoutdoornotsameofthe relevant informationsceneperformthe relevant informationtune, the relevant informationofrangethe relevant informationisdaytimeandnight, the relevant informationandthe relevant informationweatherandthe relevant informationetc.detailthe relevant informationofsceneetc..</p>
+<p>linearmodeimagequalityaccording toabovethe relevant informationoftuningthe relevant informationFigureas <a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#id7"><span class="std std-numref">Figure 4.3</span></a> as shown.</p>
+<figure class="align-default" id="id7">
+<a class="reference internal image-reference" href="_images/Overvi004.png"><img alt="_images/Overvi004.png" src="_images/Overvi004.png" style="width: 5.1378in; height: 0.63386in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 4.3 </span><span class="caption-text">imagequalitytuningofthe relevant informationFigure</span><a class="headerlink" href="4_Overview_of_Image_Quality_Tuning.html#id7" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Note: CV184xofYNRmodulethe relevant informationin3DNRthe relevant information, notthe relevant informationhasthe relevant informationofYNRmodule.</p>
+</section>
+<section id="id8">
+<h3><span class="section-number">4.2.3. </span>Brightness<a class="headerlink" href="4_Overview_of_Image_Quality_Tuning.html#id8" title="Permalink to this heading">¶</a></h3>
+<p>forBrightnessoftuning, mainlythe relevant informationadjustmentAEmoduleofAE weightTable, AE Route, AEtarget valueandAEofconvergencespeedandsmoothnessetc., the relevant informationreasonableofimageoverallbrightness.inadjustAEbefore, firstverifyBlack LevelandLSCalreadycompletecorrection.</p>
+<p><strong>Step 1.</strong> determineAEweightTable.forIPCapplication scenario, generallywillthe relevant informationframeofthe relevant informationarea, becausethisAEweightTableofthe relevant informationpartofweightthe relevant informationwillhighinthe relevant informationpart.</p>
+<p><strong>Step 2.</strong> determineAE Routedetermineexposureofthe relevant informationwaythe relevant information, notsameofapplication scenarioneedsetnotsameofexposure timeandgainthe relevant informationofthe relevant information</p>
+<p><strong>Step 3.</strong> forlaboratorystatic subjectscene, adjustmentAEoftarget value.recommendthe relevant informationbright areanotoverexposureisthe relevant information.</p>
+<p><strong>Step 4.</strong> forinnotsameofapplication scenario, tuningAEofconvergencespeedandsmoothness, the relevant informationbalance.adjustmentofprinciplethe relevant informationinthe relevant informationAEthe relevant informationofthe relevant informationunder, the relevant informationcanthe relevant informationhighconvergencespeed.generallycaninlaboratorystatic subjectsceneunderthe relevant informationbyswitchthe relevant informationperformthe relevant informationAEofconvergencespeedandsmoothness.</p>
+<p><strong>— End</strong></p>
+</section>
+<section id="id9">
+<h3><span class="section-number">4.2.4. </span>Color<a class="headerlink" href="4_Overview_of_Image_Quality_Tuning.html#id9" title="Permalink to this heading">¶</a></h3>
+<p>Colorofadjustmainlythe relevant informationandofmodulehasAWBandCCM.inadjustcolorbefore, firstverifyBlack LevelandLSC CalibrationcompleteandAEmoduleParametercompletetuning.</p>
+<p><strong>Step 1.</strong> uselaboratorythe relevant information, inD65, D50, AandoutdoorsceneofD50color temperatureoflight sourceunderfor24color chartperformAWB Calibration, the relevant informationobtainwhite balancecoefficient.the relevant information, canthe relevant informationlight source, asTL84andCWFetc.canthe relevant informationhighcalibrationofaccurateproperty.</p>
+<p><strong>Step 2.</strong> uselaboratorythe relevant information, inD50, TL84andAthe relevant informationlight sourceunderfor24color chartperformCCM Calibration, the relevant informationgenerate3x3the relevant information.</p>
+<p><strong>Step 3.</strong> afterAWBandCCM Calibrationcompletethe relevant information, the relevant informationImatestthe relevant informationdifferent light sourcesunder24color chart, the relevant informationverifycalibrationthe relevant informationofAWBcoefficientandCCMthe relevant informationwhetherthe relevant informationRequirements.</p>
+<p><strong>Step 4.</strong> inlaboratorysceneobtainthe relevant informationverifyafter, the relevant informationneedthe relevant informationamountofoutdoorscenethe relevant information, the relevant informationofthe relevant informationsceneincludingthe relevant informationandlight source, the relevant informationandthe relevant information, the relevant informationandthe relevant informationandthe relevant information.AWBandCCMspecificTuning Methodrefer to <a class="reference internal" href="5_Module_Function.html#id49"><span class="std std-ref">AWB Tuningmethod</span></a> and <a class="reference internal" href="5_Module_Function.html#id113"><span class="std std-ref">CCM Tuningmethod</span></a> section.</p>
+<p><strong>— End</strong></p>
+</section>
+<section id="id10">
+<h3><span class="section-number">4.2.5. </span>Contrast<a class="headerlink" href="4_Overview_of_Image_Quality_Tuning.html#id10" title="Permalink to this heading">¶</a></h3>
+<p>Contrastofadjustmainlythe relevant informationandofmodulehasGamma, DCI, LDCIandDehaze.generallyusingGammaismainlytuningmodule.inadjustcontrastbefore, firstverifyBlack LevelandLSC Calibrationcomplete, AEmodule, AWBandCCMParametercompletetuning.</p>
+<p><strong>Step 1.</strong> throughGammaParameteradjustGammacurve, the relevant informationoverallimageobtainthe relevant informationofcontrast, inbright areaanddark areathe relevant informationdetail.GammamoduleofspecificTuning Methodrefer to <a class="reference internal" href="5_Module_Function.html#id122"><span class="std std-ref">Gamma Tuningmethod</span></a> section.</p>
+<p><strong>Step 2.</strong> ifthe relevant informationperformcontrasttuning, tuningprincipleusingLDCIismain, DCI andDehazeisthe relevant information.LDCIcanthe relevant informationcontrastenhancement, the relevant informationframethe relevant informationofbright areaanddark areaindetailofTablethe relevant information.LDCIofspecificTuning Methodrefer to <a class="reference internal" href="5_Module_Function.html#id219"><span class="std std-ref">LDCI Tuningmethod</span></a>
+section.DCIandDehazeofspecificTuning Methodrefer to <a class="reference internal" href="5_Module_Function.html#id209"><span class="std std-ref">DCI Tuningmethod</span></a> and <a class="reference internal" href="5_Module_Function.html#id131"><span class="std std-ref">Dehaze Tuningmethod</span></a> section.</p>
+<p><strong>Step 3.</strong> whenGamma, LDCI, DCIandDehazeofParameterthe relevant informationafter, the relevant informationinlaboratorythe relevant informationD50light sourceunderthe relevant information, the relevant informationnumbernotlowin18the relevant information. <a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#id11"><span class="std std-numref">Figure 4.4</span></a> isthe relevant informationillustrationFigure.</p>
+<p><strong>Step 4.</strong> innotsameofISOunder, forlaboratorystatic subjectscenethe relevant informationwhenthe relevant informationtuningGamma, LDCI, DCIandDehaze, the relevant informationoverallframeofcontrastthe relevant informationRequirements.inlowilluminationenvironmentunder, recommendcontraststrengthnotthe relevant information, usingthe relevant informationnoisethe relevant informationenhancement.</p>
+<p><strong>— End</strong></p>
+<figure class="align-default" id="id11">
+<a class="reference internal image-reference" href="_images/Overvi005.jpg"><img alt="_images/Overvi005.jpg" src="_images/Overvi005.jpg" style="width: 3.14961in; height: 2.3622in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 4.4 </span><span class="caption-text">the relevant informationillustrationFigure</span><a class="headerlink" href="4_Overview_of_Image_Quality_Tuning.html#id11" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="id12">
+<h3><span class="section-number">4.2.6. </span>Sharpness and Noise<a class="headerlink" href="4_Overview_of_Image_Quality_Tuning.html#id12" title="Permalink to this heading">¶</a></h3>
+<p>Sharpness and Noiseofadjustmainlythe relevant informationandofmodulehasDPC, BNR, Demosaic, 3DNR, CNRandSharpen.</p>
+<p>asilluminationofnotsame, noiseofTablethe relevant informationwillnotsame.</p>
+<p>becausethis, sharpnessandnoisemoduleofParameterwillasISOthe relevant information.</p>
+<p>tuningprinciple, recommendthe relevant informationusingsharpnessisthe relevant information, inimagethe relevant informationpointdetailandtexturethe relevant informationofthe relevant informationunder, the relevant informationtuningnoise reductionmodule.</p>
+<p>inadjustsharpnessandnoisebefore, firstverifyBlack LevelandLSC Calibrationcomplete, AEmodule, AWB, CCMandGammaParametercompletetuning.</p>
+<p><strong>Step 1.</strong> the relevant information, uselaboratorythe relevant information, inenvironmentD50light sourceunderandISO100ofthe relevant informationunder, forresolutionthe relevant informationadjustmentDemosaicParameterthe relevant informationRequirements.
+the relevant information, usethisthe relevant informationDemosaicParameter, the relevant informationinISO100underlaboratorystatic subjectscenerun, whetherthe relevant informationexampleasitshighthe relevant informationdetailthe relevant information, andandperformthe relevant informationtuning.
+<a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#id13"><span class="std std-numref">Figure 4.5</span></a> isresolutionthe relevant informationillustrationFigure.</p>
+<p>DemosaicspecificTuning Methodrefer to <a class="reference internal" href="5_Module_Function.html#id68"><span class="std std-ref">Demosaic Tuningmethod</span></a>  section.</p>
+<p><strong>Step 2.</strong> generallyandthe relevant information, the relevant informationtuning3DNRthe relevant informationimagethe relevant informationareaofnoisethe relevant informationconvergencethe relevant informationstatusandmotionareaoftrailingthe relevant informationreasonablecontrol, the relevant informationframeofsharpnessthe relevant information, itsspecificTuning Methodrefer to <a class="reference internal" href="5_Module_Function.html#id178"><span class="std std-ref">3DNR Tuningmethod</span></a> section.next, overallimageofluma noiseandchroma noisesuppressioncanrespectivelyreferenceBNR( <a class="reference internal" href="5_Module_Function.html#id58"><span class="std std-ref">BNR Tuningmethod</span></a> section) , CNRmodule ( <a class="reference internal" href="5_Module_Function.html#id188"><span class="std std-ref">CNR Tuningmethod</span></a> section).the relevant informationNoteofthe relevant information, BNRthe relevant informationrawdomainofnoise reduction, tuningprinciplethe relevant informationinthe relevant informationdetailofthe relevant informationunder, suppressionoverallframeofnoise, becausethisrecommendnoise reductionstrengthnotthe relevant informationtuningthe relevant information.</p>
+<p><strong>Step 3.</strong> imagesharpeningoftuningincluding3DNRthe relevant informationofPreSharpenmodule, andin3DNRthe relevant informationofSharpenmodule, itsParameterthe relevant informationaccording toISOperformthe relevant information.basictuningthe relevant informationisin3DNRbeforethe relevant informationwhenthe relevant informationenhancementimagedetailtextureandedgethe relevant information, andinavoidthe relevant informationnoisethe relevant informationinthe relevant informationofthe relevant informationunder, the relevant informationtuning3DNRafterwardofsharpening, enhancementimageofthe relevant informationedge, specificTuning Methodthe relevant informationrespectivelyreference( <a class="reference internal" href="5_Module_Function.html#presharpen"><span class="std std-ref">PreSharpen</span></a> section) and <a class="reference internal" href="5_Module_Function.html#id237"><span class="std std-ref">Sharpen Tuningmethod</span></a> section.</p>
+<p><strong>Step 4.</strong> DPCmoduleofdynamicthe relevant informationdefective pixelFunctionifthe relevant informationinilluminationthanthe relevant informationofthe relevant informationunder, recommenditsrelatedParameterstrengthsettingisminimumthat iscan.andinilluminationthe relevant informationlowofenvironmentthe relevant informationunderthe relevant informationtuningDPCdynamicthe relevant informationdefective pixelParameter.</p>
+<p><strong>— End</strong></p>
+<figure class="align-default" id="id13">
+<a class="reference internal image-reference" href="_images/Overvi006.jpg"><img alt="_images/Overvi006.jpg" src="_images/Overvi006.jpg" style="width: 4.84646in; height: 3.14961in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 4.5 </span><span class="caption-text">resolutionthe relevant informationillustrationFigure</span><a class="headerlink" href="4_Overview_of_Image_Quality_Tuning.html#id13" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="wdr">
+<h2><span class="section-number">4.3. </span>Image Quality Tuning in WDR Mode<a class="headerlink" href="4_Overview_of_Image_Quality_Tuning.html#wdr" title="Permalink to this heading">¶</a></h2>
+<p>WDRmodeofImage Quality Tuningmethodmainlythe relevant informationofthe relevant informationhasimageofbrightness, color, dynamic rangetransparencyandsharpnessetc.waythe relevant information, among themandbrightnesstuningrelatedofmodulehasAEandLSCetc.; </p>
+<p>andcolortuningrelatedofmoduleAWB, CCM, CA Lite, PFRandCLUTetc.; </p>
+<p>anddynamic rangetuningrelatedofmodulehasWDRandDRCetc.; </p>
+<p>Gamma, Dehaze, DCI, and LDCI are related to transparency tuning;</p>
+<p>DPC, BNR, Demosaic, 3DNR, CNR, and Sharpen are related to sharpness and noise suppression.</p>
+<p>hasthe relevant informationsceneneeduseWDRmode, that isthe relevant informationscenethe relevant informationofbrightnessthe relevant informationandnightthe relevant informationandthe relevant informationofthe relevant informationsuppressionscene.</p>
+<p>IPCapplication scenarioWDRmodeofImage Quality Tuningthe relevant informationFigureas <a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#ipcwdr"><span class="std std-numref">Figure 4.6</span></a> as shown.</p>
+<figure class="align-default" id="ipcwdr">
+<a class="reference internal image-reference" href="_images/Overvi007.png"><img alt="_images/Overvi007.png" src="_images/Overvi007.png" style="width: 8.1378in; height: 0.63386in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 4.6 </span><span class="caption-text">IPCapplication scenarioWDRmodetuningthe relevant informationFigure</span><a class="headerlink" href="4_Overview_of_Image_Quality_Tuning.html#ipcwdr" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Note: CV184x does not support static DPC defects and does not require NP calibration. The YNR module is integrated into 3DNR and is no longer a separate module.</p>
+<p>incompleteabovethe relevant informationofcalibrationthe relevant information, the relevant informationforthe relevant informationofapplication scenario, respectivelyisthe relevant informationscenethe relevant informationofbrightnessthe relevant informationandnightthe relevant informationsuppressionscene, performImage Quality Tuning in WDR Mode.</p>
+<p>usingunderforthisthe relevant informationapplication scenariorespectivelyDescriptionTuning Method.</p>
+<section id="id14">
+<h3><span class="section-number">4.3.1. </span>WDRmodethe relevant informationscenethe relevant informationofbrightnessthe relevant informationTuning Method<a class="headerlink" href="4_Overview_of_Image_Quality_Tuning.html#id14" title="Permalink to this heading">¶</a></h3>
+<p>WDRmodeofthe relevant informationscenesettingisimagethe relevant informationincludingthe relevant informationofbright areaanddark areaandthe relevant informationunderthe relevant information, as <a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#id15"><span class="std std-numref">Figure 4.7</span></a> as shown.forthe relevant informationsceneunderthe relevant informationofbrightnessthe relevant informationimagequalityofTuning Methodthe relevant informationofthe relevant informationas follows:</p>
+<figure class="align-default" id="id15">
+<a class="reference internal image-reference" href="_images/Overvi008.jpg"><img alt="_images/Overvi008.jpg" src="_images/Overvi008.jpg" style="width: 4.01969in; height: 3.01575in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 4.7 </span><span class="caption-text">the relevant informationunderthe relevant informationscene</span><a class="headerlink" href="4_Overview_of_Image_Quality_Tuning.html#id15" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="id16">
+<h3><span class="section-number">4.3.2. </span>Brightness<a class="headerlink" href="4_Overview_of_Image_Quality_Tuning.html#id16" title="Permalink to this heading">¶</a></h3>
+<p>WDRmodeofbrightnessTuning Methodandlinearmodeoverallthe relevant information, specificmethodrefer to <a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#id2"><span class="std std-ref">Image Quality Tuning in Linear Mode</span></a> ofBrightnessthe relevant information, butmainlydifferencethe relevant informationininlongthe relevant informationandthe relevant informationofexposure timethe relevant informationbyAEofadjustthe relevant informationdetermine.the relevant information, AEofexposurethaninnotsamesceneunderthe relevant informationadjustment, determineWDRmodeimageofdynamic range.</p>
+</section>
+<section id="id17">
+<h3><span class="section-number">4.3.3. </span>Motion Trailing in the Synthesis Region<a class="headerlink" href="4_Overview_of_Image_Quality_Tuning.html#id17" title="Permalink to this heading">¶</a></h3>
+<p>AEexposurethanandWDRmoduleismainlyimpactimagethe relevant informationfusionregionofmotiontrailingthe relevant informationofbecausethe relevant information.morethe relevant informationAEexposurethan, morethe relevant informationmotiontrailingthe relevant information.inthe relevant informationofthe relevant informationsceneunder, WDR 2the relevant information1modeunderthe relevant informationofAEofexposurethanthe relevant informationis4-32times,  inthisthe relevant informationunder, WDRmoduleisthe relevant informationfusionregionofmotiontrailingofmainbecause.becausethis, intuningWDRofthe relevant information, throughtuninglongthe relevant informationfusioncurveandtuningmotiondetectionParameter, decreasemotiontrailingofthe relevant information.WDRspecificTuning Methodrefer to <a class="reference internal" href="5_Module_Function.html#wdr"><span class="std std-ref">WDR</span></a> .</p>
+</section>
+<section id="id18">
+<h3><span class="section-number">4.3.4. </span>Scene Dynamic Range<a class="headerlink" href="4_Overview_of_Image_Quality_Tuning.html#id18" title="Permalink to this heading">¶</a></h3>
+<p>AEexposurethan, Map Curve, DRCandGammamoduleismainlyimpactscenedynamic rangeofbecausethe relevant information.Map Curvecanforthe relevant information, samewheninthe relevant informationdegreeabovethe relevant informationofcontrast, specificTuning Methodrefer to <a class="reference internal" href="5_Module_Function.html#wdr"><span class="std std-ref">WDR</span></a> .DRCandGammacanfordark areabrightnessdothe relevant information.the relevant informationthaninDRC, Gammathe relevant informationofsamewhen, the relevant informationcontrastofloss.the relevant information, DRCthe relevant informationprotectionthe relevant informationbrightness.DRCspecificTuning Methodrefer to <a class="reference internal" href="5_Module_Function.html#drc"><span class="std std-ref">DRC</span></a> .</p>
+</section>
+<section id="id19">
+<h3><span class="section-number">4.3.5. </span>Color<a class="headerlink" href="4_Overview_of_Image_Quality_Tuning.html#id19" title="Permalink to this heading">¶</a></h3>
+<p>WDRmodeunderthe relevant informationincolorofTuning Methodandlinearmodeoverallthe relevant information, specificmethodrefer to <a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#id2"><span class="std std-ref">Image Quality Tuning in Linear Mode</span></a> ofColorthe relevant information.</p>
+</section>
+<section id="id20">
+<h3><span class="section-number">4.3.6. </span>Contrast<a class="headerlink" href="4_Overview_of_Image_Quality_Tuning.html#id20" title="Permalink to this heading">¶</a></h3>
+<p>WDRmodeofcontrasttuningmainlyandMap Curve, DRC, GammaandDehaze, LDCI, DCIrelated.inthroughMap Curve, DRC, Gammathe relevant informationhighdynamic rangeofwhenthe relevant information, the relevant informationamountminimumdegreeimpactcontrastofloss.afterward, canthroughDehaze, DCIcompensationthe relevant informationcontrast, LDCIcanenhancementthe relevant informationcontrast.</p>
+</section>
+<section id="id21">
+<h3><span class="section-number">4.3.7. </span>Sharpness and Noise<a class="headerlink" href="4_Overview_of_Image_Quality_Tuning.html#id21" title="Permalink to this heading">¶</a></h3>
+<p>WDRmodeofsharpnessandnoiseTuning Methodandlinearmodeoverallthe relevant information, specificmethodrefer to <a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#id2"><span class="std std-ref">Image Quality Tuning in Linear Mode</span></a> ofSharpness and Noisethe relevant information.</p>
+</section>
+<section id="id22">
+<h3><span class="section-number">4.3.8. </span>WDRmodenightthe relevant informationsuppressionsceneTuning Method<a class="headerlink" href="4_Overview_of_Image_Quality_Tuning.html#id22" title="Permalink to this heading">¶</a></h3>
+<p>WDRmodeofnightthe relevant informationsuppressionofthe relevant informationpointapplicationthe relevant informationnightofthe relevant informationscene, asthe relevant informationorthe relevant informationetc., as <a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html#id23"><span class="std std-numref">Figure 4.8</span></a> displaygenerallythe relevant informationapplicationundersceneillustrationFigure.</p>
+<figure class="align-default" id="id23">
+<a class="reference internal image-reference" href="_images/Overvi009.jpg"><img alt="_images/Overvi009.jpg" src="_images/Overvi009.jpg" style="width: 4.01969in; height: 3.01575in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 4.8 </span><span class="caption-text">nightthe relevant informationscene</span><a class="headerlink" href="4_Overview_of_Image_Quality_Tuning.html#id23" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>the relevant informationforinthe relevant informationapplication scenario, nightthe relevant informationsuppressionofthe relevant informationsceneofTuning Methodthe relevant informationofthe relevant informationas follows:</p>
+</section>
+<section id="id24">
+<h3><span class="section-number">4.3.9. </span>Brightness<a class="headerlink" href="4_Overview_of_Image_Quality_Tuning.html#id24" title="Permalink to this heading">¶</a></h3>
+<p>WDRmodeinnightthe relevant informationsuppressionsceneofbrightnessTuning Methodsimilar to the backlightscenethe relevant information, specificmethodrefer to the backlight section abovesceneforBrightnessofDescription.butmainlydifferencethe relevant informationininAEforthe relevant informationofimpactandAEofexposure timeforthe relevant informationmotionthe relevant informationofimpact.the relevant information, the relevant informationisoverexposurearea, WDRwillselectthe relevant information, andthe relevant informationWDRwillselectlongthe relevant informationfusion.becausethis, recommendofTuning Methodisinthe relevant informationAEweightTablewhen, inthe relevant informationofweightthe relevant informationgreater thanframethe relevant informationofarea.the relevant informationtuningAEtarget value, the relevant informationavoidthe relevant informationofthe relevant information.the relevant information, throughAE Routeofset, limitthe relevant informationexposure time, andusegainisthe relevant information, avoidthe relevant informationmotionthe relevant information.</p>
+</section>
+<section id="id25">
+<h3><span class="section-number">4.3.10. </span>Motion Trailing in the Synthesis Region<a class="headerlink" href="4_Overview_of_Image_Quality_Tuning.html#id25" title="Permalink to this heading">¶</a></h3>
+<p>WDRmodeundernightthe relevant informationsuppressionoffusionregiontrailingofTuning Methodsimilar to the backlightscenethe relevant information, refer to the backlight section abovesceneforfusionregionofmotiontrailingDescriptionthe relevant informationperformtuning.</p>
+</section>
+<section id="id26">
+<h3><span class="section-number">4.3.11. </span>Scene Dynamic Range<a class="headerlink" href="4_Overview_of_Image_Quality_Tuning.html#id26" title="Permalink to this heading">¶</a></h3>
+<p>WDRmodeundernightthe relevant informationsuppressionofscenedynamic rangeofspecificTuning Methodsimilar to the backlightscenethe relevant information, refer to the backlight section abovescenefordynamic rangeofDescriptionthe relevant informationperformtuning.the relevant informationNoteofthe relevant informationgenerallynightsceneunderAEexposurethanthe relevant informationsetis8-16timesthe relevant information.</p>
+</section>
+<section id="id27">
+<h3><span class="section-number">4.3.12. </span>Color<a class="headerlink" href="4_Overview_of_Image_Quality_Tuning.html#id27" title="Permalink to this heading">¶</a></h3>
+<p>WDRmodeundernightthe relevant informationsuppressionofcolorTuning Methodsimilar to the backlightscenethe relevant information.becausethis, canreferenceabovethe relevant informationofthe relevant informationsceneforColorofDescriptionthe relevant informationperformtuning.</p>
+</section>
+<section id="id28">
+<h3><span class="section-number">4.3.13. </span>Contrast<a class="headerlink" href="4_Overview_of_Image_Quality_Tuning.html#id28" title="Permalink to this heading">¶</a></h3>
+<p>WDRmodeunderthe relevant informationsuppressionofcontrastTuning Methodsimilar to the backlightscenethe relevant information, refer to the backlight section abovesceneforContrastofDescriptionthe relevant informationperformtuning.the relevant informationNoteofthe relevant informationavoidDCIoftuningthe relevant information, orthe relevant informationGammacurveofadjustthe relevant informationdark areanoisethe relevant information.becausethis, the relevant informationofthe relevant informationsizeanddark areanoiseandcontrastthe relevant informationofbalancedothe relevant informationoftuning.</p>
+</section>
+<section id="id29">
+<h3><span class="section-number">4.3.14. </span>Sharpness and Noise<a class="headerlink" href="4_Overview_of_Image_Quality_Tuning.html#id29" title="Permalink to this heading">¶</a></h3>
+<p>WDRmodeunderthe relevant informationsuppressionofsharpnessandnoiseTuning Methodsimilar to the backlightscenethe relevant information, refer to the backlight section abovesceneforContrastofDescriptionthe relevant informationperformtuning.needNoteofthe relevant informationwhenthe relevant informationtuning3DNRandYNRthe relevant informationbalancemotionareaofnoiseandtrailingthe relevant information, avoidimpactthe relevant informationofthe relevant information.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="3_ISP_System_Overview.html" class="btn btn-neutral float-left" title="3. ISP System Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="5_Module_Function.html" class="btn btn-neutral float-right" title="5. Module Functions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Go to the official website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="Go to the documentation center"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Top of page"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Bottom of page"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR code for this page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

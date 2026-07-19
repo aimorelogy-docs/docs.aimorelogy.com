@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV184X Sensor Debugging Guide &mdash; Sensor_Debugging_Guide master documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="1. Disclaimer" href="1_disclaimer.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html#" class="icon icon-home"> Sensor_Debugging_Guide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Introduction_to_Sensor_Drivers.html">2. SensorDriverIntroduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Confirm_Specifications.html">3. Confirm Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_Image_Output_Debugging.html">4. Image Output Debugging(Linuxthe corresponding content)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_Image_Output_Debugging.html">5. Image Output Debugging(Aliosthe corresponding content)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_Image_Output_Verification.html">6. ImageOutput Verification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_Basic_Functions_of_ISP.html">7. ISP Basic Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_Complete_the_AE_Configuration_Function.html">8. Complete the AE Configuration Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_Complete_Other_Functions.html">9. Complete Other Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_AE_Related_Verification.html">10. AERelatedVerification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_Common_Problem.html">11. FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_Color_Noise_Reduction_and_Other_Corrections.html">12. Color, Noise Reduction, and Other Corrections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_Debugging_Tool.html">13. Debugging Tool</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html#">Sensor_Debugging_Guide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html#" class="icon icon-home"></a> &raquo;</li>
+      <li>CV184X Sensor tuningUser Guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cv184x-sensor">
+<h1>CV184X Sensor Debugging Guide<a class="headerlink" href="index.html#cv184x-sensor" title="Permalink to this heading">¶</a></h1>
+<p><strong>Revision History</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 13%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Revision</p></th>
+<th class="head"><p>Date</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1.0</p></td>
+<td><p>2025/3/20</p></td>
+<td><p>Initial draft</p></td>
+</tr>
+<tr class="row-odd"><td><p>1.0.1</p></td>
+<td><p>2025/12/4</p></td>
+<td><p>Fixsensor_cfg.ini sensor name the corresponding content</p></td>
+</tr>
+</tbody>
+</table>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Introduction_to_Sensor_Drivers.html">2. SensorDriverIntroduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_Introduction_to_Sensor_Drivers.html#id1">2.1. HardwareArchitecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Introduction_to_Sensor_Drivers.html#id2">2.2. sensorthe corresponding content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Introduction_to_Sensor_Drivers.html#id3">2.3. tuningflow</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3_Confirm_Specifications.html">3. Confirm Specifications</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3_Confirm_Specifications.html#id2">3.1. verifythe corresponding contentProcessorthe corresponding content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_Confirm_Specifications.html#sensor">3.2. verifySensorthe corresponding content</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="4_Image_Output_Debugging.html">4. Image Output Debugging(Linuxthe corresponding content)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="4_Image_Output_Debugging.html#id1">4.1. Hardwarethe corresponding content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_Image_Output_Debugging.html#id2">4.2. ConfigurationInitializethe corresponding content</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="4_Image_Output_Debugging.html#sensor">4.2.1. the corresponding contentSensorDriver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Image_Output_Debugging.html#id3">4.2.2. SensorInitializethe corresponding content</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="4_Image_Output_Debugging.html#sample-common-alios-config">4.3. Adaptationsample common the corresponding content alios config</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_Image_Output_Debugging.html#sensor-driver">4.4. the corresponding contentSetsensor driver</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_Image_Output_Debugging.html#sensor-ini-cfg">4.5. the corresponding contentsensor ini cfgConfiguration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_Image_Output_Debugging.html#sensor-test">4.6. the corresponding contentRunsensor_test</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="5_Image_Output_Debugging.html">5. Image Output Debugging(Aliosthe corresponding content)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="5_Image_Output_Debugging.html#id1">5.1. Hardwarethe corresponding content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Image_Output_Debugging.html#id2">5.2. ConfigurationInitializethe corresponding content</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="5_Image_Output_Debugging.html#sensor">5.2.1. the corresponding contentSensorDriver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Image_Output_Debugging.html#id3">5.2.2. SensorInitializethe corresponding content</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Image_Output_Debugging.html#package-yaml">5.2.3. modifypackage.yamlthe corresponding contentFile</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="5_Image_Output_Debugging.html#solution">5.3. Adaptationsolution</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="5_Image_Output_Debugging.html#sensor-type">5.3.1. increasesensor type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Image_Output_Debugging.html#sensor-mipi">5.3.2. modifysensor mipiRelatedConfiguration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Image_Output_Debugging.html#vb">5.3.3. modifyVB Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Image_Output_Debugging.html#pinmux">5.3.4. modifythe corresponding contentpinmux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Image_Output_Debugging.html#id4">5.3.5. modifythe corresponding contentConfiguration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="5_Image_Output_Debugging.html#id5">5.4. Runsensor</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="6_Image_Output_Verification.html">6. ImageOutput Verification</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="6_Image_Output_Verification.html#dump-raw">6.1. Dump RAW</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Image_Output_Verification.html#dump-yuv">6.2. Dump YUV</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="7_Basic_Functions_of_ISP.html">7. ISP Basic Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="7_Basic_Functions_of_ISP.html#id1">7.1. Development Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7_Basic_Functions_of_ISP.html#id2">7.2. Precautions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="8_Complete_the_AE_Configuration_Function.html">8. Complete the AE Configuration Function</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="8_Complete_the_AE_Configuration_Function.html#id1">8.1. Development Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="8_Complete_the_AE_Configuration_Function.html#id2">8.2. Precautions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="9_Complete_Other_Functions.html">9. Complete Other Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="9_Complete_Other_Functions.html#sensor">9.1. SensorInitializeflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="9_Complete_Other_Functions.html#id2">9.2. SensorCloseflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="9_Complete_Other_Functions.html#sensor-ae">9.3. Sensor AEthe corresponding contentflow</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="10_AE_Related_Verification.html">10. AERelatedVerification</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="10_AE_Related_Verification.html#blc">10.1. BLCverifythe corresponding contentVerification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_AE_Related_Verification.html#id2">10.2. Exposurelinearthe corresponding contentVerification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_AE_Related_Verification.html#id3">10.3. Gainlinearthe corresponding contentVerification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_AE_Related_Verification.html#id4">10.4. the corresponding contentVerification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_AE_Related_Verification.html#response-frame">10.5. Response FrameVerification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_AE_Related_Verification.html#id5">10.6. ExposureGainthe corresponding contentVerification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_AE_Related_Verification.html#fps">10.7. FPSthe corresponding contentVerification</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="11_Common_Problem.html">11. FAQ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="11_Common_Problem.html#proc">11.1. Procthe corresponding content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_Common_Problem.html#sensor-log">11.2. Sensor Relatedlogthe corresponding content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_Common_Problem.html#lane">11.3. the corresponding contentConfigurationlanethe corresponding content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_Common_Problem.html#mac">11.4. the corresponding contentselectMACFrequency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_Common_Problem.html#id2">11.5. errorCheckflow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="11_Common_Problem.html#i2c-write-fail">11.5.1. I2C Write Fail</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_Common_Problem.html#decode-err">11.5.2. Decode err</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_Common_Problem.html#ecc-err">11.5.3. ECC err</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_Common_Problem.html#crc-err-word-count-err">11.5.4. CRC err/Word count err</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_Common_Problem.html#vi-select-timeout">11.5.5. vi_select timeout</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="12_Color_Noise_Reduction_and_Other_Corrections.html">12. Color, Noise Reduction, and Other Corrections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_Debugging_Tool.html">13. Debugging Tool</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="13_Debugging_Tool.html#id2">13.1. the corresponding contentFunction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="13_Debugging_Tool.html#dump-raw">13.2. Dump RAW</a></li>
+<li class="toctree-l2"><a class="reference internal" href="13_Debugging_Tool.html#dump-yuv">13.3. Dump YUV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="13_Debugging_Tool.html#set-flip-mirror">13.4. Set flip/mirror</a></li>
+<li class="toctree-l2"><a class="reference internal" href="13_Debugging_Tool.html#wdrlinear">13.5. WDRthe corresponding contentLinearswitch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="13_Debugging_Tool.html#ae">13.6. AERelatedVerification</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="1_disclaimer.html" class="btn btn-neutral float-right" title="1. Disclaimer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Go to the official website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="the corresponding contentdocumentationthe corresponding content"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Top of page"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Bottom of page"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR Code for This Page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

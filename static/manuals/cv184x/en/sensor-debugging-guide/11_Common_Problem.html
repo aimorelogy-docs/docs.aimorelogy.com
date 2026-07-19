@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV184X Sensor Debugging Guide &mdash; Sensor_Debugging_Guide master documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="12. Color, Noise Reduction, and Other Corrections" href="12_Color_Noise_Reduction_and_Other_Corrections.html" />
+    <link rel="prev" title="10. AERelatedVerification" href="10_AE_Related_Verification.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Sensor_Debugging_Guide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Introduction_to_Sensor_Drivers.html">2. SensorDriverIntroduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Confirm_Specifications.html">3. Confirm Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_Image_Output_Debugging.html">4. Image Output Debugging(Linuxthe corresponding content)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_Image_Output_Debugging.html">5. Image Output Debugging(Aliosthe corresponding content)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_Image_Output_Verification.html">6. ImageOutput Verification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_Basic_Functions_of_ISP.html">7. ISP Basic Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_Complete_the_AE_Configuration_Function.html">8. Complete the AE Configuration Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_Complete_Other_Functions.html">9. Complete Other Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_AE_Related_Verification.html">10. AERelatedVerification</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="11_Common_Problem.html#">11. FAQ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="11_Common_Problem.html#proc">11.1. Procthe corresponding content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_Common_Problem.html#sensor-log">11.2. Sensor Relatedlogthe corresponding content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_Common_Problem.html#lane">11.3. the corresponding contentConfigurationlanethe corresponding content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_Common_Problem.html#mac">11.4. the corresponding contentselectMACFrequency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_Common_Problem.html#id2">11.5. errorCheckflow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="11_Common_Problem.html#i2c-write-fail">11.5.1. I2C Write Fail</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_Common_Problem.html#decode-err">11.5.2. Decode err</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_Common_Problem.html#ecc-err">11.5.3. ECC err</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_Common_Problem.html#crc-err-word-count-err">11.5.4. CRC err/Word count err</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_Common_Problem.html#vi-select-timeout">11.5.5. vi_select timeout</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="12_Color_Noise_Reduction_and_Other_Corrections.html">12. Color, Noise Reduction, and Other Corrections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_Debugging_Tool.html">13. Debugging Tool</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Sensor_Debugging_Guide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">11. </span>FAQ</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/11_Common_Problem.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">11. </span>FAQ<a class="headerlink" href="11_Common_Problem.html#id1" title="Permalink to this heading">¶</a></h1>
+<section id="proc">
+<h2><span class="section-number">11.1. </span>Procthe corresponding content<a class="headerlink" href="11_Common_Problem.html#proc" title="Permalink to this heading">¶</a></h2>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/Common002.png"><img alt="_images/Common002.png" src="_images/Common002.png" style="width: 80%;" /></a>
+</figure>
+<p>Linux: # cat /proc/mipi-rx</p>
+<p>Alios: # proc_mipi_rx</p>
+<ul class="simple">
+<li><p>Combo DEV ATTRmainlyYesthe corresponding contentsensorthe corresponding contentInterfaceConfigurationinformation：</p></li>
+<li><p>Devno: sensorNumber，0Tablethe corresponding contentsensor0，1Tablethe corresponding contentsensor1, the corresponding contentSupported2the corresponding contentsensorthe corresponding contentInput</p></li>
+<li><p>WorkMode:Tablethe corresponding contentInterfaceType（mipi/sublvds/ HISPI /BT656…）</p></li>
+<li><p>DateType:Tablethe corresponding contentsensorDataformat（raw8/raw10/raw12/ YUV422_8BIT…）</p></li>
+<li><p>WDRMode:wdrmode（noneTablethe corresponding contentwdr，the corresponding contentwdr mode:VC, DT, Manual）</p></li>
+<li><p>LinkId: lanethe corresponding contentConfiguration</p></li>
+<li><p>PN swap:PNthe corresponding content，ifthe corresponding content，the corresponding contentlaneConfigurationthe corresponding content1</p></li>
+<li><p>SyncMode/DataEndian/SyncCodeEnddian:the corresponding contentmipiInterfacethe corresponding contentSupportedthe corresponding contentNonethe corresponding contentConfiguration，the corresponding contentsublvds、hispithe corresponding contentneedConfiguration</p></li>
+</ul>
+<hr class="docutils" />
+<ul class="simple">
+<li><p>MIPI INFOmainlyYesmipi-rxthe corresponding contentinformation：</p></li>
+<li><p>EccErr、CrcErr、HdrErr、WcErr: ifthe corresponding content0Tablethe corresponding contentEcc,crc,wcthe corresponding contentRelatederr，needCheck lane mappingthe corresponding content、mipithe corresponding content、laneHardwarethe corresponding content。</p></li>
+<li><p>Fifofull:ifthe corresponding content0Tablethe corresponding contentmacthe corresponding content，needthe corresponding contentmac clk.</p></li>
+<li><p>Decode:Tablethe corresponding contentDatalType（Raw12/raw10/raw8/YUV422…）</p></li>
+<li><p>PhySical:D0-D4Tablethe corresponding contentlanethe corresponding contentData，the corresponding contenthi speed statethe corresponding content，D0-D4the corresponding contentDatathe corresponding content。</p></li>
+<li><p>Digital：D0-D4displaythe corresponding contenthi speed statethe corresponding contentdata lanestatus。CK_HS、CK_ULPS、CK_ERR、DeskewTablethe corresponding contentclk lanestatus，normalthe corresponding contentCK_HS=1,the corresponding content0，the corresponding contentYesthe corresponding contentcontinues clkthe corresponding content CK_HS=1,CK_STOP=1。</p></li>
+</ul>
+</section>
+<section id="sensor-log">
+<h2><span class="section-number">11.2. </span>Sensor Relatedlogthe corresponding content<a class="headerlink" href="11_Common_Problem.html#sensor-log" title="Permalink to this heading">¶</a></h2>
+<p>Linuxoperation</p>
+<p><strong>the corresponding contentcif drv log:</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">echo &quot;module cvi_mipi_rx +p&quot; &gt; /sys/kernel/debug/dynamic_debug/control</span>
+
+<span class="go">dmesg -n 8</span>
+</pre></div>
+</div>
+<p><strong>the corresponding contentsyslogthe corresponding content：</strong></p>
+<p>Outputthe corresponding contentSerial Portthe corresponding content</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">/sbin/syslogd -l 8 -s 2048 -O /dev/console</span>
+</pre></div>
+</div>
+<p>orOutputthe corresponding contentFile</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">/sbin/syslogd -l 8 -s 2048 -O /mnt/data/mw.txt</span>
+</pre></div>
+</div>
+</section>
+<section id="lane">
+<h2><span class="section-number">11.3. </span>the corresponding contentConfigurationlanethe corresponding content<a class="headerlink" href="11_Common_Problem.html#lane" title="Permalink to this heading">¶</a></h2>
+<p>Notethe corresponding contentConfigurationthe corresponding contentlane idthe corresponding contentsensorthe corresponding contentConfiguration，lane_idthe corresponding contentIndexthe corresponding contentTablethe corresponding contentYesSensorthe corresponding contentLane ID，
+Indexthe corresponding content0Tablethe corresponding contentsensor clock，Indexthe corresponding content1~4Tablethe corresponding contentsensor lane 0~3。</p>
+<p>land_idthe corresponding contentTablethe corresponding contentYessocthe corresponding contentMIPI-Rxthe corresponding contentLane
+ID， 0Tablethe corresponding contentMIPIRX1_PAD0，1Tablethe corresponding contentMIPIRX1_PAD1，
+the corresponding contentusethe corresponding contentlanethe corresponding contentlane_idConfigurationthe corresponding content-1。</p>
+<p>the corresponding contentsensorthe corresponding contentsocthe corresponding contentlanethe corresponding contentas followsFigurethe corresponding content，the corresponding contentlane idConfigurationthe corresponding contentYes{3，4，2，0，1}.</p>
+<p>sensor</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/Common008.png"><img alt="_images/Common008.png" src="_images/Common008.png" style="width: 80%;" /></a>
+</figure>
+<p>soc</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/Common009.png"><img alt="_images/Common009.png" src="_images/Common009.png" style="width: 80%;" /></a>
+</figure>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>SENSORPins</p></th>
+<th class="head"><p>IPI LanePins</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>MIPI_CK (index = 0)</p></td>
+<td><p>MIPIRX0_3 (value = 0)</p></td>
+</tr>
+<tr class="row-odd"><td><p>MIPI_0 (index = 1)</p></td>
+<td><p>MIPIRX0_4 (value = 1)</p></td>
+</tr>
+<tr class="row-even"><td><p>MIPI_1 (index = 2)</p></td>
+<td><p>MIPIRX0_2 (value = 2)</p></td>
+</tr>
+<tr class="row-odd"><td><p>MIPI_2 (index = 3)</p></td>
+<td><p>MIPIRX0_0 (value = 3)</p></td>
+</tr>
+<tr class="row-even"><td><p>MIPI_3 (index = 4)</p></td>
+<td><p>MIPIRX0_1 (value = 4)</p></td>
+</tr>
+</tbody>
+</table>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/Common003.png"><img alt="_images/Common003.png" src="_images/Common003.png" style="width: 80%;" /></a>
+</figure>
+</section>
+<section id="mac">
+<h2><span class="section-number">11.4. </span>the corresponding contentselectMACFrequency<a class="headerlink" href="11_Common_Problem.html#mac" title="Permalink to this heading">¶</a></h2>
+<p>MACTablethe corresponding contentispthe corresponding contentsensorDatathe corresponding contentFrequency，</p>
+<p>the corresponding contentMAC_Freq * pix_width = lane_num * MIPI_Freq * 2。</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>MAC_Freq：VI MACthe corresponding contentFrequency</p></li>
+<li><p>pixel_width：the corresponding content</p></li>
+<li><p>lane_num：MIPI lanethe corresponding content</p></li>
+<li><p>MIPI_Freq：the corresponding contentlanethe corresponding contentFrequency</p></li>
+</ul>
+</div></blockquote>
+<p>the corresponding contentMAC freqthe corresponding content400M，pixel_width = 12，lane_num = 4，the corresponding contentSupportedthe corresponding contentMIPI_Freq = 400 * 12 / ( 4 * 2) = 600MHz。</p>
+<p> whereMIPI_FreqYesTablethe corresponding contentphy_clk，the corresponding contentYesbps/2。the corresponding contentsony imx335the corresponding contentYes1188Mbpsthe corresponding contentlane,  phy_clk = 1188/2=594Mhz。</p>
+<p> the corresponding content，ifsensorthe corresponding contentdata rate，the corresponding contentmac freq.</p>
+</section>
+<section id="id2">
+<span id="id3"></span><h2><span class="section-number">11.5. </span>errorCheckflow<a class="headerlink" href="11_Common_Problem.html#id2" title="Permalink to this heading">¶</a></h2>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/Common004.png"><img alt="_images/Common004.png" src="_images/Common004.png" style="width: 80%;" /></a>
+</figure>
+<section id="i2c-write-fail">
+<h3><span class="section-number">11.5.1. </span>I2C Write Fail<a class="headerlink" href="11_Common_Problem.html#i2c-write-fail" title="Permalink to this heading">¶</a></h3>
+<ul>
+<li><p>sensor i2cthe corresponding contentverify</p></li>
+<li><p>CheckI2C bus id</p></li>
+<li><p>CheckI2C slave addr</p></li>
+<li><p>Checksensorthe corresponding contentaddr/datathe corresponding content（8bit or 16bit）</p>
+<p>the corresponding contentConfigurationthe corresponding contenttime out error</p>
+</li>
+</ul>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/image6.png"><img alt="_images/image6.png" src="_images/image6.png" style="width: 80%;" /></a>
+</figure>
+<ul class="simple">
+<li><p>Check hardwareYesNonormal</p></li>
+<li><p>verifyConfigurationthe corresponding contentrst, pwdn, mclkthe corresponding contentConfigurationthe corresponding content</p></li>
+</ul>
+<p>LinuxoperationCommand：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">echo &quot;snsr_on 0 1 1&quot; &gt; /proc/mipi-rx //1Tablethe corresponding content37.125M, 2Tablethe corresponding content25M, 3Tablethe corresponding content27M</span>
+
+<span class="go">echo &quot;snsr_on 1 1 1&quot; &gt; /proc/mipi-rx //1Tablethe corresponding content37.125M, 2Tablethe corresponding content25M, 3Tablethe corresponding content27M</span>
+
+<span class="go">echo &quot;snsr_r 0 0&quot; &gt; /proc/mipi-rx</span>
+
+<span class="go">echo &quot;snsr_r 1 0&quot; &gt; /proc/mipi-rx</span>
+</pre></div>
+</div>
+<p>AliosoperationCommand：</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>the corresponding contentsensor testthe corresponding contentInput255the corresponding content
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>the corresponding contenti2cdetect -y –r NCommandTesti2cthe corresponding contentNodetectionthe corresponding content。NTablethe corresponding contentsensorthe corresponding contenti2cport（Aliosuseiic detect N Command）</p></li>
+<li><p>Checkpower onthe corresponding contentYesNothe corresponding contentspecthe corresponding content（the corresponding contentmclk，i2c）</p></li>
+</ul>
+</section>
+<section id="decode-err">
+<h3><span class="section-number">11.5.2. </span>Decode err<a class="headerlink" href="11_Common_Problem.html#decode-err" title="Permalink to this heading">¶</a></h3>
+<p>cat /proc/mipi-rx（Alios the corresponding contentproc_mipi_rx），viewprocthe corresponding content，the corresponding contentYesNothe corresponding contenths-state，
+the corresponding contentsensorDriverthe corresponding contentlow power statethe corresponding contenthigh speed state。</p>
+<p>as followsFigure，ifmipi-rxthe corresponding contentD0-D4the corresponding contentData，andthe corresponding content，the corresponding contentDescriptionthe corresponding contenths-state。</p>
+<ul class="simple">
+<li><p>verifyi2cthe corresponding content（i2cdetectthe corresponding contentsensor Address）</p></li>
+<li><p>verifylanethe corresponding content</p>
+<ol class="loweralpha simple">
+<li><p>ifprocthe corresponding contentdata lanethe corresponding contentDatathe corresponding content，andthe corresponding contentCK_HSthe corresponding content0，Tablethe corresponding contentclk lanethe corresponding content（the corresponding contentverifyclk lane）</p></li>
+<li><p>ifprocthe corresponding contentdata lanethe corresponding contentDatathe corresponding content，the corresponding contentCK_HSthe corresponding content1，Tablethe corresponding contentclk lanethe corresponding content，the corresponding contenthsmode，the corresponding contentifthe corresponding contentecc、crcthe corresponding contenterror，the corresponding contentTablethe corresponding contentdata lanethe corresponding contentConfigurationthe corresponding content（the corresponding contentverifydata lane）</p></li>
+</ol>
+</li>
+<li><p>verifythe corresponding content</p>
+<ol class="loweralpha simple">
+<li><p>the corresponding contentverifythe corresponding content，the corresponding contentCK_HS =0，data lanethe corresponding contentDatathe corresponding content，the corresponding contentYesthe corresponding contenthsthe corresponding content，the corresponding contentcanadjustthe corresponding contenths-zero, hs-trail value，the corresponding contentdetect period。</p></li>
+<li><p>the corresponding contentverifythe corresponding content， CK_HS =1，data lanethe corresponding contentDatathe corresponding content, the corresponding contentYesthe corresponding contentYesthe corresponding contentecc、crcthe corresponding contenterr，the corresponding contentYes Hs-settlethe corresponding contentYesthe corresponding content，the corresponding contentdata。</p></li>
+</ol>
+</li>
+<li><p>verifyhwYesNothe corresponding content</p></li>
+</ul>
+</section>
+<section id="ecc-err">
+<h3><span class="section-number">11.5.3. </span>ECC err<a class="headerlink" href="11_Common_Problem.html#ecc-err" title="Permalink to this heading">¶</a></h3>
+<ul>
+<li><p>Check lane Id mapping</p></li>
+<li><p>Checksensor tx hs-zero/hs-prepare</p>
+<p>hs-zero、hs-pareparethe corresponding contentsensor specthe corresponding contentYesthe corresponding contentorthe corresponding contentsensorthe corresponding content，the corresponding contentrecommendadjust。</p>
+</li>
+<li><p>Checkmipi-rx hs-settle</p>
+<p>the corresponding contenths-settlethe corresponding contentTimethe corresponding contentdatathe corresponding content“sync code” ，the corresponding content“sync code” the corresponding content，the corresponding contentecc err。</p>
+<p>adjusths-settlecanthe corresponding contentmodifyxxx_cmos_param.has follows，the corresponding contenths_settle。</p>
+</li>
+</ul>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/Common011.png"><img alt="_images/Common011.png" src="_images/Common011.png" style="width: 80%;" /></a>
+</figure>
+<p>Linuxoperation:adjusths-settlethe corresponding contentcanthe corresponding contentctrl+zthe corresponding content，the corresponding contentdevmem Commandmodifythe corresponding content0x0300b048the corresponding contentbit[23:16]value，adjustthe corresponding contentInputfgthe corresponding content。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">devmem 0x0300b048 32 0xXYZ</span>
+</pre></div>
+</div>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/Common006.png"><img alt="_images/Common006.png" src="_images/Common006.png" style="width: 80%;" /></a>
+</figure>
+</section>
+<section id="crc-err-word-count-err">
+<h3><span class="section-number">11.5.4. </span>CRC err/Word count err<a class="headerlink" href="11_Common_Problem.html#crc-err-word-count-err" title="Permalink to this heading">¶</a></h3>
+<p>adjustsensor tx hs-trail，ifhs-trailthe corresponding content，the corresponding contentdata，the corresponding contentDatathe corresponding content，the corresponding contentcrc errthe corresponding contentwc err，needadjustsensor the corresponding contenths-trailthe corresponding content。</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/Common007.png"><img alt="_images/Common007.png" src="_images/Common007.png" style="width: 80%;" /></a>
+</figure>
+</section>
+<section id="vi-select-timeout">
+<h3><span class="section-number">11.5.5. </span>vi_select timeout<a class="headerlink" href="11_Common_Problem.html#vi-select-timeout" title="Permalink to this heading">¶</a></h3>
+<ul>
+<li><p>cat /proc/mipi-rxdisplayYesNothe corresponding contenti2c、decode、ecc、crc、wcthe corresponding contenterr.</p>
+<p>ifthe corresponding content4the corresponding contentStepthe corresponding contentverifyNonethe corresponding content，</p>
+<p>cat /proc/cvitek/vi_dbgCheckYesNothe corresponding contentWidthGTCnt、WidthLSCnt、HeightGTCnt、HeightLSCnt，ifthe corresponding contentTablethe corresponding contentsensor init settingthe corresponding contentcrop sizethe corresponding contentispthe corresponding content，the corresponding contentsensor specverifymodify。</p>
+</li>
+<li><p>CheckMAC clockYesNothe corresponding content , ifmac clockthe corresponding content，the corresponding contentispprocessspeedthe corresponding contentfifo full,the corresponding contenttimeout。</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="10_AE_Related_Verification.html" class="btn btn-neutral float-left" title="10. AERelatedVerification" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="12_Color_Noise_Reduction_and_Other_Corrections.html" class="btn btn-neutral float-right" title="12. Color, Noise Reduction, and Other Corrections" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Go to the official website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="the corresponding contentdocumentationthe corresponding content"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Top of page"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Bottom of page"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR Code for This Page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

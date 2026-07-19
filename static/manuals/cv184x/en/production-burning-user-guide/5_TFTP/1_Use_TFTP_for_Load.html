@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5.1. Use TFTP to load firmware to DDR &mdash; ProductionBurningUserGuide master Documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="../_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/qrious.js"></script>
+    <script src="../_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="5.2. Burn firmware to Flash" href="2_Use_TFTP_for_Burn.html" />
+    <link rel="prev" title="5. TFTPBurning" href="../5_TFTP.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> ProductionBurningUserGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_Overview.html">2. Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../3_Cvi_Download_Tool(USB&amp;UART).html">3. USB Burning/UART Burning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../4_SD.html">4. SD Card Burning</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../5_TFTP.html">5. TFTPBurning</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="1_Use_TFTP_for_Load.html#">5.1. Use TFTP to load firmware to DDR</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="1_Use_TFTP_for_Load.html#id1">5.1.1. Preparation Before Use</a></li>
+<li class="toctree-l3"><a class="reference internal" href="1_Use_TFTP_for_Load.html#tftp">5.1.2. TFTPLoad Firmware</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2_Use_TFTP_for_Burn.html">5.2. Burn firmware to Flash</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../6_Burner.html">6. Burning with a Programmer</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ProductionBurningUserGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../5_TFTP.html"><span class="section-number">5. </span>TFTPBurning</a> &raquo;</li>
+      <li><span class="section-number">5.1. </span>Use TFTP to load firmware to DDR</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="../_sources/5_TFTP/1_Use_TFTP_for_Load.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="tftp-ddr">
+<h1><span class="section-number">5.1. </span>Use TFTP to load firmware to DDR<a class="headerlink" href="1_Use_TFTP_for_Load.html#tftp-ddr" title="Permalink to this heading">¶</a></h1>
+<section id="id1">
+<h2><span class="section-number">5.1.1. </span>Preparation Before Use<a class="headerlink" href="1_Use_TFTP_for_Load.html#id1" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>under tftpHost ComputerSoftware:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://bitbucket.org/phjounin/tftpd64/downloads/">https://bitbucket.org/phjounin/tftpd64/downloads/</a></p></li>
+</ul>
+</li>
+</ol>
+<a class="reference internal image-reference" href="../_images/image12.png"><img alt="../_images/image12.png" src="../_images/image12.png" style="width: 50%;" /></a>
+<ol class="arabic simple" start="2">
+<li><p>  tftpd64 Tools followingConfiguration:</p>
+<ul class="simple">
+<li><p> setting , TFTP inofReduce ‘//’ in file path。</p></li>
+</ul>
+</li>
+</ol>
+<a class="reference internal image-reference" href="../_images/image21.png"><img alt="../_images/image21.png" src="../_images/image21.png" style="width: 50%;" /></a>
+<ol class="arabic simple" start="3">
+<li><p> Firmware </p>
+<ul class="simple">
+<li><p>If UseSource Code BuildofFirmware，“sdk/install/soc_ ” Pathunder isupgrade.zipof andrawimagesofFile 。as followsFigure  ：</p></li>
+</ul>
+</li>
+</ol>
+<a class="reference internal image-reference" href="../_images/image3.png"><img alt="../_images/image3.png" src="../_images/image3.png" style="width: 50%;" /></a>
+<a class="reference internal image-reference" href="../_images/image4.png"><img alt="../_images/image4.png" src="../_images/image4.png" style="width: 50%;" /></a>
+<p>5.SettingsTFTP Software</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>will totftpunder the directory，or UseHost ComputerSoftware“Browse” toFirmwarePath，Pathnot in and etc. 。</p></li>
+<li><p>ClickPC serverof“Show Dir” ，Can beforePathunderofFile。</p></li>
+<li><p>Server interfacesSettingsisLocal HostofNetworkInterface，for example192.168.137.1；</p></li>
+</ul>
+</div></blockquote>
+<a class="reference internal image-reference" href="../_images/image5.png"><img alt="../_images/image5.png" src="../_images/image5.png" style="width: 80%;" /></a>
+<ol class="arabic simple" start="4">
+<li><p>ConfigurationPCand in Network Segment</p>
+<ul class="simple">
+<li><p>Through PC Ethernet Portand LAN </p></li>
+<li><p>ConfigurationPC ipis192.168.137.1</p></li>
+<li><p>Configuration ipis192.168.137.11</p></li>
+<li><p>ThroughinubootCommand Lineunder followingCommands Settings ip，Executesaveenv Settings：</p></li>
+</ul>
+</li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>     setenv ipaddr <span class="m">192</span>.168.137.11
+<span class="linenos">2</span>     setenv gatewayip <span class="m">192</span>.168.137.1
+<span class="linenos">3</span>     setenv serverip <span class="m">192</span>.168.137.1
+<span class="linenos">4</span>     ...
+</pre></div>
+</div>
+<p>ipaddr IP，serverip tftp server inPCofIP，gatewayip GatewayAddress。</p>
+<ol class="arabic simple" start="5">
+<li><p>Tests 
+- inubootunder ping PC ipAddress，underFigureIndicatesCan Communication</p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span>     ping <span class="m">192</span>.168.137.1
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="../_images/image6.png"><img alt="../_images/image6.png" src="../_images/image6.png" style="width: 50%;" /></a>
+</section>
+<section id="tftp">
+<h2><span class="section-number">5.1.2. </span>TFTPLoad Firmware<a class="headerlink" href="1_Use_TFTP_for_Load.html#tftp" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>fromtftp under Fileto MemoryAddress</p>
+<ul class="simple">
+<li><p>tftpunder Firmwareof ， under toDDRMemoryin，is toubootofMemory ，Canfrom0x82000000 Write。</p></li>
+</ul>
+</li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>     <span class="c1"># withemmc  for exampleunder</span>
+<span class="linenos"> 2</span>     <span class="c1">#  Load Firmwarebeforewillddr  0</span>
+<span class="linenos"> 3</span>     mw.b 0x82000000 <span class="m">0</span> 0x2000000
+<span class="linenos"> 4</span>     <span class="c1"># LoadFiletoDDR，</span>
+<span class="linenos"> 5</span>     <span class="c1"># CanLoadFileto ，andRefer tounder DDR FileWriteFlash， after Operationunder File</span>
+<span class="linenos"> 6</span>     <span class="c1">#  CanLoadtoDDRnot ，andRefer tounder DDR FileWriteFlash，PleaseNotenot Memory</span>
+<span class="linenos"> 7</span>     tftpboot 0x82000000 fip.bin
+<span class="linenos"> 8</span>     <span class="c1"># bootetc.FileNeed toUserawimagesunderofFile</span>
+<span class="linenos"> 9</span>     tftpboot 0x82100000 yoc.bin
+<span class="linenos">10</span>     tftpboot 0x82280000 boot.emmc
+<span class="linenos">11</span>     tftpboot 0x82580000 rootfs.emmc
+<span class="linenos">12</span>     tftpboot 0x82d80000 cfg.emmc
+<span class="linenos">13</span>     tftpboot 0x83780000 system.emmc
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p> </p>
+<ul class="simple">
+<li><p>IfUseUpgrade inofFirmware Need toDeleteFirmwareofbefore128Bytes (boot.emmcandrootfs.emmc ， rootfs.emmc 128Bytes ， 16M 64Bytesof )</p></li>
+<li><p>UserawimagesFile inofFirmware not Delete </p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../5_TFTP.html" class="btn btn-neutral float-left" title="5. TFTPBurning" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="2_Use_TFTP_for_Burn.html" class="btn btn-neutral float-right" title="5.2. Burn firmware to Flash" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Go to Official Website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="Go to Documentation Center"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Back to top"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Go to bottom"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR code for this page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

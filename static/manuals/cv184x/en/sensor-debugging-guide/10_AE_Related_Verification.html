@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV184X Sensor Debugging Guide &mdash; Sensor_Debugging_Guide master documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="11. FAQ" href="11_Common_Problem.html" />
+    <link rel="prev" title="9. Complete Other Functions" href="9_Complete_Other_Functions.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Sensor_Debugging_Guide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Introduction_to_Sensor_Drivers.html">2. SensorDriverIntroduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Confirm_Specifications.html">3. Confirm Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_Image_Output_Debugging.html">4. Image Output Debugging(Linuxthe corresponding content)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_Image_Output_Debugging.html">5. Image Output Debugging(Aliosthe corresponding content)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_Image_Output_Verification.html">6. ImageOutput Verification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_Basic_Functions_of_ISP.html">7. ISP Basic Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_Complete_the_AE_Configuration_Function.html">8. Complete the AE Configuration Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_Complete_Other_Functions.html">9. Complete Other Functions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="10_AE_Related_Verification.html#">10. AERelatedVerification</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="10_AE_Related_Verification.html#blc">10.1. BLCverifythe corresponding contentVerification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_AE_Related_Verification.html#id2">10.2. Exposurelinearthe corresponding contentVerification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_AE_Related_Verification.html#id3">10.3. Gainlinearthe corresponding contentVerification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_AE_Related_Verification.html#id4">10.4. the corresponding contentVerification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_AE_Related_Verification.html#response-frame">10.5. Response FrameVerification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_AE_Related_Verification.html#id5">10.6. ExposureGainthe corresponding contentVerification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_AE_Related_Verification.html#fps">10.7. FPSthe corresponding contentVerification</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="11_Common_Problem.html">11. FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_Color_Noise_Reduction_and_Other_Corrections.html">12. Color, Noise Reduction, and Other Corrections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_Debugging_Tool.html">13. Debugging Tool</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Sensor_Debugging_Guide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">10. </span>AERelatedVerification</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/10_AE_Related_Verification.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ae">
+<span id="id1"></span><h1><span class="section-number">10. </span>AERelatedVerification<a class="headerlink" href="10_AE_Related_Verification.html#ae" title="Permalink to this heading">¶</a></h1>
+<p>the corresponding contentcompleteImageVerificationthe corresponding contentcanthe corresponding contentAEthe corresponding content，AEthe corresponding contentBasicthe corresponding contentExposure、GainYeslinearthe corresponding content，the corresponding contentFrame、the corresponding contentneedVerification。</p>
+<p>mainlyYescompleteSensorPorting_AE(sensor_test)the corresponding contenttablethe corresponding contentVerification。Verificationthe corresponding contentneedthe corresponding contentsensor_testTestthe corresponding content。</p>
+<p>Note：the corresponding contentAERelatedVerificationthe corresponding content，needthe corresponding content。</p>
+<section id="blc">
+<h2><span class="section-number">10.1. </span>BLCverifythe corresponding contentVerification<a class="headerlink" href="10_AE_Related_Verification.html#blc" title="Permalink to this heading">¶</a></h2>
+<p>sensor specthe corresponding contentblc offsetthe corresponding content，the corresponding contentWritexxx_cmos_param.h。</p>
+<p>ifthe corresponding contentthroughthe corresponding contentTestthe corresponding contentblcthe corresponding content：</p>
+<p>modifyxxx_cmos_param.h，the corresponding content，273Tablethe corresponding contentblc offset, Allthe corresponding content0。</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/AERela002.png"><img alt="_images/AERela002.png" src="_images/AERela002.png" style="width: 80%;" /></a>
+</figure>
+<p>the corresponding contentLens，the corresponding contentenvironmentthe corresponding contentRunsensor_test，InputCMD</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>5
+2 0 70 0 0
+</pre></div>
+</div>
+<p>the corresponding contentLumathe corresponding content4the corresponding contentYesthe corresponding contentblc offsetthe corresponding content。</p>
+<p>the corresponding contentas followsthe corresponding contentblc offsetthe corresponding content74x4=286。</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/AERela003.png"><img alt="_images/AERela003.png" src="_images/AERela003.png" style="width: 80%;" /></a>
+</figure>
+<p>the corresponding contentTestthe corresponding contentblc offsetthe corresponding contentgain = 4095/（4095 - offset）*1024 the corresponding content 1106，
+the corresponding contentverifythe corresponding contentblcthe corresponding contentgainthe corresponding contentxxx_cmos_param.h。</p>
+</section>
+<section id="id2">
+<h2><span class="section-number">10.2. </span>Exposurelinearthe corresponding contentVerification<a class="headerlink" href="10_AE_Related_Verification.html#id2" title="Permalink to this heading">¶</a></h2>
+<p>the corresponding contentLensthe corresponding contentenvironmentthe corresponding contentRunsensor_test，linearmodethe corresponding contentInputCMD</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>5
+2 0 71 0 0
+</pre></div>
+</div>
+<p>Wdrmodethe corresponding contentExposureInputCMD</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>5
+2 0 75 0 0
+</pre></div>
+</div>
+<p>Wdrmodethe corresponding contentExposureInputCMD</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>5
+2 0 76 0 0
+</pre></div>
+</div>
+<p>the corresponding contentAE Brightnessthe corresponding content 1/60s the corresponding contentExposureTimethe corresponding content 1/30s the corresponding content，
+AEBrightnessthe corresponding content1/120s the corresponding contentExposureTimethe corresponding content 1/60s the corresponding content，
+the corresponding contentas followsFigurethe corresponding contentresultthe corresponding contentYesthe corresponding content。</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/AERela014.png"><img alt="_images/AERela014.png" src="_images/AERela014.png" style="width: 80%;" /></a>
+</figure>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/image5.png"><img alt="_images/image5.png" src="_images/image5.png" style="width: 80%;" /></a>
+</figure>
+</section>
+<section id="id3">
+<h2><span class="section-number">10.3. </span>Gainlinearthe corresponding contentVerification<a class="headerlink" href="10_AE_Related_Verification.html#id3" title="Permalink to this heading">¶</a></h2>
+<p>the corresponding contentLensthe corresponding contentenvironmentthe corresponding contentRunsensor_test，linearmodethe corresponding contentInputCMD</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>5
+2 0 72 0 0
+</pre></div>
+</div>
+<p>Wdrmodethe corresponding contentInputCMD</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>5
+2 0 77 0 0
+</pre></div>
+</div>
+<p>the corresponding contentFigureYesTestresult，linear modethe corresponding contentagainthe corresponding content1024increasethe corresponding content8192，
+lumathe corresponding content74the corresponding content607，Basicthe corresponding content8the corresponding content。</p>
+<p>Wdr modethe corresponding contentagainthe corresponding content1024the corresponding content2048，lumathe corresponding content51the corresponding content100, Basicthe corresponding content2the corresponding content。</p>
+<p>the corresponding contentFigurethe corresponding contentlumathe corresponding contentagainthe corresponding contentlinearthe corresponding content。</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/AERela015.png"><img alt="_images/AERela015.png" src="_images/AERela015.png" style="width: 80%;" /></a>
+</figure>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/image7.png"><img alt="_images/image7.png" src="_images/image7.png" style="width: 80%;" /></a>
+</figure>
+</section>
+<section id="id4">
+<h2><span class="section-number">10.4. </span>the corresponding contentVerification<a class="headerlink" href="10_AE_Related_Verification.html#id4" title="Permalink to this heading">¶</a></h2>
+<p>ifthe corresponding contentVerificationExposurelinearthe corresponding content，needthe corresponding contentCMD</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>5
+8 SID FID startExpTime endExptime
+</pre></div>
+</div>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/AERela006.png"><img alt="_images/AERela006.png" src="_images/AERela006.png" style="width: 80%;" /></a>
+</figure>
+<p>canTestthe corresponding contentExposurelinearthe corresponding content，Tablethe corresponding contentstartExpTimethe corresponding contentendExpTimethe corresponding content%5the corresponding content。</p>
+<p>SIDTablethe corresponding contentsensorID, FIDTablethe corresponding contentframeID,0Tablethe corresponding contentFrame，1Tablethe corresponding contentFrame。</p>
+<p>ifthe corresponding contentVerificationGainlinearthe corresponding content，needthe corresponding contentCMD</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>5
+7 SID FID time StartISO EndISO
+</pre></div>
+</div>
+<p>canTestthe corresponding contentGainlinearthe corresponding content，Tablethe corresponding contentStartISOthe corresponding contentEndISOthe corresponding contentgaintablethe corresponding content。the corresponding contentISO 100Tablethe corresponding content1x，the corresponding contentgain=1024.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/AERela007.png"><img alt="_images/AERela007.png" src="_images/AERela007.png" style="width: 80%;" /></a>
+</figure>
+</section>
+<section id="response-frame">
+<h2><span class="section-number">10.5. </span>Response FrameVerification<a class="headerlink" href="10_AE_Related_Verification.html#response-frame" title="Permalink to this heading">¶</a></h2>
+<p>the corresponding contentsensorParameterthe corresponding contentTimethe corresponding content，the corresponding contentsensorthe corresponding content5 frameTimethe corresponding content，the corresponding content4 frameor3 framethe corresponding content。</p>
+<p>the corresponding contentsensor，the corresponding content，the corresponding contentTimethe corresponding content，the corresponding contentneedVerificationAERelatedthe corresponding contentFrame。</p>
+<p>Runsensor_test，linearmodethe corresponding contentInputCMD</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>5
+2 0 71 0 0
+</pre></div>
+</div>
+<p>the corresponding contentshutterthe corresponding contentframethe corresponding content。</p>
+<p>the corresponding contentFigurethe corresponding contentshutterthe corresponding content33333the corresponding content16666the corresponding content，the corresponding content4the corresponding contentframethe corresponding contentLumathe corresponding content。</p>
+<p>the corresponding contentExposurethe corresponding contentResponseFramethe corresponding content4.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/image10.png"><img alt="_images/image10.png" src="_images/image10.png" style="width: 80%;" /></a>
+</figure>
+<p>InputCMD</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>5
+2 0 72 0 0
+</pre></div>
+</div>
+<p>the corresponding contentgainthe corresponding contentframethe corresponding content。</p>
+<p>the corresponding contentFigurethe corresponding contentagainthe corresponding content1024the corresponding content2048the corresponding content，the corresponding content4the corresponding contentframethe corresponding contentLumathe corresponding content。</p>
+<p>the corresponding contentGainthe corresponding contentResponseFramethe corresponding content4.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/AERela016.png"><img alt="_images/AERela016.png" src="_images/AERela016.png" style="width: 80%;" /></a>
+</figure>
+<p>Testthe corresponding contentExposure、Gainthe corresponding contentResponseFramethe corresponding content，ResponseFramethe corresponding contentxxx_cmos.cthe corresponding contentcmos_get_ae_defaultfunctionthe corresponding content，as followsFigure：</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/AERela009.png"><img alt="_images/AERela009.png" src="_images/AERela009.png" style="width: 80%;" /></a>
+</figure>
+</section>
+<section id="id5">
+<h2><span class="section-number">10.6. </span>ExposureGainthe corresponding contentVerification<a class="headerlink" href="10_AE_Related_Verification.html#id5" title="Permalink to this heading">¶</a></h2>
+<p>the corresponding contentYesthe corresponding contentsensorthe corresponding contentYesgain 、shutterthe corresponding content，For examplethe corresponding contentgainthe corresponding contentResponseFrameYes4，
+shutterthe corresponding contentResponseFrameYes3，needthe corresponding contentExposureGainthe corresponding contentVerification。</p>
+<p>Runsensor_test，linearmodethe corresponding contentInputCMD</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>5
+2 0 73 0 0
+</pre></div>
+</div>
+<p>the corresponding contentCMDTablethe corresponding content shutter/gain,
+AE the corresponding content。</p>
+<p>the corresponding contentFigurecanthe corresponding contentshutterthe corresponding contentagainthe corresponding contentYesthe corresponding content4framethe corresponding content。</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/AERela017.png"><img alt="_images/AERela017.png" src="_images/AERela017.png" style="width: 80%;" /></a>
+</figure>
+<p>ifthe corresponding contentGain、Exposurethe corresponding content，AE the corresponding content，the corresponding contentresult，the corresponding contentDescriptionGain、Exposurethe corresponding content。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">L</span><span class="p">:</span><span class="mi">479</span>  <span class="n">T</span><span class="p">:</span><span class="mi">33333</span>  <span class="n">AG</span><span class="p">:</span><span class="mi">8192</span>
+
+<span class="n">L</span><span class="p">:</span><span class="mi">479</span>  <span class="n">T</span><span class="p">:</span><span class="mi">33333</span>  <span class="n">AG</span><span class="p">:</span><span class="mi">8192</span>
+
+<span class="n">L</span><span class="p">:</span><span class="mi">479</span>  <span class="n">T</span><span class="p">:</span><span class="mi">1000</span>   <span class="n">AG</span><span class="p">:</span><span class="mi">1024</span>
+
+<span class="n">L</span><span class="p">:</span><span class="mi">479</span>  <span class="n">T</span><span class="p">:</span><span class="mi">1000</span>   <span class="n">AG</span><span class="p">:</span><span class="mi">1024</span>
+
+<span class="n">L</span><span class="p">:</span><span class="mi">299</span>  <span class="n">T</span><span class="p">:</span><span class="mi">1000</span>   <span class="n">AG</span><span class="p">:</span><span class="mi">1024</span>
+
+<span class="n">L</span><span class="p">:</span><span class="mi">211</span>  <span class="n">T</span><span class="p">:</span><span class="mi">1000</span>   <span class="n">AG</span><span class="p">:</span><span class="mi">1024</span>
+
+<span class="n">L</span><span class="p">:</span><span class="mi">3</span>    <span class="n">T</span><span class="p">:</span><span class="mi">1000</span>   <span class="n">AG</span><span class="p">:</span><span class="mi">1024</span>
+
+<span class="n">L</span><span class="p">:</span><span class="mi">3</span>    <span class="n">T</span><span class="p">:</span><span class="mi">1000</span>   <span class="n">AG</span><span class="p">:</span><span class="mi">1024</span>
+
+<span class="n">L</span><span class="p">:</span><span class="mi">3</span>    <span class="n">T</span><span class="p">:</span><span class="mi">1000</span>   <span class="n">AG</span><span class="p">:</span><span class="mi">1024</span>
+
+<span class="n">L</span><span class="p">:</span><span class="mi">3</span>    <span class="n">T</span><span class="p">:</span><span class="mi">1000</span>   <span class="n">AG</span><span class="p">:</span><span class="mi">1024</span>
+</pre></div>
+</div>
+<p>the corresponding contentneedthe corresponding contentgainorshutterthe corresponding contentdelaythe corresponding content，
+modifyxxx_cmos.cthe corresponding content cmos_get_sns_regs_infofunction，modifyregisterthe corresponding contentdelaythe corresponding content。</p>
+<p>the corresponding contentas followsFigurethe corresponding contentYesthe corresponding contentgainthe corresponding contentdelaythe corresponding content2 frame，Tablethe corresponding contentOtherthe corresponding contentregisterthe corresponding content2Frame。</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/AERela010.png"><img alt="_images/AERela010.png" src="_images/AERela010.png" style="width: 80%;" /></a>
+</figure>
+</section>
+<section id="fps">
+<h2><span class="section-number">10.7. </span>FPSthe corresponding contentVerification<a class="headerlink" href="10_AE_Related_Verification.html#fps" title="Permalink to this heading">¶</a></h2>
+<p>the corresponding contentsensor_testRunthe corresponding contentInputCMD</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>5
+4 SID FPS
+</pre></div>
+</div>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/AERela011.png"><img alt="_images/AERela011.png" src="_images/AERela011.png" style="width: 80%;" /></a>
+</figure>
+<p>defaultRunthe corresponding contentfpsYes25fps，canviewvi_dbg viewsensorOutputthe corresponding contentfpsYesthe corresponding content。</p>
+<p>Linux: cat /proc/cvitek/vi_dbg</p>
+<p>Alios: Runsensor_test the corresponding contentInput7 –&gt; 1</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/image16.png"><img alt="_images/image16.png" src="_images/image16.png" style="width: 80%;" /></a>
+</figure>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="9_Complete_Other_Functions.html" class="btn btn-neutral float-left" title="9. Complete Other Functions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="11_Common_Problem.html" class="btn btn-neutral float-right" title="11. FAQ" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Go to the official website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="the corresponding contentdocumentationthe corresponding content"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Top of page"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Bottom of page"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR Code for This Page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

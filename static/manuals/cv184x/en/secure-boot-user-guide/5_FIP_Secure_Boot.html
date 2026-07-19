@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5. FIP Signing, Encryption, and eFuse &mdash; SecureBootUserGuide master Documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="6. FIT Secure Image Boot" href="6_FIT_Image_Secure_Boot.html" />
+    <link rel="prev" title="4. eFuse Burn" href="4_eFuse_Burning.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> SecureBootUserGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Secure_Boot_Introduction.html">2. Secure Boot Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Secure_Image_Generation.html">3. Secure Image Generation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_eFuse_Burning.html">4. eFuse Burn</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="5_FIP_Secure_Boot.html#">5. FIP Signing, Encryption, and eFuse</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="5_FIP_Secure_Boot.html#fip">5.1. Generate Keys for FIP</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_FIP_Secure_Boot.html#fsbl">5.2. Enable FSBL Secure Boot andBuild</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_FIP_Secure_Boot.html#id1">5.3.   FIP  Signing and Encryption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_FIP_Secure_Boot.html#efuse">5.4. Obtain the value to burn to eFuse (development host)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="5_FIP_Secure_Boot.html#hash0-public-64">5.4.1. HASH0_PUBLIC（64  ）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_FIP_Secure_Boot.html#loader-ek-32">5.4.2. LOADER_EK（32  ）</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="5_FIP_Secure_Boot.html#efuse-u-boot">5.5. Burn eFuse (one-time and irreversible in U-Boot)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_FIP_Secure_Boot.html#id2">5.6. Burn the image (after eFuse burning is complete)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_FIP_Secure_Boot.html#id3">5.7. Process Summary (FIP Side)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_FIP_Secure_Boot.html#fip-my-fip-keys">5.8. FIP Key Overview（my_fip_keys/）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_FIP_Secure_Boot.html#fit">5.9. and FIT of </a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="6_FIT_Image_Secure_Boot.html">6. FIT Secure Image Boot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_RootFS_Signature.html">7. SquashFS RootFS Signing and Kernel Verification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_DATA_Partition_Signature.html">8. DATA Partition (userdata) Signing and Verification</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SecureBootUserGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">5. </span>FIP Signing, Encryption, and eFuse</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/5_FIP_Secure_Boot.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="fip-efuse">
+<h1><span class="section-number">5. </span>FIP Signing, Encryption, and eFuse<a class="headerlink" href="5_FIP_Secure_Boot.html#fip-efuse" title="Permalink to this heading">¶</a></h1>
+<p>This chapterDescriptionin in  <strong>fip.bin</strong>   <strong>Signing and Encryption</strong>，and  <strong>eFuse Burning</strong>，  ROM/BL1  Execute of FIP。If need <strong>boot.spinor</strong>   FIT ofSignature VerificationorEncryption，  <a class="reference internal" href="6_FIT_Image_Secure_Boot.html"><span class="doc">FIT Secure Image Boot</span></a>。</p>
+<p> Commands in <strong>mars  Contents</strong> Execute（U-Boot   eFuse Commands ）；must Execute <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">build/envsetup_soc.sh</span></code> and <code class="docutils literal notranslate"><span class="pre">defconfig</span></code> ，willafter isActualBoard Variant 。</p>
+<section id="fip">
+<h2><span class="section-number">5.1. </span>Generate Keys for FIP<a class="headerlink" href="5_FIP_Secure_Boot.html#fip" title="Permalink to this heading">¶</a></h2>
+<p> ，Key 。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">KEY_DIR=&quot;$(pwd)/my_fip_keys&quot;</span>
+<span class="go">mkdir -p &quot;$KEY_DIR&quot;</span>
+<span class="go">openssl genrsa -out &quot;${KEY_DIR}/rsa_hash0.pem&quot; -F4 2048</span>
+<span class="go">openssl genrsa -out &quot;${KEY_DIR}/bl_priv.pem&quot; -F4 2048</span>
+<span class="go">head -c 16 /dev/random &gt; &quot;${KEY_DIR}/loader_ek.key&quot;</span>
+<span class="go">head -c 16 /dev/random &gt; &quot;${KEY_DIR}/bl_ek.key&quot;</span>
+<span class="go">chmod 600 &quot;${KEY_DIR}&quot;/*.pem &quot;${KEY_DIR}&quot;/*.key 2&gt;/dev/null || true</span>
+</pre></div>
+</div>
+<p> to：<strong>rsa_hash0.pem</strong>、<strong>bl_priv.pem</strong>、<strong>loader_ek.key</strong>、<strong>bl_ek.key</strong>。</p>
+</section>
+<section id="fsbl">
+<h2><span class="section-number">5.2. </span>Enable FSBL Secure Boot andBuild<a class="headerlink" href="5_FIP_Secure_Boot.html#fsbl" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>in <code class="docutils literal notranslate"><span class="pre">menuconfig</span></code> in：<strong>FIP setting</strong> →   <strong>Add secure boot support to FSBL</strong> →  。</p></li>
+</ul>
+<p>or inBoard-level defconfig in ：</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>CONFIG_FSBL_SECURE_BOOT_SUPPORT=y
+</pre></div>
+</div>
+<p>Execute <code class="docutils literal notranslate"><span class="pre">build_all</span></code> CompleteBuild。Completeafterin <code class="docutils literal notranslate"><span class="pre">install/</span></code> under Board Variantof <code class="docutils literal notranslate"><span class="pre">soc_*</span></code>  Contentsincan to <strong>fip.bin</strong> etc.（ withBoard-levelConfigurationis ）。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If Kernel FIT Secure Boot， need  <a class="reference internal" href="6_FIT_Image_Secure_Boot.html"><span class="doc">FIT Secure Image Boot</span></a> ConfigurationKerneland U-Boot，andandThis chapter <strong>build_all</strong> in ConfigurationunderComplete。</p>
+</div>
+</section>
+<section id="id1">
+<h2><span class="section-number">5.3. </span>  FIP  Signing and Encryption<a class="headerlink" href="5_FIP_Secure_Boot.html#id1" title="Permalink to this heading">¶</a></h2>
+<p>in mars  ContentsExecute（will <code class="docutils literal notranslate"><span class="pre">KEY_DIR</span></code>、<code class="docutils literal notranslate"><span class="pre">FIP_IN</span></code>、<code class="docutils literal notranslate"><span class="pre">FIP_OUT</span></code>  ActualPathand OutputContents）：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">KEY_DIR=&quot;$(pwd)/my_fip_keys&quot;</span>
+<span class="go">FIP_IN=install/soc_cv1842hp_wevb_0014a_spinor/fip.bin</span>
+<span class="go">FIP_OUT=install/soc_cv1842hp_wevb_0014a_spinor/fip_enc.bin</span>
+<span class="go">python3 fsbl/plat/cvitek/cv184x/common/fipsign.py sign-enc \</span>
+<span class="go">         --root-priv=&quot;${KEY_DIR}/rsa_hash0.pem&quot; \</span>
+<span class="go">         --bl-priv=&quot;${KEY_DIR}/bl_priv.pem&quot; \</span>
+<span class="go">         --ldr-ek=&quot;${KEY_DIR}/loader_ek.key&quot; \</span>
+<span class="go">         --bl-ek=&quot;${KEY_DIR}/bl_ek.key&quot; \</span>
+<span class="go">         &quot;$FIP_IN&quot; &quot;$FIP_OUT&quot;</span>
+</pre></div>
+</div>
+<p> to If <code class="docutils literal notranslate"><span class="pre">install/soc_xxx/fip_enc.bin</span></code> ofOutput（<code class="docutils literal notranslate"><span class="pre">xxx</span></code> isBoard VariantDirectory Name）。 SignaturenotEncryption can  <code class="docutils literal notranslate"><span class="pre">sign</span></code>  Commands，  <code class="docutils literal notranslate"><span class="pre">fipsign.py</span> <span class="pre">--help</span></code>。</p>
+</section>
+<section id="efuse">
+<h2><span class="section-number">5.4. </span>Obtain the value to burn to eFuse (development host)<a class="headerlink" href="5_FIP_Secure_Boot.html#efuse" title="Permalink to this heading">¶</a></h2>
+<section id="hash0-public-64">
+<h3><span class="section-number">5.4.1. </span>HASH0_PUBLIC（64  ）<a class="headerlink" href="5_FIP_Secure_Boot.html#hash0-public-64" title="Permalink to this heading">¶</a></h3>
+<p>needInstall PyCryptodome：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">python3 -c &quot;</span>
+<span class="go">from Crypto.PublicKey import RSA</span>
+<span class="go">from Crypto.Hash import SHA256</span>
+<span class="go">key = RSA.import_key(open(&#39;my_fip_keys/rsa_hash0.pem&#39;).read())</span>
+<span class="go">n = key.n.to_bytes(256, &#39;big&#39;)</span>
+<span class="go">print(SHA256.new(n).digest().hex())</span>
+<span class="go">&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="loader-ek-32">
+<h3><span class="section-number">5.4.2. </span>LOADER_EK（32  ）<a class="headerlink" href="5_FIP_Secure_Boot.html#loader-ek-32" title="Permalink to this heading">¶</a></h3>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">xxd -p -c 256 my_fip_keys/loader_ek.key | tr -d &#39;\n&#39;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="efuse-u-boot">
+<h2><span class="section-number">5.5. </span>Burn eFuse (one-time and irreversible in U-Boot)<a class="headerlink" href="5_FIP_Secure_Boot.html#efuse-u-boot" title="Permalink to this heading">¶</a></h2>
+<p>will Replaceison toofValueafter，in U-Boot in Execute：</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>efusew HASH0_PUBLIC &lt;64 &gt;
+efusew LOADER_EK &lt;32 &gt;
+efusew LOCK_WRITE_LOADER_EK  01
+efusew LOCK_WRITE_HASH0_PUBLIC  01
+efusew SECUREBOOT 02
+</pre></div>
+</div>
+<p> with and is ； and <strong>SECUREBOOT</strong> Burnafter ，<strong> </strong>。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Precautions</strong></p>
+<p>eFuse Burnis irreversible，ExecutebeforePleaseConfirmImageandKey already 。</p>
+</div>
+</section>
+<section id="id2">
+<h2><span class="section-number">5.6. </span>Burn the image (after eFuse burning is complete)<a class="headerlink" href="5_FIP_Secure_Boot.html#id2" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>FIP Partition</strong>：will <strong>fip_enc.bin</strong>  isActualBurnContent，  <strong>fip.bin</strong>  and <strong> is fip.bin</strong> afterBurning。 Use Signatureof  <strong>fip.bin</strong> or <strong>fip_spl.bin</strong>。</p></li>
+<li><p><strong> Partition</strong>：and ，for example <strong>boot.spinor</strong> → BOOT，<strong>rootfs.spinor</strong> → ROOTFS，<strong>data.spinor</strong> → DATA，<strong>yoc.bin</strong> → 2nd etc.。</p></li>
+<li><p><strong> </strong>： Complete eFuse Burning， Burn the Imageand Partition。If Encryption FIP   eFuse，can ，need Encryptionof <strong>fip.bin</strong>   FIP etc.Method 。</p></li>
+</ul>
+</section>
+<section id="id3">
+<h2><span class="section-number">5.7. </span>Process Summary (FIP Side)<a class="headerlink" href="5_FIP_Secure_Boot.html#id3" title="Permalink to this heading">¶</a></h2>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 11%" />
+<col style="width: 71%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>stage</p></th>
+<th class="head"><p>Steps</p></th>
+<th class="head"><p>Content</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p> </p></td>
+<td><p>0</p></td>
+<td><p>（Optional）FIT Secure Boot  <a class="reference internal" href="6_FIT_Image_Secure_Boot.html"><span class="doc">FIT Secure Image Boot</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Key</p></td>
+<td><p>1</p></td>
+<td><p>Generate FIP KeyContents my_fip_keys</p></td>
+</tr>
+<tr class="row-even"><td><p>ConfigurationandBuild</p></td>
+<td><p>2</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">menuconfig</span></code> Enable FSBL Add secure boot support；<code class="docutils literal notranslate"><span class="pre">build_all</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>SignatureEncryption</p></td>
+<td><p>3</p></td>
+<td><p>fipsign.py sign-enc  to fip_enc.bin</p></td>
+</tr>
+<tr class="row-even"><td><p>eFuse  Value</p></td>
+<td><p>4</p></td>
+<td><p>  HASH0_PUBLIC；Read LOADER_EK</p></td>
+</tr>
+<tr class="row-odd"><td><p>eFuse Burning</p></td>
+<td><p>5</p></td>
+<td><p>U-Boot in efusew（HASH0_PUBLIC、LOADER_EK、LOCK、SECUREBOOT）</p></td>
+</tr>
+<tr class="row-even"><td><p>PartitionBurning</p></td>
+<td><p>6</p></td>
+<td><p>with fip_enc.bin Replace  fip.bin and is fip.bin after  FIP； Partition </p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="fip-my-fip-keys">
+<h2><span class="section-number">5.8. </span>FIP Key Overview（my_fip_keys/）<a class="headerlink" href="5_FIP_Secure_Boot.html#fip-my-fip-keys" title="Permalink to this heading">¶</a></h2>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 31%" />
+<col style="width: 69%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>File</p></th>
+<th class="head"><p>Purpose</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>rsa_hash0.pem</p></td>
+<td><p>  FSBL（BL2）of RSA Private Key；  eFuse <strong>HASH0_PUBLIC</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>bl_priv.pem</p></td>
+<td><p>  Monitor/U-Boot of RSA Private Key</p></td>
+</tr>
+<tr class="row-even"><td><p>loader_ek.key</p></td>
+<td><p>Encryption FSBL of AES Key（16 Bytes）；  eFuse <strong>LOADER_EK</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p>bl_ek.key</p></td>
+<td><p>Encryption Monitor/U-Boot of AES Key（16 Bytes）</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="fit">
+<h2><span class="section-number">5.9. </span>and FIT of <a class="headerlink" href="5_FIP_Secure_Boot.html#fit" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><strong>FIT</strong>：  <strong>boot.spinor</strong>，  U-Boot Signature Verificationor ，  <a class="reference internal" href="6_FIT_Image_Secure_Boot.html"><span class="doc">FIT Secure Image Boot</span></a>。</p></li>
+<li><p><strong>FIP</strong>：  <strong>fip.bin</strong>，  ROM/BL1 Verification and Decryption。</p></li>
+</ul>
+<p> can Use： Complete FIT  PackageandBurning ，  <strong>fip.bin</strong>   <code class="docutils literal notranslate"><span class="pre">sign-enc</span></code>；Burning  <strong>fip_enc.bin</strong> Replaceand is <strong>fip.bin</strong>   FIP Partition，BOOT Partition alreadySignatureorEncryptionof <strong>boot.spinor</strong>。</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="4_eFuse_Burning.html" class="btn btn-neutral float-left" title="4. eFuse Burn" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="6_FIT_Image_Secure_Boot.html" class="btn btn-neutral float-right" title="6. FIT Secure Image Boot" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Go to Official Website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="Go to Documentation Center"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Back to top"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Go to bottom"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR code for this page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

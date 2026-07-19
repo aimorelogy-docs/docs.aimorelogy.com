@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3. Echo Cancellation Debugging &mdash; AudioQualityTuningGuide master Documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="4. FAQ" href="4_FAQ.html" />
+    <link rel="prev" title="2. Introduction" href="2_Introduction.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> AudioQualityTuningGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Introduction.html">2. Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="3_Echo_Cancellation_Debugging.html#">3. Echo Cancellation Debugging</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3_Echo_Cancellation_Debugging.html#id2">3.1. Basic Checks:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_Echo_Cancellation_Debugging.html#id3">3.2. [Returned Parameters (if the debugging result is unsatisfactory)]</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="4_FAQ.html">4. FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_VQE_Algorithm_Function_Introduction.html">5. VQE Algorithm Function Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_Block_Diagram.html">6. Block Diagram:</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">AudioQualityTuningGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">3. </span>Echo Cancellation Debugging</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/3_Echo_Cancellation_Debugging.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">3. </span>Echo Cancellation Debugging<a class="headerlink" href="3_Echo_Cancellation_Debugging.html#id1" title="Permalink to this headline">¶</a></h1>
+<section id="id2">
+<h2><span class="section-number">3.1. </span>Basic Checks:<a class="headerlink" href="3_Echo_Cancellation_Debugging.html#id2" title="Permalink to this headline">¶</a></h2>
+<p>AECdebugonenvironmentonhasseveralitemrequirement:involvingandrecording, playback, volume, testenvironment.
+inbasicrequirementmeetafteronly thenis AECparameterdebug. </p>
+<p><strong>Step 1: Set the left and right ADC and DAC gain values separately:</strong></p>
+<p>During tuning, you may need to adjust the left and right microphone or speaker volume separately. Set them with register commands or the sample_audio program.</p>
+<p>Set both channels as follows:</p>
+<p>./sample_audio 6, then enter 0, 8 (volume), and 1 (playback), and press Enter <strong>speaker channel</strong></p>
+<p>./sample_audio 6, then enter 0, 8 (volume), and 0 (recording), and press Enter <strong>microphone recording volume</strong></p>
+<p>Set the left and right channels separately as follows:</p>
+<p>The speaker mapping is as follows:</p>
+<p>Levels 1 to 32 (n * 0x10) - 1) // -24 dB to 3 dB</p>
+<p>devmem 0x300a010 32 0x000F000F #(1 * 0x10) - 1) sets the left volume to 1 and the right microphone volume to 6.</p>
+<p>The microphone mapping is as follows:</p>
+<p>devmem 0x0300a110 32 0x04000002 # sets the left microphone volume to 1 and the right microphone volume to 6. Left channel: lower 16 bits; right channel: upper 16 bits.</p>
+<p>#define  ADC_VOL_GAIN_0  0x0001</p>
+<p>#define  ADC_VOL_GAIN_1  0x0002</p>
+<p>#define  ADC_VOL_GAIN_2  0x0004</p>
+<p>#define  ADC_VOL_GAIN_3  0x0008</p>
+<p>#define  ADC_VOL_GAIN_4  0x0010</p>
+<p>#define  ADC_VOL_GAIN_5  0x0020</p>
+<p>#define  ADC_VOL_GAIN_6  0x0040</p>
+<p>#define  ADC_VOL_GAIN_7  0x0080</p>
+<p>#define  ADC_VOL_GAIN_8  0x0100</p>
+<p>#define  ADC_VOL_GAIN_9  0x0200</p>
+<p>#define  ADC_VOL_GAIN_10  0x0400</p>
+<p>#define  ADC_VOL_GAIN_11  0x0800</p>
+<p>#define  ADC_VOL_GAIN_12  0x1000</p>
+<p>#define  ADC_VOL_GAIN_13  0x2400</p>
+<p>#define  ADC_VOL_GAIN_14  0x2800</p>
+<p>#define  ADC_VOL_GAIN_15  0x3000</p>
+<p>#define  ADC_VOL_GAIN_16  0x6400</p>
+<p>#define  ADC_VOL_GAIN_17  0x6800</p>
+<p>#define  ADC_VOL_GAIN_18  0x7000</p>
+<p>#define  ADC_VOL_GAIN_19  0xA400</p>
+<p>#define  ADC_VOL_GAIN_20  0xA800</p>
+<p>#define  ADC_VOL_GAIN_21  0xB000</p>
+<p>#define  ADC_VOL_GAIN_22  0xE400</p>
+<p>#define  ADC_VOL_GAIN_23  0xE800</p>
+<p>#define  ADC_VOL_GAIN_24  0xF000</p>
+<p><strong>Step 2: Confirm that recording and playback work normally:</strong></p>
+<p>Before two-way talk, confirm that microphone capture and speaker playback work normally. You can use the </p>
+<p>sample_audio program provided in the SDK for verification.</p>
+<p><strong>[Normal Recording Test]: </strong></p>
+<div class="line-block">
+<div class="line">./sample_audio 4 –list -r 8000 -R 8000 -c 2 -p 320 -C 0 -V 0 -F
+Cvi_8k_2chn.raw -T 10</div>
+<div class="line">Corresponding parameter values (sample_rate: 8000/ channel : 2/ preriod_size:320/
+VQEon:0/<strong>preset recording duration in seconds:10</strong>), then speak into the microphone, <strong>for example, read a passage aloud</strong>.</div>
+</div>
+<p>This produces Cvi_8k_2chn.raw file.</p>
+<p><strong>[Verification]:</strong> Copy it to a computer and play it to check the recorded waveform, for example:</p>
+<a class="reference internal image-reference" href="_images/EchoCa002.png"><img alt="_images/EchoCa002.png" src="_images/EchoCa002.png" style="width: 5in; height: 2.29167in;" /></a>
+<p>above <strong>The waveform should be moderate and must not exceed the white line above, or clipping will occur. If it is too large or too small, before pressing Enter at "preset recording duration in seconds:10 "pressEnterbeforetosshendsideexecute sample audio 9 respectivelyinput11EnterselectsetADCLsubfunction, theninput7Enter. 7thisitemgainvaluecustomeraccording toitselfwaveformactualcaseset</strong>. </p>
+<p><strong>[Normal Playback Test]: </strong></p>
+<p>./sample_audio 5 –list -r 8000 -R 8000 -c 2 -p 320 -C 0 -V 0 -F Cvi_8k_2chn.raw -T 10 playback parameters.</p>
+<p>(channel:2/ sample rate:8000/period size:320/ VQE on:0)</p>
+<p><strong>[Verification]:</strong> During playback, confirm that the speaker produces sound at an appropriate level with <strong>no obvious distortion such as popping, noise, or crackling</strong>.</p>
+<p><strong>Step 3: Confirm that echo cancellation works normally:</strong></p>
+<p>Before using the remote talk application on the client, verify echo cancellation on the board as follows.</p>
+<p><strong>[AECEffect Test]:</strong></p>
+<ol class="arabic">
+<li><p>execute touch /tmp/ain_record ​​command and touch /tmp/dump_ao_outputcommand.  (If testing multiple times, run rm /tmp/*.pcm before each test. Do not test for too long; otherwise PCM files may exhaust DDR memory and cause the system to hang.) </p>
+<p>Then run: <strong>sample_audio 10</strong></p>
+</li>
+</ol>
+<p>./sample_audio 10 –list -r 8000 -R 8000 -c 2 -p 320 -C 0 -V 1 -F play.wav -T 10</p>
+<p>Capture parameters(sample rate:8000/ chn:2/ period size:320)</p>
+<p>Set VQE/AEC to on, specify the recording duration and the file to play. After playback begins, speak into the microphone, for example <em>123456789abcdef</em>; 20 seconds may be used. After recording for a while, double-press Enter and wait for completion.</p>
+<p><strong>ininputrecordtimeEnterbeforetosshendsidesetappropriateADCL,ADCR,DACRgainvalue. methodabovehasraiseto:  sample audio 9 respectivelyexecuteADCL:11-&gt;willset10; ADCR:12-&gt;setis1; DACR:10-&gt;
+setis8. where10, 1, 8these threevaluecustomermanuallyaccording toactualcaseadjust. thethese threevaluerememberFinally, initselftalkprograminuse. </strong></p>
+<p><strong>[Verification]:</strong></p>
+<p>This produces sample_record.raw. Run cp /tmp/*.pcm ./ to copy the files to the current directory.</p>
+<p>Copy sample_record.raw and ain_record.pcm to a computer and view them with free audio software such as Audacity or Cool Edit</p>
+<p>Normally, sample_record.raw is mono and you should hear only "<em>123456789abcdef</em></p>
+<p>". No gaps indicate that the result is OK; in the actual talk application, the sample_record.raw audio is what the other party hears.</p>
+<p>If the prompt voice can still be heard, or "<em>123456789abcdef</em>" contains gaps or missing characters, the result is unsatisfactory.</p>
+<p>ain_record.pcm is stereo</p>
+<p>The left channel is the sound captured by the microphone (including the speaker’s voice *123456789abcdef* and the prompt voice),</p>
+<p>The right channel contains only the speaker output, namely the prompt voice (the <strong>waveforms of both channels must be moderate and free of clipping</strong>).</p>
+</section>
+<section id="id3">
+<h2><span class="section-number">3.2. </span>[Returned Parameters (if the debugging result is unsatisfactory)]<a class="headerlink" href="3_Echo_Cancellation_Debugging.html#id3" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>No.​​</p></th>
+<th class="head"><p>command​​</p></th>
+<th class="head"><p>Related File Name​​</p></th>
+<th class="head"><p>Comment</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>touch /tmp/ain_record</p></td>
+<td><p>/tmp/ain_record.pcm</p></td>
+<td><p>Raw PCM data obtained from the lower layer</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>touch /tmp/dump_before_aec</p></td>
+<td><p><strong>/tmp/dump_before_aec.pcm</strong></p></td>
+<td><p>PCM before VQE (non-bind mode)</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>touch /tmp/dump_after_aec</p></td>
+<td><p><strong>/tmp/dump_after_aec.pcm</strong></p></td>
+<td><p>PCM after VQE (non-bind mode)</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>touch /tmp/dump_ao_output</p></td>
+<td><p>/tmp/dump_ao_output.pcm</p></td>
+<td><p>Raw playback audio data</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Information required when AEC performance is poor (first ensure that the basic AEC requirements are met):</strong></p>
+<p>1.A simple TXT file containing:</p>
+<blockquote>
+<div><ul>
+<li><p>cv180x... projectname</p></li>
+<li><p>sample rate</p></li>
+<li><div class="line-block">
+<div class="line">sample_audio 8 printed parameters: </div>
+<div class="line">ADC L/ ADC R (recording volume) </div>
+<div class="line">DAC L  / DAC R   (playback volume)​</div>
+</div>
+</li>
+</ul>
+</div></blockquote>
+<a class="reference internal image-reference" href="_images/EchoCa003.png"><img alt="Text description generated automatically" src="_images/EchoCa003.png" style="width: 4.83229in; height: 2.90891in;" /></a>
+<ul class="simple">
+<li><p>vqeconfig.txtcontains the parameter values of the structure shown in the code below:</p></li>
+</ul>
+<a class="reference internal image-reference" href="_images/EchoCa004.png"><img alt="Text description generated automatically" src="_images/EchoCa004.png" style="width: 4.84462in; height: 5.42238in;" /></a>
+<p>2.dumpfile:</p>
+<blockquote>
+<div><p>*.pcm files in the /tmp directory</p>
+</div></blockquote>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="2_Introduction.html" class="btn btn-neutral float-left" title="2. Introduction" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="4_FAQ.html" class="btn btn-neutral float-right" title="4. FAQ" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Visit official website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="Go to Documentation Center"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Top of page"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Bottom of page"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR Code for This Page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

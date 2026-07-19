@@ -1,0 +1,1946 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>20. PRESHARPEN &mdash; ISPDevelopmentReference master documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="21. RGBGAMMA" href="21_RGB_Gamma.html" />
+    <link rel="prev" title="19. SHARPEN" href="19_Sharpen.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> ISPDevelopmentReference
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Preface.html">2. Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_System_Control.html">3. System Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_AE.html">4. AE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_AWB.html">5. AWB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_AF.html">6. AF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_IMP.html">7. IMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_BlackLevel.html">8. BLC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_DPC.html">9. DPC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_LSC.html">10. LSC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_RLSC.html">11. RLSC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_CCM.html">12. CCM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_Noise_Profile.html">13. Noise profile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_BNR.html">14. BNR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15_CNR.html">15. CNR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="16_TNR.html">16. TNR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="17_Crosstalk.html">17. Crosstalk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18_Demosaic.html">18. DEMOSAIC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19_Sharpen.html">19. SHARPEN</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="20_PreSharpen.html#">20. PRESHARPEN</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="20_PreSharpen.html#id1">20.1. Functional Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="20_PreSharpen.html#api">20.2. API Reference</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="20_PreSharpen.html#cvi-isp-setpresharpenattr">20.2.1. CVI_ISP_SetPreSharpenAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="20_PreSharpen.html#cvi-isp-getpresharpenattr">20.2.2. CVI_ISP_GetPreSharpenAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="20_PreSharpen.html#cvi-isp-setpresharpenrefineattr">20.2.3. CVI_ISP_SetPreSharpenRefineAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="20_PreSharpen.html#cvi-isp-getpresharpenrefineattr">20.2.4. CVI_ISP_GetPreSharpenRefineAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="20_PreSharpen.html#cvi-isp-setpresharpenedgeextattr">20.2.5. CVI_ISP_SetPreSharpenEdgeExtAttr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="20_PreSharpen.html#cvi-isp-getpresharpenedgeextattr">20.2.6. CVI_ISP_GetPreSharpenEdgeExtAttr</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="20_PreSharpen.html#id2">20.3. Data Types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="20_PreSharpen.html#isp-presharpen-manual-attr-s">20.3.1. ISP_PRESHARPEN_MANUAL_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="20_PreSharpen.html#isp-presharpen-auto-attr-s">20.3.2. ISP_PRESHARPEN_AUTO_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="20_PreSharpen.html#isp-presharpen-attr-s">20.3.3. ISP_PRESHARPEN_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="20_PreSharpen.html#isp-presharpen-refine-manual-attr-s">20.3.4. ISP_PRESHARPEN_REFINE_MANUAL_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="20_PreSharpen.html#isp-presharpen-refine-auto-attr-s">20.3.5. ISP_PRESHARPEN_REFINE_AUTO_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="20_PreSharpen.html#isp-presharpen-refine-attr-s">20.3.6. ISP_PRESHARPEN_REFINE_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="20_PreSharpen.html#isp-presharpen-edge-ext-manual-attr-s">20.3.7. ISP_PRESHARPEN_EDGE_EXT_MANUAL_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="20_PreSharpen.html#isp-presharpen-edge-ext-auto-attr-s">20.3.8. ISP_PRESHARPEN_EDGE_EXT_AUTO_ATTR_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="20_PreSharpen.html#isp-presharpen-edge-ext-attr-s">20.3.9. ISP_PRESHARPEN_EDGE_EXT_ATTR_S</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="21_RGB_Gamma.html">21. RGBGAMMA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="22_DCI.html">22. DCI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="23_LDCI.html">23. LDCI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="24_ColorTone.html">24. ColorTone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="25_Saturation.html">25. Saturation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="26_PFR.html">26. PFR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="27_FSHDR.html">27. FSHDR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="28_DRC.html">28. DRC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="29_Mono.html">29. MONO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="30_YCONTRAST.html">30. YCONTRAST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="31_CA.html">31. CA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="32_CA2.html">32. CA2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="33_CLUT.html">33. CLUT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="34_CSC.html">34. CSC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="35_VC.html">35. VC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="36_Statistical_Information.html">36. Statistical Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="37_Query_Internal_Status_Messages.html">37. Query Internal Status Messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="38_Debug.html">38. Debug</a></li>
+<li class="toctree-l1"><a class="reference internal" href="39_Error_Code.html">39. Error Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="40_3A_Development_User_Guide_Overview.html">40. 3A Development Guide Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="41_3A_Development_User_Guide.html">41. 3A Developer User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="42_Developer_Guide.html">42. Developer Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="43_Appendix.html">43. Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="44_Abbreviations.html">44. Abbreviations</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ISPDevelopmentReference</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">20. </span>PRESHARPEN</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/20_PreSharpen.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="presharpen">
+<h1><span class="section-number">20. </span>PRESHARPEN<a class="headerlink" href="20_PreSharpen.html#presharpen" title="Permalink to this heading">¶</a></h1>
+<section id="id1">
+<h2><span class="section-number">20.1. </span>Functional Description<a class="headerlink" href="20_PreSharpen.html#id1" title="Permalink to this heading">¶</a></h2>
+<p>thismoduleuseinincreasestrongimagesharpness, positionin3DNRofbefore, mainlysharpeningimageintooldirectionproperty edgeanddetailstexture. </p>
+</section>
+<section id="api">
+<h2><span class="section-number">20.2. </span>API Reference<a class="headerlink" href="20_PreSharpen.html#api" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="20_PreSharpen.html#cvi-isp-setpresharpenattr">CVI_ISP_SetPreSharpenAttr</a> :  SetPreSharpen parameter attributes</p></li>
+<li><p><a class="reference internal" href="20_PreSharpen.html#cvi-isp-getpresharpenattr">CVI_ISP_GetPreSharpenAttr</a> :  GetPreSharpen parameter attributes</p></li>
+<li><p><a class="reference internal" href="20_PreSharpen.html#cvi-isp-setpresharpenrefineattr">CVI_ISP_SetPreSharpenRefineAttr</a> :  SetPreSharpen Refine parameter attributes</p></li>
+<li><p><a class="reference internal" href="20_PreSharpen.html#cvi-isp-getpresharpenrefineattr">CVI_ISP_GetPreSharpenRefineAttr</a> :  GetPreSharpen Refine parameter attributes</p></li>
+<li><p><a class="reference internal" href="20_PreSharpen.html#cvi-isp-setpresharpenedgeextattr">CVI_ISP_SetPreSharpenEdgeExtAttr</a> :  SetPreSharpen Edgeparameter attributes</p></li>
+<li><p><a class="reference internal" href="20_PreSharpen.html#cvi-isp-getpresharpenedgeextattr">CVI_ISP_GetPreSharpenEdgeExtAttr</a> :  GetPreSharpen Edgeparameter attributes</p></li>
+</ul>
+<section id="cvi-isp-setpresharpenattr">
+<h3><span class="section-number">20.2.1. </span>CVI_ISP_SetPreSharpenAttr<a class="headerlink" href="20_PreSharpen.html#cvi-isp-setpresharpenattr" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<blockquote>
+<div><p>SetPreSharpen parameter attributes</p>
+</div></blockquote>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_SetPreSharpenAttr</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ISP_PRESHARPEN_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstPreSharpenAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>VI_PIPE No.</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstPreSharpenAttr</p></td>
+<td><p>PreSharpen parameter attributes</p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success</p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure, whose value is <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">Error Code</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header File: cvi_isp.h, cvi_comm_isp.h</p></li>
+<li><p>Library File: libisp.so</p></li>
+</ul>
+<p>[Note]</p>
+<p>None</p>
+<p>[Example]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="n">ISP_PRESHARPEN_ATTR_S</span><span class="w"> </span><span class="n">stAttr</span><span class="p">;</span><span class="w"></span>
+<span class="n">CVI_ISP_GetPreSharpenAttr</span><span class="p">(</span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">stAttr</span><span class="p">);</span><span class="w"></span>
+<span class="n">stAttr</span><span class="p">.</span><span class="n">enOpType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OP_TYPE_AUTO</span><span class="p">;</span><span class="w"></span>
+<span class="n">CVI_ISP_SetPreSharpenAttr</span><span class="p">(</span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">stAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Related Topics]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="20_PreSharpen.html#cvi-isp-getpresharpenattr">CVI_ISP_GetPreSharpenAttr</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-getpresharpenattr">
+<h3><span class="section-number">20.2.2. </span>CVI_ISP_GetPreSharpenAttr<a class="headerlink" href="20_PreSharpen.html#cvi-isp-getpresharpenattr" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>GetPreSharpen parameter attributes</p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_GetPreSharpenAttr</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ISP_PRESHARPEN_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstPreSharpenAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>VI_PIPE No.</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstPreSharpenAttr</p></td>
+<td><p>PreSharpen parameter attributes</p></td>
+<td><p>output</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success</p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure, whose value is <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">Error Code</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header File: cvi_isp.h, cvi_comm_isp.h</p></li>
+<li><p>Library File: libisp.so</p></li>
+</ul>
+<p>[Note]</p>
+<p>None</p>
+<p>[Example]</p>
+<p>None</p>
+<p>[Related Topics]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="20_PreSharpen.html#cvi-isp-setpresharpenattr">CVI_ISP_SetPreSharpenAttr</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-setpresharpenrefineattr">
+<h3><span class="section-number">20.2.3. </span>CVI_ISP_SetPreSharpenRefineAttr<a class="headerlink" href="20_PreSharpen.html#cvi-isp-setpresharpenrefineattr" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<blockquote>
+<div><p>SetPreSharpen Refine parameter attributes</p>
+</div></blockquote>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_SetPreSharpenRefineAttr</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ISP_PRESHARPEN_REFINE_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstPreSharpenRefineAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>VI_PIPE No.</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstPreSharpenRefineAttr</p></td>
+<td><p>PreSharpen Refine parameter attributes</p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success</p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure, whose value is <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">Error Code</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header File: cvi_isp.h, cvi_comm_isp.h</p></li>
+<li><p>Library File: libisp.so</p></li>
+</ul>
+<p>[Note]</p>
+<p>None</p>
+<p>[Example]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="n">ISP_PRESHARPEN_REFINE_ATTR_S</span><span class="w"> </span><span class="n">stAttr</span><span class="p">;</span><span class="w"></span>
+<span class="n">CVI_ISP_GetPreSharpenRefineAttr</span><span class="p">(</span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">stAttr</span><span class="p">);</span><span class="w"></span>
+<span class="n">stAttr</span><span class="p">.</span><span class="n">enOpType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OP_TYPE_AUTO</span><span class="p">;</span><span class="w"></span>
+<span class="n">CVI_ISP_SetPreSharpenRefineAttr</span><span class="p">(</span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">stAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Related Topics]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="20_PreSharpen.html#cvi-isp-getpresharpenrefineattr">CVI_ISP_GetPreSharpenRefineAttr</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-getpresharpenrefineattr">
+<h3><span class="section-number">20.2.4. </span>CVI_ISP_GetPreSharpenRefineAttr<a class="headerlink" href="20_PreSharpen.html#cvi-isp-getpresharpenrefineattr" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>GetPreSharpen Refine parameter attributes</p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_GetPreSharpenRefineAttr</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ISP_PRESHARPEN_REFINE_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstPreSharpenRefineAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>VI_PIPE No.</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstPreSharpenRefineAttr</p></td>
+<td><p>PreSharpen Refine parameter attributes</p></td>
+<td><p>output</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success</p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure, whose value is <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">Error Code</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header File: cvi_isp.h, cvi_comm_isp.h</p></li>
+<li><p>Library File: libisp.so</p></li>
+</ul>
+<p>[Note]</p>
+<p>None</p>
+<p>[Example]</p>
+<p>None</p>
+<p>[Related Topics]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="20_PreSharpen.html#cvi-isp-setpresharpenrefineattr">CVI_ISP_SetPreSharpenRefineAttr</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-setpresharpenedgeextattr">
+<h3><span class="section-number">20.2.5. </span>CVI_ISP_SetPreSharpenEdgeExtAttr<a class="headerlink" href="20_PreSharpen.html#cvi-isp-setpresharpenedgeextattr" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<blockquote>
+<div><p>SetPreSharpen Edgeparameter attributes</p>
+</div></blockquote>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_SetPreSharpenEdgeExtAttr</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ISP_PRESHARPEN_EDGE_EXT_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstPreSharpenEdgeExtAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>VI_PIPE No.</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstPreSharpenEdgeExtAttr</p></td>
+<td><p>PreSharpen Edgeparameter attributes</p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success</p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure, whose value is <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">Error Code</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header File: cvi_isp.h, cvi_comm_isp.h</p></li>
+<li><p>Library File: libisp.so</p></li>
+</ul>
+<p>[Note]</p>
+<p>None</p>
+<p>[Example]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="n">ISP_PRESHARPEN_EDGE_EXT_ATTR_S</span><span class="w"> </span><span class="n">stAttr</span><span class="p">;</span><span class="w"></span>
+<span class="n">CVI_ISP_GetPreSharpenEdgeExtAttr</span><span class="p">(</span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">stAttr</span><span class="p">);</span><span class="w"></span>
+<span class="n">stAttr</span><span class="p">.</span><span class="n">enOpType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OP_TYPE_AUTO</span><span class="p">;</span><span class="w"></span>
+<span class="n">CVI_ISP_SetPreSharpenEdgeExtAttr</span><span class="p">(</span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">stAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Related Topics]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="20_PreSharpen.html#cvi-isp-getpresharpenedgeextattr">CVI_ISP_GetPreSharpenEdgeExtAttr</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-getpresharpenedgeextattr">
+<h3><span class="section-number">20.2.6. </span>CVI_ISP_GetPreSharpenEdgeExtAttr<a class="headerlink" href="20_PreSharpen.html#cvi-isp-getpresharpenedgeextattr" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>GetPreSharpen Edgeparameter attributes</p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_GetPreSharpenEdgeExtAttr</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ISP_PRESHARPEN_EDGE_EXT_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstPreSharpenEdgeExtAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>VI_PIPE No.</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstPreSharpenEdgeExtAttr</p></td>
+<td><p>PreSharpen Edgeparameter attributes</p></td>
+<td><p>output</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success</p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure, whose value is <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">Error Code</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header File: cvi_isp.h, cvi_comm_isp.h</p></li>
+<li><p>Library File: libisp.so</p></li>
+</ul>
+<p>[Note]</p>
+<p>None</p>
+<p>[Example]</p>
+<p>None</p>
+<p>[Related Topics]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="20_PreSharpen.html#cvi-isp-setpresharpenedgeextattr">CVI_ISP_SetPreSharpenEdgeExtAttr</a></p></li>
+</ul>
+</section>
+</section>
+<section id="id2">
+<h2><span class="section-number">20.3. </span>Data Types<a class="headerlink" href="20_PreSharpen.html#id2" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="20_PreSharpen.html#isp-presharpen-manual-attr-s">ISP_PRESHARPEN_MANUAL_ATTR_S</a> :  Manual DefinitionPreSharpen parameter attributes</p></li>
+<li><p><a class="reference internal" href="20_PreSharpen.html#isp-presharpen-auto-attr-s">ISP_PRESHARPEN_AUTO_ATTR_S</a> :  Automatic DefinitionPreSharpen parameter attributes</p></li>
+<li><p><a class="reference internal" href="20_PreSharpen.html#isp-presharpen-attr-s">ISP_PRESHARPEN_ATTR_S</a> :  Define PreSharpen parameter attributes</p></li>
+<li><p><a class="reference internal" href="20_PreSharpen.html#isp-presharpen-refine-manual-attr-s">ISP_PRESHARPEN_REFINE_MANUAL_ATTR_S</a> :  Manual DefinitionPreSharpen Refine parameter attributes</p></li>
+<li><p><a class="reference internal" href="20_PreSharpen.html#isp-presharpen-refine-auto-attr-s">ISP_PRESHARPEN_REFINE_AUTO_ATTR_S</a> :  Automatic DefinitionPreSharpen Refine parameter attributes</p></li>
+<li><p><a class="reference internal" href="20_PreSharpen.html#isp-presharpen-refine-attr-s">ISP_PRESHARPEN_REFINE_ATTR_S</a> :  Define PreSharpen Refine parameter attributes</p></li>
+<li><p><a class="reference internal" href="20_PreSharpen.html#isp-presharpen-edge-ext-manual-attr-s">ISP_PRESHARPEN_EDGE_EXT_MANUAL_ATTR_S</a> :  Manual DefinitionPreSharpen Edgeparameter attributes</p></li>
+<li><p><a class="reference internal" href="20_PreSharpen.html#isp-presharpen-edge-ext-auto-attr-s">ISP_PRESHARPEN_EDGE_EXT_AUTO_ATTR_S</a> :  Automatic DefinitionPreSharpen Edgeparameter attributes</p></li>
+<li><p><a class="reference internal" href="20_PreSharpen.html#isp-presharpen-edge-ext-attr-s">ISP_PRESHARPEN_EDGE_EXT_ATTR_S</a> :  Define PreSharpen Edgeparameter attributes</p></li>
+</ul>
+<section id="isp-presharpen-manual-attr-s">
+<h3><span class="section-number">20.3.1. </span>ISP_PRESHARPEN_MANUAL_ATTR_S<a class="headerlink" href="20_PreSharpen.html#isp-presharpen-manual-attr-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>Manual DefinitionPreSharpen parameter attributes</p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_PRESHARPEN_MANUAL_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">FlatThr</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1023]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">EdgeThr</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1023]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">FlatThrHLD</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1023]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">EdgeThrHLD</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1023]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">LumaThrHLD</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1023]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">ThinStr</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">RobustStr</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">FlatStr</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">EdgeStr</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_S16</span><span class="w"> </span><span class="n">StrFlatSlope</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[-32768, 32767]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_S16</span><span class="w"> </span><span class="n">StrEdgeSlope</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[-32768, 32767]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">ConEngBlendWt</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 15]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">EdgeLowEndThr</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1023]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">EdgeMidEndThr</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1023]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">EdgeHighEndThr</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1023]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">HueShtCtrl</span><span class="p">[</span><span class="mi">33</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 63]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">SatShtGainIn</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">SatShtGainOut</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 128]*/</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_PRESHARPEN_MANUAL_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>FlatThr</p></td>
+<td><p>flat regiondeterminesetthreshold. </p>
+<p>Value Range:  [0, 1023]</p>
+<p>Data Types:  CVI_U16</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>EdgeThr</p></td>
+<td><p>edgeregiondeterminesetthreshold. </p>
+<p>Value Range:  [0, 1023]</p>
+<p>Data Types:  CVI_U16</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>FlatThrHLD</p></td>
+<td><p>heightbright regiondomain flat regiondeterminesetthreshold. </p>
+<p>Value Range:  [0, 1023]</p>
+<p>Data Types:  CVI_U16</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>EdgeThrHLD</p></td>
+<td><p>heightbright regiondomain edgeregiondeterminesetthreshold. </p>
+<p>Value Range:  [0, 1023]</p>
+<p>Data Types:  CVI_U16</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>LumaThrHLD</p></td>
+<td><p>heightbright regiondeterminesetthreshold, brightness greater thanLumaThrHLD part, considerisisheightbright region. </p>
+<p>Value Range:  [0, 1023]</p>
+<p>Data Types:  CVI_U16</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>ThinStr</p></td>
+<td><p>Thin filterstrengthAdjust. RegionStrEn = 1when, takes effect. the larger the value, the stronger the intensity; the smaller the value, strengththe moresmall. </p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>RobustStr</p></td>
+<td><p>Robust filterstrengthAdjust. RegionStrEn = 1when, takes effect. the larger the value, the stronger the intensity; the smaller the value, strengththe moresmall. </p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>FlatStr</p></td>
+<td><p>limitflat regionsharpeningstrengthrange. whenStrFlatSlope &lt; 0when, determinesflat regionsharpeningstrengthminimum value; whenStrFlatSlope &gt; 0when, determinesflat regionsharpeningstrengthmaximum value. </p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>EdgeStr</p></td>
+<td><p>limitedgeregionsharpeningstrengthrange. whenStrEdgeSlope &gt; 0when, determinesedgeregionsharpeningstrengthmaximum value; whenStrFlatSlope &lt; 0when, determinesedgeregionsharpeningstrengthminimum value. </p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>StrFlatSlope</p></td>
+<td><p>Controlflat regionsharpeningstrength. RegionStrEn = 1when, takes effect. the smaller the value, flat regionsharpeningthe moreweak. </p>
+<p>Value Range:  [-32768, 32767]</p>
+<p>Data Types:  CVI_S16</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>StrEdgeSlope</p></td>
+<td><p>Controledgeregionsharpeningstrength. RegionStrEn = 1when, takes effect. the larger the value, edgeregionsharpeningthe morestrong. </p>
+<p>Value Range:  [-32768, 32767]</p>
+<p>Data Types:  CVI_S16</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>ConEngBlendWt</p></td>
+<td><p>weighting between edge energy and contrast. 0: all energy; 8: all contrast</p>
+<p>Value Range:  [0, 15]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>EdgeLowEndThr</p></td>
+<td><p>edge intensity thres at low-end</p>
+<p>Value Range:  [0, 1023]</p>
+<p>Data Types:  CVI_U16</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>EdgeMidEndThr</p></td>
+<td><p>edge intensity thres at mid-end</p>
+<p>Value Range:  [0, 1023]</p>
+<p>Data Types:  CVI_U16</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>EdgeHighEndThr</p></td>
+<td><p>edge intensity thres at high-end</p>
+<p>Value Range:  [0, 1023]</p>
+<p>Data Types:  CVI_U16</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>HueShtCtrl</p></td>
+<td><p>based on the specified colorperform edge enhancement</p>
+<p>Value Range:  [0, 63]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>SatShtGainIn</p></td>
+<td><p>based on the specified saturationperform edge enhancement, thisisInputnode, Inputsaturation</p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SatShtGainOut</p></td>
+<td><p>based on the specified saturationperform edge enhancement, thisisoutputnode, outputcorrespondingsaturation edgestrength. (max = 128)</p>
+<p>Value Range:  [0, 128]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<p>None</p>
+<p>[Related Data Types and Interfaces]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="20_PreSharpen.html#cvi-isp-setpresharpenattr">CVI_ISP_SetPreSharpenAttr</a></p></li>
+<li><p><a class="reference internal" href="20_PreSharpen.html#cvi-isp-getpresharpenattr">CVI_ISP_GetPreSharpenAttr</a></p></li>
+</ul>
+</section>
+<section id="isp-presharpen-auto-attr-s">
+<h3><span class="section-number">20.3.2. </span>ISP_PRESHARPEN_AUTO_ATTR_S<a class="headerlink" href="20_PreSharpen.html#isp-presharpen-auto-attr-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>Automatic DefinitionPreSharpen parameter attributes</p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_PRESHARPEN_AUTO_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">FlatThr</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1023]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">EdgeThr</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1023]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">FlatThrHLD</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1023]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">EdgeThrHLD</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1023]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">LumaThrHLD</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1023]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">ThinStr</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">RobustStr</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">FlatStr</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">EdgeStr</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_S16</span><span class="w"> </span><span class="n">StrFlatSlope</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[-32768, 32767]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_S16</span><span class="w"> </span><span class="n">StrEdgeSlope</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[-32768, 32767]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">ConEngBlendWt</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 15]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">EdgeLowEndThr</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1023]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">EdgeMidEndThr</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1023]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">EdgeHighEndThr</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1023]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">HueShtCtrl</span><span class="p">[</span><span class="mi">33</span><span class="p">][</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 63]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">SatShtGainIn</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">SatShtGainOut</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 128]*/</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_PRESHARPEN_AUTO_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>FlatThr</p></td>
+<td><p>flat regiondeterminesetthreshold. </p>
+<p>Value Range:  [0, 1023]</p>
+<p>Data Types:  CVI_U16</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>EdgeThr</p></td>
+<td><p>edgeregiondeterminesetthreshold. </p>
+<p>Value Range:  [0, 1023]</p>
+<p>Data Types:  CVI_U16</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>FlatThrHLD</p></td>
+<td><p>heightbright regiondomain flat regiondeterminesetthreshold. </p>
+<p>Value Range:  [0, 1023]</p>
+<p>Data Types:  CVI_U16</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>EdgeThrHLD</p></td>
+<td><p>heightbright regiondomain edgeregiondeterminesetthreshold. </p>
+<p>Value Range:  [0, 1023]</p>
+<p>Data Types:  CVI_U16</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>LumaThrHLD</p></td>
+<td><p>heightbright regiondeterminesetthreshold, brightness greater thanLumaThrHLD part, considerisisheightbright region. </p>
+<p>Value Range:  [0, 1023]</p>
+<p>Data Types:  CVI_U16</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>ThinStr</p></td>
+<td><p>Thin filterstrengthAdjust. RegionStrEn = 1when, takes effect. the larger the value, the stronger the intensity; the smaller the value, strengththe moresmall. </p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>RobustStr</p></td>
+<td><p>Robust filterstrengthAdjust. RegionStrEn = 1when, takes effect. the larger the value, the stronger the intensity; the smaller the value, strengththe moresmall. </p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>FlatStr</p></td>
+<td><p>limitflat regionsharpeningstrengthrange. whenStrFlatSlope &lt; 0when, determinesflat regionsharpeningstrengthminimum value; whenStrFlatSlope &gt; 0when, determinesflat regionsharpeningstrengthmaximum value. </p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>EdgeStr</p></td>
+<td><p>limitedgeregionsharpeningstrengthrange. whenStrEdgeSlope &gt; 0when, determinesedgeregionsharpeningstrengthmaximum value; whenStrFlatSlope &lt; 0when, determinesedgeregionsharpeningstrengthminimum value. </p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>StrFlatSlope</p></td>
+<td><p>Controlflat regionsharpeningstrength. RegionStrEn = 1when, takes effect. the smaller the value, flat regionsharpeningthe moreweak. </p>
+<p>Value Range:  [-32768, 32767]</p>
+<p>Data Types:  CVI_S16</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>StrEdgeSlope</p></td>
+<td><p>Controledgeregionsharpeningstrength. RegionStrEn = 1when, takes effect. the larger the value, edgeregionsharpeningthe morestrong. </p>
+<p>Value Range:  [-32768, 32767]</p>
+<p>Data Types:  CVI_S16</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>ConEngBlendWt</p></td>
+<td><p>weighting between edge energy and contrast. 0: all energy; 8: all contrast</p>
+<p>Value Range:  [0, 15]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>EdgeLowEndThr</p></td>
+<td><p>edge intensity thres at low-end</p>
+<p>Value Range:  [0, 1023]</p>
+<p>Data Types:  CVI_U16</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>EdgeMidEndThr</p></td>
+<td><p>edge intensity thres at mid-end</p>
+<p>Value Range:  [0, 1023]</p>
+<p>Data Types:  CVI_U16</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>EdgeHighEndThr</p></td>
+<td><p>edge intensity thres at high-end</p>
+<p>Value Range:  [0, 1023]</p>
+<p>Data Types:  CVI_U16</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>HueShtCtrl</p></td>
+<td><p>based on the specified colorperform edge enhancement</p>
+<p>Value Range:  [0, 63]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>SatShtGainIn</p></td>
+<td><p>based on the specified saturationperform edge enhancement, thisisInputnode, Inputsaturation</p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SatShtGainOut</p></td>
+<td><p>based on the specified saturationperform edge enhancement, thisisoutputnode, outputcorrespondingsaturation edgestrength. (max = 128)</p>
+<p>Value Range:  [0, 128]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<p>None</p>
+<p>[Related Data Types and Interfaces]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="20_PreSharpen.html#cvi-isp-setpresharpenattr">CVI_ISP_SetPreSharpenAttr</a></p></li>
+<li><p><a class="reference internal" href="20_PreSharpen.html#cvi-isp-getpresharpenattr">CVI_ISP_GetPreSharpenAttr</a></p></li>
+</ul>
+</section>
+<section id="isp-presharpen-attr-s">
+<h3><span class="section-number">20.3.3. </span>ISP_PRESHARPEN_ATTR_S<a class="headerlink" href="20_PreSharpen.html#isp-presharpen-attr-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>Define PreSharpen parameter attributes</p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_PRESHARPEN_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">Enable</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">ISP_OP_TYPE_E</span><span class="w"> </span><span class="n">enOpType</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">UpdateInterval</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[1, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">TuningMode</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 15]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">GammaSelection</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">ChnSelection</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">ParamAutoEn</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">SatShtCtrlEn</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">EdgeOutFormat</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">ReduceByEvRatioThr</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[64, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">ReduceByEvRatioStr</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">ISP_PRESHARPEN_MANUAL_ATTR_S</span><span class="w"> </span><span class="n">stManual</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">ISP_PRESHARPEN_AUTO_ATTR_S</span><span class="w"> </span><span class="n">stAuto</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_PRESHARPEN_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Enable</p></td>
+<td><p>module enable switch</p>
+<p>Value Range:  [0, 1]</p>
+<p>Data Types:  CVI_BOOL</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>enOpType</p></td>
+<td><p>operation type</p>
+<p>OP_TYPE_AUTO: automatic mode</p>
+<p>OP_TYPE_MANUAL: manual mode</p>
+<p>Data Types:  ISP_OP_TYPE_E</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>UpdateInterval</p></td>
+<td><p>affects the parameter update interval,the larger the value, the slower the image changes,the better the performance. </p>
+<p>Value Range:  [1, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>TuningMode</p></td>
+<td><p>Adjustmode, outputcanvisualtransformauxiliaryinformation. </p>
+<p>0and9~15: notoutputcanvisualtransformauxiliaryinformation. </p>
+<p>1: Ultra HFfilteringresult. </p>
+<p>2: HFfilteringresult. </p>
+<p>3: Subtle HFfilteringresult. </p>
+<p>4: MFfilteringresult. </p>
+<p>5: HFfilteringresult. </p>
+<p>6: Subtle HFfilteringresult. </p>
+<p>Value Range:  [0, 15]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>GammaSelection</p></td>
+<td><p>0: ori lum; 1: gamma lum</p>
+<p>Value Range:  [0, 1]</p>
+<p>Data Types:  CVI_BOOL</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>ChnSelection</p></td>
+<td><p>Select use RGB to Y or G channel as the input. 0: G channel edge extraction; 1: Y channel edge extraction</p>
+<p>Value Range:  [0, 1]</p>
+<p>Data Types:  CVI_BOOL</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>ParamAutoEn</p></td>
+<td><p>auto mode: auto determine thTexture, thEdge, thTexture_HLD, thEdge_HLD, thLum_HLD, th_overshoot, th_undershoot_lum, th_undershoot_eng</p>
+<p>Value Range:  [0, 1]</p>
+<p>Data Types:  CVI_BOOL</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>SatShtCtrlEn</p></td>
+<td><p>bysaturationAdjustedgeincreasestrong Enable. </p>
+<p>Value Range:  [0, 1]</p>
+<p>Data Types:  CVI_BOOL</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>EdgeOutFormat</p></td>
+<td><p>edge threshold format. 0: flag; 1, real 8bit</p>
+<p>Value Range:  [0, 1]</p>
+<p>Data Types:  CVI_BOOL</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>ReduceByEvRatioThr</p></td>
+<td><p>To be completed</p>
+<p>Value Range:  [64, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>ReduceByEvRatioStr</p></td>
+<td><p>To be completed</p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>stManual</p></td>
+<td><p>manual parameters</p></td>
+</tr>
+<tr class="row-even"><td><p>stAuto</p></td>
+<td><p>automatic parameters</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<p>None</p>
+<p>[Related Data Types and Interfaces]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="20_PreSharpen.html#cvi-isp-setpresharpenattr">CVI_ISP_SetPreSharpenAttr</a></p></li>
+<li><p><a class="reference internal" href="20_PreSharpen.html#cvi-isp-getpresharpenattr">CVI_ISP_GetPreSharpenAttr</a></p></li>
+</ul>
+</section>
+<section id="isp-presharpen-refine-manual-attr-s">
+<h3><span class="section-number">20.3.4. </span>ISP_PRESHARPEN_REFINE_MANUAL_ATTR_S<a class="headerlink" href="20_PreSharpen.html#isp-presharpen-refine-manual-attr-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>Manual DefinitionPreSharpen Refine parameter attributes</p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_PRESHARPEN_REFINE_MANUAL_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">LumaLowThr</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1023]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">LumaHighThr</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1023]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">LumaLowStep</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 7]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">LumaHighStep</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 7]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">LumaLowLut</span><span class="p">[</span><span class="mi">8</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">LumaHighLut</span><span class="p">[</span><span class="mi">8</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">EdgeLowThr</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1023]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">EdgeHighThr</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1023]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">EdgeLowStep</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 7]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">EdgeHighStep</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 7]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">EdgeLowLut</span><span class="p">[</span><span class="mi">8</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">EdgeHighLut</span><span class="p">[</span><span class="mi">8</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">OvershootThr</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">OshootSlope</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 32767]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">OshootWgtHigh</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">UndershootThr</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">UshootSlope</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">UshootWgtHigh</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">UshootLumThrLow</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">UshootLumThrHigh</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">UshootLumClampWgt</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">UshootEngThrLow</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">UshootEngThrHigh</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">UshootEngClampWgt</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">UshootLumEngStr</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">UshootLumEngNorm</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_PRESHARPEN_REFINE_MANUAL_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>LumaLowThr</p></td>
+<td><p>brightnessthreshold. brightnesssmallinLumLowThr part, sharpeningstrengthisLumLowLut[0]. </p>
+<p>Value Range:  [0, 1023]</p>
+<p>Data Types:  CVI_U16</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>LumaHighThr</p></td>
+<td><p>brightnessthreshold. brightness greater thanLumHighThr part, sharpeningstrengthaccording toLumHighLut[0]~LumHighLut[7]settings change gradually. </p>
+<p>Value Range:  [0, 1023]</p>
+<p>Data Types:  CVI_U16</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>LumaLowStep</p></td>
+<td><p>Controlsharpnesswithbrightnesschangewhen, brightnesson step. brightness greater thanLumLowThrand less thanLumHighThr part, stepbyLumLowStepControl. </p>
+<p>Value Range:  [0, 7]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>LumaHighStep</p></td>
+<td><p>Controlsharpnesswithbrightnesschangewhen, brightnesson step. brightness greater thanLumHighThr part, stepbyLumHighStepControl. </p>
+<p>Value Range:  [0, 7]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>LumaLowLut</p></td>
+<td><p>Controlsharpnessstrength. brightness greater thanLumLowThrand less thanLumHighThr part, withbrightnessincrease, sharpnessstrengthaccording toLumLowLut[0]~LumLowLut[7]settings change gradually. </p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>LumaHighLut</p></td>
+<td><p>Controlsharpnessstrength. brightness greater thanLumHighThr part, sharpeningstrengthaccording toLumHighLut[0]~LumHighLut[7]settings change gradually. </p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>EdgeLowThr</p></td>
+<td><p>sharpeningamplitudethreshold. sharpeningamplitudesmallinEdgeLowThr part, sharpeningstrengthisEdgeLowLut[0]. </p>
+<p>Value Range:  [0, 1023]</p>
+<p>Data Types:  CVI_U16</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>EdgeHighThr</p></td>
+<td><p>sharpeningamplitudethreshold. sharpeningamplitudelargeinEdgeHighThr part, sharpeningstrengthaccording toEdgeHighLut[0]~EdgeHighLut[7]settings change gradually. </p>
+<p>Value Range:  [0, 1023]</p>
+<p>Data Types:  CVI_U16</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>EdgeLowStep</p></td>
+<td><p>Controlsharpeningstrengthwithsharpeningamplitudechangewhen, sharpeningamplitudeon step. sharpeningamplitudelargeinEdgeLowThrand less thanEdgeHighThr part, stepbyEdgeLowStepControl. </p>
+<p>Value Range:  [0, 7]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>EdgeHighStep</p></td>
+<td><p>Controlsharpeningstrengthwithsharpeningamplitudechangewhen, sharpeningamplitudeon step. sharpeningamplitudelargeinEdgeHighThr part, stepbyEdgeHighStepControl. </p>
+<p>Value Range:  [0, 7]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>EdgeLowLut</p></td>
+<td><p>Controlsharpeningstrength. sharpeningamplitudelargeinEdgeLowThrand less thanEdgeHighThr part, withsharpeningamplitudeincrease, sharpnessstrengthaccording toEdgeLowLut[0]~EdgeLowLut[7]settings change gradually. </p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>EdgeHighLut</p></td>
+<td><p>Controlsharpeningstrength. sharpeningamplitudelargeinEdgeHighThr part, sharpeningstrengthaccording toEdgeHighLut[0]~EdgeHighLut[7]settings change gradually. </p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>OvershootThr</p></td>
+<td><p>brightnessthreshold. brightnesssmallinOvershootThr part, whiteedge strengthbyOshootWgtHighdetermines. </p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>OshootSlope</p></td>
+<td><p>determinesbrightness greater thanOvershootThrpart whiteedgestrength. the larger the value, asbrightnessincrease, whiteedgestrengthdecreaselowthe morefast. </p>
+<p>Value Range:  [0, 32767]</p>
+<p>Data Types:  CVI_U16</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>OshootWgtHigh</p></td>
+<td><p>determinesbrightnesssmallinOvershootThrpart whiteedgestrength. the larger the value, whiteedgethe stronger the intensity. </p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U16</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>UndershootThr</p></td>
+<td><p>brightnessthreshold. brightness greater thanUndershootThr part, black border strengthbyUshootWgtHighdetermines. </p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>UshootSlope</p></td>
+<td><p>determinesbrightnesssmallinUndershootThrpart black-border strength. the larger the value, asbrightnessdecreaselow, black-border strengthdecreaselowthe morefast. </p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>UshootWgtHigh</p></td>
+<td><p>determinesbrightness greater thanUndershootThrpart black-border strength. the larger the value, black-border strengththe morelarge. </p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>UshootLumThrLow</p></td>
+<td><p>brightnessthreshold. brightnesssmallinUshootLumThrLow part, black bordercorresponding strengthis0. </p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>UshootLumThrHigh</p></td>
+<td><p>brightnessthreshold. brightness greater thanUshootLumThrHigh part, black bordercorresponding strengthbyUshootLumClampWgtdetermines. </p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>UshootLumClampWgt</p></td>
+<td><p>determinesbrightness greater thanUshootLumThrHighpart black-border strength. the larger the value, black-border strengththe morestrong. </p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>UshootEngThrLow</p></td>
+<td><p>featurevaluethreshold. featurevaluesmallinUshootEngThrLow part, black border strengthbyUshootEngClampWgtdetermines. </p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>UshootEngThrHigh</p></td>
+<td><p>featurevaluethreshold. featurevaluelargeinUshootEngThrHigh part, black border strengthbyUshootEngClampWgtdetermines. </p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>UshootEngClampWgt</p></td>
+<td><p>determinesfeaturevaluelargeinUshootEngThrHighpart black-border strength. the larger the value, black border strengthinthe morestrong. </p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>UshootLumEngStr</p></td>
+<td><p>determinesblack-border strengthbiasmoveamount placelargexnumber. the larger the value, placelargexnumberthe morelarge. </p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>UshootLumEngNorm</p></td>
+<td><p>determinesblack-border strengthbiasmoveamount reducesmallxnumber. the larger the value, reducesmallxnumberthe morelarge. </p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<p>None</p>
+<p>[Related Data Types and Interfaces]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="20_PreSharpen.html#cvi-isp-setpresharpenrefineattr">CVI_ISP_SetPreSharpenRefineAttr</a></p></li>
+<li><p><a class="reference internal" href="20_PreSharpen.html#cvi-isp-getpresharpenrefineattr">CVI_ISP_GetPreSharpenRefineAttr</a></p></li>
+</ul>
+</section>
+<section id="isp-presharpen-refine-auto-attr-s">
+<h3><span class="section-number">20.3.5. </span>ISP_PRESHARPEN_REFINE_AUTO_ATTR_S<a class="headerlink" href="20_PreSharpen.html#isp-presharpen-refine-auto-attr-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>Automatic DefinitionPreSharpen Refine parameter attributes</p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_PRESHARPEN_REFINE_AUTO_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">LumaLowThr</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1023]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">LumaHighThr</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1023]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">LumaLowStep</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 7]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">LumaHighStep</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 7]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">LumaLowLut</span><span class="p">[</span><span class="mi">8</span><span class="p">][</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">LumaHighLut</span><span class="p">[</span><span class="mi">8</span><span class="p">][</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">EdgeLowThr</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1023]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">EdgeHighThr</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1023]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">EdgeLowStep</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 7]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">EdgeHighStep</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 7]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">EdgeLowLut</span><span class="p">[</span><span class="mi">8</span><span class="p">][</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">EdgeHighLut</span><span class="p">[</span><span class="mi">8</span><span class="p">][</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">OvershootThr</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">OshootSlope</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 32767]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">OshootWgtHigh</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">UndershootThr</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">UshootSlope</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">UshootWgtHigh</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">UshootLumThrLow</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">UshootLumThrHigh</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">UshootLumClampWgt</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">UshootEngThrLow</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">UshootEngThrHigh</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">UshootEngClampWgt</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">UshootLumEngStr</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">UshootLumEngNorm</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_PRESHARPEN_REFINE_AUTO_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>LumaLowThr</p></td>
+<td><p>brightnessthreshold. brightnesssmallinLumLowThr part, sharpeningstrengthisLumLowLut[0]. </p>
+<p>Value Range:  [0, 1023]</p>
+<p>Data Types:  CVI_U16</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>LumaHighThr</p></td>
+<td><p>brightnessthreshold. brightness greater thanLumHighThr part, sharpeningstrengthaccording toLumHighLut[0]~LumHighLut[7]settings change gradually. </p>
+<p>Value Range:  [0, 1023]</p>
+<p>Data Types:  CVI_U16</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>LumaLowStep</p></td>
+<td><p>Controlsharpnesswithbrightnesschangewhen, brightnesson step. brightness greater thanLumLowThrand less thanLumHighThr part, stepbyLumLowStepControl. </p>
+<p>Value Range:  [0, 7]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>LumaHighStep</p></td>
+<td><p>Controlsharpnesswithbrightnesschangewhen, brightnesson step. brightness greater thanLumHighThr part, stepbyLumHighStepControl. </p>
+<p>Value Range:  [0, 7]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>LumaLowLut</p></td>
+<td><p>Controlsharpnessstrength. brightness greater thanLumLowThrand less thanLumHighThr part, withbrightnessincrease, sharpnessstrengthaccording toLumLowLut[0]~LumLowLut[7]settings change gradually. </p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>LumaHighLut</p></td>
+<td><p>Controlsharpnessstrength. brightness greater thanLumHighThr part, sharpeningstrengthaccording toLumHighLut[0]~LumHighLut[7]settings change gradually. </p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>EdgeLowThr</p></td>
+<td><p>sharpeningamplitudethreshold. sharpeningamplitudesmallinEdgeLowThr part, sharpeningstrengthisEdgeLowLut[0]. </p>
+<p>Value Range:  [0, 1023]</p>
+<p>Data Types:  CVI_U16</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>EdgeHighThr</p></td>
+<td><p>sharpeningamplitudethreshold. sharpeningamplitudelargeinEdgeHighThr part, sharpeningstrengthaccording toEdgeHighLut[0]~EdgeHighLut[7]settings change gradually. </p>
+<p>Value Range:  [0, 1023]</p>
+<p>Data Types:  CVI_U16</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>EdgeLowStep</p></td>
+<td><p>Controlsharpeningstrengthwithsharpeningamplitudechangewhen, sharpeningamplitudeon step. sharpeningamplitudelargeinEdgeLowThrand less thanEdgeHighThr part, stepbyEdgeLowStepControl. </p>
+<p>Value Range:  [0, 7]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>EdgeHighStep</p></td>
+<td><p>Controlsharpeningstrengthwithsharpeningamplitudechangewhen, sharpeningamplitudeon step. sharpeningamplitudelargeinEdgeHighThr part, stepbyEdgeHighStepControl. </p>
+<p>Value Range:  [0, 7]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>EdgeLowLut</p></td>
+<td><p>Controlsharpeningstrength. sharpeningamplitudelargeinEdgeLowThrand less thanEdgeHighThr part, withsharpeningamplitudeincrease, sharpnessstrengthaccording toEdgeLowLut[0]~EdgeLowLut[7]settings change gradually. </p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>EdgeHighLut</p></td>
+<td><p>Controlsharpeningstrength. sharpeningamplitudelargeinEdgeHighThr part, sharpeningstrengthaccording toEdgeHighLut[0]~EdgeHighLut[7]settings change gradually. </p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>OvershootThr</p></td>
+<td><p>brightnessthreshold. brightnesssmallinOvershootThr part, whiteedge strengthbyOshootWgtHighdetermines. </p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>OshootSlope</p></td>
+<td><p>determinesbrightness greater thanOvershootThrpart whiteedgestrength. the larger the value, asbrightnessincrease, whiteedgestrengthdecreaselowthe morefast. </p>
+<p>Value Range:  [0, 32767]</p>
+<p>Data Types:  CVI_U16</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>OshootWgtHigh</p></td>
+<td><p>determinesbrightnesssmallinOvershootThrpart whiteedgestrength. the larger the value, whiteedgethe stronger the intensity. </p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U16</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>UndershootThr</p></td>
+<td><p>brightnessthreshold. brightness greater thanUndershootThr part, black border strengthbyUshootWgtHighdetermines. </p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>UshootSlope</p></td>
+<td><p>determinesbrightnesssmallinUndershootThrpart black-border strength. the larger the value, asbrightnessdecreaselow, black-border strengthdecreaselowthe morefast. </p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>UshootWgtHigh</p></td>
+<td><p>determinesbrightness greater thanUndershootThrpart black-border strength. the larger the value, black-border strengththe morelarge. </p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>UshootLumThrLow</p></td>
+<td><p>brightnessthreshold. brightnesssmallinUshootLumThrLow part, black bordercorresponding strengthis0. </p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>UshootLumThrHigh</p></td>
+<td><p>brightnessthreshold. brightness greater thanUshootLumThrHigh part, black bordercorresponding strengthbyUshootLumClampWgtdetermines. </p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>UshootLumClampWgt</p></td>
+<td><p>determinesbrightness greater thanUshootLumThrHighpart black-border strength. the larger the value, black-border strengththe morestrong. </p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>UshootEngThrLow</p></td>
+<td><p>featurevaluethreshold. featurevaluesmallinUshootEngThrLow part, black border strengthbyUshootEngClampWgtdetermines. </p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>UshootEngThrHigh</p></td>
+<td><p>featurevaluethreshold. featurevaluelargeinUshootEngThrHigh part, black border strengthbyUshootEngClampWgtdetermines. </p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>UshootEngClampWgt</p></td>
+<td><p>determinesfeaturevaluelargeinUshootEngThrHighpart black-border strength. the larger the value, black border strengthinthe morestrong. </p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>UshootLumEngStr</p></td>
+<td><p>determinesblack-border strengthbiasmoveamount placelargexnumber. the larger the value, placelargexnumberthe morelarge. </p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>UshootLumEngNorm</p></td>
+<td><p>determinesblack-border strengthbiasmoveamount reducesmallxnumber. the larger the value, reducesmallxnumberthe morelarge. </p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<p>None</p>
+<p>[Related Data Types and Interfaces]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="20_PreSharpen.html#cvi-isp-setpresharpenrefineattr">CVI_ISP_SetPreSharpenRefineAttr</a></p></li>
+<li><p><a class="reference internal" href="20_PreSharpen.html#cvi-isp-getpresharpenrefineattr">CVI_ISP_GetPreSharpenRefineAttr</a></p></li>
+</ul>
+</section>
+<section id="isp-presharpen-refine-attr-s">
+<h3><span class="section-number">20.3.6. </span>ISP_PRESHARPEN_REFINE_ATTR_S<a class="headerlink" href="20_PreSharpen.html#isp-presharpen-refine-attr-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>Define PreSharpen Refine parameter attributes</p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_PRESHARPEN_REFINE_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">OverUnderShootEn</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">ISP_REFINE_TYPE_E</span><span class="w"> </span><span class="n">RefineEdgeType</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">ISP_PRESHARPEN_REFINE_MANUAL_ATTR_S</span><span class="w"> </span><span class="n">stManual</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">ISP_PRESHARPEN_REFINE_AUTO_ATTR_S</span><span class="w"> </span><span class="n">stAuto</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_PRESHARPEN_REFINE_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>OverUnderShootEn</p></td>
+<td><p>OverShoot, UnderShootAdjust Enable. </p>
+<p>Value Range:  [0, 1]</p>
+<p>Data Types:  CVI_BOOL</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>RefineEdgeType</p></td>
+<td><p>Refine type</p>
+<p>Data Types:  ISP_REFINE_TYPE_E</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>stManual</p></td>
+<td><p>manual parameters</p></td>
+</tr>
+<tr class="row-odd"><td><p>stAuto</p></td>
+<td><p>automatic parameters</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<p>None</p>
+<p>[Related Data Types and Interfaces]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="20_PreSharpen.html#cvi-isp-setpresharpenrefineattr">CVI_ISP_SetPreSharpenRefineAttr</a></p></li>
+<li><p><a class="reference internal" href="20_PreSharpen.html#cvi-isp-getpresharpenrefineattr">CVI_ISP_GetPreSharpenRefineAttr</a></p></li>
+</ul>
+</section>
+<section id="isp-presharpen-edge-ext-manual-attr-s">
+<h3><span class="section-number">20.3.7. </span>ISP_PRESHARPEN_EDGE_EXT_MANUAL_ATTR_S<a class="headerlink" href="20_PreSharpen.html#isp-presharpen-edge-ext-manual-attr-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>Manual DefinitionPreSharpen Edgeparameter attributes</p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_PRESHARPEN_EDGE_EXT_MANUAL_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">E5aEnhance</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1023]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">E5bEnhance</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1023]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">E5cEnhance</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1023]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">E7Enhance</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1023]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">BlendThrLow</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">BlendThrHigh</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">BlendWgtLow</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">BlendWgtHigh</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">ThinWgtFlat</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 16]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">ThinWgtEdge</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 16]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">ThinWgtUHF_HF</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 8]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">RobustWgtHF_SHF</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 8]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">ThinWgtAgainstSHF</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 8]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">RobustWgtAgainstMF</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 8]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">ThinWgtFlatHLD</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 16]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">ThinWgtEdgeHLD</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 16]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">ThinWgtUHF_HF_HLD</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 8]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">RobustWgtHF_SHF_HLD</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 8]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">ThinWgtAgainstSHF_HLD</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 8]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">RobustWgtAgainstMF_HLD</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 8]*/</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_PRESHARPEN_EDGE_EXT_MANUAL_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E5aEnhance</p></td>
+<td><p>the enhanced item of the 5x5a edge kernel, 16=1x</p>
+<p>Value Range:  [0, 1023]</p>
+<p>Data Types:  CVI_U16</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>E5bEnhance</p></td>
+<td><p>the enhanced item of the 5x5b edge kernel, 16=1x</p>
+<p>Value Range:  [0, 1023]</p>
+<p>Data Types:  CVI_U16</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>E5cEnhance</p></td>
+<td><p>the enhanced item of the 5x5c edge kernel, 16=1x</p>
+<p>Value Range:  [0, 1023]</p>
+<p>Data Types:  CVI_U16</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>E7Enhance</p></td>
+<td><p>the enhanced item of the 7x7 edge kernel, 16=1x</p>
+<p>Value Range:  [0, 1023]</p>
+<p>Data Types:  CVI_U16</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>BlendThrLow</p></td>
+<td><p>throughGamma filteringresultandnotthroughGamma filteringresult, according tobrightnessselectdifferent groupcombineratioexample. dark regiondividepartthreshold, brightnessinBlendThrLowusinginside part, BlendingWeightingReferenceBlendWgtLow. </p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>BlendThrHigh</p></td>
+<td><p>bright regiondividepartthreshold, brightness greater thanBlendThrHigh part, BlendingWeightingReferenceBlendWgtHigh. </p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>BlendWgtLow</p></td>
+<td><p>dark regionReference BlendingWeighting. </p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>BlendWgtHigh</p></td>
+<td><p>bright regionReference BlendingWeighting. </p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>ThinWgtFlat</p></td>
+<td><p>Controlflat regionThin filterandRobust filterfusion ratio. the smaller the value, the morebiastoRobust filter, that isflat region filteringresultthe morebiastoRobust filterresult. </p>
+<p>Value Range:  [0, 16]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>ThinWgtEdge</p></td>
+<td><p>ControledgeregionThin filterandRobust filterfusion ratio. the larger the value, the morebiastoThin filter, that isedgeregion filteringresultthe morebiastoThin filterresult. </p>
+<p>Value Range:  [0, 16]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>ThinWgtUHF_HF</p></td>
+<td><p>Thin filterfrequency firstfusion passAdjust. the larger the value, the morebiastoUltra HF; the smaller the value, the morebiastoHF. </p>
+<p>Value Range:  [0, 8]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>RobustWgtHF_SHF</p></td>
+<td><p>Robust filterfrequency firstfusion passAdjust. the larger the value, the morebiastoHF; the smaller the value, the morebiastoSubtle HF. </p>
+<p>Value Range:  [0, 8]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>ThinWgtAgainstSHF</p></td>
+<td><p>Thin filterfrequency secondfusion passAdjust. the larger the value, more weighted toward the first fusion adjustment result; the smaller the value, the morebiastoSubtle HF. </p>
+<p>Value Range:  [0, 8]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>RobustWgtAgainstMF</p></td>
+<td><p>Robust filterfrequency secondfusion passAdjust. the larger the value, more weighted toward the first fusion adjustment result; the smaller the value, the morebiastoMF. </p>
+<p>Value Range:  [0, 8]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>ThinWgtFlatHLD</p></td>
+<td><p>Controlheightbright regiondomainflat regionThin filterandRobust filterfusion ratio. the smaller the value, the morebiastoRobust filter, that isflat region filteringresultthe morebiastoRobust filterresult. </p>
+<p>Value Range:  [0, 16]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>ThinWgtEdgeHLD</p></td>
+<td><p>Controlheightbright regiondomainedgeregionThin filterandRobust filterfusion ratio. the larger the value, the morebiastoThin filter, that isedgeregion filteringresultthe morebiastoThin filterresult. </p>
+<p>Value Range:  [0, 16]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>ThinWgtUHF_HF_HLD</p></td>
+<td><p>highlight texture regionThin filterfrequency firstfusion passAdjust. the larger the value, the morebiastoUltra HF; the smaller the value, the morebiastoHF. </p>
+<p>Value Range:  [0, 8]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>RobustWgtHF_SHF_HLD</p></td>
+<td><p>highlight texture regionRobust filterfrequency firstfusion passAdjust. the larger the value, the morebiastoHF; the smaller the value, the morebiastoSubtle HF. </p>
+<p>Value Range:  [0, 8]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>ThinWgtAgainstSHF_HLD</p></td>
+<td><p>highlight texture regionThin filterfrequency secondfusion passAdjust. the larger the value, more weighted toward the first fusion adjustment result; the smaller the value, the morebiastoSubtle HF. </p>
+<p>Value Range:  [0, 8]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>RobustWgtAgainstMF_HLD</p></td>
+<td><p>highlight texture regionRobust filterfrequency secondfusion passAdjust. the larger the value, more weighted toward the first fusion adjustment result; the smaller the value, the morebiastoMF. </p>
+<p>Value Range:  [0, 8]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<p>None</p>
+<p>[Related Data Types and Interfaces]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="20_PreSharpen.html#cvi-isp-setpresharpenedgeextattr">CVI_ISP_SetPreSharpenEdgeExtAttr</a></p></li>
+<li><p><a class="reference internal" href="20_PreSharpen.html#cvi-isp-getpresharpenedgeextattr">CVI_ISP_GetPreSharpenEdgeExtAttr</a></p></li>
+</ul>
+</section>
+<section id="isp-presharpen-edge-ext-auto-attr-s">
+<h3><span class="section-number">20.3.8. </span>ISP_PRESHARPEN_EDGE_EXT_AUTO_ATTR_S<a class="headerlink" href="20_PreSharpen.html#isp-presharpen-edge-ext-auto-attr-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>Automatic DefinitionPreSharpen Edgeparameter attributes</p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_PRESHARPEN_EDGE_EXT_AUTO_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">E5aEnhance</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1023]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">E5bEnhance</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1023]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">E5cEnhance</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1023]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">E7Enhance</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1023]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">BlendThrLow</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">BlendThrHigh</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">BlendWgtLow</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">BlendWgtHigh</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 255]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">ThinWgtFlat</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 16]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">ThinWgtEdge</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 16]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">ThinWgtUHF_HF</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 8]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">RobustWgtHF_SHF</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 8]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">ThinWgtAgainstSHF</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 8]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">RobustWgtAgainstMF</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 8]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">ThinWgtFlatHLD</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 16]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">ThinWgtEdgeHLD</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 16]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">ThinWgtUHF_HF_HLD</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 8]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">RobustWgtHF_SHF_HLD</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 8]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">ThinWgtAgainstSHF_HLD</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 8]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">RobustWgtAgainstMF_HLD</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 8]*/</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_PRESHARPEN_EDGE_EXT_AUTO_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>E5aEnhance</p></td>
+<td><p>the enhanced item of the 5x5a edge kernel, 16=1x</p>
+<p>Value Range:  [0, 1023]</p>
+<p>Data Types:  CVI_U16</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>E5bEnhance</p></td>
+<td><p>the enhanced item of the 5x5b edge kernel, 16=1x</p>
+<p>Value Range:  [0, 1023]</p>
+<p>Data Types:  CVI_U16</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>E5cEnhance</p></td>
+<td><p>the enhanced item of the 5x5c edge kernel, 16=1x</p>
+<p>Value Range:  [0, 1023]</p>
+<p>Data Types:  CVI_U16</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>E7Enhance</p></td>
+<td><p>the enhanced item of the 7x7 edge kernel, 16=1x</p>
+<p>Value Range:  [0, 1023]</p>
+<p>Data Types:  CVI_U16</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>BlendThrLow</p></td>
+<td><p>throughGamma filteringresultandnotthroughGamma filteringresult, according tobrightnessselectdifferent groupcombineratioexample. dark regiondividepartthreshold, brightnessinBlendThrLowusinginside part, BlendingWeightingReferenceBlendWgtLow. </p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>BlendThrHigh</p></td>
+<td><p>bright regiondividepartthreshold, brightness greater thanBlendThrHigh part, BlendingWeightingReferenceBlendWgtHigh. </p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>BlendWgtLow</p></td>
+<td><p>dark regionReference BlendingWeighting. </p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>BlendWgtHigh</p></td>
+<td><p>bright regionReference BlendingWeighting. </p>
+<p>Value Range:  [0, 255]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>ThinWgtFlat</p></td>
+<td><p>Controlflat regionThin filterandRobust filterfusion ratio. the smaller the value, the morebiastoRobust filter, that isflat region filteringresultthe morebiastoRobust filterresult. </p>
+<p>Value Range:  [0, 16]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>ThinWgtEdge</p></td>
+<td><p>ControledgeregionThin filterandRobust filterfusion ratio. the larger the value, the morebiastoThin filter, that isedgeregion filteringresultthe morebiastoThin filterresult. </p>
+<p>Value Range:  [0, 16]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>ThinWgtUHF_HF</p></td>
+<td><p>Thin filterfrequency firstfusion passAdjust. the larger the value, the morebiastoUltra HF; the smaller the value, the morebiastoHF. </p>
+<p>Value Range:  [0, 8]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>RobustWgtHF_SHF</p></td>
+<td><p>Robust filterfrequency firstfusion passAdjust. the larger the value, the morebiastoHF; the smaller the value, the morebiastoSubtle HF. </p>
+<p>Value Range:  [0, 8]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>ThinWgtAgainstSHF</p></td>
+<td><p>Thin filterfrequency secondfusion passAdjust. the larger the value, more weighted toward the first fusion adjustment result; the smaller the value, the morebiastoSubtle HF. </p>
+<p>Value Range:  [0, 8]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>RobustWgtAgainstMF</p></td>
+<td><p>Robust filterfrequency secondfusion passAdjust. the larger the value, more weighted toward the first fusion adjustment result; the smaller the value, the morebiastoMF. </p>
+<p>Value Range:  [0, 8]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>ThinWgtFlatHLD</p></td>
+<td><p>Controlheightbright regiondomainflat regionThin filterandRobust filterfusion ratio. the smaller the value, the morebiastoRobust filter, that isflat region filteringresultthe morebiastoRobust filterresult. </p>
+<p>Value Range:  [0, 16]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>ThinWgtEdgeHLD</p></td>
+<td><p>Controlheightbright regiondomainedgeregionThin filterandRobust filterfusion ratio. the larger the value, the morebiastoThin filter, that isedgeregion filteringresultthe morebiastoThin filterresult. </p>
+<p>Value Range:  [0, 16]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>ThinWgtUHF_HF_HLD</p></td>
+<td><p>highlight texture regionThin filterfrequency firstfusion passAdjust. the larger the value, the morebiastoUltra HF; the smaller the value, the morebiastoHF. </p>
+<p>Value Range:  [0, 8]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>RobustWgtHF_SHF_HLD</p></td>
+<td><p>highlight texture regionRobust filterfrequency firstfusion passAdjust. the larger the value, the morebiastoHF; the smaller the value, the morebiastoSubtle HF. </p>
+<p>Value Range:  [0, 8]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>ThinWgtAgainstSHF_HLD</p></td>
+<td><p>highlight texture regionThin filterfrequency secondfusion passAdjust. the larger the value, more weighted toward the first fusion adjustment result; the smaller the value, the morebiastoSubtle HF. </p>
+<p>Value Range:  [0, 8]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>RobustWgtAgainstMF_HLD</p></td>
+<td><p>highlight texture regionRobust filterfrequency secondfusion passAdjust. the larger the value, more weighted toward the first fusion adjustment result; the smaller the value, the morebiastoMF. </p>
+<p>Value Range:  [0, 8]</p>
+<p>Data Types:  CVI_U8</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<p>None</p>
+<p>[Related Data Types and Interfaces]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="20_PreSharpen.html#cvi-isp-setpresharpenedgeextattr">CVI_ISP_SetPreSharpenEdgeExtAttr</a></p></li>
+<li><p><a class="reference internal" href="20_PreSharpen.html#cvi-isp-getpresharpenedgeextattr">CVI_ISP_GetPreSharpenEdgeExtAttr</a></p></li>
+</ul>
+</section>
+<section id="isp-presharpen-edge-ext-attr-s">
+<h3><span class="section-number">20.3.9. </span>ISP_PRESHARPEN_EDGE_EXT_ATTR_S<a class="headerlink" href="20_PreSharpen.html#isp-presharpen-edge-ext-attr-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>Define PreSharpen Edgeparameter attributes</p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_PRESHARPEN_EDGE_EXT_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">RegionStrEn</span><span class="p">;</span><span class="w"> </span><span class="cm">/*Rw; Range:[0, 1]*/</span><span class="w"></span>
+<span class="w">        </span><span class="n">ISP_PRESHARPEN_EDGE_EXT_MANUAL_ATTR_S</span><span class="w"> </span><span class="n">stManual</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">ISP_PRESHARPEN_EDGE_EXT_AUTO_ATTR_S</span><span class="w"> </span><span class="n">stAuto</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_PRESHARPEN_EDGE_EXT_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>RegionStrEn</p></td>
+<td><p>according todifferentregiontype (flat region, edgeregion, textureregion) Adjustsharpeningstrengthfunction enable. </p>
+<p>Value Range:  [0, 1]</p>
+<p>Data Types:  CVI_BOOL</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>stManual</p></td>
+<td><p>manual parameters</p></td>
+</tr>
+<tr class="row-even"><td><p>stAuto</p></td>
+<td><p>automatic parameters</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<p>None</p>
+<p>[Related Data Types and Interfaces]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="20_PreSharpen.html#cvi-isp-setpresharpenedgeextattr">CVI_ISP_SetPreSharpenEdgeExtAttr</a></p></li>
+<li><p><a class="reference internal" href="20_PreSharpen.html#cvi-isp-getpresharpenedgeextattr">CVI_ISP_GetPreSharpenEdgeExtAttr</a></p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="19_Sharpen.html" class="btn btn-neutral float-left" title="19. SHARPEN" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="21_RGB_Gamma.html" class="btn btn-neutral float-right" title="21. RGBGAMMA" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Go to official website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="Go to Documentation Center"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Top of page"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Bottom of page"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR code for this page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

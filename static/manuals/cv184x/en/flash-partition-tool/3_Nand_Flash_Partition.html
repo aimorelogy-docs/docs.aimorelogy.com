@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3. NAND Flash Partition &mdash; CvitekFlashPartitionToolUserGuide master Documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="4. eMMC Partitioning" href="4_EMMC_Partition.html" />
+    <link rel="prev" title="2. Overview" href="2_Overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> CvitekFlashPartitionToolUserGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Overview.html">2. Overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="3_Nand_Flash_Partition.html#">3. NAND Flash Partition</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3_Nand_Flash_Partition.html#mtd">3.1. About mtd</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_Nand_Flash_Partition.html#id1">3.2. Partition Table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_Nand_Flash_Partition.html#id2">3.3. Burning Rules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3_Nand_Flash_Partition.html#sv">3.3.1. SV Partition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_Nand_Flash_Partition.html#fip">3.3.2. FIP Partition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_Nand_Flash_Partition.html#id3">3.3.3. Other Partitions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3_Nand_Flash_Partition.html#nand">3.4. NAND Partition Alignment</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="4_EMMC_Partition.html">4. eMMC Partitioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_Nor_Flash_Partition.html">5. NOR Flash Partition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_Partition_Configuration.html">6. Partition Modification</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CvitekFlashPartitionToolUserGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">3. </span>NAND Flash Partition</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/3_Nand_Flash_Partition.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="nand-flash">
+<h1><span class="section-number">3. </span>NAND Flash Partition<a class="headerlink" href="3_Nand_Flash_Partition.html#nand-flash" title="Permalink to this headline">¶</a></h1>
+<section id="mtd">
+<h2><span class="section-number">3.1. </span>About mtd<a class="headerlink" href="3_Nand_Flash_Partition.html#mtd" title="Permalink to this headline">¶</a></h2>
+<p>memorytechnologydevicethat is,  MTD (Memory Technology Device, abbreviatewriteis MTD) , is Linux systemin
+devicefile systemonecategory, mainneed toused to flashstoreapplication, isa type offlashstoreconvertreplacelayer (Flash Transl
+ation Layer, FTL) . create MTD subsystemmainneed tocurrentisprovideonebetween flashhardwaredriverprogram
+withapplicationprogrambetweenabstractlayer. </p>
+</section>
+<section id="id1">
+<h2><span class="section-number">3.2. </span>Partition Table<a class="headerlink" href="3_Nand_Flash_Partition.html#id1" title="Permalink to this headline">¶</a></h2>
+<p>CVITEK solution flash partitions are defined in XML. Take boards/default/partition/partition_spinand_page_2k.xml as an example:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;physical_partition</span> <span class="na">type=</span><span class="s">&quot;spinand&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;partition</span> <span class="na">label=</span><span class="s">&quot;fip&quot;</span> <span class="na">size_in_kb=</span><span class="s">&quot;2560&quot;</span> <span class="na">file=</span><span class="s">&quot;fip.bin&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;partition</span> <span class="na">label=</span><span class="s">&quot;BOOT&quot;</span> <span class="na">size_in_kb=</span><span class="s">&quot;8192&quot;</span> <span class="na">file=</span><span class="s">&quot;boot.spinand&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;partition</span> <span class="na">label=</span><span class="s">&quot;MISC&quot;</span> <span class="na">size_in_kb=</span><span class="s">&quot;384&quot;</span> <span class="na">file=</span><span class="s">&quot;logo.jpg&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;partition</span> <span class="na">label=</span><span class="s">&quot;ENV&quot;</span> <span class="na">size_in_kb=</span><span class="s">&quot;128&quot;</span> <span class="na">file=</span><span class="s">&quot;&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;partition</span> <span class="na">label=</span><span class="s">&quot;ROOTFS&quot;</span> <span class="na">size_in_kb=</span><span class="s">&quot;71680&quot;</span> <span class="na">file=</span><span class="s">&quot;rootfs.spinand&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;partition</span> <span class="na">label=</span><span class="s">&quot;SYSTEM&quot;</span> <span class="na">size_in_kb=</span><span class="s">&quot;20480&quot;</span> <span class="na">file=</span><span class="s">&quot;system.spinand&quot;</span> <span class="na">mountpoint=</span><span class="s">&quot;&quot;</span> <span class="na">type=</span><span class="s">&quot;ubifs&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;partition</span> <span class="na">label=</span><span class="s">&quot;CFG&quot;</span> <span class="na">size_in_kb=</span><span class="s">&quot;4096&quot;</span> <span class="na">file=</span><span class="s">&quot;cfg.spinand&quot;</span> <span class="na">mountpoint=</span><span class="s">&quot;/mnt/cfg&quot;</span> <span class="na">type=</span><span class="s">&quot;ubifs&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;partition</span> <span class="na">label=</span><span class="s">&quot;DATA&quot;</span> <span class="na">file=</span><span class="s">&quot;&quot;</span> <span class="na">mountpoint=</span><span class="s">&quot;/mnt/data&quot;</span> <span class="na">type=</span><span class="s">&quot;ubifs&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/physical_partition&gt;</span>
+</pre></div>
+</div>
+<p>with 2KB page size 128KB blocksize  NAND flash isexample: byxmlfileondata, willeachpartitionsizeconversionbecomeblocksizeafter (formula: blockcount  = partition size / singleblocksize) , as shown below:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 33%" />
+<col style="width: 27%" />
+<col style="width: 24%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Partition</p></th>
+<th class="head"><p>Start block offset</p></th>
+<th class="head"><p>Number of blocks</p></th>
+<th class="head"><p>Binary files</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>FIP</p></td>
+<td><p>0</p></td>
+<td><p>20</p></td>
+<td><p>fip.bin</p></td>
+</tr>
+<tr class="row-odd"><td><p>BOOT</p></td>
+<td><p>24</p></td>
+<td><p>64</p></td>
+<td><p>boot.spinand</p></td>
+</tr>
+<tr class="row-even"><td><p>MISC</p></td>
+<td><p>Sequential order (skip bad blocks)</p></td>
+<td><p>3</p></td>
+<td><p>logo.jpg</p></td>
+</tr>
+<tr class="row-odd"><td><p>ENV</p></td>
+<td><p>Sequential order (skip bad blocks)</p></td>
+<td><p>1</p></td>
+<td><p>Null (no content)</p></td>
+</tr>
+<tr class="row-even"><td><p>ENV_BAK</p></td>
+<td><p>Sequential order (skip bad blocks)</p></td>
+<td><p>1</p></td>
+<td><p>Null (no content)</p></td>
+</tr>
+<tr class="row-odd"><td><p>ROOTFS</p></td>
+<td><p>Sequential order (skip bad blocks)</p></td>
+<td><p>560</p></td>
+<td><p>rootfs.spinand</p></td>
+</tr>
+<tr class="row-even"><td><p>SYSTEM</p></td>
+<td><p>Sequential order (skip bad blocks)</p></td>
+<td><p>160</p></td>
+<td><p>system.spinand</p></td>
+</tr>
+<tr class="row-odd"><td><p>CFG</p></td>
+<td><p>Sequential order (skip bad blocks)</p></td>
+<td><p>32</p></td>
+<td><p>cfg.spinand</p></td>
+</tr>
+<tr class="row-even"><td><p>DATA</p></td>
+<td><p>Sequential order (skip bad blocks)</p></td>
+<td><p>Don’t Care</p></td>
+<td><p>Null (no content)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id2">
+<h2><span class="section-number">3.3. </span>Burning Rules<a class="headerlink" href="3_Nand_Flash_Partition.html#id2" title="Permalink to this headline">¶</a></h2>
+<section id="sv">
+<h3><span class="section-number">3.3.1. </span>SV Partition<a class="headerlink" href="3_Nand_Flash_Partition.html#sv" title="Permalink to this headline">¶</a></h3>
+<p>The SV partition is bound to the processor. Select and burn the binary with a 2KB or 4KB page size; do not modify the partition contents.with2KB page sizeisexample, pleasewillblock 0, 1, 2, 3allburning182x_sv_2k_pg.bin, ifencounterbad blockthenskiptheblock. If beforefouritemblockallisbad block, pleasedo notusetheSPI NAND flash. </p>
+</section>
+<section id="fip">
+<h3><span class="section-number">3.3.2. </span>FIP Partition<a class="headerlink" href="3_Nand_Flash_Partition.html#fip" title="Permalink to this headline">¶</a></h3>
+<p>The FIP partition contains two parts:
+processingdevicerelatedBootloader(noneopen source), u-boot. CVITEK compileflowwillautomaticwillbothopenpacketbecomeone fip.bin. </p>
+<p>The NAND burning logic is:from block 0~19 betweensequentiallyselectgood block, totala total ofburningtwo copies, first copywillwritein block 0~9, second copywillburningin block 10~19, backups of each other. </p>
+<p>fip.binprogram itself intospinand largeapproximatelywilluseto 3~4item blocks, but because spinand specialnessproblem,  block maywillappearbad blockcondition, thereforeremaining unused block reserveused to appearbad blockwhenuse. </p>
+<p><strong>Example 1</strong></p>
+<p>If there are no bad blocks, willfirst copy fip.bin burningtoblock 0, 1, 2, 3, 4; second copyfip.binburningtoblock 9, 10, 11, 12, 13. </p>
+<p><strong>Example 2</strong></p>
+<p>If blocks 4 and 11 are bad, pleasewillfirst copy fip.bin burningtoblock 0, 1, 2, 3, 5;  second copy fip.bin burningtoblock 9, 10, 12, 13, 14</p>
+</section>
+<section id="id3">
+<h3><span class="section-number">3.3.3. </span>Other Partitions<a class="headerlink" href="3_Nand_Flash_Partition.html#id3" title="Permalink to this headline">¶</a></h3>
+<p>Burn sequentially according to the partition table configuration. Skip a bad block and burn to the next good block.</p>
+</section>
+</section>
+<section id="nand">
+<h2><span class="section-number">3.4. </span>NAND Partition Alignment<a class="headerlink" href="3_Nand_Flash_Partition.html#nand" title="Permalink to this headline">¶</a></h2>
+<p>The partition size must be aligned to the NAND flash erase size,  erase size can checkread nand flash  spec manual, 
+currenthas 128/256k erase size, If cannotgetto nand flash  erase size sizecan defaultaccording to  256k sizefor
+align</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="2_Overview.html" class="btn btn-neutral float-left" title="2. Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="4_EMMC_Partition.html" class="btn btn-neutral float-right" title="4. eMMC Partitioning" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Visit official website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="Go to Documentation Center"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Top of page"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Bottom of page"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR Code for This Page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

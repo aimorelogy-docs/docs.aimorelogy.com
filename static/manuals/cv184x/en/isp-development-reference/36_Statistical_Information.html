@@ -1,0 +1,1822 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>36. Statistical Information &mdash; ISPDevelopmentReference master documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="37. Query Internal Status Messages" href="37_Query_Internal_Status_Messages.html" />
+    <link rel="prev" title="35. VC" href="35_VC.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> ISPDevelopmentReference
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Preface.html">2. Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_System_Control.html">3. System Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_AE.html">4. AE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_AWB.html">5. AWB</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_AF.html">6. AF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_IMP.html">7. IMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_BlackLevel.html">8. BLC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_DPC.html">9. DPC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_LSC.html">10. LSC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_RLSC.html">11. RLSC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_CCM.html">12. CCM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_Noise_Profile.html">13. Noise profile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_BNR.html">14. BNR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15_CNR.html">15. CNR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="16_TNR.html">16. TNR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="17_Crosstalk.html">17. Crosstalk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18_Demosaic.html">18. DEMOSAIC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19_Sharpen.html">19. SHARPEN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="20_PreSharpen.html">20. PRESHARPEN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21_RGB_Gamma.html">21. RGBGAMMA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="22_DCI.html">22. DCI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="23_LDCI.html">23. LDCI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="24_ColorTone.html">24. ColorTone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="25_Saturation.html">25. Saturation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="26_PFR.html">26. PFR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="27_FSHDR.html">27. FSHDR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="28_DRC.html">28. DRC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="29_Mono.html">29. MONO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="30_YCONTRAST.html">30. YCONTRAST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="31_CA.html">31. CA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="32_CA2.html">32. CA2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="33_CLUT.html">33. CLUT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="34_CSC.html">34. CSC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="35_VC.html">35. VC</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="36_Statistical_Information.html#">36. Statistical Information</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="36_Statistical_Information.html#id2">36.1. Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="36_Statistical_Information.html#api">36.2. API Reference</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="36_Statistical_Information.html#cvi-isp-setstatisticsconfig">36.2.1. CVI_ISP_SetStatisticsConfig</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36_Statistical_Information.html#cvi-isp-getstatisticsconfig">36.2.2. CVI_ISP_GetStatisticsConfig</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36_Statistical_Information.html#cvi-isp-getaestatistics">36.2.3. CVI_ISP_GetAEStatistics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36_Statistical_Information.html#cvi-isp-getwbstatistics">36.2.4. CVI_ISP_GetWBStatistics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36_Statistical_Information.html#cvi-isp-getfocusstatistics">36.2.5. CVI_ISP_GetFocusStatistics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="36_Statistical_Information.html#id3">36.3. Data Types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="36_Statistical_Information.html#isp-statistics-ctrl-u">36.3.1. ISP_STATISTICS_CTRL_U</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36_Statistical_Information.html#isp-ae-statistics-cfg-s">36.3.2. ISP_AE_STATISTICS_CFG_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36_Statistical_Information.html#isp-ae-crop-s">36.3.3. ISP_AE_CROP_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36_Statistical_Information.html#isp-ae-face-crop-s">36.3.4. ISP_AE_FACE_CROP_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36_Statistical_Information.html#isp-wb-statistics-cfg-s">36.3.5. ISP_WB_STATISTICS_CFG_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36_Statistical_Information.html#isp-awb-crop-s">36.3.6. ISP_AWB_CROP_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36_Statistical_Information.html#isp-wb-statistics-s">36.3.7. ISP_WB_STATISTICS_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36_Statistical_Information.html#isp-awb-grid-info-s">36.3.8. ISP_AWB_GRID_INFO_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36_Statistical_Information.html#isp-focus-statistics-cfg-s">36.3.9. ISP_FOCUS_STATISTICS_CFG_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36_Statistical_Information.html#isp-af-cfg-s">36.3.10. ISP_AF_CFG_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36_Statistical_Information.html#isp-af-raw-cfg-s">36.3.11. ISP_AF_RAW_CFG_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36_Statistical_Information.html#isp-af-pre-filter-cfg-s">36.3.12. ISP_AF_PRE_FILTER_CFG_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36_Statistical_Information.html#isp-af-crop-s">36.3.13. ISP_AF_CROP_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36_Statistical_Information.html#isp-af-h-param-s">36.3.14. ISP_AF_H_PARAM_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36_Statistical_Information.html#isp-af-v-param-s">36.3.15. ISP_AF_V_PARAM_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36_Statistical_Information.html#isp-statistics-cfg-s">36.3.16. ISP_STATISTICS_CFG_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36_Statistical_Information.html#isp-focus-zone-s">36.3.17. ISP_FOCUS_ZONE_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36_Statistical_Information.html#isp-fe-focus-statistics-s">36.3.18. ISP_FE_FOCUS_STATISTICS_S</a></li>
+<li class="toctree-l3"><a class="reference internal" href="36_Statistical_Information.html#isp-af-statistics-s">36.3.19. ISP_AF_STATISTICS_S</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="37_Query_Internal_Status_Messages.html">37. Query Internal Status Messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="38_Debug.html">38. Debug</a></li>
+<li class="toctree-l1"><a class="reference internal" href="39_Error_Code.html">39. Error Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="40_3A_Development_User_Guide_Overview.html">40. 3A Development Guide Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="41_3A_Development_User_Guide.html">41. 3A Developer User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="42_Developer_Guide.html">42. Developer Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="43_Appendix.html">43. Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="44_Abbreviations.html">44. Abbreviations</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ISPDevelopmentReference</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">36. </span>Statistical Information</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/36_Statistical_Information.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">36. </span>Statistical Information<a class="headerlink" href="36_Statistical_Information.html#id1" title="Permalink to this heading">¶</a></h1>
+<section id="id2">
+<h2><span class="section-number">36.1. </span>Overview<a class="headerlink" href="36_Statistical_Information.html#id2" title="Permalink to this heading">¶</a></h2>
+<blockquote>
+<div><p>thischaptersectiondescription ISP provide  3A statistical information, andconfigurationmethod. </p>
+</div></blockquote>
+</section>
+<section id="api">
+<h2><span class="section-number">36.2. </span>API Reference<a class="headerlink" href="36_Statistical_Information.html#api" title="Permalink to this heading">¶</a></h2>
+<blockquote>
+<div><p>systemstatisticalsignalmessage interfacemustneedincall <code class="docutils literal notranslate"><span class="pre">CVI_ISP_Init</span></code> interfaceofafteronly thencancall. </p>
+</div></blockquote>
+<ul class="simple">
+<li><p><a class="reference internal" href="36_Statistical_Information.html#cvi-isp-setstatisticsconfig">CVI_ISP_SetStatisticsConfig</a>  : Set ISP statistical information configuration</p></li>
+<li><p><a class="reference internal" href="36_Statistical_Information.html#cvi-isp-getstatisticsconfig">CVI_ISP_GetStatisticsConfig</a>  : Get ISP statistical information configuration</p></li>
+<li><p><a class="reference internal" href="36_Statistical_Information.html#cvi-isp-getaestatistics">CVI_ISP_GetAEStatistics</a>  : Get ISP AEstatistical information</p></li>
+<li><p><a class="reference internal" href="36_Statistical_Information.html#cvi-isp-getwbstatistics">CVI_ISP_GetWBStatistics</a>  : Get ISP AWBstatistical information</p></li>
+<li><p><a class="reference internal" href="36_Statistical_Information.html#cvi-isp-getfocusstatistics">CVI_ISP_GetFocusStatistics</a>  : Get ISP AFstatistical information</p></li>
+</ul>
+<section id="cvi-isp-setstatisticsconfig">
+<h3><span class="section-number">36.2.1. </span>CVI_ISP_SetStatisticsConfig<a class="headerlink" href="36_Statistical_Information.html#cvi-isp-setstatisticsconfig" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>Set ISP statistical information configuration. </p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_SetStatisticsConfig</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ISP_STATISTICS_CFG_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstStatCfg</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>VI_PIPE No.</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstStatCfg</p></td>
+<td><p>ISP statistical information configuration</p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success. </p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure, whose value is <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">Error Code</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header File: cvi_isp.h, cvi_comm_isp.h</p></li>
+<li><p>Library File: libisp.so</p></li>
+</ul>
+<p>[Note]</p>
+<blockquote>
+<div><p>None. </p>
+</div></blockquote>
+<p>[Example]</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>// Set AE / AWB / AF related statistic window setting
+VI_PIPE ViPipe = 0;
+ISP_STATISTICS_CFG_S stsCfg;
+
+// 设定AE0 windows ROI.
+stsCfg.stAECfg.stCrop[0].bEnable = 1;
+stsCfg.stAECfg.stCrop[0].u16X = stsCfg.stAECfg.stCrop[0].u16Y = 0;
+stsCfg.stAECfg.stCrop[0].u16W = 1920;
+stsCfg.stAECfg.stCrop[0].u16H = 1080;
+
+// 设定AWB统计值在x &amp; y方向的window数.
+stsCfg.stWBCfg.u16ZoneRow = AWB_ZONE_ORIG_ROW;
+stsCfg.stWBCfg.u16ZoneCol = AWB_ZONE_ORIG_COLUMN;
+
+// 设定AWB window ROI.
+stsCfg.stWBCfg.stCrop.u16X = stsCfg.stWBCfg.stCrop.u16Y = 0;
+stsCfg.stWBCfg.stCrop.u16W = 1920;
+stsCfg.stWBCfg.stCrop.u16H = 1080;
+
+// 设定AWB统计亮度的阈值.
+stsCfg.stWBCfg.u16BlackLevel = 0;
+stsCfg.stWBCfg.u16WhiteLevel = 4095;
+
+// 设定AF统计值开关.
+stsCfg.stFocusCfg.stConfig.bEnable = 1;
+
+// 设定AF统计的前处理开关
+stsCfg.stFocusCfg.stConfig.stRawCfg.PreGammaEn = 0;
+stsCfg.stFocusCfg.stConfig.stPreFltCfg.PreFltEn = 1;
+
+// 设定AF统计值在 x &amp; y方向的window数
+stsCfg.stFocusCfg.stConfig.u16Hwnd = 17;
+stsCfg.stFocusCfg.stConfig.u16Vwnd = 15;
+
+// 设定AF window ROI.
+stsCfg.stFocusCfg.stConfig.stCrop.bEnable = 1;
+stsCfg.stFocusCfg.stConfig.stCrop.u16X = AF_XOFFSET_MIN;
+stsCfg.stFocusCfg.stConfig.stCrop.u16Y = AF_YOFFSET_MIN;
+stsCfg.stFocusCfg.stConfig.stCrop.u16W = 1920 - AF_XOFFSET_MIN * 2;
+stsCfg.stFocusCfg.stConfig.stCrop.u16H = 1080 - AF_YOFFSET_MIN * 2;
+
+// 设定AF水平方向低通滤波器系数.
+stsCfg.stFocusCfg.stConfig.u8HFltShift = 1;
+stsCfg.stFocusCfg.stConfig.s8HVFltLpCoeff[0] = 1;
+stsCfg.stFocusCfg.stConfig.s8HVFltLpCoeff[1] = 2;
+stsCfg.stFocusCfg.stConfig.s8HVFltLpCoeff[2] = 3;
+stsCfg.stFocusCfg.stConfig.s8HVFltLpCoeff[3] = 5;
+stsCfg.stFocusCfg.stConfig.s8HVFltLpCoeff[4] = 10;
+
+// 设定AF水平方向高通滤波器系数.
+stsCfg.stFocusCfg.stHParam_FIR0.s8HFltHpCoeff[0] = 0;
+stsCfg.stFocusCfg.stHParam_FIR0.s8HFltHpCoeff[1] = 0;
+stsCfg.stFocusCfg.stHParam_FIR0.s8HFltHpCoeff[2] = 13;
+stsCfg.stFocusCfg.stHParam_FIR0.s8HFltHpCoeff[3] = 24;
+stsCfg.stFocusCfg.stHParam_FIR0.s8HFltHpCoeff[4] = 0;
+
+// 设定AF垂直方向高通滤波器系数.
+stsCfg.stFocusCfg.stVParam_FIR.s8VFltHpCoeff[0] = 13;
+stsCfg.stFocusCfg.stVParam_FIR.s8VFltHpCoeff[1] = 24;
+stsCfg.stFocusCfg.stVParam_FIR.s8VFltHpCoeff[2] = 0;
+
+// 设定各统计值取值开关.
+stsCfg.unKey.bit1FEAeGloStat = stsCfg.unKey.bit1FEAeLocStat =
+stsCfg.unKey.bit1AwbStat1 = stsCfg.unKey.bit1AwbStat2 = stsCfg.unKey.bit1FEAfStat = 1;
+
+CVI_ISP_SetStatisticsConfig(ViPipe, &amp;stsCfg);
+
+ // 设定AF低通滤波器系数规则.
+ AF低通滤波器拥有九个参数 {x0, x1, x2, x3, x4, x5, x6, x7, x8} ,
+ 最后四个参数与前四个参数对称(x0 = x8, x1 = x7, x2 = x6, x3 = x5) ,
+ 使用者只须设置前五个参数(x0 ~ x5)即可
+ // 设定AF水平高通滤波器系数规则.
+ AF水平高通滤波器拥有九个参数 {x0, x1, x2, x3, x4, x5, x6, x7, x8} ,
+ 最后四个参数与前四个参数 ,
+ 数字相同但正负符号相反 (x0 = -x8, x1 = -x7, x2 = -x6, x3 = -x5) ,
+ 使用者只须设置前五个参数(x0 ~ x5)即可
+ // 设定AF垂直高通滤波器系数规则.
+ AF水平高通滤波器拥有五个参数 {x0, x1, x2, x3, x4} ,
+ 最后两个参数与前两个参数 ,
+ 数字相同但正负符号相反 (x0 = -x4, x1 = -x3) ,
+ 使用者只须设置前三个参数(x0 ~ x2)即可
+</pre></div>
+</div>
+<p>filterparameternumbersettingsrangeexample</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>filtercanthrough frequencyband</p></th>
+<th class="head"><p>filterparameternumberx0</p></th>
+<th class="head"><p>filterparameternumberx1</p></th>
+<th class="head"><p>filterparameternumberx2</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0.1 ~ 0.2</p></td>
+<td><p>20</p></td>
+<td><p>16</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>0.1 ~ 0.5</p></td>
+<td><p>17</p></td>
+<td><p>20</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>0.1 ~ 0.6</p></td>
+<td><p>13</p></td>
+<td><p>24</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>0.1 ~ 0.7</p></td>
+<td><p>12</p></td>
+<td><p>25</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-even"><td><p>0.1 ~ 0.8</p></td>
+<td><p>-10</p></td>
+<td><p>-27</p></td>
+<td><p>0</p></td>
+</tr>
+<tr class="row-odd"><td><p>0.2 ~ 0.9</p></td>
+<td><p>-10</p></td>
+<td><p>27</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Related Topics]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="36_Statistical_Information.html#cvi-isp-getstatisticsconfig">CVI_ISP_GetStatisticsConfig</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-getstatisticsconfig">
+<h3><span class="section-number">36.2.2. </span>CVI_ISP_GetStatisticsConfig<a class="headerlink" href="36_Statistical_Information.html#cvi-isp-getstatisticsconfig" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<blockquote>
+<div><p>Get ISP statistical information configuration. </p>
+</div></blockquote>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_GetStatisticsConfig</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ISP_STATISTICS_CFG_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstStatCfg</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>VI_PIPE No.</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstStatCfg</p></td>
+<td><p>ISP statistical information configuration</p></td>
+<td><p>output</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success. </p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure, whose value is <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">Error Code</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header File: cvi_isp.h, cvi_comm_isp.h</p></li>
+<li><p>Library File: libisp.so</p></li>
+</ul>
+<p>[Note]</p>
+<blockquote>
+<div><p>None. </p>
+</div></blockquote>
+<p>[Example]</p>
+<blockquote>
+<div><p>None. </p>
+</div></blockquote>
+<p>[Related Topics]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="36_Statistical_Information.html#cvi-isp-setstatisticsconfig">CVI_ISP_SetStatisticsConfig</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-getaestatistics">
+<h3><span class="section-number">36.2.3. </span>CVI_ISP_GetAEStatistics<a class="headerlink" href="36_Statistical_Information.html#cvi-isp-getaestatistics" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<blockquote>
+<div><p>Get ISP AEstatistical information</p>
+</div></blockquote>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_GetAEStatistics</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ISP_AE_STATISTICS_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstAeStat</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>VI_PIPE No.</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstAeStat</p></td>
+<td><p>AEstatistical information output</p></td>
+<td><p>output</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success. </p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure, whose value is <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">Error Code</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header File: cvi_isp.h, cvi_comm_isp.h</p></li>
+<li><p>Library File: libisp.so</p></li>
+</ul>
+<p>[Note]</p>
+<blockquote>
+<div><p>None. </p>
+</div></blockquote>
+<p>[Example]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">//设定 AE window weight</span>
+<span class="cp">#define AE_ZONE_ROW 15</span>
+<span class="cp">#define AE_ZONE_COLUMN 17</span>
+
+<span class="n">ISP_AE_WIN_STATISTICS_CFG_S</span><span class="w">  </span><span class="n">aeWinCfg</span><span class="p">;</span><span class="w"></span>
+<span class="n">CVI_U8</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">;</span><span class="w"></span>
+<span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8Weighttable</span><span class="p">[</span><span class="n">AE_ZONE_ROW</span><span class="p">][</span><span class="w"> </span><span class="n">AE_ZONE_COLUMN</span><span class="p">]</span><span class="o">=</span><span class="p">{</span><span class="w"></span>
+<span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">},</span><span class="w"></span>
+<span class="p">{</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">},};</span><span class="w"></span>
+
+<span class="n">CVI_ISP_GetAEWinStatistics</span><span class="p">(</span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">aeWinCfg</span><span class="p">);</span><span class="w"></span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">AE_ZONE_ROW</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">AE_ZONE_COLUMN</span><span class="p">;</span><span class="w"> </span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">aeWinCfg</span><span class="p">.</span><span class="n">au8Weight</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">u8Weighttable</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">];</span><span class="w"></span>
+<span class="w">   </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+<span class="n">CVI_ISP_SetAEWinStatistics</span><span class="p">(</span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">aeWinCfg</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Related Topics]</p>
+<blockquote>
+<div><p>None. </p>
+</div></blockquote>
+</section>
+<section id="cvi-isp-getwbstatistics">
+<h3><span class="section-number">36.2.4. </span>CVI_ISP_GetWBStatistics<a class="headerlink" href="36_Statistical_Information.html#cvi-isp-getwbstatistics" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<blockquote>
+<div><p>Get ISP AWBstatistical information</p>
+</div></blockquote>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_GetWBStatistics</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ISP_WB_STATISTICS_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstAwbStat</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>VI_PIPE No.</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstAwbStat</p></td>
+<td><p>AWBstatistical information</p></td>
+<td><p>output</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success. </p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure, whose value is <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">Error Code</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header File: cvi_isp.h, cvi_comm_isp.h</p></li>
+<li><p>Library File: libisp.so</p></li>
+</ul>
+<p>[Note]</p>
+<blockquote>
+<div><p>None. </p>
+</div></blockquote>
+<p>[Example]</p>
+<blockquote>
+<div><p>None. </p>
+</div></blockquote>
+<p>[Related Topics]</p>
+<blockquote>
+<div><p>None. </p>
+</div></blockquote>
+</section>
+<section id="cvi-isp-getfocusstatistics">
+<h3><span class="section-number">36.2.5. </span>CVI_ISP_GetFocusStatistics<a class="headerlink" href="36_Statistical_Information.html#cvi-isp-getfocusstatistics" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<blockquote>
+<div><p>GetISP AFstatistical information</p>
+</div></blockquote>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_GetFocusStatistics</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ISP_AF_STATISTICS_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstAfStat</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>VI_PIPE No.</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstAfStat</p></td>
+<td><p>AFstatistical information</p></td>
+<td><p>output</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success. </p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure, whose value is <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">Error Code</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header File: cvi_isp.h, cvi_comm_isp.h</p></li>
+<li><p>Library File: libisp.so</p></li>
+</ul>
+<p>[Note]</p>
+<blockquote>
+<div><p>None. </p>
+</div></blockquote>
+<p>[Example]</p>
+<blockquote>
+<div><p>None. </p>
+</div></blockquote>
+<p>[Related Topics]</p>
+<blockquote>
+<div><p>None. </p>
+</div></blockquote>
+</section>
+</section>
+<section id="id3">
+<h2><span class="section-number">36.3. </span>Data Types<a class="headerlink" href="36_Statistical_Information.html#id3" title="Permalink to this heading">¶</a></h2>
+<section id="isp-statistics-ctrl-u">
+<h3><span class="section-number">36.3.1. </span>ISP_STATISTICS_CTRL_U<a class="headerlink" href="36_Statistical_Information.html#isp-statistics-ctrl-u" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<blockquote>
+<div><p>Define  ISP systemstatisticalvalueinformationEnable</p>
+</div></blockquote>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">union</span> <span class="nc">_ISP_STATISTICS_CTRL_U</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U64</span><span class="w"> </span><span class="n">u64Key</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="k">struct</span> <span class="p">{</span><span class="w"></span>
+<span class="w">       </span><span class="n">CVI_U64</span><span class="w"> </span><span class="nl">bit1FEAeGloStat</span> <span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="cm">/* [0] */</span><span class="w"></span>
+<span class="w">       </span><span class="n">CVI_U64</span><span class="w"> </span><span class="nl">bit1FEAeLocStat</span> <span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="cm">/* [1] */</span><span class="w"></span>
+<span class="w">       </span><span class="n">CVI_U64</span><span class="w"> </span><span class="nl">bit1AwbStat1</span> <span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="cm">/* [2] */</span><span class="w"></span>
+<span class="w">       </span><span class="n">CVI_U64</span><span class="w"> </span><span class="nl">bit1AwbStat2</span> <span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="cm">/* [3] */</span><span class="w"></span>
+<span class="w">       </span><span class="n">CVI_U64</span><span class="w"> </span><span class="nl">bit1FEAfStat</span> <span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"> </span><span class="cm">/* [4] */</span><span class="w"></span>
+<span class="w">       </span><span class="n">CVI_U64</span><span class="w"> </span><span class="nl">bit14Rsv</span> <span class="p">:</span><span class="w"> </span><span class="mi">59</span><span class="p">;</span><span class="w"> </span><span class="cm">/* [5:63] */</span><span class="w"></span>
+<span class="w">   </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_STATISTICS_CTRL_U</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>bit1FEAeGloStat</p></td>
+<td><p>AEglobalsystemstatisticalvalueEnable</p></td>
+</tr>
+<tr class="row-odd"><td><p>bit1FEAeLocStat</p></td>
+<td><p>AEblocksystemstatisticalvalueEnable</p></td>
+</tr>
+<tr class="row-even"><td><p>bit1AwbStat1</p></td>
+<td><p>AWBglobalsystemstatisticalvalueEnable</p></td>
+</tr>
+<tr class="row-odd"><td><p>bit1AwbStat2</p></td>
+<td><p>AWBblocksystemstatisticalvalueEnable</p></td>
+</tr>
+<tr class="row-even"><td><p>bit1FEAfStat</p></td>
+<td><p>AFblocksystemstatisticalvalueEnable</p></td>
+</tr>
+<tr class="row-odd"><td><p>bit14Rsv</p></td>
+<td><p>reservedposition</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<blockquote>
+<div><p>None. </p>
+</div></blockquote>
+<p>[Related Data Types and Interfaces]</p>
+<blockquote>
+<div><p>None. </p>
+</div></blockquote>
+</section>
+<section id="isp-ae-statistics-cfg-s">
+<h3><span class="section-number">36.3.2. </span>ISP_AE_STATISTICS_CFG_S<a class="headerlink" href="36_Statistical_Information.html#isp-ae-statistics-cfg-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>AE statistical information configuration</p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_AE_STATISTICS_CFG_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bHisStatisticsEnable</span><span class="p">;</span><span class="w"> </span><span class="cm">/*RW; Range:[0x0,0x1]*/</span><span class="w"></span>
+<span class="w">   </span><span class="n">ISP_AE_CROP_S</span><span class="w"> </span><span class="n">stCrop</span><span class="p">[</span><span class="n">AE_MAX_NUM</span><span class="p">];</span><span class="w"></span>
+<span class="w">   </span><span class="n">ISP_AE_FACE_CROP_S</span><span class="w"> </span><span class="n">stFaceCrop</span><span class="p">[</span><span class="n">FACE_WIN_NUM</span><span class="p">];</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">fast2A_ena</span><span class="p">;</span><span class="w"> </span><span class="cm">/*RW; Range:[0x0,0x1]*/</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">fast2A_ae_low</span><span class="p">;</span><span class="w"> </span><span class="cm">/*RW; Range:[0x0,0xFF]*/</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">fast2A_ae_high</span><span class="p">;</span><span class="w"> </span><span class="cm">/*RW; Range:[0x0,0xFF]*/</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">fast2A_awb_top</span><span class="p">;</span><span class="w"> </span><span class="cm">/*RW; Range:[0x0,0xFFF]*/</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">fast2A_awb_bot</span><span class="p">;</span><span class="w"> </span><span class="cm">/*RW; Range:[0x0,0xFFF]*/</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">over_exp_thr</span><span class="p">;</span><span class="w"> </span><span class="cm">/*RW; Range:[0x0,0x3FF]*/</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">au8Weight</span><span class="p">[</span><span class="n">AE_WEIGHT_ZONE_ROW</span><span class="p">][</span><span class="n">AE_WEIGHT_ZONE_COLUMN</span><span class="p">];</span><span class="w"> </span><span class="cm">/*RW; Range:[0x0, 0xF]*/</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_AE_STATISTICS_CFG_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>enAESwitch</p></td>
+<td><p>HiSilicon-compatibleparameternumber, Currently unused</p></td>
+</tr>
+<tr class="row-odd"><td><p>stHistConfig</p></td>
+<td><p>HiSilicon-compatibleparameternumber, Currently unused</p></td>
+</tr>
+<tr class="row-even"><td><p>enFourPlaneMode</p></td>
+<td><p>HiSilicon-compatibleparameternumber, Currently unused</p></td>
+</tr>
+<tr class="row-odd"><td><p>enHistMode</p></td>
+<td><p>HiSilicon-compatibleparameternumber, Currently unused</p></td>
+</tr>
+<tr class="row-even"><td><p>enAverMode</p></td>
+<td><p>HiSilicon-compatibleparameternumber, Currently unused</p></td>
+</tr>
+<tr class="row-odd"><td><p>enMaxGainMode</p></td>
+<td><p>HiSilicon-compatibleparameternumber, Currently unused</p></td>
+</tr>
+<tr class="row-even"><td><p>stCrop[AE_MAX_NUM];</p></td>
+<td><p>AEsystemstatisticalvalueInputimagecropsettings</p></td>
+</tr>
+<tr class="row-odd"><td><p>au8Weight[AE_ZONE_ROW][AE_ZONE_COLUMN]</p></td>
+<td><p>AE window 17 x 15  weightsettings</p></td>
+</tr>
+<tr class="row-even"><td><p>bHisStatisticsEnable</p></td>
+<td><p>AE/Hist sts Enable</p></td>
+</tr>
+<tr class="row-odd"><td><p>u8StatisticsShiftBits</p></td>
+<td><p>AE systemstatisticalvalueneedreducesmallseveral bit</p></td>
+</tr>
+<tr class="row-even"><td><p>u16RGain</p></td>
+<td><p>R channelwhetherthroughthrough RGain</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16GGain</p></td>
+<td><p>G channelwhetherthroughthrough GGain</p></td>
+</tr>
+<tr class="row-even"><td><p>u16BGain</p></td>
+<td><p>B channelwhetherthroughthrough BGain</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Related Data Types and Interfaces]</p>
+<ul class="simple">
+<li><p>CVI_ISP_SetAEWinStatistics</p></li>
+</ul>
+</section>
+<section id="isp-ae-crop-s">
+<h3><span class="section-number">36.3.3. </span>ISP_AE_CROP_S<a class="headerlink" href="36_Statistical_Information.html#isp-ae-crop-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<blockquote>
+<div><p>AEsystemstatisticalvalueInputimagecropsettings</p>
+</div></blockquote>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_</span><span class="w"> </span><span class="n">ISP_AE_CROP_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bEnable</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16X</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16Y</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16W</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16H</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_AE_CROP_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>bEnable</p></td>
+<td><p>CropEnable, 0isnotEnable, willset  setwhole imageimageoperationiscropsettings, 1isEnable</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16X</p></td>
+<td><p>CropXstart position, valueneedlargein0</p></td>
+</tr>
+<tr class="row-even"><td><p>u16Y</p></td>
+<td><p>CropYstart position, valueneedlargein0</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16W</p></td>
+<td><p>Cropwidth</p></td>
+</tr>
+<tr class="row-even"><td><p>u16H</p></td>
+<td><p>Cropheight</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Related Data Types and Interfaces]</p>
+<blockquote>
+<div><p>None. </p>
+</div></blockquote>
+</section>
+<section id="isp-ae-face-crop-s">
+<h3><span class="section-number">36.3.4. </span>ISP_AE_FACE_CROP_S<a class="headerlink" href="36_Statistical_Information.html#isp-ae-face-crop-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<blockquote>
+<div><p>AE facesystemstatisticalvalueInputimagecropsettings</p>
+</div></blockquote>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_AE_FACE_CROP_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bEnable</span><span class="p">;</span><span class="w"> </span><span class="cm">/*RW; Range:[0x0,0x1]*/</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16X</span><span class="p">;</span><span class="w"> </span><span class="cm">/*RW; Range:[0x00,0x1FFF]*/</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16Y</span><span class="p">;</span><span class="w"> </span><span class="cm">/*RW; Range:[0x00,0x1FFF]*/</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u16W</span><span class="p">;</span><span class="w"> </span><span class="cm">/*RW; Range:[0x00,0xFF]*/</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u16H</span><span class="p">;</span><span class="w"> </span><span class="cm">/*RW; Range:[0x00,0xFF]*/</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_AE_FACE_CROP_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>bEnable</p></td>
+<td><p>CropEnable, 0isnotEnable, willset  setwhole imageimageoperationiscropsettings, 1isEnable</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16X</p></td>
+<td><p>CropXstart position, valueneedlargein0</p></td>
+</tr>
+<tr class="row-even"><td><p>u16Y</p></td>
+<td><p>CropYstart position, valueneedlargein0</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16W</p></td>
+<td><p>Cropwidth</p></td>
+</tr>
+<tr class="row-even"><td><p>u16H</p></td>
+<td><p>Cropheight</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Related Data Types and Interfaces]</p>
+<blockquote>
+<div><p>None. </p>
+</div></blockquote>
+</section>
+<section id="isp-wb-statistics-cfg-s">
+<h3><span class="section-number">36.3.5. </span>ISP_WB_STATISTICS_CFG_S<a class="headerlink" href="36_Statistical_Information.html#isp-wb-statistics-cfg-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<blockquote>
+<div><p>WB statistical information configuration</p>
+</div></blockquote>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_WB_STATISTICS_CFG_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">ISP_AWB_SWITCH_E</span><span class="w"> </span><span class="n">enAWBSwitch</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16ZoneRow</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16ZoneCol</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16ZoneBin</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">au16HistBinThresh</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16WhiteLevel</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16BlackLevel</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16CbMax</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16CbMin</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16CrMax</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16CrMin</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">ISP_AWB_CROP_S</span><span class="w"> </span><span class="n">stCrop</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_WB_STATISTICS_CFG_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>enAWBSwitch</p></td>
+<td><div class="line-block">
+<div class="line">ISP_AWB_AFTER_DG = 0</div>
+<div class="line">ISP_AWB_AFTER_Expander,</div>
+<div class="line">ISP_AWB_AFTER_DRC,</div>
+<div class="line">ISP_AWB_SWITCH_BUTT</div>
+<div class="line">settingsAWB block location</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>u16ZoneRow</p></td>
+<td><p>AWBsystemstatisticalwindowlinenumber</p></td>
+</tr>
+<tr class="row-even"><td><p>u16ZoneCol</p></td>
+<td><p>AWBsystemstatisticalwindowcolumnnumber</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16ZoneBin</p></td>
+<td><p>HiSilicon-compatibleparameternumber , Currently unused</p></td>
+</tr>
+<tr class="row-even"><td><p>au16HistBinThresh</p></td>
+<td><p>HiSilicon-compatibleparameternumber , Currently unused</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16WhiteLevel</p></td>
+<td><p>AWBbrightpointexclude ThresholdSet</p></td>
+</tr>
+<tr class="row-even"><td><p>u16BlackLevel</p></td>
+<td><p>AWBdarkpointexclude ThresholdSet</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16CbMax</p></td>
+<td><p>differentISOunderR/Gmaximum value</p></td>
+</tr>
+<tr class="row-even"><td><p>u16CbMin</p></td>
+<td><p>differentISOunderR/Gminimum value</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16CrMax</p></td>
+<td><p>differentISOunderB/Gmaximum value</p></td>
+</tr>
+<tr class="row-even"><td><p>u16CrMin</p></td>
+<td><p>differentISOunderB/Gminimum value</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<blockquote>
+<div><p>None. </p>
+</div></blockquote>
+<p>[Related Data Types and Interfaces]</p>
+<blockquote>
+<div><p>None. </p>
+</div></blockquote>
+</section>
+<section id="isp-awb-crop-s">
+<h3><span class="section-number">36.3.6. </span>ISP_AWB_CROP_S<a class="headerlink" href="36_Statistical_Information.html#isp-awb-crop-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<blockquote>
+<div><p>AWBsystemstatisticalvalueInputimagecropsettings</p>
+</div></blockquote>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_</span><span class="w"> </span><span class="n">AWB_CROP_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bEnable</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16X</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16Y</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16W</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16H</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_AWB_CROP_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>bEnable</p></td>
+<td><p>C ropEnable, falsesuch as0isnotEnable, willSetwhole imageimageoperationiscropsettings, falsesuch as1isEnable</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16X</p></td>
+<td><p>CropXstart position, valueneedlargein0</p>
+<p>Value Range: [0, imagewidth - 16 *  u16ZoneCol]</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>u16Y</p></td>
+<td><p>CropYstart position, valueneedlargein0</p>
+<p>Value Range: [0, imageheight - 16 *  u16ZoneRow]</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>u16W</p></td>
+<td><p>Cropwidth</p>
+<p>Value Range: [16 * u16ZoneCol,    imagewidth]</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>u16H</p></td>
+<td><p>Cropheight</p>
+<p>Value Range: [0, imagewidth - 16 *  u16ZoneCol]</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<blockquote>
+<div><p>None. </p>
+</div></blockquote>
+<p>[Related Data Types and Interfaces]</p>
+<blockquote>
+<div><p>None. </p>
+</div></blockquote>
+</section>
+<section id="isp-wb-statistics-s">
+<h3><span class="section-number">36.3.7. </span>ISP_WB_STATISTICS_S<a class="headerlink" href="36_Statistical_Information.html#isp-wb-statistics-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<blockquote>
+<div><p>Define AWBstatistical information</p>
+</div></blockquote>
+<p>[Definition]</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>typedef struct _ISP_WB_STATISTICS_S {
+   CVI_U16 u16GlobalR;
+   CVI_U16 u16GlobalG;
+   CVI_U16 u16GlobalB;
+   CVI_U16 u16CountAll;
+   CVI_U16 au16ZoneAvgR[AWB_ZONE_NUM];
+   CVI_U16 au16ZoneAvgG[AWB_ZONE_NUM];
+   CVI_U16 au16ZoneAvgB[AWB_ZONE_NUM];
+   CVI_U16 au16ZoneCountAll[AWB_ZONE_NUM];
+   ISP_AWB_GRID_INFO_S stGridInfo;
+} ISP_WB_STATISTICS_S;
+
+宏定义
+#define AWB_ZONE_ORIG_ROW (32)
+#define AWB_ZONE_ORIG_COLUMN (64)
+#define AWB_ZONE_NUM (AWB_ZONE_ORIG_ROW * AWB_ZONE_ORIG_COLUMN)
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>u16GlobalR</p></td>
+<td><p>BayerdomainglobalRcomponent averagevalue</p>
+<p>Value Range:  [0, 0x3ff]</p>
+<p>Data Types:  CVI_BOOL</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>u16GlobalG</p></td>
+<td><p>BayerdomainglobalGcomponent averagevalue</p>
+<p>Value Range:  [0, 0x3ff]</p>
+<p>Data Types:  CVI_BOOL</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>u16GlobalB</p></td>
+<td><p>BayerdomainglobalBcomponent averagevalue</p>
+<p>Value Range:  [0, 0x3ff]</p>
+<p>Data Types:  CVI_BOOL</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>u16CountAll</p></td>
+<td><p>globalsystemstatisticalregion pixelnumber</p>
+<p>Value Range:  [0, 0xffff]</p>
+<p>Data Types:  CVI_BOOL</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>au16ZoneAvgR</p></td>
+<td><p>BayerdomainpartregionintervalRcomponent averagevalue</p>
+<p>Value Range:  [0, 0x3ff]</p>
+<p>Data Types:  CVI_BOOL</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>au16ZoneAvgG</p></td>
+<td><p>BayerdomainpartregionintervalGcomponent averagevalue</p>
+<p>Value Range:  [0, 0x3ff]</p>
+<p>Data Types:  CVI_BOOL</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>au16ZoneAvgB</p></td>
+<td><p>BayerdomainpartregionintervalBcomponent averagevalue</p>
+<p>Value Range:  [0, 0x3ff]</p>
+<p>Data Types:  CVI_BOOL</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>au16ZoneCountAll</p></td>
+<td><p>Bayerdomainpartregioninterval pixelnumber</p>
+<p>Value Range:  [0, 0xfff]</p>
+<p>Data Types:  CVI_BOOL</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>ISP_AWB_GRID_INFO_S</p></td>
+<td><p>AWBstatistical informationcoordinatesinformation</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<blockquote>
+<div><p>None. </p>
+</div></blockquote>
+<p>[Related Data Types and Interfaces]</p>
+<blockquote>
+<div><p>None. </p>
+</div></blockquote>
+</section>
+<section id="isp-awb-grid-info-s">
+<h3><span class="section-number">36.3.8. </span>ISP_AWB_GRID_INFO_S<a class="headerlink" href="36_Statistical_Information.html#isp-awb-grid-info-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>AWBstatistical informationcoordinatesinformation</p>
+<p>[Definition]</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>typedef struct _ISP_AWB_GRID_INFO_S {
+   CVI_U16 au16GridYPos[AWB_ZONE_ORIG_ROW + 1];
+   CVI_U16 au16GridXPos[AWB_ZONE_ORIG_COLUMN + 1];
+   CVI_U8 u8Status;
+} ISP_AWB_GRID_INFO_S;
+
+宏定义
+#define AWB_ZONE_ORIG_ROW (32)
+#define AWB_ZONE_ORIG_COLUMN (32)
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>au16GridYPos</p></td>
+<td><p>not yetuse</p></td>
+</tr>
+<tr class="row-odd"><td><p>au16GridXPos</p></td>
+<td><p>not yetuse</p></td>
+</tr>
+<tr class="row-even"><td><p>u8Status</p></td>
+<td><p>not yetuse</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<blockquote>
+<div><p>None. </p>
+</div></blockquote>
+<p>[Related Data Types and Interfaces]</p>
+<blockquote>
+<div><p>None. </p>
+</div></blockquote>
+</section>
+<section id="isp-focus-statistics-cfg-s">
+<h3><span class="section-number">36.3.9. </span>ISP_FOCUS_STATISTICS_CFG_S<a class="headerlink" href="36_Statistical_Information.html#isp-focus-statistics-cfg-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<blockquote>
+<div><p>AFstatistical information configuration</p>
+</div></blockquote>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_FOCUS_STATISTICS_CFG_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">ISP_AF_CFG_S</span><span class="w"> </span><span class="n">stConfig</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">ISP_AF_H_PARAM_S</span><span class="w"> </span><span class="n">stHParam_FIR0</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">ISP_AF_H_PARAM_S</span><span class="w"> </span><span class="n">stHParam_FIR1</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">ISP_AF_V_PARAM_S</span><span class="w"> </span><span class="n">stVParam_FIR</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_FOCUS_STATISTICS_CFG_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>stConfig</p></td>
+<td><p>AFglobalconfigurationparameternumber</p></td>
+</tr>
+<tr class="row-odd"><td><p>stHParam_FIR0</p></td>
+<td><p>horizontalfilterfirstgroupFIRparameternumberSet</p></td>
+</tr>
+<tr class="row-even"><td><p>stHParam_FIR1</p></td>
+<td><p>horizontalfiltersecondgroupFIRparameternumberSet</p></td>
+</tr>
+<tr class="row-odd"><td><p>stVParam_FIR</p></td>
+<td><p>verticalfilterFIRparameternumberSet</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<blockquote>
+<div><p>None. </p>
+</div></blockquote>
+<p>[Related Data Types and Interfaces]</p>
+<blockquote>
+<div><p>None. </p>
+</div></blockquote>
+</section>
+<section id="isp-af-cfg-s">
+<h3><span class="section-number">36.3.10. </span>ISP_AF_CFG_S<a class="headerlink" href="36_Statistical_Information.html#isp-af-cfg-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<blockquote>
+<div><p>Define AFsystemstatisticalvalueparameternumberconfiguration</p>
+</div></blockquote>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_AF_CFG_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bEnable</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16Hwnd</span><span class="p">;</span><span class="w"> </span><span class="cm">/*RW; Range:[0x2, 0x11]*/</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16Vwnd</span><span class="p">;</span><span class="w"> </span><span class="cm">/*RW; Range:[0x2, 0xF]*/</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8HFltShift</span><span class="p">;</span><span class="w"> </span><span class="cm">/*RW; Range:[0x0, 0xF]*/</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_S8</span><span class="w"> </span><span class="n">s8HVFltLpCoeff</span><span class="p">[</span><span class="n">FIR_H_GAIN_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/*RW; Range:[0x0, 0x1F]*/</span><span class="w"></span>
+<span class="w">   </span><span class="n">ISP_AF_RAW_CFG_S</span><span class="w"> </span><span class="n">stRawCfg</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">ISP_AF_PRE_FILTER_CFG_S</span><span class="w"> </span><span class="n">stPreFltCfg</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">ISP_AF_CROP_S</span><span class="w"> </span><span class="n">stCrop</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">H0FltCoring</span><span class="p">;</span><span class="w"> </span><span class="cm">/*RW; Range:[0x0, 0xFF]*/</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">H1FltCoring</span><span class="p">;</span><span class="w"> </span><span class="cm">/*RW; Range:[0x0, 0xFF]*/</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">V0FltCoring</span><span class="p">;</span><span class="w"> </span><span class="cm">/*RW; Range:[0x0, 0xFF]*/</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16HighLumaTh</span><span class="p">;</span><span class="w"> </span><span class="cm">/*RW; Range:[0x0, 0xFF]*/</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8ThLow</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8ThHigh</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8GainLow</span><span class="p">;</span><span class="w"> </span><span class="cm">/*RW; Range:[0x0, 0xFE]*/</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8GainHigh</span><span class="p">;</span><span class="w"> </span><span class="cm">/*RW; Range:[0x0, 0xFE]*/</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8SlopLow</span><span class="p">;</span><span class="w"> </span><span class="cm">/*RW; Range:[0x0, 0xF]*/</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8SlopHigh</span><span class="p">;</span><span class="w"> </span><span class="cm">/*RW; Range:[0x0, 0xF]*/</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_AF_CFG_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>bEnable</p></td>
+<td><p>AFEnable, 0isnotEnable, 1isEnable</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16Hwnd</p></td>
+<td><p>AFhorizontaldirectionwindownumber, maximumcanSetis17</p>
+<p>Value Range:  [0x2, 0x11]</p>
+<p>Data Types: CVI_U16</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>u16Vwnd</p></td>
+<td><p>AFverticalhistogramtowindownumber, maximumcanSetis15</p>
+<p>Value Range:  [0x2, 0xf]</p>
+<p>Data Types: CVI_U16</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>u8HFltShift</p></td>
+<td><p>AFlowpassfiltersystemstatisticalvaluemovepositionregistervalue</p>
+<p>Value Range : [0, 16]</p>
+<p>Data Types: CVI_U8</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>s8HVFltLpCoeff[FIR_H_GAIN_NUM]</p></td>
+<td><p>AF lowpassfiltersystemnumber, useinControlFIRfilter frequencyresponse</p>
+<p>Value Range : [-32, 31]</p>
+<p>Data Types: CVI_S8</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>stRawCfg</p></td>
+<td><p>AF Bayerdomainrelatedconfiguration</p></td>
+</tr>
+<tr class="row-even"><td><p>stPreFltCfg</p></td>
+<td><p>AFprefilteringprocessingEnablesettings</p></td>
+</tr>
+<tr class="row-odd"><td><p>stCrop</p></td>
+<td><p>AFInput Image Croppingconfiguration</p></td>
+</tr>
+<tr class="row-even"><td><p>u16HighLumaTh</p></td>
+<td><p>AFheightbrightpointsystemstatisticalvalueThresholdSet</p>
+<p>Value Range : [0, 4095]</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<blockquote>
+<div><p>None. </p>
+</div></blockquote>
+<p>[Related Data Types and Interfaces]</p>
+<blockquote>
+<div><p>None. </p>
+</div></blockquote>
+</section>
+<section id="isp-af-raw-cfg-s">
+<h3><span class="section-number">36.3.11. </span>ISP_AF_RAW_CFG_S<a class="headerlink" href="36_Statistical_Information.html#isp-af-raw-cfg-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<blockquote>
+<div><p>AF Bayerdomainimagepreprocessingconfiguration</p>
+</div></blockquote>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_AF_RAW_CFG_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">PreGammaEn</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">PreGammaTable</span><span class="p">[</span><span class="n">AF_GAMMA_NUM</span><span class="p">];</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_AF_RAW_CFG_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>PreGammaEn</p></td>
+<td><p>AFmode  blockGammaEnable, 0isnotEnable, 1isEnable</p></td>
+</tr>
+<tr class="row-odd"><td><p>PreGammaTable[AF_GAMMA_NUM]</p></td>
+<td><p>AFmoduleGamma tableSet</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<blockquote>
+<div><p>None. </p>
+</div></blockquote>
+<p>[Related Data Types and Interfaces]</p>
+<blockquote>
+<div><p>None. </p>
+</div></blockquote>
+</section>
+<section id="isp-af-pre-filter-cfg-s">
+<h3><span class="section-number">36.3.12. </span>ISP_AF_PRE_FILTER_CFG_S<a class="headerlink" href="36_Statistical_Information.html#isp-af-pre-filter-cfg-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>AF Bayerdomainimagefilteringpreprocessingconfiguration</p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_AF_PRE_FILTER_CFG_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">PreFltEn</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_AF_PRE_FILTER_CFG_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>PreFltEn</p></td>
+<td><p>AFmodulefilteringpreprocessingEnable, 0isnotEnable, 1isEnable</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<blockquote>
+<div><p>None. </p>
+</div></blockquote>
+<p>[Related Data Types and Interfaces]</p>
+<blockquote>
+<div><p>None. </p>
+</div></blockquote>
+</section>
+<section id="isp-af-crop-s">
+<h3><span class="section-number">36.3.13. </span>ISP_AF_CROP_S<a class="headerlink" href="36_Statistical_Information.html#isp-af-crop-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<blockquote>
+<div><p>AFsystemstatisticalvalueInputimagecropsettings</p>
+</div></blockquote>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_</span><span class="w"> </span><span class="n">AF</span><span class="w"> </span><span class="n">_CROP_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bEnable</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16X</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16Y</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16W</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16H</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_AF_CROP_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>bEnable</p></td>
+<td><p>CropEnable, 0isnotEnable, willSetwhole imageimageoperationiscropsettings, 1isEnable</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16X</p></td>
+<td><p>CropXstart position</p>
+<p>Value Range: [8, imagewidth - 8]</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>u16Y</p></td>
+<td><p>CropYstart position</p>
+<p>Value Range: [2, imageheight - 2]</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>u16W</p></td>
+<td><p>Cropwidth</p>
+<p>Value Range: [16 * u16ZoneCol, imagewidth - 16]</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>u16H</p></td>
+<td><p>Cropheight</p>
+<p>Value Range: [16 * u16ZoneRow, imageheight - 4]</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<blockquote>
+<div><p>None. </p>
+</div></blockquote>
+<p>[Related Data Types and Interfaces]</p>
+<blockquote>
+<div><p>None. </p>
+</div></blockquote>
+</section>
+<section id="isp-af-h-param-s">
+<h3><span class="section-number">36.3.14. </span>ISP_AF_H_PARAM_S<a class="headerlink" href="36_Statistical_Information.html#isp-af-h-param-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<blockquote>
+<div><p>Define AFhorizontalfilterparameternumberSet</p>
+</div></blockquote>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_AF_H_PARAM_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_S8</span><span class="w"> </span><span class="n">s8HFltHpCoeff</span><span class="p">[</span><span class="n">FIR_H_GAIN_NUM</span><span class="p">];</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_AF_H_PARAM_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>s8HFltHpCoeff[FIR_H_GAIN_NUM]</p></td>
+<td><p>AF horizontalfiltersystemnumber, useinControlFIRfilter frequencyresponse</p>
+<p>Value Range : [-32, 31]</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<blockquote>
+<div><p>None. </p>
+</div></blockquote>
+<p>[Related Data Types and Interfaces]</p>
+<blockquote>
+<div><p>None. </p>
+</div></blockquote>
+</section>
+<section id="isp-af-v-param-s">
+<h3><span class="section-number">36.3.15. </span>ISP_AF_V_PARAM_S<a class="headerlink" href="36_Statistical_Information.html#isp-af-v-param-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<blockquote>
+<div><p>Define AFverticalfilterparameternumberSet</p>
+</div></blockquote>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_AF_V_PARAM_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_S8</span><span class="w"> </span><span class="n">s8VFltHpCoeff</span><span class="p">[</span><span class="n">FIR_V_GAIN_NUM</span><span class="p">];</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_AF_V_PARAM_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>s8VFltHpCoeff[FIR_V_GAIN_NUM]</p></td>
+<td><p>AF verticalfiltersystemnumber, useinControlFIRfilter frequencyresponse</p>
+<p>Value Range : [-32, 31]</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<blockquote>
+<div><p>None. </p>
+</div></blockquote>
+<p>[Related Data Types and Interfaces]</p>
+<blockquote>
+<div><p>None. </p>
+</div></blockquote>
+</section>
+<section id="isp-statistics-cfg-s">
+<h3><span class="section-number">36.3.16. </span>ISP_STATISTICS_CFG_S<a class="headerlink" href="36_Statistical_Information.html#isp-statistics-cfg-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<blockquote>
+<div><p>ISP statistical information configuration</p>
+</div></blockquote>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_STATISTICS_CFG_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">ISP_STATISTICS_CTRL_U</span><span class="w"> </span><span class="n">unKey</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">ISP_AE_STATISTICS_CFG_S</span><span class="w"> </span><span class="n">stAECfg</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">ISP_WB_STATISTICS_CFG_S</span><span class="w"> </span><span class="n">stWBCfg</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">ISP_FOCUS_STATISTICS_CFG_S</span><span class="w"> </span><span class="n">stFocusCfg</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_STATISTICS_CFG_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>unKey</p></td>
+<td><p>statistical informationEnable</p></td>
+</tr>
+<tr class="row-odd"><td><p>stAECfg</p></td>
+<td><p>AEstatistical information configuration</p></td>
+</tr>
+<tr class="row-even"><td><p>stWBCfg</p></td>
+<td><p>WBstatistical information configuration</p></td>
+</tr>
+<tr class="row-odd"><td><p>stFocusCfg</p></td>
+<td><p>AFstatistical information configuration</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<blockquote>
+<div><p>None. </p>
+</div></blockquote>
+<p>[Related Data Types and Interfaces]</p>
+<blockquote>
+<div><p>None. </p>
+</div></blockquote>
+</section>
+<section id="isp-focus-zone-s">
+<h3><span class="section-number">36.3.17. </span>ISP_FOCUS_ZONE_S<a class="headerlink" href="36_Statistical_Information.html#isp-focus-zone-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<blockquote>
+<div><p>Define AFstatisticalcalculate systemstatisticalresult</p>
+</div></blockquote>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_FOCUS_ZONE_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16HlCnt</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U64</span><span class="w"> </span><span class="n">u64h0</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U64</span><span class="w"> </span><span class="n">u64h1</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32v0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_FOCUS_ZONE_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>u16HlCnt</p></td>
+<td><p>AFpartregionintervalinsidesystemstatisticalexceedthroughheightbrightpointthreshold pointvalues, willSetwhole imageimageoperationiscropsettings, 1isEnable</p></td>
+</tr>
+<tr class="row-odd"><td><p>u64h0</p></td>
+<td><p>AFpartregionintervalinsidesystemstatisticalhorizontaldirectionfirstgroupFIRfilterresult</p></td>
+</tr>
+<tr class="row-even"><td><p>u64h1</p></td>
+<td><p>AFpartregionintervalinsidesystemstatisticalhorizontaldirectionsecondgroupFIRfilterresult</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32v0</p></td>
+<td><p>AFpartregionintervalinsidesystemstatisticalverticalhistogramtoFIRfilterresult</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<blockquote>
+<div><p>None. </p>
+</div></blockquote>
+<p>[Related Data Types and Interfaces]</p>
+<blockquote>
+<div><p>None. </p>
+</div></blockquote>
+</section>
+<section id="isp-fe-focus-statistics-s">
+<h3><span class="section-number">36.3.18. </span>ISP_FE_FOCUS_STATISTICS_S<a class="headerlink" href="36_Statistical_Information.html#isp-fe-focus-statistics-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<blockquote>
+<div><p>Define AF FEprovide Statistical Information</p>
+</div></blockquote>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_FE_FOCUS_STATISTICS_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">ISP_FOCUS_ZONE_S</span><span class="w">  </span><span class="n">stZoneMetrics</span><span class="p">[</span><span class="n">AF_ZONE_ROW</span><span class="p">][</span><span class="n">AF_ZONE_COLUMN</span><span class="p">];</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_FE_FOCUS_STATISTICS_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>stZoneMetrics</p></td>
+<td><p>ISP AF blockstatistical information</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<blockquote>
+<div><p>None. </p>
+</div></blockquote>
+<p>[Related Data Types and Interfaces]</p>
+<blockquote>
+<div><p>None. </p>
+</div></blockquote>
+</section>
+<section id="isp-af-statistics-s">
+<h3><span class="section-number">36.3.19. </span>ISP_AF_STATISTICS_S<a class="headerlink" href="36_Statistical_Information.html#isp-af-statistics-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<blockquote>
+<div><p>Define AFprovide allstatistical information</p>
+</div></blockquote>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_AF_STATISTICS_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">ISP_FE_FOCUS_STATISTICS_S</span><span class="w"> </span><span class="n">stFEAFStat</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_AF_STATISTICS_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>stFEAFStat</p></td>
+<td><p>AFinBayerdomain statistical information</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<blockquote>
+<div><p>None. </p>
+</div></blockquote>
+<p>[Related Data Types and Interfaces]</p>
+<blockquote>
+<div><p>None. </p>
+</div></blockquote>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="35_VC.html" class="btn btn-neutral float-left" title="35. VC" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="37_Query_Internal_Status_Messages.html" class="btn btn-neutral float-right" title="37. Query Internal Status Messages" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Go to official website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="Go to Documentation Center"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Top of page"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Bottom of page"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR code for this page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3. LVDS &mdash; ScreenDockingGuide master Documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="4. MIPI DSI (starting with SDK V6.3.4)" href="4_MIPI_DSI.html" />
+    <link rel="prev" title="2. MIPI DSI" href="2_MIPI_DSI.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> ScreenDockingGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_MIPI_DSI.html">2. MIPI DSI</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="3_LVDS.html#">3. LVDS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3_LVDS.html#id1">3.1. Environment Preparation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3_LVDS.html#id2">3.1.1. LVDSpanel interface introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_LVDS.html#id3">3.1.2. Hardware Wiring Check</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3_LVDS.html#id4">3.2. Configure the LVDS Panel</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3_LVDS.html#u-bootlvds">3.2.1. Configure in u-boot the LVDS Panel</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#id5">3.2.1.1. Configure LVDS device attributes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#id6">3.2.1.2. Add Header File Includes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#lvdsbacklight">3.2.1.3. Configure the LVDS PanelBACKLIGHTpin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#u-boot">3.2.1.4. Configure u-boot Environment Variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#logo">3.2.1.5. Replace the Logo Image</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#id7">3.2.1.6. Build, Program, and Verify</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="3_LVDS.html#kernellvds">3.2.2. Configure in the kernelLVDS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#id8">3.2.2.1. Configure LVDS device attributes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#id9">3.2.2.2. Add Header File Includes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#id10">3.2.2.3. Configure the LVDS PanelBACKLIGHTpin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#id11">3.2.2.4. Build verification</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="3_LVDS.html#id12">3.2.3. Configure in the dual-system environmentLVDS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#id13">3.2.3.1. Configure LVDS device attributes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#cvi-alios">3.2.3.2. Enable the Configuration Switch in cvi_alios</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#id14">3.2.3.3. Add Header File Includes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#id15">3.2.3.4. Configure the LVDS PanelBACKLIGHTpin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_LVDS.html#id16">3.2.3.5. Build verification</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="4_MIPI_DSI.html">4. MIPI DSI (starting with SDK V6.3.4)</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ScreenDockingGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">3. </span>LVDS</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/3_LVDS.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="lvds">
+<h1><span class="section-number">3. </span>LVDS<a class="headerlink" href="3_LVDS.html#lvds" title="Permalink to this heading">¶</a></h1>
+<p><strong>Overview</strong></p>
+<p>Low Votage Differential Signal(LVDS), that is, lowvoltagedifferencepartsignal. LVDSconnectinterface, also calledRS644busconnectport, 1994yearbyNational Semiconductor Corporation (NS) raiseoutisovercomewithTTLlevelmethodtransferwidthwithhighbit ratedatawhenpower consumptionlarge, EMIelectromagneticinterferencelargeetc.lackpointanddevelopa type ofvideosignaltransfermode, isa type oflevelstandard, widelyshouldused to 
+LCDpanelconnectport. LVDSpaneltotalbodyandMIPIsimilar, butisalsohasonesomeareadifference. this chaptersectionIntroductionhow to inCVITEKprocessingprocessor solutionsolutionondevelopmentdebugLVDS LCD panel. </p>
+<section id="id1">
+<h2><span class="section-number">3.1. </span>Environment Preparation<a class="headerlink" href="3_LVDS.html#id1" title="Permalink to this heading">¶</a></h2>
+<section id="id2">
+<h3><span class="section-number">3.1.1. </span>LVDSpanel interface introduction<a class="headerlink" href="3_LVDS.html#id2" title="Permalink to this heading">¶</a></h3>
+<p>An LVDS panel generally has the following signals, as shown in the figure.</p>
+<ul class="simple">
+<li><p>LVDS clock line (CLK)</p></li>
+<li><p>LVDS data lines (DATA) (single-link 6-bit: 3 lanes; single-link 8-bit: 4 lanes; single-link 10-bit: 5 lanes; dual-link 6-bit: 6 lanes; dual-link 8-bit: 8 lanes; dual-link 10-bit: 10 lanes; currently only single-link 6-bit and single-link 8-bit are supported)</p></li>
+<li><p>Backlight control signal (BACKLIGHT)</p></li>
+</ul>
+<p><strong>LVDS interface wiring diagram</strong></p>
+<a class="reference internal image-reference" href="_images/LVDS002.png"><img alt="Automatically generated figure description" src="_images/LVDS002.png" style="width: 4.4639in; height: 2.93708in;" /></a>
+</section>
+<section id="id3">
+<h3><span class="section-number">3.1.2. </span>Hardware Wiring Check<a class="headerlink" href="3_LVDS.html#id3" title="Permalink to this heading">¶</a></h3>
+<p>Check the hardware wiring and confirm that it is correct. For pin differences, refer to the panel vendor specifications and schematic.</p>
+</section>
+</section>
+<section id="id4">
+<h2><span class="section-number">3.2. </span>Configure the LVDS Panel<a class="headerlink" href="3_LVDS.html#id4" title="Permalink to this heading">¶</a></h2>
+<p>according toonsectionEnvironment Preparationcontent, inconnectinterface andwiringonsolvepanelforconnectconfigure, inthisonesectioninwillforpanelforconnectwheninsoftwareaspectneed toperform configureperform description. </p>
+<p>CVITEK hastwo types ofsolutionperform LVDSpanelforconnect, andMIPI panelsimilar, respectivelyisinu-bootandkernelinperform panel initialization. actualapplicationinaccording torequirementchoose one of the twoitsone. </p>
+<section id="u-bootlvds">
+<h3><span class="section-number">3.2.1. </span>Configure in u-boot the LVDS Panel<a class="headerlink" href="3_LVDS.html#u-bootlvds" title="Permalink to this heading">¶</a></h3>
+<p>u-bootMediumConfigure the MIPI PanelisthroughCVITEKdevelopmentshowlogocommand, devicepower-onafter, pressEnterenterU-Boot Commandsline, printenvcanviewtoshowlogocommand, bootcmdinbootinkernelbeforewillexecutethecommandperform panel initializationanddisplay the logo. </p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">showlogo</span><span class="o">=</span><span class="n">mmc</span> <span class="n">dev</span> <span class="mi">0</span><span class="p">;</span><span class="n">mmc</span> <span class="n">read</span> <span class="mh">0x84080000</span> <span class="mh">0xA000</span> <span class="mh">0x400</span><span class="p">;</span> <span class="n">cvi_jpeg</span> <span class="mh">0x84080000</span> <span class="mh">0x81800000</span> <span class="mh">0x80000</span><span class="p">;</span> <span class="n">startvo</span> <span class="mi">0</span> <span class="mi">2048</span> <span class="mi">0</span><span class="p">;</span><span class="n">startvl</span> <span class="mi">0</span> <span class="mh">0x84080000</span> <span class="mh">0x81800000</span> <span class="mh">0x80000</span> <span class="mi">16</span><span class="p">;</span><span class="n">setvobg</span> <span class="mi">0</span> <span class="mh">0xffffffff</span>
+</pre></div>
+</div>
+<p>Note: single channel6bitis1024,  single channel8bitis2048, single channel10bitis4096. </p>
+<p>this documentfocuses on explainingpanel initializationpart, display the logospecificpleasereference"CVITEKbootimageuseGuide". where, panel initializationpartin"startvo 0 2048 0"inimplement. </p>
+<section id="id5">
+<h4><span class="section-number">3.2.1.1. </span>Configure LVDS device attributes<a class="headerlink" href="3_LVDS.html#id5" title="Permalink to this heading">¶</a></h4>
+<p>Implement a configuration header for each panel according to its specification and place it at</p>
+<p>u-boot-2021.10/include/cvitek/cvi_panels/under, customercanrefer toitsremainingheader filetemplateadd its ownpanelHeader files. </p>
+<p><strong>cvi_lvds_cfg_sstructuredefinition</strong></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">cvi_lvds_cfg_s</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="k">enum</span><span class="w"> </span><span class="n">LVDS_OUT_BIT</span><span class="w"> </span><span class="n">out_bits</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">enum</span><span class="w"> </span><span class="n">LVDS_MODE</span><span class="w"> </span><span class="n">mode</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="n">chn_num</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">data_big_endian</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">enum</span><span class="w"> </span><span class="n">lvds_lane_id</span><span class="w"> </span><span class="n">lane_id</span><span class="p">[</span><span class="n">LANE_MAX_NUM</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">lane_pn_swap</span><span class="p">[</span><span class="n">LANE_MAX_NUM</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="k">struct</span> <span class="nc">sync_info_s</span><span class="w"> </span><span class="n">sync_info</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w"> </span><span class="n">u16FrameRate</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">pixelclock</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>out_bits</p></td>
+<td><p>LVDS_OUT_6BIT, LVDS_OUT_8BIT, LVDS_OUT_10BIT</p></td>
+</tr>
+<tr class="row-odd"><td><p>mode</p></td>
+<td><p>LVDS_MODE_JEI DA, LVDS_MODE_VESA, generallysetisLVDS_MODE_VESA</p></td>
+</tr>
+<tr class="row-even"><td><p>chn_num</p></td>
+<td><p>channelnumber1, 2, appearinprocessingdeviceonly supports1channel</p></td>
+</tr>
+<tr class="row-odd"><td><p>data_big_endian</p></td>
+<td><p>senddatasizesideorder, generallysetfalse</p></td>
+</tr>
+<tr class="row-even"><td><p>Lane_id</p></td>
+<td><div class="line-block">
+<div class="line">host and panel sidesLane numbercorrespondence, unuseduseLanefill-1that is, can . </div>
+<div class="line">a total of5itemmember, sequentiallyrespectivelyrepresenthost sideVO_LVDS_LANE_0 ~ VO_LVDS_LA NE_4, 
+actualfill incontentneed toaccording tocorrespondingtopanel sideLVDS lane number. </div>
+<div class="line">for example, firstitemmemberishostLANE 0, checkcircuitschematic, correspondingtopanel sidelane 3, 
+thenfill inisVO_LVDS_LANE_3. </div>
+<div class="line">correspondencenotcorrect, willcausepanelcannotlight up.</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>lane_pn_swap</p></td>
+<td><div class="line-block">
+<div class="line">LVDSLane P/Nextremeiswhether to swap</div>
+<div class="line">true: swap</div>
+<div class="line">false:notswap</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>sync_info</p></td>
+<td><p>LVDSdevicesynchronizationinformation</p></td>
+</tr>
+<tr class="row-odd"><td><p>pixel_clk</p></td>
+<td><div class="line-block">
+<div class="line">Pixel clock, in kHz.</div>
+<div class="line">Formula:</div>
+<div class="line">pixel_clk=(htotal*vtotal)*fps/1000</div>
+<div class="line">Where:</div>
+<div class="line">htotal=vid_hsa_pixels+ vid_hbp_pixels+</div>
+<div class="line">vid_hfp_pixels+ vid_hline_pixels</div>
+<div class="line">vtotal= vid_vsa_lines+ vid_vbp_lines+</div>
+<div class="line">vid_vfp_lines+ vid_active_lines</div>
+<div class="line">fps:frame rate, default60</div>
+<div class="line">lane_clkaccording topixel_clkderive backward, conversionformula: </div>
+<div class="line">lane_clk= pixel_clk*24/4/2(24meansRGB888, single channel8bit, 
+eachpixeloccupy24bits, 4meansuse4itemData Lane, 2meanslvds clkisdual-edge triggered)</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Example:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">cvi_lvds_cfg_s</span><span class="w"> </span><span class="n">lvds_ek79202_cfg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="n">mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LVDS_MODE_VESA</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="n">out_bits</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LVDS_OUT_8BIT</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="n">chn_num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="n">lane_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="n">VO_LVDS_LANE_0</span><span class="p">,</span><span class="w"> </span><span class="n">VO_LVDS_LANE_1</span><span class="p">,</span><span class="w"> </span><span class="n">VO_LVDS_LANE_2</span><span class="p">,</span><span class="w"> </span><span class="n">VO_LVDS_LANE_3</span><span class="p">,</span><span class="w"> </span><span class="n">VO_LVDS_LANE_CLK</span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="n">lane_pn_swap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="nb">false</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="p">,</span><span class="w"> </span><span class="nb">false</span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="n">sync_info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="n">vid_hsa_pixels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="n">vid_hbp_pixels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">88</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="n">vid_hfp_pixels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">62</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="n">vid_hline_pixels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1280</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="n">vid_vsa_lines</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="n">vid_vbp_lines</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="n">vid_vfp_lines</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="n">vid_active_lines</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">800</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="n">vid_vsa_pos_polarity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">.</span><span class="n">vid_hsa_pos_polarity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="p">},</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="n">u16FrameRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="n">pixelclock</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">72403</span><span class="p">,</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p><strong>sync_info_sstructuredefinition</strong></p>
+<p>withMIPIsimilar, See 2.2.1.1. </p>
+<img alt="_images/LVDS004.png" class="align-center" src="_images/LVDS004.png" />
+</section>
+<section id="id6">
+<h4><span class="section-number">3.2.1.2. </span>Add Header File Includes<a class="headerlink" href="3_LVDS.html#id6" title="Permalink to this heading">¶</a></h4>
+<p>Add the newnew headerfileinclude, inu-boot-2021.10/include/cvitek/cvi_panels/cvi_panels.hinincreaseforononesectioninnew headerfileinclude. </p>
+<p>Example:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#if defined(LVDS_PANEL_EK79202)</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;lvds_ek79202.h&quot;</span><span class="cp"></span>
+<span class="k">static</span><span class="w"> </span><span class="k">struct</span> <span class="nc">panel_desc_s</span><span class="w"> </span><span class="n">panel_desc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="n">lvds_cfg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&amp;</span><span class="n">lvds_ek79202_cfg</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+<span class="cp">#endif</span>
+</pre></div>
+</div>
+</section>
+<section id="lvdsbacklight">
+<h4><span class="section-number">3.2.1.3. </span>Configure the LVDS PanelBACKLIGHTpin<a class="headerlink" href="3_LVDS.html#lvdsbacklight" title="Permalink to this heading">¶</a></h4>
+<p>The LVDS backlight can be configured as GPIO or PWM.</p>
+<section id="gpio">
+<h5><span class="section-number">3.2.1.3.1. </span>configureisGPIO<a class="headerlink" href="3_LVDS.html#gpio" title="Permalink to this heading">¶</a></h5>
+<p>can throughmodifybuild/boards/cv184x/cv184xxx/u-boot/cvitek.hMediumVO_GPIO_PWM_PORT, VO_GPIO_PWM_INDEX, VO_GPIO_PWM_ACTIVEimplement. </p>
+</section>
+<section id="pwm">
+<h5><span class="section-number">3.2.1.3.2. </span>configureisPWM<a class="headerlink" href="3_LVDS.html#pwm" title="Permalink to this heading">¶</a></h5>
+<p>PWM is generally used to enable brightness adjustment.implementwithMIPIpanelsimilar, See 2.2.1.6smallsection. </p>
+</section>
+</section>
+<section id="u-boot">
+<h4><span class="section-number">3.2.1.4. </span>Configure u-boot Environment Variables<a class="headerlink" href="3_LVDS.html#u-boot" title="Permalink to this heading">¶</a></h4>
+<p>implementwithMIPIpanelsimilar, See 2.2.1.7smallsection. </p>
+</section>
+<section id="logo">
+<h4><span class="section-number">3.2.1.5. </span>Replace the Logo Image<a class="headerlink" href="3_LVDS.html#logo" title="Permalink to this heading">¶</a></h4>
+<p>implementwithMIPIpanelsimilar, See 2.2.1.8smallsection. </p>
+</section>
+<section id="id7">
+<h4><span class="section-number">3.2.1.6. </span>Build, Program, and Verify<a class="headerlink" href="3_LVDS.html#id7" title="Permalink to this heading">¶</a></h4>
+<p>inondescribestepallcompleteafter, recompileburningnewu-boot. power-on, pressEnterenterU-Boot Commandsline. executerun showlogo, if successfulcanviewtopaneldisplayoutlogo image. If unuseddisplayoutlogo, pleaseconfirmwithunder. </p>
+<ul class="simple">
+<li><p>Confirm that the backlight is on</p></li>
+<li><p>Confirm that panel power is normal</p></li>
+<li><p>executemw 0x0a088094 0x0701000a, OutputVOtest pattern, falseifpanel initializationsuccess, you will seetocolorbar</p></li>
+</ul>
+<p>test patternregisteras followsFigure </p>
+<a class="reference internal image-reference" href="_images/LVDS003.png"><img alt="table descriptionalreadyautomaticgenerate" src="_images/LVDS003.png" style="width: 5.80159in; height: 1.38194in;" /></a>
+<p>findhaswithonanyabnormalitypleasego back andcheckthisbeforeflowiswhethersetcorrectandreachexpected. </p>
+<p>if the aboveonallunusedfindabnormality, thenneed tothencheckLVDS Laneorder, PWMetc.iswhetherconfigurecorrect, andusemultimeter/oscilloscopeetc.confirmcircuitlevelstatusas expected, if allas expected, thenmayisa panel problem, pleaseconsultpanel manufacturer. </p>
+<p>ifwithonconfigurecorrect, hardwarecircuitno hasabnormality, at this timeusuallyneed toadjustsync_info_sineachparameter. </p>
+</section>
+</section>
+<section id="kernellvds">
+<h3><span class="section-number">3.2.2. </span>Configure in the kernelLVDS<a class="headerlink" href="3_LVDS.html#kernellvds" title="Permalink to this heading">¶</a></h3>
+<p>inkernelMediumConfigure the LVDS Panelmethodwithinu-bootinalmostisoneway, onlyisimplementflownotoneway. When noneneed todisplay the logowhen, can selectthis method. </p>
+<p>anotheroutside, alsocanfirstusekernelbring up using this method, then porttou-boot, avoid frequentburningu-boot. </p>
+<section id="id8">
+<h4><span class="section-number">3.2.2.1. </span>Configure LVDS device attributes<a class="headerlink" href="3_LVDS.html#id8" title="Permalink to this heading">¶</a></h4>
+<p>Implement a configuration header for each panel according to its specification and place it under cvi_mpi/component/panel/. Customers can use the other header templates as a reference when adding a panel header.</p>
+<p>See 3.2.1.1section. </p>
+</section>
+<section id="id9">
+<h4><span class="section-number">3.2.2.2. </span>Add Header File Includes<a class="headerlink" href="3_LVDS.html#id9" title="Permalink to this heading">¶</a></h4>
+<p>Add the newnew headerfileinclude, incvi_mpi/sample_app/sample_panel/sample_panel.cinincreaseforonthe two sectionsinnew headerfileinclude. </p>
+<p>Example:</p>
+<p>ifneed tolight uppanelLCM185X56, First, incvi_mpi/sample_app/sample_panel/ample_panel.hMediumincludethepanelheader filelvds_lcm185x56.h, Then, ensurecvi_mpi/sample_app/sample_panel/sample_panel.cfilein
+characterarraystatic char *s_panel_model_type_arr[ ] inhas"LCM185X56character, no hasthenitselfAdd . connectwithinthefilepanelenumerationtypePANEL_MODELinAdd withthecharacterindexvaluemutualetc.enumeration valueLVDS_PANEL_LCM185X56, Finally, 
+inSAMPLE_SET_PANEL_DESCfunctioninAdd the newpanelrelatedparameterperform callcase, as shown below: </p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">case</span><span class="w"> </span><span class="nl">LVDS_PANEL_LCM185X56</span><span class="p">:</span><span class="w"></span>
+<span class="w">        </span><span class="n">g_panel_desc</span><span class="p">.</span><span class="n">panel_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PANEL_MODE_LVDS</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">g_panel_desc</span><span class="p">.</span><span class="n">stVoPubAttr</span><span class="p">.</span><span class="n">enIntfType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">VO_INTF_LCD_24BIT</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">g_panel_desc</span><span class="p">.</span><span class="n">stVoPubAttr</span><span class="p">.</span><span class="n">enIntfSync</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">VO_OUTPUT_USER</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">VO_SYNC_INFO_S</span><span class="w"> </span><span class="n">stLcm185x56_SyncInfo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{.</span><span class="n">bSynm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">bIop</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">u16FrameRate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">60</span><span class="w"></span>
+<span class="w">        </span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">u16Vact</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">768</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">u16Vbb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">u16Vfb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="w"></span>
+<span class="w">        </span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">u16Hact</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1366</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">u16Hbb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">u16Hfb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">88</span><span class="w"></span>
+<span class="w">        </span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">u16Vpw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">u16Hpw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">bIdv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">bIhs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="p">.</span><span class="n">bIvs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">};</span><span class="w"></span>
+<span class="w">        </span><span class="n">g_panel_desc</span><span class="p">.</span><span class="n">stVoPubAttr</span><span class="p">.</span><span class="n">stSyncInfo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">stLcm185x56_SyncInfo</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="n">g_panel_desc</span><span class="p">.</span><span class="n">stVoPubAttr</span><span class="p">.</span><span class="n">stLvdsAttr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lvds_lcm185x56_cfg</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>where, enIntfTypecanaccording toactualrequirementselectVO_INTF_LCD_18BIT, VO_INTF_LCD_24BITorVO_INTF_LCD_30BIT, enIntfSynccanreference"CV184x mediasoftwaredevelopmentGuide"viewsupportsOtheroutputtimingtype, 
+alsocanselectselfdefinitiontimingmodeVO_OUTPUT_USER, selfdefinitiontimingwhenneed tofill instSyncInfo, similarthisshowexampleinstLcm185x56_SyncInfo. </p>
+</section>
+<section id="id10">
+<h4><span class="section-number">3.2.2.3. </span>Configure the LVDS PanelBACKLIGHTpin<a class="headerlink" href="3_LVDS.html#id10" title="Permalink to this heading">¶</a></h4>
+<p>inpathcvi_mpi/component/panel/underfindtocorrespondingheader file, configurationLVDSgpioinformation, If no hasthepinororbyAPPcontrol, then directlyconnectnotwriteororgpio_numassignvalueis-1that is, can . </p>
+<p>Example:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="n">backlight_pin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="n">gpio_num</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GPIOE_02</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="p">.</span><span class="n">active</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GPIO_ACTIVE_HIGH</span><span class="p">,</span><span class="w"></span>
+<span class="p">},</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Note:</p>
+<p>isdebugconvenient, The backlight can first useGPIOcontrol, be sure to firstnotneed toinu-bootinconfigurepinmuxisPWMfunction, otherwisemaycannotcontrol. </p>
+<p>lateraccording torequirement, If need toadjustluma, theninu-bootinconfigurepinmuxfunctionisPWM, deleteheader fileinthisconfigureororgpio_numassignvalueis-1, at the same timeAPPinusePWMmethodcontrol. </p>
+</section>
+<section id="id11">
+<h4><span class="section-number">3.2.2.4. </span>Build verification<a class="headerlink" href="3_LVDS.html#id11" title="Permalink to this heading">¶</a></h4>
+<p>executebuild_middlewareCompilationmiddleware, inpathcvi_mpi/component/panel/underwillgeneratesample_panelcan executefile. 
+theprogramandinu-bootMedium"startvo 0 2048 0"operationisoneway, switchtoLPmodetopanelsendinitialization sequence, Then, switch backHSmode. </p>
+<p>willsample_panelcopytodevice, executecommand./sample_panelafterwillpop upoutthecommandProcedure, presspromptrunthat is, can . </p>
+<p>Example:./sample_panel –panel=LCM185X56</p>
+<p>ifunusedcannormaldisplay, can See 3.2.1.6.</p>
+</section>
+</section>
+<section id="id12">
+<h3><span class="section-number">3.2.3. </span>Configure in the dual-system environmentLVDS<a class="headerlink" href="3_LVDS.html#id12" title="Permalink to this heading">¶</a></h3>
+<p>indualsysteminConfigure the LVDS Panelmethodwithinkernelinalmostisoneway, belowbriefneed todescriptiononeunderdifferencesame. </p>
+<section id="id13">
+<h4><span class="section-number">3.2.3.1. </span>Configure LVDS device attributes<a class="headerlink" href="3_LVDS.html#id13" title="Permalink to this heading">¶</a></h4>
+<p>Implement a configuration header for each panel according to its specification and place it under cvi_mpi/component/panel/. Customers can use the other header templates as a reference when adding a panel header.</p>
+<p>See 3.2.1.1section. </p>
+</section>
+<section id="cvi-alios">
+<h4><span class="section-number">3.2.3.2. </span>Enable the Configuration Switch in cvi_alios<a class="headerlink" href="3_LVDS.html#cvi-alios" title="Permalink to this heading">¶</a></h4>
+<p>incvi_alios/solutions/normboot/package_yamls/package.yaml.turnkeyinenablecorrespondingchip andpaneltypeswitch, </p>
+<p>Example, selectCONFIG_BOARD_CV181XHchip, enableas followsswitch: </p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="nl">CONFIG_BOARD_CV181XC</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="nl">CONFIG_BOARD_CV181XH</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="id14">
+<h4><span class="section-number">3.2.3.3. </span>Add Header File Includes<a class="headerlink" href="3_LVDS.html#id14" title="Permalink to this heading">¶</a></h4>
+<p>pleasereference3.2.2.2section. </p>
+</section>
+<section id="id15">
+<h4><span class="section-number">3.2.3.4. </span>Configure the LVDS PanelBACKLIGHTpin<a class="headerlink" href="3_LVDS.html#id15" title="Permalink to this heading">¶</a></h4>
+<p>incvi_alios/solutions/normboot/customization/cv1811c_cv2003_1l_triple/src/custom_platform.cMedium_MipiTxPinmuxconnectin the interface
+Add forRESET, POWER, BACKLIGHTpinreuse, Then, directlyconnectinapplicationlayerdirectlyconnectcontrolGPIO. </p>
+<p>Example:</p>
+<p>For CONFIG_BOARD_CV181XHchip, generallypullpinis: reset: GPIOE2, pwm: GPIOE0, power: GPIOE01. </p>
+<p>thereforeneed towithunderoperationpullcorrespondingpin: </p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">devmem</span><span class="w"> </span><span class="mh">0x03022004</span><span class="w"> </span><span class="mi">32</span><span class="w"> </span><span class="mh">0x0</span><span class="w"></span>
+<span class="n">devmem</span><span class="w"> </span><span class="mh">0x03022000</span><span class="w"> </span><span class="mi">32</span><span class="w"> </span><span class="mh">0x0</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="mi">352</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">export</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="mi">353</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">export</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="mi">354</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">export</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio352</span><span class="o">/</span><span class="n">direction</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio353</span><span class="o">/</span><span class="n">direction</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio354</span><span class="o">/</span><span class="n">direction</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio354</span><span class="o">/</span><span class="n">value</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio352</span><span class="o">/</span><span class="n">value</span><span class="w"></span>
+<span class="n">echo</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">sys</span><span class="o">/</span><span class="n">class</span><span class="o">/</span><span class="n">gpio</span><span class="o">/</span><span class="n">gpio353</span><span class="o">/</span><span class="n">value</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="id16">
+<h4><span class="section-number">3.2.3.5. </span>Build verification<a class="headerlink" href="3_LVDS.html#id16" title="Permalink to this heading">¶</a></h4>
+<p>pleasereference3.2.2.4section. </p>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="2_MIPI_DSI.html" class="btn btn-neutral float-left" title="2. MIPI DSI" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="4_MIPI_DSI.html" class="btn btn-neutral float-right" title="4. MIPI DSI (starting with SDK V6.3.4)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Go to Official Website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="Go to Documentation Center"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Top of page"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Bottom of page"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR code for this page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

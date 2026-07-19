@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV184X Sensor Debugging Guide &mdash; Sensor_Debugging_Guide master documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="10. AERelatedVerification" href="10_AE_Related_Verification.html" />
+    <link rel="prev" title="8. Complete the AE Configuration Function" href="8_Complete_the_AE_Configuration_Function.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Sensor_Debugging_Guide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Introduction_to_Sensor_Drivers.html">2. SensorDriverIntroduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Confirm_Specifications.html">3. Confirm Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_Image_Output_Debugging.html">4. Image Output Debugging(Linuxthe corresponding content)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_Image_Output_Debugging.html">5. Image Output Debugging(Aliosthe corresponding content)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_Image_Output_Verification.html">6. ImageOutput Verification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_Basic_Functions_of_ISP.html">7. ISP Basic Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_Complete_the_AE_Configuration_Function.html">8. Complete the AE Configuration Function</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="9_Complete_Other_Functions.html#">9. Complete Other Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="9_Complete_Other_Functions.html#sensor">9.1. SensorInitializeflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="9_Complete_Other_Functions.html#id2">9.2. SensorCloseflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="9_Complete_Other_Functions.html#sensor-ae">9.3. Sensor AEthe corresponding contentflow</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="10_AE_Related_Verification.html">10. AERelatedVerification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_Common_Problem.html">11. FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_Color_Noise_Reduction_and_Other_Corrections.html">12. Color, Noise Reduction, and Other Corrections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_Debugging_Tool.html">13. Debugging Tool</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Sensor_Debugging_Guide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">9. </span>Complete Other Functions</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/9_Complete_Other_Functions.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">9. </span>Complete Other Functions<a class="headerlink" href="9_Complete_Other_Functions.html#id1" title="Permalink to this heading">¶</a></h1>
+<section id="sensor">
+<h2><span class="section-number">9.1. </span>SensorInitializeflow<a class="headerlink" href="9_Complete_Other_Functions.html#sensor" title="Permalink to this heading">¶</a></h2>
+<p>the corresponding contentAE/ISPthe corresponding content，SensorDriverthe corresponding contentuseOthercallbacksthe corresponding contentInitializeflow。</p>
+<p>Sensor callbacksthe corresponding contentParameterthe corresponding content，the corresponding contentNotethe corresponding content。</p>
+<p>recommendthe corresponding contentflowas follows：</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/Comple004.png"><img alt="_images/Comple004.png" src="_images/Comple004.png" style="width: 80%;" /></a>
+</figure>
+<hr class="docutils" />
+<p>Pre-Initthe corresponding contentSensorDriverthe corresponding contentenvironment，the corresponding contentcallbackas follows：</p>
+<ul class="simple">
+<li><p>pfnSetInit： Initializesensorthe corresponding contentParameter。enGainModethe corresponding contentsensorthe corresponding contentWDRmodethe corresponding contentGainthe corresponding content。</p></li>
+<li><p>pfnSetBusInfo： the corresponding contentI2Cinformation。</p></li>
+<li><p>pfnRegisterCallback： the corresponding contentsensor ISP/AE callbacks。</p></li>
+<li><p>pfn_cmos_sensor_global_init： InitializesensorDriverthe corresponding contentParameter。</p></li>
+</ul>
+<hr class="docutils" />
+<p>Set Modethe corresponding contentSensorOutputthe corresponding contentmainlyformat，the corresponding contentcallbackas follows：</p>
+<ul class="simple">
+<li><p>pfn_cmos_set_image_mode： the corresponding contentOutputthe corresponding contentimageformat。</p></li>
+<li><p>pfn_cmos_set_wdr_mode： the corresponding contentlinearthe corresponding contentWDRmode。</p></li>
+</ul>
+<hr class="docutils" />
+<p>Set User Defaultthe corresponding contentInitializethe corresponding contentAEParameter，the corresponding contentcallbackas follows：</p>
+<ul>
+<li><p>pfn_cmos_fps_set： the corresponding contentFramethe corresponding content。the corresponding contentcallback pfn_cmos_get_ae_defaultthe corresponding contentFramethe corresponding contentf32Fps，Notethe corresponding contentFramethe corresponding contentDefault Value。</p></li>
+<li><p>pfn_cmos_inttime_update： the corresponding contentExposureTimethe corresponding content AE，</p>
+<p>linearmodethe corresponding contentExposurethe corresponding contentrangecanthe corresponding contentpfn_cmos_get_ae_defaultthe corresponding contentu32MaxIntTimethe corresponding contentu32MinIntTime。</p>
+<p>WDRmodethe corresponding contentpfn_cmos_get_inttime_max the corresponding contentExposurethe corresponding contentExposurethe corresponding contentrange。</p>
+</li>
+<li><p>pfn_cmos_gains_update： the corresponding contentSensorthe corresponding contentAGAINthe corresponding contentDGAIN。</p>
+<p>the corresponding contentpfn_cmos_get_ae_defaultthe corresponding contentu32MaxAgain/u32MaxDgainthe corresponding contentu32MinAgain/u32MinDgainthe corresponding contentGainrange，</p>
+<p>the corresponding contentpfn_cmos_again_calc_table/pfn_cmos_dgain_calc_tablethe corresponding contentGainthe corresponding contentSensorthe corresponding content。</p>
+</li>
+</ul>
+<hr class="docutils" />
+<p>Init Mipi-RxInitializeMipi-RxParameter，Sensorthe corresponding content(Power On Sequence)。</p>
+<p><strong>Linux</strong> the corresponding contentioctlthe corresponding contentkernelthe corresponding contentMipi-RxDriverthe corresponding contentoperation。</p>
+<p>mainlythe corresponding contentas follows：</p>
+<ul class="simple">
+<li><p>Open/dev/video0。the corresponding contentStepthe corresponding contentOpenVIPRelatedthe corresponding content。</p></li>
+<li><p>the corresponding contentSensorDriverthe corresponding contentcallback pfnGetRxAttrthe corresponding contentSensorthe corresponding contentMipi-Rxthe corresponding content。</p></li>
+<li><p>CVI_MIPI_RESET_SENSOR：  Mipi-Rxthe corresponding contentioctl。the corresponding contentOpenthe corresponding contentdevice treethe corresponding contentSensor Reset pin。</p></li>
+</ul>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="nl">mipi_rx</span><span class="p">:</span><span class="w"> </span><span class="n">cif</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">compatible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;cvitek,cif&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">reg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mh">0x0</span><span class="w"> </span><span class="mh">0x0a0c2000</span><span class="w"> </span><span class="mh">0x0</span><span class="w"> </span><span class="mh">0x2000</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;</span><span class="mh">0x0</span><span class="w"> </span><span class="mh">0x0300b000</span><span class="w"> </span><span class="mh">0x0</span><span class="w"> </span><span class="mh">0x1000</span><span class="o">&gt;</span><span class="p">,</span><span class="o">&lt;</span><span class="mh">0x0</span><span class="w"> </span><span class="mh">0x0a0c4000</span><span class="w"> </span><span class="mh">0x0</span><span class="w"> </span><span class="mh">0x2000</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;</span><span class="mh">0x0</span><span class="w"> </span><span class="mh">0x0300d000</span><span class="w"> </span><span class="mh">0x0</span><span class="w"> </span><span class="mh">0x1000</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">reg</span><span class="o">-</span><span class="n">names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;csi_mac0&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;csi_wrap0&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;csi_mac1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;csi_wrap1&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">interrupts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="n">GIC_SPI</span><span class="w"> </span><span class="mi">155</span><span class="w"> </span><span class="n">IRQ_TYPE_LEVEL_HIGH</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;</span><span class="n">GIC_SPI</span><span class="w"> </span><span class="mi">156</span><span class="n">IRQ_TYPE_LEVEL_HIGH</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">interrupt</span><span class="o">-</span><span class="n">names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;csi0&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;csi1&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">snsr</span><span class="o">-</span><span class="n">reset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="n">portd</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="n">GPIO_ACTIVE_LOW</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="n">portd</span><span class="w"> </span><span class="mi">7</span><span class="n">GPIO_ACTIVE_LOW</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">resets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="n">rst</span><span class="w"> </span><span class="n">RST_CSIPHY0</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="n">rst</span><span class="w"> </span><span class="n">RST_CSIPHY1</span><span class="o">&gt;</span><span class="p">,</span><span class="o">&lt;&amp;</span><span class="n">rst</span><span class="w"> </span><span class="n">RST_CSIPHY0RST_APB</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="n">rst</span><span class="w"> </span><span class="n">RST_CSIPHY1RST_APB</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="n">reset</span><span class="o">-</span><span class="n">names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;phy0&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;phy1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;phy-apb0&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;phy-apb1&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>CVI_MIPI_RESET_MIPI：  Mipi-Rxthe corresponding contentioctl。the corresponding contentMipi-Rxthe corresponding content。</p></li>
+<li><p>CVI_MIPI_SET_DEV_ATTR：  Mipi-Rxthe corresponding contentioctl。the corresponding contentMipi-Rxthe corresponding content。</p></li>
+<li><p>CVI_MIPI_ENABLE_SENSOR_CLOCK：  Mipi-Rxthe corresponding contentioctl。the corresponding contentOpenSensorthe corresponding content。Frequencythe corresponding contentCVI_MIPI_SET_DEV_ATTRthe corresponding contentmclkthe corresponding content。</p></li>
+<li><p>CVI_MIPI_UNRESET_SENSOR：  Mipi-Rxthe corresponding contentioctl。the corresponding contentClosethe corresponding contentdevice treethe corresponding contentSensor Reset pin。</p></li>
+</ul>
+<hr class="docutils" />
+<p><strong>Alios</strong> the corresponding contentthroughConfigurationcustom_viparam.cFilethe corresponding contentreset pinthe corresponding content</p>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="n">PARAM_CLASSDEFINE</span><span class="p">(</span><span class="n">PARAM_SNS_CFG_S</span><span class="p">,</span><span class="n">SENSORCFG</span><span class="p">,</span><span class="n">CTX</span><span class="p">,</span><span class="n">Sensor</span><span class="p">)[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="p">.</span><span class="n">enSnsType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CONFIG_SNS0_TYPE</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="p">.</span><span class="n">s32I2cAddr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x10</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="p">.</span><span class="n">s8I2cDev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="p">.</span><span class="n">u32Rst_port_idx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="c1">//GPIOC_16</span>
+<span class="w">   </span><span class="p">.</span><span class="n">u32Rst_pin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">16</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="p">.</span><span class="n">u32Rst_pol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">OF_GPIO_ACTIVE_LOW</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="cm">/* config dev attr(reference sensor driver) */</span><span class="w"></span>
+<span class="w">   </span><span class="p">.</span><span class="n">bSetDevAttr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="p">.</span><span class="n">u8MclkCam</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="p">.</span><span class="n">s16MacClk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RX_MAC_CLK_200M</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="p">.</span><span class="n">u8MclkFreq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CAMPLL_FREQ_27M</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="p">.</span><span class="n">bHwSync</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_FALSE</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="p">.</span><span class="n">s32Framerate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Sensor Initthe corresponding contentSensorDriverthe corresponding contentcallback pfn_cmos_sensor_initstartSensorthe corresponding content。</p>
+</section>
+<section id="id2">
+<h2><span class="section-number">9.2. </span>SensorCloseflow<a class="headerlink" href="9_Complete_Other_Functions.html#id2" title="Permalink to this heading">¶</a></h2>
+<p>CloseSensorthe corresponding contentflow：</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/Comple002.png"><img alt="_images/Comple002.png" src="_images/Comple002.png" style="width: 80%;" /></a>
+</figure>
+<ul class="simple">
+<li><p>Disable ISP：  Closethe corresponding contentISPInterface。</p></li>
+<li><p>Disable Sensor：  the corresponding contentsensorDrivercallback pfn_cmos_sensor_exitClosesensorthe corresponding contentI2CInterface。the corresponding contentpfnUnRegisterCallbackthe corresponding contentSensorDriver。</p></li>
+<li><p>Linux the corresponding contentMipi-Rx ioctl CVI_MIPI_RESET_SENSOROpenSensor reset pin。the corresponding contentCVI_MIPI_DISABLE_SENSOR_CLOCKCloseSensorthe corresponding content。the corresponding contentCVI_MIPI_RESET_MIPIthe corresponding contentMipi-Rxthe corresponding content。</p></li>
+</ul>
+<p>Aliosthe corresponding contentcif_reset_snsr_gpioOpenSensor reset pin ,the corresponding contentcif_reset_mipithe corresponding contentmipi-rxthe corresponding content。</p>
+</section>
+<section id="sensor-ae">
+<h2><span class="section-number">9.3. </span>Sensor AEthe corresponding contentflow<a class="headerlink" href="9_Complete_Other_Functions.html#sensor-ae" title="Permalink to this heading">¶</a></h2>
+<p>SensorExposurethe corresponding contentGainthe corresponding contentFramethe corresponding content，the corresponding contentneedthe corresponding contentSensorthe corresponding contentISPthe corresponding content。</p>
+<p>the corresponding content，the corresponding contentWDR Manualmode，adjustthe corresponding contentFramethe corresponding contentExposurethe corresponding contentneedthe corresponding contentMipi-Rxthe corresponding content。</p>
+<p>the corresponding contentYesSensor AEthe corresponding contentflow：</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/Comple0031.png"><img alt="_images/Comple0031.png" src="_images/Comple0031.png" style="width: 80%;" /></a>
+</figure>
+<ol class="arabic simple">
+<li><p>Firmwarethe corresponding contentsensor callbacks pfn_cmos_gains_updatethe corresponding contentpfn_cmos_inttime_updatethe corresponding contentAEthe corresponding content。</p></li>
+<li><p>Firmwarethe corresponding contentsensor callbacks pfn_cmos_get_sns_reg_infothe corresponding contentsensor/ISP/Mipi-Rxthe corresponding content。</p></li>
+<li><p>Firmwarethe corresponding contentsensor/ISP/CIFthe corresponding contentISP ioctl the corresponding contentISPDriverthe corresponding contentprocessthe corresponding content。</p></li>
+<li><p>the corresponding contentneedthe corresponding contentsensorthe corresponding content，ISP driverthe corresponding contentcv18xx_vip.kothe corresponding contentI2Cthe corresponding contentsensorthe corresponding content。</p></li>
+<li><p>the corresponding contentneedthe corresponding contentMipi-Rxthe corresponding content，ISP driverthe corresponding contentcvi_mipi_rx.kothe corresponding contentMipi-RxDriver。</p></li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="8_Complete_the_AE_Configuration_Function.html" class="btn btn-neutral float-left" title="8. Complete the AE Configuration Function" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="10_AE_Related_Verification.html" class="btn btn-neutral float-right" title="10. AERelatedVerification" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Go to the official website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="the corresponding contentdocumentationthe corresponding content"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Top of page"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Bottom of page"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR Code for This Page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

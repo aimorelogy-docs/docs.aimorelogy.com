@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>11. ADC Operation Guide &mdash; PeripheralDriver master Documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="12. CVI PINMUX Operation Guide" href="12_CVI_PINMUX_Operation_Guide.html" />
+    <link rel="prev" title="10. PWM Operation Guide" href="10_PWM_Operation_Guide.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> PeripheralDriver
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Ethernet_Operation_Guide.html">2. Ethernet Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_USB_Operation_Guide.html">3. USBOperation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_SD_MMC_Card_Operation_Guide.html">4. SD/MMC Card Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_I2C_Operation_Guide.html">5. I2C Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_SPI_Operation_Guide.html">6. SPI Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_GPIO_Operation_Guide.html">7. GPIOOperation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_UART_Operation_Guide.html">8. UART Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_Watchdog_Operation_Guide.html">9. Watchdog Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_PWM_Operation_Guide.html">10. PWM Operation Guide</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="11_ADC_Operation_Guide.html#">11. ADC Operation Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="11_ADC_Operation_Guide.html#id1">11.1. Preparation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_ADC_Operation_Guide.html#id2">11.2. Operation Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="11_ADC_Operation_Guide.html#id3">11.3. Operation Example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="11_ADC_Operation_Guide.html#saradc0-1">11.3.1. Read SARADC0 channel 1 and convert it to voltage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_ADC_Operation_Guide.html#saradc0-3-rtc-saradc0-10">11.3.2. SARADC0 Read example for channel 3 and RTC_SARADC0 channel 10</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_ADC_Operation_Guide.html#id4">11.3.3. Kernel space ADC Read/writeExample</a></li>
+<li class="toctree-l3"><a class="reference internal" href="11_ADC_Operation_Guide.html#id5">11.3.4. User-Space ADC Read/Write Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="12_CVI_PINMUX_Operation_Guide.html">12. CVI PINMUX Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_DMA_mem_to_mem_Operation_Guide.html">13. DMA Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_Thermal_Control_Operation_Guide.html">14. Thermal Control Strategy and Test Operation Guide</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PeripheralDriver</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">11. </span>ADC Operation Guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/11_ADC_Operation_Guide.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="adc">
+<h1><span class="section-number">11. </span>ADC Operation Guide<a class="headerlink" href="11_ADC_Operation_Guide.html#adc" title="Permalink to this heading">¶</a></h1>
+<p>This documentDescriptionin CV184x on the platformThrough IIO InterfaceUse SARADC、Channeland sysfs NodeCorrespondence、Voltage andUser space/Kernel spaceOperation Example。</p>
+<section id="id1">
+<h2><span class="section-number">11.1. </span>Preparation<a class="headerlink" href="11_ADC_Operation_Guide.html#id1" title="Permalink to this heading">¶</a></h2>
+<p><strong>1. Kernel Requirements</strong></p>
+<ul class="simple">
+<li><p>Use SDK ProvidekernelImage。</p></li>
+</ul>
+<p><strong>2. ADC andChannelDescription</strong></p>
+<ul class="simple">
+<li><p>User Through IIO InterfaceAccess 15   12-bit ADC Channel，Refer toVoltage 1.5V。</p></li>
+<li><p>  5   SARADC，  3   12-bit Channel：</p>
+<ul>
+<li><p>SARADC0～SARADC2：  ADC（  9  ）</p></li>
+<li><p>RTC_SARADC0～RTC_SARADC1：RTC   ADC（  6  ）</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>3. IIO DevicePathandChannelCorrespondence</strong></p>
+<p>IIO DevicePathis <code class="docutils literal notranslate"><span class="pre">/sys/bus/iio/devices/iio:device0/</span></code>， Channel ofRaw ValueNodeas follows：</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>in_voltage1_raw ～ in_voltage3_raw   # SARADC0
+in_voltage4_raw ～ in_voltage6_raw   # SARADC1
+in_voltage7_raw ～ in_voltage9_raw   # SARADC2
+in_voltage10_raw ～ in_voltage12_raw # RTC_SARADC0
+in_voltage13_raw ～ in_voltage15_raw # RTC_SARADC1
+</pre></div>
+</div>
+<p><strong>4. Voltage </strong></p>
+<blockquote>
+<div><p>Voltage（mV）= Raw Value × 1500 / 4095</p>
+</div></blockquote>
+<p><strong>5. PinandFunction </strong></p>
+<ul>
+<li><p>SARADC0 Channel 3  ofPinNameis ADC3；can Default GPIO Function，No need to ：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cvi_pinmux -r ADC3
+</pre></div>
+</div>
+</li>
+<li><p>RTC_SARADC0 Channel 10  Pin PWR_SEQ3；needSwitch to GPIO Function，for example：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cvi_pinmux -r PWR_SEQ3
+cvi_pinmux -w PWR_SEQ3/PWR_GPIO_5
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="id2">
+<h2><span class="section-number">11.2. </span>Operation Flow<a class="headerlink" href="11_ADC_Operation_Guide.html#id2" title="Permalink to this heading">¶</a></h2>
+<p><strong>Steps 1： </strong></p>
+<ul class="simple">
+<li><p>Confirm  ADC Channel of Pin（canRefer toSchematic）。</p></li>
+<li><p>will Voltage to Pin，NoteInputVoltagenot Refer toVoltage 1.5V。</p></li>
+<li><p> Refer toVoltage 。</p></li>
+</ul>
+<p><strong>Steps 2：PinConfiguration</strong></p>
+<ul class="simple">
+<li><p>  ADC Channel（SARADC0～2） No need to  pinmux。</p></li>
+<li><p>RTC   ADC（RTC_SARADC0/1）orneedwill PinConfigurationis ADC Function，orneed  GPIO  ，Use <code class="docutils literal notranslate"><span class="pre">cvi_pinmux</span></code>  。</p></li>
+</ul>
+<p><strong>Steps 3：DataRead</strong></p>
+<ul class="simple">
+<li><p>User space：Through <code class="docutils literal notranslate"><span class="pre">/sys/bus/iio/devices/iio:device0/</span></code> under of <code class="docutils literal notranslate"><span class="pre">in_voltageN_raw</span></code> NodeReadRaw Value。</p></li>
+</ul>
+<p><strong>Steps 4：Data </strong></p>
+<ul class="simple">
+<li><p>ReadRaw Valueafter， 「Voltage（mV）= Raw Value × 1500 / 4095」 isVoltage。</p></li>
+<li><p> need 、 etc.after 。</p></li>
+</ul>
+</section>
+<section id="id3">
+<h2><span class="section-number">11.3. </span>Operation Example<a class="headerlink" href="11_ADC_Operation_Guide.html#id3" title="Permalink to this heading">¶</a></h2>
+<section id="saradc0-1">
+<h3><span class="section-number">11.3.1. </span>Read SARADC0 channel 1 and convert it to voltage<a class="headerlink" href="11_ADC_Operation_Guide.html#saradc0-1" title="Permalink to this heading">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># ReadRaw Value</span>
+cat /sys/bus/iio/devices/iio:device0/in_voltage1_raw
+<span class="c1"># ExampleOutput：2048</span>
+<span class="c1"># Voltage（mV）= 2048 × 1500 / 4095 ≈ 750</span>
+</pre></div>
+</div>
+<p>Description： Schematicin ADC  Channel （If SARADC1～9  on  SARADC0～2 of 9  ，PWR_SARADC1～6   RTC_SARADC0/1 of 6  ）， withSchematicis 。</p>
+</section>
+<section id="saradc0-3-rtc-saradc0-10">
+<h3><span class="section-number">11.3.2. </span>SARADC0 Read example for channel 3 and RTC_SARADC0 channel 10<a class="headerlink" href="11_ADC_Operation_Guide.html#saradc0-3-rtc-saradc0-10" title="Permalink to this heading">¶</a></h3>
+<p>can Table ：willChannel  1.8V or （NoteRaw Value is 4095， Voltage is 1.5V）。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat /sys/bus/iio/devices/iio:device0/in_voltage3_raw
+cat /sys/bus/iio/devices/iio:device0/in_voltage10_raw
+<span class="c1">#   0</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/ADC1.jpg"><img alt="_images/ADC1.jpg" class="align-center" src="_images/ADC1.jpg" style="width: 600px;" /></a>
+</section>
+<section id="id4">
+<h3><span class="section-number">11.3.3. </span>Kernel space ADC Read/writeExample<a class="headerlink" href="11_ADC_Operation_Guide.html#id4" title="Permalink to this heading">¶</a></h3>
+<p><strong>Steps 1：inDevice TreeinisNeed toConfigurationADCChannelofNodeAddADCChannelAttribute</strong></p>
+<div class="highlight-dts notranslate"><div class="highlight"><pre><span></span><span class="nf">my-adc-consumer</span><span class="o">@</span><span class="mi">0</span><span class="cm"> </span><span class="p">{</span>
+    <span class="kr">compatible</span> <span class="o">=</span> <span class="s">&quot;myco,my-adc-consumer&quot;</span><span class="p">;</span>
+    <span class="n">io-channels</span> <span class="o">=</span> <span class="o">&lt;&amp;</span><span class="na">saradc0</span> <span class="mi">0</span><span class="o">&gt;</span><span class="p">;</span>   <span class="cm">/* 0 IndicatesChannel 0，  0～14 */</span>
+    <span class="kr">status</span> <span class="o">=</span> <span class="s">&quot;okay&quot;</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p><strong>Steps 2：inDriverin PleaseADCChannelandReadADCValue</strong></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">my_adc_consumer</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="p">...</span><span class="w"></span>
+<span class="w">    </span><span class="k">struct</span> <span class="nc">iio_channel</span><span class="w"> </span><span class="o">*</span><span class="n">chan</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">...</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="nf">my_adc_consumer_probe</span><span class="p">(</span><span class="k">struct</span> <span class="nc">platform_device</span><span class="w"> </span><span class="o">*</span><span class="n">pdev</span><span class="p">)</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">struct</span> <span class="nc">my_adc_consumer</span><span class="w"> </span><span class="o">*</span><span class="n">priv</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">ret</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="n">priv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">devm_kzalloc</span><span class="p">(</span><span class="o">&amp;</span><span class="n">pdev</span><span class="o">-&gt;</span><span class="n">dev</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="o">*</span><span class="n">priv</span><span class="p">),</span><span class="w"> </span><span class="n">GFP_KERNEL</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">priv</span><span class="p">)</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="o">-</span><span class="n">ENOMEM</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="cm">/* Get ADC Channel */</span><span class="w"></span>
+<span class="w">    </span><span class="n">priv</span><span class="o">-&gt;</span><span class="n">chan</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">devm_iio_channel_get</span><span class="p">(</span><span class="o">&amp;</span><span class="n">pdev</span><span class="o">-&gt;</span><span class="n">dev</span><span class="p">,</span><span class="w"> </span><span class="nb">NULL</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">IS_ERR</span><span class="p">(</span><span class="n">priv</span><span class="o">-&gt;</span><span class="n">chan</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">dev_err</span><span class="p">(</span><span class="o">&amp;</span><span class="n">pdev</span><span class="o">-&gt;</span><span class="n">dev</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;iio_channel_get failed: %ld</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">PTR_ERR</span><span class="p">(</span><span class="n">priv</span><span class="o">-&gt;</span><span class="n">chan</span><span class="p">));</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">PTR_ERR</span><span class="p">(</span><span class="n">priv</span><span class="o">-&gt;</span><span class="n">chan</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="cm">/* ReadRaw Value */</span><span class="w"></span>
+<span class="w">    </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iio_read_channel_raw</span><span class="p">(</span><span class="n">priv</span><span class="o">-&gt;</span><span class="n">chan</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">val</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">dev_err</span><span class="p">(</span><span class="o">&amp;</span><span class="n">pdev</span><span class="o">-&gt;</span><span class="n">dev</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;read raw failed: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ret</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">dev_info</span><span class="p">(</span><span class="o">&amp;</span><span class="n">pdev</span><span class="o">-&gt;</span><span class="n">dev</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;ADC raw value: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">val</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">...</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="id5">
+<h3><span class="section-number">11.3.4. </span>User-Space ADC Read/Write Example<a class="headerlink" href="11_ADC_Operation_Guide.html#id5" title="Permalink to this heading">¶</a></h3>
+<p>followingExampleThrough IIO sysfs Read ChannelofRaw Valueand isVoltage（mV）。Channel 1～15   <code class="docutils literal notranslate"><span class="pre">in_voltage1_raw``～``in_voltage15_raw</span></code>，Voltage ：Voltage（mV）= Raw Value × 1500 / 4095。 ：<code class="docutils literal notranslate"><span class="pre">./Program </span> <span class="pre">&lt;Channel number&gt;</span></code>，Channel number 1～15。</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="linenos"> 2</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="linenos"> 3</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;fcntl.h&gt;</span><span class="cp"></span>
+<span class="linenos"> 4</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span><span class="cp"></span>
+<span class="linenos"> 5</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
+<span class="linenos"> 6</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;errno.h&gt;</span><span class="cp"></span>
+<span class="linenos"> 7</span>
+<span class="linenos"> 8</span><span class="cp">#define ADC_PATH &quot;/sys/bus/iio/devices/iio:device0/&quot;</span>
+<span class="linenos"> 9</span><span class="cp">#define MAX_CHANNELS 15</span>
+<span class="linenos">10</span>
+<span class="linenos">11</span><span class="kt">float</span><span class="w"> </span><span class="nf">read_adc_voltage</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">channel</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">12</span><span class="p">{</span><span class="w"></span>
+<span class="linenos">13</span><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">path</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span><span class="w"></span>
+<span class="linenos">14</span><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">buf</span><span class="p">[</span><span class="mi">32</span><span class="p">];</span><span class="w"></span>
+<span class="linenos">15</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">raw</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">16</span><span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">voltage</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">17</span>
+<span class="linenos">18</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">channel</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">channel</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">MAX_CHANNELS</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">19</span><span class="w">        </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Invalid channel: %d (1-%d)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">channel</span><span class="p">,</span><span class="w"> </span><span class="n">MAX_CHANNELS</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">20</span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mf">-1.0</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">21</span><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">22</span>
+<span class="linenos">23</span><span class="w">    </span><span class="n">snprintf</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">path</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;%sin_voltage%d_raw&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ADC_PATH</span><span class="p">,</span><span class="w"> </span><span class="n">channel</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">24</span>
+<span class="linenos">25</span><span class="w">    </span><span class="n">fd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">O_RDONLY</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">26</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">fd</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">27</span><span class="w">        </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Failed to open %s: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">strerror</span><span class="p">(</span><span class="n">errno</span><span class="p">));</span><span class="w"></span>
+<span class="linenos">28</span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mf">-1.0</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">29</span><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">30</span>
+<span class="linenos">31</span><span class="w">    </span><span class="n">memset</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">));</span><span class="w"></span>
+<span class="linenos">32</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">read</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">33</span><span class="w">        </span><span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Failed to read %s: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">strerror</span><span class="p">(</span><span class="n">errno</span><span class="p">));</span><span class="w"></span>
+<span class="linenos">34</span><span class="w">        </span><span class="n">close</span><span class="p">(</span><span class="n">fd</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">35</span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mf">-1.0</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">36</span><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">37</span>
+<span class="linenos">38</span><span class="w">    </span><span class="n">close</span><span class="p">(</span><span class="n">fd</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">39</span>
+<span class="linenos">40</span><span class="w">    </span><span class="n">raw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">atoi</span><span class="p">(</span><span class="n">buf</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">41</span><span class="w">    </span><span class="n">voltage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">raw</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">1500.0</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">4095.0</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">42</span>
+<span class="linenos">43</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">voltage</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">44</span><span class="p">}</span><span class="w"></span>
+<span class="linenos">45</span>
+<span class="linenos">46</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span><span class="w"></span>
+<span class="linenos">47</span><span class="p">{</span><span class="w"></span>
+<span class="linenos">48</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">channel</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">49</span><span class="w">    </span><span class="kt">float</span><span class="w"> </span><span class="n">voltage</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">50</span>
+<span class="linenos">51</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">argc</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">52</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Usage: %s &lt;channel&gt;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span><span class="w"></span>
+<span class="linenos">53</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Channels: 1-15</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">54</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;  1-3: SARADC0</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">55</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;  4-6: SARADC1</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">56</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;  7-9: SARADC2</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">57</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;  10-12: RTC_SARADC0</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">58</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;  13-15: RTC_SARADC1</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">59</span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">60</span><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">61</span>
+<span class="linenos">62</span><span class="w">    </span><span class="n">channel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">atoi</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span><span class="w"></span>
+<span class="linenos">63</span><span class="w">    </span><span class="n">voltage</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">read_adc_voltage</span><span class="p">(</span><span class="n">channel</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">64</span>
+<span class="linenos">65</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">voltage</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">66</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Channel %d: %.2f mV (%.3f V)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="linenos">67</span><span class="w">               </span><span class="n">channel</span><span class="p">,</span><span class="w"> </span><span class="n">voltage</span><span class="p">,</span><span class="w"> </span><span class="n">voltage</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">1000.0</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">68</span><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">69</span>
+<span class="linenos">70</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">71</span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p><strong>Run Mode Description</strong></p>
+<ol class="arabic">
+<li><p><strong> Source Code</strong>：willon Code isFile，for example <code class="docutils literal notranslate"><span class="pre">adc_read.c</span></code>。</p></li>
+<li><p><strong>Build</strong>：inHostoron the target boardUse Tools Build。Example（ is ARM  PleaseReplaceisActual Build ）：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#  BuildExample（withActualTools is ）</span>
+arm-none-linux-uclibcgnueabihf-gcc -o adc_read adc_read.c -static
+</pre></div>
+</div>
+</li>
+<li><p><strong>Run</strong>：inon the target boardExecute， Channel number 1～15。 or andChannelCorrespondence。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./adc_read &lt;Channel number&gt;
+</pre></div>
+</div>
+<p><strong>Example：</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./adc_read <span class="m">1</span>      <span class="c1"># Read SARADC0 Channel 1</span>
+./adc_read <span class="m">10</span>     <span class="c1"># Read RTC_SARADC0 Channel 10</span>
+./adc_read        <span class="c1">#  ：Channels 1-15，and 1-3/4-6/7-9/10-12/13-15 Correspondence</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Output</strong>：Success ChannelVoltage，If <code class="docutils literal notranslate"><span class="pre">Channel</span> <span class="pre">1:</span> <span class="pre">750.00</span> <span class="pre">mV</span> <span class="pre">(0.750</span> <span class="pre">V)</span></code>；Failure in stderr Output Information。</p></li>
+</ol>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="10_PWM_Operation_Guide.html" class="btn btn-neutral float-left" title="10. PWM Operation Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="12_CVI_PINMUX_Operation_Guide.html" class="btn btn-neutral float-right" title="12. CVI PINMUX Operation Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Go to Official Website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="Go to Documentation Center"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Back to top"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Go to bottom"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR code for this page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

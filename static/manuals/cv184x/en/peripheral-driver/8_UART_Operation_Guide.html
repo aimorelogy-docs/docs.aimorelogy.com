@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>8. UART Operation Guide &mdash; PeripheralDriver master Documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="9. Watchdog Operation Guide" href="9_Watchdog_Operation_Guide.html" />
+    <link rel="prev" title="7. GPIOOperation Guide" href="7_GPIO_Operation_Guide.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> PeripheralDriver
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Ethernet_Operation_Guide.html">2. Ethernet Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_USB_Operation_Guide.html">3. USBOperation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_SD_MMC_Card_Operation_Guide.html">4. SD/MMC Card Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_I2C_Operation_Guide.html">5. I2C Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_SPI_Operation_Guide.html">6. SPI Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_GPIO_Operation_Guide.html">7. GPIOOperation Guide</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="8_UART_Operation_Guide.html#">8. UART Operation Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="8_UART_Operation_Guide.html#id1">8.1. Preparation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="8_UART_Operation_Guide.html#id2">8.1.1. Kernel Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_UART_Operation_Guide.html#id3">8.1.2. Enable UART in the device tree</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_UART_Operation_Guide.html#uart-dma">8.1.3. UART Use DMA  ofDevice TreeConfiguration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_UART_Operation_Guide.html#id4">8.1.4. Pin Multiplexing</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="8_UART_Operation_Guide.html#id5">8.2. Operation Flow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="8_UART_Operation_Guide.html#id6">8.2.1. UART Loopback Test</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_UART_Operation_Guide.html#id7">8.2.2. UART Serial Communication (Terminal Transmit/Receive)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="8_UART_Operation_Guide.html#id8">8.3. UART Extended Operations（Common /   / Advanced）</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="8_UART_Operation_Guide.html#id9">8.3.1. Common Extended Operations（Basic Function Supplement）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_UART_Operation_Guide.html#id10">8.3.2. Troubleshooting Operations（Resolve Serial Port Problems）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_UART_Operation_Guide.html#id11">8.3.3. AdvancedConfigurationOperation（Adaptation to Special Scenarios）</a></li>
+<li class="toctree-l3"><a class="reference internal" href="8_UART_Operation_Guide.html#id12">8.3.4. UART Summary of Extended Operations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="8_UART_Operation_Guide.html#uart-3m">8.4. UART Output at a Specific Baud Rate (3M Example)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="8_UART_Operation_Guide.html#id13">8.5. User-Space Program Development Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="9_Watchdog_Operation_Guide.html">9. Watchdog Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_PWM_Operation_Guide.html">10. PWM Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_ADC_Operation_Guide.html">11. ADC Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_CVI_PINMUX_Operation_Guide.html">12. CVI PINMUX Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_DMA_mem_to_mem_Operation_Guide.html">13. DMA Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_Thermal_Control_Operation_Guide.html">14. Thermal Control Strategy and Test Operation Guide</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PeripheralDriver</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">8. </span>UART Operation Guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/8_UART_Operation_Guide.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="uart">
+<h1><span class="section-number">8. </span>UART Operation Guide<a class="headerlink" href="8_UART_Operation_Guide.html#uart" title="Permalink to this heading">¶</a></h1>
+<p>This documentDescriptionin CV184x on the platformConfigurationandUse UART（Serial Port）、Loopback Test、CommonBaud RateSettingswithandUser spaceProgram of Flow。</p>
+<section id="id1">
+<h2><span class="section-number">8.1. </span>Preparation<a class="headerlink" href="8_UART_Operation_Guide.html#id1" title="Permalink to this heading">¶</a></h2>
+<section id="id2">
+<h3><span class="section-number">8.1.1. </span>Kernel Requirements<a class="headerlink" href="8_UART_Operation_Guide.html#id2" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Use of SDK BuildafterkernelImage。</p></li>
+</ul>
+</section>
+<section id="id3">
+<h3><span class="section-number">8.1.2. </span>Enable UART in the device tree<a class="headerlink" href="8_UART_Operation_Guide.html#id3" title="Permalink to this heading">¶</a></h3>
+<p>inDevice Treeinwill  UART Nodeof <code class="docutils literal notranslate"><span class="pre">status</span></code>  is <code class="docutils literal notranslate"><span class="pre">&quot;okay&quot;</span></code> 。UART NodeDefinition  SDK of
+build/boards/default/dts/cv184x/cv184x_base.dtsi in。with UART1 as an example：</p>
+<div class="highlight-dts notranslate"><div class="highlight"><pre><span></span><span class="nl">uart1</span><span class="p">:</span> <span class="nf">serial</span><span class="o">@</span><span class="mi">04150000</span><span class="cm"> </span><span class="p">{</span>
+    <span class="kr">compatible</span> <span class="o">=</span> <span class="s">&quot;snps,dw-apb-uart&quot;</span><span class="p">;</span>
+    <span class="kr">reg</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mh">0x0</span> <span class="mh">0x04150000</span> <span class="mh">0x0</span> <span class="mh">0x1000</span><span class="o">&gt;</span><span class="p">;</span>
+    <span class="n">clock-frequency</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mi">25000000</span><span class="o">&gt;</span><span class="p">;</span>
+    <span class="kr">reg</span><span class="o">-</span><span class="n">shift</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">;</span>
+    <span class="kr">reg</span><span class="o">-</span><span class="n">io-width</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mi">4</span><span class="o">&gt;</span><span class="p">;</span>
+    <span class="kr">status</span> <span class="o">=</span> <span class="s">&quot;okay&quot;</span><span class="p">;</span>   <span class="cm">/* Disable is &quot;disabled&quot; */</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>ModifyafterneedRebuildDevice TreeandBurningtoDevice。</p>
+</section>
+<section id="uart-dma">
+<h3><span class="section-number">8.1.3. </span>UART Use DMA  ofDevice TreeConfiguration<a class="headerlink" href="8_UART_Operation_Guide.html#uart-dma" title="Permalink to this heading">¶</a></h3>
+<p>IfneedEnable UART DMA，need ModifyBoard-level DTS and cv184x_base.dtsi：</p>
+<ul class="simple">
+<li><p>Board-level DTS Path：build/boards/cv184x/Board Name/dts_arm/Board Name.dts（Board NameReplaceisActual ）。</p></li>
+<li><p>inBoard-level DTS of <code class="docutils literal notranslate"><span class="pre">sysdma_remap</span></code> inis UART   DMA Channel，andin  UART in the node  <code class="docutils literal notranslate"><span class="pre">dmas</span></code>、<code class="docutils literal notranslate"><span class="pre">dma-names</span></code> etc.Attribute。</p></li>
+</ul>
+<p>cv184x_base.dtsi in UART1 of DMA Example（and sysdma_remap  ）：</p>
+<div class="highlight-dts notranslate"><div class="highlight"><pre><span></span><span class="nf">sysdma_remap</span><span class="cm"> </span><span class="p">{</span>
+    <span class="n">ch-remap</span> <span class="o">=</span> <span class="o">&lt;</span><span class="na">CVI_I2S0_RX</span> <span class="na">CVI_I2S2_TX</span> <span class="na">CVI_UART1_RX</span> <span class="na">CVI_UART1_TX</span>
+        <span class="na">CVI_SPI_NOR_RX</span> <span class="na">CVI_SPI_NOR_TX</span> <span class="na">CVI_I2S2_RX</span> <span class="na">CVI_I2S3_TX</span><span class="o">&gt;</span><span class="p">;</span>
+<span class="p">};</span>
+
+<span class="nl">uart1</span><span class="p">:</span> <span class="nf">serial</span><span class="o">@</span><span class="mi">04150000</span><span class="cm"> </span><span class="p">{</span>
+    <span class="kr">compatible</span> <span class="o">=</span> <span class="s">&quot;snps,dw-apb-uart&quot;</span><span class="p">;</span>
+    <span class="kr">reg</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mh">0x0</span> <span class="mh">0x04150000</span> <span class="mh">0x0</span> <span class="mh">0x1000</span><span class="o">&gt;</span><span class="p">;</span>
+    <span class="n">clock-frequency</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mi">25000000</span><span class="o">&gt;</span><span class="p">;</span>
+    <span class="kr">reg</span><span class="o">-</span><span class="n">shift</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span><span class="p">;</span>
+    <span class="kr">reg</span><span class="o">-</span><span class="n">io-width</span> <span class="o">=</span> <span class="o">&lt;</span><span class="mi">4</span><span class="o">&gt;</span><span class="p">;</span>
+    <span class="kr">status</span> <span class="o">=</span> <span class="s">&quot;okay&quot;</span><span class="p">;</span>
+    <span class="n">dmas</span> <span class="o">=</span> <span class="o">&lt;&amp;</span><span class="na">dmac</span> <span class="mi">2</span> <span class="mi">1</span> <span class="mi">1</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;&amp;</span><span class="na">dmac</span> <span class="mi">3</span> <span class="mi">1</span> <span class="mi">1</span><span class="o">&gt;</span><span class="p">;</span>
+    <span class="n">dma-names</span> <span class="o">=</span> <span class="s">&quot;rx&quot;</span><span class="p">,</span> <span class="s">&quot;tx&quot;</span><span class="p">;</span>
+    <span class="n">capability</span> <span class="o">=</span> <span class="s">&quot;txrx&quot;</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">dmas</span></code> inofChannel numberneedand <code class="docutils literal notranslate"><span class="pre">sysdma_remap</span></code> inof ，for example CVI_UART1_RX   dmac Channel 2，CVI_UART1_TX   dmac Channel 3。ModifyafterRebuildDevice TreeandBurning。</p>
+</section>
+<section id="id4">
+<h3><span class="section-number">8.1.4. </span>Pin Multiplexing<a class="headerlink" href="8_UART_Operation_Guide.html#id4" title="Permalink to this heading">¶</a></h3>
+<p>Through cvi_pimux ToolsorDevice Treewill  GPIO PinConfigurationis UART Function（TX、RX、CTS、RTS etc.）， PinwithBoard-levelSchematicis 。</p>
+</section>
+</section>
+<section id="id5">
+<h2><span class="section-number">8.2. </span>Operation Flow<a class="headerlink" href="8_UART_Operation_Guide.html#id5" title="Permalink to this heading">¶</a></h2>
+<section id="id6">
+<h3><span class="section-number">8.2.1. </span>UART Loopback Test<a class="headerlink" href="8_UART_Operation_Guide.html#id6" title="Permalink to this heading">¶</a></h3>
+<p> VerificationSerial Port andPin ：will UART of TX and RX  ， Dataafter from Serial Port Content。</p>
+<ol class="arabic simple">
+<li><p><strong>  UART1 of TX and RX Pin。</strong></p></li>
+<li><p><strong>inTerminalExecuteLoopback TestCommands（with ttyS1 as an example）：</strong></p></li>
+</ol>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>stty -F /dev/ttyS1 <span class="m">115200</span> cs8 -cstopb -parenb
+hexdump -C &lt; /dev/ttyS1 <span class="p">&amp;</span>
+<span class="nb">echo</span> <span class="s2">&quot;LOOPBACK_TEST&quot;</span> &gt; /dev/ttyS1
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/UART3.jpg"><img alt="_images/UART3.jpg" class="align-center" src="_images/UART3.jpg" style="width: 600px;" /></a>
+<p>If ，<code class="docutils literal notranslate"><span class="pre">hexdump</span></code>  and <code class="docutils literal notranslate"><span class="pre">echo</span></code>  ofContent。</p>
+</section>
+<section id="id7">
+<h3><span class="section-number">8.2.2. </span>UART Serial Communication (Terminal Transmit/Receive)<a class="headerlink" href="8_UART_Operation_Guide.html#id7" title="Permalink to this heading">¶</a></h3>
+<p><strong>SettingsBaud Rateand （with ttyS1、115200 8N1 as an example）：</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>stty -F /dev/ttyS1 <span class="m">115200</span> cs8 -cstopb -parenb
+</pre></div>
+</div>
+<p><strong> Data：</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;Hello UART&quot;</span> &gt; /dev/ttyS1
+</pre></div>
+</div>
+<p><strong> Data（needin Terminalor Serial Port）：</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat /dev/ttyS1
+</pre></div>
+</div>
+<p><strong>View beforeSerial PortConfiguration：</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>stty -F /dev/ttyS1 -a
+</pre></div>
+</div>
+</section>
+</section>
+<section id="id8">
+<h2><span class="section-number">8.3. </span>UART Extended Operations（Common /   / Advanced）<a class="headerlink" href="8_UART_Operation_Guide.html#id8" title="Permalink to this heading">¶</a></h2>
+<p> on 、Loopback TestandViewConfiguration ，following  <strong>Common Extended Operations</strong> → <strong>Troubleshooting Operations</strong> → <strong>AdvancedConfigurationOperation</strong> of Serial Port 、 、Flow control、Data and etc.Description。ExampleinDeviceNodewith <code class="docutils literal notranslate"><span class="pre">/dev/ttyS1</span></code> as an example，Please ActualSerial PortReplace。</p>
+<section id="id9">
+<h3><span class="section-number">8.3.1. </span>Common Extended Operations（Basic Function Supplement）<a class="headerlink" href="8_UART_Operation_Guide.html#id9" title="Permalink to this heading">¶</a></h3>
+<p><strong>1. Serial PortFlow controlConfiguration（ ）</strong></p>
+<p>IfSerial Port Fileor Data ，can orSoftwareFlow control。 Flow controlneedBoard-levelSupport RTS/CTS Pinand 。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#  Flow control（RTS/CTS）</span>
+stty -F /dev/ttyS1 crtscts <span class="m">115200</span> cs8
+
+<span class="c1">#  SoftwareFlow control（XON/XOFF）</span>
+stty -F /dev/ttyS1 ixon ixoff <span class="m">115200</span> cs8
+
+<span class="c1"># Disable Flow control（Default）</span>
+stty -F /dev/ttyS1 -crtscts -ixon -ixoff
+</pre></div>
+</div>
+<p> Flow controlcan ， etc. of ；SoftwareFlow controlNo need to Pin， 。</p>
+<p><strong>2. Serial PortData and （ ）</strong></p>
+<p>Need to Serial Port of Data ，can followingMethod。</p>
+<p>  <code class="docutils literal notranslate"><span class="pre">cat</span></code> + <code class="docutils literal notranslate"><span class="pre">tee</span></code>  Data</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat /dev/ttyS1 <span class="p">|</span> tee /tmp/uart_recv.log   <span class="c1">#  Viewand </span>
+</pre></div>
+</div>
+<p><strong>3. Serial Port  /  Data（ ）</strong></p>
+<p>before  <code class="docutils literal notranslate"><span class="pre">echo</span></code>  。 File（IfFirmware、Data ） Use <code class="docutils literal notranslate"><span class="pre">cat</span></code>/<code class="docutils literal notranslate"><span class="pre">dd</span></code>， or Data。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#  FiletoSerial Port</span>
+cat /mnt/sd/data.bin &gt; /dev/ttyS1
+<span class="c1"># File ActualModify</span>
+
+<span class="c1"># fromSerial Port Dataand （ Read）</span>
+dd <span class="k">if</span><span class="o">=</span>/dev/ttyS1 <span class="nv">of</span><span class="o">=</span>/tmp/recv_bin.bin <span class="nv">bs</span><span class="o">=</span><span class="m">1024</span> <span class="nv">count</span><span class="o">=</span><span class="m">10</span>   <span class="c1"># Read 10KB</span>
+</pre></div>
+</div>
+</section>
+<section id="id10">
+<h3><span class="section-number">8.3.2. </span>Troubleshooting Operations（Resolve Serial Port Problems）<a class="headerlink" href="8_UART_Operation_Guide.html#id10" title="Permalink to this heading">¶</a></h3>
+<p><strong>1.  Serial Port and Status</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># ViewSerial PortDevice in</span>
+ls -l /dev/ttyS*
+
+<span class="c1"># ViewSerial PortDriverStatus（ 、Interrupt、 etc.， Common）</span>
+cat /proc/tty/driver/serial
+
+<span class="c1">#  Serial Port </span>
+lsof /dev/ttyS1   <span class="c1">#  Output Indicates ，can </span>
+</pre></div>
+</div>
+<p><strong>2.  Serial Port  / ResetSerial Port</strong></p>
+<p>Serial Port 、 ，can or DefaultConfiguration。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#  Serial PortInput/Output </span>
+stty -F /dev/ttyS1 flush <span class="m">0</span>    <span class="c1">#  Input </span>
+stty -F /dev/ttyS1 flush <span class="m">1</span>    <span class="c1">#  Output </span>
+
+<span class="c1"># willSerial Port is DefaultConfiguration</span>
+stty -F /dev/ttyS1 sane
+</pre></div>
+</div>
+</section>
+<section id="id11">
+<h3><span class="section-number">8.3.3. </span>AdvancedConfigurationOperation（Adaptation to Special Scenarios）<a class="headerlink" href="8_UART_Operation_Guide.html#id11" title="Permalink to this heading">¶</a></h3>
+<p><strong>1. ConfigurationSerial Port </strong></p>
+<p>before Exampleis （<code class="docutils literal notranslate"><span class="pre">-parenb</span></code>）。If ，can needSettings。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#  （even parity）</span>
+stty -F /dev/ttyS1 <span class="m">115200</span> cs8 -cstopb parenb -parodd
+
+<span class="c1">#  （odd parity）</span>
+stty -F /dev/ttyS1 <span class="m">115200</span> cs8 -cstopb parenb parodd
+
+<span class="c1">#  （Default，andbefore ）</span>
+stty -F /dev/ttyS1 <span class="m">115200</span> cs8 -cstopb -parenb
+</pre></div>
+</div>
+<p><strong>2.  Serial PortInput / Outputand （ etc.）</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># SettingsOutput etc.（Unit 0.01 seconds ），can of </span>
+stty -F /dev/ttyS1 ospeed <span class="m">115200</span> ocrnl onlcr -ocrnl -onlcr delay <span class="m">1</span>
+
+<span class="c1"># DisableInput （ ）</span>
+stty -F /dev/ttyS1 -echo
+</pre></div>
+</div>
+</section>
+<section id="id12">
+<h3><span class="section-number">8.3.4. </span>UART Summary of Extended Operations<a class="headerlink" href="8_UART_Operation_Guide.html#id12" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>CommonConfiguration</strong> ： Serial Port （rc.local or systemd）、ConfigurationFlow control（ ）、Use cat/dd  Data。</p></li>
+<li><p><strong> Operation</strong> ： Serial PortDeviceand （ls、/proc/tty/driver/serial、lsof/fuser）、 andReset（stty flush/sane）、 Verification 。</p></li>
+<li><p><strong>Advanced </strong> ：Data （tee、screen、minicom）、 、Output/ and 、Serial Port 。</p></li>
+</ul>
+<p><strong>Note</strong> ：Serial Port （Baud Rate、Flow control、 、Data / ）needand ， or ； Use screen or minicom etc.Tools； Data Use echo，Use cat/dd  can 。</p>
+</section>
+</section>
+<section id="uart-3m">
+<h2><span class="section-number">8.4. </span>UART Output at a Specific Baud Rate (3M Example)<a class="headerlink" href="8_UART_Operation_Guide.html#uart-3m" title="Permalink to this heading">¶</a></h2>
+<p> Need to 3M etc. Baud Rate ，needModifyKernelinBaud RateTableand termbits，and Device Treein UART  ， or 。</p>
+<p><strong>Steps 1：ModifyKernelBaud RateTableand termbits</strong></p>
+<ol class="arabic">
+<li><p><strong>Modify linux_5.10/drivers/tty/tty_baudrate.c</strong></p>
+<p>in <code class="docutils literal notranslate"><span class="pre">baud_table</span></code> and <code class="docutils literal notranslate"><span class="pre">baud_bits</span></code> in  3000000（Ifneed Baud Rate，will 3000000 Replaceis Value）。Example ：</p>
+</li>
+</ol>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">speed_t</span><span class="w"> </span><span class="n">baud_table</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">50</span><span class="p">,</span><span class="w"> </span><span class="mi">75</span><span class="p">,</span><span class="w"> </span><span class="mi">110</span><span class="p">,</span><span class="w"> </span><span class="mi">134</span><span class="p">,</span><span class="w"> </span><span class="mi">150</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w"> </span><span class="mi">600</span><span class="p">,</span><span class="w"> </span><span class="mi">1200</span><span class="p">,</span><span class="w"> </span><span class="mi">1800</span><span class="p">,</span><span class="w"> </span><span class="mi">2400</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="mi">4800</span><span class="p">,</span><span class="w"> </span><span class="mi">9600</span><span class="p">,</span><span class="w"> </span><span class="mi">19200</span><span class="p">,</span><span class="w"> </span><span class="mi">38400</span><span class="p">,</span><span class="w"> </span><span class="mi">57600</span><span class="p">,</span><span class="w"> </span><span class="mi">115200</span><span class="p">,</span><span class="w"> </span><span class="mi">230400</span><span class="p">,</span><span class="w"> </span><span class="mi">460800</span><span class="p">,</span><span class="w"></span>
+<span class="cp">#ifdef __sparc__</span>
+<span class="w">    </span><span class="mi">76800</span><span class="p">,</span><span class="w"> </span><span class="mi">153600</span><span class="p">,</span><span class="w"> </span><span class="mi">307200</span><span class="p">,</span><span class="w"> </span><span class="mi">614400</span><span class="p">,</span><span class="w"> </span><span class="mi">921600</span><span class="p">,</span><span class="w"> </span><span class="mi">500000</span><span class="p">,</span><span class="w"> </span><span class="mi">576000</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="mi">1000000</span><span class="p">,</span><span class="w"> </span><span class="mi">1152000</span><span class="p">,</span><span class="w"> </span><span class="mi">1500000</span><span class="p">,</span><span class="w"> </span><span class="mi">2000000</span><span class="w"></span>
+<span class="cp">#else</span>
+<span class="w">    </span><span class="mi">500000</span><span class="p">,</span><span class="w"> </span><span class="mi">576000</span><span class="p">,</span><span class="w"> </span><span class="mi">921600</span><span class="p">,</span><span class="w"> </span><span class="mi">1000000</span><span class="p">,</span><span class="w"> </span><span class="mi">1152000</span><span class="p">,</span><span class="w"> </span><span class="mi">1500000</span><span class="p">,</span><span class="w"> </span><span class="mi">2000000</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="mi">3125000</span><span class="p">,</span><span class="w"> </span><span class="mi">3000000</span><span class="p">,</span><span class="w"> </span><span class="mi">6125000</span><span class="p">,</span><span class="w"> </span><span class="mi">12500000</span><span class="w"></span>
+<span class="cp">#endif</span>
+<span class="p">};</span><span class="w"></span>
+
+<span class="k">static</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">tcflag_t</span><span class="w"> </span><span class="n">baud_bits</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">B0</span><span class="p">,</span><span class="w"> </span><span class="n">B50</span><span class="p">,</span><span class="w"> </span><span class="n">B75</span><span class="p">,</span><span class="w"> </span><span class="n">B110</span><span class="p">,</span><span class="w"> </span><span class="n">B134</span><span class="p">,</span><span class="w"> </span><span class="n">B150</span><span class="p">,</span><span class="w"> </span><span class="n">B200</span><span class="p">,</span><span class="w"> </span><span class="n">B300</span><span class="p">,</span><span class="w"> </span><span class="n">B600</span><span class="p">,</span><span class="w"> </span><span class="n">B1200</span><span class="p">,</span><span class="w"> </span><span class="n">B1800</span><span class="p">,</span><span class="w"> </span><span class="n">B2400</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">B4800</span><span class="p">,</span><span class="w"> </span><span class="n">B9600</span><span class="p">,</span><span class="w"> </span><span class="n">B19200</span><span class="p">,</span><span class="w"> </span><span class="n">B38400</span><span class="p">,</span><span class="w"> </span><span class="n">B57600</span><span class="p">,</span><span class="w"> </span><span class="n">B115200</span><span class="p">,</span><span class="w"> </span><span class="n">B230400</span><span class="p">,</span><span class="w"> </span><span class="n">B460800</span><span class="p">,</span><span class="w"></span>
+<span class="cp">#ifdef __sparc__</span>
+<span class="w">    </span><span class="n">B76800</span><span class="p">,</span><span class="w"> </span><span class="n">B153600</span><span class="p">,</span><span class="w"> </span><span class="n">B307200</span><span class="p">,</span><span class="w"> </span><span class="n">B614400</span><span class="p">,</span><span class="w"> </span><span class="n">B921600</span><span class="p">,</span><span class="w"> </span><span class="n">B500000</span><span class="p">,</span><span class="w"> </span><span class="n">B576000</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">B1000000</span><span class="p">,</span><span class="w"> </span><span class="n">B1152000</span><span class="p">,</span><span class="w"> </span><span class="n">B1500000</span><span class="p">,</span><span class="w"> </span><span class="n">B2000000</span><span class="w"></span>
+<span class="cp">#else</span>
+<span class="w">    </span><span class="n">B500000</span><span class="p">,</span><span class="w"> </span><span class="n">B576000</span><span class="p">,</span><span class="w"> </span><span class="n">B921600</span><span class="p">,</span><span class="w"> </span><span class="n">B1000000</span><span class="p">,</span><span class="w"> </span><span class="n">B1152000</span><span class="p">,</span><span class="w"> </span><span class="n">B1500000</span><span class="p">,</span><span class="w"> </span><span class="n">B2000000</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">B3125000</span><span class="p">,</span><span class="w"> </span><span class="n">B3000000</span><span class="p">,</span><span class="w"> </span><span class="n">B6125000</span><span class="p">,</span><span class="w"> </span><span class="n">B12500000</span><span class="w"></span>
+<span class="cp">#endif</span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/UART4.jpg"><img alt="_images/UART4.jpg" class="align-center" src="_images/UART4.jpg" style="width: 400px;" /></a>
+<hr class="docutils" />
+<a class="reference internal image-reference" href="_images/UART5.jpg"><img alt="_images/UART5.jpg" class="align-center" src="_images/UART5.jpg" style="width: 400px;" /></a>
+<ol class="arabic" start="2">
+<li><p><strong>Modify linux_5.10/include/uapi/asm-generic/termbits.h</strong></p>
+<ul>
+<li><p>will 3M Baud Rate Enable，and  4000000 Baud Rate（IfneedModify Baud Rate will 3000000 Replaceis Value）。</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define  B3000000 0010015</span>
+<span class="c1">// #define  B4000000 0010015</span>
+</pre></div>
+</div>
+</li>
+<li><p> of <code class="docutils literal notranslate"><span class="pre">B3000000</span></code> Definition（ Valueis 0020001 of ）， and baud_table  ofDefinition。</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// #define B3000000 0020001</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+</ol>
+<p>ModifyafterRebuildKernel。</p>
+<p><strong>Steps 2：Device Treein UART  </strong></p>
+<p>IfLoopback TestThrough ActualCommunication Outputor ， is UART Input （CLK） 。UART  not  <code class="docutils literal notranslate"><span class="pre">Baud Rate</span> <span class="pre">×</span> <span class="pre">16</span></code> 。inDevice Treeinwill  UART of <code class="docutils literal notranslate"><span class="pre">clock-frequency</span></code>  （for example is 187500000   187.5MHz），RebuildDevice TreeandBurning。</p>
+<a class="reference internal image-reference" href="_images/UART1.jpg"><img alt="_images/UART1.jpg" class="align-center" src="_images/UART1.jpg" style="width: 400px;" /></a>
+<p><strong>Steps 3：Verification 3M Baud Rate </strong></p>
+<p> 「Operation Flow」inof <strong>UART Loopback Test</strong> and <strong>UART Serial Communication (Terminal Transmit/Receive)</strong>   UART  Tests： will  UART of TX and RX  Loopback Test，orwill DeviceThroughSerial Port Tests；in <code class="docutils literal notranslate"><span class="pre">stty</span></code> inSettingsBaud Rateis 3000000（for example <code class="docutils literal notranslate"><span class="pre">stty</span> <span class="pre">-F</span> <span class="pre">/dev/ttyS1</span> <span class="pre">3000000</span> <span class="pre">cs8</span> <span class="pre">-cstopb</span> <span class="pre">-parenb</span></code>）， and Data。If / Contentand ，  3M Baud Rate 。</p>
+</section>
+<section id="id13">
+<h2><span class="section-number">8.5. </span>User-Space Program Development Example<a class="headerlink" href="8_UART_Operation_Guide.html#id13" title="Permalink to this heading">¶</a></h2>
+<p>followingExample User Serial Port Flow：EnableSerial Port、ConfigurationBaud Rateand 8N1、ExecuteRead/writeTests。</p>
+<p>ExampleContent：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">uart_config</span></code>：8N1、canConfigurationBaud Rate、 Mode、 Timeout 10 seconds</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">uart_write</span></code> / <code class="docutils literal notranslate"><span class="pre">uart_read</span></code>： and </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">main</span></code>： </p></li>
+</ul>
+<p>Please ActualDeviceNodeReplace <code class="docutils literal notranslate"><span class="pre">/dev/ttyS1</span></code>。IfKernel Support 3M Baud Rate，Pleasewill <code class="docutils literal notranslate"><span class="pre">B3000000</span></code>  is <code class="docutils literal notranslate"><span class="pre">B115200</span></code> etc.（ 「UART Output at a Specific Baud Rate (3M Example)」subsection）。</p>
+<p><strong> Flow：EnableDevice、Configuration termios、 、Disable</strong></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;fcntl.h&gt;</span><span class="cp"></span>
+<span class="linenos">  2</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;termios.h&gt;</span><span class="cp"></span>
+<span class="linenos">  3</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span><span class="cp"></span>
+<span class="linenos">  4</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="linenos">  5</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
+<span class="linenos">  6</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;errno.h&gt;</span><span class="cp"></span>
+<span class="linenos">  7</span>
+<span class="linenos">  8</span><span class="cm">/* ConfigurationSerial Port （8N1，Baud Rate ） */</span><span class="w"></span>
+<span class="linenos">  9</span><span class="kt">int</span><span class="w"> </span><span class="nf">uart_config</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">speed_t</span><span class="w"> </span><span class="n">baudrate</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos"> 10</span><span class="w">    </span><span class="k">struct</span> <span class="nc">termios</span><span class="w"> </span><span class="n">tty</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 11</span><span class="w">    </span><span class="n">memset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">tty</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">tty</span><span class="p">));</span><span class="w"></span>
+<span class="linenos"> 12</span>
+<span class="linenos"> 13</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">tcgetattr</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">tty</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos"> 14</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;GetSerial PortConfigurationFailure: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">strerror</span><span class="p">(</span><span class="n">errno</span><span class="p">));</span><span class="w"></span>
+<span class="linenos"> 15</span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 16</span><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="linenos"> 17</span>
+<span class="linenos"> 18</span><span class="w">    </span><span class="n">cfsetispeed</span><span class="p">(</span><span class="o">&amp;</span><span class="n">tty</span><span class="p">,</span><span class="w"> </span><span class="n">baudrate</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 19</span><span class="w">    </span><span class="n">cfsetospeed</span><span class="p">(</span><span class="o">&amp;</span><span class="n">tty</span><span class="p">,</span><span class="w"> </span><span class="n">baudrate</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 20</span>
+<span class="linenos"> 21</span><span class="w">    </span><span class="n">tty</span><span class="p">.</span><span class="n">c_cflag</span><span class="w"> </span><span class="o">&amp;=</span><span class="w"> </span><span class="o">~</span><span class="n">PARENB</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 22</span><span class="w">    </span><span class="n">tty</span><span class="p">.</span><span class="n">c_cflag</span><span class="w"> </span><span class="o">&amp;=</span><span class="w"> </span><span class="o">~</span><span class="n">PARODD</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 23</span><span class="w">    </span><span class="n">tty</span><span class="p">.</span><span class="n">c_cflag</span><span class="w"> </span><span class="o">&amp;=</span><span class="w"> </span><span class="o">~</span><span class="n">CSTOPB</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 24</span><span class="w">    </span><span class="n">tty</span><span class="p">.</span><span class="n">c_cflag</span><span class="w"> </span><span class="o">&amp;=</span><span class="w"> </span><span class="o">~</span><span class="n">CSIZE</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 25</span><span class="w">    </span><span class="n">tty</span><span class="p">.</span><span class="n">c_cflag</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="n">CS8</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 26</span><span class="w">    </span><span class="n">tty</span><span class="p">.</span><span class="n">c_cflag</span><span class="w"> </span><span class="o">&amp;=</span><span class="w"> </span><span class="o">~</span><span class="n">CRTSCTS</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 27</span><span class="w">    </span><span class="n">tty</span><span class="p">.</span><span class="n">c_cflag</span><span class="w"> </span><span class="o">|=</span><span class="w"> </span><span class="n">CREAD</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">CLOCAL</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 28</span>
+<span class="linenos"> 29</span><span class="w">    </span><span class="n">tty</span><span class="p">.</span><span class="n">c_lflag</span><span class="w"> </span><span class="o">&amp;=</span><span class="w"> </span><span class="o">~</span><span class="n">ICANON</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 30</span><span class="w">    </span><span class="n">tty</span><span class="p">.</span><span class="n">c_lflag</span><span class="w"> </span><span class="o">&amp;=</span><span class="w"> </span><span class="o">~</span><span class="n">ECHO</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 31</span><span class="w">    </span><span class="n">tty</span><span class="p">.</span><span class="n">c_lflag</span><span class="w"> </span><span class="o">&amp;=</span><span class="w"> </span><span class="o">~</span><span class="n">ECHOE</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 32</span><span class="w">    </span><span class="n">tty</span><span class="p">.</span><span class="n">c_lflag</span><span class="w"> </span><span class="o">&amp;=</span><span class="w"> </span><span class="o">~</span><span class="n">ISIG</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 33</span>
+<span class="linenos"> 34</span><span class="w">    </span><span class="n">tty</span><span class="p">.</span><span class="n">c_iflag</span><span class="w"> </span><span class="o">&amp;=</span><span class="w"> </span><span class="o">~</span><span class="p">(</span><span class="n">IXON</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">IXOFF</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">IXANY</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 35</span><span class="w">    </span><span class="n">tty</span><span class="p">.</span><span class="n">c_iflag</span><span class="w"> </span><span class="o">&amp;=</span><span class="w"> </span><span class="o">~</span><span class="p">(</span><span class="n">IGNBRK</span><span class="o">|</span><span class="n">BRKINT</span><span class="o">|</span><span class="n">PARMRK</span><span class="o">|</span><span class="n">ISTRIP</span><span class="o">|</span><span class="n">INLCR</span><span class="o">|</span><span class="n">IGNCR</span><span class="o">|</span><span class="n">ICRNL</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 36</span>
+<span class="linenos"> 37</span><span class="w">    </span><span class="n">tty</span><span class="p">.</span><span class="n">c_oflag</span><span class="w"> </span><span class="o">&amp;=</span><span class="w"> </span><span class="o">~</span><span class="n">OPOST</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 38</span><span class="w">    </span><span class="n">tty</span><span class="p">.</span><span class="n">c_oflag</span><span class="w"> </span><span class="o">&amp;=</span><span class="w"> </span><span class="o">~</span><span class="n">ONLCR</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 39</span>
+<span class="linenos"> 40</span><span class="w">    </span><span class="n">tty</span><span class="p">.</span><span class="n">c_cc</span><span class="p">[</span><span class="n">VTIME</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w">   </span><span class="cm">/* 10 secondsTimeout */</span><span class="w"></span>
+<span class="linenos"> 41</span><span class="w">    </span><span class="n">tty</span><span class="p">.</span><span class="n">c_cc</span><span class="p">[</span><span class="n">VMIN</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 42</span>
+<span class="linenos"> 43</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">tcsetattr</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">TCSANOW</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">tty</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos"> 44</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;SettingsSerial PortConfigurationFailure: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">strerror</span><span class="p">(</span><span class="n">errno</span><span class="p">));</span><span class="w"></span>
+<span class="linenos"> 45</span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 46</span><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="linenos"> 47</span><span class="w">    </span><span class="n">tcflush</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">TCIOFLUSH</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 48</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 49</span><span class="p">}</span><span class="w"></span>
+<span class="linenos"> 50</span>
+<span class="linenos"> 51</span><span class="kt">ssize_t</span><span class="w"> </span><span class="nf">uart_write</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">len</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos"> 52</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">fd</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="n">data</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">len</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 53</span><span class="w">    </span><span class="kt">ssize_t</span><span class="w"> </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">write</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">len</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 54</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos"> 55</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot; DataFailure: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">strerror</span><span class="p">(</span><span class="n">errno</span><span class="p">));</span><span class="w"></span>
+<span class="linenos"> 56</span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 57</span><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="linenos"> 58</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot; Success：%.*s ( ：%zdBytes)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">ret</span><span class="p">,</span><span class="w"> </span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="n">ret</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 59</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 60</span><span class="p">}</span><span class="w"></span>
+<span class="linenos"> 61</span>
+<span class="linenos"> 62</span><span class="kt">ssize_t</span><span class="w"> </span><span class="nf">uart_read</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="kt">size_t</span><span class="w"> </span><span class="n">buf_len</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos"> 63</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">fd</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="n">buf</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">buf_len</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 64</span><span class="w">    </span><span class="n">memset</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">buf_len</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 65</span><span class="w">    </span><span class="kt">ssize_t</span><span class="w"> </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">read</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="n">buf_len</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 66</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos"> 67</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot; DataFailure: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">strerror</span><span class="p">(</span><span class="n">errno</span><span class="p">));</span><span class="w"></span>
+<span class="linenos"> 68</span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 69</span><span class="w">    </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos"> 70</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot; DataTimeout（10seconds toData）</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 71</span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 72</span><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="linenos"> 73</span><span class="w">    </span><span class="n">buf</span><span class="p">[</span><span class="n">ret</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sc">&#39;\0&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 74</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot; Success：%s ( ：%zdBytes)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">buf</span><span class="p">,</span><span class="w"> </span><span class="n">ret</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 75</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 76</span><span class="p">}</span><span class="w"></span>
+<span class="linenos"> 77</span>
+<span class="linenos"> 78</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos"> 79</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">open</span><span class="p">(</span><span class="s">&quot;/dev/ttyS1&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">O_RDWR</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">O_NOCTTY</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 80</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">fd</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos"> 81</span><span class="w">        </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;EnableSerial PortttyS1Failure: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">strerror</span><span class="p">(</span><span class="n">errno</span><span class="p">));</span><span class="w"></span>
+<span class="linenos"> 82</span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 83</span><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="linenos"> 84</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;SuccessEnablettyS1，FileDescription ：%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">fd</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 85</span>
+<span class="linenos"> 86</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">uart_config</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">B3000000</span><span class="p">)</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos"> 87</span><span class="w">        </span><span class="n">close</span><span class="p">(</span><span class="n">fd</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 88</span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 89</span><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="linenos"> 90</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Serial PortConfigurationComplete（3000000 8N1）</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 91</span>
+<span class="linenos"> 92</span><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">send_buf</span><span class="p">[</span><span class="mi">64</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;Hello ttyS1! This is UART test.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 93</span><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">recv_buf</span><span class="p">[</span><span class="mi">128</span><span class="p">];</span><span class="w"></span>
+<span class="linenos"> 94</span><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos"> 95</span><span class="w">        </span><span class="n">uart_write</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">send_buf</span><span class="p">,</span><span class="w"> </span><span class="n">strlen</span><span class="p">(</span><span class="n">send_buf</span><span class="p">));</span><span class="w"></span>
+<span class="linenos"> 96</span><span class="w">        </span><span class="n">uart_read</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">recv_buf</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">recv_buf</span><span class="p">));</span><span class="w"></span>
+<span class="linenos"> 97</span><span class="w">        </span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 98</span><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="linenos"> 99</span>
+<span class="linenos">100</span><span class="w">    </span><span class="n">close</span><span class="p">(</span><span class="n">fd</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">101</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">102</span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p><strong>Run Mode Description</strong></p>
+<ol class="arabic">
+<li><p><strong> Source Code</strong>：willon Code isFile，for example <code class="docutils literal notranslate"><span class="pre">uart_demo.c</span></code>。</p></li>
+<li><p><strong>Build</strong>：inHostoron the target boardUse Tools Build。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#  BuildExample（withActualTools is ）</span>
+arm-none-linux-uclibcgnueabihf-gcc -o uart_demo uart_demo.c -static
+</pre></div>
+</div>
+</li>
+<li><p><strong>Run</strong>：willcanExecuteFileCopyto after，inon the target boardExecute。need Serial PortDeviceNode（If <code class="docutils literal notranslate"><span class="pre">/dev/ttyS1</span></code>） Read/write 。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./uart_demo
+</pre></div>
+</div>
+<p>Program  <code class="docutils literal notranslate"><span class="pre">Hello</span> <span class="pre">ttyS1!</span> <span class="pre">This</span> <span class="pre">is</span> <span class="pre">UART</span> <span class="pre">test.</span></code> and Wait （  10 seconds），canUseSerial PortToolsEnablettyS1 ofSerial Portand Data。</p>
+</li>
+<li><p><strong>ModifyDeviceandBaud Rate</strong>：Source Codein <code class="docutils literal notranslate"><span class="pre">open(&quot;/dev/ttyS1&quot;,</span> <span class="pre">...)</span></code> can isActualSerial PortNode；<code class="docutils literal notranslate"><span class="pre">uart_config(fd,</span> <span class="pre">B3000000)</span></code> can is <code class="docutils literal notranslate"><span class="pre">B115200</span></code>、<code class="docutils literal notranslate"><span class="pre">B921600</span></code> etc.（needKernelandDevice TreeSupport Baud Rate， 「 Baud RateConfiguration」）。</p></li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="7_GPIO_Operation_Guide.html" class="btn btn-neutral float-left" title="7. GPIOOperation Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="9_Watchdog_Operation_Guide.html" class="btn btn-neutral float-right" title="9. Watchdog Operation Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Go to Official Website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="Go to Documentation Center"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Back to top"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Go to bottom"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR code for this page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

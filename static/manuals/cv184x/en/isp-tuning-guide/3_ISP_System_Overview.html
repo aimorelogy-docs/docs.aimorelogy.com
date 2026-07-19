@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3. ISP System Overview &mdash; ISPTuningGuide master documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="4. Overall Overview of Image Quality Tuning" href="4_Overview_of_Image_Quality_Tuning.html" />
+    <link rel="prev" title="2. PQ Tuning Document Relationship Description" href="2_PQ_Tuning_Text_Files_Relationship_Description.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> ISPTuningGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">directory</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_PQ_Tuning_Text_Files_Relationship_Description.html">2. PQ Tuning Document Relationship Description</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="3_ISP_System_Overview.html#">3. ISP System Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3_ISP_System_Overview.html#id1">3.1. Function Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_ISP_System_Overview.html#id2">3.2. Functional Block Diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_ISP_System_Overview.html#id4">3.3. Module Overview</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="4_Overview_of_Image_Quality_Tuning.html">4. Overall Overview of Image Quality Tuning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_Module_Function.html">5. Module Functions</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ISPTuningGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">3. </span>ISP System Overview</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/3_ISP_System_Overview.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="isp">
+<h1><span class="section-number">3. </span>ISP System Overview<a class="headerlink" href="3_ISP_System_Overview.html#isp" title="Permalink to this heading">¶</a></h1>
+<section id="id1">
+<h2><span class="section-number">3.1. </span>Function Overview<a class="headerlink" href="3_ISP_System_Overview.html#id1" title="Permalink to this heading">¶</a></h2>
+<p>The ISP system supports standard image processing functions, including basic functions such as defective-pixel correction, lens shading correction, auto exposure, auto white balance, auto focus, and demosaicing. It also supports advanced processing functions such as noise reduction, WDR, and DRC.</p>
+<p>The main image processing functions supported by the ISP are as follows:</p>
+<ul class="simple">
+<li><p>Cropping (Crop)</p></li>
+<li><p>Black Levelcorrection (BLC)</p></li>
+<li><p>wide dynamic rangeFunction (WDR)</p></li>
+<li><p>Static and dynamic defective-pixel correction (DPC)</p></li>
+<li><p>Crosstalk removal (CrossTalk Removal)</p></li>
+<li><p>Bayer noise reduction (BNR)</p></li>
+<li><p>Lens shading correction (LSC)</p></li>
+<li><p>Dynamic range compression (DRC)</p></li>
+<li><p>Demosaicprocess</p></li>
+<li><p>Purple-fringe correction (PFR)</p></li>
+<li><p>Color correction (CCM)</p></li>
+<li><p>Gammacorrection</p></li>
+<li><p>Automatic dehazing (Dehaze)</p></li>
+<li><p>3D color lookup-table enhancement (CLUT)</p></li>
+<li><p>Local contrast enhancement (LDCI)</p></li>
+<li><p>Global contrast enhancement (DCI)</p></li>
+<li><p>Image sharpening (Sharpen)</p></li>
+<li><p>3D noise reduction (3DNR)</p></li>
+<li><p>Chroma noise processing (CNR)</p></li>
+<li><p>Auto exposure (AE)</p></li>
+<li><p>Auto focus (AF)</p></li>
+<li><p>Auto white balance (AWB)</p></li>
+<li><p>3A-related statistics output</p></li>
+<li><p>Brightness shading support</p></li>
+</ul>
+</section>
+<section id="id2">
+<h2><span class="section-number">3.2. </span>Functional Block Diagram<a class="headerlink" href="3_ISP_System_Overview.html#id2" title="Permalink to this heading">¶</a></h2>
+<p>The overall ISP structure is shown in <a class="reference internal" href="3_ISP_System_Overview.html#id3"><span class="std std-numref">Figure 3.1</span></a> as shown.the relevant informationdocumentationofnextsectioncontentwilldescribethe relevant informationmoduleofFunction, module (BLC, LSC, AWB, CCMandCLUT) ofParametercalibrationmethodandimagequalityTuning Method.</p>
+<figure class="align-default" id="id3">
+<a class="reference internal image-reference" href="_images/ISPSys002.png"><img alt="_images/ISPSys002.png" src="_images/ISPSys002.png" style="width: 4.82292in; height: 8.78007in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 3.1 </span><span class="caption-text">Overall ISP structure</span><a class="headerlink" href="3_ISP_System_Overview.html#id3" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="id4">
+<h2><span class="section-number">3.3. </span>Module Overview<a class="headerlink" href="3_ISP_System_Overview.html#id4" title="Permalink to this heading">¶</a></h2>
+<p>the relevant informationdocumentationofnextsectioncontentwilldescribethe relevant informationmoduleofFunctionandimagequalityTuning Method.ISP module functionsthe relevant informationas <a class="reference internal" href="3_ISP_System_Overview.html#id5"><span class="std std-numref">Table 3.1</span></a> as shown.</p>
+<table class="colwidths-given longtable docutils align-default" id="id5">
+<caption><span class="caption-number">Table 3.1 </span><span class="caption-text">ISP module functions</span><a class="headerlink" href="3_ISP_System_Overview.html#id5" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 80%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Module Name</p></th>
+<th class="head"><p>Function</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Crop</p></td>
+<td><p>Crops the input image.</p></td>
+</tr>
+<tr class="row-odd"><td><p>BLC</p></td>
+<td><p>Black Levelcorrection.</p></td>
+</tr>
+<tr class="row-even"><td><p>WDR</p></td>
+<td><p>the relevant informationfusionofwide dynamic rangeFunction.</p></td>
+</tr>
+<tr class="row-odd"><td><p>DPC</p></td>
+<td><p>Detects and corrects static and dynamic defective pixels.</p></td>
+</tr>
+<tr class="row-even"><td><p>CrossTalkRemoval</p></td>
+<td><p>Corrects the imbalance between the Gr and Gb channels.</p></td>
+</tr>
+<tr class="row-odd"><td><p>BNR</p></td>
+<td><p>Performs image denoising in the Bayer domain.</p></td>
+</tr>
+<tr class="row-even"><td><p>LSC</p></td>
+<td><p>Provides lens shading correction.</p></td>
+</tr>
+<tr class="row-odd"><td><p>DRC</p></td>
+<td><p>adjustimageofdynamic range, the relevant informationindisplaydeviceaboveofdisplayeffectandthe relevant information.</p></td>
+</tr>
+<tr class="row-even"><td><p>Demosaic</p></td>
+<td><p>Converts Bayer-format raw images to RGB images.</p></td>
+</tr>
+<tr class="row-odd"><td><p>PFR</p></td>
+<td><p>Removes purple fringes and improves purple-fringe artifacts at image edges.</p></td>
+</tr>
+<tr class="row-even"><td><p>CCM</p></td>
+<td><p>Uses a 3x3 matrix to correct colors.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Gamma</p></td>
+<td><p>Adjusts overall image brightness according to the gamma curve.</p></td>
+</tr>
+<tr class="row-even"><td><p>Dehaze</p></td>
+<td><p>Performs dehazing for hazy scenes and improves image contrast and sharpness.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CLUT</p></td>
+<td><p>Uses a 3D LUT for complex color adjustments, including brightness and saturation adjustment.</p></td>
+</tr>
+<tr class="row-even"><td><p>CSC</p></td>
+<td><p>Converts RGB images to YUV images using a 3x3 matrix and vector offsets.</p></td>
+</tr>
+<tr class="row-odd"><td><p>LDCI</p></td>
+<td><p>the relevant informationinforimagethe relevant informationstatisticsofmethod, enhancementimageofthe relevant informationcontrast, samewhencanadjustmentfilteringParameter, the relevant informationadjustthe relevant informationcontrastenhancementofthe relevant informationrange.</p></td>
+</tr>
+<tr class="row-even"><td><p>DCI</p></td>
+<td><p>the relevant informationinhistogramthe relevant informationofmethodthe relevant informationhighoverallimageofcontrastanddark areaofdetail.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Sharpen</p></td>
+<td><p>the relevant informationimageofsharpeningFunction, increaseimagesharpness.</p></td>
+</tr>
+<tr class="row-even"><td><p>3DNR</p></td>
+<td><p>Removes image noise through temporal filtering, preserves image detail, and reduces the encoding bitrate.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CNR</p></td>
+<td><p>Removes chroma noise from images and reduces color blotches.</p></td>
+</tr>
+<tr class="row-even"><td><p>CA</p></td>
+<td><p>Provides saturation adjustment and thermal-imaging colorization.</p></td>
+</tr>
+<tr class="row-odd"><td><p>CA_Lite</p></td>
+<td><p>Provides saturation adjustment.</p></td>
+</tr>
+<tr class="row-even"><td><p>AE</p></td>
+<td><p>Provides auto-exposure statistics to software for Sensor adjustment and automatic exposure.</p></td>
+</tr>
+<tr class="row-odd"><td><p>AWB</p></td>
+<td><p>Provides global and regional statistics to software for Sensor adjustment and automatic white balance.</p></td>
+</tr>
+<tr class="row-even"><td><p>AF</p></td>
+<td><p>This module outputs image-sharpness statistics, which software uses to perform auto focus.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="2_PQ_Tuning_Text_Files_Relationship_Description.html" class="btn btn-neutral float-left" title="2. PQ Tuning Document Relationship Description" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="4_Overview_of_Image_Quality_Tuning.html" class="btn btn-neutral float-right" title="4. Overall Overview of Image Quality Tuning" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Go to the official website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="Go to the documentation center"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Top of page"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Bottom of page"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR code for this page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

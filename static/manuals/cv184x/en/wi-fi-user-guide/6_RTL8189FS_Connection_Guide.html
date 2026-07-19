@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>6. CV184x RTL8189FS WiFi  FlowDescription &mdash; Wi-FiUserGuide master Documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="7. Tests" href="7_Tests.html" />
+    <link rel="prev" title="5. Wi-Fi Operation" href="5_Wi-Fi_Basic_Operation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Wi-FiUserGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Overview.html">2. Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Configuration_Description.html">3. Configuration Description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_Wi-Fi_Tools.html">4. Wi-FiTools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_Wi-Fi_Basic_Operation.html">5. Wi-Fi Operation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="6_RTL8189FS_Connection_Guide.html#">6. CV184x RTL8189FS WiFi  FlowDescription</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="6_RTL8189FS_Connection_Guide.html#id1">6.1. Build and Artifacts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_RTL8189FS_Connection_Guide.html#wifi">6.2. Board-Level Wi-Fi Connection Flow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="6_RTL8189FS_Connection_Guide.html#wpa-supplicanthostapd">6.2.1. Prepare wpa_supplicant, hostapd, and Libraries (Development Host)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_RTL8189FS_Connection_Guide.html#sta-wpa-supplicant">6.2.2. STA：wpa_supplicant Configuration File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_RTL8189FS_Connection_Guide.html#sta">6.2.3. STA：Board-Side Operation Steps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_RTL8189FS_Connection_Guide.html#id2">6.2.4. STA：Verification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_RTL8189FS_Connection_Guide.html#ap-hostapd">6.2.5. AP Mode: hostapd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_RTL8189FS_Connection_Guide.html#ap-eth0-nat">6.2.6. AP  Steps（  eth0   NAT Uplink）</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="7_Tests.html">7. Tests</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Wi-FiUserGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">6. </span>CV184x RTL8189FS WiFi  FlowDescription</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/6_RTL8189FS_Connection_Guide.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cv184x-rtl8189fs-wifi">
+<h1><span class="section-number">6. </span>CV184x RTL8189FS WiFi  FlowDescription<a class="headerlink" href="6_RTL8189FS_Connection_Guide.html#cv184x-rtl8189fs-wifi" title="Permalink to this heading">¶</a></h1>
+<p>This documentDescriptionin cv1842 etc. CV184x Platform  RTL8189FS SDIO WiFi afterkernelandDevice TreeConfiguration （ 《Configuration Description》Chapter ）、Build Path，withand STA（wpa_supplicant）and AP（hostapd）User spaceToolsofPackageandBoard-levelUseFlow。</p>
+<section id="id1">
+<h2><span class="section-number">6.1. </span>Build and Artifacts<a class="headerlink" href="6_RTL8189FS_Connection_Guide.html#id1" title="Permalink to this heading">¶</a></h2>
+<p>Execute <code class="docutils literal notranslate"><span class="pre">build_osdrv</span></code> （or etc. Commands）after， Generate <code class="docutils literal notranslate"><span class="pre">8189fs.ko</span></code>。Copyto rootfs ofPath  osdrv of <code class="docutils literal notranslate"><span class="pre">INSTALL_DIR</span></code>  ，for example：</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>install/soc_cv1842hp_wevb_0014a_emmc/rootfs/system/ko/3rd/8189fs.ko
+</pre></div>
+</div>
+<p>willon Pathunderof <code class="docutils literal notranslate"><span class="pre">8189fs.ko</span></code> Copyto canAccessContents（If <code class="docutils literal notranslate"><span class="pre">/mnt/sd/</span></code>）。Ifalreadyin menuconfig in Install the wireless driver ko，Image can alreadyInclude Module， No need to Copy。</p>
+</section>
+<section id="wifi">
+<h2><span class="section-number">6.2. </span>Board-Level Wi-Fi Connection Flow<a class="headerlink" href="6_RTL8189FS_Connection_Guide.html#wifi" title="Permalink to this heading">¶</a></h2>
+<section id="wpa-supplicanthostapd">
+<h3><span class="section-number">6.2.1. </span>Prepare wpa_supplicant, hostapd, and Libraries (Development Host)<a class="headerlink" href="6_RTL8189FS_Connection_Guide.html#wpa-supplicanthostapd" title="Permalink to this heading">¶</a></h3>
+<p> Description：<code class="docutils literal notranslate"><span class="pre">wpa_supplicant</span></code> and hostapd  ，  hostap  BuildafterofInstallTree；SDK in Contentsis <code class="docutils literal notranslate"><span class="pre">ramdisk/rootfs/public/wifi/musl_arm/</span></code> （and <code class="docutils literal notranslate"><span class="pre">packages_arch=musl_arm</span></code>  ）。No need to under  hostapd Install ，and wpa  ，from ContentsCopy can。</p>
+<p>If rootfs  on Tools，in onPackage PleaseNote：FAT  of SD  not ，needCopy of so， Copy File 。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /path/to/your/sdk   <span class="c1"># ReplaceisActual SDK  Contents</span>
+<span class="nv">W</span><span class="o">=</span>ramdisk/rootfs/public/wifi/musl_arm
+rm -rf wifi_tools
+mkdir -p wifi_tools
+<span class="c1"># STA</span>
+cp <span class="nv">$W</span>/usr/sbin/wpa_supplicant <span class="nv">$W</span>/usr/sbin/wpa_cli <span class="nv">$W</span>/usr/sbin/wpa_passphrase wifi_tools/
+<span class="c1"># AP（and wpa  Contents， Build ）</span>
+cp <span class="nv">$W</span>/usr/sbin/hostapd wifi_tools/
+<span class="c1"># If incan andPackage：hostapd_cli</span>
+<span class="nb">test</span> -f <span class="nv">$W</span>/usr/sbin/hostapd_cli <span class="o">&amp;&amp;</span> cp <span class="nv">$W</span>/usr/sbin/hostapd_cli wifi_tools/
+cp <span class="nv">$W</span>/usr/lib/libnl-3.so.200.26.0 wifi_tools/
+cp <span class="nv">$W</span>/usr/lib/libnl-genl-3.so.200.26.0 wifi_tools/
+cp <span class="nv">$W</span>/usr/lib/libnl-route-3.so.200.26.0 wifi_tools/
+cp wifi_tools/libnl-3.so.200.26.0 wifi_tools/libnl-3.so.200
+cp wifi_tools/libnl-genl-3.so.200.26.0 wifi_tools/libnl-genl-3.so.200
+cp wifi_tools/libnl-route-3.so.200.26.0 wifi_tools/libnl-route-3.so.200
+<span class="nb">cd</span> wifi_tools
+tar -cvf ../wifi_tools.tar .
+</pre></div>
+</div>
+<p>willGenerateof <code class="docutils literal notranslate"><span class="pre">wifi_tools.tar</span></code> Copyto canAccessContents（If U  /SD of <code class="docutils literal notranslate"><span class="pre">/mnt/sd/</span></code>）。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p> in <code class="docutils literal notranslate"><span class="pre">200.26.0</span></code> with Tree Actual <code class="docutils literal notranslate"><span class="pre">usr/lib/libnl-*.so.*</span></code> File is ；If  libnl，need Modify <code class="docutils literal notranslate"><span class="pre">cp</span></code> of File 。</p>
+</div>
+</section>
+<section id="sta-wpa-supplicant">
+<h3><span class="section-number">6.2.2. </span>STA：wpa_supplicant Configuration File<a class="headerlink" href="6_RTL8189FS_Connection_Guide.html#sta-wpa-supplicant" title="Permalink to this heading">¶</a></h3>
+<p>in can Contents  <code class="docutils literal notranslate"><span class="pre">wpa_supplicant.conf</span></code> （for example <code class="docutils literal notranslate"><span class="pre">/mnt/sd/wpa_supplicant.conf</span></code>），ContentExample（SSID/Password ActualModify）：</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>network={
+    ssid=&quot;111&quot;
+    psk=&quot;1234qwer&quot;
+    key_mgmt=WPA-PSK
+}
+</pre></div>
+</div>
+</section>
+<section id="sta">
+<h3><span class="section-number">6.2.3. </span>STA：Board-Side Operation Steps<a class="headerlink" href="6_RTL8189FS_Connection_Guide.html#sta" title="Permalink to this heading">¶</a></h3>
+<p>following  <code class="docutils literal notranslate"><span class="pre">wifi_tools.tar</span></code> and <code class="docutils literal notranslate"><span class="pre">wpa_supplicant.conf</span></code>  in <code class="docutils literal notranslate"><span class="pre">/mnt/sd/</span></code>，  <code class="docutils literal notranslate"><span class="pre">8189fs.ko</span></code> alreadyCopyto （If <code class="docutils literal notranslate"><span class="pre">/mnt/sd/</span></code>）。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. Load WiFi Driver</span>
+insmod /mnt/sd/8189fs.ko
+
+<span class="c1"># 2. Extract wpa_supplicant、hostapd and </span>
+mkdir -p /mnt/sd/wifi
+<span class="nb">cd</span> /mnt/sd/wifi
+tar -xvf /mnt/sd/wifi_tools.tar
+
+<span class="c1"># 3. Settings Pathand  wpa_supplicant（STA）</span>
+<span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/mnt/sd/wifi
+/mnt/sd/wifi/wpa_supplicant -B -i wlan0 -c /mnt/sd/wpa_supplicant.conf
+
+<span class="c1"># 4. Wait seconds laterGet IP</span>
+sleep <span class="m">5</span>
+udhcpc -i wlan0
+
+<span class="c1"># 5. View wlan0 Statusand IP</span>
+ifconfig wlan0
+</pre></div>
+</div>
+<p>If <code class="docutils literal notranslate"><span class="pre">udhcpc</span></code>  ，can Hotspot  DHCP； HotspotNetwork Segmentis <code class="docutils literal notranslate"><span class="pre">192.168.43.x</span></code>，can Configuration：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ifconfig wlan0 <span class="m">192</span>.168.43.100 netmask <span class="m">255</span>.255.255.0 up
+route add default gw <span class="m">192</span>.168.43.1
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h3><span class="section-number">6.2.4. </span>STA：Verification<a class="headerlink" href="6_RTL8189FS_Connection_Guide.html#id2" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ifconfig</span> <span class="pre">wlan0</span></code>   <code class="docutils literal notranslate"><span class="pre">inet</span> <span class="pre">addr</span></code> and <code class="docutils literal notranslate"><span class="pre">UP</span> <span class="pre">BROADCAST</span> <span class="pre">RUNNING</span></code>。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ping</span> <span class="pre">192.168.43.1</span></code> （orHotspotGateway）canVerification ；IfHotspot Network，can  <code class="docutils literal notranslate"><span class="pre">ping</span> <span class="pre">8.8.8.8</span></code> Verification 。</p></li>
+</ul>
+</section>
+<section id="ap-hostapd">
+<h3><span class="section-number">6.2.5. </span>AP Mode: hostapd<a class="headerlink" href="6_RTL8189FS_Connection_Guide.html#ap-hostapd" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p> ：andon ，alreadyfrom <code class="docutils literal notranslate"><span class="pre">$W/usr/sbin/hostapd</span></code> Insert <code class="docutils literal notranslate"><span class="pre">wifi_tools.tar</span></code>，Extractafter  <code class="docutils literal notranslate"><span class="pre">/mnt/sd/wifi/hostapd</span></code>。</p></li>
+<li><p> ：and wpa_supplicant  of libnl   so，Settings <code class="docutils literal notranslate"><span class="pre">LD_LIBRARY_PATH=/mnt/sd/wifi</span></code>  can。</p></li>
+</ul>
+<p>in  <code class="docutils literal notranslate"><span class="pre">/mnt/sd/</span></code> under  <code class="docutils literal notranslate"><span class="pre">hostapd.conf</span></code> （<code class="docutils literal notranslate"><span class="pre">interface=</span></code> andActual AP Ethernet Port ；SSID/PasswordPlease ActualModify）：</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>interface=wlan1
+driver=nl80211
+ssid=MyAP
+hw_mode=g
+channel=6
+country_code=CN
+ieee80211d=1
+
+auth_algs=1
+wmm_enabled=1
+ignore_broadcast_ssid=0
+
+wpa=2
+wpa_passphrase=12345678
+wpa_key_mgmt=WPA-PSK
+wpa_pairwise=TKIP
+rsn_pairwise=CCMP
+ieee80211w=0
+</pre></div>
+</div>
+</section>
+<section id="ap-eth0-nat">
+<h3><span class="section-number">6.2.6. </span>AP  Steps（  eth0   NAT Uplink）<a class="headerlink" href="6_RTL8189FS_Connection_Guide.html#ap-eth0-nat" title="Permalink to this heading">¶</a></h3>
+<p> ：<code class="docutils literal notranslate"><span class="pre">wlan0</span></code>  is STA  Hotspot（If <code class="docutils literal notranslate"><span class="pre">192.168.43.0/24</span></code>），<code class="docutils literal notranslate"><span class="pre">eth0</span></code> is or on （If <code class="docutils literal notranslate"><span class="pre">192.168.137.0/24</span></code>）；in <code class="docutils literal notranslate"><span class="pre">wlan1</span></code> on  AP，under Terminal  <code class="docutils literal notranslate"><span class="pre">wlan1</span></code> → NAT → <code class="docutils literal notranslate"><span class="pre">eth0</span></code>  。If <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">route</span></code> in in  <code class="docutils literal notranslate"><span class="pre">wlan0</span></code> of default Routing， and“Default  <code class="docutils literal notranslate"><span class="pre">eth0</span></code> Uplink” ，can DefaultRouting（GatewayandInterfacewith  <code class="docutils literal notranslate"><span class="pre">ip</span> <span class="pre">route</span></code> is ）。</p>
+<p><code class="docutils literal notranslate"><span class="pre">udhcpd.conf</span></code> （ in <code class="docutils literal notranslate"><span class="pre">/mnt/sd/udhcpd.conf</span></code>；Network Segmentcan Definition）：</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>start 192.168.1.100
+end 192.168.1.200
+interface wlan1
+max_leases 20
+
+option subnet 255.255.255.0
+option router 192.168.1.1
+option dns 8.8.8.8
+</pre></div>
+</div>
+<p>ExecutefollowingCommandsConfigurationForwarding ：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>/mnt/sd/wifi
+
+<span class="c1"># Delete STA   default，  eth0 of default（Uplink ActualModify）</span>
+ip route del default via <span class="m">192</span>.168.43.1 dev wlan0
+
+<span class="c1">#   IPv4 Forwarding</span>
+<span class="nb">echo</span> <span class="m">1</span> &gt; /proc/sys/net/ipv4/ip_forward
+
+<span class="c1"># NAT：Ifalready in not Add（Uplink  eth0  ActualModify）</span>
+iptables -t nat -C POSTROUTING -o eth0 -j MASQUERADE <span class="m">2</span>&gt;/dev/null <span class="o">||</span> <span class="se">\</span>
+  iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+
+<span class="c1"># Forwarding </span>
+iptables -P FORWARD ACCEPT
+iptables -F FORWARD
+iptables -A FORWARD -i wlan1 -j ACCEPT
+iptables -A FORWARD -o wlan1 -j ACCEPT
+
+<span class="c1"># hostapd Need toRun Contents</span>
+mkdir -p /var/run/hostapd
+
+killall wpa_supplicant <span class="m">2</span>&gt;/dev/null
+
+<span class="c1"># AP Local Host IP mustand udhcpd in option router  </span>
+ifconfig wlan1 <span class="m">192</span>.168.1.1 netmask <span class="m">255</span>.255.255.0 up
+
+/mnt/sd/wifi/hostapd -B /mnt/sd/hostapd.conf
+udhcpd /mnt/sd/udhcpd.conf
+</pre></div>
+</div>
+<p>udhcpd Description：IfSystem  udhcpd need  rootfs or  dnsmasq；before can  -f； need  leases File（IfExecute touch /var/lib/misc/udhcpd.leases，PathwithLocal Host udhcpd –help is ）。</p>
+<p>  DHCP  ：under DevicecanUse  IP（192.168.1.x，Gateway 192.168.1.1，  255.255.255.0）。</p>
+<p>If  STA、  wlan0 of default Routing，can  ip route del；192.168.43.1 and wlan0  Example。iptables and ip_forward needKernelEnable netfilter   rootfs   iptables。</p>
+<p> ：Execute killall hostapd；If  udhcpd   killall udhcpd（or  PID  ）。</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="5_Wi-Fi_Basic_Operation.html" class="btn btn-neutral float-left" title="5. Wi-Fi Operation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="7_Tests.html" class="btn btn-neutral float-right" title="7. Tests" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Go to Official Website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="Go to Documentation Center"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Back to top"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Go to bottom"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR code for this page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3. CVITEK SDK Cyber Security Precautions for Secondary Development &mdash; CyberSecurityPrecautionsforSDKSecondaryDevelopment master Documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="2. Overview" href="2_Overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> CyberSecurityPrecautionsforSDKSecondaryDevelopment
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Overview.html">2. Overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#">3. CVITEK SDK Cyber Security Precautions for Secondary Development</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#u-boot">3.1. u-boot Usage Precautions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#id1">3.1.1. Serial Port</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#id2">3.1.2. u-boot Commands</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#linux">3.2. Linux Cyber Security Precautions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#root">3.2.1. root Account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#id3">3.2.2. File Permissions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#id4">3.3. Linux Driver Cyber Security Precautions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#id5">3.3.1. Serial Port</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#id6">3.4. Application Development Security Precautions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#cipher">3.4.1. Cipher Driver</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#id7">3.5. Other Security Precautions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#id8">3.5.1. Bare-Chip Burning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#sd-u">3.5.2. SD Card/USB Drive Mount Permissions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#jtag">3.5.3. JTAG</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#alios">3.6. AliOS Development and Usage Precautions</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CyberSecurityPrecautionsforSDKSecondaryDevelopment</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">3. </span>CVITEK SDK Cyber Security Precautions for Secondary Development</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/3_Cyber_Security_Precautions_for_SDK_Secondary_Development.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cvitek-sdk">
+<h1><span class="section-number">3. </span>CVITEK SDK Cyber Security Precautions for Secondary Development<a class="headerlink" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#cvitek-sdk" title="Permalink to this headline">¶</a></h1>
+<section id="u-boot">
+<h2><span class="section-number">3.1. </span>u-boot Usage Precautions<a class="headerlink" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#u-boot" title="Permalink to this headline">¶</a></h2>
+<section id="id1">
+<h3><span class="section-number">3.1.1. </span>Serial Port<a class="headerlink" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#id1" title="Permalink to this headline">¶</a></h3>
+<p>CVITEK SDKinu-bootserial portfunctiondefaultisenable. inu-bootexecuteflowin, u-bootwilletc.wait foronesecondstimemakedeveloperscaninexecutestepsegmentthroughpressclickpresskeymethodinterruptu-bootexecuteprocesswithremaininu-boot stepsegmentperform debug. If processinno hasanypressclickpresskey eventoccur, onesecondsafterthenwillcontinueu-bootbootflow. </p>
+<p>inproductionreleaseproduct, canwillthisconfigurecancel, withreachcannotinu-bootstepsegmentthroughserial portdebugcurrent, specificimplementmethodas follows: </p>
+<p>Step 1. Enable build/boards/{processor_name}/{board_name}/u-boot/{board_name}_defconfig (according to eachproductnamingmaywillhasnotsamefile namecall, this exampleinis cvitek_cv1842hp_wevb_0014a_spinand_defconfig). modifyCONFIG_BOOTDELAYconfigurevalueis"-2". </p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>CONFIG_IDENT_STRING=&quot;cvitek_cv184x&quot;
+CONFIG_DISTRO_DEFAULTS=y
+CONFIG_BOOTDELAY=-2
+# CONFIG_DISPLAY_CPUINFO is not set
+</pre></div>
+</div>
+<p>Step 2. Recompile u-boot</p>
+</section>
+<section id="id2">
+<h3><span class="section-number">3.1.2. </span>u-boot Commands<a class="headerlink" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#id2" title="Permalink to this headline">¶</a></h3>
+<p>u-bootunderprovideallowmultipledevelopersperform developmentwithdebugcommand, for example: md, mw, setenv, saveenvetc.. butthesecommandinproduction productinandnon-ismust. canselectretainnoneconcernsystemsecuritycommand, andwillothercommanddelete. </p>
+<p>for examplewant todelete md/mwcommand, specificimplementmethodas follows: </p>
+<p>Enable /u-boot-2021.10/cmd/Makefile, becausemd/mw specificimplementcodeisinmem.cMedium</p>
+<p>thereforedirectlyconnectwillbelowshowexampleinobj-$(CONFIG_CMD_MEMORY) += mem.ocomment outordelete</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">obj</span><span class="o">-</span><span class="n">$</span><span class="p">(</span><span class="n">CONFIG_LOGBUFFER</span><span class="p">)</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">log</span><span class="p">.</span><span class="n">o</span><span class="w"></span>
+<span class="n">obj</span><span class="o">-</span><span class="n">$</span><span class="p">(</span><span class="n">CONFIG_ID_EEPROM</span><span class="p">)</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">mac</span><span class="p">.</span><span class="n">o</span><span class="w"></span>
+<span class="n">obj</span><span class="o">-</span><span class="n">$</span><span class="p">(</span><span class="n">CONFIG_CMD_MD5SUM</span><span class="p">)</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">md5sum</span><span class="p">.</span><span class="n">o</span><span class="w"></span>
+<span class="cp">#obj-$(CONFIG_CMD_MEMORY) += mem.o</span>
+<span class="n">obj</span><span class="o">-</span><span class="n">$</span><span class="p">(</span><span class="n">CONFIG_CMD_IO</span><span class="p">)</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">io</span><span class="p">.</span><span class="n">o</span><span class="w"></span>
+<span class="n">obj</span><span class="o">-</span><span class="n">$</span><span class="p">(</span><span class="n">CONFIG_CMD_MFSL</span><span class="p">)</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">mfsl</span><span class="p">.</span><span class="n">o</span><span class="w"></span>
+</pre></div>
+</div>
+<p>orismodify /u-boot-2021.10/cmd/Kconfig, willdefaultconfigureis"n". </p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>config CMD_MEMORY
+   bool &quot;md, mm, mw, cp, cmp, base, loop, ip_update&quot;
+   default n
+   help
+    Memory commands.
+       md - memory display
+       mm - memory modify (auto-incrementing address)
+       mw - memory write (fill)
+       cp - memory copy
+       cmp - memory compare
+       base - print or set address offset
+       loop - initialize loop on address range
+       ip_update - sync ip from mem 0x400038C/900 to uboot env
+</pre></div>
+</div>
+<p>The procedure for deleting other commands is similar.</p>
+</section>
+</section>
+<section id="linux">
+<h2><span class="section-number">3.2. </span>Linux Cyber Security Precautions<a class="headerlink" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#linux" title="Permalink to this headline">¶</a></h2>
+<section id="root">
+<h3><span class="section-number">3.2.1. </span>root Account<a class="headerlink" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#root" title="Permalink to this headline">¶</a></h3>
+<p>In a production product, need toforrootuserdosecuritynessmodify, usercan determinechangedefaultpasswordorisProhibit root Login through the Shell. The procedure is as follows:</p>
+<ul>
+<li><p>Change the Password</p>
+<p>Step 1. executeshellcommand "passwd"changepassword. </p>
+<p>Step 2. will/etc/shadowcopyoutto (can throughmountSDcardorisnetwork) </p>
+<p>Step 3. willshadowfilecopyto/ramdisk/rootfs/overlay/{processor_name}/etc under. </p>
+<p>Step 4. recompilerootfsfile system (command:  <code class="docutils literal notranslate"><span class="pre">pack_rootfs</span></code>), andwillrootfs.spinor re-newprogram intoplatform. </p>
+</li>
+<li><p>Prohibit root Login through the Shell</p>
+<p>Step 1. Modify the following file in the SDK package: /ramdisk/rootfs/overlay/{processor_name}/etc/passwd, willcontent</p>
+<p><code class="docutils literal notranslate"><span class="pre">root:x:0:0:root:/root:/bin/sh</span></code></p>
+<p>change to : </p>
+<p><code class="docutils literal notranslate"><span class="pre">root:x:0:0:root:/root:/bin/false</span></code></p>
+<p>Step 2. recompilerootfsfile system (command:  <code class="docutils literal notranslate"><span class="pre">pack_rootfs</span></code>), andwillrootfs.spinorre-newprogram intoplatform. </p>
+</li>
+</ul>
+</section>
+<section id="id3">
+<h3><span class="section-number">3.2.2. </span>File Permissions<a class="headerlink" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#id3" title="Permalink to this headline">¶</a></h3>
+<p>CVITEK SDK defaultuseSquashFSfile system,  usercannotforpreloadedfile systemperform writeordeletemoveoperation, therebythistoprotectionsystemstability. </p>
+</section>
+</section>
+<section id="id4">
+<h2><span class="section-number">3.3. </span>Linux Driver Cyber Security Precautions<a class="headerlink" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#id4" title="Permalink to this headline">¶</a></h2>
+<section id="id5">
+<h3><span class="section-number">3.3.1. </span>Serial Port<a class="headerlink" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#id5" title="Permalink to this headline">¶</a></h3>
+<p>developersinlinuxincan throughserial porttododebug, If need toavoidserial portbeinvalidconnectrisk of entering, determineserial portinproductinnotthenuse, theninfactory shipmentwhencandisableserial port. specificimplementmethodas follows: </p>
+<p>Step 1. Enable build/boards/{processor_name}/{board_name}/dts /{processor_name}/ {processor_name}_base.dtsi (according to eachproductnamingmaywillhasnotsamefile namecall, this exampleiniscv184x), modify as followsshowexamplecode, </p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  uart0: serial@04140000 {
+              compatible = &quot;snps,dw-apb-uart&quot;;
+              reg = &lt;0x0 0x04140000 0x0 0x1000&gt;;
+              clock-frequency = &lt;25000000&gt;;
+              reg-shift = &lt;2&gt;;
+              reg-io-width = &lt;4&gt;;
+-             status = &quot;okay&quot;;
++             status = &quot;disabled&quot;;
+     };
+</pre></div>
+</div>
+<p>Step 2. Recompile Linux</p>
+</section>
+</section>
+<section id="id6">
+<h2><span class="section-number">3.4. </span>Application Development Security Precautions<a class="headerlink" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#id6" title="Permalink to this headline">¶</a></h2>
+<section id="cipher">
+<h3><span class="section-number">3.4.1. </span>Cipher Driver<a class="headerlink" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#cipher" title="Permalink to this headline">¶</a></h3>
+<p>CIPHER isJingshi Intelligentnumbermediaprocessingplatformprovidesecurityalgorithmmodule, provides symmetric encryption/decryption algorithms including  AES/DES/SM4, Asymmetric Encryption/Decryption AlgorithmsRSA Random Number Generation, anddigest algorithmincludingHASH, HMAC, customercan used to audiovideobitstreamperform encryption/decryptionprotection, authenticationuservalidnessetc.scene. 
+For details, see "CVITEK CIPHER API Reference". </p>
+</section>
+</section>
+<section id="id7">
+<h2><span class="section-number">3.5. </span>Other Security Precautions<a class="headerlink" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#id7" title="Permalink to this headline">¶</a></h2>
+<section id="id8">
+<h3><span class="section-number">3.5.1. </span>Bare-Chip Burning<a class="headerlink" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#id8" title="Permalink to this headline">¶</a></h3>
+<p>CVITEK SDKpacketprovideSD, USBbare chipburningfunction, recommendinactualproductinwillbare chipburningfunctiondisable. SD, USBbare-chip burningfunctioncanthroughhardwareondesignperform disable. </p>
+</section>
+<section id="sd-u">
+<h3><span class="section-number">3.5.2. </span>SD Card/USB Drive Mount Permissions<a class="headerlink" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#sd-u" title="Permalink to this headline">¶</a></h3>
+<p>If developmentproducthaveSD cardorisUdisketc.removable storage deviceconnectwhen using the interface, recommendmountstoredevicefile systembeforeaddon"-o noexec"Parameters, to avoidmalicious third partyprogramruntherebycausesystemdamage. </p>
+</section>
+<section id="jtag">
+<h3><span class="section-number">3.5.3. </span>JTAG<a class="headerlink" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#jtag" title="Permalink to this headline">¶</a></h3>
+<p>recommendinactualproductonremoveJTAGconnectport, to avoidmalicioustamperchangesystemconfigureandcausesystemdamage. </p>
+</section>
+</section>
+<section id="alios">
+<h2><span class="section-number">3.6. </span>AliOS Development and Usage Precautions<a class="headerlink" href="3_Cyber_Security_Precautions_for_SDK_Secondary_Development.html#alios" title="Permalink to this headline">¶</a></h2>
+<p>Refer to the AliOS open-source documentation <a class="reference external" href="https://github.com/alibaba/AliOS-Things/tree/master/documentation">https://github.com/alibaba/AliOS-Things/tree/master/documentation</a></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="2_Overview.html" class="btn btn-neutral float-left" title="2. Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Visit official website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="Go to Documentation Center"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Top of page"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Bottom of page"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR Code for This Page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

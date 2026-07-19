@@ -1,0 +1,3360 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2. MIPI User Guide &mdash; MIPIUserGuide master Documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="1. Disclaimer" href="1_disclaimer.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> MIPIUserGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="2_MIPI_User_Guide.html#">2. MIPI User Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_MIPI_User_Guide.html#id1">2.1. Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_MIPI_User_Guide.html#id2">2.2. Key Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_MIPI_User_Guide.html#id3">2.3. Function Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_MIPI_User_Guide.html#api">2.4. API Reference</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#cvi-mipi-set-hs-mode">2.4.1. CVI_MIPI_SET_HS_MODE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#cvi-mipi-set-dev-attr">2.4.2. CVI_MIPI_SET_DEV_ATTR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#cvi-mipi-reset-sensor">2.4.3. CVI_MIPI_RESET_SENSOR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#cvi-mipi-unreset-sensor">2.4.4. CVI_MIPI_UNRESET_SENSOR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#cvi-mipi-reset-mipi">2.4.5. CVI_MIPI_RESET_MIPI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#cvi-mipi-enable-sensor-clock">2.4.6. CVI_MIPI_ENABLE_SENSOR_CLOCK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#cvi-mipi-disable-sensor-clock">2.4.7. CVI_MIPI_DISABLE_SENSOR_CLOCK</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#cvi-mipi-set-crop-top">2.4.8. CVI_MIPI_SET_CROP_TOP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#cvi-mipi-set-wdr-manual">2.4.9. CVI_MIPI_SET_WDR_MANUAL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#cvi-mipi-set-lvds-fp-vs">2.4.10. CVI_MIPI_SET_LVDS_FP_VS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#mipi-tx-cfg">2.4.11. mipi_tx_cfg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#mipi-tx-send-cmd">2.4.12. mipi_tx_send_cmd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#mipi-tx-recv-cmd">2.4.13. mipi_tx_recv_cmd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#mipi-tx-enable">2.4.14. mipi_tx_enable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#mipi-tx-disable">2.4.15. mipi_tx_disable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#mipi-tx-set-hs-settle">2.4.16. mipi_tx_set_hs_settle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#mipi-tx-get-hs-settle">2.4.17. mipi_tx_get_hs_settle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#mipi-tx-suspend">2.4.18. mipi_tx_suspend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#mipi-tx-resume">2.4.19. mipi_tx_resume</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2_MIPI_User_Guide.html#id14">2.5. Data Types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#cvi-mipi-ioc-magic">2.5.1. CVI_MIPI_IOC_MAGIC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#mipi-lane-num">2.5.2. MIPI_LANE_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#wdr-vc-num">2.5.3. WDR_VC_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#sync-code-num">2.5.4. SYNC_CODE_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#bt-demux-num">2.5.5. BT_DEMUX_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#mipi-demux-num">2.5.6. MIPI_DEMUX_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#input-mode-e">2.5.7. input_mode_e</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#img-size-s">2.5.8. img_size_s</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#rx-mac-clk-e">2.5.9. rx_mac_clk_e</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#cam-pll-freq-e">2.5.10. cam_pll_freq_e</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#mclk-pll-s">2.5.11. mclk_pll_s</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#raw-data-type-e">2.5.12. raw_data_type_e</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#mipi-wdr-mode-e">2.5.13. mipi_wdr_mode_e</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#wdr-mode-e">2.5.14. wdr_mode_e</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#lvds-sync-mode-e">2.5.15. lvds_sync_mode_e</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#lvds-bit-endian">2.5.16. lvds_bit_endian</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#lvds-vsync-type-e">2.5.17. lvds_vsync_type_e</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#lvds-fid-type-e">2.5.18. lvds_fid_type_e</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#lvds-fid-type-s">2.5.19. lvds_fid_type_s</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#lvds-vsync-type-s">2.5.20. lvds_vsync_type_s</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#lvds-dev-attr-s">2.5.21. lvds_dev_attr_s</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#dphy-s">2.5.22. dphy_s</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#mipi-demux-info-s">2.5.23. mipi_demux_info_s</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#mipi-dev-attr-s">2.5.24. mipi_dev_attr_s</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#manaul-wdr-attr-s">2.5.25. manaul_wdr_attr_s</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#ttl-pin-func-e">2.5.26. ttl_pin_func_e</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#ttl-src-e">2.5.27. ttl_src_e</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#bt-demux-mode-e">2.5.28. bt_demux_mode_e</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#bt-demux-sync-s">2.5.29. bt_demux_sync_s</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#bt-demux-attr-s">2.5.30. bt_demux_attr_s</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#ttl-dev-attr-s">2.5.31. ttl_dev_attr_s</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#combo-dev-attr-s">2.5.32. combo_dev_attr_s</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#crop-top-s">2.5.33. crop_top_s</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#manual-wdr-s">2.5.34. manual_wdr_s</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#vsync-gen-s">2.5.35. vsync_gen_s</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#lane-max-num">2.5.36. LANE_MAX_NUM</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#output-mode-e">2.5.37. output_mode_e</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#video-mode-e">2.5.38. video_mode_e</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#output-format-e">2.5.39. output_format_e</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#sync-info-s">2.5.40. sync_info_s</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#combo-dev-cfg-s">2.5.41. combo_dev_cfg_s</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#cmd-info-s">2.5.42. cmd_info_s</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#get-cmd-info-s">2.5.43. get_cmd_info_s</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#hs-settle-s">2.5.44. hs_settle_s</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2_MIPI_User_Guide.html#proc">2.6. Procinformation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#mipi-rx-proc">2.6.1. MIPI_RX Procinformation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2_MIPI_User_Guide.html#faq">2.7. FAQ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#land-id">2.7.1. 1.6.1.   Land idhow to configure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#id59">2.7.2. MIPIfrequencydescription</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_MIPI_User_Guide.html#manual-wdr">2.7.3. Manual WDRmodeusedescription</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MIPIUserGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">2. </span>MIPI User Guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/2_MIPI_User_Guide.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="mipi">
+<h1><span class="section-number">2. </span>MIPI User Guide<a class="headerlink" href="2_MIPI_User_Guide.html#mipi" title="Permalink to this heading">¶</a></h1>
+<section id="id1">
+<h2><span class="section-number">2.1. </span>Overview<a class="headerlink" href="2_MIPI_User_Guide.html#id1" title="Permalink to this heading">¶</a></h2>
+<p>MIPI Rx can receive differential and DC (TTL) interface data, convert it to pixel data, and pass it to the next ISP module. Differential signals support MIPI-CSI input. DC signals support Sensor RAW12, BT1120, BT656, and BT601.</p>
+</section>
+<section id="id2">
+<h2><span class="section-number">2.2. </span>Important Concepts<a class="headerlink" href="2_MIPI_User_Guide.html#id2" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>MIPI</p></li>
+</ul>
+<p>The Mobile Industry Processor Interface (MIPI) is a communication interface that uses the D-PHY transmission specification at the physical layer and CSI-2 at the protocol layer.</p>
+<ul class="simple">
+<li><p>Lane</p></li>
+</ul>
+<p>The physical layer uses a pair of high-speed differential lines to connect the transmitter and receiver. A lane can carry a clock or data. 1C4D means one clock lane and four data lanes.</p>
+<ul class="simple">
+<li><p>LVDS</p></li>
+</ul>
+<p>Low Voltage Differential Signaling (LVDS) here generally refers to the sub-LVDS and HiSPi variants developed from LVDS, which distinguish blanking and active data through synchronization codes.</p>
+<ul class="simple">
+<li><p>Synchronization Code</p></li>
+</ul>
+<p>MIPI-CSI uses standard short packets as synchronization signals. LVDS uses sync codes as synchronization signals. LVDS has two synchronization modes:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Use SOF/EOF to indicate the start and end of a frame.</p></li>
+<li><p>Use SOL/EOL to indicate the start and end of a line.</p></li>
+</ul>
+</div></blockquote>
+<p><cite>Figure 1-1 SOF/EOF/SOL/EOL Synchronization</cite></p>
+<img alt="_images/1-1.png" class="align-center" src="_images/1-1.png" />
+<ul class="simple">
+<li><p>Use SAV invalid and EAV invalid to indicate the start and end of VBLANK. Use SAV valid and EAV valid to indicate the start and end of valid data (information line, H.OB, and pixel data).</p></li>
+</ul>
+<p><cite>Figure 1-2 SAV/EAV Synchronization</cite></p>
+<img alt="_images/1-2.png" class="align-center" src="_images/1-2.png" />
+<ul class="simple">
+<li><p>DOI</p></li>
+</ul>
+<p>SONY interleaved WDR mode, fully named Digital Overlap.</p>
+</section>
+<section id="id3">
+<h2><span class="section-number">2.3. </span>Function Description<a class="headerlink" href="2_MIPI_User_Guide.html#id3" title="Permalink to this heading">¶</a></h2>
+<p>MIPI RX supports one MIPI-CSI input with up to four lanes or two inputs with up to two lanes each. The interface supports lane swapping and P/N swapping for differential signals. When using two differential inputs, MIPIRX# pins 0 to 2 must be in one input group and pins 3 to 5 in the other. MIPI RX also supports parallel inputs such as sensor TTL, BT1120, BT656, and BT601, and supports lane-function swapping except for the clock. The lane distribution is shown below:</p>
+<p><cite>Table 1-1 BT Interface Distribution. BGA packages support VI0 to VI2; QFN packages support VI0.</cite></p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>VIO</p></th>
+<th class="head"><p>PAD NAME</p></th>
+<th class="head"><p>VI1</p></th>
+<th class="head"><p>PAD NAME</p></th>
+<th class="head"><p>VI2</p></th>
+<th class="head"><p>PAD NAME</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VIO_CLK</p></td>
+<td><p>MIPIRX4N</p></td>
+<td><p>VI1_CLK</p></td>
+<td><p>VIVO_CLK</p></td>
+<td><p>VI2_CLK</p></td>
+<td><p>VIDO_CLK</p></td>
+</tr>
+<tr class="row-odd"><td><p>VI0_D[0]</p></td>
+<td><p>MIPIRX4P</p></td>
+<td><p>VI1_D[0]</p></td>
+<td><p>VIVO_D0</p></td>
+<td><p>VI2_D[0]</p></td>
+<td><p>VIVO_D0</p></td>
+</tr>
+<tr class="row-even"><td><p>VI0_D[1]</p></td>
+<td><p>MIPIRX3N</p></td>
+<td><p>VI1_D[1]</p></td>
+<td><p>VIVO_D1</p></td>
+<td><p>VI2_D[1]</p></td>
+<td><p>VIVO_D1</p></td>
+</tr>
+<tr class="row-odd"><td><p>VI0_D[2]</p></td>
+<td><p>MIPIRX3P</p></td>
+<td><p>VI1_D[2]</p></td>
+<td><p>VIVO_D2</p></td>
+<td><p>VI2_D[2]</p></td>
+<td><p>VIVO_D2</p></td>
+</tr>
+<tr class="row-even"><td><p>VI0_D[3]</p></td>
+<td><p>MIPIRX2N</p></td>
+<td><p>VI1_D[3]</p></td>
+<td><p>VIVO_D3</p></td>
+<td><p>VI2_D[3]</p></td>
+<td><p>VIVO_D3</p></td>
+</tr>
+<tr class="row-odd"><td><p>VI0_D[4]</p></td>
+<td><p>MIPIRX2P</p></td>
+<td><p>VI1_D[4]</p></td>
+<td><p>VIVO_D4</p></td>
+<td><p>VI2_D[4]</p></td>
+<td><p>VIVO_D4</p></td>
+</tr>
+<tr class="row-even"><td><p>VI0_D[5]</p></td>
+<td><p>MIPIRX1N</p></td>
+<td><p>VI1_D[5]</p></td>
+<td><p>VIVO_D5</p></td>
+<td><p>VI2_D[5]</p></td>
+<td><p>VIVO_D5</p></td>
+</tr>
+<tr class="row-odd"><td><p>VI0_D[6]</p></td>
+<td><p>MIPIRX1P</p></td>
+<td><p>VI1_D[6]</p></td>
+<td><p>VIVO_D6</p></td>
+<td><p>VI2_D[6]</p></td>
+<td><p>VIVO_D6</p></td>
+</tr>
+<tr class="row-even"><td><p>VI0_D[7]</p></td>
+<td><p>MIPIRX0N</p></td>
+<td><p>VI1_D[7]</p></td>
+<td><p>VIVO_D7</p></td>
+<td><p>VI2_D[7]</p></td>
+<td><p>VIVO_D7</p></td>
+</tr>
+<tr class="row-odd"><td><p>VI0_D[8]</p></td>
+<td><p>MIPIRX0P</p></td>
+<td><p>VI1_D[8]</p></td>
+<td><p>VIVO_D8</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>VI0_D[9]</p></td>
+<td><p>MIPI_TXM0</p></td>
+<td><p>VI1_D[9]</p></td>
+<td><p>VIVO_D9</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>VI0_D[10]</p></td>
+<td><p>MIPI_TXP0</p></td>
+<td><p>VI1_D[10]</p></td>
+<td><p>VIVO_D10</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>VI0_D[11]</p></td>
+<td><p>MIPI_TXM1</p></td>
+<td><p>VI1_D[11]</p></td>
+<td><p>MIPIRX5N</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>VI0_D[12]</p></td>
+<td><p>MIPI_TXP1</p></td>
+<td><p>VI1_D[12]</p></td>
+<td><p>MIPIRX5P</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>VI0_D[13]</p></td>
+<td><p>MIPI_TXM2</p></td>
+<td><p>VI1_D[13]</p></td>
+<td><p>MIPIRX4N</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>VI0_D[14]</p></td>
+<td><p>MIPI_TXP2</p></td>
+<td><p>VI1_D[14]</p></td>
+<td><p>MIPIRX4P</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p>VI1_D[15]</p></td>
+<td><p>MIPIRX3N</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>VI1_D[16]</p></td>
+<td><p>MIPIRX3P</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td></td>
+<td></td>
+<td><p>VI1_D[17]</p></td>
+<td><p>MIPIRX2N</p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td></td>
+<td><p>VI1_D[18]</p></td>
+<td><p>MIPIRX2P</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>MIPI RX supports MIPI-CSI demultiplexing (CSI Demux) and can receive channel data with different channel IDs.</p>
+<p><cite>Figure 1-3 MIPI-CSI Channel IDs</cite></p>
+<img alt="_images/1-3.png" class="align-center" src="_images/1-3.png" />
+<p>MIPI RX supports BT-interface demultiplexing (BT Demux). The input packs data from different channels in BT656 byte-interleaved format; MIPI RX restores each channel and extracts valid data with the corresponding synchronization code. This mode supports only single-edge sampling (SDR).</p>
+<p><cite>Figure 1-4 Inputs Supported by BT Demux Mode</cite></p>
+<img alt="_images/1-4.png" class="align-center" src="_images/1-4.png" />
+</section>
+<section id="api">
+<h2><span class="section-number">2.4. </span>API Reference<a class="headerlink" href="2_MIPI_User_Guide.html#api" title="Permalink to this heading">¶</a></h2>
+<p>MIPI Rx provides sensor-timing integration and an ioctl interface. The available commands are as follows:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#cvi-mipi-set-hs-mode">CVI_MIPI_SET_HS_MODE</a>: Set the MIPI lane distribution mode.</p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#cvi-mipi-set-dev-attr">CVI_MIPI_SET_DEV_ATTR</a> :Set MIPI and parallel-interface device attributes.</p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#cvi-mipi-reset-sensor">CVI_MIPI_RESET_SENSOR</a> :Reset the sensor. </p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#cvi-mipi-unreset-sensor">CVI_MIPI_UNRESET_SENSOR</a> :Release sensor reset.</p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#cvi-mipi-reset-mipi">CVI_MIPI_RESET_MIPI</a> :Reset MIPI Rx.</p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#cvi-mipi-enable-sensor-clock">CVI_MIPI_ENABLE_SENSOR_CLOCK</a>: Enable the SENSOR clock.</p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#cvi-mipi-disable-sensor-clock">CVI_MIPI_DISABLE_SENSOR_CLOCK</a> :Disable SENSORclock. </p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#cvi-mipi-set-crop-top">CVI_MIPI_SET_CROP_TOP</a> :Discard the first N lines of each frame. </p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#cvi-mipi-set-wdr-manual">CVI_MIPI_SET_WDR_MANUAL</a> :Enable WDR manual mode.</p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#cvi-mipi-set-lvds-fp-vs">CVI_MIPI_SET_LVDS_FP_VS</a>: Set the VSYNC generation point in LVDS.</p></li>
+</ul>
+<p>MIPI Tx provides display-panel and cascade integration. The available functions are as follows:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#mipi-tx-cfg">mipi_tx_cfg</a> :Configure the MIPI TX device.</p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#mipi-tx-send-cmd">mipi_tx_send_cmd</a> :Send a command to MIPI TX.</p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#mipi-tx-recv-cmd">mipi_tx_recv_cmd</a> :Receive a command from MIPI TX.</p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#mipi-tx-enable">mipi_tx_enable</a> :Enable MIPI TX.</p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#mipi-tx-disable">mipi_tx_disable</a> :Disable MIPI TX.</p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#mipi-tx-set-hs-settle">mipi_tx_set_hs_settle</a> :Set the HS settle configuration.</p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#mipi-tx-get-hs-settle">mipi_tx_get_hs_settle</a> :Get the HS settle configuration.</p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#mipi-tx-suspend">mipi_tx_suspend</a> :Suspend MIPI TX.</p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#mipi-tx-resume">mipi_tx_resume</a> :Resume MIPI TX.</p></li>
+</ul>
+<section id="cvi-mipi-set-hs-mode">
+<span id="id4"></span><h3><span class="section-number">2.4.1. </span>CVI_MIPI_SET_HS_MODE<a class="headerlink" href="2_MIPI_User_Guide.html#cvi-mipi-set-hs-mode" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>This function has been replaced by CVI_MIPI_SET_DEV_ATTR.</p>
+</section>
+<section id="cvi-mipi-set-dev-attr">
+<span id="id5"></span><h3><span class="section-number">2.4.2. </span>CVI_MIPI_SET_DEV_ATTR<a class="headerlink" href="2_MIPI_User_Guide.html#cvi-mipi-set-dev-attr" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>Set MIPI and parallel-interface device attributes.</p>
+<p>[Parameters]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define CVI_MIPI_SET_DEV_ATTR _IOW(CVI_MIPI_IOC_MAGIC, 0x01, struct combo_dev_attr_t)</span>
+</pre></div>
+</div>
+<p>[Definition]</p>
+<p>Pointer to a struct combo_dev_attr_t.</p>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>Failure; errno is set.</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Processor Differences]</p>
+<p>None</p>
+<p>[Requirements]</p>
+<p>Header file: cvi_vip_cif.h</p>
+<p>[Note]</p>
+<ul class="simple">
+<li><p>Before configuring CVI_MIPI_SET_DEV_ATTR, use the ISP interface to enable the MIPI_RX clock. See the related ISP documentation for details.</p></li>
+<li><p>exceptconfigureCVI_MIPI_SET_DEV_ATTRbefore, alsoneed toconfigurewithunderconnectport. </p></li>
+<li><p>Reset MIPI: use CVI_MIPI_RESET_MIPI.</p></li>
+<li><p>Enable the Sensor clock: use CVI_MIPI_ENABLE_SENSOR_CLOCK.</p></li>
+<li><p>Reset the Sensor: use CVI_MIPI_RESET_SENSOR.</p></li>
+<li><p>Release Sensor reset: use CVI_MIPI_UNRESET_SENSOR.</p></li>
+<li><p>recommendconfigureflowas follows:</p>
+<ol class="arabic simple">
+<li><p>Enable the ISP clock.</p></li>
+<li><p>Reset the connected Sensor.</p></li>
+<li><p>Reset MIPI Rx.</p></li>
+<li><p>Configure MIPI Rx device attributes.</p></li>
+<li><p>Enable the clock connected to the Sensor.</p></li>
+<li><p>Release reset for the connected Sensor.</p></li>
+</ol>
+</li>
+<li><p>recommendexitprogramas follows:</p>
+<ol class="arabic simple">
+<li><p>Reset the connected Sensor.</p></li>
+<li><p>Disable the clock connected to the Sensor.</p></li>
+<li><p>Reset MIPI Rx.</p></li>
+<li><p>Disable the ISP clock.</p></li>
+</ol>
+</li>
+<li><p>Operating the Sensor reset and clock signal lines affects every Sensor connected to those lines.</p></li>
+</ul>
+<p>[Related data types and interfaces]</p>
+<ul class="simple">
+<li><p>CVI_MIPI_RESET_MIPI</p></li>
+<li><p>CVI_MIPI_ENABLE_SENSOR_CLOCK disables the ISP clock.</p></li>
+<li><p>CVI_MIPI_DISABLE_SENSOR_CLOCK</p></li>
+<li><p>CVI_MIPI_RESET_SENSOR</p></li>
+<li><p>CVI_MIPI_UNRESET_SENSOR</p></li>
+</ul>
+</section>
+<section id="cvi-mipi-reset-sensor">
+<span id="id6"></span><h3><span class="section-number">2.4.3. </span>CVI_MIPI_RESET_SENSOR<a class="headerlink" href="2_MIPI_User_Guide.html#cvi-mipi-reset-sensor" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>Reset the sensor</p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define CVI_MIPI_RESET_SENSOR _IOW(CVI_MIPI_IOC_MAGIC, 0x05, unsigned int)</span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<p>unsigned int.  Sensorresetbitssignallinenumber. </p>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>Failure; errno is set.</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Processor Differences]</p>
+<p>None</p>
+<p>[Requirements]</p>
+<p>Header file: cvi_vip_cif.h</p>
+<p>[Note]</p>
+<ul class="simple">
+<li><p>Sensorresetbitssignalbindincorrespondingdts. </p></li>
+</ul>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="nl">mipi_rx</span><span class="p">:</span><span class="w"> </span><span class="n">cif</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">compatible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;cvitek,cif&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">reg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mh">0x0</span><span class="w"> </span><span class="mh">0x0a0c2000</span><span class="w"> </span><span class="mh">0x0</span><span class="w"> </span><span class="mh">0x2000</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;</span><span class="mh">0x0</span><span class="w"> </span><span class="mh">0x0a0d0000</span><span class="w"> </span><span class="mh">0x0</span><span class="w"> </span><span class="mh">0x1000</span><span class="o">&gt;</span><span class="p">,</span><span class="o">&lt;</span><span class="mh">0x0</span><span class="w"> </span><span class="mh">0x0a0c4000</span><span class="w"> </span><span class="mh">0x0</span><span class="w"> </span><span class="mh">0x2000</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">reg</span><span class="o">-</span><span class="n">names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;csi_mac0&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;csi_wrap0&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;csi_mac1&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">interrupts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="n">GIC_SPI</span><span class="w"> </span><span class="mi">155</span><span class="w"> </span><span class="n">IRQ_TYPE_LEVEL_HIGH</span><span class="o">&gt;</span><span class="p">,</span><span class="w"></span>
+<span class="w">               </span><span class="o">&lt;</span><span class="n">GIC_SPI</span><span class="w"> </span><span class="mi">156</span><span class="w"> </span><span class="n">IRQ_TYPE_LEVEL_HIGH</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">interrupt</span><span class="o">-</span><span class="n">names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;csi0&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;csi1&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">snsr</span><span class="o">-</span><span class="n">reset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="n">porta</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">GPIO_ACTIVE_LOW</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="n">porta</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">GPIO_ACTIVE_LOW</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">resets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="n">rst</span><span class="w"> </span><span class="n">RST_CSIPHY0</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="n">rst</span><span class="w"> </span><span class="n">RST_CSIPHY1</span><span class="o">&gt;</span><span class="p">,</span><span class="w"></span>
+<span class="w">         </span><span class="o">&lt;&amp;</span><span class="n">rst</span><span class="w"> </span><span class="n">RST_CSIPHY0RST_APB</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="n">rst</span><span class="w"> </span><span class="n">RST_CSIPHY1RST_APB</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">reset</span><span class="o">-</span><span class="n">names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;phy0&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;phy1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;phy-apb0&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;phy-apb1&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">clocks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="n">clk</span><span class="w"> </span><span class="n">CV181X_CLK_CAM0</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="n">clk</span><span class="w"> </span><span class="n">CV181X_CLK_CAM1</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="n">clk</span><span class="w"> </span><span class="n">CV181X_CLK_SRC_VIP_SYS_2</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">clock</span><span class="o">-</span><span class="n">names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;clk_cam0&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;clk_cam1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;clk_sys_2&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="cvi-mipi-unreset-sensor">
+<span id="id7"></span><h3><span class="section-number">2.4.4. </span>CVI_MIPI_UNRESET_SENSOR<a class="headerlink" href="2_MIPI_User_Guide.html#cvi-mipi-unreset-sensor" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>Release sensor reset.</p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define CVI_MIPI_UNRESET_SENSOR _IOW(CVI_MIPI_IOC_MAGIC, 0x06, unsigned int)</span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<p>unsigned int.  Sensorresetbitssignallinenumber. </p>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>Failure; errno is set.</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Processor Differences]</p>
+<p>None</p>
+<p>[Requirements]</p>
+<p>Header file: cvi_vip_cif.h</p>
+<p>[Note]</p>
+<ul class="simple">
+<li><p>Sensorresetbitssignalbindincorrespondingdts. </p></li>
+</ul>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="nl">mipi_rx</span><span class="p">:</span><span class="w"> </span><span class="n">cif</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">compatible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;cvitek,cif&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">reg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="mh">0x0</span><span class="w"> </span><span class="mh">0x0a0c2000</span><span class="w"> </span><span class="mh">0x0</span><span class="w"> </span><span class="mh">0x2000</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;</span><span class="mh">0x0</span><span class="w"> </span><span class="mh">0x0a0d0000</span><span class="w"> </span><span class="mh">0x0</span><span class="w"> </span><span class="mh">0x1000</span><span class="o">&gt;</span><span class="p">,</span><span class="w"></span>
+<span class="w">          </span><span class="o">&lt;</span><span class="mh">0x0</span><span class="w"> </span><span class="mh">0x0a0c4000</span><span class="w"> </span><span class="mh">0x0</span><span class="w"> </span><span class="mh">0x2000</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">reg</span><span class="o">-</span><span class="n">names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;csi_mac0&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;csi_wrap0&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;csi_mac1&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">interrupts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;</span><span class="n">GIC_SPI</span><span class="w"> </span><span class="mi">155</span><span class="w"> </span><span class="n">IRQ_TYPE_LEVEL_HIGH</span><span class="o">&gt;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                  </span><span class="o">&lt;</span><span class="n">GIC_SPI</span><span class="w"> </span><span class="mi">156</span><span class="w"> </span><span class="n">IRQ_TYPE_LEVEL_HIGH</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">interrupt</span><span class="o">-</span><span class="n">names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;csi0&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;csi1&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">snsr</span><span class="o">-</span><span class="n">reset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="n">porta</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">GPIO_ACTIVE_LOW</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="n">porta</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="n">GPIO_ACTIVE_LOW</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">resets</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="n">rst</span><span class="w"> </span><span class="n">RST_CSIPHY0</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="n">rst</span><span class="w"> </span><span class="n">RST_CSIPHY1</span><span class="o">&gt;</span><span class="p">,</span><span class="w"></span>
+<span class="w">            </span><span class="o">&lt;&amp;</span><span class="n">rst</span><span class="w"> </span><span class="n">RST_CSIPHY0RST_APB</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="n">rst</span><span class="w"> </span><span class="n">RST_CSIPHY1RST_APB</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">reset</span><span class="o">-</span><span class="n">names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;phy0&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;phy1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;phy-apb0&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;phy-apb1&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">clocks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="n">clk</span><span class="w"> </span><span class="n">CV181X_CLK_CAM0</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="n">clk</span><span class="w"> </span><span class="n">CV181X_CLK_CAM1</span><span class="o">&gt;</span><span class="p">,</span><span class="w"> </span><span class="o">&lt;&amp;</span><span class="n">clk</span><span class="w"> </span><span class="n">CV181X_CLK_SRC_VIP_SYS_2</span><span class="o">&gt;</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">clock</span><span class="o">-</span><span class="n">names</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;clk_cam0&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;clk_cam1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;clk_sys_2&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="cvi-mipi-reset-mipi">
+<span id="id8"></span><h3><span class="section-number">2.4.5. </span>CVI_MIPI_RESET_MIPI<a class="headerlink" href="2_MIPI_User_Guide.html#cvi-mipi-reset-mipi" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>Reset MIPI_Rx.</p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define CVI_MIPI_RESET_MIPI _IOW(CVI_MIPI_IOC_MAGIC, 0x07, unsigned int)</span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<p>unsigned int.  MIPI_Rxdevicenumber. </p>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>Failure; errno is set.</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Processor Differences]</p>
+<p>None</p>
+<p>[Requirements]</p>
+<p>Header file: cvi_vip_cif.h</p>
+<p>[Note]</p>
+<p>None</p>
+</section>
+<section id="cvi-mipi-enable-sensor-clock">
+<span id="id9"></span><h3><span class="section-number">2.4.6. </span>CVI_MIPI_ENABLE_SENSOR_CLOCK<a class="headerlink" href="2_MIPI_User_Guide.html#cvi-mipi-enable-sensor-clock" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>Enable the Sensor clock.</p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define CVI_MIPI_ENABLE_SENSOR_CLOCK _IOW(CVI_MIPI_IOC_MAGIC, 0x10, unsigned int)</span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<p>unsigned int.  MIPI_Rxdevicenumber. </p>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>Failure; errno is set.</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Processor Differences]</p>
+<p>None</p>
+<p>[Requirements]</p>
+<p>Header file: cvi_vip_cif.h</p>
+<p>[Note]</p>
+<p>None</p>
+</section>
+<section id="cvi-mipi-disable-sensor-clock">
+<span id="id10"></span><h3><span class="section-number">2.4.7. </span>CVI_MIPI_DISABLE_SENSOR_CLOCK<a class="headerlink" href="2_MIPI_User_Guide.html#cvi-mipi-disable-sensor-clock" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>Disable the Sensor clock.</p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define CVI_MIPI_DISABLE_SENSOR_CLOCK _IOW(CVI_MIPI_IOC_MAGIC, 0x11, unsigned int)</span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<p>unsigned int.  MIPI_Rxdevicenumber. </p>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>Failure; errno is set.</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Processor Differences]</p>
+<p>None</p>
+<p>[Requirements]</p>
+<p>Header file: cvi_vip_cif.h</p>
+<p>[Note]</p>
+<p>None</p>
+</section>
+<section id="cvi-mipi-set-crop-top">
+<span id="id11"></span><h3><span class="section-number">2.4.8. </span>CVI_MIPI_SET_CROP_TOP<a class="headerlink" href="2_MIPI_User_Guide.html#cvi-mipi-set-crop-top" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>Discard the first N lines of each frame</p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define CVI_MIPI_SET_WDR_MANUAL _IOW(CVI_MIPI_IOC_MAGIC, 0x21, struct crop_top_s)</span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<p>struct crop_top_s</p>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>Failure; errno is set.</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Processor Differences]</p>
+<p>None</p>
+<p>[Requirements]</p>
+<p>Header file: cvi_vip_cif.h</p>
+<p>[Note]</p>
+<p>None</p>
+</section>
+<section id="cvi-mipi-set-wdr-manual">
+<span id="id12"></span><h3><span class="section-number">2.4.9. </span>CVI_MIPI_SET_WDR_MANUAL<a class="headerlink" href="2_MIPI_User_Guide.html#cvi-mipi-set-wdr-manual" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<blockquote>
+<div><p>Enable WDR manual mode.</p>
+</div></blockquote>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define CVI_MIPI_SET_WDR_MANUAL _IOW(CVI_MIPI_IOC_MAGIC, 0x21, struct manual_wdr_s)</span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<blockquote>
+<div><p>struct manual_wdr_s</p>
+</div></blockquote>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>Failure; errno is set.</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Processor Differences]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Requirements]</p>
+<p>Header file: cvi_vip_cif.h</p>
+<p>[Note]</p>
+<p>None</p>
+</section>
+<section id="cvi-mipi-set-lvds-fp-vs">
+<span id="id13"></span><h3><span class="section-number">2.4.10. </span>CVI_MIPI_SET_LVDS_FP_VS<a class="headerlink" href="2_MIPI_User_Guide.html#cvi-mipi-set-lvds-fp-vs" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>Set the VSYNC generation point in sub-LVDS.</p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define CVI_MIPI _SET_LVDS_FP_VS _IOW(CVI_MIPI_IOC_MAGIC, 0x22, struct vsync_gen_s)</span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<p>struct vsync_gen_s</p>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>Failure; errno is set.</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Processor Differences]</p>
+<p>None</p>
+<p>[Requirements]</p>
+<p>Header file: cvi_vip_cif.h</p>
+<p>[Note]</p>
+<p>None</p>
+</section>
+<section id="mipi-tx-cfg">
+<h3><span class="section-number">2.4.11. </span>mipi_tx_cfg<a class="headerlink" href="2_MIPI_User_Guide.html#mipi-tx-cfg" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<blockquote>
+<div><p>Configure the MIPI TX device.</p>
+</div></blockquote>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">mipi_tx_cfg</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="k">struct</span> <span class="nc">combo_dev_cfg_s</span><span class="w"> </span><span class="o">*</span><span class="n">dev_cfg</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 55%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>fd</p></td>
+<td><p>Framebuffer device file descriptor. </p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>dev_cfg</p></td>
+<td><p>deviceconfigureinformation. </p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>Failure; errno is set.</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header files:cvi_mipi_tx.h, cvi_comm_mipi_tx.h</p></li>
+<li><p>Library file:libmipi_tx.a</p></li>
+</ul>
+<p>[Note]</p>
+<p>None</p>
+<p>[Example]</p>
+<p>None</p>
+<p>[Related Topics]</p>
+<p>None</p>
+</section>
+<section id="mipi-tx-send-cmd">
+<h3><span class="section-number">2.4.12. </span>mipi_tx_send_cmd<a class="headerlink" href="2_MIPI_User_Guide.html#mipi-tx-send-cmd" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<blockquote>
+<div><p>Send a command to MIPI TX.</p>
+</div></blockquote>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">mipi_tx_send_cmd</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="k">struct</span> <span class="nc">cmd_info_s</span><span class="w"> </span><span class="o">*</span><span class="n">cmd_info</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 55%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>fd</p></td>
+<td><p>Framebuffer device file descriptor. </p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>cmd_info</p></td>
+<td><p>commandinformation. </p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>Failure; errno is set.</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header files:cvi_mipi_tx.h, cvi_comm_mipi_tx.h</p></li>
+<li><p>Library file:libmipi_tx.a</p></li>
+</ul>
+<p>[Note]</p>
+<p>None</p>
+<p>[Example]</p>
+<p>None</p>
+<p>[Related Topics]</p>
+<p><a class="reference internal" href="2_MIPI_User_Guide.html#mipi-tx-recv-cmd">mipi_tx_recv_cmd</a></p>
+</section>
+<section id="mipi-tx-recv-cmd">
+<h3><span class="section-number">2.4.13. </span>mipi_tx_recv_cmd<a class="headerlink" href="2_MIPI_User_Guide.html#mipi-tx-recv-cmd" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<blockquote>
+<div><p>Receive a command from MIPI TX.</p>
+</div></blockquote>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">mipi_tx_recv_cmd</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="k">struct</span> <span class="nc">get_cmd_info_s</span><span class="w"> </span><span class="o">*</span><span class="n">cmd_info</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 55%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>fd</p></td>
+<td><p>Framebuffer device file descriptor. </p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>cmd_info</p></td>
+<td><p>connectreceivecommandinformation. </p></td>
+<td><p>Output</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>Failure; errno is set.</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header files:cvi_mipi_tx.h, cvi_comm_mipi_tx.h</p></li>
+<li><p>Library file:libmipi_tx.a</p></li>
+</ul>
+<p>[Note]</p>
+<p>None</p>
+<p>[Example]</p>
+<p>None</p>
+<p>[Related Topics]</p>
+<p><a class="reference internal" href="2_MIPI_User_Guide.html#mipi-tx-send-cmd">mipi_tx_send_cmd</a></p>
+</section>
+<section id="mipi-tx-enable">
+<h3><span class="section-number">2.4.14. </span>mipi_tx_enable<a class="headerlink" href="2_MIPI_User_Guide.html#mipi-tx-enable" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<blockquote>
+<div><p>Enable MIPI TX.</p>
+</div></blockquote>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">mipi_tx_enable</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 55%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>fd</p></td>
+<td><p>Framebuffer device file descriptor. </p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>Failure; errno is set.</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header files:cvi_mipi_tx.h, cvi_comm_mipi_tx.h</p></li>
+<li><p>Library file:libmipi_tx.a</p></li>
+</ul>
+<p>[Note]</p>
+<p>None</p>
+<p>[Example]</p>
+<p>None</p>
+<p>[Related Topics]</p>
+<p><a class="reference internal" href="2_MIPI_User_Guide.html#mipi-tx-disable">mipi_tx_disable</a></p>
+</section>
+<section id="mipi-tx-disable">
+<h3><span class="section-number">2.4.15. </span>mipi_tx_disable<a class="headerlink" href="2_MIPI_User_Guide.html#mipi-tx-disable" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<blockquote>
+<div><p>Disable MIPI TX.</p>
+</div></blockquote>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">mipi_tx_disable</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 55%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>fd</p></td>
+<td><p>Framebuffer device file descriptor. </p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>Failure; errno is set.</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header files:cvi_mipi_tx.h, cvi_comm_mipi_tx.h</p></li>
+<li><p>Library file:libmipi_tx.a</p></li>
+</ul>
+<p>[Note]</p>
+<p>None</p>
+<p>[Example]</p>
+<p>None</p>
+<p>[Related Topics]</p>
+<p><a class="reference internal" href="2_MIPI_User_Guide.html#mipi-tx-enable">mipi_tx_enable</a></p>
+</section>
+<section id="mipi-tx-set-hs-settle">
+<h3><span class="section-number">2.4.16. </span>mipi_tx_set_hs_settle<a class="headerlink" href="2_MIPI_User_Guide.html#mipi-tx-set-hs-settle" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<blockquote>
+<div><p>Set the HS settle configuration.</p>
+</div></blockquote>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">mipi_tx_set_hs_settle</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">struct</span> <span class="nc">hs_settle_s</span><span class="w"> </span><span class="o">*</span><span class="n">hs_cfg</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 55%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>fd</p></td>
+<td><p>Framebuffer device file descriptor. </p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>hs_cfg</p></td>
+<td><p>HS settleconfiguration. </p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>Failure; errno is set.</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header files:cvi_mipi_tx.h, cvi_comm_mipi_tx.h</p></li>
+<li><p>Library file:libmipi_tx.a</p></li>
+</ul>
+<p>[Note]</p>
+<p>None</p>
+<p>[Example]</p>
+<p>None</p>
+<p>[Related Topics]</p>
+<p><a class="reference internal" href="2_MIPI_User_Guide.html#mipi-tx-get-hs-settle">mipi_tx_get_hs_settle</a></p>
+</section>
+<section id="mipi-tx-get-hs-settle">
+<h3><span class="section-number">2.4.17. </span>mipi_tx_get_hs_settle<a class="headerlink" href="2_MIPI_User_Guide.html#mipi-tx-get-hs-settle" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<blockquote>
+<div><p>Get the HS settle configuration.</p>
+</div></blockquote>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">mipi_tx_get_hs_settle</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="k">struct</span> <span class="nc">hs_settle_s</span><span class="w"> </span><span class="o">*</span><span class="n">hs_cfg</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 55%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>fd</p></td>
+<td><p>Framebuffer device file descriptor. </p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>hs_cfg</p></td>
+<td><p>HS settleconfiguration. </p></td>
+<td><p>Output</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>Failure; errno is set.</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header files:cvi_mipi_tx.h, cvi_comm_mipi_tx.h</p></li>
+<li><p>Library file:libmipi_tx.a</p></li>
+</ul>
+<p>[Note]</p>
+<p>None</p>
+<p>[Example]</p>
+<p>None</p>
+<p>[Related Topics]</p>
+<p><a class="reference internal" href="2_MIPI_User_Guide.html#mipi-tx-set-hs-settle">mipi_tx_set_hs_settle</a></p>
+</section>
+<section id="mipi-tx-suspend">
+<h3><span class="section-number">2.4.18. </span>mipi_tx_suspend<a class="headerlink" href="2_MIPI_User_Guide.html#mipi-tx-suspend" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<blockquote>
+<div><p>Suspend MIPI TX.</p>
+</div></blockquote>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">mipi_tx_suspend</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 55%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>fd</p></td>
+<td><p>Framebuffer device file descriptor. </p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>Failure; errno is set.</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header files:cvi_mipi_tx.h, cvi_comm_mipi_tx.h</p></li>
+<li><p>Library file:libmipi_tx.a</p></li>
+</ul>
+<p>[Note]</p>
+<p>None</p>
+<p>[Example]</p>
+<p>None</p>
+<p>[Related Topics]</p>
+<p><a class="reference internal" href="2_MIPI_User_Guide.html#mipi-tx-resume">mipi_tx_resume</a></p>
+</section>
+<section id="mipi-tx-resume">
+<h3><span class="section-number">2.4.19. </span>mipi_tx_resume<a class="headerlink" href="2_MIPI_User_Guide.html#mipi-tx-resume" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<blockquote>
+<div><p>Resume MIPI TX.</p>
+</div></blockquote>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="n">mipi_tx_resume</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 27%" />
+<col style="width: 55%" />
+<col style="width: 18%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>fd</p></td>
+<td><p>Framebuffer device file descriptor. </p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>Failure; errno is set.</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header files:cvi_mipi_tx.h, cvi_comm_mipi_tx.h</p></li>
+<li><p>Library file:libmipi_tx.a</p></li>
+</ul>
+<p>[Note]</p>
+<p>None</p>
+<p>[Example]</p>
+<p>None</p>
+<p>[Related Topics]</p>
+<p><a class="reference internal" href="2_MIPI_User_Guide.html#mipi-tx-suspend">mipi_tx_suspend</a></p>
+</section>
+</section>
+<section id="id14">
+<h2><span class="section-number">2.5. </span>Data Types<a class="headerlink" href="2_MIPI_User_Guide.html#id14" title="Permalink to this heading">¶</a></h2>
+<p>MIPI RXRelatedData Typesdefinitionas follows:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#cvi-mipi-ioc-magic">CVI_MIPI_IOC_MAGIC</a> :MIPI Rx ioctlcommandmagic number. </p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#mipi-lane-num">MIPI_LANE_NUM</a> :MIPI RxMIPIdevicesupportsmaximumLanenumber. </p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#wdr-vc-num">WDR_VC_NUM</a> :definitionmaximumsupportVirtual Channelnumber. </p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#sync-code-num">SYNC_CODE_NUM</a> :DefinesLVDSeachVirtual ChannelSynchronization Codenumber. </p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#input-mode-e">input_mode_e</a> :MIPI Rxinputconnectporttype. </p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#img-size-s">img_size_s</a> :MIPI Rxinputdataeachframesize. </p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#rx-mac-clk-e">rx_mac_clk_e</a> :MAC supportsworkingclock. </p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#cam-pll-freq-e">cam_pll_freq_e</a> :MIPI-RXoutputSensorreferenceclock. </p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#mclk-pll-s">mclk_pll_s</a> :MIPI-RXoutputSensorreferenceclockset. </p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#raw-data-type-e">raw_data_type_e</a> :MIPI Rxinputdataformat. </p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#mipi-wdr-mode-e">mipi_wdr_mode_e</a> :MIPI-CSI WDRmode. </p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#wdr-mode-e">wdr_mode_e</a> :LVDS/HISPI WDRmode. </p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#lvds-sync-mode-e">lvds_sync_mode_e</a> :LVDSsynchronizationmode. </p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#lvds-bit-endian">lvds_bit_endian</a> :bitbitssizesidemode. </p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#lvds-vsync-type-e">lvds_vsync_type_e</a> :LVDS inWDRmodesynchronization method. </p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#lvds-fid-type-e">lvds_fid_type_e</a> :LVDS frame identification IDtype</p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#lvds-vsync-type-s">lvds_vsync_type_s</a>: LVDS WDRsynchronizationparameter</p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#lvds-dev-attr-s">lvds_dev_attr_s</a>: SubLVDS/HiSPideviceattribute</p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#dphy-s">dphy_s</a>: MIPI DPHY attribute</p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#mipi-demux-info-s">mipi_demux_info_s</a>: MIPIdemultiplexingmodeattribute</p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#mipi-dev-attr-s">mipi_dev_attr_s</a>: MIPI-CSIdeviceattribute</p></li>
+<li><p>manual_wdr_attr_s: manualWDRmodeparameter</p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#ttl-pin-func-e">ttl_pin_func_e</a>: TTL/BTconnectportconfigurefunction</p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#ttl-src-e">ttl_src_e</a>: TTL/BTconnectportinputtosource</p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#bt-demux-mode-e">bt_demux_mode_e</a>: BTdemultiplexingmodechannelnumber</p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#bt-demux-sync-s">bt_demux_sync_s</a>: BTdemultiplexingmodeSynchronization Codeconfiguration</p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#bt-demux-attr-s">bt_demux_attr_s</a>: BTdemultiplexingmodedeviceattribute</p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#ttl-dev-attr-s">ttl_dev_attr_s</a>: TTL/BTdeviceattribute</p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#combo-dev-attr-s">combo_dev_attr_s</a>: combo deviceattribute</p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#crop-top-s">crop_top_s</a>: discard leadinglinedataattribute</p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#manual-wdr-s">manual_wdr_s</a>: manualWDRmodeset</p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#vsync-gen-s">vsync_gen_s</a>: SUBLVDSverticalsynchronizationsignalattribute</p></li>
+</ul>
+<p>MIPI TXRelatedData Typesdefinitionas follows:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#lane-max-num">LANE_MAX_NUM</a>: oneMIPI TxdevicesupportsmaximumLanenumber</p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#output-mode-e">output_mode_e</a>: MIPI Txoutputmode</p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#video-mode-e">video_mode_e</a>: MIPI Txvideomode</p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#output-format-e">output_format_e</a>: MIPI Txoutputformat</p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#sync-info-s">sync_info_s</a>: MIPI Txdevicesynchronizationinformation</p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#combo-dev-cfg-s">combo_dev_cfg_s</a>: MIPI Txdeviceattribute</p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#cmd-info-s">cmd_info_s</a>: fromMIPI Txdeviceretrieveinformation</p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#get-cmd-info-s">get_cmd_info_s</a>: fromMIPI Txdeviceretrieveinformation</p></li>
+<li><p><a class="reference internal" href="2_MIPI_User_Guide.html#hs-settle-s">hs_settle_s</a>: MIPI TxdeviceHS modeundersettleinformation</p></li>
+</ul>
+<section id="cvi-mipi-ioc-magic">
+<span id="id15"></span><h3><span class="section-number">2.5.1. </span>CVI_MIPI_IOC_MAGIC<a class="headerlink" href="2_MIPI_User_Guide.html#cvi-mipi-ioc-magic" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>MIPI Rx ioctlcommandmagic number</p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define CVI_MIPI_IOC_MAGIC     &#39;m&#39;</span>
+</pre></div>
+</div>
+<p>[Processor Differences]</p>
+<p>None.</p>
+<p>[Notes]</p>
+<p>None.</p>
+<p>[Related data types and interfaces]</p>
+<p>None</p>
+</section>
+<section id="mipi-lane-num">
+<span id="id16"></span><h3><span class="section-number">2.5.2. </span>MIPI_LANE_NUM<a class="headerlink" href="2_MIPI_User_Guide.html#mipi-lane-num" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>oneMIPI RxdevicesupportsmaximumLanenumber. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define MIPI_LANE_NUM   4</span>
+</pre></div>
+</div>
+<p>[Processor Differences]</p>
+<p>None.</p>
+<p>[Notes]</p>
+<p>None.</p>
+<p>[Related data types and interfaces]</p>
+<p>None</p>
+</section>
+<section id="wdr-vc-num">
+<span id="id17"></span><h3><span class="section-number">2.5.3. </span>WDR_VC_NUM<a class="headerlink" href="2_MIPI_User_Guide.html#wdr-vc-num" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>definitionmaximumsupportVirtual Channelnumber</p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define WDR_VC_NUM   2</span>
+</pre></div>
+</div>
+<p>[Processor Differences]</p>
+<p>None.</p>
+<p>[Notes]</p>
+<p>None.</p>
+<p>[Related data types and interfaces]</p>
+<p>None</p>
+</section>
+<section id="sync-code-num">
+<span id="id18"></span><h3><span class="section-number">2.5.4. </span>SYNC_CODE_NUM<a class="headerlink" href="2_MIPI_User_Guide.html#sync-code-num" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>DefinesLVDSeachVirtual ChannelSynchronization Codenumber. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define SYNC_CODE_NUM   4</span>
+</pre></div>
+</div>
+<p>[Processor Differences]</p>
+<p>None.</p>
+<p>[Notes]</p>
+<p>None.</p>
+<p>[Related data types and interfaces]</p>
+<p>None</p>
+</section>
+<section id="bt-demux-num">
+<span id="id19"></span><h3><span class="section-number">2.5.5. </span>BT_DEMUX_NUM<a class="headerlink" href="2_MIPI_User_Guide.html#bt-demux-num" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>definitionusebt demuxfunctionwhensupportmaximumchannelnumber. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define BT_DEMUX_NUM   4</span>
+</pre></div>
+</div>
+<p>[Processor Differences]</p>
+<p>None.</p>
+<p>[Notes]</p>
+<p>None.</p>
+<p>[Related data types and interfaces]</p>
+<p>None</p>
+</section>
+<section id="mipi-demux-num">
+<span id="id20"></span><h3><span class="section-number">2.5.6. </span>MIPI_DEMUX_NUM<a class="headerlink" href="2_MIPI_User_Guide.html#mipi-demux-num" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>definitionusemipi demuxfunctionwhensupportmaximumvirtual channelnumber. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define MIPI_DEMUX_NUM   4</span>
+</pre></div>
+</div>
+<p>[Processor Differences]</p>
+<p>None.</p>
+<p>[Notes]</p>
+<p>None.</p>
+<p>[Related data types and interfaces]</p>
+<p>None</p>
+</section>
+<section id="input-mode-e">
+<span id="id21"></span><h3><span class="section-number">2.5.7. </span>input_mode_e<a class="headerlink" href="2_MIPI_User_Guide.html#input-mode-e" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>MIPI Rxinputconnectporttype. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span><span class="w"> </span><span class="n">input_mode_e</span><span class="w"></span>
+<span class="w">  </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">INPUT_MODE_MIPI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">INPUT_MODE_SUBLVDS</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">INPUT_MODE_HISPI</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">INPUT_MODE_CMOS</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">INPUT_MODE_BT1120</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">INPUT_MODE_BT601_19B_VHS</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">INPUT_MODE_BT656_9B</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">INPUT_MODE_CUSTOM_0</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">INPUT_MODE_BT_DEMUX</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">INPUT_MODE_BUTT</span><span class="w"></span>
+<span class="w">  </span><span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Processor Differences]</p>
+<p>None.</p>
+<p>[Notes]</p>
+<p>None.</p>
+<p>[Related data types and interfaces]</p>
+<p>None</p>
+</section>
+<section id="img-size-s">
+<span id="id22"></span><h3><span class="section-number">2.5.8. </span>img_size_s<a class="headerlink" href="2_MIPI_User_Guide.html#img-size-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>MIPI Rxinputdataeachframesize. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">img_size_s</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w">    </span><span class="n">width</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w">    </span><span class="n">height</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Processor Differences]</p>
+<p>None.</p>
+<p>[Notes]</p>
+<p>None.</p>
+<p>[Related data types and interfaces]</p>
+<p>None</p>
+</section>
+<section id="rx-mac-clk-e">
+<span id="id23"></span><h3><span class="section-number">2.5.9. </span>rx_mac_clk_e<a class="headerlink" href="2_MIPI_User_Guide.html#rx-mac-clk-e" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>MAC supportsworkingclock. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span><span class="w"> </span><span class="n">rx_mac_clk_e</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">RX_MAC_CLK_200M</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w"> </span><span class="n">RX_MAC_CLK_400M</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">RX_MAC_CLK_500M</span><span class="p">,</span><span class="w"></span>
+<span class="w"> </span><span class="n">RX_MAC_CLK_600M</span><span class="p">,</span><span class="w"></span>
+<span class="w"> </span><span class="n">RX_MAC_CLK_BUTT</span><span class="p">,</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Processor Differences]</p>
+<p>None.</p>
+<p>[Notes]</p>
+<p>MACclockwithsupportsMIPIclockrelationshippleasereference1.7.2. </p>
+<p>[Related data types and interfaces]</p>
+<p>None</p>
+</section>
+<section id="cam-pll-freq-e">
+<span id="id24"></span><h3><span class="section-number">2.5.10. </span>cam_pll_freq_e<a class="headerlink" href="2_MIPI_User_Guide.html#cam-pll-freq-e" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>MIPI-RXoutputSensorreferenceclock. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span><span class="w"> </span><span class="n">cam_pll_freq_e</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">CAMPLL_FREQ_NONE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">CAMPLL_FREQ_37P125M</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">CAMPLL_FREQ_25M</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">CAMPLL_FREQ_27M</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">CAMPLL_FREQ_24M</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">CAMPLL_FREQ_26M</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">CAMPLL_FREQ_NUM</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Processor Differences]</p>
+<p>None.</p>
+<p>[Notes]</p>
+<p>None.</p>
+<p>[Related data types and interfaces]</p>
+<p>None</p>
+</section>
+<section id="mclk-pll-s">
+<span id="id25"></span><h3><span class="section-number">2.5.11. </span>mclk_pll_s<a class="headerlink" href="2_MIPI_User_Guide.html#mclk-pll-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>MIPI-RXoutputSensorreferenceclockset. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">mclk_pll_s</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w">      </span><span class="n">cam</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="k">enum</span><span class="w"> </span><span class="n">cam_pll_freq_e</span><span class="w">   </span><span class="n">freq</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>member</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>cam</p></td>
+<td><p>0: outputisCAM_MCLK0
+1: outputisCAM_MCLK1</p></td>
+</tr>
+<tr class="row-odd"><td><p>freq</p></td>
+<td><p>outputSensorreferenceclock</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Processor Differences]</p>
+<p>None.</p>
+<p>[Notes]</p>
+<p>None.</p>
+<p>[Related data types and interfaces]</p>
+<p>None</p>
+</section>
+<section id="raw-data-type-e">
+<span id="id26"></span><h3><span class="section-number">2.5.12. </span>raw_data_type_e<a class="headerlink" href="2_MIPI_User_Guide.html#raw-data-type-e" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>MIPI Rxinputdataformat. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span><span class="w"> </span><span class="n">raw_data_type_e</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">RAW_DATA_8BIT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">RAW_DATA_10BIT</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">RAW_DATA_12BIT</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">YUV422_8BIT</span><span class="p">,</span><span class="w">    </span><span class="cm">/* MIPI-CSI only */</span><span class="w"></span>
+<span class="w">      </span><span class="n">YUV422_10BIT</span><span class="p">,</span><span class="w">   </span><span class="cm">/* MIPI-CSI only*/</span><span class="w"></span>
+<span class="w">      </span><span class="n">RAW_DATA_BUTT</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Processor Differences]</p>
+<p>None.</p>
+<p>[Notes]</p>
+<p>YUV422_8BITwithYUV422_10BITonly supportsMIPI-CSIformat. </p>
+<p>[Related data types and interfaces]</p>
+<p>None</p>
+</section>
+<section id="mipi-wdr-mode-e">
+<span id="id27"></span><h3><span class="section-number">2.5.13. </span>mipi_wdr_mode_e<a class="headerlink" href="2_MIPI_User_Guide.html#mipi-wdr-mode-e" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>MIPI-CSI WDRmode. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span><span class="w"> </span><span class="n">mipi_wdr_mode_e</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">CVI_MIPI_WDR_MODE_NONE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">CVI_MIPI_WDR_MODE_VC</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">CVI_MIPI_WDR_MODE_DT</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">CVI_MIPI_WDR_MODE_DOL</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">CVI_MIPI_WDR_MODE_MANUAL</span><span class="p">,</span><span class="w">  </span><span class="cm">/* SOI case */</span><span class="w"></span>
+<span class="w">      </span><span class="n">CVI_MIPI_WDR_MODE_BUTT</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>member</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CVI_MIPI_WDR_MODE_NONE</p></td>
+<td><p>linenessmode</p></td>
+</tr>
+<tr class="row-odd"><td><p>CVI_MIPI_WDR_MODE_VC</p></td>
+<td><p>MIPI-CSI Virtual Channelmode</p></td>
+</tr>
+<tr class="row-even"><td><p>CVI_MIPI_WDR_MODE_DT</p></td>
+<td><p>MIPI-CSI Data Typemode</p></td>
+</tr>
+<tr class="row-odd"><td><p>CVI_MIPI_WDR_MODE_DOL</p></td>
+<td><p>Sony DOL LImode</p></td>
+</tr>
+<tr class="row-even"><td><p>CVI_MIPI_WDR_MODE_MANUAL</p></td>
+<td><p>WDRmanualmode</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Processor Differences]</p>
+<p>None.</p>
+<p>[Notes]</p>
+<ul class="simple">
+<li><p>CVI_MIPI_WDR_MODE_VCsuitableused to useMIPI-CSI Virtual Channel IDdistinguishlong exposurelinewithshort exposurelineSensor. </p></li>
+<li><p>CVI_MIPI_WDR_MODE_DTsuitableused to useMIPI-CSI Data Type IDdistinguishlong exposurelinewithshort exposurelineSensor.  NoteNotelong exposurewithshort exposuremustinsameoneframestartwithend. </p></li>
+<li><p>CVI_MIPI_WDR_MODE_DOLsuitableused to useSONY MIPI-CSI Line Informationmode. </p></li>
+<li><p>CVI_MIPI_WDR_MODE_MANUALuseselfdefinitionrulethendeterminelong exposurelinewithshort exposureline. </p></li>
+</ul>
+<p>[Related data types and interfaces]</p>
+<p>None</p>
+</section>
+<section id="wdr-mode-e">
+<span id="id28"></span><h3><span class="section-number">2.5.14. </span>wdr_mode_e<a class="headerlink" href="2_MIPI_User_Guide.html#wdr-mode-e" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>Sub-LVDS/HISPI WDRmode. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span><span class="w"> </span><span class="n">wdr_mode_e</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">CVI_WDR_MODE_NONE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">CVI_WDR_MODE_2F</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">CVI_WDR_MODE_3F</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">CVI_WDR_MODE_DOL_2F</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">CVI_WDR_MODE_DOL_3F</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">CVI_WDR_MODE_DOL_BUTT</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>member</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CVI_WDR_MODE_NONE</p></td>
+<td><p>linenessmode</p></td>
+</tr>
+<tr class="row-odd"><td><p>CVI_WDR_MODE_2F</p></td>
+<td><p>generallydual-exposure WDR</p></td>
+</tr>
+<tr class="row-even"><td><p>CVI_WDR_MODE_3F</p></td>
+<td><p>generallythree-exposure WDR</p></td>
+</tr>
+<tr class="row-odd"><td><p>CVI_WDR_MODE_DOL_2F</p></td>
+<td><p>Sony DOL-2 WDR</p></td>
+</tr>
+<tr class="row-even"><td><p>CVI_WDR_MODE_DOL_3F</p></td>
+<td><p>Sony DOL-3 WDR</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Processor Differences]</p>
+<p>None.</p>
+<p>[Notes]</p>
+<ul class="simple">
+<li><p>CVI_WDR_MODE_2Fsuitableused to generallyMIPI-CSI/HiSPiinterleavedWDR. </p></li>
+<li><p>CVI_WDR_MODE_DOL_2Fsuitable foruseSony Sub-LVDS DOL-2 WDR</p></li>
+<li><p>CV181xnotsupportCVI_WDR_MODE_3FwithCVI_WDR_MODE_DOL_3</p></li>
+<li><p>CV180XNot supportedWDR mode</p></li>
+</ul>
+<p>[Related data types and interfaces]</p>
+<p>None</p>
+</section>
+<section id="lvds-sync-mode-e">
+<span id="id29"></span><h3><span class="section-number">2.5.15. </span>lvds_sync_mode_e<a class="headerlink" href="2_MIPI_User_Guide.html#lvds-sync-mode-e" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>LVDSsynchronizationmode. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span><span class="w"> </span><span class="n">lvds_sync_mode_e</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">LVDS_SYNC_MODE_SOF</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">LVDS_SYNC_MODE_SAV</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">LVDS_SYNC_MODE_BUTT</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>member</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>LVDS_SYNC_MODE_SOF</p></td>
+<td><p>SOF, EOF, SOL, EOL.  pleasereferenceFigure 1-1</p></td>
+</tr>
+<tr class="row-odd"><td><p>LVDS_SYNC_MODE_SAV</p></td>
+<td><p>Invalid SAV, invalid EAV, valid SAV, valid EAV.  pleasereferenceFigure 1-2</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Processor Differences]</p>
+<p>None.</p>
+<p>[Notes]</p>
+<ul class="simple">
+<li><p>LVDS_SYNC_MODE_SOFsuitableused to HiSPi Packetize-SPmode. </p></li>
+<li><p>LVDS_SYNC_MODE_SAVsuitableused to sub-LVDSwithHiSPi Streaming-SPmode</p></li>
+<li><p>When inputisINPUT_MODE_HISPIandsynchronizationmodeisLVDS_SYNC_MODE_SAV.  MIPI-RxswitchtoHiSPi Streaming-SPmode. </p></li>
+</ul>
+<p>[Related data types and interfaces]</p>
+<p>None</p>
+</section>
+<section id="lvds-bit-endian">
+<span id="id30"></span><h3><span class="section-number">2.5.16. </span>lvds_bit_endian<a class="headerlink" href="2_MIPI_User_Guide.html#lvds-bit-endian" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>bitbitssizesidemode. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span><span class="w"> </span><span class="n">lvds_bit_endian</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">LVDS_ENDIAN_LITTLE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">LVDS_ENDIAN_BIG</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">LVDS_ENDIAN_BUTT</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Processor Differences]</p>
+<p>None.</p>
+<p>[Notes]</p>
+<p>None.</p>
+<p>[Related data types and interfaces]</p>
+<p>None</p>
+</section>
+<section id="lvds-vsync-type-e">
+<span id="id31"></span><h3><span class="section-number">2.5.17. </span>lvds_vsync_type_e<a class="headerlink" href="2_MIPI_User_Guide.html#lvds-vsync-type-e" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>LVDS inWDRmodesynchronization method. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span><span class="w"> </span><span class="n">lvds_vsync_type_e</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">LVDS_VSYNC_NORMAL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">LVDS_VSYNC_SHARE</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">LVDS_VSYNC_HCONNECT</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="n">LVDS_VSYNC_BUTT</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>member</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>LVDS_VSYNC_NORMAL</p></td>
+<td><p>long and short exposuresframehasindependentSOF-EOF, SOL-EOLorinvalid-SAV-invalid-EAV, valid SAV-valid EAV. </p></td>
+</tr>
+<tr class="row-odd"><td><p>LVDS_VSYNC_SHARE</p></td>
+<td><p>long and short exposuresframea total ofshareoneforSOF-EOFidentifier, short exposurethe first few lines of the exposurelineusefixedvaluepopulate. </p></td>
+</tr>
+<tr class="row-even"><td><p>LVDS_VSYNC_HCONNECT</p></td>
+<td><p>long and short exposuresframea total ofshareoneforSAV-EAVidentifier, long and short exposuresframebetweenisfixedperiodblanking. </p></td>
+</tr>
+</tbody>
+</table>
+<p><cite>Figure  1‑3 LVDS_VSYNC_NORMALsynchronization method.</cite></p>
+<img alt="_images/1-3LVDS_VSYNC_NORMAL.png" class="align-center" src="_images/1-3LVDS_VSYNC_NORMAL.png" />
+<p><cite>Figure  1‑4 LVDS_VSYNC_HCONNECTsynchronization method.</cite></p>
+<img alt="_images/1-4LVDS_VSYNC_HCONNECT.png" class="align-center" src="_images/1-4LVDS_VSYNC_HCONNECT.png" />
+<p>[Processor Differences]</p>
+<p>None.</p>
+<p>[Notes]</p>
+<ul class="simple">
+<li><p>LVDS_VSYNC_NORMALsuitableused to SONY sub-LVDS DOL-2 pattern 1withHiSPi Packtized-SP WDRmode. </p></li>
+<li><p>LVDS_VSYNC_SHAREsuitableused to HiSPi Streaming-SP WDRmode. </p></li>
+<li><p>LVDS_VSYNC_HCONNECTsuitableused to SONY sub-LVDS DOL-2 pattern 2. </p></li>
+</ul>
+<p>[Related data types and interfaces]</p>
+<p>None</p>
+</section>
+<section id="lvds-fid-type-e">
+<span id="id32"></span><h3><span class="section-number">2.5.18. </span>lvds_fid_type_e<a class="headerlink" href="2_MIPI_User_Guide.html#lvds-fid-type-e" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>LVDS frame identification IDtype. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span><span class="w"> </span><span class="n">lvds_fid_type_e</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">LVDS_FID_NONE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">LVDS_FID_IN_SAV</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">LVDS_FID_BUTT</span><span class="p">,</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>member</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>LVDS_FID_NONE</p></td>
+<td><p>notuseframe identification id. </p></td>
+</tr>
+<tr class="row-odd"><td><p>LVDS_FID_IN_SAV</p></td>
+<td><p>FIDinsertinSAVNo. 4itemfieldin. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Processor Differences]</p>
+<p>None.</p>
+<p>[Notes]</p>
+<p>None</p>
+<p>[Related data types and interfaces]</p>
+<p>None</p>
+</section>
+<section id="lvds-fid-type-s">
+<span id="id33"></span><h3><span class="section-number">2.5.19. </span>lvds_fid_type_s<a class="headerlink" href="2_MIPI_User_Guide.html#lvds-fid-type-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>LVDS frame identification IDtype. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">lvds_fid_type_s</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">enum</span><span class="w"> </span><span class="n">lvds_fid_type_e</span><span class="w">            </span><span class="n">fid</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>member</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>fid</p></td>
+<td><p>LVDS DOLmodeunderframe identificationtype</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Processor Differences]</p>
+<p>None.</p>
+<p>[Notes]</p>
+<p>None</p>
+<p>[Related data types and interfaces]</p>
+<p>None</p>
+</section>
+<section id="lvds-vsync-type-s">
+<span id="id34"></span><h3><span class="section-number">2.5.20. </span>lvds_vsync_type_s<a class="headerlink" href="2_MIPI_User_Guide.html#lvds-vsync-type-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>LVDS WDRsynchronizationparameter. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">lvds_vsync_type_s</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">enum</span><span class="w"> </span><span class="n">lvds_vsync_type_e</span><span class="w">  </span><span class="n">sync_type</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w">                  </span><span class="n">hblank1</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w">                  </span><span class="n">hblank2</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Processor Differences]</p>
+<p>None.</p>
+<p>[Notes]</p>
+<ul class="simple">
+<li><p>When sync_typeisLVDS_VSYNC_HCONNECTwhen, need toconfigurehblank1andhblank2, meanslongshort exposurebetweenblankingarealength. </p></li>
+</ul>
+<p>[Related data types and interfaces]</p>
+<p>None</p>
+</section>
+<section id="lvds-dev-attr-s">
+<span id="id35"></span><h3><span class="section-number">2.5.21. </span>lvds_dev_attr_s<a class="headerlink" href="2_MIPI_User_Guide.html#lvds-dev-attr-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>LVDS/SubLVDS/HiSPideviceattribute. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">lvds_dev_attr_s</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">enum</span><span class="w"> </span><span class="n">wdr_mode_e</span><span class="w">                 </span><span class="n">wdr_mode</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">enum</span><span class="w"> </span><span class="n">lvds_sync_mode_e</span><span class="w">           </span><span class="n">sync_mode</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">enum</span><span class="w"> </span><span class="n">raw_data_type_e</span><span class="w">            </span><span class="n">raw_data_type</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">enum</span><span class="w"> </span><span class="n">lvds_bit_endian</span><span class="w">            </span><span class="n">data_endian</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">enum</span><span class="w"> </span><span class="n">lvds_bit_endian</span><span class="w">            </span><span class="n">sync_code_endian</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kt">short</span><span class="w">                           </span><span class="n">lane_id</span><span class="p">[</span><span class="n">MIPI_LANE_NUM</span><span class="o">+</span><span class="mi">1</span><span class="p">];</span><span class="w"></span>
+<span class="w">        </span><span class="kt">short</span><span class="w">   </span><span class="n">sync_code</span><span class="p">[</span><span class="n">MIPI_LANE_NUM</span><span class="p">][</span><span class="n">WDR_VC_NUM</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">SYNC_CODE_NUM</span><span class="p">];</span><span class="w"></span>
+<span class="w">        </span><span class="k">struct</span> <span class="nc">lvds_vsync_type_s</span><span class="w">        </span><span class="n">vsync_type</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">struct</span> <span class="nc">lvds_fid_type_s</span><span class="w">          </span><span class="n">fid_type</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kt">char</span><span class="w">                            </span><span class="n">pn_swap</span><span class="p">[</span><span class="n">MIPI_LANE_NUM</span><span class="o">+</span><span class="mi">1</span><span class="p">];</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>member</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>wdr_mode</p></td>
+<td><p>WDRmode</p></td>
+</tr>
+<tr class="row-odd"><td><p>sync_mode</p></td>
+<td><p>LVDSsynchronizationmode</p></td>
+</tr>
+<tr class="row-even"><td><p>raw_data_type</p></td>
+<td><p>transferData Types</p></td>
+</tr>
+<tr class="row-odd"><td><p>data_endian</p></td>
+<td><p>datasizesidemode</p></td>
+</tr>
+<tr class="row-even"><td><p>sync_code_endian</p></td>
+<td><p>Synchronization Codesizesidemode</p></td>
+</tr>
+<tr class="row-odd"><td><p>lane_id</p></td>
+<td><p>sendside(sensor)andconnectreceiveside(MIPI Rx) lanecorrespondence</p></td>
+</tr>
+<tr class="row-even"><td><p>sync_code</p></td>
+<td><p>eachVirtual Channelhas4itemSynchronization Code, according tosynchronizationmodenotsame, respectivelymeansSOF/EOF/ SOL/EOLSynchronization Codeororinvalid SAV/invalid EAV/ valid SAV/valid EAVSynchronization Code. </p></td>
+</tr>
+<tr class="row-odd"><td><p>vsync_type</p></td>
+<td><p>vsynctype, When wdr_modisDOLmodeandsync_modeisLVDS_SYNC_MODE_SAVwhen, need toconfigurevsynctype. </p></td>
+</tr>
+<tr class="row-even"><td><p>fid_type</p></td>
+<td><p>frame identificationtype</p></td>
+</tr>
+<tr class="row-odd"><td><p>pn_swap</p></td>
+<td><p>Positive/negative line iswhether to swap</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Processor Differences]</p>
+<p>None.</p>
+<p>[Notes]</p>
+<p>None</p>
+<p>[Related data types and interfaces]</p>
+<p>None</p>
+</section>
+<section id="dphy-s">
+<span id="id36"></span><h3><span class="section-number">2.5.22. </span>dphy_s<a class="headerlink" href="2_MIPI_User_Guide.html#dphy-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>MIPI RX DPHY attribute. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">mipi_dev_attr_s</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w">           </span><span class="n">enable</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w">           </span><span class="n">hs_settle</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>member</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>enable</p></td>
+<td><p>Enable MIPI RX DPHYattributeset</p></td>
+</tr>
+<tr class="row-odd"><td><p>hs_settle</p></td>
+<td><p>hs settle time</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Processor Differences]</p>
+<p>None.</p>
+<p>[Notes]</p>
+<p>None</p>
+<p>[Related data types and interfaces]</p>
+<p>None</p>
+</section>
+<section id="mipi-demux-info-s">
+<span id="id37"></span><h3><span class="section-number">2.5.23. </span>mipi_demux_info_s<a class="headerlink" href="2_MIPI_User_Guide.html#mipi-demux-info-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>MIPI CSIuseVirtual Channel demultiplexingattributeset. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">mipi_demux_info_s</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w">                    </span><span class="n">demux_en</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w">                   </span><span class="n">vc_mapping</span><span class="p">[</span><span class="n">MIPI_DEMUX_NUM</span><span class="p">];</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>member</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>demux_en</p></td>
+<td><p>Enable mipi virtual channel demultiplexing</p></td>
+</tr>
+<tr class="row-odd"><td><p>vc_mapping</p></td>
+<td><p>setISP channel withmipi virtual channelcorrespondence. for examplevc_mapping = {0, 2, 3, 1}, ISP ch0representvc=0; ch1representvc=2; ch2representvc=3; ch3representvc=1.</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Processor Differences]</p>
+<p>None.</p>
+<p>[Notes]</p>
+<p>None</p>
+<p>[Related data types and interfaces]</p>
+<p>None</p>
+</section>
+<section id="mipi-dev-attr-s">
+<span id="id38"></span><h3><span class="section-number">2.5.24. </span>mipi_dev_attr_s<a class="headerlink" href="2_MIPI_User_Guide.html#mipi-dev-attr-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>MIPI-CSIdeviceattribute. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">mipi_dev_attr_s</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">enum</span><span class="w"> </span><span class="n">raw_data_type_e</span><span class="w">            </span><span class="n">raw_data_type</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kt">short</span><span class="w">                           </span><span class="n">lane_id</span><span class="p">[</span><span class="n">MIPI_LANE_NUM</span><span class="o">+</span><span class="mi">1</span><span class="p">];</span><span class="w"></span>
+<span class="w">        </span><span class="k">enum</span><span class="w"> </span><span class="n">mipi_wdr_mode_e</span><span class="w">           </span><span class="n">wdr_mode</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kt">short</span><span class="w">                           </span><span class="n">data_type</span><span class="p">[</span><span class="n">WDR_VC_NUM</span><span class="p">];</span><span class="w"></span>
+<span class="w">        </span><span class="kt">char</span><span class="w">                            </span><span class="n">pn_swap</span><span class="p">[</span><span class="n">MIPI_LANE_NUM</span><span class="o">+</span><span class="mi">1</span><span class="p">];</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>member</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>wdr_mode</p></td>
+<td><p>WDRmode</p></td>
+</tr>
+<tr class="row-odd"><td><p>raw_data_type</p></td>
+<td><p>transferData Types</p></td>
+</tr>
+<tr class="row-even"><td><p>lane_id</p></td>
+<td><p>sendside(sensor)andconnectreceiveside(MIPI Rx) lanecorrespondence</p></td>
+</tr>
+<tr class="row-odd"><td><p>data_type</p></td>
+<td><p>When WDRmodeisCVI_MIPI_WDR_MODE_DTwhen, eachWDR framescorrespondingdata type. </p></td>
+</tr>
+<tr class="row-even"><td><p>pn_swap</p></td>
+<td><p>Positive/negative line iswhether to swap. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Processor Differences]</p>
+<p>None.</p>
+<p>[Notes]</p>
+<p>None</p>
+<p>[Related data types and interfaces]</p>
+<p>None</p>
+</section>
+<section id="manaul-wdr-attr-s">
+<span id="id39"></span><h3><span class="section-number">2.5.25. </span>manaul_wdr_attr_s<a class="headerlink" href="2_MIPI_User_Guide.html#manaul-wdr-attr-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>manualWDRmodeparameter. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">manaul_wdr_attr_s</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w">                    </span><span class="n">manual_en</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w">                  </span><span class="n">l2s_distance</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w">                  </span><span class="n">lsef_length</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w">                    </span><span class="n">discard_padding_lines</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w">                    </span><span class="n">update</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>member</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>manual_en</p></td>
+<td><p>manualWDRswitch</p></td>
+</tr>
+<tr class="row-odd"><td><p>l2s_distance</p></td>
+<td><p>oneframeinfirstitemlong exposuretofirstcolumnshort exposuredistance, unitisnumber of lines. </p></td>
+</tr>
+<tr class="row-even"><td><p>lsef_length</p></td>
+<td><p>long exposure/short exposurenumber of lines. </p></td>
+</tr>
+<tr class="row-odd"><td><p>discard_padding_lines</p></td>
+<td><p>SensoriswhetherhasthepaddinglineWhen validlineoutput. </p></td>
+</tr>
+<tr class="row-even"><td><p>update</p></td>
+<td><p>iswhetherforcemorenewset.  If whether, setwilletc.underonesynchronizationsignalonly whenmorenew. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Processor Differences]</p>
+<p>None.</p>
+<p>[Notes]</p>
+<ul class="simple">
+<li><p>HiSPiinputandsync_typeisLVDS_VSYNC_SHAREwhen, need toenablemanualWDRmodeandsetparameter. </p></li>
+<li><p>MIPI-CSIinputandwdr modeisCVI_MIPI_WDR_MODE_MANUALwhen, need toenablemanualWDRmodeandsetparameter. </p></li>
+</ul>
+<p>[Related data types and interfaces]</p>
+<p>None</p>
+</section>
+<section id="ttl-pin-func-e">
+<span id="id40"></span><h3><span class="section-number">2.5.26. </span>ttl_pin_func_e<a class="headerlink" href="2_MIPI_User_Guide.html#ttl-pin-func-e" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>TTL/BTconnectportconfigurefunction.</p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span><span class="w"> </span><span class="n">ttl_pin_func_e</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">TTL_PIN_FUNC_VS</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">TTL_PIN_FUNC_HS</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">TTL_PIN_FUNC_VDE</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">TTL_PIN_FUNC_HDE</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">TTL_PIN_FUNC_D0</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">TTL_PIN_FUNC_D1</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">TTL_PIN_FUNC_D2</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">TTL_PIN_FUNC_D3</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">TTL_PIN_FUNC_D4</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">TTL_PIN_FUNC_D5</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">TTL_PIN_FUNC_D6</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">TTL_PIN_FUNC_D7</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">TTL_PIN_FUNC_D8</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">TTL_PIN_FUNC_D9</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">TTL_PIN_FUNC_D10</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">TTL_PIN_FUNC_D11</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">TTL_PIN_FUNC_D12</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">TTL_PIN_FUNC_D13</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">TTL_PIN_FUNC_D14</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">TTL_PIN_FUNC_D15</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">TTL_PIN_FUNC_NUM</span><span class="p">,</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Processor Differences]</p>
+<p>None.</p>
+<p>[Notes]</p>
+<p>None</p>
+<p>[Related data types and interfaces]</p>
+<p>None</p>
+</section>
+<section id="ttl-src-e">
+<span id="id41"></span><h3><span class="section-number">2.5.27. </span>ttl_src_e<a class="headerlink" href="2_MIPI_User_Guide.html#ttl-src-e" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>TTL/BTconnectportinputtosource.</p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span><span class="w"> </span><span class="n">ttl_src_e</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">TTL_VI_SRC_VI0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">TTL_VI_SRC_VI1</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">TTL_VI_SRC_VI2</span><span class="p">,</span><span class="w">         </span><span class="cm">/* BT demux */</span><span class="w"></span>
+<span class="w">      </span><span class="n">TTL_VI_SRC_NUM</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Processor Differences]</p>
+<p>None.</p>
+<p>[Notes]</p>
+<p>None</p>
+<p>[Related data types and interfaces]</p>
+<p>referenceTable 1-1.</p>
+</section>
+<section id="bt-demux-mode-e">
+<span id="id42"></span><h3><span class="section-number">2.5.28. </span>bt_demux_mode_e<a class="headerlink" href="2_MIPI_User_Guide.html#bt-demux-mode-e" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>BTdemultiplexingmodechannelnumber. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span><span class="w"> </span><span class="n">bt_demux_mode_e</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="n">BT_DEMUX_DISABLE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">BT_DEMUX_2</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">BT_DEMUX_3</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">BT_DEMUX_4</span><span class="p">,</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Processor Differences]</p>
+<p>None.</p>
+<p>[Notes]</p>
+<p>None</p>
+<p>[Related data types and interfaces]</p>
+<p>None</p>
+</section>
+<section id="bt-demux-sync-s">
+<span id="id43"></span><h3><span class="section-number">2.5.29. </span>bt_demux_sync_s<a class="headerlink" href="2_MIPI_User_Guide.html#bt-demux-sync-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>BTdemultiplexingmodeSynchronization Codeset. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">bt_demux_sync_s</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w">           </span><span class="n">sav_vld</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w">           </span><span class="n">sav_blk</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w">           </span><span class="n">eav_vld</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w">           </span><span class="n">eav_blk</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>member</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>sav_vld</p></td>
+<td><p>validdatarangeSAV</p></td>
+</tr>
+<tr class="row-odd"><td><p>sav_blk</p></td>
+<td><p>blankrangeSAV</p></td>
+</tr>
+<tr class="row-even"><td><p>eav_vld</p></td>
+<td><p>validdatarangeEAV</p></td>
+</tr>
+<tr class="row-odd"><td><p>eav_blk</p></td>
+<td><p>blankrangeEAV</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Processor Differences]</p>
+<p>None.</p>
+<p>[Notes]</p>
+<p>None</p>
+<p>[Related data types and interfaces]</p>
+<p>None</p>
+</section>
+<section id="bt-demux-attr-s">
+<span id="id44"></span><h3><span class="section-number">2.5.30. </span>bt_demux_attr_s<a class="headerlink" href="2_MIPI_User_Guide.html#bt-demux-attr-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>BTdemultiplexingmodeattributeset. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">bt_demux_attr_s</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="kt">signed</span><span class="w"> </span><span class="kt">char</span><span class="w">                     </span><span class="n">func</span><span class="p">[</span><span class="n">TTL_PIN_FUNC_NUM</span><span class="p">];</span><span class="w"></span>
+<span class="w">      </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w">                  </span><span class="n">v_fp</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w">                  </span><span class="n">h_fp</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w">                  </span><span class="n">v_bp</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w">                  </span><span class="n">h_bp</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="k">enum</span><span class="w"> </span><span class="n">bt_demux_mode_e</span><span class="w">            </span><span class="n">mode</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w">                   </span><span class="n">sync_code_part_A</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span><span class="w">    </span><span class="cm">/* sync code 0~2 */</span><span class="w"></span>
+<span class="w">      </span><span class="k">struct</span> <span class="nc">bt_demux_sync_s</span><span class="w">          </span><span class="n">sync_code_part_B</span><span class="p">[</span><span class="n">BT_DEMUX_NUM</span><span class="p">];</span><span class="w"> </span><span class="cm">/* sync code 3 */</span><span class="w"></span>
+<span class="w">      </span><span class="kt">char</span><span class="w">                            </span><span class="n">yc_exchg</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>member</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>func</p></td>
+<td><p>BTconnectportcorrespondinginputsourceTTL_VI_SRC_VI2lane number. IndexisBTlogicfunction, valuepleasereferenceTable 1-1. for example, func[TTL_PIN_FUNC_D0] = 5, representBTsignalD0connecttoVI2_D[5], that is, pad name VIVO_D5. </p></td>
+</tr>
+<tr class="row-odd"><td><p>v_fp</p></td>
+<td><p>verticaldirectionfront porch</p></td>
+</tr>
+<tr class="row-even"><td><p>h_fp</p></td>
+<td><p>horizontaldirectionfront porch</p></td>
+</tr>
+<tr class="row-odd"><td><p>v_bp</p></td>
+<td><p>verticaldirectionback porch</p></td>
+</tr>
+<tr class="row-even"><td><p>h_bp</p></td>
+<td><p>horizontaldirectionback porch</p></td>
+</tr>
+<tr class="row-odd"><td><p>mode</p></td>
+<td><p>BTdemultiplexingmodechannelnumber</p></td>
+</tr>
+<tr class="row-even"><td><p>sync_code_part_A</p></td>
+<td><p>BTdemultiplexingmode0~2Synchronization Code</p></td>
+</tr>
+<tr class="row-odd"><td><p>sync_code_part_B</p></td>
+<td><p>BTdemultiplexingmodeSynchronization Code3</p></td>
+</tr>
+<tr class="row-even"><td><p>yc_exchg</p></td>
+<td><p>BIT0~BIT3respectivelyrepresentCH0~CH3Y Cb/Cr bytesorderswap. 1 isswap, 0 isnotswap.</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Processor Differences]</p>
+<p>None.</p>
+<p>[Notes]</p>
+<p>None</p>
+<p>[Related data types and interfaces]</p>
+<p>None</p>
+</section>
+<section id="ttl-dev-attr-s">
+<span id="id45"></span><h3><span class="section-number">2.5.31. </span>ttl_dev_attr_s<a class="headerlink" href="2_MIPI_User_Guide.html#ttl-dev-attr-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>TTL/BTconnectportattributeset. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">ttl_dev_attr_s</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="k">enum</span><span class="w"> </span><span class="n">ttl_src_e</span><span class="w">                  </span><span class="n">vi</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="kt">signed</span><span class="w"> </span><span class="kt">char</span><span class="w">                     </span><span class="n">func</span><span class="p">[</span><span class="n">TTL_PIN_FUNC_NUM</span><span class="p">];</span><span class="w"></span>
+<span class="w">      </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w">                  </span><span class="n">v_bp</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w">                  </span><span class="n">h_bp</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>member</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>vi</p></td>
+<td><p>TTL/BTconnectportinputtosource, allowvalueisTTL_VI_SRC_VI0orTTL_VI_SRC_VI1</p></td>
+</tr>
+<tr class="row-odd"><td><p>func</p></td>
+<td><p>BTconnectportcorrespondinginputsourcelane number. IndexisBTlogicfunction, valuepleasereferenceTable 1-1. for example, vi = TTL_VI_SRC_VI1when, func[TTL_PIN_FUNC_D0] = 5, representBTsignalD0connecttoVI1_D[5], that is, pad name VIVO_D5.</p></td>
+</tr>
+<tr class="row-even"><td><p>v_bp</p></td>
+<td><p>verticaldirectionback porch</p></td>
+</tr>
+<tr class="row-odd"><td><p>h_bp</p></td>
+<td><p>horizontaldirectionback porch</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Processor Differences]</p>
+<p>None.</p>
+<p>[Notes]</p>
+<p>None</p>
+<p>[Related data types and interfaces]</p>
+<p>None</p>
+</section>
+<section id="combo-dev-attr-s">
+<span id="id46"></span><h3><span class="section-number">2.5.32. </span>combo_dev_attr_s<a class="headerlink" href="2_MIPI_User_Guide.html#combo-dev-attr-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>combo deviceattribute, byinMIPI Rxcansufficient forconnectCSI-2, sub-LVDS, HiSPietc.timing, thereforewillMIPI Rxcalliscombodevice. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">combo_dev_attr_s</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">       </span><span class="k">enum</span><span class="w"> </span><span class="n">input_mode_e</span><span class="w">            </span><span class="n">input_mode</span><span class="p">;</span><span class="w"></span>
+<span class="w">       </span><span class="k">enum</span><span class="w"> </span><span class="n">rx_mac_clk_e</span><span class="w">             </span><span class="n">mac_clk</span><span class="p">;</span><span class="w"></span>
+<span class="w">       </span><span class="k">struct</span> <span class="nc">mclk_pll_s</span><span class="w">                </span><span class="n">mclk</span><span class="p">;</span><span class="w"></span>
+<span class="w">       </span><span class="k">union</span> <span class="p">{</span><span class="w"></span>
+<span class="w">               </span><span class="k">struct</span> <span class="nc">mipi_dev_attr_s</span><span class="w">  </span><span class="n">mipi_attr</span><span class="p">;</span><span class="w"></span>
+<span class="w">               </span><span class="k">struct</span> <span class="nc">lvds_dev_attr_s</span><span class="w">  </span><span class="n">lvds_attr</span><span class="p">;</span><span class="w"></span>
+<span class="w">               </span><span class="k">struct</span> <span class="nc">ttl_dev_attr_s</span><span class="w">   </span><span class="n">ttl_attr</span><span class="p">;</span><span class="w"></span>
+<span class="w">               </span><span class="k">struct</span> <span class="nc">bt_demux_attr_s</span><span class="w">  </span><span class="n">bt_demux_attr</span><span class="p">;</span><span class="w"></span>
+<span class="w">       </span><span class="p">};</span><span class="w"></span>
+<span class="w">       </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w">                  </span><span class="n">devno</span><span class="p">;</span><span class="w"></span>
+<span class="w">       </span><span class="k">struct</span> <span class="nc">img_size_s</span><span class="w">              </span><span class="n">img_size</span><span class="p">;</span><span class="w"></span>
+<span class="w">       </span><span class="k">struct</span> <span class="nc">manaul_wdr_attr_s</span><span class="w">        </span><span class="n">wdr_manu</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>member</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>input_mode</p></td>
+<td><p>inputconnectporttype</p></td>
+</tr>
+<tr class="row-odd"><td><p>mac_clk</p></td>
+<td><p>MIPI RX MACclockset</p></td>
+</tr>
+<tr class="row-even"><td><p>mclk</p></td>
+<td><p>MIPI RXoutputSensorreferenceclockset</p></td>
+</tr>
+<tr class="row-odd"><td><p>mipi_attr</p></td>
+<td><p>If input_modeconfigureisINPUT_MODE_MIPI, thenmustconfiguremipi_attr</p></td>
+</tr>
+<tr class="row-even"><td><p>lvds_attr</p></td>
+<td><p>If input_modeconfigureisINPUT_MODE_SUBLVDS/INPUT_MODE_HISPI, thenmustconfigurelvds_attr</p></td>
+</tr>
+<tr class="row-odd"><td><p>devno</p></td>
+<td><p>MIPI-Rxdevicenumber</p></td>
+</tr>
+<tr class="row-even"><td><p>img_size</p></td>
+<td><p>inputframesize</p></td>
+</tr>
+<tr class="row-odd"><td><p>wdr_manu</p></td>
+<td><p>manualWDRattribute</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Processor Differences]</p>
+<p>None.</p>
+<p>[Notes]</p>
+<p>None</p>
+<p>[Related data types and interfaces]</p>
+<p>None</p>
+</section>
+<section id="crop-top-s">
+<span id="id47"></span><h3><span class="section-number">2.5.33. </span>crop_top_s<a class="headerlink" href="2_MIPI_User_Guide.html#crop-top-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>discard leadinglinedata. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">crop_top_s</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w">                    </span><span class="n">devno</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w">                    </span><span class="n">crop_top</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w">                    </span><span class="n">update</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>member</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>devno</p></td>
+<td><p>MIPI-Rxdevicenumber</p></td>
+</tr>
+<tr class="row-odd"><td><p>crop_top</p></td>
+<td><p>openheaderneed todiscardnumber of lines</p></td>
+</tr>
+<tr class="row-even"><td><p>update</p></td>
+<td><p>iswhetherforcemorenewset.  If whether, setwilletc.underonesynchronizationsignalonly whenmorenew. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Processor Differences]</p>
+<p>None.</p>
+<p>[Notes]</p>
+<p>None</p>
+<p>[Related data types and interfaces]</p>
+<p>None</p>
+</section>
+<section id="manual-wdr-s">
+<span id="id48"></span><h3><span class="section-number">2.5.34. </span>manual_wdr_s<a class="headerlink" href="2_MIPI_User_Guide.html#manual-wdr-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>manualWDRmodeset. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">manual_wdr_s</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w">                  </span><span class="n">devno</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="k">struct</span> <span class="nc">manaul_wdr_attr_s</span><span class="w">        </span><span class="n">attr</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>member</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>devno</p></td>
+<td><p>MIPI-Rxdevicenumber</p></td>
+</tr>
+<tr class="row-odd"><td><p>attr</p></td>
+<td><p>manualWDRattribute</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Processor Differences]</p>
+<p>None.</p>
+<p>[Notes]</p>
+<p>None</p>
+<p>[Related data types and interfaces]</p>
+<p>None</p>
+</section>
+<section id="vsync-gen-s">
+<span id="id49"></span><h3><span class="section-number">2.5.35. </span>vsync_gen_s<a class="headerlink" href="2_MIPI_User_Guide.html#vsync-gen-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>manualWDRmodeset. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">vsync_gen_s</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w">                    </span><span class="n">devno</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w">                    </span><span class="n">distance_fp</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>member</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>devno</p></td>
+<td><p>MIPI-Rxdevicenumber</p></td>
+</tr>
+<tr class="row-odd"><td><p>distance_fp</p></td>
+<td><p>When input_modeisINPUT_MODE_SUBLVDSwhen, generateverticalsynchronizationsignaltimepoint. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Processor Differences]</p>
+<p>None.</p>
+<p>[Notes]</p>
+<ul class="simple">
+<li><p>Sub-LVDSnotbuilt-inverticalsynchronizationsignal, thereforeMIPI-RxmustmanuallygeneratesendgiveISP.  distance_fp adjustableentireverticalsynchronizationtimepointwithreachaddlargefront porchoperationuse. </p></li>
+</ul>
+<p>[Related data types and interfaces]</p>
+<p>None</p>
+</section>
+<section id="lane-max-num">
+<span id="id50"></span><h3><span class="section-number">2.5.36. </span>LANE_MAX_NUM<a class="headerlink" href="2_MIPI_User_Guide.html#lane-max-num" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>oneMIPI TxdevicesupportsmaximumLanenumber. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define MIPI_LANE_NUM   4</span>
+</pre></div>
+</div>
+<p>[Processor Differences]</p>
+<p>None.</p>
+<p>[Notes]</p>
+<p>None</p>
+<p>[Related data types and interfaces]</p>
+<p>None</p>
+</section>
+<section id="output-mode-e">
+<span id="id51"></span><h3><span class="section-number">2.5.37. </span>output_mode_e<a class="headerlink" href="2_MIPI_User_Guide.html#output-mode-e" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>MIPI Txoutputmode. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span><span class="w"> </span><span class="n">output_mode_e</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">OUTPUT_MODE_CSI</span><span class="w">             </span><span class="o">=</span><span class="w"> </span><span class="mh">0x0</span><span class="p">,</span><span class="w">      </span><span class="cm">/* csi mode */</span><span class="w"> </span><span class="n">OUTPUT_MODE_DSI_VIDEO</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="mh">0x1</span><span class="p">,</span><span class="w">      </span><span class="cm">/* dsi video mode */</span><span class="w"></span>
+<span class="w">  </span><span class="n">OUTPUT_MODE_DSI_CMD</span><span class="w">       </span><span class="o">=</span><span class="w"> </span><span class="mh">0x2</span><span class="p">,</span><span class="w">      </span><span class="cm">/* dsi command mode */</span><span class="w"></span>
+<span class="w">  </span><span class="n">OUTPUT_MODE_BUTT</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">output_mode_t</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Processor Differences]</p>
+<p>None</p>
+<p>[Notes]</p>
+<p>None</p>
+<p>[Related data types and interfaces]</p>
+<p>None</p>
+</section>
+<section id="video-mode-e">
+<span id="id52"></span><h3><span class="section-number">2.5.38. </span>video_mode_e<a class="headerlink" href="2_MIPI_User_Guide.html#video-mode-e" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>MIPI Txvideomode. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span><span class="w"> </span><span class="n">video_mode_e</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">BURST_MODE</span><span class="w">                      </span><span class="o">=</span><span class="w"> </span><span class="mh">0x0</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">NON_BURST_MODE_SYNC_PULSES</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="mh">0x1</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">NON_BURST_MODE_SYNC_EVENTS</span><span class="w">      </span><span class="o">=</span><span class="w"> </span><span class="mh">0x2</span><span class="p">,</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Processor Differences]</p>
+<p>None</p>
+<p>[Notes]</p>
+<p>None</p>
+<p>[Related data types and interfaces]</p>
+<p>None</p>
+</section>
+<section id="output-format-e">
+<span id="id53"></span><h3><span class="section-number">2.5.39. </span>output_format_e<a class="headerlink" href="2_MIPI_User_Guide.html#output-format-e" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>LVDS inWDRmodesynchronization method. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">enum</span><span class="w"> </span><span class="n">output_format_e</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="n">OUT_FORMAT_RGB_16_BIT</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="mh">0x0</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">OUT_FORMAT_RGB_18_BIT</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="mh">0x1</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">OUT_FORMAT_RGB_24_BIT</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="mh">0x2</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">OUT_FORMAT_RGB_30_BIT</span><span class="w">          </span><span class="o">=</span><span class="w"> </span><span class="mh">0x3</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">OUT_FORMAT_YUV420_8_BIT_NORMAL</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x4</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">OUT_FORMAT_YUV420_8_BIT_LEGACY</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0x5</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">OUT_FORMAT_YUV422_8_BIT</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="mh">0x6</span><span class="p">,</span><span class="w"></span>
+
+<span class="w">   </span><span class="n">OUT_FORMAT_BUTT</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Processor Differences]</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Processor Differences</p></th>
+<th class="head"><p>iswhethersupport</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CV181x</p></td>
+<td><p>Not supportedYUV420</p></td>
+</tr>
+<tr class="row-odd"><td><p>CV180x</p></td>
+<td><p>Not supportedYUV420</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Notes]</p>
+<p>None</p>
+<p>[Related data types and interfaces]</p>
+<p>None</p>
+</section>
+<section id="sync-info-s">
+<span id="id54"></span><h3><span class="section-number">2.5.40. </span>sync_info_s<a class="headerlink" href="2_MIPI_User_Guide.html#sync-info-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>MIPI Txdevicesynchronizationinformation. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">sync_info_s</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">   </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w">  </span><span class="n">vid_hsa_pixels</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w">  </span><span class="n">vid_hbp_pixels</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w">  </span><span class="n">vid_hfp_pixels</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w">  </span><span class="n">vid_hline_pixels</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w">  </span><span class="n">vid_vsa_lines</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w">  </span><span class="n">vid_vbp_lines</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w">  </span><span class="n">vid_vfp_lines</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w">  </span><span class="n">vid_active_lines</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w">  </span><span class="n">edpi_cmd_size</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="kt">bool</span><span class="w">            </span><span class="n">vid_vsa_pos_polarity</span><span class="p">;</span><span class="w"></span>
+<span class="w">   </span><span class="kt">bool</span><span class="w">            </span><span class="n">vid_hsa_pos_polarity</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>member</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>vid_hsa_pixels</p></td>
+<td><p>Horizontal sync-plusepixelcount</p></td>
+</tr>
+<tr class="row-odd"><td><p>vid_hbp_pixels</p></td>
+<td><p>Horizontal back-porchpixelcount</p></td>
+</tr>
+<tr class="row-even"><td><p>vid_hfp_pixels</p></td>
+<td><p>Horizontal front-porchpixelcount</p></td>
+</tr>
+<tr class="row-odd"><td><p>vid_hline_pixels</p></td>
+<td><p>Horizontal image activepixelcount</p></td>
+</tr>
+<tr class="row-even"><td><p>vid_vsa_lines</p></td>
+<td><p>Vertical sync-plusenumber of lines</p></td>
+</tr>
+<tr class="row-odd"><td><p>vid_hbp_pixels</p></td>
+<td><p>Vertical back-porchnumber of lines</p></td>
+</tr>
+<tr class="row-even"><td><p>vid_hbp_pixels</p></td>
+<td><p>Vertical front-porchnumber of lines</p></td>
+</tr>
+<tr class="row-odd"><td><p>vid_active_pixels</p></td>
+<td><p>Vertical image activenumber of lines</p></td>
+</tr>
+<tr class="row-even"><td><p>edpi_cmd_size</p></td>
+<td><p>writememorycommandbytesnumber. video modewhenthevalueinvalid, command modewhenthevaluesetishact. </p></td>
+</tr>
+<tr class="row-odd"><td><p>vid_vsa_pos_polarity;</p></td>
+<td><p>Horizontal sync-pluse polarity</p></td>
+</tr>
+<tr class="row-even"><td><p>vid_hsa_pos_polarity;</p></td>
+<td><p>Vertical sync-pluse polarity</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Processor Differences]</p>
+<p>None.</p>
+<p>[Notes]</p>
+<p>None</p>
+<p>[Related data types and interfaces]</p>
+<p>None</p>
+</section>
+<section id="combo-dev-cfg-s">
+<span id="id55"></span><h3><span class="section-number">2.5.41. </span>combo_dev_cfg_s<a class="headerlink" href="2_MIPI_User_Guide.html#combo-dev-cfg-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>MIPI Txdeviceattribute. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">combo_dev_cfg_s</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w">            </span><span class="n">devno</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">enum</span><span class="w"> </span><span class="n">mipi_tx_lane_id</span><span class="w">    </span><span class="n">lane_id</span><span class="p">[</span><span class="n">LANE_MAX_NUM</span><span class="p">];</span><span class="w"></span>
+<span class="w">    </span><span class="k">enum</span><span class="w"> </span><span class="n">output_mode_e</span><span class="w">      </span><span class="n">output_mode</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">enum</span><span class="w"> </span><span class="n">video_mode_e</span><span class="w">       </span><span class="n">video_mode</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">enum</span><span class="w"> </span><span class="n">output_format_e</span><span class="w">    </span><span class="n">output_format</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="k">struct</span> <span class="nc">sync_info_s</span><span class="w">      </span><span class="n">sync_info</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w">            </span><span class="n">phy_data_rate</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w">            </span><span class="n">pixel_clk</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">bool</span><span class="w">                    </span><span class="n">lane_pn_swap</span><span class="p">[</span><span class="n">LANE_MAX_NUM</span><span class="p">];</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>member</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>devno</p></td>
+<td><p>devno</p></td>
+</tr>
+<tr class="row-odd"><td><p>lane_id</p></td>
+<td><p>sendside(vo)andconnectreceiveside(MIPI Tx) Lanecorrespondence;unuseduseLanesetis-1. </p></td>
+</tr>
+<tr class="row-even"><td><p>output_mode</p></td>
+<td><p>MIPI Txoutputmode. </p></td>
+</tr>
+<tr class="row-odd"><td><p>video_mode</p></td>
+<td><p>MIPI Txvideomode. </p></td>
+</tr>
+<tr class="row-even"><td><p>output_format</p></td>
+<td><p>MIPI Txoutputformat. </p></td>
+</tr>
+<tr class="row-odd"><td><p>sync_info</p></td>
+<td><p>MIPI Tx device synchronization information. </p></td>
+</tr>
+<tr class="row-even"><td><p>phy_data_rate</p></td>
+<td><p>MIPI Txoutputrate, MIPI Txhighspeedmodeeachchannel (lane) raterangeDescription. </p></td>
+</tr>
+<tr class="row-odd"><td><p>pixel_clk</p></td>
+<td><p>pixelclock. unitisKHz</p></td>
+</tr>
+<tr class="row-even"><td><p>lane_pn_swap</p></td>
+<td><p>LanesetoniswhetherP/Nneed toswap</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Processor Differences]</p>
+<p>None.</p>
+<p>[Notes]</p>
+<p>None</p>
+<p>[Related data types and interfaces]</p>
+<p><a class="reference internal" href="2_MIPI_User_Guide.html#mipi-tx-cfg">mipi_tx_cfg</a></p>
+</section>
+<section id="cmd-info-s">
+<span id="id56"></span><h3><span class="section-number">2.5.42. </span>cmd_info_s<a class="headerlink" href="2_MIPI_User_Guide.html#cmd-info-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>giveMIPI Txdeviceinitializationinformation. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">cmd_info_s</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w">        </span><span class="n">devno</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w">      </span><span class="n">data_type</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w">      </span><span class="n">cmd_size</span><span class="p">;</span><span class="w"></span>
+<span class="cp">#ifdef __arm__</span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w">       </span><span class="o">*</span><span class="n">cmd</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w">       </span><span class="n">padding</span><span class="p">;</span><span class="w"></span>
+<span class="cp">#else</span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w">       </span><span class="o">*</span><span class="n">cmd</span><span class="p">;</span><span class="w"></span>
+<span class="cp">#endif</span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>member</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>devno</p></td>
+<td><p>MIPI Txdevicenumber</p></td>
+</tr>
+<tr class="row-odd"><td><p>data_type</p></td>
+<td><p>commandData Types</p></td>
+</tr>
+<tr class="row-even"><td><p>cmd_size</p></td>
+<td><p>commanddatabytesnumber, range: (0,128). </p></td>
+</tr>
+<tr class="row-odd"><td><p>cmd_data</p></td>
+<td><p>commanddataaddresspointer, need touserallocate. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Processor Differences]</p>
+<p>None.</p>
+<p>[Notes]</p>
+<p>None</p>
+<p>[Related data types and interfaces]</p>
+<p><a class="reference internal" href="2_MIPI_User_Guide.html#mipi-tx-send-cmd">mipi_tx_send_cmd</a></p>
+</section>
+<section id="get-cmd-info-s">
+<span id="id57"></span><h3><span class="section-number">2.5.43. </span>get_cmd_info_s<a class="headerlink" href="2_MIPI_User_Guide.html#get-cmd-info-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>fromMIPI Txdeviceretrieveinformation. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">get_cmd_info_s</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w">        </span><span class="n">devno</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w">      </span><span class="n">data_type</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w">      </span><span class="n">data_param</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">short</span><span class="w">      </span><span class="n">get_data_size</span><span class="p">;</span><span class="w"></span>
+<span class="cp">#ifdef __arm__</span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w">        </span><span class="n">padding1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w">       </span><span class="o">*</span><span class="n">get_data</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w">        </span><span class="n">padding2</span><span class="p">;</span><span class="w"></span>
+<span class="cp">#else</span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">int</span><span class="w">        </span><span class="n">padding1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w">       </span><span class="o">*</span><span class="n">get_data</span><span class="p">;</span><span class="w"></span>
+<span class="cp">#endif</span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>member</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>devno</p></td>
+<td><p>MIPI Txdevicenumber</p></td>
+</tr>
+<tr class="row-odd"><td><p>data_type</p></td>
+<td><p>commandData Types</p></td>
+</tr>
+<tr class="row-even"><td><p>data_param</p></td>
+<td><p>dataparameter, loweightbitisfirstitemparameter, higheightbitisseconditemparameter, notusewhenfill0</p></td>
+</tr>
+<tr class="row-odd"><td><p>get_data_size</p></td>
+<td><p>expectedgetdatabytesnumber, range: (0,4). </p></td>
+</tr>
+<tr class="row-even"><td><p>get_data</p></td>
+<td><p>gettodatastoreaddresspointer, need touserallocate. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Processor Differences]</p>
+<p>None.</p>
+<p>[Notes]</p>
+<p>None</p>
+<p>[Related data types and interfaces]</p>
+<p><a class="reference internal" href="2_MIPI_User_Guide.html#mipi-tx-recv-cmd">mipi_tx_recv_cmd</a></p>
+</section>
+<section id="hs-settle-s">
+<span id="id58"></span><h3><span class="section-number">2.5.44. </span>hs_settle_s<a class="headerlink" href="2_MIPI_User_Guide.html#hs-settle-s" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>MIPI TxdeviceHS modeundersettleinformation. </p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">hs_settle_s</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w">       </span><span class="n">prepare</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w">       </span><span class="n">zero</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">char</span><span class="w">       </span><span class="n">trail</span><span class="p">;</span><span class="w"></span>
+<span class="p">};</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>member</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>prepare</p></td>
+<td><p>isLP-&gt;HSafterbeforesetpreparationTnumber</p></td>
+</tr>
+<tr class="row-odd"><td><p>zero</p></td>
+<td><p>inenterHSafter, inoutputdatabeforeis0Tnumber</p></td>
+</tr>
+<tr class="row-even"><td><p>trail</p></td>
+<td><p>inHS-&gt;LPwhen, need toendHSbefore, dataendafteradditionaloutsideTnumber</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Processor Differences]</p>
+<p>None.</p>
+<p>[Notes]</p>
+<img alt="_images/_hs_settle_s.png" class="align-center" src="_images/_hs_settle_s.png" />
+<p>[Related data types and interfaces]</p>
+<p>None</p>
+</section>
+</section>
+<section id="proc">
+<h2><span class="section-number">2.6. </span>Procinformation<a class="headerlink" href="2_MIPI_User_Guide.html#proc" title="Permalink to this heading">¶</a></h2>
+<section id="mipi-rx-proc">
+<h3><span class="section-number">2.6.1. </span>MIPI_RX Procinformation<a class="headerlink" href="2_MIPI_User_Guide.html#mipi-rx-proc" title="Permalink to this heading">¶</a></h3>
+<p>MIPI_Rxinnormalworkingunderprocinformationineachtypeerrorinterruptcountshouldis0.  If whether, pleasecheckMIPI_Rxrelatedattributeiswhetherconfigurecorrect. </p>
+<p>[Debug Information]</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Module</span><span class="p">:</span> <span class="p">[</span><span class="n">MIPI_RX</span><span class="p">],</span> <span class="n">Build</span> <span class="n">Time</span><span class="p">[</span><span class="c1">#1 SMP PREEMPT Thu Apr 29 11:18:57 CST 2021]</span>
+
+<span class="o">------------</span><span class="n">Combo</span> <span class="n">DEV</span> <span class="n">ATTR</span><span class="o">--------------</span>
+ <span class="n">Devno</span>  <span class="n">WorkMode</span>  <span class="n">DataType</span>   <span class="n">WDRMode</span>         <span class="n">LinkId</span>        <span class="n">PN</span> <span class="n">Swap</span>  <span class="n">SyncMode</span>  <span class="n">DataEndian</span>  <span class="n">SyncCodeEndian</span>
+     <span class="mi">0</span>      <span class="n">MIPI</span>     <span class="n">RAW12</span>      <span class="n">NONE</span>  <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span>  <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span>       <span class="n">N</span><span class="o">/</span><span class="n">A</span>         <span class="n">N</span><span class="o">/</span><span class="n">A</span>             <span class="n">N</span><span class="o">/</span><span class="n">A</span>
+
+<span class="o">------------</span><span class="n">MIPI</span> <span class="n">info</span><span class="o">-------------------</span>
+<span class="n">Devno</span> <span class="n">EccErr</span> <span class="n">CrcErr</span> <span class="n">HdrErr</span> <span class="n">WcErr</span> <span class="n">fifofull</span>   <span class="n">decode</span>
+   <span class="mi">0</span>      <span class="mi">0</span>      <span class="mi">0</span>      <span class="mi">0</span>     <span class="mi">2</span>        <span class="mi">0</span>    <span class="n">raw12</span>
+<span class="n">Physical</span><span class="p">:</span>       <span class="n">D0</span>       <span class="n">D1</span>       <span class="n">D2</span>       <span class="n">D3</span>       <span class="n">D4</span>       <span class="n">D5</span>
+                 <span class="mi">0</span>        <span class="mi">0</span>        <span class="mi">0</span>        <span class="mi">0</span>        <span class="mi">0</span>        <span class="mi">0</span>
+ <span class="n">Digital</span><span class="p">:</span>       <span class="n">D0</span>       <span class="n">D1</span>       <span class="n">D2</span>       <span class="n">D3</span>    <span class="n">CK_HS</span>  <span class="n">CK_ULPS</span>  <span class="n">CK_STOP</span>   <span class="n">CK_ERR</span>   <span class="n">Deskew</span>
+           <span class="n">hs_idle</span>  <span class="n">hs_idle</span>  <span class="n">hs_idle</span>  <span class="n">hs_idle</span>        <span class="mi">1</span>        <span class="mi">0</span>        <span class="mi">0</span>        <span class="mi">0</span>     <span class="n">idle</span>
+</pre></div>
+</div>
+<p>[debuginformationanalysis]</p>
+<ul class="simple">
+<li><p>MIPI RxthroughPHY WrapperconnectreceiveSensorMIPI-CSI/SubLVDS/HiSPi/TTLsignal, byMACincorrespondingconnectportperform synchronizationheader detectionwithalignment. </p></li>
+<li><p>MACwilleachLanedatacombinedandbecomePixeldata, andwilldatasendgiveafterlevelISP. </p></li>
+<li><p>PHY Wrapperbysensorpixel clockprovideclock.  MACinclockwithafterlevelISPsame. </p></li>
+<li><p>If need tooperationdataCrop, can byafterlevelISPtodebug. </p></li>
+</ul>
+<p><cite>Figure  1‑5datashowexampleFigure </cite></p>
+<img alt="_images/1-5.png" class="align-center" src="_images/1-5.png" />
+<p>[Parameter Description]</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 32%" />
+<col style="width: 52%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head" colspan="2"><p>Parameters</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td rowspan="6"><p>MIPI DEV ATTR</p></td>
+<td><p>Devno</p></td>
+<td><p>MIPIdevicenumber</p></td>
+</tr>
+<tr class="row-odd"><td><p>WorkMode</p></td>
+<td><p>MIPIdeviceoperating mode: MIPI/ SUBLVDS/HISPI/CMOSetc.mode</p></td>
+</tr>
+<tr class="row-even"><td><p>DataType</p></td>
+<td><p>RAW8/RAW10/RAW12etc.type</p></td>
+</tr>
+<tr class="row-odd"><td><p>WDRMode</p></td>
+<td><dl class="simple">
+<dt>WDRmode:</dt><dd><ul class="simple">
+<li><p>NONE</p></li>
+<li><p>VC</p></li>
+<li><p>DT</p></li>
+<li><p>DOL</p></li>
+<li><p>MANUAL</p></li>
+</ul>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-even"><td><p>LaneId</p></td>
+<td><p>Lane id</p></td>
+</tr>
+<tr class="row-odd"><td><p>PN Swap</p></td>
+<td><p>PN signalswap</p></td>
+</tr>
+<tr class="row-even"><td rowspan="9"><p>LVDS DEV ATTR</p></td>
+<td><p>Devno</p></td>
+<td><p>MIPIdevicenumber</p></td>
+</tr>
+<tr class="row-odd"><td><p>WorkMode</p></td>
+<td><p>MIPIdeviceoperating mode: MIPI/ SUBLVDS/HISPI/CMOSetc.mode</p></td>
+</tr>
+<tr class="row-even"><td><p>DataType</p></td>
+<td><p>RAW8/RAW10/RAW12etc.type</p></td>
+</tr>
+<tr class="row-odd"><td><p>WDRMode</p></td>
+<td><dl class="simple">
+<dt>WDRmode:</dt><dd><ul class="simple">
+<li><p>NONE</p></li>
+<li><p>2To1</p></li>
+<li><p>3To1</p></li>
+<li><p>DOL2To1</p></li>
+<li><p>DOL3To1</p></li>
+</ul>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-even"><td><p>LaneId</p></td>
+<td><p>Lane id</p></td>
+</tr>
+<tr class="row-odd"><td><p>PN Swap</p></td>
+<td><p>PN signalswap</p></td>
+</tr>
+<tr class="row-even"><td><p>SyncMode</p></td>
+<td><dl class="simple">
+<dt>LVDSSynchronization Codemode:</dt><dd><ul class="simple">
+<li><p>SOF</p></li>
+<li><p>SAV</p></li>
+</ul>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-odd"><td><p>DataEndian</p></td>
+<td><p>Databitbitssizesidemode</p></td>
+</tr>
+<tr class="row-even"><td><p>SyncCodeEndian</p></td>
+<td><p>Synchronization Codebitbitssizesidemode</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="18"><p>MIPI Info
+(onlyMIPImodecan see)</p></td>
+<td><p>Devno</p></td>
+<td><p>MIPIdevicenumber</p></td>
+</tr>
+<tr class="row-even"><td><p>EccErr</p></td>
+<td><p>ECCerrorinterruptcount</p></td>
+</tr>
+<tr class="row-odd"><td><p>CrcErr</p></td>
+<td><p>CRCerrorinterruptcount</p></td>
+</tr>
+<tr class="row-even"><td><p>HdrErr</p></td>
+<td><p>HDR Flagerrorinterruptcount</p></td>
+</tr>
+<tr class="row-odd"><td><p>WcErr</p></td>
+<td><p>Word Counterrorinterruptcount</p></td>
+</tr>
+<tr class="row-even"><td><p>fifofull</p></td>
+<td><p>Fifofull interruptcount</p></td>
+</tr>
+<tr class="row-odd"><td><p>Physical: D0</p></td>
+<td><p>MIPIRX_PAD0 receivetodata</p></td>
+</tr>
+<tr class="row-even"><td><p>Physical: D1</p></td>
+<td><p>MIPIRX_PAD1 receivetodata</p></td>
+</tr>
+<tr class="row-odd"><td><p>Physical: D2</p></td>
+<td><p>MIPIRX_PAD2 receivetodata</p></td>
+</tr>
+<tr class="row-even"><td><p>Physical: D3</p></td>
+<td><p>MIPIRX_PAD3 receivetodata</p></td>
+</tr>
+<tr class="row-odd"><td><p>Physical: D4</p></td>
+<td><p>MIPIRX_PAD4 receivetodata</p></td>
+</tr>
+<tr class="row-even"><td><p>Physical: D5</p></td>
+<td><p>MIPIRX_PAD5 receivetodata</p></td>
+</tr>
+<tr class="row-odd"><td><p>Digital: D0</p></td>
+<td><p>Sensor data lane 0 state</p></td>
+</tr>
+<tr class="row-even"><td><p>Digital: D1</p></td>
+<td><p>Sensor data lane 1 state</p></td>
+</tr>
+<tr class="row-odd"><td><p>Digital: D2</p></td>
+<td><p>Sensor data lane 2 state</p></td>
+</tr>
+<tr class="row-even"><td><p>Digital: D3</p></td>
+<td><p>Sensor data lane 3 state</p></td>
+</tr>
+<tr class="row-odd"><td><p>CK_HS/CK_ULPS/CK_STOP/CK_ERR</p></td>
+<td><p>Sensor clock lane state</p></td>
+</tr>
+<tr class="row-even"><td><p>Deskew</p></td>
+<td><p>Deskew result</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="faq">
+<h2><span class="section-number">2.7. </span>FAQ<a class="headerlink" href="2_MIPI_User_Guide.html#faq" title="Permalink to this heading">¶</a></h2>
+<section id="land-id">
+<h3><span class="section-number">2.7.1. </span>1.6.1.   Land idhow to configure<a class="headerlink" href="2_MIPI_User_Guide.html#land-id" title="Permalink to this heading">¶</a></h3>
+<p>Land idconfigurecorrespondingmipi_dev_attr_sinshort lane_id[MIPI_LANE_NUM+1]ororlvds_dev_attr_sMedium
+short lane_id[MIPI_LANE_NUM+1], wherelane_idarrayindexnumbermeansisSensorLane ID, indexnumber
+0meanssensor clock, indexnumber1meanssensor lane 0.  land_idarrayvaluemeansisMIPI-RxLane ID, 
+0meansMIPIRX1_PAD0, 1meansMIPIRX1_PAD1. unuseduselanewillitscorrespondinglane_idconfigureis-1. </p>
+<p>belowExampledescription, for exampleMIPIwithSENSORpinhardwareconnectconnectas followsTable shown. </p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>SENSORpin</p></th>
+<th class="head"><p>MIPI Lanepin</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Clock Lane (index = 0)</p></td>
+<td><p>MIPIRX1_PAD0 (value = 0)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Lane 0 (index = 1)</p></td>
+<td><p>MIPIRX1_PAD1 (value = 1)</p></td>
+</tr>
+<tr class="row-even"><td><p>Lane 1 (index = 2)</p></td>
+<td><p>MIPIRX1_PAD2 (value = 2)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Lane 2 (index = 3)</p></td>
+<td><p>MIPIRX1_PAD3 (value = 3)</p></td>
+</tr>
+<tr class="row-even"><td><p>Lane 3 (index = 4)</p></td>
+<td><p>MIPIRX1_PAD4 (value = 4)</p></td>
+</tr>
+</tbody>
+</table>
+<p>MIPImaximumLanenumberaddonClockis5, thereforelane_idconfigureas follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>//索引sensor_clk,   sensor_lane0,  sensor_lane1,  sensor_lane2,    sensor_lane3
+//          ↓               ↓            ↓            ↓               ↓
+land_id={MIPIRX1_PAD0  MIPIRX1_PAD1  MIPIRX1_PAD2  MIPIRX1_PAD3 MIPIRX1_PAD4 }
+</pre></div>
+</div>
+</section>
+<section id="id59">
+<h3><span class="section-number">2.7.2. </span>MIPIfrequencydescription<a class="headerlink" href="2_MIPI_User_Guide.html#id59" title="Permalink to this heading">¶</a></h3>
+<p>usewithunderformulacalculateMIPIeachLanemosthighfrequencywithVI MACworkingfrequency:</p>
+<p>MAC_Freq * pixel_width = lane_num * MIPI_Freq * 2. 
+whereMAC_FreqisVI MACworkingfrequency, pixel_widthispixelbit width, lane_numisMIPI lanecount, MIPI_Freqiseachitemlaneworkingfrequency. 
+If MAC clockis400M, pixel_width = 12, lane_num = 4, 
+can supportmostfastMIPI_Freq = 400 * 12 / ( 4 * 2) = 600MHz. </p>
+</section>
+<section id="manual-wdr">
+<h3><span class="section-number">2.7.3. </span>Manual WDRmodeusedescription<a class="headerlink" href="2_MIPI_User_Guide.html#manual-wdr" title="Permalink to this heading">¶</a></h3>
+<p>When manualWDRmodeenableafter, MIPI-Rxwillthereceiveundertodatawithlineisunit, followwithunderrulethenallocategivelong exposureframewithshort exposureframe. </p>
+<ul class="simple">
+<li><p>l2s_distance: fromfirstlinetoNo. l2s_distancelineallislong exposuredata, No. l2s_distance+1linestartlong exposurewithshort exposureinterleavedallocate. </p></li>
+<li><p>lsef_length: No. lsef_length+1linestartallisshort exposureframedata.  directlytounderitemverticalsynchronizationsignalisstop. </p></li>
+<li><p>When discard_padding_lines=1when, 1tol2s_distancelineallocatemethodis{long-ignore-long-ignore ...}, No. l2s_distance+1tolsef_lengthlineallocatemethodis{long-short-long-short ...}. No. lsef_length+1linetounderitemverticalsynchronizationsignalallocatemethodis{short-ignore-short-ignore ...}. </p></li>
+</ul>
+<img alt="_images/1.6.3.png" class="align-center" src="_images/1.6.3.png" />
+<ul class="simple">
+<li><p>When discard_padding_lines=0when, 1tol2s_distancelineallocatemethodis{long-long-long ...}, No. l2s_distance+1tolsef_lengthlineallocatemethodis{long-short-long-short ...}. No. lsef_length+1linetounderitemverticalsynchronizationsignalallocatemethodis{short-short-short ...}. </p></li>
+</ul>
+<img alt="_images/1.6.3-2.png" class="align-center" src="_images/1.6.3-2.png" />
+<ul class="simple">
+<li><p>MIPI-RxmustensuresendgiveISPlong exposureframewithshort exposureframenumber of linesisonecause. </p></li>
+<li><p>adjustsensorshort exposurelength, hasmayl2s_distanceneed toonestartadjust. </p></li>
+<li><p>hassomesensormaywillinsendcompleteshort exposurevaliddataafterwithdummyline.  thiswillcauselong exposurewithshort exposurenumber of linesnotonecause.  can willl2s_distanceset to0, lsef_lengthset tomaximumvalue0x1FFF, discard_padding_linesis1that is, receiveundertwo withvalidwithdummydatalongshort exposure, thenuseISP cropvalidpositionthat is, can . </p></li>
+</ul>
+<img alt="_images/1.6.3-3.png" class="align-center" src="_images/1.6.3-3.png" />
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="1_disclaimer.html" class="btn btn-neutral float-left" title="1. Disclaimer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Go to Official Website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="Go to Documentation Center"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Top of page"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Bottom of page"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR code for this page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

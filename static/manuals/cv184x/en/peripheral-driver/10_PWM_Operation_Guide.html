@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>10. PWM Operation Guide &mdash; PeripheralDriver master Documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="11. ADC Operation Guide" href="11_ADC_Operation_Guide.html" />
+    <link rel="prev" title="9. Watchdog Operation Guide" href="9_Watchdog_Operation_Guide.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> PeripheralDriver
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Ethernet_Operation_Guide.html">2. Ethernet Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_USB_Operation_Guide.html">3. USBOperation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_SD_MMC_Card_Operation_Guide.html">4. SD/MMC Card Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_I2C_Operation_Guide.html">5. I2C Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_SPI_Operation_Guide.html">6. SPI Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_GPIO_Operation_Guide.html">7. GPIOOperation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_UART_Operation_Guide.html">8. UART Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_Watchdog_Operation_Guide.html">9. Watchdog Operation Guide</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="10_PWM_Operation_Guide.html#">10. PWM Operation Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="10_PWM_Operation_Guide.html#id1">10.1. Preparation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_PWM_Operation_Guide.html#id2">10.2. Operation Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="10_PWM_Operation_Guide.html#id3">10.3. Operation Example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="10_PWM_Operation_Guide.html#id4">10.3.1. Command-Line Operation Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_PWM_Operation_Guide.html#id5">10.3.2. Maximum and Minimum Frequency Operation Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_PWM_Operation_Guide.html#id6">10.3.3. User-Space Program Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="10_PWM_Operation_Guide.html#id7">10.3.4. Run Mode Description</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="11_ADC_Operation_Guide.html">11. ADC Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_CVI_PINMUX_Operation_Guide.html">12. CVI PINMUX Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_DMA_mem_to_mem_Operation_Guide.html">13. DMA Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_Thermal_Control_Operation_Guide.html">14. Thermal Control Strategy and Test Operation Guide</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PeripheralDriver</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">10. </span>PWM Operation Guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/10_PWM_Operation_Guide.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="pwm">
+<h1><span class="section-number">10. </span>PWM Operation Guide<a class="headerlink" href="10_PWM_Operation_Guide.html#pwm" title="Permalink to this heading">¶</a></h1>
+<p>This documentDescriptionin CV184x on the platformThrough sysfs ConfigurationandUse PWM、Pin Multiplexing withandCommand LineandUser-Space Program Example。</p>
+<section id="id1">
+<h2><span class="section-number">10.1. </span>Preparation<a class="headerlink" href="10_PWM_Operation_Guide.html#id1" title="Permalink to this heading">¶</a></h2>
+<p><strong>1. Kernel Requirements</strong></p>
+<ul class="simple">
+<li><p>Use SDK Providekernel，andEnsureKernel Configurationinalready  <code class="docutils literal notranslate"><span class="pre">CONFIG_PWM</span></code> （Driver Kernel Load，No need to insmod）。</p></li>
+</ul>
+<p><strong>2. Pin Multiplexing</strong></p>
+<p>PWM  needThrough pinmux will  GPIO PinConfigurationis PWM Function。inon the target boardExecute <code class="docutils literal notranslate"><span class="pre">cvi_pinmux</span></code> Commands ，PleasewithActualUseof PWM ChannelandSchematicis 。</p>
+<p><strong>Example：will PWM6  Pinfrom JTAG  to PWM</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cvi_pinmux -r JTAG_CPU_TCK
+cvi_pinmux -w JTAG_CPU_TCK/PWM_6
+</pre></div>
+</div>
+<p><strong>Example：will PWM14  Pinfrom I2C  to PWM</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cvi_pinmux -r IIC2_SCL
+cvi_pinmux -w IIC2_SCL/PWM_14
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h2><span class="section-number">10.2. </span>Operation Flow<a class="headerlink" href="10_PWM_Operation_Guide.html#id2" title="Permalink to this heading">¶</a></h2>
+<p><strong>UseMethod</strong></p>
+<ul class="simple">
+<li><p>in Through shell CommandsOperation sysfs Interface；</p></li>
+<li><p>orinUser space/Kernel spacePrograminThroughRead/write sysfs NodeOperation PWM。</p></li>
+</ul>
+<p><strong> and sysfs Correspondence</strong></p>
+<ul>
+<li><p> Frequency：250 MHz。</p></li>
+<li><p>Channel ：16  ， can ConfigurationPeriodandDuty Cycle。</p></li>
+<li><p>Controllerand sysfs Path：</p>
+<ul class="simple">
+<li><p>  3   PWM Controller，  sysfs inof <code class="docutils literal notranslate"><span class="pre">pwmchip0</span></code>、<code class="docutils literal notranslate"><span class="pre">pwmchip6</span></code>、<code class="docutils literal notranslate"><span class="pre">pwmchip12</span></code>。</p></li>
+<li><p>Schematiconof pwm0～pwm15 andController、sysfs ofCorrespondenceas follows：</p>
+<ul>
+<li><p>pwm0～pwm5 → <code class="docutils literal notranslate"><span class="pre">/sys/class/pwm/pwmchip0/pwm0～pwm5</span></code></p></li>
+<li><p>pwm6～pwm11 → <code class="docutils literal notranslate"><span class="pre">/sys/class/pwm/pwmchip6/pwm0～pwm5</span></code></p></li>
+<li><p>pwm12～pwm15 → <code class="docutils literal notranslate"><span class="pre">/sys/class/pwm/pwmchip12/pwm0～pwm3</span></code></p></li>
+</ul>
+</li>
+</ul>
+<p>  pwmchip6 of pwm0～pwm5  Schematic pwm6～pwm11，pwmchip12 of pwm0～pwm3  Schematic pwm12～pwm15。</p>
+</li>
+</ul>
+</section>
+<section id="id3">
+<h2><span class="section-number">10.3. </span>Operation Example<a class="headerlink" href="10_PWM_Operation_Guide.html#id3" title="Permalink to this heading">¶</a></h2>
+<section id="id4">
+<h3><span class="section-number">10.3.1. </span>Command-Line Operation Example<a class="headerlink" href="10_PWM_Operation_Guide.html#id4" title="Permalink to this heading">¶</a></h3>
+<p>followingwith pwmchip0 of pwm1、pwmchip6 of pwm0、pwmchip12 of pwm2 as an example（ Schematiconof pwm1、pwm6、pwm14）。ActualUse Please needReplaceController andChannel number。</p>
+<p><strong>Steps 1：Export PWM Channel</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="m">1</span> &gt; /sys/class/pwm/pwmchip0/export
+<span class="nb">echo</span> <span class="m">0</span> &gt; /sys/class/pwm/pwmchip6/export
+<span class="nb">echo</span> <span class="m">2</span> &gt; /sys/class/pwm/pwmchip12/export
+</pre></div>
+</div>
+<p><strong>Steps 2：SettingsPeriod（Unit：nanoseconds）</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="m">1000000</span> &gt; /sys/class/pwm/pwmchip0/pwm1/period
+<span class="nb">echo</span> <span class="m">1000000</span> &gt; /sys/class/pwm/pwmchip6/pwm0/period
+<span class="nb">echo</span> <span class="m">1000000</span> &gt; /sys/class/pwm/pwmchip12/pwm2/period
+</pre></div>
+</div>
+<p><strong>Steps 3：SettingsDuty Cycle（Unit：nanoseconds）</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="m">500000</span> &gt; /sys/class/pwm/pwmchip0/pwm1/duty_cycle   <span class="c1"># 500000/1000000 = 50%</span>
+<span class="nb">echo</span> <span class="m">300000</span> &gt; /sys/class/pwm/pwmchip6/pwm0/duty_cycle
+<span class="nb">echo</span> <span class="m">500000</span> &gt; /sys/class/pwm/pwmchip12/pwm2/duty_cycle
+</pre></div>
+</div>
+<p><strong>Steps 4：Enable PWM Output</strong></p>
+<p>Enableaftercanin Pin or 。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="m">1</span> &gt; /sys/class/pwm/pwmchip0/pwm1/enable
+<span class="nb">echo</span> <span class="m">1</span> &gt; /sys/class/pwm/pwmchip6/pwm0/enable
+<span class="nb">echo</span> <span class="m">1</span> &gt; /sys/class/pwm/pwmchip12/pwm2/enable
+</pre></div>
+</div>
+<p><strong>Steps 5：Disable PWM Output</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="m">0</span> &gt; /sys/class/pwm/pwmchip0/pwm1/enable
+<span class="nb">echo</span> <span class="m">0</span> &gt; /sys/class/pwm/pwmchip6/pwm0/enable
+<span class="nb">echo</span> <span class="m">0</span> &gt; /sys/class/pwm/pwmchip12/pwm2/enable
+</pre></div>
+</div>
+<p><strong>Steps 6：Unexport PWM Channel</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="m">1</span> &gt; /sys/class/pwm/pwmchip0/unexport
+<span class="nb">echo</span> <span class="m">0</span> &gt; /sys/class/pwm/pwmchip6/unexport
+<span class="nb">echo</span> <span class="m">2</span> &gt; /sys/class/pwm/pwmchip12/unexport
+</pre></div>
+</div>
+<p><strong>Steps 7：View PWM ChannelStatus</strong></p>
+<p>followingwith pwmchip0/pwm1 as an example，canViewPeriod、Duty Cycle、EnableStatusandControllerInformation：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># View pwmchip0/pwm1 ofPeriod</span>
+cat /sys/class/pwm/pwmchip0/pwm1/period
+<span class="c1"># View pwmchip0/pwm1 ofDuty Cycle</span>
+cat /sys/class/pwm/pwmchip0/pwm1/duty_cycle
+<span class="c1"># View pwmchip0/pwm1  Enable（1=Enable，0=Disable）</span>
+cat /sys/class/pwm/pwmchip0/pwm1/enable
+<span class="c1"># View PWM Controllerof Information</span>
+cat /sys/class/pwm/pwmchip0/device/uevent
+</pre></div>
+</div>
+</section>
+<section id="id5">
+<h3><span class="section-number">10.3.2. </span>Maximum and Minimum Frequency Operation Example<a class="headerlink" href="10_PWM_Operation_Guide.html#id5" title="Permalink to this heading">¶</a></h3>
+<p>followingDescriptionIf Configuration PWM of Frequencyand Frequency，and OperationStepsand 。</p>
+<p> ，need Frequencyof ， 。</p>
+<p><strong> Frequency</strong></p>
+<ul class="simple">
+<li><p> Device Support 50 MHz， Periodis 20 ns（<span class="math notranslate nohighlight">\(1/50\,\mathrm{MHz} = 20\,\mathrm{ns}\)</span>）。</p></li>
+<li><p>is toValid ，Duty Cycle （duty_ns） must Period ，  50% Duty CycleTests。</p></li>
+</ul>
+<p>with pwmchip0/pwm1 as an example：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="m">1</span> &gt; /sys/class/pwm/pwmchip0/export
+<span class="nb">echo</span> <span class="m">20</span> &gt; /sys/class/pwm/pwmchip0/pwm1/period      <span class="c1"># Period 20 ns → Frequency 50 MHz</span>
+<span class="nb">echo</span> <span class="m">10</span> &gt; /sys/class/pwm/pwmchip0/pwm1/duty_cycle  <span class="c1"># 50% Duty Cycle：20 × 0.5 = 10 ns</span>
+<span class="nb">echo</span> <span class="m">1</span> &gt; /sys/class/pwm/pwmchip0/pwm1/enable
+</pre></div>
+</div>
+<p><strong>Result</strong>：OutputFrequency  50 MHz，Duty Cycle 50%，can in PinVerification。</p>
+<p><strong> Frequency</strong></p>
+<ul class="simple">
+<li><p> KernelinPeriodandDuty CycleUse （ns）Indicates，Period can  2147483646 ns（ ）。</p></li>
+<li><p>isGenerateValid ，Duty Cycle （duty_ns） must Period ， Select 50% Duty CycleTests：
+<span class="math notranslate nohighlight">\(\mathrm{duty\_ns} = \mathrm{period\_ns} \times 50\% = 2147483646 \times 0.5 = 1073741823\,\mathrm{ns}\)</span>。</p></li>
+</ul>
+<p>with pwmchip0/pwm1 as an example：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="m">1</span> &gt; /sys/class/pwm/pwmchip0/export
+<span class="nb">echo</span> <span class="m">2147483646</span> &gt; /sys/class/pwm/pwmchip0/pwm1/period     <span class="c1"># Period 2147483646 ns</span>
+<span class="nb">echo</span> <span class="m">1073741823</span> &gt; /sys/class/pwm/pwmchip0/pwm1/duty_cycle <span class="c1"># 50% Duty Cycle</span>
+<span class="nb">echo</span> <span class="m">1</span> &gt; /sys/class/pwm/pwmchip0/pwm1/enable
+</pre></div>
+</div>
+<p><strong>Result</strong>：OutputPeriod  2.147 s（Frequency  0.466 Hz），Duty Cycle 50%。can Period 。</p>
+</section>
+<section id="id6">
+<h3><span class="section-number">10.3.3. </span>User-Space Program Example<a class="headerlink" href="10_PWM_Operation_Guide.html#id6" title="Permalink to this heading">¶</a></h3>
+<p>followingwith pwmchip6 of pwm0 as an example（ Schematic pwm6）， inUser spaceThrough open/write Operation sysfs CompleteExport、SettingsPeriodandDuty Cycle、Enable/DisableOutput、Unexport。PathandChannel numbercanThroughMacro <code class="docutils literal notranslate"><span class="pre">PWM_PATH</span></code>、<code class="docutils literal notranslate"><span class="pre">PWM_NUM</span></code> Modify。</p>
+<p><strong> ：  sysfs NodeWrite </strong></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define PWM_PATH &quot;/sys/class/pwm/pwmchip6&quot;</span>
+<span class="cp">#define PWM_NUM  0</span>
+
+<span class="kt">int</span><span class="w"> </span><span class="nf">pwm_write</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">O_WRONLY</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">fd</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">perror</span><span class="p">(</span><span class="s">&quot;EnableFileFailure&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">write</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">strlen</span><span class="p">(</span><span class="n">value</span><span class="p">))</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">perror</span><span class="p">(</span><span class="s">&quot;WriteFailure&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">close</span><span class="p">(</span><span class="n">fd</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="n">close</span><span class="p">(</span><span class="n">fd</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p><strong>Steps 1：Export PWM Channel</strong></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">char</span><span class="w"> </span><span class="n">path</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span><span class="w"></span>
+<span class="n">snprintf</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">path</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;%s/export&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">PWM_PATH</span><span class="p">);</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pwm_write</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w">   </span><span class="cm">/* Export pwm0 */</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<span class="n">usleep</span><span class="p">(</span><span class="mi">100000</span><span class="p">);</span><span class="w">   </span><span class="cm">/* Wait  100ms  Operation Channel */</span><span class="w"></span>
+</pre></div>
+</div>
+<p><strong>Steps 2：ConfigurationPeriod（Unit：nanoseconds，Example 1000000 ns）</strong></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">snprintf</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">path</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;%s/pwm%d/period&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">PWM_PATH</span><span class="p">,</span><span class="w"> </span><span class="n">PWM_NUM</span><span class="p">);</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pwm_write</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;1000000&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p><strong>Steps 3：ConfigurationDuty Cycle（Unit：nanoseconds，Example 300000 ns）</strong></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">snprintf</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">path</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;%s/pwm%d/duty_cycle&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">PWM_PATH</span><span class="p">,</span><span class="w"> </span><span class="n">PWM_NUM</span><span class="p">);</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pwm_write</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;300000&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p><strong>Steps 4：Enable PWM Output</strong></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">snprintf</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">path</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;%s/pwm%d/enable&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">PWM_PATH</span><span class="p">,</span><span class="w"> </span><span class="n">PWM_NUM</span><span class="p">);</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pwm_write</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p><strong>Steps 5：Run afterDisable PWM Output</strong></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span><span class="w">   </span><span class="cm">/* Output 10 seconds */</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">pwm_write</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;0&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w">   </span><span class="cm">/* path  is enable Node */</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p><strong>Steps 6：Unexport PWM Channel</strong></p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">snprintf</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">path</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;%s/unexport&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">PWM_PATH</span><span class="p">);</span><span class="w"></span>
+<span class="n">pwm_write</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="p">);</span><span class="w">   </span><span class="cm">/* Unexport pwm0，ReturnValuecan need  */</span><span class="w"></span>
+</pre></div>
+</div>
+<p><strong>CompleteUser spaceProgram（ Code）</strong></p>
+<p>willon Steps ，and on Fileand main， can tocan BuildRunofProgram：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1">// pwm_control.c</span>
+<span class="linenos"> 2</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="linenos"> 3</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="linenos"> 4</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
+<span class="linenos"> 5</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;fcntl.h&gt;</span><span class="cp"></span>
+<span class="linenos"> 6</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;unistd.h&gt;</span><span class="cp"></span>
+<span class="linenos"> 7</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;errno.h&gt;</span><span class="cp"></span>
+<span class="linenos"> 8</span>
+<span class="linenos"> 9</span><span class="cp">#define PWM_PATH &quot;/sys/class/pwm/pwmchip6&quot;</span>
+<span class="linenos">10</span><span class="cp">#define PWM_NUM  0</span>
+<span class="linenos">11</span>
+<span class="linenos">12</span><span class="kt">int</span><span class="w"> </span><span class="nf">pwm_write</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">value</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">13</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">14</span>
+<span class="linenos">15</span><span class="w">    </span><span class="n">fd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="n">O_WRONLY</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">16</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">fd</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">17</span><span class="w">        </span><span class="n">perror</span><span class="p">(</span><span class="s">&quot;EnableFileFailure&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">18</span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">19</span><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">20</span>
+<span class="linenos">21</span><span class="w">    </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">write</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="p">,</span><span class="w"> </span><span class="n">strlen</span><span class="p">(</span><span class="n">value</span><span class="p">));</span><span class="w"></span>
+<span class="linenos">22</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">23</span><span class="w">        </span><span class="n">perror</span><span class="p">(</span><span class="s">&quot;WriteFailure&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">24</span><span class="w">        </span><span class="n">close</span><span class="p">(</span><span class="n">fd</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">25</span><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">26</span><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">27</span>
+<span class="linenos">28</span><span class="w">    </span><span class="n">close</span><span class="p">(</span><span class="n">fd</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">29</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">30</span><span class="p">}</span><span class="w"></span>
+<span class="linenos">31</span>
+<span class="linenos">32</span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">33</span><span class="w">    </span><span class="kt">char</span><span class="w"> </span><span class="n">path</span><span class="p">[</span><span class="mi">256</span><span class="p">];</span><span class="w"></span>
+<span class="linenos">34</span><span class="w">    </span><span class="kt">int</span><span class="w"> </span><span class="n">ret</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">35</span>
+<span class="linenos">36</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;=== PWM Program ===</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">37</span>
+<span class="linenos">38</span><span class="w">    </span><span class="cm">/* 1. Export PWM Channel */</span><span class="w"></span>
+<span class="linenos">39</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;1. ExportPWMChannel pwm%d...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">PWM_NUM</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">40</span><span class="w">    </span><span class="n">snprintf</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">path</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;%s/export&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">PWM_PATH</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">41</span><span class="w">    </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pwm_write</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">42</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">43</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;ExportSuccess</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">44</span><span class="w">    </span><span class="n">usleep</span><span class="p">(</span><span class="mi">100000</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">45</span>
+<span class="linenos">46</span><span class="w">    </span><span class="cm">/* 2. SettingsPeriod（1 kHz） */</span><span class="w"></span>
+<span class="linenos">47</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;2. SettingsPeriodis1kHz...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">48</span><span class="w">    </span><span class="n">snprintf</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">path</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;%s/pwm%d/period&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">PWM_PATH</span><span class="p">,</span><span class="w"> </span><span class="n">PWM_NUM</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">49</span><span class="w">    </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pwm_write</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;1000000&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">50</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">51</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;PeriodSettingsSuccess</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">52</span>
+<span class="linenos">53</span><span class="w">    </span><span class="cm">/* 3. SettingsDuty Cycle（30%%） */</span><span class="w"></span>
+<span class="linenos">54</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;3. SettingsDuty Cycleis30%%...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">55</span><span class="w">    </span><span class="n">snprintf</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">path</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;%s/pwm%d/duty_cycle&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">PWM_PATH</span><span class="p">,</span><span class="w"> </span><span class="n">PWM_NUM</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">56</span><span class="w">    </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pwm_write</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;300000&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">57</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">58</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Duty CycleSettingsSuccess</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">59</span>
+<span class="linenos">60</span><span class="w">    </span><span class="cm">/* 4.   PWM */</span><span class="w"></span>
+<span class="linenos">61</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;4.  PWMOutput...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">62</span><span class="w">    </span><span class="n">snprintf</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">path</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;%s/pwm%d/enable&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">PWM_PATH</span><span class="p">,</span><span class="w"> </span><span class="n">PWM_NUM</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">63</span><span class="w">    </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pwm_write</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">64</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">65</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;PWMalready </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">66</span>
+<span class="linenos">67</span><span class="w">    </span><span class="cm">/* 5. Run 10 seconds */</span><span class="w"></span>
+<span class="linenos">68</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;PWMOutputin，10seconds laterDisable...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">69</span><span class="w">    </span><span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">70</span>
+<span class="linenos">71</span><span class="w">    </span><span class="cm">/* 6. Disable PWM */</span><span class="w"></span>
+<span class="linenos">72</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;5. DisablePWM...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">73</span><span class="w">    </span><span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pwm_write</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;0&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">74</span><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ret</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">75</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;PWMalreadyDisable</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">76</span>
+<span class="linenos">77</span><span class="w">    </span><span class="cm">/* 7. Unexport（Optional） */</span><span class="w"></span>
+<span class="linenos">78</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;6. UnexportPWMChannel...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">79</span><span class="w">    </span><span class="n">snprintf</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="n">path</span><span class="p">),</span><span class="w"> </span><span class="s">&quot;%s/unexport&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">PWM_PATH</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">80</span><span class="w">    </span><span class="n">pwm_write</span><span class="p">(</span><span class="n">path</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;1&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">81</span><span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;PWMChannelalreadyUnexport</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">82</span>
+<span class="linenos">83</span><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">84</span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="id7">
+<h3><span class="section-number">10.3.4. </span>Run Mode Description<a class="headerlink" href="10_PWM_Operation_Guide.html#id7" title="Permalink to this heading">¶</a></h3>
+<ol class="arabic">
+<li><p><strong> Source Code</strong>：willon CompleteUser spaceProgram isFile，for example <code class="docutils literal notranslate"><span class="pre">pwm_control.c</span></code>。</p></li>
+<li><p><strong>Build</strong>：inHostoron the target boardUse Tools Build。Example（ is ARM  PleaseReplaceisActual Build ）：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1">#  BuildExample（withActualTools is ）</span>
+arm-none-linux-uclibcgnueabihf-gcc -o pwm_control pwm_control.c -static
+</pre></div>
+</div>
+</li>
+<li><p><strong>Run</strong>：willcanExecuteFileCopyto after，inon the target boardExecute。need  <code class="docutils literal notranslate"><span class="pre">/sys/class/pwm</span></code>  （ need root or ）。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./pwm_control
+</pre></div>
+</div>
+<p>Programwill ：Export pwmchip6 of pwm0、Settings 1 kHz Periodand 30%% Duty Cycle、  PWM Output、Run 10 seconds、DisableOutput、Unexport。canin Pin 。</p>
+</li>
+<li><p><strong>ModifyChannelandPath</strong>：IfUse ControllerorChannel，PleaseModifySource Codeinof PWM_PATH（If /sys/class/pwm/pwmchip0）、PWM_NUM（If 1），withand export/unexport inWriteofChannel number， and 「 and sysfs Correspondence」 。</p></li>
+</ol>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="9_Watchdog_Operation_Guide.html" class="btn btn-neutral float-left" title="9. Watchdog Operation Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="11_ADC_Operation_Guide.html" class="btn btn-neutral float-right" title="11. ADC Operation Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Go to Official Website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="Go to Documentation Center"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Back to top"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Go to bottom"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR code for this page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV184X SDK Compilation and Usage Guide &mdash; SDKCompilationandUsageGuide master documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="1. Disclaimer" href="1_disclaimer.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html#" class="icon icon-home"> SDKCompilationandUsageGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html">2. Build the CVITEK Software Compilation Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Burning_Instructions.html">3. Burning Instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_EVB_Interface_Description.html">4. EVB Interface Description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_Root_File_System.html">5. Root File System(rootfs)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_Accelerate_Development_with_NFS.html">6. Accelerate Development with NFS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_SD_Boot_Guide.html">7. SD Boot User Guide</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html#">SDKCompilationandUsageGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html#" class="icon icon-home"></a> &raquo;</li>
+      <li>CV184X SDK the corresponding contentUser Guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cv184x-sdk">
+<h1>CV184X SDK Compilation and Usage Guide<a class="headerlink" href="index.html#cv184x-sdk" title="Permalink to this heading">¶</a></h1>
+<p><strong>Revision History</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 13%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Revision</p></th>
+<th class="head"><p>Date</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1.0.0</p></td>
+<td><p>2025/02/26</p></td>
+<td><p>Initial.</p></td>
+</tr>
+<tr class="row-odd"><td><p>1.0.1</p></td>
+<td><p>2025/05/30</p></td>
+<td><p>Update boards, github download, configuration, figures</p></td>
+</tr>
+<tr class="row-even"><td><p>1.0.2</p></td>
+<td><p>2025/06/26</p></td>
+<td><p>Update Partition, Memmap Configuration</p></td>
+</tr>
+<tr class="row-odd"><td><p>1.1.0</p></td>
+<td><p>2025/09/04</p></td>
+<td><p>Update configuration for dual_os and single_os</p></td>
+</tr>
+</tbody>
+</table>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html">2. Build the CVITEK Software Compilation Environment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#linux">2.1. Linux servicethe corresponding content</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#virtualboxvmubuntu">2.1.1. the corresponding contentVirtualBoxVMinstallUbuntu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#ubuntu">2.1.2. Ubuntu the corresponding content</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#ssh-server">2.1.3. installSSH Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#samba-server">2.1.4. installSamba Server</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#id1">2.2. the corresponding contentCompilation Environment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#docker">2.2.1. use Docker the corresponding content</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#github">2.3. Configurationgithubthe corresponding content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#sdk">2.4. Get SDK the corresponding content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#id3">2.5. Filethe corresponding content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#id4">2.6. the corresponding content</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#id5">2.6.1. environmentthe corresponding contentDescription</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#id6">2.6.2. SDK the corresponding content</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#id7">2.7. Build Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#id8">2.7.1. Single-System or Dual-System Build Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#id9">2.7.2. Toolchain Switching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#id10">2.7.3. modifyPartition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#id11">2.7.4. Memory Mapping Configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#id12">2.7.4.1. memorythe corresponding content</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#id13">2.7.4.2. memorythe corresponding contentmodify</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3_Burning_Instructions.html">3. Burning Instructions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3_Burning_Instructions.html#id2">3.1. Preparation Before Use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_Burning_Instructions.html#id3">3.2. Operation Procedure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_Burning_Instructions.html#id4">3.3. Operation Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_Burning_Instructions.html#id5">3.4. Package the Burner Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_Burning_Instructions.html#id6">3.5. Precautions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="4_EVB_Interface_Description.html">4. EVB Interface Description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_Root_File_System.html">5. Root File System(rootfs)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="5_Root_File_System.html#id1">5.1. Root File SystemIntroduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Root_File_System.html#id2">5.2. Rootfs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="5_Root_File_System.html#pre-build-rootfs">5.2.1. Pre-build rootfs Architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Root_File_System.html#buildroot-rootfs">5.2.2. the corresponding contentbuildroot the corresponding contentrootfs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="5_Root_File_System.html#id3">5.2.2.1. the corresponding content</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Root_File_System.html#buildroot">5.2.2.2. Configure Buildroot in the Graphical Menu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Root_File_System.html#arch-info-toolchain-packages">5.2.2.3. Set Arch Info &amp; Toolchain &amp; Packages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Root_File_System.html#etc-init-d-sxx-ko">5.2.2.4. the corresponding content /etc/init.d/Sxx the corresponding content ko automaticLoad</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Root_File_System.html#br2-target-generic-remount-rootfs-rw">5.2.2.5. BR2_TARGET_GENERIC_REMOUNT_ROOTFS_RW</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Root_File_System.html#id4">5.2.2.6. producethe corresponding content ROOTFS the corresponding contentBurningthe corresponding content</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="5_Root_File_System.html#id5">5.2.3. the corresponding contentrootfs the corresponding contentBurningthe corresponding content</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Root_File_System.html#linux-kernel-rootfs">5.2.4. Linux kernel automaticLoadrootfs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="6_Accelerate_Development_with_NFS.html">6. Accelerate Development with NFS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="6_Accelerate_Development_with_NFS.html#ubuntu-server">6.1. Ubuntu Server the corresponding contentSetDescription：</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Accelerate_Development_with_NFS.html#evb-mount">6.2. EVB board sidemountDescription：</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Accelerate_Development_with_NFS.html#id1">6.3. Precautions：</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="7_SD_Boot_Guide.html">7. SD Boot User Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="7_SD_Boot_Guide.html#id1">7.1. SD Boot Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7_SD_Boot_Guide.html#id2">7.2. SD Boot the corresponding contentflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7_SD_Boot_Guide.html#sd">7.3. SD the corresponding contentPartitionthe corresponding content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7_SD_Boot_Guide.html#id3">7.4. modify SD PartitionSize</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7_SD_Boot_Guide.html#buildroot-sd-boot">7.5. Buildroot the corresponding content SD Boot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="7_SD_Boot_Guide.html#id4">7.6. Burningthe corresponding contentboard sideVerification</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="1_disclaimer.html" class="btn btn-neutral float-right" title="1. Disclaimer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Go to the official website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="the corresponding contentdocumentationthe corresponding content"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Top of page"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Bottom of page"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR Code for This Page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

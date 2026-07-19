@@ -1,0 +1,1383 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>6. GFBG Interface Description &mdash; GFBGDevelopmentGuide master Documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="5. Application Development Process" href="5_GFBG_Application_Example.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> GFBGDevelopmentGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_GFBG_Overview.html">2. GFBG Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_GFBG_Function_Description.html">3. GFBG Function Description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_GFBG_Module_Loading.html">4. Module Loading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_GFBG_Application_Example.html">5. Application Development Process</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="6_GFBG_Interface_Description.html#">6. GFBG Interface Description</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="6_GFBG_Interface_Description.html#ioctl">6.1. ioctl Function</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioget-vscreeninfo">6.1.1. FBIOGET_VSCREENINFO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioput-vscreeninfo">6.1.2. FBIOPUT_VSCREENINFO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioget-fscreeninfo">6.1.3. FBIOGET_FSCREENINFO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_GFBG_Interface_Description.html#fbiopan-display">6.1.4. FBIOPAN_DISPLAY</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioget-screen-origin-gfbg">6.1.5. FBIOGET_SCREEN_ORIGIN_GFBG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioput-screen-origin-gfbg">6.1.6. FBIOPUT_SCREEN_ORIGIN_GFBG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioget-show-gfbg">6.1.7. FBIOGET_SHOW_GFBG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioput-show-gfbg">6.1.8. FBIOPUT_SHOW_GFBG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioget-colorkey-gfbg">6.1.9. FBIOGET_COLORKEY_GFBG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioput-colorkey-gfbg">6.1.10. FBIOPUT_COLORKEY_GFBG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioget-ver-blank-gfbg">6.1.11. FBIOGET_VER_BLANK_GFBG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioput-layer-info">6.1.12. FBIOPUT_LAYER_INFO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioget-layer-info">6.1.13. FBIOGET_LAYER_INFO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioget-canvas-buf">6.1.14. FBIOGET_CANVAS_BUF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_GFBG_Interface_Description.html#fbio-refresh">6.1.15. FBIO_REFRESH</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioput-screen-size">6.1.16. FBIOPUT_SCREEN_SIZE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioget-screen-size">6.1.17. FBIOGET_SCREEN_SIZE</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">GFBGDevelopmentGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">6. </span>GFBG Interface Description</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/6_GFBG_Interface_Description.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="gfbg">
+<h1><span class="section-number">6. </span>GFBG Interface Description<a class="headerlink" href="6_GFBG_Interface_Description.html#gfbg" title="Permalink to this heading">¶</a></h1>
+<p>The GFBG APIs fall into four categories: file operations (open, close, and so on), video-memory mapping (mmap, munmap, and so on), video-memory control and status queries (pixel format, color depth, and so on), and layer-effect control and status queries (display origin, display state, and so on). Each function has a specific purpose; developers can select functions according to their needs. The first two categories are common standard interfaces provided by Linux and are not detailed here. This section focuses on the third and fourth categories.</p>
+<section id="ioctl">
+<h2><span class="section-number">6.1. </span>ioctl Function<a class="headerlink" href="6_GFBG_Interface_Description.html#ioctl" title="Permalink to this heading">¶</a></h2>
+<p>The GFBG user-space interface is exposed through ioctl in the following form:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">ioctl</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">cmd</span><span class="p">,</span><span class="w"> </span><span class="p">...);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>GFBG requires only three parameters, in the following form:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">ioctl</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="kt">unsigned</span><span class="w"> </span><span class="kt">long</span><span class="w"> </span><span class="n">cmd</span><span class="p">,</span><span class="w"> </span><span class="n">CMD_DATA_TYPE</span><span class="w"> </span><span class="o">*</span><span class="n">cmd_data</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>This module provides users with the following APIs:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioget-vscreeninfo">FBIOGET_VSCREENINFO</a> : Get the variable screen information.</p></li>
+<li><p><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioput-vscreeninfo">FBIOPUT_VSCREENINFO</a> : Set the Framebuffer screen resolution, pixel format, and other attributes.</p></li>
+<li><p><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioget-fscreeninfo">FBIOGET_FSCREENINFO</a> : Get the fixed Framebuffer information.</p></li>
+<li><p><a class="reference internal" href="6_GFBG_Interface_Description.html#fbiopan-display">FBIOPAN_DISPLAY</a> : Set display to start at a different offset within the virtual resolution.</p></li>
+<li><p><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioget-screen-origin-gfbg">FBIOGET_SCREEN_ORIGIN_GFBG</a> : Get the starting coordinates of the overlay on the screen.</p></li>
+<li><p><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioput-screen-origin-gfbg">FBIOPUT_SCREEN_ORIGIN_GFBG</a> : Set the starting coordinates of the overlay on the screen.</p></li>
+<li><p><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioget-show-gfbg">FBIOGET_SHOW_GFBG</a> : Get the display state of the current overlay.</p></li>
+<li><p><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioput-show-gfbg">FBIOPUT_SHOW_GFBG</a> : Show or hide the overlay.</p></li>
+<li><p><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioget-colorkey-gfbg">FBIOGET_COLORKEY_GFBG</a> : Get the overlay colorkey.</p></li>
+<li><p><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioput-colorkey-gfbg">FBIOPUT_COLORKEY_GFBG</a> : Set the overlay colorkey.</p></li>
+<li><p><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioget-ver-blank-gfbg">FBIOGET_VER_BLANK_GFBG</a> : etc.wait foroverlay layerVertical Blankingareatoto. </p></li>
+<li><p><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioput-layer-info">FBIOPUT_LAYER_INFO</a> : setlayerinformation. </p></li>
+<li><p><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioget-layer-info">FBIOGET_LAYER_INFO</a> : getlayerinformation. </p></li>
+<li><p><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioget-canvas-buf">FBIOGET_CANVAS_BUF</a> : getcanvasinformation. </p></li>
+<li><p><a class="reference internal" href="6_GFBG_Interface_Description.html#fbio-refresh">FBIO_REFRESH</a> : extendedmodeunder, bootrefreshoperation. </p></li>
+<li><p><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioput-screen-size">FBIOPUT_SCREEN_SIZE</a> : setlayerinpanelondisplaysize. </p></li>
+<li><p><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioget-screen-size">FBIOGET_SCREEN_SIZE</a> : getlayerinpanelondisplaysize. </p></li>
+</ul>
+<section id="fbioget-vscreeninfo">
+<h3><span class="section-number">6.1.1. </span>FBIOGET_VSCREENINFO<a class="headerlink" href="6_GFBG_Interface_Description.html#fbioget-vscreeninfo" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>Get the variable screen information.</p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">ioctl</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">FBIOGET_VSCREENINFO</span><span class="p">,</span><span class="w"> </span><span class="k">struct</span> <span class="nc">fb_var_screeninfo</span><span class="w"> </span><span class="o">*</span><span class="n">var</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>fd</p></td>
+<td><p>Framebuffer Framebuffer device file descriptor</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>FBIOGET_VSCREENINFO</p></td>
+<td><p>ioctl number</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-even"><td><p>var</p></td>
+<td><p>Pointer to the variable-information structure</p></td>
+<td><p>Output</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success.</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>Failure.</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header files:cvi_comm_fb.h</p></li>
+</ul>
+<p>[Note]</p>
+<p>[Example]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">fb_var_screeninfo</span><span class="w"> </span><span class="n">vinfo</span><span class="p">;</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ioctl</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">FBIOGET_VSCREENINFO</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">vinfo</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Related Topics]</p>
+<p><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioput-vscreeninfo">FBIOPUT_VSCREENINFO</a></p>
+</section>
+<section id="fbioput-vscreeninfo">
+<h3><span class="section-number">6.1.2. </span>FBIOPUT_VSCREENINFO<a class="headerlink" href="6_GFBG_Interface_Description.html#fbioput-vscreeninfo" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>Set the Framebuffer screen resolution, pixel format, and other attributes.</p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">ioctl</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">FBIOPUT_VSCREENINFO</span><span class="p">,</span><span class="w"> </span><span class="k">struct</span> <span class="nc">fb_var_screeninfo</span><span class="w"> </span><span class="o">*</span><span class="n">var</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>fd</p></td>
+<td><p>Framebuffer Framebuffer device file descriptor</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>FBIOPUT_VSCREENINFO</p></td>
+<td><p>ioctl number</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-even"><td><p>var</p></td>
+<td><p>Pointer to the variable-information structure</p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success.</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>Failure.</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header files:cvi_comm_fb.h</p></li>
+</ul>
+<p>[Note]</p>
+<ul class="simple">
+<li><p>resolutionsizemustineachoverlay layersupportresolutionrangein. </p></li>
+<li><p>mustensureactualresolutionwithoffset andinvirtualresolutionrangein, otherwisesystemwillautomaticadjustactualresolutionsizemakeitsinvirtualresolutionrangein. </p></li>
+<li><p>For interlacedlinedisplaydevice, need torequestresolutionheightmustisevennumber. </p></li>
+<li><p>If graphicallayersupportscaling, cansetdisplayresolutiongreater thandeviceresolution, thiswhendisplayimageonepart. </p></li>
+</ul>
+<p>[Example]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span> <span class="nc">fb_var_screeninfo</span><span class="w"> </span><span class="n">vinfo</span><span class="p">;</span><span class="w"></span>
+<span class="n">vinfo</span><span class="p">.</span><span class="n">xres</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1920</span><span class="p">;</span><span class="w"></span>
+<span class="n">vinfo</span><span class="p">.</span><span class="n">yres</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1080</span><span class="p">;</span><span class="w"></span>
+<span class="n">vinfo</span><span class="p">.</span><span class="n">bits_per_pixel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">32</span><span class="p">;</span><span class="w"></span>
+<span class="n">vinfo</span><span class="p">.</span><span class="n">xres_virtual</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1920</span><span class="p">;</span><span class="w"></span>
+<span class="w">     </span><span class="n">vinfo</span><span class="p">.</span><span class="n">yres_virtual</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2160</span><span class="p">;</span><span class="w"></span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ioctl</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">FBIOPUT_VSCREENINFO</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">vinfo</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Related Topics]</p>
+<p><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioget-vscreeninfo">FBIOGET_VSCREENINFO</a></p>
+</section>
+<section id="fbioget-fscreeninfo">
+<h3><span class="section-number">6.1.3. </span>FBIOGET_FSCREENINFO<a class="headerlink" href="6_GFBG_Interface_Description.html#fbioget-fscreeninfo" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>Get the fixed Framebuffer information.</p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">ioctl</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">FBIOGET_FSCREENINFO</span><span class="p">,</span><span class="w"> </span><span class="k">struct</span> <span class="nc">fb_fix_screeninfo</span><span class="w"> </span><span class="o">*</span><span class="n">fix</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>fd</p></td>
+<td><p>Framebuffer Framebuffer device file descriptor</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>FBIOGET_FSCREENINFO</p></td>
+<td><p>ioctl number</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-even"><td><p>fix</p></td>
+<td><p>Pointer to the fixed-information structure</p></td>
+<td><p>Output</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success.</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>Failure.</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header files:cvi_comm_fb.h</p></li>
+</ul>
+<p>[Note]</p>
+<p>None.</p>
+<p>[Example]</p>
+<p>None.</p>
+<p>[Related Topics]</p>
+<p>None.</p>
+</section>
+<section id="fbiopan-display">
+<h3><span class="section-number">6.1.4. </span>FBIOPAN_DISPLAY<a class="headerlink" href="6_GFBG_Interface_Description.html#fbiopan-display" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>Set display to start at a different offset within the virtual resolution.</p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">ioctl</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">FBIOPAN_DISPLAY</span><span class="p">,</span><span class="w"> </span><span class="k">struct</span> <span class="nc">fb_var_screeninfo</span><span class="w"> </span><span class="o">*</span><span class="n">var</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>fd</p></td>
+<td><p>Framebuffer Framebuffer device file descriptor</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>FBIOPAN_DISPLAY</p></td>
+<td><p>ioctl number</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-even"><td><p>var</p></td>
+<td><p>Pointer to the variable-information structure</p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success.</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>Failure.</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header files:cvi_comm_fb.h</p></li>
+</ul>
+<p>[Note]</p>
+<ul class="simple">
+<li><p>thisconnectinterface should onlyin FB standardmodeinuse. </p></li>
+<li><p>mustensureactualresolutionwithoffset andinvirtualresolutionrangein, otherwisesetnotSuccess.</p></li>
+<li><p>mostensure well xoffset with yoffset shapebecomeoffsetaddressis 16byte alignment, otherwisewillwill xoffset valuereducetocanmakeoffsetaddressis 16byte alignmentposition. </p></li>
+<li><p>For interlacedlinedisplaydevice, need torequestresolutionheightmustisevennumber. </p></li>
+<li><p>usethisconnectportsetfromvirtualresolutioninnotsameoffset positionstartdisplay, actualresolutionnotchange. as followsFigure shown:  (xres_virtual, yres_virtual) isvirtualresolution,  (xres, yres) isactualdisplayresolution, (xoffset, yoffset)isdisplayoffset. </p></li>
+</ul>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="_images/image6-1.png"><img alt="_images/image6-1.png" src="_images/image6-1.png" style="width: 5.76806in; height: 4.15069in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 6.1 </span><span class="caption-text">FBIOPAN_DISPLAYillustration</span><a class="headerlink" href="6_GFBG_Interface_Description.html#id1" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>[Example]
+None.</p>
+<p>[Related Topics]</p>
+<p>None.</p>
+</section>
+<section id="fbioget-screen-origin-gfbg">
+<h3><span class="section-number">6.1.5. </span>FBIOGET_SCREEN_ORIGIN_GFBG<a class="headerlink" href="6_GFBG_Interface_Description.html#fbioget-screen-origin-gfbg" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>Get the starting coordinates of the overlay on the screen.</p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">ioctl</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">FBIOGET_SCREEN_ORIGIN_GFBG</span><span class="p">,</span><span class="w"> </span><span class="n">cvi_fb_point</span><span class="w"> </span><span class="o">*</span><span class="n">point</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>fd</p></td>
+<td><p>Framebuffer Framebuffer device file descriptor</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>FBIOGET_SCREEN_ORIGIN_GFBG</p></td>
+<td><p>ioctl number</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-even"><td><p>point</p></td>
+<td><p>Pointer to the origin-coordinate structure</p></td>
+<td><p>Output</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success.</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>Failure.</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header files:cvi_comm_gfbg.h</p></li>
+</ul>
+<p>[Note]</p>
+<p>[Example]</p>
+<p>None.</p>
+<p>[Related Topics]</p>
+<p><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioput-screen-origin-gfbg">FBIOPUT_SCREEN_ORIGIN_GFBG</a></p>
+</section>
+<section id="fbioput-screen-origin-gfbg">
+<h3><span class="section-number">6.1.6. </span>FBIOPUT_SCREEN_ORIGIN_GFBG<a class="headerlink" href="6_GFBG_Interface_Description.html#fbioput-screen-origin-gfbg" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>Set the starting coordinates of the overlay on the screen.</p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">ioctl</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">FBIOPUT_SCREEN_ORIGIN_GFBG</span><span class="p">,</span><span class="w"> </span><span class="n">cvi_fb_point</span><span class="w"> </span><span class="o">*</span><span class="n">point</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>fd</p></td>
+<td><p>Framebuffer Framebuffer device file descriptor</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>FBIOPUT_SCREEN_ORIGIN_GFBG</p></td>
+<td><p>ioctl number</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-even"><td><p>point</p></td>
+<td><p>Pointer to the origin-coordinate structure</p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success.</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>Failure.</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header files:cvi_comm_gfbg.h</p></li>
+</ul>
+<p>[Note]</p>
+<ul class="simple">
+<li><p>If overlay layerorigin exceedsoutrange (x_pos &gt; (max_width-min_width) or y_pos &gt; (max_height-min_height)) , defaultwilloriginsetis (max_width-min_width, max_height-min_height) , where max_width and max_height valueisdevicetimingdefinitionmaximumwidthhigh; min_width and min_height respectivelymeanscan loadminimumimagewidthandhigh, can through <cite>FBIOGET_CAPABILITY_GFBG</cite> connectportin min_width and min_height memberget. </p></li>
+<li><p>For interlacedlinedisplaydevice, need torequestoriginvertical coordinatevalueisevennumber. </p></li>
+</ul>
+<p>[Example]</p>
+<p>None.</p>
+<p>[Related Topics]</p>
+<p><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioget-screen-origin-gfbg">FBIOGET_SCREEN_ORIGIN_GFBG</a></p>
+</section>
+<section id="fbioget-show-gfbg">
+<h3><span class="section-number">6.1.7. </span>FBIOGET_SHOW_GFBG<a class="headerlink" href="6_GFBG_Interface_Description.html#fbioget-show-gfbg" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>Get the display state of the current overlay.</p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">ioctl</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">FBIOGET_SHOW_GFBG</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="o">*</span><span class="n">show</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>fd</p></td>
+<td><p>Framebuffer Framebuffer device file descriptor</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>FBIOGET_SHOW_GFBG</p></td>
+<td><p>ioctl number</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-even"><td><p>show</p></td>
+<td><p>theoverlay layerdisplaystatus: 
+- * show = CVI_TRUE: displaycurrentoverlay layer
+- * show = CVI_FALSE: hidecurrentoverlay layer</p></td>
+<td><p>Output</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success.</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>Failure.</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header files:cvi_comm_gfbg.h</p></li>
+</ul>
+<p>[Note]</p>
+<ul class="simple">
+<li><p>forsoftmousenotsuitableuse. </p></li>
+</ul>
+<p>[Example]</p>
+<p>None.</p>
+<p>[Related Topics]</p>
+<p><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioput-show-gfbg">FBIOPUT_SHOW_GFBG</a></p>
+</section>
+<section id="fbioput-show-gfbg">
+<h3><span class="section-number">6.1.8. </span>FBIOPUT_SHOW_GFBG<a class="headerlink" href="6_GFBG_Interface_Description.html#fbioput-show-gfbg" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>Show or hide the overlay.</p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">ioctl</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">FBIOPUT_SHOW_GFBG</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="o">*</span><span class="n">show</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>fd</p></td>
+<td><p>Framebuffer Framebuffer device file descriptor</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>FBIOPUT_SHOW_GFBG</p></td>
+<td><p>ioctl number</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-even"><td><p>show</p></td>
+<td><p>theoverlay layerdisplaystatus: 
+- * show = CVI_TRUE: displaycurrentoverlay layer
+- * show = CVI_FALSE: hidecurrentoverlay layer</p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success.</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>Failure.</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header files:cvi_comm_gfbg.h</p></li>
+</ul>
+<p>[Note]</p>
+<ul class="simple">
+<li><p>isnormaldisplay, indisplaybefore, shouldwill show valuesetis CVI_TRUE call ioctl(fd, FBIOPUT_SHOW_GFBG, &amp;show). </p></li>
+<li><p>displaywhenshouldensuregraphicallayerresolutionnotexceedoutdeviceresolution. </p></li>
+<li><p>ensuredisplaydevicecapabilitysupportrequireddisplayresolution. </p></li>
+</ul>
+<p>[Example]</p>
+<p>None.</p>
+<p>[Related Topics]</p>
+<p><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioget-show-gfbg">FBIOGET_SHOW_GFBG</a></p>
+</section>
+<section id="fbioget-colorkey-gfbg">
+<h3><span class="section-number">6.1.9. </span>FBIOGET_COLORKEY_GFBG<a class="headerlink" href="6_GFBG_Interface_Description.html#fbioget-colorkey-gfbg" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>Get the overlay colorkey.</p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">ioctl</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">FBIOGET_COLORKEY_GFBG</span><span class="p">,</span><span class="w"> </span><span class="n">cvi_fb_colorkey</span><span class="w"> </span><span class="o">*</span><span class="n">colorkey</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>fd</p></td>
+<td><p>Framebuffer Framebuffer device file descriptor</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>FBIOGET_COLORKEY_GFBG</p></td>
+<td><p>ioctl number</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-even"><td><p>colorkey</p></td>
+<td><p>colorkey structurepointer</p></td>
+<td><p>Output</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success.</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>Failure.</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header files:cvi_comm_gfbg.h</p></li>
+</ul>
+<p>[Note]</p>
+<p>[Example]</p>
+<p>None.</p>
+<p>[Related Topics]</p>
+<p><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioput-colorkey-gfbg">FBIOPUT_COLORKEY_GFBG</a></p>
+</section>
+<section id="fbioput-colorkey-gfbg">
+<h3><span class="section-number">6.1.10. </span>FBIOPUT_COLORKEY_GFBG<a class="headerlink" href="6_GFBG_Interface_Description.html#fbioput-colorkey-gfbg" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>Set the overlay colorkey.</p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">ioctl</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">FBIOPUT_COLORKEY_GFBG</span><span class="p">,</span><span class="w"> </span><span class="n">cvi_fb_colorkey</span><span class="w"> </span><span class="o">*</span><span class="n">colorkey</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>fd</p></td>
+<td><p>Framebuffer Framebuffer device file descriptor</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>FBIOPUT_COLORKEY_GFBG</p></td>
+<td><p>ioctl number</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-even"><td><p>colorkey</p></td>
+<td><p>colorkey structurepointer</p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success.</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>Failure.</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header files:cvi_comm_gfbg.h</p></li>
+</ul>
+<p>[Note]</p>
+<p>[Example]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">cvi_fb_colorkey</span><span class="w"> </span><span class="n">colorkey</span><span class="p">;</span><span class="w"></span>
+<span class="n">colorkey</span><span class="p">.</span><span class="n">enable</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_TRUE</span><span class="p">;</span><span class="w"></span>
+<span class="n">colorkey</span><span class="p">.</span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mh">0xFFFF0000</span><span class="p">;</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">ioctl</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">FBIOPUT_COLORKEY_GFBG</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">colorkey</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Related Topics]</p>
+<p><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioget-colorkey-gfbg">FBIOGET_COLORKEY_GFBG</a></p>
+</section>
+<section id="fbioget-ver-blank-gfbg">
+<h3><span class="section-number">6.1.11. </span>FBIOGET_VER_BLANK_GFBG<a class="headerlink" href="6_GFBG_Interface_Description.html#fbioget-ver-blank-gfbg" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>isoperationvideo memorywhennotleadstarttearingphenomenon, recommendintheoverlay layerblankingareaforvideo memoryperform operation, throughtheconnectportcanetc.wait fortheoverlay layerblankingareatoto, bottomlayerprincipleisetc.wait forvounderoneinterrupttoto. </p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">ioctl</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">FBIOGET_VER_BLANK_GFBG</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>fd</p></td>
+<td><p>Framebuffer Framebuffer device file descriptor</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>FBIOGET_VER_BLANK_GFBG</p></td>
+<td><p>ioctl number</p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success.</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>Failure.</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header files:cvi_comm_gfbg.h</p></li>
+</ul>
+<p>[Note]</p>
+<ul class="simple">
+<li><p>Vertical Blankingbetweeninterlacedshorter, generallyintens of millisecondsseconds, recommendoperationtimeas much as possibleshort, withensureinVertical Blankingareaendbeforecomplete. </p></li>
+</ul>
+<p>[Example]</p>
+<p>None.</p>
+<p>[Related Topics]</p>
+<p>None.</p>
+</section>
+<section id="fbioput-layer-info">
+<h3><span class="section-number">6.1.12. </span>FBIOPUT_LAYER_INFO<a class="headerlink" href="6_GFBG_Interface_Description.html#fbioput-layer-info" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>setlayerinformation, used to completefrom FB standardmodeto FB extendedmodeswitchoris FB extendedmodebetweenswitch, at the same timecansetextendedmodeunderrefreshinformation. </p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">ioctl</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">FBIOPUT_LAYER_INFO</span><span class="p">,</span><span class="w"> </span><span class="n">cvi_fb_layer_info</span><span class="w"> </span><span class="o">*</span><span class="n">layer_info</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>fd</p></td>
+<td><p>Framebuffer Framebuffer device file descriptor</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>FBIOPUT_LAYER_INFO</p></td>
+<td><p>ioctl number</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-even"><td><p>layer_info</p></td>
+<td><p>Pointer to the layer-information structure</p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success.</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>Failure.</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header files:cvi_comm_gfbg.h</p></li>
+</ul>
+<p>[Note]</p>
+<ul class="simple">
+<li><p>insetcomplete an itemattributeafter, mustthroughset layer_info  mask setcorrespondingmask, otherwisetheitemsetnotwilltake effect. </p></li>
+<li><p>For interlacedlinedisplaydevice, need torequestvideo memoryresolutionwithpaneldisplayresolutionheightallmustisevennumber. </p></li>
+<li><p>chipinlayerbuilt-inscalingfunctioncanreference FBIOPUT_SCREEN_SIZE. </p></li>
+</ul>
+<p>[Example]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">cvi_fb_layer_info</span><span class="w"> </span><span class="n">layer_info</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="mi">0</span><span class="p">};</span><span class="w"></span>
+<span class="n">layer_info</span><span class="p">.</span><span class="n">buf_mode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_FB_LAYER_BUF_NONE</span><span class="p">;</span><span class="w"></span>
+<span class="n">layer_info</span><span class="p">.</span><span class="n">mask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CVI_FB_LAYER_MASK_BUF_MODE</span><span class="p">;</span><span class="w"></span>
+<span class="n">ret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ioctl</span><span class="p">(</span><span class="n">s32Fd</span><span class="p">,</span><span class="w"> </span><span class="n">FBIOPUT_LAYER_INFO</span><span class="p">,</span><span class="w"> </span><span class="o">&amp;</span><span class="n">layer_info</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Related Topics]</p>
+<p>None.</p>
+</section>
+<section id="fbioget-layer-info">
+<h3><span class="section-number">6.1.13. </span>FBIOGET_LAYER_INFO<a class="headerlink" href="6_GFBG_Interface_Description.html#fbioget-layer-info" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>getlayerinformation, includingrefreshmodepanelstartstartpointposition, canvasresolution, video memoryresolution, paneldisplayresolution. </p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">ioctl</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">FBIOGET_LAYER_INFO</span><span class="p">,</span><span class="w"> </span><span class="n">cvi_fb_layer_info</span><span class="w"> </span><span class="o">*</span><span class="n">layer_info</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>fd</p></td>
+<td><p>Framebuffer Framebuffer device file descriptor</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>FBIOGET_LAYER_INFO</p></td>
+<td><p>ioctl number</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-even"><td><p>layer_info</p></td>
+<td><p>Pointer to the layer-information structure</p></td>
+<td><p>Output</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success.</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>Failure.</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header files:cvi_comm_gfbg.h</p></li>
+</ul>
+<p>[Note]</p>
+<ul class="simple">
+<li><p>theconnectportgettoconnectportdata cvi_fb_layer_info Medium, mask memberisno hasmeaning, alwaysbepopulateis CVI_FB_LAYER_MASK_BUTT. </p></li>
+</ul>
+<p>[Example]</p>
+<p>None.</p>
+<p>[Related Topics]</p>
+<p>None.</p>
+</section>
+<section id="fbioget-canvas-buf">
+<h3><span class="section-number">6.1.14. </span>FBIOGET_CANVAS_BUF<a class="headerlink" href="6_GFBG_Interface_Description.html#fbioget-canvas-buf" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>getcanvasinformation. </p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">ioctl</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">FBIOGET_CANVAS_BUF</span><span class="p">,</span><span class="w"> </span><span class="n">cvi_fb_buf</span><span class="w"> </span><span class="o">*</span><span class="n">canvas_buf</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>fd</p></td>
+<td><p>Framebuffer Framebuffer device file descriptor</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>FBIOGET_CANVAS_BUF</p></td>
+<td><p>ioctl number</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-even"><td><p>canvas_buf</p></td>
+<td><p>Pointer to the canvas-information structure</p></td>
+<td><p>Output</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success.</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>Failure.</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header files:cvi_comm_gfbg.h</p></li>
+</ul>
+<p>[Note]</p>
+<p>[Example]</p>
+<p>None.</p>
+<p>[Related Topics]</p>
+<p>None.</p>
+</section>
+<section id="fbio-refresh">
+<h3><span class="section-number">6.1.15. </span>FBIO_REFRESH<a class="headerlink" href="6_GFBG_Interface_Description.html#fbio-refresh" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>extendedmodeunder, bootrefreshoperation. </p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">ioctl</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">FBIO_REFRESH</span><span class="p">,</span><span class="w"> </span><span class="n">cvi_fb_buf</span><span class="w"> </span><span class="o">*</span><span class="n">buf_info</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>fd</p></td>
+<td><p>Framebuffer Framebuffer device file descriptor</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>FBIO_REFRESH</p></td>
+<td><p>ioctl number</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-even"><td><p>buf_info</p></td>
+<td><p>cvi_fb_buf structurepointer</p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success.</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>Failure.</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header files:cvi_comm_gfbg.h</p></li>
+</ul>
+<p>[Note]
+None.</p>
+<p>[Example]</p>
+<p>None.</p>
+<p>[Related Topics]</p>
+<p>None.</p>
+</section>
+<section id="fbioput-screen-size">
+<h3><span class="section-number">6.1.16. </span>FBIOPUT_SCREEN_SIZE<a class="headerlink" href="6_GFBG_Interface_Description.html#fbioput-screen-size" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>setlayerinpanelondisplaysize. </p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">ioctl</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">FBIOPUT_SCREEN_SIZE</span><span class="p">,</span><span class="w"> </span><span class="n">cvi_fb_size</span><span class="w"> </span><span class="o">*</span><span class="n">cvi_fb_size</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>fd</p></td>
+<td><p>Framebuffer Framebuffer device file descriptor</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>FBIOPUT_SCREEN_SIZE</p></td>
+<td><p>ioctl number</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-even"><td><p>cvi_fb_size</p></td>
+<td><p>cvi_fb_size typepointer, widthhighneed torequest 2 alignment. </p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success.</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>Failure.</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header files:cvi_comm_gfbg.h</p></li>
+</ul>
+<p>[Note]</p>
+<ul class="simple">
+<li><p>throughsetpaneldisplayresolution, canforimageperform scaling. ifimagesizeis 800x600, thensetpaneldisplaysizeis 1280x720 can willimageplacelargeto 1280x720 display. </p></li>
+<li><p>graphicallayerscalinglimit: inputresolutionexceed 1920x1080, not supportedplacelarge. </p></li>
+<li><p>supportscalingtimesnumber 1~15 times. </p></li>
+</ul>
+<p>[Example]</p>
+<p>None.</p>
+<p>[Related Topics]</p>
+<p><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioget-screen-size">FBIOGET_SCREEN_SIZE</a></p>
+</section>
+<section id="fbioget-screen-size">
+<h3><span class="section-number">6.1.17. </span>FBIOGET_SCREEN_SIZE<a class="headerlink" href="6_GFBG_Interface_Description.html#fbioget-screen-size" title="Permalink to this heading">¶</a></h3>
+<p>[Description]</p>
+<p>getlayerinpanelondisplaysize. </p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">ioctl</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">fd</span><span class="p">,</span><span class="w"> </span><span class="n">FBIOGET_SCREEN_SIZE</span><span class="p">,</span><span class="w"> </span><span class="n">cvi_fb_size</span><span class="w"> </span><span class="o">*</span><span class="n">cvi_fb_size</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>fd</p></td>
+<td><p>Framebuffer Framebuffer device file descriptor</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>FBIOGET_SCREEN_SIZE</p></td>
+<td><p>ioctl number</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-even"><td><p>cvi_fb_size</p></td>
+<td><p>cvi_fb_size typepointer</p></td>
+<td><p>Output</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success.</p></td>
+</tr>
+<tr class="row-odd"><td><p>-1</p></td>
+<td><p>Failure.</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header files:cvi_comm_gfbg.h</p></li>
+</ul>
+<p>[Note]</p>
+<p>None.</p>
+<p>[Example]</p>
+<p>None.</p>
+<p>[Related Topics]</p>
+<p><a class="reference internal" href="6_GFBG_Interface_Description.html#fbioput-screen-size">FBIOPUT_SCREEN_SIZE</a></p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="5_GFBG_Application_Example.html" class="btn btn-neutral float-left" title="5. Application Development Process" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Go to Official Website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="Go to Documentation Center"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Top of page"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Bottom of page"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR code for this page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

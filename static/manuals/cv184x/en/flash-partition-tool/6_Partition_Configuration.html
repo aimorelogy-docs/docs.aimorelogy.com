@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>6. Partition Modification &mdash; CvitekFlashPartitionToolUserGuide master Documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="5. NOR Flash Partition" href="5_Nor_Flash_Partition.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> CvitekFlashPartitionToolUserGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Overview.html">2. Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Nand_Flash_Partition.html">3. NAND Flash Partition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_EMMC_Partition.html">4. eMMC Partitioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_Nor_Flash_Partition.html">5. NOR Flash Partition</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="6_Partition_Configuration.html#">6. Partition Modification</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="6_Partition_Configuration.html#id2">6.1. Partition Table Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Partition_Configuration.html#id3">6.2. Partition Table Interpretation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="6_Partition_Configuration.html#id4">6.3. Modify Partition</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CvitekFlashPartitionToolUserGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">6. </span>Partition Modification</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/6_Partition_Configuration.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">6. </span>Partition Modification<a class="headerlink" href="6_Partition_Configuration.html#id1" title="Permalink to this headline">¶</a></h1>
+<section id="id2">
+<h2><span class="section-number">6.1. </span>Partition Table Configuration<a class="headerlink" href="6_Partition_Configuration.html#id2" title="Permalink to this headline">¶</a></h2>
+<p>CV184x SDKthepartition tableineachpartitionAdd is <code class="docutils literal notranslate"><span class="pre">build/Kconfig.partitions</span></code> configuration item, notsameEVB defconfigfilerecordcorrespondingFlash eachpartitiondefault configurationvalue. </p>
+<p>executedefconfigcommandselectEVBwhen, firstparse <code class="docutils literal notranslate"><span class="pre">build/Kconfig.partitions</span></code> file, thenloaddefconfigfileindefault configuration, Finally, generatexmlfileshapeformpartition table, saveis <code class="docutils literal notranslate"><span class="pre">build/partitions.xml</span></code>. 
+withcv1842hp_wevb_0014a_spinorisexample: </p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">source</span> build/envsetup_soc.sh
+
+<span class="gp">$ </span>defconfig cv1842hp_wevb_0014a_spinor
+
+<span class="gp">$ </span>file build/boards/cv184x/cv1842hp_wevb_0014a_spinor/partition/partition_spinor.xml
+<span class="go">build/boards/cv184x/cv1842hp_wevb_0014a_spinor/partition/partition_spinor.xml: symbolic link to ../../../../partitions.xml</span>
+
+<span class="gp">$ </span>cat build/partitions.xml
+<span class="go">&lt;?xml version=&quot;1.0&quot; ?&gt;</span>
+<span class="go">&lt;physical_partition type=&quot;spinor&quot;&gt;</span>
+<span class="go">&lt;!--This is an auto-generated file. DO NOT EDIT manually.--&gt;</span>
+<span class="go">&lt;partition label=&quot;fip&quot; size_in_kb=&quot;2048&quot; readonly=&quot;false&quot; file=&quot;fip_spl.bin&quot; mountpoint=&quot;&quot; type=&quot;&quot;/&gt;</span>
+<span class="go">&lt;partition label=&quot;2nd&quot; size_in_kb=&quot;1024&quot; readonly=&quot;false&quot; file=&quot;yoc.bin&quot; mountpoint=&quot;&quot; type=&quot;&quot;/&gt;</span>
+<span class="go">&lt;partition label=&quot;BOOT&quot; size_in_kb=&quot;3072&quot; readonly=&quot;false&quot; file=&quot;boot.spinor&quot; mountpoint=&quot;&quot; type=&quot;&quot;/&gt;</span>
+<span class="go">&lt;partition label=&quot;MISC&quot; size_in_kb=&quot;128&quot; readonly=&quot;false&quot; file=&quot;logo.jpg&quot; mountpoint=&quot;&quot; type=&quot;&quot;/&gt;</span>
+<span class="go">&lt;partition label=&quot;ENV&quot; size_in_kb=&quot;64&quot; readonly=&quot;false&quot; file=&quot;&quot; mountpoint=&quot;&quot; type=&quot;&quot;/&gt;</span>
+<span class="go">&lt;partition label=&quot;ENV_BAK&quot; size_in_kb=&quot;64&quot; readonly=&quot;false&quot; file=&quot;&quot; mountpoint=&quot;&quot; type=&quot;&quot;/&gt;</span>
+<span class="go">&lt;partition label=&quot;ROOTFS&quot; size_in_kb=&quot;4352&quot; readonly=&quot;false&quot; file=&quot;rootfs.spinor&quot; mountpoint=&quot;&quot; type=&quot;&quot;/&gt;</span>
+<span class="go">&lt;partition label=&quot;DATA&quot; size_in_kb=&quot;1024&quot; readonly=&quot;false&quot; file=&quot;data.spinor&quot; mountpoint=&quot;/mnt/data&quot; type=&quot;jffs2&quot;/&gt;</span>
+<span class="go">&lt;/physical_partition&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h2><span class="section-number">6.2. </span>Partition Table Interpretation<a class="headerlink" href="6_Partition_Configuration.html#id3" title="Permalink to this headline">¶</a></h2>
+<p>The partition table labels mean:</p>
+<ol class="arabic simple">
+<li><p>physical_partitiOn type: flash type. </p></li>
+<li><p>partition label:  partition name. </p></li>
+<li><p>size_in_kb: partition size (in KB) . </p></li>
+<li><p>file: name of the referenced image file. </p></li>
+<li><p>type:  (inpartition labelfieldin)  file system format. </p></li>
+<li><p>mountpoint: partition mount path. </p></li>
+</ol>
+<p>CV184x SDK generates the following image files. Each file represents a different partition:</p>
+<ul class="simple">
+<li><p>FIP : Bootloader/U-Boot partition</p></li>
+<li><p>CV184X CA3 usingFSBL+UBOOT architecture, Finally, openpacketafteralsoreuse(FIP)filename, convenientlateruse. </p></li>
+<li><p>2nd(dual-system) :  Yun on Processor (YOC) partition containing </p></li>
+<li><p>BOOT : Partition for Linux Kernel partition</p></li>
+<li><p>MISC : Boot Logo partition</p></li>
+<li><p>ROOTFS : root file system partition</p></li>
+<li><p>SYSTEM: CVITEK librariespartition containing </p></li>
+<li><p>DATA : usethisdatapartition</p></li>
+</ul>
+<p><strong>Note: 2ndpartitionisdualsystemspecialhaspartition, onlyindualsystemenvironmentunderstorein</strong></p>
+</section>
+<section id="id4">
+<h2><span class="section-number">6.3. </span>Modify Partition<a class="headerlink" href="6_Partition_Configuration.html#id4" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Modify the Partition Table</p></li>
+</ul>
+<p>After selecting an EVB, use the menuconfig command to modify  <code class="docutils literal notranslate"><span class="pre">build/partitions.xml</span></code> Partition Table. </p>
+<ol class="arabic simple">
+<li><p>need tomodifyalreadyhaspartitionsize, candirectlyconnectmodifycorrespondingconfigureitemvalue, see the preceding sections for partition-size alignment; </p></li>
+<li><p>When adding or removing partitions, firstmodifypartitionnumber, Then, , clear the partitions that are not needed, ororsetnewpartition, as followsFigure shown, save the settings after modification; exiting the menu automatically updates to <code class="docutils literal notranslate"><span class="pre">build/partitions.xml</span></code> Partition Table: </p></li>
+<li><p>When lastpartitionsizedeletenotfill inwhen, generatepartition tablewhenwillautomaticcalculateremaining sizeoperationislastpartitionsize. </p></li>
+</ol>
+<img alt="_images/image19.png" src="_images/image19.png" />
+<p>for example, onFigure savemodifyafter, morenewas follows: </p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cat build/partitions.xml
+<span class="go">&lt;?xml version=&quot;1.0&quot; ?&gt;</span>
+<span class="go">&lt;physical_partition type=&quot;spinor&quot;&gt;</span>
+<span class="go">&lt;!--This is an auto-generated file. DO NOT EDIT manually.--&gt;</span>
+<span class="go">&lt;partition label=&quot;fip&quot; size_in_kb=&quot;2048&quot; readonly=&quot;false&quot; file=&quot;fip_spl.bin&quot; mountpoint=&quot;&quot; type=&quot;&quot;/&gt;</span>
+<span class="go">&lt;partition label=&quot;2nd&quot; size_in_kb=&quot;1024&quot; readonly=&quot;false&quot; file=&quot;yoc.bin&quot; mountpoint=&quot;&quot; type=&quot;&quot;/&gt;</span>
+<span class="go">&lt;partition label=&quot;BOOT&quot; size_in_kb=&quot;3072&quot; readonly=&quot;false&quot; file=&quot;boot.spinor&quot; mountpoint=&quot;&quot; type=&quot;&quot;/&gt;</span>
+<span class="go">&lt;partition label=&quot;MISC&quot; size_in_kb=&quot;128&quot; readonly=&quot;false&quot; file=&quot;logo.jpg&quot; mountpoint=&quot;&quot; type=&quot;&quot;/&gt;</span>
+<span class="go">&lt;partition label=&quot;ENV&quot; size_in_kb=&quot;64&quot; readonly=&quot;false&quot; file=&quot;&quot; mountpoint=&quot;&quot; type=&quot;&quot;/&gt;</span>
+<span class="go">&lt;partition label=&quot;ENV_BAK&quot; size_in_kb=&quot;64&quot; readonly=&quot;false&quot; file=&quot;&quot; mountpoint=&quot;&quot; type=&quot;&quot;/&gt;</span>
+<span class="go">&lt;partition label=&quot;ROOTFS&quot; size_in_kb=&quot;4352&quot; readonly=&quot;false&quot; file=&quot;rootfs.spinor&quot; mountpoint=&quot;&quot; type=&quot;&quot;/&gt;</span>
+<span class="go">&lt;partition label=&quot;DATA&quot; size_in_kb=&quot;1024&quot; readonly=&quot;false&quot; file=&quot;data.spinor&quot; mountpoint=&quot;/mnt/data&quot; type=&quot;jffs2&quot;/&gt;</span>
+<span class="go">&lt;partition label=&quot;DATA&quot; size_in_kb=&quot;128&quot; readonly=&quot;false&quot; file=&quot;temp.spinor&quot; mountpoint=&quot;&quot; type=&quot;&quot;/&gt;</span>
+<span class="go">&lt;/physical_partition&gt;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Specify a Partition Table</p></li>
+</ul>
+<p>To use a specified partition table, modify the partition-table symbolic link in the EVB configuration directory <code class="docutils literal notranslate"><span class="pre">build/boards/cv184x/cv1842hp_wevb_0014a_spinor/partition/partition_spinor.xml</span></code></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="5_Nor_Flash_Partition.html" class="btn btn-neutral float-left" title="5. NOR Flash Partition" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Visit official website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="Go to Documentation Center"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Top of page"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Bottom of page"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR Code for This Page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV184X SDK Compilation and Usage Guide &mdash; SDKCompilationandUsageGuide master documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="6. Accelerate Development with NFS" href="6_Accelerate_Development_with_NFS.html" />
+    <link rel="prev" title="4. EVB Interface Description" href="4_EVB_Interface_Description.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> SDKCompilationandUsageGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html">2. Build the CVITEK Software Compilation Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Burning_Instructions.html">3. Burning Instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_EVB_Interface_Description.html">4. EVB Interface Description</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="5_Root_File_System.html#">5. Root File System(rootfs)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="5_Root_File_System.html#id1">5.1. Root File SystemIntroduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_Root_File_System.html#id2">5.2. Rootfs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="5_Root_File_System.html#pre-build-rootfs">5.2.1. Pre-build rootfs Architecture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Root_File_System.html#buildroot-rootfs">5.2.2. the corresponding contentbuildroot the corresponding contentrootfs</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="5_Root_File_System.html#id3">5.2.2.1. the corresponding content</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Root_File_System.html#buildroot">5.2.2.2. Configure Buildroot in the Graphical Menu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Root_File_System.html#arch-info-toolchain-packages">5.2.2.3. Set Arch Info &amp; Toolchain &amp; Packages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Root_File_System.html#etc-init-d-sxx-ko">5.2.2.4. the corresponding content /etc/init.d/Sxx the corresponding content ko automaticLoad</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Root_File_System.html#br2-target-generic-remount-rootfs-rw">5.2.2.5. BR2_TARGET_GENERIC_REMOUNT_ROOTFS_RW</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_Root_File_System.html#id4">5.2.2.6. producethe corresponding content ROOTFS the corresponding contentBurningthe corresponding content</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="5_Root_File_System.html#id5">5.2.3. the corresponding contentrootfs the corresponding contentBurningthe corresponding content</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_Root_File_System.html#linux-kernel-rootfs">5.2.4. Linux kernel automaticLoadrootfs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="6_Accelerate_Development_with_NFS.html">6. Accelerate Development with NFS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_SD_Boot_Guide.html">7. SD Boot User Guide</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SDKCompilationandUsageGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">5. </span>Root File System(rootfs)</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/5_Root_File_System.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="rootfs">
+<h1><span class="section-number">5. </span>Root File System(rootfs)<a class="headerlink" href="5_Root_File_System.html#rootfs" title="Permalink to this heading">¶</a></h1>
+<section id="id1">
+<h2><span class="section-number">5.1. </span>Root File SystemIntroduction<a class="headerlink" href="5_Root_File_System.html#id1" title="Permalink to this heading">¶</a></h2>
+<p>the corresponding contentYesLinuxoperationSystemthe corresponding content，File SystemYesUserthe corresponding contentoperationSystemthe corresponding contentmainlytool。the corresponding contentuseLinuxthe corresponding content，the corresponding contentFile Systemthe corresponding content。</p>
+<p>Root File Systemthe corresponding contentYesthe corresponding content ”/” the corresponding content “the corresponding content(root)”the corresponding contentContentsthe corresponding content，the corresponding content(uImage)startthe corresponding contentDevice(ex:eMMC)the corresponding contentContentsthe corresponding content，Root File Systemthe corresponding content(DRAM)the corresponding contentmemory(FLASH)the corresponding content，the corresponding contentYesthe corresponding contentnetworkthe corresponding contentFile System(NFS)。the corresponding contentApplicationthe corresponding contentFile Systemthe corresponding content，the corresponding contentRoot File SystemContentsthe corresponding contentFigure。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>/     the corresponding contentContents
+├── bin       ## the corresponding contentFile
+├── dev       ## DeviceFile
+├── etc       ## SystemConfigurationFile(ex: startFile)
+├── home      ## UserContents
+├── init      ## the corresponding contentscript
+├── kdump     ## the corresponding contentContents
+├── lib       ## the corresponding contentcontainglibc, shared librarythe corresponding contentModule
+├── mnt       ## the corresponding contentFile Systemthe corresponding content
+├── proc      ## the corresponding contentinformationthe corresponding contentFile System
+├── sbin      ## SystemManagementthe corresponding contentFile
+├── sys       ## SystemDevicethe corresponding contentFilethe corresponding content，the corresponding contentDataData
+├── usr       ## the corresponding contentContentsthe corresponding contentcontainUserthe corresponding contentApplicationthe corresponding contentFile
+└── var       ## the corresponding contentSystemthe corresponding contentservicethe corresponding contentFile
+</pre></div>
+</div>
+</section>
+<section id="id2">
+<h2><span class="section-number">5.2. </span>Rootfs<a class="headerlink" href="5_Root_File_System.html#id2" title="Permalink to this heading">¶</a></h2>
+<p>the corresponding contentsectionYesDescriptionFile Systemthe corresponding content，the corresponding contentPaththe corresponding contentramdisk/rootfs/</p>
+<section id="pre-build-rootfs">
+<h3><span class="section-number">5.2.1. </span>Pre-build rootfs Architecture<a class="headerlink" href="5_Root_File_System.html#pre-build-rootfs" title="Permalink to this heading">¶</a></h3>
+<p>File Systemthe corresponding contentContentsmainlythe corresponding contentType，the corresponding contentRootfs，the corresponding contentDescription:</p>
+<ul class="simple">
+<li><p><strong>Basic rootfs:</strong></p></li>
+</ul>
+<p>the corresponding contentArchproducethe corresponding contentpre-build rootfsthe corresponding content</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 30%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Arch</p></th>
+<th class="head"><p>Libc</p></th>
+<th class="head"><p>Pre-build ramdisk path</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Arm</p></td>
+<td><p>glibc</p></td>
+<td><p>ramdisk/rootfs/common_arm/</p></td>
+</tr>
+<tr class="row-odd"><td><p>Arm</p></td>
+<td><p>musl</p></td>
+<td><p>ramdisk/rootfs/common_musl_arm/</p></td>
+</tr>
+<tr class="row-even"><td><p>Aarch64</p></td>
+<td><p>glibc</p></td>
+<td><p>ramdisk/rootfs/common_arm64/</p></td>
+</tr>
+</tbody>
+</table>
+<ul class="simple">
+<li><p><strong>Chip configuration rootfs:</strong></p></li>
+</ul>
+<p>the corresponding contentProcessorsetthe corresponding contentSetthe corresponding contentramdisk/rootfs/overlay/$CHIP</p>
+<ul class="simple">
+<li><p><strong>Third-party rootfs:</strong></p></li>
+</ul>
+<p>the corresponding contentSoftwarethe corresponding contentlibrary、utility、related filethe corresponding content</p>
+<p>ramdisk/rootfs/public/</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/image11.png"><img alt="_images/image11.png" src="_images/image11.png" style="width: 50%;" /></a>
+</figure>
+<p>canusemenuconfigCommandthroughFigurethe corresponding contentmenuthe corresponding contentneedthe corresponding contentThird-party softwarethe corresponding contentRootfs</p>
+<img alt="_images/image20.png" src="_images/image20.png" />
+<img alt="_images/image21.png" src="_images/image21.png" />
+</section>
+<section id="buildroot-rootfs">
+<h3><span class="section-number">5.2.2. </span>the corresponding contentbuildroot the corresponding contentrootfs<a class="headerlink" href="5_Root_File_System.html#buildroot-rootfs" title="Permalink to this heading">¶</a></h3>
+<p>the corresponding contentsectionYesthe corresponding contentbuildrootproducerootfsandthe corresponding contentEVBthe corresponding contentRunthe corresponding content，the corresponding contentsectionDescriptionthe corresponding contentpre-build rootfs，the corresponding contentsection。</p>
+<p>the corresponding contentCV184x v6.2.0Versionthe corresponding content，canthe corresponding contentCV184xthe corresponding contentCompilation Environment，useBuildroot the corresponding contentrootfs。</p>
+<p>the corresponding contentbuildrootthe corresponding content，the corresponding contentCV184x buildContentsthe corresponding content，the corresponding contentswitchthe corresponding contentbuildroot-2023.11the corresponding content</p>
+<p><a class="reference external" href="https://github.com/sophgo/buildroot-2021.05.git">https://github.com/sophgo/buildroot-2021.05.git</a></p>
+<section id="id3">
+<h4><span class="section-number">5.2.2.1. </span>the corresponding content<a class="headerlink" href="5_Root_File_System.html#id3" title="Permalink to this heading">¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">source</span> build/envsetup_soc.sh  <span class="c1"># Initializeenvironment</span>
+
+$ defconfig cv1842hp_wevb_0014a_spinor  <span class="c1"># the corresponding content，cv184xthe corresponding contentSupportedthe corresponding contentEVBthe corresponding contentConfigurationthe corresponding content $CHIP_$BOARD</span>
+
+$ setconfig <span class="nv">BUILDROOT_FS</span><span class="o">=</span>y  <span class="c1"># the corresponding contentuseBuildroot the corresponding contentrootfs</span>
+
+$ cp buildroot-2021.05/configs/cvitek_CV184X_musl_arm_defconfig buildroot-2021.05/.config <span class="c1"># the corresponding contentBuildrootthe corresponding contentConfigurationthe corresponding content</span>
+
+$ clean_all <span class="o">&amp;&amp;</span> build_all  <span class="c1"># the corresponding content</span>
+
+$ clean_rootfs <span class="o">&amp;&amp;</span> pack_rootfs  <span class="c1"># the corresponding contentrootfs</span>
+</pre></div>
+</div>
+</section>
+<section id="buildroot">
+<h4><span class="section-number">5.2.2.2. </span>Configure Buildroot in the Graphical Menu<a class="headerlink" href="5_Root_File_System.html#buildroot" title="Permalink to this heading">¶</a></h4>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ menuconfig_buildroot
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">menuconfig_buildroot</span></code> modifythe corresponding contentYescurrent <code class="docutils literal notranslate"><span class="pre">.config</span></code>，the corresponding content <code class="docutils literal notranslate"><span class="pre">savedefconfig_buildroot</span></code> Savethe corresponding content <code class="docutils literal notranslate"><span class="pre">buildroot-2021.05/configs/cvitek_CV184X_musl_arm_defconfig</span></code>，Nothe corresponding contentgenerateConfigurationthe corresponding content。</p>
+<a class="reference internal image-reference" href="_images/image22.png"><img alt="_images/image22.png" src="_images/image22.png" style="width: 5.27083in; height: 2.69444in;" /></a>
+</section>
+<section id="arch-info-toolchain-packages">
+<h4><span class="section-number">5.2.2.3. </span>Set Arch Info &amp; Toolchain &amp; Packages<a class="headerlink" href="5_Root_File_System.html#arch-info-toolchain-packages" title="Permalink to this heading">¶</a></h4>
+<p>configs Contentsthe corresponding content CV184x the corresponding contentdefaultConfigurationFile <code class="docutils literal notranslate"><span class="pre">cvitek_CV184X_musl_arm_defconfig</span></code>。</p>
+<p>InitializeCompilation Environmentthe corresponding content EVB the corresponding content，canthrough <code class="docutils literal notranslate"><span class="pre">menuconfig_buildroot</span></code> Commandthe corresponding contentConfiguration。</p>
+<p>SetArchitecture</p>
+<p>ARM</p>
+<a class="reference internal image-reference" href="_images/image23.jpg"><img alt="_images/image23.jpg" src="_images/image23.jpg" style="width: 5.27083in; height: 2.69444in;" /></a>
+<p>AARCH64</p>
+<a class="reference internal image-reference" href="_images/image24.png"><img alt="_images/image24.png" src="_images/image24.png" style="width: 5.27083in; height: 2.69444in;" /></a>
+<p>Settoolthe corresponding content</p>
+<p>GLIBC AARCH64</p>
+<a class="reference internal image-reference" href="_images/image28.jpg"><img alt="_images/image28.jpg" src="_images/image28.jpg" style="width: 5.27083in; height: 2.69444in;" /></a>
+<p>GLIBC ARM</p>
+<a class="reference internal image-reference" href="_images/image25.jpg"><img alt="_images/image25.jpg" src="_images/image25.jpg" style="width: 5.27083in; height: 2.69444in;" /></a>
+<p>MUSL ARM</p>
+<a class="reference internal image-reference" href="_images/image26.jpg"><img alt="_images/image26.jpg" src="_images/image26.jpg" style="width: 5.27083in; height: 2.69444in;" /></a>
+<p>MUSL AARCH64</p>
+<a class="reference internal image-reference" href="_images/image26-2.jpg"><img alt="_images/image26-2.jpg" src="_images/image26-2.jpg" style="width: 5.27083in; height: 2.69444in;" /></a>
+<p>Setneedinstallthe corresponding contentSoftwarethe corresponding content</p>
+<a class="reference internal image-reference" href="_images/image27.png"><img alt="_images/image27.png" src="_images/image27.png" style="width: 5.27083in; height: 2.69444in;" /></a>
+</section>
+<section id="etc-init-d-sxx-ko">
+<h4><span class="section-number">5.2.2.4. </span>the corresponding content /etc/init.d/Sxx the corresponding content ko automaticLoad<a class="headerlink" href="5_Root_File_System.html#etc-init-d-sxx-ko" title="Permalink to this heading">¶</a></h4>
+<p>Buildroot modethe corresponding content，SDK the corresponding content <code class="docutils literal notranslate"><span class="pre">br-rootfs-prepare</span></code> the corresponding content overlay Content，mainlycontain：</p>
+<ul class="simple">
+<li><p>the corresponding content <code class="docutils literal notranslate"><span class="pre">ramdisk/rootfs/overlay/${CHIP_ARCH_L}_${SDK_VER}/etc/init.d</span></code> the corresponding contentstartthe corresponding content <code class="docutils literal notranslate"><span class="pre">buildroot-2021.05/board/cvitek/CV184X/overlay/etc/init.d</span></code>。</p></li>
+<li><p>the corresponding content <code class="docutils literal notranslate"><span class="pre">${OUTPUT_DIR}/rootfs/system</span></code> the corresponding content Buildroot overlay the corresponding content <code class="docutils literal notranslate"><span class="pre">/system</span></code>。</p></li>
+<li><p>the corresponding content <code class="docutils literal notranslate"><span class="pre">osdrv/interdrv</span></code> the corresponding content <code class="docutils literal notranslate"><span class="pre">*.ko</span></code> the corresponding content <code class="docutils literal notranslate"><span class="pre">overlay/system/ko</span></code>，the corresponding content Buildroot rootfs the corresponding contentDriverModule。</p></li>
+</ul>
+<p>ifboard sidethe corresponding content <code class="docutils literal notranslate"><span class="pre">/system/ko/loadsystemko.sh</span></code> the corresponding content <code class="docutils literal notranslate"><span class="pre">/system/ko/*.ko</span></code>，the corresponding content ko the corresponding contentautomatic insmod，the corresponding contentCheck <code class="docutils literal notranslate"><span class="pre">/etc/init.d/S99user</span></code> YesNothe corresponding content rootfs，the corresponding contentverifythe corresponding contentcall <code class="docutils literal notranslate"><span class="pre">loadsystemko.sh</span></code>。</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ ls buildroot-2021.05/board/cvitek/CV184X/overlay/etc/init.d
+$ ls buildroot-2021.05/output/target/etc/init.d
+</pre></div>
+</div>
+<p>board sideVerification：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># ls -l /etc/init.d/S99user</span>
+<span class="c1"># sh -x /etc/init.d/S99user start</span>
+<span class="c1"># ls /system/ko</span>
+<span class="c1"># sh -x /system/ko/loadsystemko.sh</span>
+<span class="c1"># lsmod</span>
+</pre></div>
+</div>
+<p>the corresponding content <code class="docutils literal notranslate"><span class="pre">S99user</span></code> the corresponding content，Systemstartthe corresponding contentautomaticthe corresponding content <code class="docutils literal notranslate"><span class="pre">loadsystemko.sh</span></code>，the corresponding content <code class="docutils literal notranslate"><span class="pre">/system/ko</span></code> the corresponding content ko Filethe corresponding contentautomaticLoad。</p>
+</section>
+<section id="br2-target-generic-remount-rootfs-rw">
+<h4><span class="section-number">5.2.2.5. </span>BR2_TARGET_GENERIC_REMOUNT_ROOTFS_RW<a class="headerlink" href="5_Root_File_System.html#br2-target-generic-remount-rootfs-rw" title="Permalink to this heading">¶</a></h4>
+<p><code class="docutils literal notranslate"><span class="pre">BR2_TARGET_GENERIC_REMOUNT_ROOTFS_RW</span></code> the corresponding contentControl Buildroot startthe corresponding contentYesNothe corresponding contentRoot File System remount the corresponding content rw。ConfigurationPathas follows：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ menuconfig_buildroot
+System configuration  ---&gt;
+                <span class="o">[</span>*<span class="o">]</span> remount root filesystem read-write during boot
+$ savedefconfig_buildroot
+</pre></div>
+</div>
+<p>Verification defconfig：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ grep BR2_TARGET_GENERIC_REMOUNT_ROOTFS_RW buildroot-2021.05/configs/cvitek_CV184X_musl_arm_defconfig
+</pre></div>
+</div>
+<p>board sideVerification：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="c1"># cat /proc/cmdline</span>
+<span class="c1"># mount | grep &#39; on / &#39;</span>
+<span class="c1"># mkdir /rootfs_rw_test</span>
+</pre></div>
+</div>
+<p>the corresponding contentClosethe corresponding contentoptionthe corresponding content rootfs the corresponding content，needthe corresponding contentCheckthe corresponding content：</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">/proc/cmdline</span></code> YesNothe corresponding content <code class="docutils literal notranslate"><span class="pre">rw</span></code>。the corresponding content bootargs the corresponding content <code class="docutils literal notranslate"><span class="pre">rw</span></code>，kernel the corresponding content rootfs。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/etc/inittab</span></code> YesNothe corresponding content <code class="docutils literal notranslate"><span class="pre">mount</span> <span class="pre">-o</span> <span class="pre">remount,rw</span> <span class="pre">/</span></code>。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/etc/init.d</span></code> YesNothe corresponding content remount the corresponding content，For example <code class="docutils literal notranslate"><span class="pre">S01remount_rootfs_rw</span></code>。</p></li>
+</ul>
+<p>the corresponding content <code class="docutils literal notranslate"><span class="pre">/proc/cmdline</span></code> the corresponding content <code class="docutils literal notranslate"><span class="pre">rootwait</span> <span class="pre">ro</span></code> the corresponding content init the corresponding content remount rw the corresponding content，Close <code class="docutils literal notranslate"><span class="pre">BR2_TARGET_GENERIC_REMOUNT_ROOTFS_RW</span></code> the corresponding content，rootfs the corresponding content。</p>
+</section>
+<section id="id4">
+<h4><span class="section-number">5.2.2.6. </span>producethe corresponding content ROOTFS the corresponding contentBurningthe corresponding content<a class="headerlink" href="5_Root_File_System.html#id4" title="Permalink to this heading">¶</a></h4>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>pack_rootfs
+</pre></div>
+</div>
+<p>Buildroot the corresponding content rootfs mainlythe corresponding content <code class="docutils literal notranslate"><span class="pre">build/Makefile</span></code> the corresponding content <code class="docutils literal notranslate"><span class="pre">br-rootfs-prepare</span></code> the corresponding content <code class="docutils literal notranslate"><span class="pre">br-rootfs-pack</span></code>：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">menuconfig-br2:</span>
+<span class="gp">        $</span><span class="o">{</span>Q<span class="o">}</span><span class="k">$(</span>MAKE<span class="k">)</span> -C <span class="si">${</span><span class="nv">BUILDROOT_PATH</span><span class="si">}</span> menuconfig
+
+<span class="go">savedefconfig-br2:</span>
+<span class="gp">        $</span><span class="o">{</span>Q<span class="o">}</span><span class="k">$(</span>MAKE<span class="k">)</span> -C <span class="si">${</span><span class="nv">BUILDROOT_PATH</span><span class="si">}</span> savedefconfig
+
+<span class="gp"># </span>BR_OVERLAY_DIR
+<span class="gp"># </span>BR_ROOTFS_RAWIMAGE
+<span class="gp">br-rootfs-prepare:export CROSS_COMPILE_KERNEL=$</span><span class="o">(</span>patsubst <span class="s2">&quot;%&quot;</span>,%,<span class="k">$(</span>CONFIG_CROSS_COMPILE_KERNEL<span class="k">)</span><span class="o">)</span>
+<span class="gp">br-rootfs-prepare:export CROSS_COMPILE_SDK=$</span><span class="o">(</span>patsubst <span class="s2">&quot;%&quot;</span>,%,<span class="k">$(</span>CONFIG_CROSS_COMPILE_SDK<span class="k">)</span><span class="o">)</span>
+<span class="go">br-rootfs-prepare:</span>
+<span class="gp">        $</span><span class="o">(</span>call print_target<span class="o">)</span>
+<span class="gp">        $</span><span class="o">{</span>Q<span class="o">}</span>mkdir -p <span class="k">$(</span>BR_OVERLAY_DIR<span class="k">)</span>/etc/init.d
+<span class="gp">        $</span><span class="o">{</span>Q<span class="o">}</span><span class="k">if</span> <span class="o">[</span> -d <span class="k">$(</span>RAMDISK_PATH<span class="k">)</span>/rootfs/overlay/<span class="si">${</span><span class="nv">CHIP_ARCH_L</span><span class="si">}</span>_<span class="si">${</span><span class="nv">SDK_VER</span><span class="si">}</span>/etc/init.d <span class="o">]</span><span class="p">;</span> <span class="k">then</span> <span class="se">\</span>
+                cp -arf <span class="k">$(</span>RAMDISK_PATH<span class="k">)</span>/rootfs/overlay/<span class="si">${</span><span class="nv">CHIP_ARCH_L</span><span class="si">}</span>_<span class="si">${</span><span class="nv">SDK_VER</span><span class="si">}</span>/etc/init.d/* <span class="k">$(</span>BR_OVERLAY_DIR<span class="k">)</span>/etc/init.d/<span class="p">;</span> <span class="se">\</span>
+        <span class="k">fi</span>
+<span class="gp">        $</span><span class="o">{</span>Q<span class="o">}</span>rm -f <span class="k">$(</span>BR_OVERLAY_DIR<span class="k">)</span>/etc/init.d/S01remount_rootfs_rw
+<span class="gp">        $</span><span class="o">{</span>Q<span class="o">}</span>rm -f <span class="k">$(</span>BR_DIR<span class="k">)</span>/output/target/etc/init.d/S01remount_rootfs_rw
+<span class="gp">        # </span>copy ko and mmf libs
+<span class="gp">        $</span><span class="o">(</span><span class="k">if</span> <span class="k">$(</span>wildcard <span class="k">$(</span>OUTPUT_DIR<span class="k">)</span>/rootfs/system<span class="k">)</span>,,<span class="k">$(</span>error <span class="k">$(</span>OUTPUT_DIR<span class="k">)</span>/rootfs/system not found - run build_osdrv/build_all before pack_rootfs<span class="k">)</span><span class="o">)</span>
+<span class="gp">        $</span><span class="o">{</span>Q<span class="o">}</span>rm -rf <span class="k">$(</span>BR_OVERLAY_DIR<span class="k">)</span>/system
+<span class="gp">        $</span><span class="o">{</span>Q<span class="o">}</span>mkdir -p <span class="k">$(</span>BR_OVERLAY_DIR<span class="k">)</span>/system
+<span class="gp">        $</span><span class="o">{</span>Q<span class="o">}</span>cp -arf <span class="k">$(</span>OUTPUT_DIR<span class="k">)</span>/rootfs/system/. <span class="k">$(</span>BR_OVERLAY_DIR<span class="k">)</span>/system/
+<span class="gp">        $</span><span class="o">{</span>Q<span class="o">}</span>mkdir -p <span class="k">$(</span>BR_OVERLAY_DIR<span class="k">)</span>/system/ko
+<span class="gp">        $</span><span class="o">{</span>Q<span class="o">}</span>find <span class="k">$(</span>OSDRV_PATH<span class="k">)</span>/interdrv -mindepth <span class="m">2</span> -maxdepth <span class="m">2</span> -type f -name <span class="s1">&#39;*.ko&#39;</span> -exec cp -f <span class="o">{}</span> <span class="k">$(</span>BR_OVERLAY_DIR<span class="k">)</span>/system/ko/ <span class="se">\;</span>
+<span class="gp">        # </span>strip
+<span class="gp">        $</span><span class="o">{</span>Q<span class="o">}</span>find <span class="k">$(</span>BR_OVERLAY_DIR<span class="k">)</span> -name <span class="s2">&quot;*.ko&quot;</span> -type f -printf <span class="s1">&#39;striping %p\n&#39;</span> -exec <span class="k">$(</span>CROSS_COMPILE_KERNEL<span class="k">)</span>strip --strip-unneeded <span class="o">{}</span> <span class="se">\;</span>
+<span class="gp">        $</span><span class="o">{</span>Q<span class="o">}</span>find <span class="k">$(</span>BR_OVERLAY_DIR<span class="k">)</span> -name <span class="s2">&quot;*.so*&quot;</span> -type f -printf <span class="s1">&#39;striping %p\n&#39;</span> -exec <span class="k">$(</span>CROSS_COMPILE_KERNEL<span class="k">)</span>strip --strip-all <span class="o">{}</span> <span class="se">\;</span>
+<span class="gp">        $</span><span class="o">{</span>Q<span class="o">}</span>find <span class="k">$(</span>BR_OVERLAY_DIR<span class="k">)</span> -executable -type f ! -name <span class="s2">&quot;*.sh&quot;</span> ! -path <span class="s2">&quot;*etc*&quot;</span> ! -path <span class="s2">&quot;*.ko&quot;</span> -printf <span class="s1">&#39;striping %p\n&#39;</span> -exec <span class="k">$(</span>CROSS_COMPILE_SDK<span class="k">)</span>strip --strip-all <span class="o">{}</span> <span class="m">2</span>&gt;/dev/null <span class="se">\;</span>
+
+<span class="gp">br-rootfs-pack:export TARGET_OUTPUT_DIR=$(BR_DIR)/output/$</span><span class="o">(</span>BR_BOARD<span class="o">)</span>
+<span class="go">br-rootfs-pack:</span>
+<span class="gp">        $</span><span class="o">(</span>call print_target<span class="o">)</span>
+<span class="gp">        $</span><span class="o">{</span>Q<span class="o">}</span><span class="k">if</span> <span class="o">[</span> ! -f <span class="k">$(</span>BR_DIR<span class="k">)</span>/.config <span class="o">]</span><span class="p">;</span> <span class="k">then</span> <span class="k">$(</span>MAKE<span class="k">)</span> -C <span class="k">$(</span>BR_DIR<span class="k">)</span> <span class="k">$(</span>BR_DEFCONFIG<span class="k">)</span><span class="p">;</span> <span class="k">fi</span>
+<span class="gp">        $</span><span class="o">{</span>Q<span class="o">}</span><span class="k">$(</span>MAKE<span class="k">)</span> -j<span class="si">${</span><span class="nv">NPROC</span><span class="si">}</span> -C <span class="k">$(</span>BR_DIR<span class="k">)</span>
+<span class="gp">        # </span>copy rootfs to rawimg dir
+<span class="go">ifeq (${CONFIG_ROOTFS_RW},y)</span>
+<span class="go">ifeq ($(STORAGE_TYPE),spinor)</span>
+<span class="gp">        $</span><span class="o">(</span>warning spi nor flash is not support rw filesystem<span class="o">)</span>
+<span class="go">else ifeq (${STORAGE_TYPE},spinand)</span>
+<span class="gp">        $</span><span class="o">{</span>Q<span class="o">}</span>cp <span class="k">$(</span>BR_DIR<span class="k">)</span>/output/images/rootfs.ubifs <span class="k">$(</span>OUTPUT_DIR<span class="k">)</span>/rawimages/
+<span class="gp">        $</span><span class="o">{</span>Q<span class="o">}</span>python3 <span class="k">$(</span>COMMON_TOOLS_PATH<span class="k">)</span>/spinand_tool/mkubiimg.py --ubionly <span class="k">$(</span>FLASH_PARTITION_XML<span class="k">)</span> ROOTFS <span class="k">$(</span>OUTPUT_DIR<span class="k">)</span>/rawimages/rootfs.ubifs <span class="k">$(</span>OUTPUT_DIR<span class="k">)</span>/rawimages/rootfs.spinand -b <span class="k">$(</span>CONFIG_NANDFLASH_BLOCKSIZE<span class="k">)</span> -p <span class="k">$(</span>CONFIG_NANDFLASH_PAGESIZE<span class="k">)</span>
+<span class="gp">        $</span><span class="o">{</span>Q<span class="o">}</span>rm <span class="k">$(</span>OUTPUT_DIR<span class="k">)</span>/rawimages/rootfs.ubifs
+<span class="go">else</span>
+<span class="gp">        $</span><span class="o">{</span>Q<span class="o">}</span>cp <span class="k">$(</span>BR_DIR<span class="k">)</span>/output/images/rootfs.ext4 <span class="k">$(</span>OUTPUT_DIR<span class="k">)</span>/rawimages/rootfs.<span class="k">$(</span>STORAGE_TYPE<span class="k">)</span>
+<span class="go">endif</span>
+<span class="go">else</span>
+<span class="go">ifeq (${STORAGE_TYPE},spinand)</span>
+<span class="gp">        $</span><span class="o">{</span>Q<span class="o">}</span>cp <span class="k">$(</span>BR_DIR<span class="k">)</span>/output/images/rootfs.squashfs <span class="k">$(</span>OUTPUT_DIR<span class="k">)</span>/rawimages/
+<span class="gp">        $</span><span class="o">{</span>Q<span class="o">}</span>python3 <span class="k">$(</span>COMMON_TOOLS_PATH<span class="k">)</span>/spinand_tool/mkubiimg.py --ubionly <span class="k">$(</span>FLASH_PARTITION_XML<span class="k">)</span> ROOTFS <span class="k">$(</span>OUTPUT_DIR<span class="k">)</span>/rawimages/rootfs.squashfs <span class="k">$(</span>OUTPUT_DIR<span class="k">)</span>/rawimages/rootfs.spinand -b <span class="k">$(</span>CONFIG_NANDFLASH_BLOCKSIZE<span class="k">)</span> -p <span class="k">$(</span>CONFIG_NANDFLASH_PAGESIZE<span class="k">)</span>
+<span class="gp">        $</span><span class="o">{</span>Q<span class="o">}</span>rm <span class="k">$(</span>OUTPUT_DIR<span class="k">)</span>/rawimages/rootfs.squashfs
+<span class="go">else ifeq (${STORAGE_TYPE},sd)</span>
+<span class="gp">        $</span><span class="o">{</span>Q<span class="o">}</span>cp <span class="k">$(</span>BR_DIR<span class="k">)</span>/output/images/rootfs.ext4 <span class="k">$(</span>OUTPUT_DIR<span class="k">)</span>/rawimages/rootfs.<span class="k">$(</span>STORAGE_TYPE<span class="k">)</span>
+<span class="go">else</span>
+<span class="gp">        $</span><span class="o">{</span>Q<span class="o">}</span>cp <span class="k">$(</span>BR_DIR<span class="k">)</span>/output/images/rootfs.squashfs <span class="k">$(</span>OUTPUT_DIR<span class="k">)</span>/rawimages/rootfs.<span class="k">$(</span>STORAGE_TYPE<span class="k">)</span>
+<span class="go">endif</span>
+<span class="go">endif</span>
+<span class="go">ifneq ($(STORAGE_TYPE),sd)</span>
+<span class="gp">        $</span><span class="o">(</span>call raw2cimg ,rootfs.<span class="k">$(</span>STORAGE_TYPE<span class="k">)</span><span class="o">)</span>
+<span class="go">endif</span>
+
+<span class="gp"># </span>TODO A/B boot is currently not supported when CONFIG_BUILDROOT_FS is enabled
+<span class="go">ifeq ($(CONFIG_BUILDROOT_FS),y)</span>
+<span class="go">rootfs:br-rootfs-prepare</span>
+<span class="go">rootfs:br-rootfs-pack</span>
+<span class="go">else</span>
+<span class="go">rootfs:rootfs-pack</span>
+<span class="go">rootfs:</span>
+<span class="gp">        $</span><span class="o">(</span>call print_target<span class="o">)</span>
+<span class="gp">        $</span><span class="o">(</span>call raw2cimg ,rootfs.<span class="k">$(</span>STORAGE_TYPE<span class="k">)</span><span class="o">)</span>
+<span class="go">endif</span>
+</pre></div>
+</div>
+<p>the corresponding contentStepBurningthe corresponding content。</p>
+</section>
+</section>
+<section id="id5">
+<h3><span class="section-number">5.2.3. </span>the corresponding contentrootfs the corresponding contentBurningthe corresponding content<a class="headerlink" href="5_Root_File_System.html#id5" title="Permalink to this heading">¶</a></h3>
+<p>the corresponding contentStepproducethe corresponding contentrootfs folderthe corresponding contentmksquashfstoolthe corresponding content，the corresponding contentXZ，the corresponding contentYesthe corresponding contentFlashthe corresponding contentrootfs.spinor / rootfs.spinand / rootfs.emmc。</p>
+<p>the corresponding contentbuild/Makefilethe corresponding contentrootfs-pack:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">rootfs-pack:export CROSS_COMPILE_KERNEL=$</span><span class="o">(</span>patsubst <span class="s2">&quot;%&quot;</span>,%,<span class="k">$(</span>CONFIG_CROSS_COMPILE_KERNEL<span class="k">)</span><span class="o">)</span>
+<span class="gp">rootfs-pack:export CROSS_COMPILE_SDK=$</span><span class="o">(</span>patsubst <span class="s2">&quot;%&quot;</span>,%,<span class="k">$(</span>CONFIG_CROSS_COMPILE_SDK<span class="k">)</span><span class="o">)</span>
+<span class="gp">rootfs-pack:export OSDRV_BUILD_IN:=$</span><span class="o">(</span>CONFIG_OSDRV_BUILD_IN<span class="o">)</span>
+<span class="go">rootfs-pack:$(OUTPUT_DIR)/rawimages</span>
+<span class="go">rootfs-pack:rootfs-prepare</span>
+<span class="go">rootfs-pack:</span>
+<span class="gp">        $</span><span class="o">(</span>call print_target<span class="o">)</span>
+<span class="gp">        $</span><span class="o">{</span>Q<span class="o">}</span><span class="nb">printf</span> <span class="s1">&#39;\033[1;36;40m  Striping rootfs \033[0m\n&#39;</span>
+<span class="go">ifeq (${FLASH_SIZE_SHRINK},y)</span>
+<span class="gp">        $</span><span class="o">{</span>Q<span class="o">}</span><span class="nb">printf</span> <span class="s1">&#39;remove unneeded files&#39;</span>
+<span class="gp">        $</span><span class="o">{</span>Q<span class="o">}</span><span class="si">${</span><span class="nv">BUILD_PATH</span><span class="si">}</span>/boards/<span class="si">${</span><span class="nv">CHIP_ARCH_L</span><span class="si">}</span>/<span class="si">${</span><span class="nv">PROJECT_FULLNAME</span><span class="si">}</span>/rootfs_script/clean_rootfs.sh <span class="k">$(</span>ROOTFS_DIR<span class="k">)</span>
+<span class="go">endif</span>
+<span class="gp">        $</span><span class="o">{</span>Q<span class="o">}</span>find <span class="k">$(</span>ROOTFS_DIR<span class="k">)</span> -name <span class="s2">&quot;*.ko&quot;</span> -type f -printf <span class="s1">&#39;striping %p\n&#39;</span> -exec <span class="k">$(</span>CROSS_COMPILE_KERNEL<span class="k">)</span>strip --strip-unneeded <span class="o">{}</span> <span class="se">\;</span>
+<span class="gp">        $</span><span class="o">{</span>Q<span class="o">}</span>find <span class="k">$(</span>ROOTFS_DIR<span class="k">)</span> -name <span class="s2">&quot;*.so*&quot;</span> -type f -printf <span class="s1">&#39;striping %p\n&#39;</span> -exec <span class="k">$(</span>CROSS_COMPILE_SDK<span class="k">)</span>strip --strip-all <span class="o">{}</span> <span class="se">\;</span>
+<span class="gp">        $</span><span class="o">{</span>Q<span class="o">}</span>find <span class="k">$(</span>ROOTFS_DIR<span class="k">)</span> -executable -type f ! -name <span class="s2">&quot;*.sh&quot;</span> ! -path <span class="s2">&quot;*etc*&quot;</span> ! -path <span class="s2">&quot;*.ko&quot;</span> -printf <span class="s1">&#39;striping %p\n&#39;</span> -exec <span class="k">$(</span>CROSS_COMPILE_SDK<span class="k">)</span>strip --strip-all <span class="o">{}</span> <span class="m">2</span>&gt;/dev/null <span class="se">\;</span>
+
+<span class="go">ifeq (${CONFIG_ROOTFS_RW},y)</span>
+<span class="gp">        $</span><span class="o">(</span>call pack_image,rootfs,<span class="k">$(</span>ROOTFS_DIR<span class="k">)</span>,71M<span class="o">)</span>
+<span class="go">else</span>
+
+<span class="go">ifeq ($(STORAGE_TYPE),spinor)</span>
+<span class="go">ifeq (${CONFIG_ROOTFS_FORMAT_OPTIMIZATION},y)</span>
+<span class="gp">        $</span><span class="o">{</span>Q<span class="o">}</span>mksquashfs <span class="k">$(</span>ROOTFS_DIR<span class="k">)</span> <span class="k">$(</span>OUTPUT_DIR<span class="k">)</span>/rawimages/rootfs.sqsh -root-owned -comp gzip
+<span class="go">else</span>
+<span class="gp">        $</span><span class="o">{</span>Q<span class="o">}</span>mksquashfs <span class="k">$(</span>ROOTFS_DIR<span class="k">)</span> <span class="k">$(</span>OUTPUT_DIR<span class="k">)</span>/rawimages/rootfs.sqsh -root-owned -comp xz
+<span class="go">endif</span>
+<span class="go">else</span>
+<span class="gp">        $</span><span class="o">{</span>Q<span class="o">}</span>mksquashfs <span class="k">$(</span>ROOTFS_DIR<span class="k">)</span> <span class="k">$(</span>OUTPUT_DIR<span class="k">)</span>/rawimages/rootfs.sqsh -root-owned -comp xz -e mnt/cfg/*
+<span class="go">endif</span>
+<span class="go">ifeq ($(STORAGE_TYPE),spinand)</span>
+<span class="gp">        $</span><span class="o">{</span>Q<span class="o">}</span>python3 <span class="k">$(</span>COMMON_TOOLS_PATH<span class="k">)</span>/spinand_tool/mkubiimg.py --ubionly <span class="k">$(</span>FLASH_PARTITION_XML<span class="k">)</span> ROOTFS <span class="k">$(</span>OUTPUT_DIR<span class="k">)</span>/rawimages/rootfs.sqsh <span class="k">$(</span>OUTPUT_DIR<span class="k">)</span>/rawimages/rootfs.spinand -b <span class="k">$(</span>CONFIG_NANDFLASH_BLOCKSIZE<span class="k">)</span> -p <span class="k">$(</span>CONFIG_NANDFLASH_PAGESIZE<span class="k">)</span>
+<span class="gp">        $</span><span class="o">{</span>Q<span class="o">}</span>rm <span class="k">$(</span>OUTPUT_DIR<span class="k">)</span>/rawimages/rootfs.sqsh
+<span class="go">else</span>
+<span class="gp">        $</span><span class="o">{</span>Q<span class="o">}</span>mv <span class="k">$(</span>OUTPUT_DIR<span class="k">)</span>/rawimages/rootfs.sqsh <span class="k">$(</span>OUTPUT_DIR<span class="k">)</span>/rawimages/rootfs.<span class="k">$(</span>STORAGE_TYPE<span class="k">)</span>
+<span class="go">endif</span>
+
+<span class="go">endif</span>
+</pre></div>
+</div>
+</section>
+<section id="linux-kernel-rootfs">
+<h3><span class="section-number">5.2.4. </span>Linux kernel automaticLoadrootfs<a class="headerlink" href="5_Root_File_System.html#linux-kernel-rootfs" title="Permalink to this heading">¶</a></h3>
+<p>Linux kernelthe corresponding contentubootthe corresponding contentbootargsthe corresponding contentroot=the corresponding contentrootfsthe corresponding contentdevice</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&#39;root=...&#39;</span>
+<span class="go">  This argument tells the kernel what device is to be used</span>
+<span class="go">  as the root filesystem while booting.  The default of this</span>
+<span class="go">  setting is determined at compile time, and usually is the</span>
+<span class="go">  value of the root device of the system that the kernel was</span>
+<span class="go">  built on.  To override this value, and select the second</span>
+<span class="go">  floppy drive as the root device, one would use</span>
+<span class="go">  &#39;root=/dev/fd1&#39;.</span>
+
+<span class="go">  The root device can be specified symbolically or</span>
+<span class="go">  numerically.  A symbolic specification has the form</span>
+<span class="go">  /dev/XXYN, where XX designates the device type (e.g., &#39;hd&#39;</span>
+<span class="go">  for ST-506 compatible hard disk, with Y in &#39;a&#39;–&#39;d&#39;; &#39;sd&#39;</span>
+<span class="go">  for SCSI compatible disk, with Y in &#39;a&#39;–&#39;e&#39;), Y the driver</span>
+<span class="go">  letter or number, and N the number (in decimal) of the</span>
+<span class="go">  partition on this device.</span>
+
+<span class="go">  Note that this has nothing to do with the designation of</span>
+<span class="go">  these devices on your filesystem.  The &#39;/dev/&#39; part is</span>
+<span class="go">  purely conventional.</span>
+
+<span class="go">  The more awkward and less portable numeric specification</span>
+<span class="go">  of the above possible root devices in major/minor format</span>
+<span class="go">  is also accepted.  (For example, /dev/sda3 is major 8,</span>
+<span class="go">  minor 3, so you could use &#39;root=0x803&#39; as an alternative.)</span>
+</pre></div>
+</div>
+<p>Ref: <a class="reference external" href="https://man7.org/linux/man-pages/man7/bootparam.7.html">https://man7.org/linux/man-pages/man7/bootparam.7.html</a></p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="4_EVB_Interface_Description.html" class="btn btn-neutral float-left" title="4. EVB Interface Description" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="6_Accelerate_Development_with_NFS.html" class="btn btn-neutral float-right" title="6. Accelerate Development with NFS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Go to the official website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="the corresponding contentdocumentationthe corresponding content"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Top of page"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Bottom of page"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR Code for This Page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

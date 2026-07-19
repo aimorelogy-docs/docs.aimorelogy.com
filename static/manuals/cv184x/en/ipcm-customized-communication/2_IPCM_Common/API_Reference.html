@@ -1,0 +1,1593 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2.3. API Reference &mdash; IPCM_Customized_Communication_Introduction master Documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="../_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/qrious.js"></script>
+    <script src="../_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2.4. Data Types" href="Data_Types.html" />
+    <link rel="prev" title="2.2. Design Overview" href="Design_Overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> IPCM_Customized_Communication_Introduction
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../2_IPCM_Common.html">2. IPCM_PORT_COMMON</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Function_Overview.html">2.1. Function Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Design_Overview.html">2.2. Design Overview</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="API_Reference.html#">2.3. API Reference</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-ipcm-init">2.3.1. CVI_IPCM_Init</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-ipcm-uninit">2.3.2. CVI_IPCM_Uninit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-ipcm-invdata">2.3.3. CVI_IPCM_InvData</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-ipcm-flushdata">2.3.4. CVI_IPCM_FlushData</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-ipcm-datalock">2.3.5. CVI_IPCM_DataLock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-ipcm-dataunlock">2.3.6. CVI_IPCM_DataUnlock</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-ipcm-getbuff">2.3.7. CVI_IPCM_GetBuff</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-ipcm-releasebuff">2.3.8. CVI_IPCM_ReleaseBuff</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-ipcm-getuseraddr">2.3.9. CVI_IPCM_GetUserAddr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-ipcm-getparambinaddr">2.3.10. CVI_IPCM_GetParamBinAddr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-ipcm-getparambakbinaddr">2.3.11. CVI_IPCM_GetParamBakBinAddr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-ipcm-getpqbinqddr">2.3.12. CVI_IPCM_GetPQBinQddr</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-ipcm-custinit">2.3.13. CVI_IPCM_CustInit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-ipcm-custuninit">2.3.14. CVI_IPCM_CustUninit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-ipcm-custpoolreset">2.3.15. CVI_IPCM_CustPoolReset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-ipcm-registercusthandle">2.3.16. CVI_IPCM_RegisterCustHandle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-ipcm-deregistercusthandle">2.3.17. CVI_IPCM_DeregisterCustHandle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-ipcm-custsendmsg">2.3.18. CVI_IPCM_CustSendMsg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-ipcm-custsendparam">2.3.19. CVI_IPCM_CustSendParam</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-ipcm-setrtossysbootstat">2.3.20. CVI_IPCM_SetRtosSysBootStat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-ipcm-clrrtossysbootstat">2.3.21. CVI_IPCM_ClrRtosSysBootStat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-ipcm-getrtosbootstat">2.3.22. CVI_IPCM_GetRtosBootStat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-ipcm-getrtosipcmstat">2.3.23. CVI_IPCM_GetRtosIpcmStat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-ipcm-setrtosbootlogostat">2.3.24. CVI_IPCM_SetRtosBootLogoStat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-ipcm-clrrtosbootlogostat">2.3.25. CVI_IPCM_ClrRtosBootLogoStat</a></li>
+<li class="toctree-l3"><a class="reference internal" href="API_Reference.html#cvi-ipcm-getrtosbootlogostat">2.3.26. CVI_IPCM_GetRtosBootLogoStat</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Data_Types.html">2.4. Data Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Error_Codes.html">2.5. Error Codes</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">IPCM_Customized_Communication_Introduction</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../2_IPCM_Common.html"><span class="section-number">2. </span>IPCM_PORT_COMMON</a> &raquo;</li>
+      <li><span class="section-number">2.3. </span>API Reference</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="../_sources/2_IPCM_Common/API_Reference.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="api">
+<h1><span class="section-number">2.3. </span>API Reference<a class="headerlink" href="API_Reference.html#api" title="Permalink to this heading">¶</a></h1>
+<section id="cvi-ipcm-init">
+<h2><span class="section-number">2.3.1. </span>CVI_IPCM_Init<a class="headerlink" href="API_Reference.html#cvi-ipcm-init" title="Permalink to this heading">¶</a></h2>
+<p>[Description]</p>
+<blockquote>
+<div><p>Initialize IPCM.</p>
+</div></blockquote>
+<p>[Syntax]</p>
+<blockquote>
+<div><div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_IPCM_Init</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>[Parameters]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure,pleaseSee  <a class="reference internal" href="Error_Codes.html#id1"><span class="std std-ref">Error Codes</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header file: cvi_type.h, cvi_ipcm.h</p></li>
+</ul>
+<p>[Note]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Example]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Related Topics]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+</section>
+<section id="cvi-ipcm-uninit">
+<h2><span class="section-number">2.3.2. </span>CVI_IPCM_Uninit<a class="headerlink" href="API_Reference.html#cvi-ipcm-uninit" title="Permalink to this heading">¶</a></h2>
+<p>[Description]</p>
+<blockquote>
+<div><p>Deinitialize IPCM.</p>
+</div></blockquote>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_IPCM_Uninit</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure,pleaseSee  <a class="reference internal" href="Error_Codes.html#id1"><span class="std std-ref">Error Codes</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header file: cvi_type.h, cvi_ipcm.h</p></li>
+</ul>
+<p>[Note]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Example]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Related Topics]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+</section>
+<section id="cvi-ipcm-invdata">
+<h2><span class="section-number">2.3.3. </span>CVI_IPCM_InvData<a class="headerlink" href="API_Reference.html#cvi-ipcm-invdata" title="Permalink to this heading">¶</a></h2>
+<p>[Description]</p>
+<blockquote>
+<div><p>makespecifiedaddresscacheInvalid. </p>
+</div></blockquote>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_IPCM_InvData</span><span class="p">(</span><span class="n">CVI_VOID</span><span class="w"> </span><span class="o">*</span><span class="n">pData</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32Size</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>pData</p></td>
+<td><p>dataaddress, need to64bytealignment</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32Size</p></td>
+<td><p>Data length; 64-byte alignment is required</p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure,pleaseSee  <a class="reference internal" href="Error_Codes.html#id1"><span class="std std-ref">Error Codes</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header file: cvi_type.h, cvi_ipcm.h</p></li>
+</ul>
+<p>[Note]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Example]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Related Topics]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+</section>
+<section id="cvi-ipcm-flushdata">
+<h2><span class="section-number">2.3.4. </span>CVI_IPCM_FlushData<a class="headerlink" href="API_Reference.html#cvi-ipcm-flushdata" title="Permalink to this heading">¶</a></h2>
+<p>[Description]</p>
+<blockquote>
+<div><p>willspecifiedaddresscontentflushtoddr. </p>
+</div></blockquote>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_IPCM_FlushData</span><span class="p">(</span><span class="n">CVI_VOID</span><span class="w"> </span><span class="o">*</span><span class="n">pData</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32Size</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>pData</p></td>
+<td><p>dataaddress, need to64bytealignment</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32Size</p></td>
+<td><p>Data length; 64-byte alignment is required</p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure,pleaseSee  <a class="reference internal" href="Error_Codes.html#id1"><span class="std std-ref">Error Codes</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header file: cvi_type.h, cvi_ipcm.h</p></li>
+</ul>
+<p>[Note]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Example]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Related Topics]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+</section>
+<section id="cvi-ipcm-datalock">
+<h2><span class="section-number">2.3.5. </span>CVI_IPCM_DataLock<a class="headerlink" href="API_Reference.html#cvi-ipcm-datalock" title="Permalink to this heading">¶</a></h2>
+<p>[Description]</p>
+<blockquote>
+<div><p>Lock the mutual-exclusion lock shared by the big and little cores. For the same lock ID, only the core holding the lock can access the resource.</p>
+</div></blockquote>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_IPCM_DataLock</span><span class="p">(</span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8LockID</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>u8LockID</p></td>
+<td><p>Lock ID; five data locks are currently supported, with lock IDs in the range [0,4]</p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure,pleaseSee  <a class="reference internal" href="Error_Codes.html#id1"><span class="std std-ref">Error Codes</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header file: cvi_type.h, cvi_ipcm.h</p></li>
+</ul>
+<p>[Note]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Example]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Related Topics]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+</section>
+<section id="cvi-ipcm-dataunlock">
+<h2><span class="section-number">2.3.6. </span>CVI_IPCM_DataUnlock<a class="headerlink" href="API_Reference.html#cvi-ipcm-dataunlock" title="Permalink to this heading">¶</a></h2>
+<p>[Description]</p>
+<blockquote>
+<div><p>Unlock the mutual-exclusion lock shared by the big and little cores.</p>
+</div></blockquote>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_IPCM_DataUnlock</span><span class="p">(</span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8LockID</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>u8LockID</p></td>
+<td><p>Lock ID; five data locks are currently supported, with lock IDs in the range [0,4]</p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure,pleaseSee  <a class="reference internal" href="Error_Codes.html#id1"><span class="std std-ref">Error Codes</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header file: cvi_type.h, cvi_ipcm.h</p></li>
+</ul>
+<p>[Note]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Example]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Related Topics]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+</section>
+<section id="cvi-ipcm-getbuff">
+<h2><span class="section-number">2.3.7. </span>CVI_IPCM_GetBuff<a class="headerlink" href="API_Reference.html#cvi-ipcm-getbuff" title="Permalink to this heading">¶</a></h2>
+<p>[Description]</p>
+<blockquote>
+<div><p>fromshare memoryinrequestpleasean available blockpool, returnpooladdress. </p>
+</div></blockquote>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_VOID</span><span class="w"> </span><span class="o">*</span><span class="nf">CVI_IPCM_GetBuff</span><span class="p">(</span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32Size</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>u32Size</p></td>
+<td><p>Requested pool length</p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>NULL</p></td>
+<td><p>Failure</p></td>
+</tr>
+<tr class="row-odd"><td><p>Other</p></td>
+<td><p>returnpooladdress. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header file: cvi_type.h, cvi_ipcm.h</p></li>
+</ul>
+<p>[Note]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Example]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Related Topics]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+</section>
+<section id="cvi-ipcm-releasebuff">
+<h2><span class="section-number">2.3.8. </span>CVI_IPCM_ReleaseBuff<a class="headerlink" href="API_Reference.html#cvi-ipcm-releasebuff" title="Permalink to this heading">¶</a></h2>
+<p>[Description]</p>
+<blockquote>
+<div><p>releasespecifiedaddressshare memory pool. </p>
+</div></blockquote>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_IPCM_ReleaseBuff</span><span class="p">(</span><span class="n">CVI_VOID</span><span class="w"> </span><span class="o">*</span><span class="n">pData</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>pData</p></td>
+<td><p>pooladdress</p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure,pleaseSee  <a class="reference internal" href="Error_Codes.html#id1"><span class="std std-ref">Error Codes</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header file: cvi_type.h, cvi_ipcm.h</p></li>
+</ul>
+<p>[Note]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Example]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Related Topics]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+</section>
+<section id="cvi-ipcm-getuseraddr">
+<h2><span class="section-number">2.3.9. </span>CVI_IPCM_GetUserAddr<a class="headerlink" href="API_Reference.html#cvi-ipcm-getuseraddr" title="Permalink to this heading">¶</a></h2>
+<p>[Description]</p>
+<blockquote>
+<div><p>returncorrespondingphysicaladdressvirtualaddress, physicaladdressrangemustisaliosmanageaddress. </p>
+<p>in <strong>linux</strong> side, willfromaliostaketophysicaladdressconvertbecomevirtualaddress; </p>
+<p>in <strong>alios</strong> side, becausealiosno hasopenmmc, thereforedirectlyconnectreturnaliosphysicaladdress. </p>
+</div></blockquote>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_VOID</span><span class="w"> </span><span class="o">*</span><span class="nf">CVI_IPCM_GetUserAddr</span><span class="p">(</span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32Paddr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>u32Paddr</p></td>
+<td><p>wait forconvertreplacephysicaladdress</p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>NULL</p></td>
+<td><p>Failure, physicaladdressnotinaliosmanagerange</p></td>
+</tr>
+<tr class="row-odd"><td><p>Other</p></td>
+<td><p>Success, returncorrespondingphysicaladdressvirtualaddress</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header file: cvi_type.h, cvi_ipcm.h</p></li>
+</ul>
+<p>[Note]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Example]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Related Topics]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+</section>
+<section id="cvi-ipcm-getparambinaddr">
+<h2><span class="section-number">2.3.10. </span>CVI_IPCM_GetParamBinAddr<a class="headerlink" href="API_Reference.html#cvi-ipcm-getparambinaddr" title="Permalink to this heading">¶</a></h2>
+<p>[Description]</p>
+<blockquote>
+<div><p>getparameterareaphysicaladdress. </p>
+</div></blockquote>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_U32</span><span class="w"> </span><span class="nf">CVI_IPCM_GetParamBinAddr</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure,pleaseSee  <a class="reference internal" href="Error_Codes.html#id1"><span class="std std-ref">Error Codes</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header file: cvi_type.h, cvi_ipcm.h</p></li>
+</ul>
+<p>[Note]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Example]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Related Topics]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+</section>
+<section id="cvi-ipcm-getparambakbinaddr">
+<h2><span class="section-number">2.3.11. </span>CVI_IPCM_GetParamBakBinAddr<a class="headerlink" href="API_Reference.html#cvi-ipcm-getparambakbinaddr" title="Permalink to this heading">¶</a></h2>
+<p>[Description]</p>
+<blockquote>
+<div><p>getparameterbackupareaphysicaladdress. </p>
+</div></blockquote>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_U32</span><span class="w"> </span><span class="nf">CVI_IPCM_GetParamBakBinAddr</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure,pleaseSee  <a class="reference internal" href="Error_Codes.html#id1"><span class="std std-ref">Error Codes</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header file: cvi_type.h, cvi_ipcm.h</p></li>
+</ul>
+<p>[Note]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Example]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Related Topics]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+</section>
+<section id="cvi-ipcm-getpqbinqddr">
+<h2><span class="section-number">2.3.12. </span>CVI_IPCM_GetPQBinQddr<a class="headerlink" href="API_Reference.html#cvi-ipcm-getpqbinqddr" title="Permalink to this heading">¶</a></h2>
+<p>[Description]</p>
+<blockquote>
+<div><p>Getpqparameterphysicaladdress. </p>
+</div></blockquote>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_U32</span><span class="w"> </span><span class="nf">CVI_IPCM_GetPQBinQddr</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure,pleaseSee  <a class="reference internal" href="Error_Codes.html#id1"><span class="std std-ref">Error Codes</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header file: cvi_type.h, cvi_ipcm.h</p></li>
+</ul>
+<p>[Note]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Example]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Related Topics]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+</section>
+<section id="cvi-ipcm-custinit">
+<h2><span class="section-number">2.3.13. </span>CVI_IPCM_CustInit<a class="headerlink" href="API_Reference.html#cvi-ipcm-custinit" title="Permalink to this heading">¶</a></h2>
+<p>[Description]</p>
+<blockquote>
+<div><p>Initialize IPCM cust.</p>
+</div></blockquote>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_IPCM_CustInit</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure,pleaseSee  <a class="reference internal" href="Error_Codes.html#id1"><span class="std std-ref">Error Codes</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header file: cvi_type.h, cvi_ipcm.h</p></li>
+</ul>
+<p>[Note]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Example]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Related Topics]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+</section>
+<section id="cvi-ipcm-custuninit">
+<h2><span class="section-number">2.3.14. </span>CVI_IPCM_CustUninit<a class="headerlink" href="API_Reference.html#cvi-ipcm-custuninit" title="Permalink to this heading">¶</a></h2>
+<p>[Description]</p>
+<blockquote>
+<div><p>Deinitialize IPCM cust.</p>
+</div></blockquote>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_IPCM_CustUninit</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure,pleaseSee  <a class="reference internal" href="Error_Codes.html#id1"><span class="std std-ref">Error Codes</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header file: cvi_type.h, cvi_ipcm.h</p></li>
+</ul>
+<p>[Note]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Example]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Related Topics]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+</section>
+<section id="cvi-ipcm-custpoolreset">
+<h2><span class="section-number">2.3.15. </span>CVI_IPCM_CustPoolReset<a class="headerlink" href="API_Reference.html#cvi-ipcm-custpoolreset" title="Permalink to this heading">¶</a></h2>
+<p>[Description]</p>
+<blockquote>
+<div><p>Reset all shared-memory pools to the free state. The IPCM driver generally calls this during the first system boot.</p>
+</div></blockquote>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_IPCM_CustPoolReset</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure,pleaseSee  <a class="reference internal" href="Error_Codes.html#id1"><span class="std std-ref">Error Codes</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header file: cvi_type.h, cvi_ipcm.h</p></li>
+</ul>
+<p>[Note]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Example]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Related Topics]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+</section>
+<section id="cvi-ipcm-registercusthandle">
+<h2><span class="section-number">2.3.16. </span>CVI_IPCM_RegisterCustHandle<a class="headerlink" href="API_Reference.html#cvi-ipcm-registercusthandle" title="Permalink to this heading">¶</a></h2>
+<p>[Description]</p>
+<blockquote>
+<div><p>Register an IPCM cust handler.</p>
+</div></blockquote>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_IPCM_RegisterCustHandle</span><span class="p">(</span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8PortID</span><span class="p">,</span><span class="n">IPCM_CUST_MSGPROC_FN</span><span class="w"> </span><span class="n">pfnHandler</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_VOID</span><span class="w"> </span><span class="o">*</span><span class="n">pData</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>u8PortID</p></td>
+<td><p>Port ID; 0 and 1 are currently used by the virtual serial port and parameter parsing respectively. User port IDs should start at 2.</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>pfnHandle</p></td>
+<td><p>cust handler</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-even"><td><p>pData</p></td>
+<td><p>Handler application data</p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure,pleaseSee  <a class="reference internal" href="Error_Codes.html#id1"><span class="std std-ref">Error Codes</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header file: cvi_type.h, cvi_ipcm.h, cvi_comm_ipcm.h</p></li>
+</ul>
+<p>[Note]</p>
+<blockquote>
+<div><p>Port ID; 0 and 1 are currently used by the virtual serial port and parameter parsing respectively. User port IDs should start at 2.</p>
+</div></blockquote>
+<p>[Example]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Related Topics]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+</section>
+<section id="cvi-ipcm-deregistercusthandle">
+<h2><span class="section-number">2.3.17. </span>CVI_IPCM_DeregisterCustHandle<a class="headerlink" href="API_Reference.html#cvi-ipcm-deregistercusthandle" title="Permalink to this heading">¶</a></h2>
+<p>[Description]</p>
+<blockquote>
+<div><p>Unregister the IPCM cust handler.</p>
+</div></blockquote>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_IPCM_DeregisterCustHandle</span><span class="p">(</span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8PortID</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>u8PortID</p></td>
+<td><p>port id</p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure,pleaseSee  <a class="reference internal" href="Error_Codes.html#id1"><span class="std std-ref">Error Codes</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header file: cvi_type.h, cvi_ipcm.h</p></li>
+</ul>
+<p>[Note]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Example]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Related Topics]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+</section>
+<section id="cvi-ipcm-custsendmsg">
+<h2><span class="section-number">2.3.18. </span>CVI_IPCM_CustSendMsg<a class="headerlink" href="API_Reference.html#cvi-ipcm-custsendmsg" title="Permalink to this heading">¶</a></h2>
+<p>[Description]</p>
+<blockquote>
+<div><p>Send shared-memory data to the other core through the mailbox</p>
+</div></blockquote>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_IPCM_CustSendMsg</span><span class="p">(</span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8PortID</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8MsgID</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_VOID</span><span class="w"> </span><span class="o">*</span><span class="n">pData</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32Len</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>u8PortID</p></td>
+<td><p>Port ID</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>u8MsgID</p></td>
+<td><p>Msg ID, in the range [0,127]</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-even"><td><p>pData</p></td>
+<td><p>Data pointer; obtain this data from shared memory with CVI_IPCM_GetBuff</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32Len</p></td>
+<td><p>Data length</p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure,pleaseSee  <a class="reference internal" href="Error_Codes.html#id1"><span class="std std-ref">Error Codes</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header file: cvi_type.h, cvi_ipcm.h</p></li>
+</ul>
+<p>[Note]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Example]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Related Topics]</p>
+<blockquote>
+<div><p>CVI_IPCM_GetBuff</p>
+</div></blockquote>
+</section>
+<section id="cvi-ipcm-custsendparam">
+<h2><span class="section-number">2.3.19. </span>CVI_IPCM_CustSendParam<a class="headerlink" href="API_Reference.html#cvi-ipcm-custsendparam" title="Permalink to this heading">¶</a></h2>
+<p>[Description]</p>
+<blockquote>
+<div><p>When the msg does not exceed 4 bytes, this interface can send a 4-byte param.</p>
+</div></blockquote>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_IPCM_CustSendParam</span><span class="p">(</span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8PortID</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8MsgID</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32Param</span><span class="p">);;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>u8PortID</p></td>
+<td><p>Port ID</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>u8MsgID</p></td>
+<td><p>Msg ID, in the range [0,127]</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-even"><td><p>u32Param</p></td>
+<td><p>Param content</p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure,pleaseSee  <a class="reference internal" href="Error_Codes.html#id1"><span class="std std-ref">Error Codes</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header file: cvi_type.h, cvi_ipcm.h</p></li>
+</ul>
+<p>[Note]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Example]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Related Topics]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+</section>
+<section id="cvi-ipcm-setrtossysbootstat">
+<h2><span class="section-number">2.3.20. </span>CVI_IPCM_SetRtosSysBootStat<a class="headerlink" href="API_Reference.html#cvi-ipcm-setrtossysbootstat" title="Permalink to this heading">¶</a></h2>
+<p>[Description]</p>
+<blockquote>
+<div><p>Set the RTOS boot-status bit to 1; valid only on the RTOS side</p>
+</div></blockquote>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_IPCM_SetRtosSysBootStat</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Return Value]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header file: cvi_type.h, cvi_ipcm.h</p></li>
+</ul>
+<p>[Note]</p>
+<blockquote>
+<div><p>This interface is generally called when RTOS starts and is valid only when called on the RTOS side</p>
+</div></blockquote>
+<p>[Example]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Related Topics]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+</section>
+<section id="cvi-ipcm-clrrtossysbootstat">
+<h2><span class="section-number">2.3.21. </span>CVI_IPCM_ClrRtosSysBootStat<a class="headerlink" href="API_Reference.html#cvi-ipcm-clrrtossysbootstat" title="Permalink to this heading">¶</a></h2>
+<p>[Description]</p>
+<blockquote>
+<div><p>Set the RTOS boot-status bit to 0; valid only on the RTOS side</p>
+</div></blockquote>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_IPCM_ClrRtosSysBootStat</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Return Value]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header file: cvi_type.h, cvi_ipcm.h</p></li>
+</ul>
+<p>[Note]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Example]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Related Topics]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+</section>
+<section id="cvi-ipcm-getrtosbootstat">
+<h2><span class="section-number">2.3.22. </span>CVI_IPCM_GetRtosBootStat<a class="headerlink" href="API_Reference.html#cvi-ipcm-getrtosbootstat" title="Permalink to this heading">¶</a></h2>
+<p>[Description]</p>
+<blockquote>
+<div><p>Get the RTOS boot status</p>
+</div></blockquote>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_IPCM_GetRtosBootStat</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Return Value]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header file: cvi_type.h, cvi_ipcm.h</p></li>
+</ul>
+<p>[Note]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Example]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Related Topics]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+</section>
+<section id="cvi-ipcm-getrtosipcmstat">
+<h2><span class="section-number">2.3.23. </span>CVI_IPCM_GetRtosIpcmStat<a class="headerlink" href="API_Reference.html#cvi-ipcm-getrtosipcmstat" title="Permalink to this heading">¶</a></h2>
+<p>[Description]</p>
+<blockquote>
+<div><p>Get the IPCM boot status</p>
+</div></blockquote>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_IPCM_GetRtosIpcmStat</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Return Value]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header file: cvi_type.h, cvi_ipcm.h</p></li>
+</ul>
+<p>[Note]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Example]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Related Topics]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+</section>
+<section id="cvi-ipcm-setrtosbootlogostat">
+<h2><span class="section-number">2.3.24. </span>CVI_IPCM_SetRtosBootLogoStat<a class="headerlink" href="API_Reference.html#cvi-ipcm-setrtosbootlogostat" title="Permalink to this heading">¶</a></h2>
+<p>[Description]</p>
+<blockquote>
+<div><p>Set the RTOS boot-logo status bit to 1</p>
+</div></blockquote>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_IPCM_SetRtosBootLogoStat</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Return Value]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header file: cvi_type.h, cvi_ipcm.h</p></li>
+</ul>
+<p>[Note]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Example]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Related Topics]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+</section>
+<section id="cvi-ipcm-clrrtosbootlogostat">
+<h2><span class="section-number">2.3.25. </span>CVI_IPCM_ClrRtosBootLogoStat<a class="headerlink" href="API_Reference.html#cvi-ipcm-clrrtosbootlogostat" title="Permalink to this heading">¶</a></h2>
+<p>[Description]</p>
+<blockquote>
+<div><p>Set the RTOS boot-logo status bit to 0</p>
+</div></blockquote>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_IPCM_ClrRtosBootLogoStat</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Return Value]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header file: cvi_type.h, cvi_ipcm.h</p></li>
+</ul>
+<p>[Note]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Example]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Related Topics]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+</section>
+<section id="cvi-ipcm-getrtosbootlogostat">
+<h2><span class="section-number">2.3.26. </span>CVI_IPCM_GetRtosBootLogoStat<a class="headerlink" href="API_Reference.html#cvi-ipcm-getrtosbootlogostat" title="Permalink to this heading">¶</a></h2>
+<p>[Description]</p>
+<blockquote>
+<div><p>Get the RTOS boot-logo status bit</p>
+</div></blockquote>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_IPCM_GetRtosBootLogoStat</span><span class="p">(</span><span class="kt">void</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Return Value]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header file: cvi_type.h, cvi_ipcm.h</p></li>
+</ul>
+<p>[Note]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Example]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+<p>[Related Topics]</p>
+<blockquote>
+<div><p>None</p>
+</div></blockquote>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Design_Overview.html" class="btn btn-neutral float-left" title="2.2. Design Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Data_Types.html" class="btn btn-neutral float-right" title="2.4. Data Types" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Go to Official Website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="Go to Documentation Center"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Top of page"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Bottom of page"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR code for this page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3. USBOperation Guide &mdash; PeripheralDriver master Documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="4. SD/MMC Card Operation Guide" href="4_SD_MMC_Card_Operation_Guide.html" />
+    <link rel="prev" title="2. Ethernet Operation Guide" href="2_Ethernet_Operation_Guide.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> PeripheralDriver
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Ethernet_Operation_Guide.html">2. Ethernet Operation Guide</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="3_USB_Operation_Guide.html#">3. USBOperation Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3_USB_Operation_Guide.html#id1">3.1. Preparation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_USB_Operation_Guide.html#uboot">3.2. UbootOperation Procedure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3_USB_Operation_Guide.html#ubootusb-host">3.2.1. UbootunderUSB HostConfiguration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_USB_Operation_Guide.html#ubootu">3.2.2. UbootunderU </a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3_USB_Operation_Guide.html#linux-host">3.3. linux Host</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3_USB_Operation_Guide.html#usb-2-0-host">3.3.1. USB 2.0 Host Operation Procedure</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3_USB_Operation_Guide.html#linux-device">3.4. linux Device</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3_USB_Operation_Guide.html#id2">3.4.1. Preparation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_USB_Operation_Guide.html#switch-gpio">3.4.2. Switch GPIO</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_USB_Operation_Guide.html#device">3.4.3. Device  is DeviceofOperation Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_USB_Operation_Guide.html#id3">3.4.4. Device  isTerminalDeviceofOperation Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_USB_Operation_Guide.html#device-adb">3.4.5. Device  is ADB DeviceofOperation Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_USB_Operation_Guide.html#device-rndis">3.4.6. Device  is RNDIS DeviceofOperation Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3_USB_Operation_Guide.html#id4">3.5. Issues to Note During Operation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="4_SD_MMC_Card_Operation_Guide.html">4. SD/MMC Card Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_I2C_Operation_Guide.html">5. I2C Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_SPI_Operation_Guide.html">6. SPI Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_GPIO_Operation_Guide.html">7. GPIOOperation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_UART_Operation_Guide.html">8. UART Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_Watchdog_Operation_Guide.html">9. Watchdog Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_PWM_Operation_Guide.html">10. PWM Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_ADC_Operation_Guide.html">11. ADC Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_CVI_PINMUX_Operation_Guide.html">12. CVI PINMUX Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_DMA_mem_to_mem_Operation_Guide.html">13. DMA Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_Thermal_Control_Operation_Guide.html">14. Thermal Control Strategy and Test Operation Guide</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PeripheralDriver</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">3. </span>USBOperation Guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/3_USB_Operation_Guide.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="usb">
+<h1><span class="section-number">3. </span>USBOperation Guide<a class="headerlink" href="3_USB_Operation_Guide.html#usb" title="Permalink to this heading">¶</a></h1>
+<section id="id1">
+<h2><span class="section-number">3.1. </span>Preparation<a class="headerlink" href="3_USB_Operation_Guide.html#id1" title="Permalink to this heading">¶</a></h2>
+<p>USB 2.0 Host/DeviceofPreparationas follows:</p>
+<ul class="simple">
+<li><p>U-boot and Linux KernelUseSDK ofU-boot and Kernel。</p></li>
+<li><p>FileSystemCanUse FileSystemext4orsquashfs， CanUseNFS。</p></li>
+<li><p>Shell script“run_usb.sh”.
+run_usb.shUseKernelofUSB ConfigFSFunction USB device .Use canRefer toandModifyrun_usb.sh PID/VIDandfunctionofRelated .
+ OperationcanRefer toKernelFile” linux/Documentation/usb/gadget_configfs.txt”。</p></li>
+</ul>
+</section>
+<section id="uboot">
+<h2><span class="section-number">3.2. </span>UbootOperation Procedure<a class="headerlink" href="3_USB_Operation_Guide.html#uboot" title="Permalink to this heading">¶</a></h2>
+<section id="ubootusb-host">
+<h3><span class="section-number">3.2.1. </span>UbootunderUSB HostConfiguration<a class="headerlink" href="3_USB_Operation_Guide.html#ubootusb-host" title="Permalink to this heading">¶</a></h3>
+<p>Ubootunder SupportU and Device.
+USB hostinubootDefaultisDisable，mustEnableRelatedconfig。</p>
+<p>Steps1. EnableubootunderUSBRelatedofDriver:</p>
+<p>inBoard-level U-Boot Configuration FileinEnableunder Option。Configuration FilePathusually <code class="file docutils literal notranslate"><span class="pre">build/boards/cv184x/Board Name/u-boot/cvitek_Board Name_defconfig</span></code> 。
+PleasewillPathinof <code class="docutils literal notranslate"><span class="pre">Board Name</span></code> ReplaceisActualBoard-levelDirectory Name（for example <code class="docutils literal notranslate"><span class="pre">cv1842hp_wevb_0014a_emmc</span></code>）， with SDK is 。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>CONFIG_USB=y
+CONFIG_DM_USB=y
+CONFIG_USB_STORAGE=y
+CONFIG_CMD_USB=y
+</pre></div>
+</div>
+<p>Ifneed of USB DWC2  （Optional），canin  defconfig in ：</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>CONFIG_USB_DWC2_VERBOSE_DEBUG=y
+</pre></div>
+</div>
+</section>
+<section id="ubootu">
+<h3><span class="section-number">3.2.2. </span>UbootunderU <a class="headerlink" href="3_USB_Operation_Guide.html#ubootu" title="Permalink to this heading">¶</a></h3>
+<p> Uboot USB Hostbeforeof ：</p>
+<p>UbootunderUSB HostnotSupport ，mustin USB hostbefore onDevice.
+Ifon the platform USB Hub，mustConfirmHub alreadyEnable，USBPathofSwitch toHost connector。</p>
+<p>withcv184xas an example（ cv181x）：</p>
+<p>on the platform ， ubootCommand Line，InputCommands: usb start， Success。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cv184x</span><span class="c1"># usb start</span>
+<span class="n">starting</span> <span class="n">USB</span><span class="o">...</span>
+<span class="n">Bus</span> <span class="n">usb</span><span class="o">@</span><span class="mi">04340000</span><span class="p">:</span> <span class="n">USB</span> <span class="n">DWC2</span>
+<span class="n">scanning</span> <span class="n">bus</span> <span class="n">usb</span><span class="o">@</span><span class="mi">04340000</span> <span class="k">for</span> <span class="n">devices</span><span class="o">...</span> <span class="mi">3</span> <span class="n">USB</span> <span class="n">Device</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="n">found</span>
+       <span class="n">scanning</span> <span class="n">usb</span> <span class="k">for</span> <span class="n">storage</span> <span class="n">devices</span><span class="o">...</span> <span class="mi">1</span> <span class="n">Storage</span> <span class="n">Device</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="n">found</span>
+</pre></div>
+</div>
+<p>Ifusb startafter or toDevice，caninubootCommand LineExecutesetenv usb_pgood_delay XXX，can or in HubofDevice timeoutValue， Value is1000-3000。</p>
+<p> Completeafter， InputCommands: usb tree，View andRate。followingExample USB host   Hub and Mass Storage Device。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cv184x</span><span class="c1"># usb tree</span>
+<span class="n">USB</span> <span class="n">device</span> <span class="n">tree</span><span class="p">:</span>
+  <span class="mi">1</span>  <span class="n">Hub</span> <span class="p">(</span><span class="mi">480</span> <span class="n">Mb</span><span class="o">/</span><span class="n">s</span><span class="p">,</span> <span class="mi">0</span><span class="n">mA</span><span class="p">)</span>
+  <span class="o">|</span>   <span class="n">U</span><span class="o">-</span><span class="n">Boot</span> <span class="n">Root</span> <span class="n">Hub</span>
+  <span class="o">|</span>
+  <span class="o">+-</span><span class="mi">2</span>  <span class="n">Hub</span> <span class="p">(</span><span class="mi">480</span> <span class="n">Mb</span><span class="o">/</span><span class="n">s</span><span class="p">,</span> <span class="mi">100</span><span class="n">mA</span><span class="p">)</span>
+    <span class="o">|</span>
+    <span class="o">+-</span><span class="mi">3</span>  <span class="n">Mass</span> <span class="n">Storage</span> <span class="p">(</span><span class="mi">480</span> <span class="n">Mb</span><span class="o">/</span><span class="n">s</span><span class="p">,</span> <span class="mi">500</span><span class="n">mA</span><span class="p">)</span>
+         <span class="n">Prolific</span> <span class="n">Technology</span> <span class="n">Inc</span><span class="o">.</span> <span class="n">USB</span> <span class="n">SD</span> <span class="n">Card</span> <span class="n">Reader</span>      <span class="n">ABCDEF0123456789AB</span>
+</pre></div>
+</div>
+<p> canExecute <code class="docutils literal notranslate"><span class="pre">usb</span> <span class="pre">storage</span></code> View before of USB  Device ：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cv184x</span><span class="c1"># usb storage</span>
+  <span class="n">Device</span> <span class="mi">0</span><span class="p">:</span> <span class="n">Vendor</span><span class="p">:</span>          <span class="n">Rev</span><span class="p">:</span> <span class="mf">1.00</span> <span class="n">Prod</span><span class="p">:</span> <span class="n">SD</span> <span class="n">Card</span> <span class="n">Reader</span>
+            <span class="n">Type</span><span class="p">:</span> <span class="n">Removable</span> <span class="n">Hard</span> <span class="n">Disk</span>
+            <span class="n">Capacity</span><span class="p">:</span> <span class="mf">960.0</span> <span class="n">MB</span> <span class="o">=</span> <span class="mf">0.9</span> <span class="n">GB</span> <span class="p">(</span><span class="mi">1966080</span> <span class="n">x</span> <span class="mi">512</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Initializeand ：</p>
+<p> Completeaftercan followingOperation。</p>
+<p>Steps1. ViewDeviceInformation</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Command LineExecute: <code class="docutils literal notranslate"><span class="pre">usb</span> <span class="pre">info</span></code> can Controlleron Device；Execute <code class="docutils literal notranslate"><span class="pre">usb</span> <span class="pre">info</span> <span class="pre">[dev]</span></code> canView Device Number 。</p></li>
+</ul>
+</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cv184x</span><span class="c1"># usb info</span>
+<span class="mi">1</span><span class="p">:</span> <span class="n">Hub</span><span class="p">,</span>  <span class="n">USB</span> <span class="n">Revision</span> <span class="mf">1.10</span>
+ <span class="o">-</span>  <span class="n">U</span><span class="o">-</span><span class="n">Boot</span> <span class="n">Root</span> <span class="n">Hub</span>
+ <span class="o">-</span> <span class="n">Class</span><span class="p">:</span> <span class="n">Hub</span>
+ <span class="o">-</span> <span class="n">PacketSize</span><span class="p">:</span> <span class="mi">8</span>  <span class="n">Configurations</span><span class="p">:</span> <span class="mi">1</span>
+ <span class="o">-</span> <span class="n">Vendor</span><span class="p">:</span> <span class="mh">0x0000</span>  <span class="n">Product</span> <span class="mh">0x0000</span> <span class="n">Version</span> <span class="mf">0.0</span>
+   <span class="n">Configuration</span><span class="p">:</span> <span class="mi">1</span>
+   <span class="o">-</span> <span class="n">Interfaces</span><span class="p">:</span> <span class="mi">1</span> <span class="n">Self</span> <span class="n">Powered</span> <span class="mi">0</span><span class="n">mA</span>
+     <span class="n">Interface</span><span class="p">:</span> <span class="mi">0</span>
+     <span class="o">-</span> <span class="n">Alternate</span> <span class="n">Setting</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Endpoints</span><span class="p">:</span> <span class="mi">1</span>
+     <span class="o">-</span> <span class="n">Class</span> <span class="n">Hub</span>
+     <span class="o">-</span> <span class="n">Endpoint</span> <span class="mi">1</span> <span class="n">In</span> <span class="n">Interrupt</span> <span class="n">MaxPacket</span> <span class="mi">2</span> <span class="n">Interval</span> <span class="mi">255</span><span class="n">ms</span>
+
+<span class="mi">2</span><span class="p">:</span> <span class="n">Hub</span><span class="p">,</span>  <span class="n">USB</span> <span class="n">Revision</span> <span class="mf">2.0</span>
+ <span class="o">-</span> <span class="n">Class</span><span class="p">:</span> <span class="n">Hub</span>
+ <span class="o">-</span> <span class="n">PacketSize</span><span class="p">:</span> <span class="mi">64</span>  <span class="n">Configurations</span><span class="p">:</span> <span class="mi">1</span>
+ <span class="o">-</span> <span class="n">Vendor</span><span class="p">:</span> <span class="mh">0x058f</span>  <span class="n">Product</span> <span class="mh">0x6254</span> <span class="n">Version</span> <span class="mf">1.0</span>
+   <span class="n">Configuration</span><span class="p">:</span> <span class="mi">1</span>
+   <span class="o">-</span> <span class="n">Interfaces</span><span class="p">:</span> <span class="mi">1</span> <span class="n">Self</span> <span class="n">Powered</span> <span class="n">Remote</span> <span class="n">Wakeup</span> <span class="mi">100</span><span class="n">mA</span>
+     <span class="n">Interface</span><span class="p">:</span> <span class="mi">0</span>
+     <span class="o">-</span> <span class="n">Alternate</span> <span class="n">Setting</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Endpoints</span><span class="p">:</span> <span class="mi">1</span>
+     <span class="o">-</span> <span class="n">Class</span> <span class="n">Hub</span>
+     <span class="o">-</span> <span class="n">Endpoint</span> <span class="mi">1</span> <span class="n">In</span> <span class="n">Interrupt</span> <span class="n">MaxPacket</span> <span class="mi">1</span> <span class="n">Interval</span> <span class="mi">12</span><span class="n">ms</span>
+
+<span class="mi">3</span><span class="p">:</span> <span class="n">Mass</span> <span class="n">Storage</span><span class="p">,</span>  <span class="n">USB</span> <span class="n">Revision</span> <span class="mf">2.10</span>
+ <span class="o">-</span> <span class="n">Prolific</span> <span class="n">Technology</span> <span class="n">Inc</span><span class="o">.</span> <span class="n">USB</span> <span class="n">SD</span> <span class="n">Card</span> <span class="n">Reader</span>      <span class="n">ABCDEF0123456789AB</span>
+ <span class="o">-</span> <span class="n">Class</span><span class="p">:</span> <span class="p">(</span><span class="kn">from</span> <span class="nn">Interface</span><span class="p">)</span> <span class="n">Mass</span> <span class="n">Storage</span>
+ <span class="o">-</span> <span class="n">PacketSize</span><span class="p">:</span> <span class="mi">64</span>  <span class="n">Configurations</span><span class="p">:</span> <span class="mi">1</span>
+ <span class="o">-</span> <span class="n">Vendor</span><span class="p">:</span> <span class="mh">0x067b</span>  <span class="n">Product</span> <span class="mh">0x2731</span> <span class="n">Version</span> <span class="mf">1.0</span>
+   <span class="n">Configuration</span><span class="p">:</span> <span class="mi">1</span>
+   <span class="o">-</span> <span class="n">Interfaces</span><span class="p">:</span> <span class="mi">1</span> <span class="n">Bus</span> <span class="n">Powered</span> <span class="mi">500</span><span class="n">mA</span>
+     <span class="n">Interface</span><span class="p">:</span> <span class="mi">0</span>
+     <span class="o">-</span> <span class="n">Alternate</span> <span class="n">Setting</span> <span class="mi">0</span><span class="p">,</span> <span class="n">Endpoints</span><span class="p">:</span> <span class="mi">2</span>
+     <span class="o">-</span> <span class="n">Class</span> <span class="n">Mass</span> <span class="n">Storage</span><span class="p">,</span> <span class="n">Transp</span><span class="o">.</span> <span class="n">SCSI</span><span class="p">,</span> <span class="n">Bulk</span> <span class="n">only</span>
+     <span class="o">-</span> <span class="n">Endpoint</span> <span class="mi">1</span> <span class="n">Out</span> <span class="n">Bulk</span> <span class="n">MaxPacket</span> <span class="mi">512</span>
+     <span class="o">-</span> <span class="n">Endpoint</span> <span class="mi">2</span> <span class="n">In</span> <span class="n">Bulk</span> <span class="n">MaxPacket</span> <span class="mi">512</span>
+</pre></div>
+</div>
+<p>Steps2. FAT FileSystem andWrite（Optional）</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>If U  Partitionis FAT，canUse <code class="docutils literal notranslate"><span class="pre">fatls</span></code>  File、<code class="docutils literal notranslate"><span class="pre">fatwrite</span></code> WriteFile。DeviceandPartition Please Actual Modify（under is <code class="docutils literal notranslate"><span class="pre">usb</span> <span class="pre">0</span></code>  Partition <code class="docutils literal notranslate"><span class="pre">1</span></code>）。</p></li>
+</ul>
+</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cv184x</span><span class="c1"># fatls usb 0:1 /</span>
+            <span class="n">System</span> <span class="n">Volume</span> <span class="n">Information</span><span class="o">/</span>
+  <span class="mi">2552840</span>   <span class="n">boot</span><span class="o">.</span><span class="n">emmc</span>
+  <span class="mi">9887872</span>   <span class="n">cfg</span><span class="o">.</span><span class="n">emmc</span>
+ <span class="mi">53395776</span>   <span class="n">data</span><span class="o">.</span><span class="n">emmc</span>
+   <span class="mi">555520</span>   <span class="n">fip</span><span class="o">.</span><span class="n">bin</span>
+            <span class="n">temp</span><span class="o">/</span>
+   <span class="mi">555520</span>   <span class="n">fip_spl</span><span class="o">.</span><span class="n">bin</span>
+      <span class="mi">991</span>   <span class="n">partition_emmc</span><span class="o">.</span><span class="n">xml</span>
+  <span class="mi">3593016</span>   <span class="n">ramboot</span><span class="o">.</span><span class="n">itb</span>
+  <span class="mi">5963904</span>   <span class="n">rootfs</span><span class="o">.</span><span class="n">emmc</span>
+  <span class="mi">4919424</span>   <span class="n">system</span><span class="o">.</span><span class="n">emmc</span>
+   <span class="mi">811136</span>   <span class="n">yoc</span><span class="o">.</span><span class="n">bin</span>
+  <span class="mi">2627628</span>   <span class="n">boot</span><span class="o">.</span><span class="n">spinor</span>
+  <span class="mi">1048704</span>   <span class="n">data</span><span class="o">.</span><span class="n">spinor</span>
+      <span class="mi">959</span>   <span class="n">partition_spinor</span><span class="o">.</span><span class="n">xml</span>
+  <span class="mi">2240512</span>   <span class="n">rootfs</span><span class="o">.</span><span class="n">spinor</span>
+     <span class="mi">7712</span>   <span class="n">run_usb</span><span class="o">.</span><span class="n">sh</span>
+  <span class="mi">1048576</span>   <span class="n">test</span><span class="o">.</span><span class="n">bin</span>
+
+<span class="mi">16</span> <span class="n">file</span><span class="p">(</span><span class="n">s</span><span class="p">),</span> <span class="mi">2</span> <span class="nb">dir</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+
+<span class="n">cv184x</span><span class="c1"># fatwrite usb 0:1 0x80000000 test2.bin 0x100000</span>
+<span class="mi">1048576</span> <span class="nb">bytes</span> <span class="n">written</span> <span class="ow">in</span> <span class="mi">369</span> <span class="n">ms</span> <span class="p">(</span><span class="mf">2.7</span> <span class="n">MiB</span><span class="o">/</span><span class="n">s</span><span class="p">)</span>
+
+<span class="n">cv184x</span><span class="c1"># fatls usb 0:1 /</span>
+            <span class="n">System</span> <span class="n">Volume</span> <span class="n">Information</span><span class="o">/</span>
+  <span class="mi">2552840</span>   <span class="n">boot</span><span class="o">.</span><span class="n">emmc</span>
+  <span class="mi">9887872</span>   <span class="n">cfg</span><span class="o">.</span><span class="n">emmc</span>
+ <span class="mi">53395776</span>   <span class="n">data</span><span class="o">.</span><span class="n">emmc</span>
+   <span class="mi">555520</span>   <span class="n">fip</span><span class="o">.</span><span class="n">bin</span>
+            <span class="n">temp</span><span class="o">/</span>
+   <span class="mi">555520</span>   <span class="n">fip_spl</span><span class="o">.</span><span class="n">bin</span>
+      <span class="mi">991</span>   <span class="n">partition_emmc</span><span class="o">.</span><span class="n">xml</span>
+  <span class="mi">3593016</span>   <span class="n">ramboot</span><span class="o">.</span><span class="n">itb</span>
+  <span class="mi">5963904</span>   <span class="n">rootfs</span><span class="o">.</span><span class="n">emmc</span>
+  <span class="mi">4919424</span>   <span class="n">system</span><span class="o">.</span><span class="n">emmc</span>
+   <span class="mi">811136</span>   <span class="n">yoc</span><span class="o">.</span><span class="n">bin</span>
+  <span class="mi">2627628</span>   <span class="n">boot</span><span class="o">.</span><span class="n">spinor</span>
+  <span class="mi">1048704</span>   <span class="n">data</span><span class="o">.</span><span class="n">spinor</span>
+      <span class="mi">959</span>   <span class="n">partition_spinor</span><span class="o">.</span><span class="n">xml</span>
+  <span class="mi">2240512</span>   <span class="n">rootfs</span><span class="o">.</span><span class="n">spinor</span>
+     <span class="mi">7712</span>   <span class="n">run_usb</span><span class="o">.</span><span class="n">sh</span>
+  <span class="mi">1048576</span>   <span class="n">test</span><span class="o">.</span><span class="n">bin</span>
+  <span class="mi">1048576</span>   <span class="n">test2</span><span class="o">.</span><span class="n">bin</span>
+
+<span class="mi">17</span> <span class="n">file</span><span class="p">(</span><span class="n">s</span><span class="p">),</span> <span class="mi">2</span> <span class="nb">dir</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Steps3.   U  Operation（FAT）</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Partitionis FAT  ，canUse <code class="docutils literal notranslate"><span class="pre">fatload</span></code> willFile Memory：<code class="docutils literal notranslate"><span class="pre">fatload</span> <span class="pre">usb</span> <span class="pre">dev:part</span> <span class="pre">loadaddr</span> <span class="pre">filename</span></code>。
+<code class="docutils literal notranslate"><span class="pre">dev</span></code>、<code class="docutils literal notranslate"><span class="pre">Partition </span></code>、<code class="docutils literal notranslate"><span class="pre">loadaddr</span></code>、<code class="docutils literal notranslate"><span class="pre">filename</span></code> Please Actual Modify， for exampleunder：</p></li>
+</ul>
+</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cv184x</span><span class="c1"># fatload usb 0:1 0x82000000 boot.spinor</span>
+<span class="mi">2627628</span> <span class="nb">bytes</span> <span class="n">read</span> <span class="ow">in</span> <span class="mi">272</span> <span class="n">ms</span> <span class="p">(</span><span class="mf">9.2</span> <span class="n">MiB</span><span class="o">/</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Steps4.   U  Operation（FAT）</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Partitionis FAT  ，canUse <code class="docutils literal notranslate"><span class="pre">fatwrite</span></code> fromMemoryWriteFile：<code class="docutils literal notranslate"><span class="pre">fatwrite</span> <span class="pre">usb</span> <span class="pre">dev:part</span> <span class="pre">addr</span> <span class="pre">filename</span> <span class="pre">bytes</span></code>。
+ for exampleunder（andSteps 2 in <code class="docutils literal notranslate"><span class="pre">fatwrite</span></code>  ）：</p></li>
+</ul>
+</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cv184x</span><span class="c1"># fatwrite usb 0:1 0x80000000 test2.bin 0x100000</span>
+<span class="mi">1048576</span> <span class="nb">bytes</span> <span class="n">written</span> <span class="ow">in</span> <span class="mi">369</span> <span class="n">ms</span> <span class="p">(</span><span class="mf">2.7</span> <span class="n">MiB</span><span class="o">/</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="linux-host">
+<h2><span class="section-number">3.3. </span>linux Host<a class="headerlink" href="3_USB_Operation_Guide.html#linux-host" title="Permalink to this heading">¶</a></h2>
+<section id="usb-2-0-host">
+<h3><span class="section-number">3.3.1. </span>USB 2.0 Host Operation Procedure<a class="headerlink" href="3_USB_Operation_Guide.html#usb-2-0-host" title="Permalink to this heading">¶</a></h3>
+<dl>
+<dt>Steps1. Kernel Configuration</dt><dd><p>Enable USB Host and U  RelatedConfiguration。Configuration FilePathusually
+<code class="file docutils literal notranslate"><span class="pre">build/boards/cv184x/Board Name/linux/Board Name_defconfig</span></code>。</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>CONFIG_USB_SUPPORT=y
+CONFIG_USB=y
+CONFIG_USB_DWC2=y
+CONFIG_USB_GADGET=y
+CONFIG_USB_CONFIGFS=y
+CONFIG_USB_LIBCOMPOSITE=y
+CONFIG_USB_ROLE_SWITCH=y
+CONFIG_SCSI=y
+CONFIG_BLK_DEV_SD=y
+CONFIG_USB_STORAGE=y
+</pre></div>
+</div>
+</dd>
+</dl>
+<p>Steps2.  is Host Mode</p>
+<blockquote>
+<div><p>IfBoard-levelThrough GPIO   USB  or Host/Device  ，Please Operation  GPIO。
+ Examplein  Q3  、  Q4  ，and  R127、R125。
+for exampleUse GPIO 450 Enable USB  ，Set the level high or low according to the actual situation。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="m">450</span> &gt; /sys/class/gpio/export
+<span class="nb">echo</span> out &gt; /sys/class/gpio/gpio450/direction
+<span class="nb">echo</span> <span class="m">1</span> &gt; /sys/class/gpio/gpio450/value
+</pre></div>
+</div>
+<p>will OTG Controller to Host Mode:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> host &gt; /proc/cviusb/otg_role
+</pre></div>
+</div>
+</div></blockquote>
+<dl>
+<dt>Steps3.   U  </dt><dd><p>will U   USB  ， Success。 underSerial Port :</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>[   72.061964] usb 1-1: new high-speed USB device number 2 using dwc2
+[   72.315816] usb-storage 1-1:1.0: USB Mass Storage device detected
+[   72.335934] scsi host0: usb-storage 1-1:1.0
+[   73.363027] scsi 0:0:0:0: Direct-Access     Generic  STORAGE DEVICE   1532 PQ: 0 ANSI: 6
+[   73.374407] sd 0:0:0:0: Attached scsi generic sg0 type 0
+[   73.558597] sd 0:0:0:0: [sda] 30253056 512-byte logical blocks: (15.5 GB/14.4 GiB)
+[   73.566961] sd 0:0:0:0: [sda] Write Protect is off
+[   73.571922] sd 0:0:0:0: [sda] Mode Sense: 21 00 00 00
+[   73.577899] sd 0:0:0:0: [sda] Write cache: disabled, read cache: enabled, doesn&#39;t support DPO or FUA
+[   73.593961]  sda: sda1
+[   73.602607] sd 0:0:0:0: [sda] Attached SCSI removable disk
+</pre></div>
+</div>
+<p>sdXY in X is ，Y isPartition ，Please Actual Modify。for example log in <strong>sda1</strong> Indicates U  Partition；
+ Partition  sda1、sda2、sda3 etc.。</p>
+</dd>
+<dt>Steps4. ViewPartitionInformation</dt><dd><p>Run <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">/dev</span></code> ViewDeviceNode:</p>
+<ul class="simple">
+<li><p>If  sdXY（If sda1），Indicates Partition，need  <code class="docutils literal notranslate"><span class="pre">fdisk</span> <span class="pre">/dev/sda</span></code> Partitionafter 。</p></li>
+<li><p>If  sdXY，Indicatesalready to U  Partition，can andRead/write。</p></li>
+</ul>
+<p>CommonCommandsDescription:</p>
+<ul class="simple">
+<li><p>PartitionOperationDevicethe node is sdX，Example: <code class="docutils literal notranslate"><span class="pre">fdisk</span> <span class="pre">/dev/sda</span></code></p></li>
+<li><p> Partition sdXY（If FAT32）: <code class="docutils literal notranslate"><span class="pre">mkdosfs</span> <span class="pre">-F</span> <span class="pre">32</span> <span class="pre">/dev/sda1</span></code></p></li>
+<li><p> Partition sdXY: <code class="docutils literal notranslate"><span class="pre">mount</span> <span class="pre">/dev/sda1</span> <span class="pre">/mnt</span></code></p></li>
+</ul>
+</dd>
+<dt>Steps5.   U  </dt><dd><p> PartitiontoContents（with sda1  to /mnt as an example）:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mount /dev/sda1 /mnt
+</pre></div>
+</div>
+</dd>
+<dt>Steps6.   U  Read/writeOperation</dt><dd><p> after can ContentsRead/write，for example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># View U  Content</span>
+ls /mnt
+
+<span class="c1"># from U  Copyto beforeContents（ ）</span>
+cp /mnt/auto.sh ./
+
+<span class="c1"># from beforeContentsCopyto U  （ ）</span>
+cp ./data.bin /mnt/
+
+<span class="c1"># Use after andUninstall</span>
+sync
+umount /mnt
+</pre></div>
+</div>
+</dd>
+</dl>
+</section>
+</section>
+<section id="linux-device">
+<h2><span class="section-number">3.4. </span>linux Device<a class="headerlink" href="3_USB_Operation_Guide.html#linux-device" title="Permalink to this heading">¶</a></h2>
+<section id="id2">
+<h3><span class="section-number">3.4.1. </span>Preparation<a class="headerlink" href="3_USB_Operation_Guide.html#id2" title="Permalink to this heading">¶</a></h3>
+<p>Use USB Device before，needinDevice TreeinEnsure USB Controlleris OTG Mode。inBoard-level DTS FileinThrough  <code class="docutils literal notranslate"><span class="pre">usb</span></code> Node，will <code class="docutils literal notranslate"><span class="pre">dr_mode</span></code> Settingsis <code class="docutils literal notranslate"><span class="pre">&quot;otg&quot;</span></code>。</p>
+<p>DTS Pathusually <code class="file docutils literal notranslate"><span class="pre">build/boards/cv184x/Board Name/dts_arm/Board Name.dts</span></code>。inFileinAddorConfirmas follows Node:</p>
+<div class="highlight-dts notranslate"><div class="highlight"><pre><span></span><span class="o">&amp;</span><span class="na">usb</span> <span class="p">{</span>
+    <span class="n">dr_mode</span> <span class="o">=</span> <span class="s">&quot;otg&quot;</span><span class="p">;</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<p>ModifyafterRebuildDevice TreeandBurning 。</p>
+</section>
+<section id="switch-gpio">
+<h3><span class="section-number">3.4.2. </span>Switch GPIO<a class="headerlink" href="3_USB_Operation_Guide.html#switch-gpio" title="Permalink to this heading">¶</a></h3>
+<p>  EVB， Through switch IC   Host and Device Channel，Use USB beforeneed Operation  GPIO。Set the level high or low according to the actual situation。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="m">450</span> &gt; /sys/class/gpio/export
+<span class="nb">echo</span> out &gt; /sys/class/gpio/gpio450/direction
+<span class="nb">echo</span> <span class="m">0</span> &gt; /sys/class/gpio/gpio450/value
+</pre></div>
+</div>
+</section>
+<section id="device">
+<h3><span class="section-number">3.4.3. </span>Device  is DeviceofOperation Guide<a class="headerlink" href="3_USB_Operation_Guide.html#device" title="Permalink to this heading">¶</a></h3>
+<ol class="arabic">
+<li><p>Kernel Configuration
+Enable USB Device and Mass Storage RelatedConfiguration，for example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>CONFIG_USB_SUPPORT=y
+CONFIG_USB=y
+CONFIG_USB_DWC2=y
+CONFIG_USB_GADGET=y
+CONFIG_USB_CONFIGFS=y
+CONFIG_USB_LIBCOMPOSITE=y
+CONFIG_USB_ROLE_SWITCH=y
+CONFIG_USB_F_MASS_STORAGE=y
+CONFIG_USB_CONFIGFS_MASS_STORAGE=y
+</pre></div>
+</div>
+</li>
+<li><p>Switch to Device Mode</p>
+<ul>
+<li><p>Refer to this chapter <strong>Switch GPIO</strong> subsectionOperation  GPIO。</p></li>
+<li><p>Switch the OTG controller to Device mode:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> device &gt; /proc/cviusb/otg_role
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p>RunScript run_usb.sh
+The script is on the board <code class="docutils literal notranslate"><span class="pre">/etc</span></code>  directory:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/etc/run_usb.sh probe msc /dev/mmcblk0p1
+/etc/run_usb.sh start
+</pre></div>
+</div>
+<p>mmcblkXY Indicates  X  （eMMC or SD）of  Y  Partition，Please Actual Select。</p>
+</li>
+<li><p>Connect the USB cable
+Through USB  Connect the platform to Host  ，Host  canwillPlatform is USB  Device，andin <code class="docutils literal notranslate"><span class="pre">/dev</span></code> underGenerate DeviceNode。</p></li>
+</ol>
+</section>
+<section id="id3">
+<h3><span class="section-number">3.4.4. </span>Device  isTerminalDeviceofOperation Guide<a class="headerlink" href="3_USB_Operation_Guide.html#id3" title="Permalink to this heading">¶</a></h3>
+<ol class="arabic">
+<li><p>Kernel Configuration
+Enable USB Device and ACM/Serial RelatedConfiguration，for example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>CONFIG_USB_SUPPORT=y
+CONFIG_USB=y
+CONFIG_USB_DWC2=y
+CONFIG_USB_GADGET=y
+CONFIG_USB_CONFIGFS=y
+CONFIG_USB_LIBCOMPOSITE=y
+CONFIG_USB_ROLE_SWITCH=y
+CONFIG_USB_F_ACM=y
+CONFIG_USB_CONFIGFS_ACM=y
+CONFIG_USB_G_SERIAL=y
+CONFIG_USB_U_SERIAL=y
+CONFIG_USB_F_SERIAL=y
+CONFIG_USB_CONFIGFS_SERIAL=y
+</pre></div>
+</div>
+</li>
+<li><p>Switch to Device Mode</p>
+<ul>
+<li><p>Refer to this chapter <strong>Switch GPIO</strong> subsection。</p></li>
+<li><p>Switch the OTG controller to Device mode:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> device &gt; /proc/cviusb/otg_role
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p>RunScript run_usb.sh
+The script is on the board <code class="docutils literal notranslate"><span class="pre">/etc</span></code>  directory:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/etc/run_usb.sh probe acm
+/etc/run_usb.sh start
+</pre></div>
+</div>
+</li>
+<li><p>Connect the USB cable
+Through USB Connect the platform to Host  ，Host  can is USB TerminalDevice，andGenerateDeviceNode ttyACMX（X is TypeTerminal ）。Device   <code class="docutils literal notranslate"><span class="pre">/dev</span></code> under Generate ttyGSY（Y is TypeTerminal ）。Host and Device canThroughTerminalDevice Data 。</p></li>
+</ol>
+</section>
+<section id="device-adb">
+<h3><span class="section-number">3.4.5. </span>Device  is ADB DeviceofOperation Guide<a class="headerlink" href="3_USB_Operation_Guide.html#device-adb" title="Permalink to this heading">¶</a></h3>
+<ol class="arabic">
+<li><p>Kernel Configuration
+Enable USB Device and FunctionFS RelatedConfiguration，for example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>CONFIG_USB_SUPPORT=y
+CONFIG_USB=y
+CONFIG_USB_DWC2=y
+CONFIG_USB_GADGET=y
+CONFIG_USB_CONFIGFS=y
+CONFIG_USB_LIBCOMPOSITE=y
+CONFIG_USB_ROLE_SWITCH=y
+CONFIG_USB_F_FS=y
+CONFIG_USB_CONFIGFS_FS=y
+</pre></div>
+</div>
+</li>
+<li><p>Switch to Device Mode</p>
+<ul>
+<li><p>Refer to this chapter <strong>Switch GPIO</strong> subsection。</p></li>
+<li><p>Switch the OTG controller to Device mode:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> device &gt; /proc/cviusb/otg_role
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p>RunScript run_usb.sh and  adbd
+The script is on the board <code class="docutils literal notranslate"><span class="pre">/etc</span></code> under the directory。adbd needfrom SDK Contents
+<code class="file docutils literal notranslate"><span class="pre">ramdisk/rootfs/public/adbd/&lt;TOOLCHAIN&gt;/usr/bin/adbd</span></code> Copyto afterUse:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/etc/run_usb.sh probe adb
+/etc/run_usb.sh start
+./adbd <span class="p">&amp;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Connect the USB cable
+Through USB Connect the platform to Host  ，Host  can is USB ADB Device。</p></li>
+<li><p>in Windows onUse ADB</p>
+<p>（1）Install / Get ADB</p>
+<ul class="simple">
+<li><p>  SDK Platform-Tools（ ）
+Enable <a class="reference external" href="https://developer.android.com/studio/releases/platform-tools">https://developer.android.com/studio/releases/platform-tools</a> ，under  Windows   “SDK Platform-Tools” andExtract（for exampleExtractto <code class="docutils literal notranslate"><span class="pre">C:\platform-tools</span></code>）。</p></li>
+</ul>
+<p>（2）  adb  System PATH</p>
+<ul class="simple">
+<li><p>  -&gt; Attribute -&gt; AdvancedSystemSettings -&gt;  。</p></li>
+<li><p>in “System ” in in Path → “Edit” → “ ”，  adb  inContents（If <code class="docutils literal notranslate"><span class="pre">C:\platform-tools</span></code>）， 。</p></li>
+<li><p>DisableandagainEnable  CMD   PATH  。</p></li>
+</ul>
+<p>（3）Verificationand </p>
+<p>in of CMD inExecute:</p>
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span>adb version
+</pre></div>
+</div>
+<p> Output InformationDescription PATH already 。 Execute:</p>
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span>adb devices
+</pre></div>
+</div>
+<p>If Tablein Device（If <code class="docutils literal notranslate"><span class="pre">xxxxxxxx</span> <span class="pre">device</span></code>）， Execute:</p>
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span>adb shell
+</pre></div>
+</div>
+<p> can  adb  。</p>
+</li>
+</ol>
+</section>
+<section id="device-rndis">
+<h3><span class="section-number">3.4.6. </span>Device  is RNDIS DeviceofOperation Guide<a class="headerlink" href="3_USB_Operation_Guide.html#device-rndis" title="Permalink to this heading">¶</a></h3>
+<ol class="arabic">
+<li><p>Kernel Configuration
+Enable USB Device and RNDIS RelatedConfiguration，for example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>CONFIG_USB_SUPPORT=y
+CONFIG_USB=y
+CONFIG_USB_DWC2=y
+CONFIG_USB_GADGET=y
+CONFIG_USB_CONFIGFS=y
+CONFIG_USB_LIBCOMPOSITE=y
+CONFIG_USB_ROLE_SWITCH=y
+CONFIG_USB_CONFIGFS_RNDIS=y
+CONFIG_USB_F_RNDIS=y
+CONFIG_USB_ETH_RNDIS=y
+CONFIG_USB_U_ETHER=y
+</pre></div>
+</div>
+</li>
+<li><p>Switch to Device Mode</p>
+<ul>
+<li><p>Refer to this chapter <strong>Switch GPIO</strong> subsection。</p></li>
+<li><p>Switch the OTG controller to Device mode:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> device &gt; /proc/cviusb/otg_role
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p>RunScript run_usb.sh andSettings  IP
+The script is on the board <code class="docutils literal notranslate"><span class="pre">/etc</span></code>  directory:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/etc/run_usb.sh probe rndis
+/etc/run_usb.sh start
+ifconfig usb0 <span class="m">192</span>.168.3.101 up
+</pre></div>
+</div>
+</li>
+<li><p>Connect the USB cable
+Through USB Connect the platform to Host  ，Host  can is USB Remote NDIS Device。in Windows onneedInstall “Remote NDIS Compatible Device” Driver。</p></li>
+<li><p>Configuration Windows Driver
+inDevice inis RNDIS DeviceSelectDriver：Device Manager -&gt;   RNDIS，after Steps underFigureOperation。
+ and Windows  Configuration Network Segment IP， after  ping Verification 。</p></li>
+</ol>
+<a class="reference internal image-reference" href="_images/USB1.jpg"><img alt="_images/USB1.jpg" class="align-center" src="_images/USB1.jpg" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="_images/USB2.jpg"><img alt="_images/USB2.jpg" class="align-center" src="_images/USB2.jpg" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="_images/USB3.jpg"><img alt="_images/USB3.jpg" class="align-center" src="_images/USB3.jpg" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="_images/USB4.jpg"><img alt="_images/USB4.jpg" class="align-center" src="_images/USB4.jpg" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="_images/USB5.jpg"><img alt="_images/USB5.jpg" class="align-center" src="_images/USB5.jpg" style="width: 400px;" /></a>
+<a class="reference internal image-reference" href="_images/USB6.jpg"><img alt="_images/USB6.jpg" class="align-center" src="_images/USB6.jpg" style="width: 400px;" /></a>
+<p>If  Windows   ping  、  ping not  Windows of ，canin Windows  Add  ICMPv4（ as follows）：</p>
+<ul class="simple">
+<li><p>  Win + R，Input <code class="docutils literal notranslate"><span class="pre">wf.msc</span></code>， ，Enable“Advanced  Windows  ”。</p></li>
+<li><p> Click“ ”， Click“ ”。</p></li>
+<li><p>Select“ Definition” → Next Step。</p></li>
+<li><p>“ andPort”： Type “ICMPv4”（in“ Definition”orunder inSelect ICMPv4）→ Next Step。</p></li>
+<li><p>Operation：Select“ ” → Next Step。</p></li>
+<li><p>Configuration File： 、 、    → Next Step。</p></li>
+<li><p>Name： “  Ping” → Complete。</p></li>
+</ul>
+<p>Completeafterin Execute（will 192.168.3.130 ReplaceisActual Windows  IP）：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ping -c <span class="m">4</span> <span class="m">192</span>.168.3.130
+</pre></div>
+</div>
+<p>again  USB RNDIS  </p>
+<ul class="simple">
+<li><p>  USB  。</p></li>
+<li><p>Execute <code class="docutils literal notranslate"><span class="pre">/etc/run_usb.sh</span> <span class="pre">stop</span></code>。</p></li>
+<li><p>Execute <code class="docutils literal notranslate"><span class="pre">/etc/run_usb.sh</span> <span class="pre">probe</span> <span class="pre">rndis</span></code>、<code class="docutils literal notranslate"><span class="pre">/etc/run_usb.sh</span> <span class="pre">start</span></code> after on USB  。</p></li>
+<li><p> Configuration IP，for example <code class="docutils literal notranslate"><span class="pre">ifconfig</span> <span class="pre">usb0</span> <span class="pre">192.168.3.101</span> <span class="pre">up</span></code>。</p></li>
+</ul>
+</section>
+</section>
+<section id="id4">
+<h2><span class="section-number">3.5. </span>Issues to Note During Operation<a class="headerlink" href="3_USB_Operation_Guide.html#id4" title="Permalink to this heading">¶</a></h2>
+<p>Issues to Note During Operationas follows:</p>
+<ul>
+<li><p>System afterDefault Host mode.
+If UseDevice modemustLoadModuleandExecuteUSB ConfigFS Script.
+ Devicebefore，UsermustConfirmfollowing :</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>USB Cable Host。</p></li>
+<li><p>on the platformof must to ofUSB mode。for example: in toDevice modebefore，mustDisableon the platformofUSB 5V 。Ifon the platform Hub,needDisableHub and PathSwitchtoDevice mode connector。</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p> isDevice modeafter，If UseHost mode，Usermustagain Platform。</p></li>
+<li><p> Platform TerminalDevice ， TTYTerminal ，Ifin Data, can Data 。UserUse FunctionmustNote 。</p></li>
+<li><p>inUbootunderUseUSB HostReadU ，NoteIfon the platform Hub，mustEnableHub and PathSwitchto ofConnector。</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="2_Ethernet_Operation_Guide.html" class="btn btn-neutral float-left" title="2. Ethernet Operation Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="4_SD_MMC_Card_Operation_Guide.html" class="btn btn-neutral float-right" title="4. SD/MMC Card Operation Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Go to Official Website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="Go to Documentation Center"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Back to top"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Go to bottom"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR code for this page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

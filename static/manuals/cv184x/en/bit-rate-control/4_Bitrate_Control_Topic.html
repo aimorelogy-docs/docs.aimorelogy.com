@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4. Bit Rate Control Topics &mdash; BitRateControlApplicationNotes master Documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="3. Meaning and Usage of GOP Structure Parameters" href="3_Meaning_and_Usage_of_GOP_Structure_Parameters.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> BitRateControlApplicationNotes
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Meaning_and_Usage_of_Bitrate_Control_Parameters.html">2. Meaning and Usage of Bit Rate Control Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Meaning_and_Usage_of_GOP_Structure_Parameters.html">3. Meaning and Usage of GOP Structure Parameters</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="4_Bitrate_Control_Topic.html#">4. Bit Rate Control Topics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="4_Bitrate_Control_Topic.html#id2">4.1. Bit Rate Stability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_Bitrate_Control_Topic.html#id3">4.2. Image Quality Improvement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_Bitrate_Control_Topic.html#id4">4.3. Adjust Breathing Effects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_Bitrate_Control_Topic.html#i">4.4. Limit I-Frame Size</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_Bitrate_Control_Topic.html#id5">4.5. Reduce Motion Ghosting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_Bitrate_Control_Topic.html#id6">4.6. Reduce Chroma Shift</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_Bitrate_Control_Topic.html#qp">4.7. Initial QP for Bit Rate Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_Bitrate_Control_Topic.html#id7">4.8. Low-Bit-Rate Scenarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_Bitrate_Control_Topic.html#id8">4.9. Precautions</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">BitRateControlApplicationNotes</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">4. </span>Bit Rate Control Topics</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/4_Bitrate_Control_Topic.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">4. </span>Bit Rate Control Topics<a class="headerlink" href="4_Bitrate_Control_Topic.html#id1" title="Permalink to this headline">¶</a></h1>
+<section id="id2">
+<h2><span class="section-number">4.1. </span>Bit Rate Stability<a class="headerlink" href="4_Bitrate_Control_Topic.html#id2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Dropping frames when the bit rate exceeds a threshold reduces instantaneous bit rate fluctuations during rapid scene changes while maintaining image quality</p></li>
+<li><p>Recommended settings:</p></li>
+</ul>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">VENC_FRAMELOST_S</span><span class="o">::</span><span class="n">bFrmLostOpen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TRUE</span><span class="w"></span>
+<span class="n">VENC_FRAMELOST_S</span><span class="o">::</span><span class="n">u32FrmLostBpsThr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">u32BitRate</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">1.2</span><span class="w"></span>
+<span class="n">VENC_FRAMELOST_S</span><span class="o">::</span><span class="n">enFrmLostMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FRMLOST_PSKIP</span><span class="w"></span>
+<span class="n">VENC_FRAMELOST_S</span><span class="o">::</span><span class="n">u32EncFrmGaps</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h2><span class="section-number">4.2. </span>Image Quality Improvement<a class="headerlink" href="4_Bitrate_Control_Topic.html#id3" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>u32MaxIQp and u32MaxQp limit the maximum macroblock QP. A lower maximum QP can preserve image quality during low-bit-rate encoding or rapid scene changes, but may also cause bit rate overshoot. Adjust the maximum QP according to application requirements</p></li>
+</ul>
+</section>
+<section id="id4">
+<h2><span class="section-number">4.3. </span>Adjust Breathing Effects<a class="headerlink" href="4_Bitrate_Control_Topic.html#id4" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>s32IPQPDelta is the QP difference between I and P frames. An appropriate difference can reduce breathing effects. A larger difference is recommended for static scenes. Recommended values: [2, 6] for static scenes and [2, 4] for dynamic scenes</p></li>
+<li><p>When noise is high in low-light scenes, slightly reduce s32IPQPDelta. Reducing the I-frame bit rate to increase the P-frame bit rate can prevent high-quality I-frames from introducing excessive noise and breathing effects.</p></li>
+</ul>
+</section>
+<section id="i">
+<h2><span class="section-number">4.4. </span>Limit I-Frame Size<a class="headerlink" href="4_Bitrate_Control_Topic.html#i" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Setting a minimum I-frame QP can reduce the I-frame bit rate, but may reduce image quality.useonnoteasycontrol, need toforscenehasuseonalreadyverify beforecanhasbetterset. bit ratepasshighcasestillmayoccur. </p></li>
+</ul>
+</section>
+<section id="id5">
+<h2><span class="section-number">4.5. </span>Reduce Motion Ghosting<a class="headerlink" href="4_Bitrate_Control_Topic.html#id5" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Texture-level bit rate control can effectively reduce noticeable ghosting in flat areas. Fine-tune the texture macroblock-level bit rate control parameters to reduce ghosting and increase detail. Increasing the QP of complex texture areas also increases distortion there, so balance the settings according to the target bit rate and scene.</p></li>
+</ul>
+</section>
+<section id="id6">
+<h2><span class="section-number">4.6. </span>Reduce Chroma Shift<a class="headerlink" href="4_Bitrate_Control_Topic.html#id6" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>cb_qp_offset and cr_qp_offset adjust chroma quality. Lowering the chroma QP improves chroma image quality and reduces color shifts, but may reduce luma quality. Balance the settings according to the target bit rate and scene.</p></li>
+</ul>
+</section>
+<section id="qp">
+<h2><span class="section-number">4.7. </span>Initial QP for Bit Rate Control<a class="headerlink" href="4_Bitrate_Control_Topic.html#qp" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Set an appropriate initial QP according to the scene, bit rate, resolution, and other factors. Users can configure the initial QP with VENC_RC_PARAM_S::s32FirstFrameStartQp. This API is effective when called after channel creation and before encoding the first frame.</p></li>
+</ul>
+</section>
+<section id="id7">
+<h2><span class="section-number">4.8. </span>Low-Bit-Rate Scenarios<a class="headerlink" href="4_Bitrate_Control_Topic.html#id7" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Enable texture-based macroblock-level bit rate control and set the recommended parameters or fine-tune them. For example, set u32ThrdLv=3 for outdoor scenes.</p></li>
+<li><p>Reduce the frame rate appropriately for the scene. For example, set the target frame rate to 20 fps.</p></li>
+<li><p>Dynamically reduce the frame rate by encoding PSkip frames: VENC_FRAMELOST_S::enFrmLostMode = FRMLOST_PSKIP; VENC_FRAMELOST_S::u32EncFrmGaps = 1.</p></li>
+<li><p>Set a large GOP and make the bit rate statistics duration u32StatTime match the GOP value. Set GOP to 5 to 10 times the frame rate; for example, for 30 fps, set GOP to 150 to 300 and u32StatTime to 5 to 10 seconds.</p></li>
+<li><p>SmartP mode is recommended for mostly static scenes such as fixed cameras. When using SmartP mode, u32BgInterval should match u32StatTime.</p></li>
+<li><p>Reduce the sensitivity of ISP module AE and increase the AE response delay to avoid frequent AE adjustments after changes in light.</p></li>
+<li><p>Increase 3DNR strength and appropriately reduce Sharpen strength to reduce image detail.</p></li>
+</ul>
+</section>
+<section id="id8">
+<h2><span class="section-number">4.9. </span>Precautions<a class="headerlink" href="4_Bitrate_Control_Topic.html#id8" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>u32Gop: Set it to an integer multiple of the encoding frame rate. Otherwise, uneven temporal distribution of I-frames may cause instantaneous bit rate fluctuations.</p></li>
+<li><p>u32StatTime: Set it to an integer multiple of (GOP/fps). For example, at 30 fps with GOP=60, the statistics duration should be an integer multiple of 2 seconds. Otherwise, the bit rate may be inaccurate.</p></li>
+<li><p>u32MaxIQp and u32MaxQp: Limit the maximum intra-frame QP. When prioritizing quality, [40, 46] is recommended, but bit rate overshoot is more likely.</p></li>
+<li><p>u32MinQp and u32MinIQp: Limit the minimum intra-frame QP. Proper settings save bit rate in static or low-motion scenes.</p></li>
+<li><p>An ROI QP that is too low affects bit rate control stability. Set the ROI according to the target bit rate.</p></li>
+<li><p>OSD images usually contain text with sharp edges. An excessively large OSD area may increase encoding load.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="3_Meaning_and_Usage_of_GOP_Structure_Parameters.html" class="btn btn-neutral float-left" title="3. Meaning and Usage of GOP Structure Parameters" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Visit official website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="Go to Documentation Center"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Top of page"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Bottom of page"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR Code for This Page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

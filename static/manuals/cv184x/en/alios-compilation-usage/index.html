@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV184x AliOS Compilation and Usage Guide &mdash; AliOS_Compilation_and_Usage_Instructions master Documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="1. Disclaimer" href="1_disclaimer.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html#" class="icon icon-home"> AliOS_Compilation_and_Usage_Instructions
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Compilation_Environment.html">2. Compilation Environment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Instructions_for_Running.html">3. Running Instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_Commands_Detailed_Explanation.html">4. Alios Command Set Usage</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html#">AliOS_Compilation_and_Usage_Instructions</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html#" class="icon icon-home"></a> &raquo;</li>
+      <li>CV184x AliOS Compilation and Usage Guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cv184x-alios">
+<h1>CV184x AliOS Compilation and Usage Guide<a class="headerlink" href="index.html#cv184x-alios" title="Permalink to this headline">¶</a></h1>
+<p><strong>Revision History</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 13%" />
+<col style="width: 70%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Revision</p></th>
+<th class="head"><p>Date</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>v1.0</p></td>
+<td><p>2025/06/24</p></td>
+<td><p>Initial</p></td>
+</tr>
+</tbody>
+</table>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Compilation_Environment.html">2. Compilation Environment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_Compilation_Environment.html#pythonpip">2.1. Install Python and pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Compilation_Environment.html#yoctool">2.2. Install the YOCTOOL tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Compilation_Environment.html#sdk">2.3. SDK File Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Compilation_Environment.html#id2">2.4. Fast Boot Mode and Normal Boot Mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Compilation_Environment.html#alios">2.5. How to Compile AliOS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Compilation_Environment.html#id3">2.6. Image Description</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3_Instructions_for_Running.html">3. Running Instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_Commands_Detailed_Explanation.html">4. Alios Command Set Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#id1">4.1. System Information</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#help">4.1.1. help</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#reboot">4.1.2. reboot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#ccs">4.1.3. ccs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#sysver">4.1.4. sysver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#time">4.1.5. time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#msleep">4.1.6. msleep</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#f">4.1.7. f</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#devname">4.1.8. devname</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#err2cli">4.1.9. err2cli</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#id2">4.2. Process Information</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#id3">4.2.1. Multimedia Processes</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#proc-vb">4.2.1.1. proc_vb</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#proc-sys">4.2.1.2. proc_sys</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#proc-vi-dbg">4.2.1.3. proc_vi_dbg</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#proc-vi">4.2.1.4. proc_vi</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#proc-gdc">4.2.1.5. proc_gdc</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#proc-mipi-rx">4.2.1.6. proc_mipi_rx</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#proc-vo">4.2.1.7. proc_vo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#proc-rgn">4.2.1.8. proc_rgn</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#proc-codec">4.2.1.9. proc_codec</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#proc-vdec">4.2.1.10. proc_vdec</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#proc-rc">4.2.1.11. proc_rc</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#proc-jpege">4.2.1.12. proc_jpege</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#proc-h264e">4.2.1.13. proc_h264e</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#proc-h265e">4.2.1.14. proc_h265e</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#proc-venc">4.2.1.15. proc_venc</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#testmedia-switch-pipeline">4.2.1.16. testMedia_switch_pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#testmedia-video-deinit">4.2.1.17. testMedia_video_Deinit</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#testmedia-video-init">4.2.1.18. testMedia_video_init</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#dump-isp-pqgram">4.2.1.19. dump_isp_pqgram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#proc-log">4.2.1.20. proc_log</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#ipcm">4.2.2. ipcm Process</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#ipcm-dbg">4.2.2.1. ipcm_dbg</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#ipcm-dbg-pool-info">4.2.2.2. ipcm_dbg pool_info</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#ipcm-dbg-log0-on">4.2.2.3. ipcm_dbg log0_on</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#ipcm-dbg-log0-off">4.2.2.4. ipcm_dbg log0_off</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#ipcm-dbg-logall-on">4.2.2.5. ipcm_dbg logall_on</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#ipcm-dbg-logall-off">4.2.2.6. ipcm_dbg logall_off</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#id4">4.2.3. Overall Process Information</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#tasklist">4.2.3.1. tasklist</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#taskbt">4.2.3.2. taskbt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#taskbtn">4.2.3.3. taskbtn</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#cpu">4.2.4. CPU Information</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#cpuusage">4.2.4.1. cpuusage</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#id5">4.3. Memory Information</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#id6">4.3.1. View Memory Information</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#p">4.3.1.1. p</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#p-offcheck">4.3.1.2. p _offcheck</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#id7">4.3.2. Modify Memory Information</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#m">4.3.2.1. m</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#id8">4.3.3. Memory Debug Information</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#ddumpsys">4.3.3.1. ddumpsys</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#dumpsys-mm">4.3.3.2. dumpsys mm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#dumpsys-mm-info">4.3.3.3. dumpsys mm_info</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#dumpsys-mm-info-resv">4.3.3.4. dumpsys mm_info_resv</a></li>
+<li class="toctree-l4"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#mmlk">4.3.3.5. mmlk</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#id9">4.4. Debug Information</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="4_Commands_Detailed_Explanation.html#debug">4.4.1. debug</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="1_disclaimer.html" class="btn btn-neutral float-right" title="1. Disclaimer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Visit official website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="Go to Documentation Center"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Top of page"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Bottom of page"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR Code for This Page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

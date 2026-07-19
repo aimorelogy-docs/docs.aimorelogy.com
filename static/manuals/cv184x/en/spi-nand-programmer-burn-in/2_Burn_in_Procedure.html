@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2. Burn-In Procedure &mdash; SPINANDProgrammerBurn-inUserGuide master Documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="1. Disclaimer" href="1_disclaimer.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> SPINANDProgrammerBurn-inUserGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="2_Burn_in_Procedure.html#">2. Burn-In Procedure</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_Burn_in_Procedure.html#id2">2.1. Preparation Before Use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Burn_in_Procedure.html#id3">2.2. Partition Table</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Burn_in_Procedure.html#id4">2.3. Burning Rules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_Burn_in_Procedure.html#fip">2.3.1. FIP Partition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Burn_in_Procedure.html#id5">2.3.2. Other Partitions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SPINANDProgrammerBurn-inUserGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">2. </span>Burn-In Procedure</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/2_Burn_in_Procedure.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">2. </span>Burn-In Procedure<a class="headerlink" href="2_Burn_in_Procedure.html#id1" title="Permalink to this heading">¶</a></h1>
+<section id="id2">
+<h2><span class="section-number">2.1. </span>Preparation Before Use<a class="headerlink" href="2_Burn_in_Procedure.html#id2" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Refer to 【CV184x Linux Development Environment User Guide】【1.2If BuildBSP】Buildunder File:</p></li>
+</ol>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>fip.bin - bootloader + uboot
+fip_spl.bin - bootloader + uboot_spl (Configurationuboot splIt takes effect only after the mode is configured; otherwise, it has the same content as fip.bin.)
+boot.spinand - Linux image
+logo.jpg - boot logo (Optional)
+rootfs.spinand  - root file system
+system.spinand – system partition (Optional)
+cfg.spinand – encrypted ISP PQ partition (Optional)
+</pre></div>
+</div>
+<p>fip.bin from install/&lt;board name&gt; under the directory :</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ls -al  install/soc_cv1842hp_wevb_0014a_spinand
+</pre></div>
+</div>
+<figure class="align-center">
+<img alt="_images/1.png" src="_images/1.png" />
+</figure>
+<p>*.spinandfrom install/&lt;board name&gt;/rawimages under the directory :</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ls -al  install/soc_cv1842hp_wevb_0014a_spinand/rawimages
+</pre></div>
+</div>
+<figure class="align-center">
+<img alt="_images/2.png" src="_images/2.png" />
+</figure>
+<div class="admonition attention">
+<p class="admonition-title">Note</p>
+<p>Note: *.spinand files under the rawimages directory are raw images for programmer burning. The *.spinand files in the parent directory are in the format used specifically for CVITEK SD card/USB burning and add a 128-byte header to the raw image.</p>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>  build/tools/common/spinand_tool/fip_maker，Executeas followsOperation：</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">make clean; make</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Copy fip.bin  under the directory，Execute ./fip_maker {pagesize} {DID/MID} {input_path} {output_path}, in {pagesize} and {DID/MID}  ValuePleasefrom spi nand   datasheet inGet</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Example：</span>
+<span class="go">    ./fip_maker 2048 0x71e5 ./fip.bin ./fip_out.bin</span>
+</pre></div>
+</div>
+<p>1. If no errors occur, fip_out.bin is generated. This fip_out.bin is the file required for programmer burning.
+Note: both programmer burning and TFTP burning require the fip_out.bin file above.</p>
+<p>After completing the three steps above to prepare the binary files, programmer burn-in can be performed.</p>
+</section>
+<section id="id3">
+<h2><span class="section-number">2.2. </span>Partition Table<a class="headerlink" href="2_Burn_in_Procedure.html#id3" title="Permalink to this heading">¶</a></h2>
+<p>CVITEK  FlashPartition Tablewithxml Definition， PleaseRefer to《Flash PartitionToolsUse 》。</p>
+<p>FlashPartitionPartitions are defined in XML; take boards/default/partition/partition_spinand_page_2k.xml as an example:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;physical_partition</span> <span class="na">type=</span><span class="s">&quot;spinand&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;partition</span> <span class="na">label=</span><span class="s">&quot;fip&quot;</span> <span class="na">size_in_kb=</span><span class="s">&quot;2560&quot;</span> <span class="na">file=</span><span class="s">&quot;fip.bin&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;partition</span> <span class="na">label=</span><span class="s">&quot;BOOT&quot;</span> <span class="na">size_in_kb=</span><span class="s">&quot;8192&quot;</span> <span class="na">file=</span><span class="s">&quot;boot.spinand&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;partition</span> <span class="na">label=</span><span class="s">&quot;MISC&quot;</span> <span class="na">size_in_kb=</span><span class="s">&quot;384&quot;</span> <span class="na">file=</span><span class="s">&quot;logo.jpg&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;partition</span> <span class="na">label=</span><span class="s">&quot;ENV&quot;</span> <span class="na">size_in_kb=</span><span class="s">&quot;128&quot;</span> <span class="na">file=</span><span class="s">&quot;&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;partition</span> <span class="na">label=</span><span class="s">&quot;ROOTFS&quot;</span> <span class="na">size_in_kb=</span><span class="s">&quot;71680&quot;</span> <span class="na">file=</span><span class="s">&quot;rootfs.spinand&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;partition</span> <span class="na">label=</span><span class="s">&quot;SYSTEM&quot;</span> <span class="na">size_in_kb=</span><span class="s">&quot;20480&quot;</span> <span class="na">file=</span><span class="s">&quot;system.spinand&quot;</span> <span class="na">mountpoint=</span><span class="s">&quot;&quot;</span> <span class="na">type=</span><span class="s">&quot;ubifs&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;partition</span> <span class="na">label=</span><span class="s">&quot;CFG&quot;</span> <span class="na">size_in_kb=</span><span class="s">&quot;4096&quot;</span> <span class="na">file=</span><span class="s">&quot;cfg.spinand&quot;</span> <span class="na">mountpoint=</span><span class="s">&quot;/mnt/cfg&quot;</span> <span class="na">type=</span><span class="s">&quot;ubifs&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;partition</span> <span class="na">label=</span><span class="s">&quot;DATA&quot;</span> <span class="na">file=</span><span class="s">&quot;&quot;</span> <span class="na">mountpoint=</span><span class="s">&quot;/mnt/data&quot;</span> <span class="na">type=</span><span class="s">&quot;ubifs&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/physical_partition&gt;</span>
+</pre></div>
+</div>
+<p>with 2KB page size 128KB blocksize of NAND flash as an example： xmlFileonData，will PartitionSize blockSizeafter（ ：block   = PartitionSize /  blockSize），as follows :</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 33%" />
+<col style="width: 27%" />
+<col style="width: 24%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Partition</p></th>
+<th class="head"><p>Start block offset</p></th>
+<th class="head"><p>Number of blocks</p></th>
+<th class="head"><p>Binary files</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>FIP</p></td>
+<td><p>0</p></td>
+<td><p>20</p></td>
+<td><p>fip.bin</p></td>
+</tr>
+<tr class="row-odd"><td><p>BOOT</p></td>
+<td><p>24</p></td>
+<td><p>64</p></td>
+<td><p>boot.spinand</p></td>
+</tr>
+<tr class="row-even"><td><p>MISC</p></td>
+<td><p>Sequential order (skip bad blocks)</p></td>
+<td><p>3</p></td>
+<td><p>logo.jpg</p></td>
+</tr>
+<tr class="row-odd"><td><p>ENV</p></td>
+<td><p>Sequential order (skip bad blocks)</p></td>
+<td><p>1</p></td>
+<td><p>Null (No content)</p></td>
+</tr>
+<tr class="row-even"><td><p>ENV_BAK</p></td>
+<td><p>Sequential order (skip bad blocks)</p></td>
+<td><p>1</p></td>
+<td><p>Null (No content)</p></td>
+</tr>
+<tr class="row-odd"><td><p>ROOTFS</p></td>
+<td><p>Sequential order (skip bad blocks)</p></td>
+<td><p>560</p></td>
+<td><p>rootfs.spinand</p></td>
+</tr>
+<tr class="row-even"><td><p>SYSTEM</p></td>
+<td><p>Sequential order (skip bad blocks)</p></td>
+<td><p>160</p></td>
+<td><p>system.spinand</p></td>
+</tr>
+<tr class="row-odd"><td><p>CFG</p></td>
+<td><p>Sequential order (skip bad blocks)</p></td>
+<td><p>32</p></td>
+<td><p>cfg.spinand</p></td>
+</tr>
+<tr class="row-even"><td><p>DATA</p></td>
+<td><p>Sequential order (skip bad blocks)</p></td>
+<td><p>Don’t Care</p></td>
+<td><p>Null (No content)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id4">
+<h2><span class="section-number">2.3. </span>Burning Rules<a class="headerlink" href="2_Burn_in_Procedure.html#id4" title="Permalink to this heading">¶</a></h2>
+<section id="fip">
+<h3><span class="section-number">2.3.1. </span>FIP Partition<a class="headerlink" href="2_Burn_in_Procedure.html#fip" title="Permalink to this heading">¶</a></h3>
+<dl class="simple">
+<dt>FIP PartitionIncludeTwo parts:</dt><dd><p>ProcessorThe related bootloader (not open source),
+u-boot. CVITEK BuildThe build flow automatically packages both into a single fip.bin.
+nand Burning Burning from block 0~19  ， Burn ， in block 0~9,  Burnin block 10~19， is 。</p>
+</dd>
+</dl>
+<p>fip.binThe image itself uses approximately 3 to 4 blocks when burned to SPI NAND. Because of SPI NAND characteristics, blocks may be bad, so the remaining unused blocks are reserved for bad-block replacement.
+ ，inxmlFileinfip ofPartitionnot 20  blocksofSize。</p>
+<p><strong>Example 1</strong></p>
+<p>If there are no bad blocks, burn the first fip.bin to blocks 0, 1, 2, 3, and 4; burn the second fip.bin to blocks 9, 10, 11, 12, and 13.</p>
+<p><strong>Example 2</strong></p>
+<p>Ifblock 4, 11is ，Pleasewill  fip.bin Burn block 0, 1, 2, 3, 5；   fip.bin Burn block 9, 10, 12, 13, 14</p>
+</section>
+<section id="id5">
+<h3><span class="section-number">2.3.2. </span>Other Partitions<a class="headerlink" href="2_Burn_in_Procedure.html#id5" title="Permalink to this heading">¶</a></h3>
+<p> Partition TableConfiguration， Burn， to ， under Burn。</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="1_disclaimer.html" class="btn btn-neutral float-left" title="1. Disclaimer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Go to Official Website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="Go to Documentation Center"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Back to top"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Go to bottom"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR code for this page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

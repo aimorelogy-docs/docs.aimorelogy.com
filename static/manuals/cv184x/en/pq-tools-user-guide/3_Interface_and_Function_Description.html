@@ -1,0 +1,1576 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3. Interface and Function Description &mdash; PQToolsUserGuide master documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="4. Tool Application Reference" href="4_Tool_Application_Reference.html" />
+    <link rel="prev" title="2. Overview" href="2_Overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> PQToolsUserGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">directory</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Overview.html">2. Overview</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="3_Interface_and_Function_Description.html#">3. Interface and Function Description</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3_Interface_and_Function_Description.html#id2">3.1. Online Tuning Interface and Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3_Interface_and_Function_Description.html#id3">3.1.1. Tuning Structure Interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_Interface_and_Function_Description.html#id4">3.1.2. Register/Algorithm Parameter Adjustment</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="3_Interface_and_Function_Description.html#id5">3.1.2.1. Viewing and Editing Register/Algorithm Parameters</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_Interface_and_Function_Description.html#id6">3.1.2.2. Reading Data from the Board</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_Interface_and_Function_Description.html#id7">3.1.2.3. Writing Parameters to the Board</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_Interface_and_Function_Description.html#id8">3.1.2.4. Temporarily Saving and Restoring Parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="3_Interface_and_Function_Description.html#id9">3.1.3. Batch Read/Write and Automatic Write of Tuning Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_Interface_and_Function_Description.html#id10">3.1.4. Visual Curve Tuning</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="3_Interface_and_Function_Description.html#id11">3.1.4.1. General Curve Functions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_Interface_and_Function_Description.html#gamma">3.1.4.2. Visual Gamma Tuning</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_Interface_and_Function_Description.html#vo-gamma">3.1.4.3. VO Gamma</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="3_Interface_and_Function_Description.html#id12">3.1.5. Exposure Data Status and Parameter Settings</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="3_Interface_and_Function_Description.html#id13">3.1.5.1. Exposure Data Status</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_Interface_and_Function_Description.html#id14">3.1.5.2. Exposure Parameter Settings</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="3_Interface_and_Function_Description.html#id15">3.1.6. White Balance Data Status and Parameter Settings</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="3_Interface_and_Function_Description.html#id16">3.1.6.1. White Balance Data Status</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_Interface_and_Function_Description.html#id17">3.1.6.2. White Balance Parameter Settings</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="3_Interface_and_Function_Description.html#wdrlocal-tone">3.1.7. WDR Exposure Parameter Settings and Local-Tone Switch</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="3_Interface_and_Function_Description.html#wdr">3.1.7.1. WDR Exposure Parameter Settings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_Interface_and_Function_Description.html#local-tone">3.1.7.2. Local-Tone Switch</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="3_Interface_and_Function_Description.html#dnrynr">3.1.8. 3DNR and YNR Noise Reduction Tuning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_Interface_and_Function_Description.html#y-sharpen">3.1.9. Y Sharpen and Edge Enhancement Tuning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_Interface_and_Function_Description.html#top">3.1.10. Toppage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_Interface_and_Function_Description.html#vpss-adjustment">3.1.11. VPSS Adjustment page</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_Interface_and_Function_Description.html#ldc">3.1.12. LDC page</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3_Interface_and_Function_Description.html#isp">3.2. ISP Calibration Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_Interface_and_Function_Description.html#id19">3.3. Advanced Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3_Interface_and_Function_Description.html#id20">3.3.1. Parameter Export and Import</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_Interface_and_Function_Description.html#id21">3.3.2. Communication Log</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3_Interface_and_Function_Description.html#id22">3.4. Other Auxiliary Tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="3_Interface_and_Function_Description.html#id24">3.4.1. Capture Tool</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="3_Interface_and_Function_Description.html#id26">3.4.1.1. tool interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_Interface_and_Function_Description.html#yuv">3.4.1.2. Capturing YUV Image Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_Interface_and_Function_Description.html#raw">3.4.1.3. Capturing Raw Image Data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_Interface_and_Function_Description.html#dump-all">3.4.1.4. Dump All</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_Interface_and_Function_Description.html#caputure-timing">3.4.1.5. Caputure Timing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_Interface_and_Function_Description.html#yuvraw">3.4.1.6. YUV and Raw Image Filename Format</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_Interface_and_Function_Description.html#raw-info">3.4.1.7. Raw Info File Format and Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="3_Interface_and_Function_Description.html#vlc">3.4.2. Video Player (VLC)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="3_Interface_and_Function_Description.html#id27">3.4.2.1. Playing the Board Video Stream with VLC</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="3_Interface_and_Function_Description.html#id28">3.4.3. Focus Assistant Tool</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="3_Interface_and_Function_Description.html#id29">3.4.3.1. tool interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_Interface_and_Function_Description.html#id31">3.4.3.2. Focusing with the Focus Assistant Tool</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_Interface_and_Function_Description.html#id32">3.4.3.3. Focus Assistance Operations</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="3_Interface_and_Function_Description.html#a">3.4.4. 3A Analysis Tool</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="3_Interface_and_Function_Description.html#id33">3.4.4.1. tool interface</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_Interface_and_Function_Description.html#id35">3.4.4.2. Obtaining Images and Statistics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_Interface_and_Function_Description.html#ae">3.4.4.3. Viewing AE Statistics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="3_Interface_and_Function_Description.html#awb">3.4.4.4. Viewing AWB Statistics</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="3_Interface_and_Function_Description.html#id36">3.4.5. Exposure Bracketing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="3_Interface_and_Function_Description.html#id37">3.4.6. Continuous Raw Tool</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="3_Interface_and_Function_Description.html#id38">3.5. Detailed Parameter Description</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="4_Tool_Application_Reference.html">4. Tool Application Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_FAQ.html">5. FAQ</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PQToolsUserGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">3. </span>Interface and Function Description</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/3_Interface_and_Function_Description.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">3. </span>Interface and Function Description<a class="headerlink" href="3_Interface_and_Function_Description.html#id1" title="Permalink to this heading">¶</a></h1>
+<section id="id2">
+<h2><span class="section-number">3.1. </span>Online Tuning Interface and Functions<a class="headerlink" href="3_Interface_and_Function_Description.html#id2" title="Permalink to this heading">¶</a></h2>
+<section id="id3">
+<h3><span class="section-number">3.1.1. </span>Tuning Structure Interface<a class="headerlink" href="3_Interface_and_Function_Description.html#id3" title="Permalink to this heading">¶</a></h3>
+<p>openCviPQ Tooltoolperformthe relevant informationafter, toolthe relevant informationoftuningTablethe relevant informationdisplayallmoduleofcantuningitem, the relevant informationas <a class="reference internal" href="3_Interface_and_Function_Description.html#toolinterface"><span class="std std-ref">Figure</span></a> .</p>
+<figure class="align-default" id="id39">
+<span id="toolinterface"></span><a class="reference internal image-reference" href="_images/image20.png"><img alt="_images/image20.png" src="_images/image20.png" style="width: 1.39691in; height: 5.71166in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 3.1 </span><span class="caption-text">toolthe relevant information</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id39" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>clickthe relevant informationmoduleofcantuningitem, inoperationthe relevant informationoftuningareawilldisplayitsmodulecorrespondingtuningpage, the relevant informationuseradjustmentParameter, as <a class="reference internal" href="3_Interface_and_Function_Description.html#toolinterfaceer"><span class="std std-ref">Figure</span></a> as shown.</p>
+<figure class="align-default" id="id40">
+<span id="toolinterfaceer"></span><a class="reference internal image-reference" href="_images/image21.png"><img alt="_images/image21.png" src="_images/image21.png" style="width: 5.07409in; height: 3.28697in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 3.2 </span><span class="caption-text">tuningpage</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id40" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="id4">
+<h3><span class="section-number">3.1.2. </span>Register/Algorithm Parameter Adjustment<a class="headerlink" href="3_Interface_and_Function_Description.html#id4" title="Permalink to this heading">¶</a></h3>
+<p>intoolinterfacethe relevant informationlistthe relevant informationofthe relevant informationitemis"the relevant informationdevice/algorithmParameter"tuningthe relevant information.the relevant informationcorrespondingtuninginterfaceas <a class="reference internal" href="3_Interface_and_Function_Description.html#toolinterface3"><span class="std std-ref">Figure</span></a> as shown, the relevant informationmodulecorrespondingtuningpagethe relevant informationallParameterwillaccording to differentofFunctionthe relevant informationisifthe relevant information.</p>
+<figure class="align-default" id="id41">
+<span id="toolinterface3"></span><a class="reference internal image-reference" href="_images/image22.png"><img alt="_images/image22.png" src="_images/image22.png" style="width: 4.85946in; height: 3.40152in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 3.3 </span><span class="caption-text">the relevant informationdevice/algorithmParameteroftuningpage (usingYNRisexample)</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id41" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<section id="id5">
+<h4><span class="section-number">3.1.2.1. </span>Viewing and Editing Register/Algorithm Parameters<a class="headerlink" href="3_Interface_and_Function_Description.html#id5" title="Permalink to this heading">¶</a></h4>
+<p>the relevant informationcontainthe relevant informationdeviceandalgorithmParameter, among themthe relevant information"<a class="reference internal" href="_images/ima1.png"><img alt="Interf049" src="_images/ima1.png" style="width: 0.25in; height: 0.27083in;" /></a>"ofParameterthe relevant informationcanread/writeParameter, the relevant information"<a class="reference internal" href="_images/ima2.png"><img alt="Interf050" src="_images/ima2.png" style="width: 0.27083in; height: 0.29167in;" /></a>"ofParameterthe relevant informationParameter.Parameteraccording toitsthe relevant informationpropertyandthe relevant informationrangenotsame, the relevant informationisusingunderthe relevant information, usingnotsamethe relevant informationofthe relevant information, as <a class="reference internal" href="3_Interface_and_Function_Description.html#table1"><span class="std std-ref">Table</span></a> as shown.</p>
+<table class="colwidths-given docutils align-default" id="id42">
+<caption><span class="caption-number">Table 3.1 </span><span class="caption-text">the relevant informationdevice/algorithmParameteroftuningitemtype</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id42" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>type</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>the relevant informationoperation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>the relevant information</p></td>
+<td><p>the relevant information</p></td>
+<td><p>throughthe relevant informationsetandview: </p>
+<figure class="align-default">
+<img alt="_images/image23.png" src="_images/image23.png" />
+</figure>
+</td>
+</tr>
+<tr class="row-odd"><td><p>value</p></td>
+<td><p>the relevant informationnumber, the relevant informationhasthe relevant informationofthe relevant informationrange</p></td>
+<td><p>useunderwaythe relevant informationadjustandviewthe relevant information: </p>
+<figure class="align-default">
+<img alt="_images/image24.png" src="_images/image24.png" />
+</figure>
+<p>adjustvaluecanthroughusingunderwaythe relevant information: </p>
+<p>1.the relevant informationinthe relevant informationInputvalue</p>
+<p>2.clickthe relevant informationaboveunderthe relevant informationtune</p>
+<p>3.dragthe relevant information</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>the relevant information</p></td>
+<td><p>the relevant information</p></td>
+<td><p>throughdrop-downthe relevant informationsetandviewthe relevant information: </p>
+<figure class="align-default">
+<img alt="_images/image25.png" src="_images/image25.png" />
+</figure>
+</td>
+</tr>
+<tr class="row-odd"><td><p>the relevant information</p></td>
+<td><p>the relevant information</p></td>
+<td><p>tuningpagewilldisplaythe relevant informationofbutton, ifthe relevant informationofthe relevant information, the relevant informationwilldisplayviewthe relevant informationofbutton: </p>
+<figure class="align-default">
+<img alt="_images/image26.png" src="_images/image26.png" />
+</figure>
+<p>clickbuttonwillthe relevant informationdialog, dialogthe relevant informationusingtablethe relevant informationdisplaycorrespondingthe relevant information, usercanmodifytablethe relevant informationofthe relevant information, ifthe relevant informationview.</p>
+<p>usercanclickImport/Exportimportexportthe relevant informationofthe relevant information, the relevant informationhasExportbutton.</p>
+<figure class="align-default">
+<img alt="_images/image27.png" src="_images/image27.png" />
+</figure>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id6">
+<h4><span class="section-number">3.1.2.2. </span>Reading Data from the Board<a class="headerlink" href="3_Interface_and_Function_Description.html#id6" title="Permalink to this heading">¶</a></h4>
+<p>intoolalreadythroughconnectionboard sideofthe relevant informationunder, clickthe relevant informationmodulepagethe relevant informationofreadbutton(<a class="reference internal" href="_images/ima3.png"><img alt="Interf051" src="_images/ima3.png" style="width: 0.66667in; height: 0.23077in;" /></a>), toolwillwillreadthismodulepagethe relevant informationitemParameterincurrentthe relevant informationaboveofvalue, andthe relevant informationinterfaceabovedisplay.</p>
+</section>
+<section id="id7">
+<h4><span class="section-number">3.1.2.3. </span>Writing Parameters to the Board<a class="headerlink" href="3_Interface_and_Function_Description.html#id7" title="Permalink to this heading">¶</a></h4>
+<p>intoolalreadythroughconnectionboard sideofthe relevant informationunder, clickthe relevant informationmodulepagethe relevant informationofwritebutton(<a class="reference internal" href="_images/ima4.png"><img alt="Interf052" src="_images/ima4.png" style="width: 0.63542in; height: 0.22281in;" /></a>), toolwillwillthe relevant informationthismodulepageaboveofthe relevant informationcanthe relevant informationParameterthe relevant information.</p>
+</section>
+<section id="id8">
+<h4><span class="section-number">3.1.2.4. </span>Temporarily Saving and Restoring Parameters<a class="headerlink" href="3_Interface_and_Function_Description.html#id8" title="Permalink to this heading">¶</a></h4>
+<p>toolforthe relevant informationtuningthe relevant informationdatathe relevant informationspace, usercanthe relevant information"To Set"buttonsaveParameterofadjustthe relevant information, the relevant information"Load Set"buttonperformthe relevant informationandthanthe relevant informationoperation, the relevant informationoperationDescriptionasFigure2-4as shown, the relevant informationunderthe relevant information1~3the relevant informationDescription.</p>
+<ol class="arabic simple">
+<li><p>whenpointthe relevant informationthisFigureindicatewhen, canwillParameterthe relevant informationandthe relevant informationofthe relevant informationbuttondisplaythe relevant information</p></li>
+<li><p>pointthe relevant information"To Set"buttoncanwillcurrentofParameterthe relevant informationunderthe relevant information, canwillnotsameofvaluethe relevant informationinnotsameSetusingthe relevant informationafterwardthe relevant information.</p></li>
+<li><p>pointthe relevant information"Load Set"buttoncanwillbeforethe relevant informationofvaluethe relevant information.using <a class="reference internal" href="3_Interface_and_Function_Description.html#interf010"><span class="std std-ref">Figure</span></a> isexample, usethe relevant informationalreadythe relevant information"Set1"and"Set2"the relevant informationvalue, the relevant informationcanthe relevant information"Load Set1"or"Load Set2"buttonthe relevant informationandthanthe relevant information.</p></li>
+</ol>
+<figure class="align-default" id="id43">
+<span id="interf010"></span><a class="reference internal image-reference" href="_images/image28.png"><img alt="_images/image28.png" src="_images/image28.png" style="width: 5.70569in; height: 3.76376in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 3.4 </span><span class="caption-text">Parameterthe relevant informationoperationinterface(using3DNRisexample)</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id43" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="id9">
+<h3><span class="section-number">3.1.3. </span>Batch Read/Write and Automatic Write of Tuning Data<a class="headerlink" href="3_Interface_and_Function_Description.html#id9" title="Permalink to this heading">¶</a></h3>
+<p>whenopentuningtoolthe relevant informationmaininterfacewhen, caninthe relevant informationdataofread/writecontrolinterface, as <a class="reference internal" href="3_Interface_and_Function_Description.html#interf011"><span class="std std-ref">Figure</span></a> as shown.</p>
+<figure class="align-default" id="id44">
+<span id="interf011"></span><a class="reference internal image-reference" href="_images/image29.png"><img alt="_images/image29.png" src="_images/image29.png" style="width: 0.82292in; height: 4.11458in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 3.5 </span><span class="caption-text">dataread/writecontrolinterface</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id44" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>read/writecontrolthe relevant informationofoperationneedthe relevant informationwilltoolConnecting to the Board, specificofFunctionhas: </p>
+<ul class="simple">
+<li><p>Read Allbutton: clickthisbutton, toolwillreadallmodulepageofParameteriteminthe relevant informationofcurrentvalue.recommendopentoolperformtuningoperationthe relevant informationorimportBINfilethe relevant information, the relevant informationreadofoperation.</p></li>
+<li><p>Write Allbutton: clickthisbuttonwhen, toolwillwillallmodulepageParameteritemofthe relevant informationwritethe relevant information.</p></li>
+<li><p>Auto Writeautomaticwriteswitch: whenthe relevant informationthisitemwhen, the relevant informationadjustthe relevant informationcanthe relevant informationofParameteritem, toolthe relevant informationwillwillParameterofthe relevant informationwritethe relevant information.recommendtuningwhenopenthisitem, the relevant informationadjustthe relevant informationtake effect.</p></li>
+<li><p>Readbutton: clickthisbuttonwhen, toolwillwillcurrentopenofmodulepageallParameteriteminalreadyconnectionboard sideofcurrentthe relevant informationinterfaceabove.</p></li>
+<li><p>Writebutton: clickthisbuttonwhen, toolwillwillcurrentopenofmodulepageallParameteritemofthe relevant informationwritethe relevant informationboard side.</p></li>
+</ul>
+</section>
+<section id="id10">
+<h3><span class="section-number">3.1.4. </span>Visual Curve Tuning<a class="headerlink" href="3_Interface_and_Function_Description.html#id10" title="Permalink to this heading">¶</a></h3>
+<section id="id11">
+<h4><span class="section-number">3.1.4.1. </span>General Curve Functions<a class="headerlink" href="3_Interface_and_Function_Description.html#id11" title="Permalink to this heading">¶</a></h4>
+<p>toolthe relevant informationcurveas <a class="reference internal" href="3_Interface_and_Function_Description.html#interf012"><span class="std std-ref">Figure</span></a> as shown, asin3DNR Tuningpagethe relevant information, clickEdit this Curve buttoncanthe relevant informationcurvewindow.</p>
+<figure class="align-default" id="id45">
+<span id="interf012"></span><a class="reference internal image-reference" href="_images/image30.png"><img alt="_images/image30.png" src="_images/image30.png" style="width: 5.58928in; height: 3.56808in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 3.6 </span><span class="caption-text">3DNRpagecurveoperationindicateexampleFigure</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id45" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Figurethe relevant information1iscurvethe relevant information, 2iscurvethe relevant information, correspondingcurvethe relevant information4the relevant informationpoint, modifythe relevant informationofthe relevant information, curveaboveofpointwiththe relevant information; the relevant informationcanthroughmousedragcurveaboveofpoint, correspondingthe relevant information, the relevant informationasthe relevant information.</p>
+<p>Current ISOdrop-downoption, canselectnotsameISOthe relevant information, viewitscorrespondingcurve.</p>
+<p>Switch modeswitchbutton, incurvemodeunderclick, the relevant informationas followstablemode, tablethe relevant information4the relevant informationisthe relevant information, the relevant information4the relevant informationisthe relevant information, tablecanthe relevant information.</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/image31.png"><img alt="_images/image31.png" src="_images/image31.png" style="width: 5.85774in; height: 1.73214in;" /></a>
+</figure>
+<p>Import, fromfilethe relevant informationimportParameter.</p>
+<p>Export, willthe relevant informationvalueexportthe relevant informationfile.</p>
+</section>
+<section id="gamma">
+<h4><span class="section-number">3.1.4.2. </span>Visual Gamma Tuning<a class="headerlink" href="3_Interface_and_Function_Description.html#gamma" title="Permalink to this heading">¶</a></h4>
+<p>intuningtoolthe relevant informationclickgammapage, the relevant informationGammacanthe relevant informationtuningpage, as <a class="reference internal" href="3_Interface_and_Function_Description.html#interf013"><span class="std std-ref">Figure</span></a> as shown.</p>
+<figure class="align-default" id="id46">
+<span id="interf013"></span><a class="reference internal image-reference" href="_images/image32.png"><img alt="_images/image32.png" src="_images/image32.png" style="width: 6.26806in; height: 4.21111in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 3.7 </span><span class="caption-text">Gamma Tuningpage</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id46" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>usingunderthe relevant informationspecificofParameteritemDescriptionandthe relevant information: </p>
+<ul class="simple">
+<li><p>Gamma</p>
+<ul>
+<li><p>EnableParameteritem, setthe relevant informationitemisenablestatusEnabledGamma.</p></li>
+<li><p>ModeParameteritem, the relevant informationTablecurveadjustmode, whenselectGAMMA_DEFAULT/GAMMA_sRGB, curvewillthe relevant informationisdefaultofcurveandandusernotcanmanualadjustcurve; whenselectGAMMA_USER_DEFINE/GAMMA_AUTOwhencurvewillthe relevant informationisthe relevant informationpointis(0,0)the relevant informationpointisX/Ythe relevant informationmaximumthe relevant informationofthe relevant information, usercanmanualadjustcurvethe relevant information.</p></li>
+<li><p>GammaCOEFFIParameteritem, throughinthe relevant informationInputvalueordragthe relevant information, canwillcurrentcurvethe relevant informationisstandardofGammacurve(coefficientrangeis0.01the relevant information20.0).</p></li>
+<li><p>SlopeAtZeroParameteritem, throughinthe relevant informationInputvalueordragthe relevant information, canadjustmentGammacurveinthe relevant informationpointofthe relevant information(the relevant informationrangeis0.01the relevant information20.0).</p></li>
+<li><p>Control Points Num control point, whenselectGAMMA_USER_DEFINE/GAMMA_AUTOwhen, throughadjustthisitemParameter, usercansetthe relevant informationoperationofcontrol pointnumber.</p></li>
+</ul>
+</li>
+<li><p>Auto Gamma (gamma modesetisGAMMA_AUTOvalid)</p>
+<ul>
+<li><p>Table Choice ,according tolight value selectgamma table 0~5, itemthe relevant informationusethe relevant information4the relevant information; </p></li>
+<li><p>Table Number , currentuseoftablenumber</p></li>
+<li><p>Table0~4 LV,corresponding5the relevant informationlight value threshold(LV:-5~15)</p></li>
+</ul>
+</li>
+<li><p>Reference Set</p></li>
+</ul>
+<p>curvedatathe relevant informationregion, toolthe relevant informationset1the relevant informationset3the relevant informationspace, whenuserclicksavebuttonwillcurrentcurveofdatasavethe relevant informationofset, whenuserclickusebuttoncanwillalreadythe relevant informationofdatathe relevant informationcurveinterfaceabove.defaultthe relevant informationperformthe relevant informationoperationwhen, usebuttonisthe relevant informationcolornotcanclick.</p>
+<ul class="simple">
+<li><p>Reset</p></li>
+</ul>
+<p>Resetisthe relevant informationbutton, clickthe relevant informationwillthe relevant informationcurveisthe relevant informationpointis(0,0)the relevant informationpointisX,Yismaximumthe relevant informationofthe relevant information.</p>
+<ul class="simple">
+<li><p>Load&amp;Sav</p>
+<ul>
+<li><p>click"Load"button, canfromfilethe relevant informationreadcurvedata, the relevant informationtooldatathe relevant informationregion, samewhenrefreshdisplaycurve.</p></li>
+<li><p>click"Save"button, canwillcurrentcurvedatasavethe relevant informationofthe relevant informationfile.toolsupportsavethe relevant informationformatofdatafile: Cvitek Json file, Other text file</p></li>
+</ul>
+</li>
+</ul>
+<p>· clickpageread/writecontrolinterfaceofReadbutton, toolwillfromboard sidereadcurvedata, andrefreshcurveofdisplay.</p>
+<p>· clickWritebutton, toolwillwillcurrentcurveofdatawritethe relevant informationboard side.</p>
+<p>· ifalreadythe relevant informationAuto Write, whenadjustcurvewhen, curveofdatawillautomaticthe relevant informationboard sidetake effect.</p>
+</section>
+<section id="vo-gamma">
+<h4><span class="section-number">3.1.4.3. </span>VO Gamma<a class="headerlink" href="3_Interface_and_Function_Description.html#vo-gamma" title="Permalink to this heading">¶</a></h4>
+<p>intuningtoolthe relevant informationclickVO Gamma, the relevant informationVO Gammacanthe relevant informationtuningpage, as <a class="reference internal" href="3_Interface_and_Function_Description.html#interf014"><span class="std std-ref">Figure</span></a> as shown.</p>
+<figure class="align-default" id="id47">
+<span id="interf014"></span><a class="reference internal image-reference" href="_images/image33.png"><img alt="_images/image33.png" src="_images/image33.png" style="width: 6.26806in; height: 3.55417in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 3.8 </span><span class="caption-text">VO Gamma Tuningpage</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id47" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>ParameteritemDescription: </p>
+<ul class="simple">
+<li><p>Gamma</p>
+<ul>
+<li><p>EnableParameteritem, setthe relevant informationitemisenablestatusEnabledVO Gamma.</p></li>
+<li><p>OSD Apply: displaythe relevant informationswitch.</p></li>
+<li><p>GammaCOEFFIParameteritem, throughinthe relevant informationInputvalueordragthe relevant information, canwillcurrentcurvethe relevant informationisstandardofGammacurve(coefficientrangeis0.01the relevant information20.0).</p></li>
+<li><p>SlopeAtZeroParameteritem, throughinthe relevant informationInputvalueordragthe relevant information, canadjustmentGammacurveinthe relevant informationpointofthe relevant information(the relevant informationrangeis0.01the relevant information20.0).</p></li>
+<li><p>Control Points Num control point, whenselectGAMMA_USER_DEFINE/GAMMA_AUTOwhen, throughadjustthisitemParameter, usercansetthe relevant informationoperationofcontrol pointnumber.</p></li>
+</ul>
+</li>
+<li><p>Reference Set</p></li>
+</ul>
+<p>curvedatathe relevant informationregion, toolthe relevant informationset1the relevant informationset3the relevant informationspace, whenuserclicksavebuttonwillcurrentcurveofdatasavethe relevant informationofset, whenuserclickusebuttoncanwillalreadythe relevant informationofdatathe relevant informationcurveinterfaceabove.defaultthe relevant informationperformthe relevant informationoperationwhen, usebuttonisthe relevant informationcolornotcanclick.</p>
+<ul class="simple">
+<li><p>Reset</p></li>
+</ul>
+<p>Resetisthe relevant informationbutton, clickthe relevant informationwillthe relevant informationcurveisthe relevant informationpointis(0,0)the relevant informationpointisX,Yismaximumthe relevant informationofthe relevant information.</p>
+<ul class="simple">
+<li><p>Load&amp;Sav</p>
+<ul>
+<li><p>click"Load"button, canfromfilethe relevant informationreadcurvedata, the relevant informationtooldatathe relevant informationregion, samewhenrefreshdisplaycurve.</p></li>
+<li><p>click"Save"button, canwillcurrentcurvedatasavethe relevant informationofthe relevant informationfile.toolsupportsavethe relevant informationformatofdatafile: Cvitek Json file, Other text file</p></li>
+</ul>
+</li>
+</ul>
+<p>· clickpageread/writecontrolinterfaceofReadbutton, toolwillfromboard sidereadcurvedata, andrefreshcurveofdisplay.</p>
+<p>· clickWritebutton, toolwillwillcurrentcurveofdatawritethe relevant informationboard side.</p>
+<p>· ifalreadythe relevant informationAuto Write, whenadjustcurvewhen, curveofdatawillautomaticthe relevant informationboard sidetake effect.</p>
+<p>the relevant information: </p>
+<p>1.toolandboard sideconnectionnormal, board sideconnectiondisplaythe relevant informationnormalOutputimage; </p>
+<p>2.use"GammaCOEFFI", "SlopeAtZero", "Control Points Num"Functionadjustthe relevant informationneedofcurve; </p>
+<p>3."Enable"selectenable,clickwrite; </p>
+<p>4.the relevant informationdisplaythe relevant information, imagebrightnesswillhaschange.</p>
+</section>
+</section>
+<section id="id12">
+<h3><span class="section-number">3.1.5. </span>Exposure Data Status and Parameter Settings<a class="headerlink" href="3_Interface_and_Function_Description.html#id12" title="Permalink to this heading">¶</a></h3>
+<section id="id13">
+<h4><span class="section-number">3.1.5.1. </span>Exposure Data Status<a class="headerlink" href="3_Interface_and_Function_Description.html#id13" title="Permalink to this heading">¶</a></h4>
+<p>Exposure InfopagecandisplaycurrentofExposure Data Status, containexposure time, gain, ISO…etc.data, as <a class="reference internal" href="3_Interface_and_Function_Description.html#interf015"><span class="std std-ref">Figure</span></a> as shown.</p>
+<figure class="align-default" id="id48">
+<span id="interf015"></span><a class="reference internal image-reference" href="_images/image34.png"><img alt="_images/image34.png" src="_images/image34.png" style="width: 5.00633in; height: 2.83984in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 3.9 </span><span class="caption-text">Exposure Data Statuspage</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id48" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="id14">
+<h4><span class="section-number">3.1.5.2. </span>Exposure Parameter Settings<a class="headerlink" href="3_Interface_and_Function_Description.html#id14" title="Permalink to this heading">¶</a></h4>
+<p>Exposusre AttrpagecansetexposurerelatedParameter, containexposure time, gain, ISO…etc.Parameter, as <a class="reference internal" href="3_Interface_and_Function_Description.html#interf016"><span class="std std-ref">Figure</span></a> as shown.</p>
+<figure class="align-default" id="id49">
+<span id="interf016"></span><a class="reference internal image-reference" href="_images/image35.png"><img alt="_images/image35.png" src="_images/image35.png" style="width: 5.04481in; height: 3.01481in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 3.10 </span><span class="caption-text">Exposure Parameter Settingspage</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id49" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="id15">
+<h3><span class="section-number">3.1.6. </span>White Balance Data Status and Parameter Settings<a class="headerlink" href="3_Interface_and_Function_Description.html#id15" title="Permalink to this heading">¶</a></h3>
+<section id="id16">
+<h4><span class="section-number">3.1.6.1. </span>White Balance Data Status<a class="headerlink" href="3_Interface_and_Function_Description.html#id16" title="Permalink to this heading">¶</a></h4>
+<p>WB Infopagecandisplaycurrentofthe relevant informationdatastatus, containgain, color temperature…etc.data, as <a class="reference internal" href="3_Interface_and_Function_Description.html#interf017"><span class="std std-ref">Figure</span></a> as shown.</p>
+<figure class="align-default" id="id50">
+<span id="interf017"></span><a class="reference internal image-reference" href="_images/image36.png"><img alt="_images/image36.png" src="_images/image36.png" style="width: 5.65226in; height: 3.31082in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 3.11 </span><span class="caption-text">White Balance Data Statuspage</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id50" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="id17">
+<h4><span class="section-number">3.1.6.2. </span>White Balance Parameter Settings<a class="headerlink" href="3_Interface_and_Function_Description.html#id17" title="Permalink to this heading">¶</a></h4>
+<p>WB Attrpagecansetthe relevant informationrelatedParameter, containgain, color temperature…etc.Parameter, as <a class="reference internal" href="3_Interface_and_Function_Description.html#interf018"><span class="std std-ref">Figure</span></a> as shown.</p>
+<figure class="align-default" id="id51">
+<span id="interf018"></span><a class="reference internal image-reference" href="_images/image37.png"><img alt="_images/image37.png" src="_images/image37.png" style="width: 5.16055in; height: 2.94448in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 3.12 </span><span class="caption-text">White Balance Parameter Settingspage</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id51" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="wdrlocal-tone">
+<h3><span class="section-number">3.1.7. </span>WDR Exposure Parameter Settings and Local-Tone Switch<a class="headerlink" href="3_Interface_and_Function_Description.html#wdrlocal-tone" title="Permalink to this heading">¶</a></h3>
+<p>the relevant informationWDRandDRCParameter Descriptionrefer to"imagetuningthe relevant information" WDRsectionandDRCsection.</p>
+<section id="wdr">
+<h4><span class="section-number">3.1.7.1. </span>WDR Exposure Parameter Settings<a class="headerlink" href="3_Interface_and_Function_Description.html#wdr" title="Permalink to this heading">¶</a></h4>
+<p>WDR Exposusre Attrpagecansetwide dynamic rangeexposurerelatedParameter, containexposurethan…etc.Parameter, as <a class="reference internal" href="3_Interface_and_Function_Description.html#interf020"><span class="std std-ref">Figure</span></a> as shown.</p>
+<figure class="align-default" id="id52">
+<span id="interf020"></span><a class="reference internal image-reference" href="_images/image39.png"><img alt="_images/image39.png" src="_images/image39.png" style="width: 5.06317in; height: 2.9035in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 3.13 </span><span class="caption-text">WDR Exposure Parameter Settingspage</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id52" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="local-tone">
+<h4><span class="section-number">3.1.7.2. </span>Local-Tone Switch<a class="headerlink" href="3_Interface_and_Function_Description.html#local-tone" title="Permalink to this heading">¶</a></h4>
+<p>inDRCpagecanenableorcloseLocal-tone, when[LocalToneEn]parameter settingsenablewhenTableindicateLocal-toneenable, when[LocalToneEn]ParameterissetdisablewhenTableindicateLocal-toneclose, as <a class="reference internal" href="3_Interface_and_Function_Description.html#interf021"><span class="std std-ref">Figure</span></a> as shown.</p>
+<figure class="align-default" id="id53">
+<span id="interf021"></span><a class="reference internal image-reference" href="_images/image40.png"><img alt="_images/image40.png" src="_images/image40.png" style="width: 5.62937in; height: 3.17705in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 3.14 </span><span class="caption-text">DRC Local-Tone Switch</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id53" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="dnrynr">
+<h3><span class="section-number">3.1.8. </span>3DNR and YNR Noise Reduction Tuning<a class="headerlink" href="3_Interface_and_Function_Description.html#dnrynr" title="Permalink to this heading">¶</a></h3>
+<p>noise reductionrelatedtuningthe relevant informationdigitalin3DNRandYNRpage, the relevant informationnoise reductionParameter Descriptionrefer to"imagetuningthe relevant information" 3DNRsectionand YNRsection.</p>
+<figure class="align-default" id="id54">
+<a class="reference internal image-reference" href="_images/image41.png"><img alt="_images/image41.png" src="_images/image41.png" style="width: 5.03112in; height: 2.98768in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 3.15 </span><span class="caption-text">3DNRpage</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id54" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id55">
+<a class="reference internal image-reference" href="_images/image42.png"><img alt="_images/image42.png" src="_images/image42.png" style="width: 4.50919in; height: 2.90705in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 3.16 </span><span class="caption-text">YNRpage</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id55" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="y-sharpen">
+<h3><span class="section-number">3.1.9. </span>Y Sharpen and Edge Enhancement Tuning<a class="headerlink" href="3_Interface_and_Function_Description.html#y-sharpen" title="Permalink to this heading">¶</a></h3>
+<p>Y ShaprenpagecontainsharpeningandedgeenhancementrelatedParameter, the relevant informationsharpeningandedgeenhancementParameter Descriptionrefer to"imagetuningthe relevant information"Sharpensection.</p>
+<figure class="align-default" id="id56">
+<a class="reference internal image-reference" href="_images/image43.png"><img alt="_images/image43.png" src="_images/image43.png" style="width: 6.26806in; height: 3.98889in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 3.17 </span><span class="caption-text">Y Sharpenpage</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id56" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="top">
+<h3><span class="section-number">3.1.10. </span>Toppage<a class="headerlink" href="3_Interface_and_Function_Description.html#top" title="Permalink to this heading">¶</a></h3>
+<p>ToppagecontainViPipeandViChnParameter, ifthe relevant informationhasthe relevant informationsensor, canthe relevant informationVipipeswitchnotsameSensoroftuningParameter, the relevant informationcanthe relevant informationViChnswitchthe relevant informationabovethe relevant informationdisplaythe relevant informationsensorofimage.</p>
+<figure class="align-default" id="id57">
+<a class="reference internal image-reference" href="_images/image44.png"><img alt="_images/image44.png" src="_images/image44.png" style="width: 5.79531in; height: 3.95258in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 3.18 </span><span class="caption-text">Toppage</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id57" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="vpss-adjustment">
+<h3><span class="section-number">3.1.11. </span>VPSS Adjustment page<a class="headerlink" href="3_Interface_and_Function_Description.html#vpss-adjustment" title="Permalink to this heading">¶</a></h3>
+<p>VPSS Adustment pageused fortuning vpss relatedParameter, tuningthe relevant informationhasusingunderthe relevant informationpointneedNote: </p>
+<ol class="arabic simple">
+<li><p>use pqtooltuningthe relevant information scene id and vpss grp id the relevant information the relevant informationcorresponding, that is scene0 ofParameterwillthe relevant information grp 0; </p></li>
+<li><p>App the relevant informationusewhenneedinthe relevant information load pq bin the relevant informationmainthe relevant informationcall CVI_VPSS_SetGrpParamfromBin setting scene and vpss grp id ofthe relevant information, settingofsamewhen pq bin the relevant informationof vpss Parameterthe relevant informationwilltake effect, otherwiseuse pqtool tuningthe relevant informationof vpss Parameterin load
+pq bin the relevant informationnotwilltake effectof.</p></li>
+</ol>
+<p>the relevant information: the relevant informationsetthe relevant informationofreasonthe relevant information pq Parametertuningthe relevant informationNonethe relevant informationprethe relevant information app the relevant informationwillusethe relevant information vpss grp id, the relevant informationusingtuningwhenthe relevant informationcorrespondingtuning, app usetuninggenerateof pq bin whenneedaccording tothe relevant informationscenethe relevant information.</p>
+</section>
+<section id="ldc">
+<h3><span class="section-number">3.1.12. </span>LDC page<a class="headerlink" href="3_Interface_and_Function_Description.html#ldc" title="Permalink to this heading">¶</a></h3>
+<p>LDC pageused fortuning VIandVPSS LDC module relatedParameter, inusethe relevant informationhasusingunderthe relevant informationpointneedNote: </p>
+<ol class="arabic simple">
+<li><p>inRead allandWrite allwhen, notcontainforLDCpageofread/writeoperation.the relevant informationandforLDCpageperformrelatedread/writesetwhen, needthe relevant informationthispageperformthe relevant informationoperation(clickReadorWritebutton)waycanvalid.</p></li>
+<li><p>itemthe relevant informationLDCthe relevant informationoperationthe relevant informationinboard sideperformanditsthe relevant informationamountthe relevant information, the relevant informationwhenthe relevant information, completethe relevant informationoperationneedthe relevant information2the relevant information, PQtoolinthisthe relevant informationneedetc.after, afterwardthe relevant informationforPQtoolperformunderthe relevant informationofvalidoperation.</p></li>
+</ol>
+</section>
+</section>
+<section id="isp">
+<span id="id18"></span><h2><span class="section-number">3.2. </span>ISP Calibration Tool<a class="headerlink" href="3_Interface_and_Function_Description.html#isp" title="Permalink to this heading">¶</a></h2>
+<p>refer to "imagetuningthe relevant information" completeISPcalibration.</p>
+</section>
+<section id="id19">
+<h2><span class="section-number">3.3. </span>Advanced Functions<a class="headerlink" href="3_Interface_and_Function_Description.html#id19" title="Permalink to this heading">¶</a></h2>
+<section id="id20">
+<h3><span class="section-number">3.3.1. </span>Parameter Export and Import<a class="headerlink" href="3_Interface_and_Function_Description.html#id20" title="Permalink to this heading">¶</a></h3>
+<p>toolofParametercansupportinPCthe relevant informationusingthe relevant informationfileofwaythe relevant informationimportexport, the relevant informationsupporttoolwillParameterthe relevant informationboard side.</p>
+<ul class="simple">
+<li><p>inPCthe relevant informationimportexportParameterthe relevant informationfileofoperation, refer to <a class="reference internal" href="2_Overview.html#id12"><span class="std std-ref">2.4.3.1.</span></a> and <a class="reference internal" href="2_Overview.html#id14"><span class="std std-ref">2.4.3.2.</span></a> Opening a Tuning Data Filesection.</p></li>
+<li><p>willParameterthe relevant informationboard side, orfromboard sidewillParameterexportandthe relevant informationPCthe relevant informationfile, the relevant informationuseBIN utilitytoolperformoperation.</p></li>
+</ul>
+</section>
+<section id="id21">
+<h3><span class="section-number">3.3.2. </span>Communication Log<a class="headerlink" href="3_Interface_and_Function_Description.html#id21" title="Permalink to this heading">¶</a></h3>
+<p>andboardconnectionthe relevant information, allandboard sideofdatathe relevant informationwillthe relevant informationanddisplayinCommunication Logwindow, as <a class="reference internal" href="3_Interface_and_Function_Description.html#interf022"><span class="std std-ref">Figure</span></a> as shown.andboard sideperformdatathe relevant informationwhen, the relevant informationofthe relevant informationcontainusingunderinformation: </p>
+<ul class="simple">
+<li><p>the relevant informationwhenthe relevant information; </p></li>
+<li><p>the relevant informationwaythe relevant informationandParameter; </p></li>
+<li><p>the relevant informationcontent(ascurrentreadorwriteoftuningitem); </p></li>
+<li><p>ifthe relevant information, the relevant informationdisplayerrorinformation.</p></li>
+</ul>
+<figure class="align-default" id="id58">
+<span id="interf022"></span><a class="reference internal image-reference" href="_images/image45.png"><img alt="_images/image45.png" src="_images/image45.png" style="width: 5.1657in; height: 3.62217in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 3.19 </span><span class="caption-text">Communication Logwindow</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id58" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="id22">
+<span id="id23"></span><h2><span class="section-number">3.4. </span>Other Auxiliary Tools<a class="headerlink" href="3_Interface_and_Function_Description.html#id22" title="Permalink to this heading">¶</a></h2>
+<section id="id24">
+<span id="id25"></span><h3><span class="section-number">3.4.1. </span>Capture Tool<a class="headerlink" href="3_Interface_and_Function_Description.html#id24" title="Permalink to this heading">¶</a></h3>
+<p>cancaptureboard sideofimage data(YUVandRaw)andsaveisthe relevant informationfile.</p>
+<section id="id26">
+<h4><span class="section-number">3.4.1.1. </span>tool interface<a class="headerlink" href="3_Interface_and_Function_Description.html#id26" title="Permalink to this heading">¶</a></h4>
+<p>intuningtoolmenubarclickCapturebuttonthat iscanopenCapture Toolwindow, as <a class="reference internal" href="3_Interface_and_Function_Description.html#interf023"><span class="std std-ref">Figure</span></a> as shown.</p>
+<figure class="align-default" id="id59">
+<span id="interf023"></span><a class="reference internal image-reference" href="_images/image46.png"><img alt="_images/image46.png" src="_images/image46.png" style="width: 5.04466in; height: 2.92865in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 3.20 </span><span class="caption-text">Capture Toolwindow</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id59" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Save WDR LE and SE raws individually: the relevant informationwhen, LE raw,SE raw the relevant information; the relevant informationwhen, the relevant informationrawthe relevant informationandthe relevant information.</p>
+<p>Capture raw tightly: capturerawofwaythe relevant informationnotsame, the relevant informationwhencapturespeedthe relevant informationpoint, the relevant informationwhenspeedthe relevant information.</p>
+<p>Save BMP file: the relevant informationwillsavethe relevant informationbmpimage, defaultsavejpgandbmpformatimage.</p>
+<p>imagewindowunderway, displayforpointofx,ythe relevant informationandr,g,bthe relevant information, willasmousethe relevant information.</p>
+<p>Dump all repeatedly:the relevant informationwillthe relevant informationInterval setwhenthe relevant information(s)the relevant informationdump all.</p>
+</section>
+<section id="yuv">
+<h4><span class="section-number">3.4.1.2. </span>Capturing YUV Image Data<a class="headerlink" href="3_Interface_and_Function_Description.html#yuv" title="Permalink to this heading">¶</a></h4>
+<p>captureYUVdataofStep: </p>
+<ol class="arabic simple">
+<li><p>in"YUV Image"the relevant informationselectthe relevant informationcaptureYUVdataofthe relevant informationposition, that isinCapture fromdrop-downmenuselectVI/VPSS; </p></li>
+<li><p>inFramesthe relevant informationinput boxInputthe relevant informationcaptureofthe relevant informationnumber; </p></li>
+<li><p>clickCapturebutton, ifcaptureSuccesswillautomaticwillYUVdatathe relevant informationin"Open Save Path"the relevant informationdisplayofpathposition, andYUVdatawilldisplayinthe relevant informationimagedisplay areadomain, canthroughclickPrevious/Nextbuttonthe relevant informationview; </p></li>
+</ol>
+<p>— End</p>
+</section>
+<section id="raw">
+<h4><span class="section-number">3.4.1.3. </span>Capturing Raw Image Data<a class="headerlink" href="3_Interface_and_Function_Description.html#raw" title="Permalink to this heading">¶</a></h4>
+<p>captureRawdataofStep: </p>
+<ol class="arabic simple">
+<li><p>in"Raw Image"the relevant informationselectthe relevant informationcaptureRawdataofthanthe relevant informationnumber, that isinBitsdrop-downmenuselect8bits/10bits/12bits/16bits; </p></li>
+<li><p>inModedrop-downmenuselectcurrentmodeisLinear, WDRorAuto; </p></li>
+<li><p>inFramesthe relevant informationinput boxInputthe relevant informationcaptureofthe relevant informationnumber; </p></li>
+<li><p>clickCapturebutton, ifcaptureSuccesswillautomaticwillRawandRaw Infodatathe relevant informationin"Open Save Path"the relevant informationdisplayofpathposition, andRawdatawilldisplayinthe relevant informationimagedisplay areadomain, canthroughclickPrevious/Nextbuttonthe relevant informationview; </p></li>
+</ol>
+<p>— End</p>
+</section>
+<section id="dump-all">
+<h4><span class="section-number">3.4.1.4. </span>Dump All<a class="headerlink" href="3_Interface_and_Function_Description.html#dump-all" title="Permalink to this heading">¶</a></h4>
+<p>Dump AllcancaptureYUV, RAWimageandthe relevant informationinformation, capturefileas follows: </p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/image47.png"><img alt="_images/image47.png" src="_images/image47.png" style="width: 6.26806in; height: 1.92153in;" /></a>
+</figure>
+<p>captureStep: </p>
+<ol class="arabic simple">
+<li><p>inYUV Imagethe relevant informationsetthe relevant informationyuvcaptureinformation; </p></li>
+<li><p>inRAW Imagethe relevant informationsetthe relevant informationrawcaptureinformation; </p></li>
+<li><p>clickDump Allthe relevant informationCapturebutton, toolwillthe relevant informationcaptureandsaverawimageandfile, the relevant informationcaptureandsaveyuvimageandfile, the relevant informationimagedisplay areawilldisplayrawimage, canthroughclickPrevious/Nextbuttonthe relevant informationview.</p></li>
+</ol>
+</section>
+<section id="caputure-timing">
+<h4><span class="section-number">3.4.1.5. </span>Caputure Timing<a class="headerlink" href="3_Interface_and_Function_Description.html#caputure-timing" title="Permalink to this heading">¶</a></h4>
+<p>the relevant informationwhencaptureYUV, RAW, Dump Allthe relevant informationimage, captureStepas follows: </p>
+<ol class="arabic simple">
+<li><p>"inCapture mode"ofdrop-downmenuthe relevant informationcaptureofimagetype, defaultiscaptureYUVimage.</p></li>
+<li><p>in"Time"the relevant informationInputthe relevant informationwhencaptureofwhenthe relevant information, defaultis10the relevant information.</p></li>
+<li><p>click"Start"button, that iscanstartthe relevant informationwhen, afterthe relevant informationwhenwhenthe relevant informationwhen, the relevant informationwillfromboard sideobtaincorrespondingrelateddata.</p></li>
+<li><p>ifinthe relevant informationwhencaptureofthe relevant information, the relevant informationthisoperation, click"Stop"buttonthat iscan.</p></li>
+</ol>
+</section>
+<section id="yuvraw">
+<h4><span class="section-number">3.4.1.6. </span>YUV and Raw Image Filename Format<a class="headerlink" href="3_Interface_and_Function_Description.html#yuvraw" title="Permalink to this heading">¶</a></h4>
+<p>YUVimagefilenameformatthe relevant informationexampleas follows: </p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/image48.png"><img alt="_images/image48.png" src="_images/image48.png" style="width: 6.26806in; height: 0.21806in;" /></a>
+</figure>
+<p>– 1920X1080Tableindicatewidthis1920heightis1080</p>
+<p>– color=3TableindicateBayerID=3 (0: BGGR, 1: GBRG, 2: GRBG, 3: RGGB)</p>
+<p>– bits=12Tableindicateimagevalidthe relevant informationnumberthe relevant information12-bit</p>
+<p>– frame=1Tableindicatethisfilethe relevant informationcontain1the relevant informationYUVimage</p>
+<p>– 20211101105807Tableindicatethe relevant informationofwhenthe relevant information, formatis"yyyymmddhhmmss"</p>
+<p>RAWimagefilenameformatthe relevant informationexampleas follows: </p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/image49.png"><img alt="_images/image49.png" src="_images/image49.png" style="width: 6.26806in; height: 0.225in;" /></a>
+</figure>
+<p>– 3840X1080Tableindicatewidthis3840heightis1080</p>
+<p>– RGGBTableindicateByaerID</p>
+<p>– WDRTableindicateiswide dynamic rangeimage</p>
+<p>– color=3TableindicateBayerID=3 (0: BGGR, 1: GBRG, 2: GRBG, 3: RGGB)</p>
+<p>– bits=12Tableindicateimagevalidthe relevant informationnumberthe relevant information12 bits</p>
+<p>– frame=1Tableindicatethisfilethe relevant informationcontain1the relevant informationRAWimage</p>
+<p>– hdr=1 Tableindicateiswide dynamic rangeimage</p>
+<p>– 20211101111620Tableindicatethe relevant informationofwhenthe relevant information, formatis"yyyymmddhhmmss"</p>
+<p><strong>the relevant informationofRawthroughthe relevant informationextractthe relevant information:  size = width * height * 2 * frame; </strong></p>
+</section>
+<section id="raw-info">
+<h4><span class="section-number">3.4.1.7. </span>Raw Info File Format and Contents<a class="headerlink" href="3_Interface_and_Function_Description.html#raw-info" title="Permalink to this heading">¶</a></h4>
+<p>RAＷ Infofilenameformatthe relevant informationexampleas follows: </p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/image50.png"><img alt="_images/image50.png" src="_images/image50.png" style="width: 6.26806in; height: 0.21042in;" /></a>
+</figure>
+<p>RAW InfooffilenameformatandRAWimageoffileformatthe relevant informationsame, the relevant informationdifferenceinthe relevant informationisTXTthe relevant informationfile.</p>
+<p>RAＷ Infofilethe relevant informationcontentthe relevant informationexampleas follows: </p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/image51.png"><img alt="_images/image51.png" src="_images/image51.png" style="width: 1.50694in; height: 3.04309in;" /></a>
+</figure>
+</section>
+</section>
+<section id="vlc">
+<h3><span class="section-number">3.4.2. </span>Video Player (VLC)<a class="headerlink" href="3_Interface_and_Function_Description.html#vlc" title="Permalink to this heading">¶</a></h3>
+<section id="id27">
+<h4><span class="section-number">3.4.2.1. </span>Playing the Board Video Stream with VLC<a class="headerlink" href="3_Interface_and_Function_Description.html#id27" title="Permalink to this heading">¶</a></h4>
+<p><strong>Stepthe relevant information</strong> : VLCplaytoolunderthe relevant information, canthe relevant informationthisAddressunderthe relevant informationinstallWindowsversionofVLCplaysoftware.</p>
+<p>itsthe relevant informationofVLCversionthe relevant informationVLCthe relevant informationunderthe relevant information.(<a class="reference external" href="https://get.videolan.org/vlc/3.0.10/win32/vlc-3.0.10-win32.zip">https://get.videolan.org/vlc/3.0.10/win32/vlc-3.0.10-win32.zip</a>)</p>
+<p><strong>Stepthe relevant information</strong> : opentool, forVLCdoParametersetting, savethe relevant informationVLC.</p>
+<figure class="align-default" id="id60">
+<a class="reference internal image-reference" href="_images/image52.png"><img alt="_images/image52.png" src="_images/image52.png" style="width: 4.39199in; height: 3.13095in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 3.21 </span><span class="caption-text">VLCsetinterface</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id60" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p><strong>Stepthe relevant information</strong> : usethe relevant informationconnectionthe relevant informationandthe relevant information, the relevant informationRefer to the EVB User Manual..</p>
+<p><strong>Stepthe relevant information</strong> : inboard sidethroughthe relevant informationfilesystem, startCviISPToolthe relevant information</p>
+<p>the relevant informationconnectionofthe relevant informationneedsetthe relevant informationsameIPthe relevant information, andthe relevant informationusingthe relevant informationpingthe relevant information, the relevant informationcaninandthe relevant informationconnectionofthe relevant informationabovestartVLCperformplay.as followsthe relevant informationplaysetpartParameter, setthe relevant informationclickplaybuttonthe relevant informationcanthe relevant informationSensorframe.</p>
+<figure class="align-default" id="id61">
+<a class="reference internal image-reference" href="_images/image55.png"><img alt="_images/image55.png" src="_images/image55.png" style="width: 3.35367in; height: 2.84427in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 3.22 </span><span class="caption-text">VLCplayparameter settings</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id61" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id62">
+<a class="reference internal image-reference" href="_images/image56.png"><img alt="_images/image56.png" src="_images/image56.png" style="width: 3.60609in; height: 2.60329in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 3.23 </span><span class="caption-text">VLCplayvideothe relevant information</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id62" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="id28">
+<h3><span class="section-number">3.4.3. </span>Focus Assistant Tool<a class="headerlink" href="3_Interface_and_Function_Description.html#id28" title="Permalink to this heading">¶</a></h3>
+<section id="id29">
+<span id="id30"></span><h4><span class="section-number">3.4.3.1. </span>tool interface<a class="headerlink" href="3_Interface_and_Function_Description.html#id29" title="Permalink to this heading">¶</a></h4>
+<p>toolthe relevant information, selecttoolbarExtra Utilities-&gt;Focus Assistant, the relevant informationfocusinterfaceas followsFigure</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/image57.png"><img alt="_images/image57.png" src="_images/image57.png" style="width: 6.08069in; height: 4.21795in;" /></a>
+</figure>
+<p>tool interfacemainlythe relevant informationpart: </p>
+<p>(1)operationregion: performthe relevant informationtooloperation</p>
+<p>(2)imageandregionthe relevant informationdisplay area: displaycapturethe relevant informationofimage, regionthe relevant informationandthe relevant informationregionthe relevant informationofFVthe relevant information(among themthe relevant informationcolorthe relevant informationisregionthe relevant informationcurrentofFVthe relevant information, the relevant informationcolorofthe relevant informationisregionthe relevant informationFVmaximumthe relevant information)</p>
+<p>(3)FVchangecurve: displaythe relevant informationFVthe relevant informationofchangecurve.among themthe relevant informationis1ofpointisthe relevant informationofFVthe relevant informationTableindicateofpoint.the relevant informationFVthe relevant informationrefreshwhen, beforethe relevant informationofthe relevant informationwillthe relevant information.</p>
+</section>
+<section id="id31">
+<h4><span class="section-number">3.4.3.2. </span>Focusing with the Focus Assistant Tool<a class="headerlink" href="3_Interface_and_Function_Description.html#id31" title="Permalink to this heading">¶</a></h4>
+<p>usethe relevant informationfocustooltunethe relevant informationofStepas follows: </p>
+<p>Step 1.willlensthe relevant informationadjustisthe relevant informationstatus</p>
+<p>Step 2.determinecurrentdeviceofAFregionthe relevant informationstatus: the relevant informationGrab AF Statistics, andinimagedisplay areaofregionthe relevant informationnumberchangewhenthe relevant information.</p>
+<p>Step 3.selectFVthe relevant information: inFV Itemdrop-downthe relevant informationunderselectV1(the relevant informationdirection)andH1the relevant information(the relevant informationdirection).</p>
+<p>Step 4.inimageandregionthe relevant informationdisplay areadomainclickdeterminetunethe relevant informationwhenneedthe relevant informationregionthe relevant information.among themthe relevant informationofregionthe relevant informationabovethe relevant informationwilldisplaythe relevant informationcolorthe relevant information.canclicktoolthe relevant informationofSelect All Zonesthe relevant informationallregionthe relevant information, Deselect AllZonesthe relevant informationallregionthe relevant information, waythe relevant informationoperation.</p>
+<p>Step5.the relevant informationGrab AF Statistics.thiswhenimagedisplay areaandunderwayofcurveFigurethe relevant informationnotthe relevant informationrefresh.</p>
+<p>Step6.adjustlensthe relevant information.thiswhenFVthe relevant informationcurvemaximumthe relevant informationhigh.</p>
+<p>Step7.whenthe relevant informationFVthe relevant informationcurveabove1positionofpointthe relevant informationunderreducewhen, maximumthe relevant informationofpositionthe relevant informationthisnotthe relevant informationchange(canthe relevant informationisthe relevant informationFVisthe relevant informationfocusFV).thiswhenthe relevant informationdirectiontunethe relevant information1positionaboveofpointNonelimitthe relevant informationpositionthat iscan.</p>
+</section>
+<section id="id32">
+<h4><span class="section-number">3.4.3.3. </span>Focus Assistance Operations<a class="headerlink" href="3_Interface_and_Function_Description.html#id32" title="Permalink to this heading">¶</a></h4>
+<p>ifuserintunethe relevant information, needdeterminepointthe relevant informationimageaboveofareathe relevant informationinthe relevant informationregionthe relevant information, canclickCaptureImagethe relevant informationcapturethe relevant informationimage.imagedisplayinimageareathe relevant information, that iscanperformverify.</p>
+<p>toolaboveGrab AF Statisticsthe relevant information, toolwillusingthe relevant informationfixedofwhenthe relevant informationfromboard sideobtainAFstatisticsinformation.usercanmodifythroughinterfaceaboveofIntervalthe relevant information.the relevant informationrangeis100~1000the relevant information.</p>
+<p>ifusernotneedviewthe relevant informationregionthe relevant informationFVthe relevant informationofcurrentthe relevant informationandthe relevant information, canwillthe relevant informationofShow Zone FVthe relevant information.the relevant information, regionthe relevant informationFVthe relevant informationwillthe relevant informationdisplay.</p>
+<p>ifuserthe relevant informationregionthe relevant information, thiswhenofthe relevant informationFVmaximumthe relevant informationwillthe relevant informationchange.recommenduserthiswhenclick"Reset FV Chart"button.clickthe relevant information, the relevant informationunderwayFigureTablethe relevant informationofthe relevant informationFVthe relevant informationwillthe relevant information, maximumFVthe relevant informationofthe relevant informationwillthe relevant information.</p>
+</section>
+</section>
+<section id="a">
+<h3><span class="section-number">3.4.4. </span>3A Analysis Tool<a class="headerlink" href="3_Interface_and_Function_Description.html#a" title="Permalink to this heading">¶</a></h3>
+<section id="id33">
+<span id="id34"></span><h4><span class="section-number">3.4.4.1. </span>tool interface<a class="headerlink" href="3_Interface_and_Function_Description.html#id33" title="Permalink to this heading">¶</a></h4>
+<p>toolthe relevant information, intoolbarselectExtra Utilities -&gt; 3A Analyser, 3Aanalysisinterfaceas followsFigure: </p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/image58.png"><img alt="_images/image58.png" src="_images/image58.png" style="width: 4.97436in; height: 3.39487in;" /></a>
+</figure>
+</section>
+<section id="id35">
+<h4><span class="section-number">3.4.4.2. </span>Obtaining Images and Statistics<a class="headerlink" href="3_Interface_and_Function_Description.html#id35" title="Permalink to this heading">¶</a></h4>
+<ol class="arabic simple">
+<li><p>CviPQToolandboard sideconnection.</p></li>
+<li><p>in3A Analysis Toolofmaininterfaceabove, inCapture Image fromafterwardofdrop-downthe relevant information, selectimage datathe relevant information(itemthe relevant informationtoolthe relevant informationsupportfromVIaboveobtainimage data).</p></li>
+<li><p>the relevant informationCapture Image frombeforeofthe relevant information.afterwardtoolwillautomaticfromboard sidecapturedata, the relevant informationuserthe relevant informationforCapture Imagethe relevant informationofthe relevant information.Successfromboard sidecapturedatathe relevant information, toolwillinunderwayofthe relevant informationcolorareadisplayimageeffectas followsFigureas shown: </p></li>
+</ol>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/image59.png"><img alt="_images/image59.png" src="_images/image59.png" style="width: 4.6712in; height: 3.1859in;" /></a>
+</figure>
+<ol class="arabic simple" start="4">
+<li><p>butwhenboard sideNonethe relevant informationobtainthe relevant informationYUVFigurewhen, willuserawFigureperformdisplay, rawFiguredisplayofeffectthe relevant informationunderFigure: </p></li>
+</ol>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/image67.png"><img alt="_images/image67.png" src="_images/image67.png" style="width: 4.6712in; height: 3.1859in;" /></a>
+</figure>
+</section>
+<section id="ae">
+<h4><span class="section-number">3.4.4.3. </span>Viewing AE Statistics<a class="headerlink" href="3_Interface_and_Function_Description.html#ae" title="Permalink to this heading">¶</a></h4>
+<p>click3A Analysis Toolinterfacethe relevant informationabovethe relevant informationAEbutton, canopenAEstatisticsinformationwindowas followsFigureas shown: </p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/image60.png"><img alt="_images/image60.png" src="_images/image60.png" style="width: 5.18924in; height: 3.16667in;" /></a>
+</figure>
+<p>samewhen3A Analysis Toolmaininterfaceimageareathe relevant informationwillthe relevant informationregionthe relevant information, usercanusethe relevant information</p>
+<p>the relevant informationperformregionthe relevant informationselect, as followsFigureas shown.</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/image61.png"><img alt="_images/image61.png" src="_images/image61.png" style="width: 4.77564in; height: 3.28253in;" /></a>
+</figure>
+<p>statisticsinformation: canviewthe relevant information(Global)andthe relevant informationregionthe relevant information(Selected Zone)ofthe relevant informationamountthe relevant information.in3A Analysis Toolmaininterfaceswitchthe relevant informationregionwhen, selectregionthe relevant informationofstatisticsinformationdatawillchange.</p>
+</section>
+<section id="awb">
+<h4><span class="section-number">3.4.4.4. </span>Viewing AWB Statistics<a class="headerlink" href="3_Interface_and_Function_Description.html#awb" title="Permalink to this heading">¶</a></h4>
+<p>click3A Analysis Toolinterfacethe relevant informationabovethe relevant informationAWBbutton, canopenAWBstatisticsinformationwindowas followsFigureas shown: </p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/image62.png"><img alt="_images/image62.png" src="_images/image62.png" style="width: 5.33334in; height: 3.93057in;" /></a>
+</figure>
+<p>samewhen, 3A Analysis Toolofmaininterfaceimageareathe relevant informationwillthe relevant informationregionthe relevant information, usercanusethe relevant information</p>
+<p>the relevant informationperformregionthe relevant informationselect, as followsFigureas shown: </p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/image63.png"><img alt="_images/image63.png" src="_images/image63.png" style="width: 4.91026in; height: 3.362in;" /></a>
+</figure>
+<p>instatisticsFigureabovedisplayofcontenthas: </p>
+<p>the relevant informationcolorcolorcurve: the relevant informationcurve(plank.c).</p>
+<p>the relevant informationcolorpoint: the relevant information(global)statisticsinformationinthe relevant informationabovecorrespondingpoint.</p>
+<p>the relevant informationcolorpoint: AWBthe relevant informationresultinthe relevant informationabovecorrespondingpoint.</p>
+<p>the relevant informationcolorpoint: the relevant informationregionthe relevant informationstatisticsinformationinthe relevant informationabovecorrespondingpoint.</p>
+<p>the relevant informationcolorpoint: mouseselectofimagethe relevant informationregion(selected zone)inthe relevant informationabovecorrespondingpoint.</p>
+<p>the relevant informationcolorcurve: the relevant informationregionregionthe relevant information.</p>
+<p>the relevant informationaboveandthe relevant informationunderthe relevant informationcolorthe relevant informationofarea: the relevant informationaboveandthe relevant informationunderthe relevant informationcolorthe relevant informationofarea: respectivelyisthe relevant informationcolorandthe relevant informationcolorthe relevant informationandfromthe relevant informationregionthe relevant informationofregionthe relevant information.and AWB Parameterthe relevant informationof CurveLLimitandCurveRLimit related</p>
+<p>throughimageabovewayofShow Statistics, ShowPlanckian Curve, ShowWhite Zonecanrespectivelycontrolthe relevant informationFigureabovestatisticsinformation, color temperaturecurveandthe relevant informationregionregionthe relevant informationofdisplayandthe relevant information.</p>
+</section>
+</section>
+<section id="id36">
+<h3><span class="section-number">3.4.5. </span>Exposure Bracketing<a class="headerlink" href="3_Interface_and_Function_Description.html#id36" title="Permalink to this heading">¶</a></h3>
+<p>intoolbarselectExtra Utilities -&gt; Bracketing, Exposure Bracketingwindowas followsFigureas shown.</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/image64.png"><img alt="_images/image64.png" src="_images/image64.png" style="width: 5.32702in; height: 3.43902in;" /></a>
+</figure>
+<p>LE/SE Max:setlongthe relevant informationmaximumthe relevant information</p>
+<p>LE/SE Min:setlongthe relevant informationminimumthe relevant information</p>
+<p>LE/SE Step:the relevant informationlong</p>
+<p>Capture:capturebyLE/SEsetofnotsameexposurethe relevant informationofraw</p>
+<p>AE 10 RAW:capture10the relevant informationexposureofraw</p>
+<p>Save BMP file:saveBMPimage, defaultsaveJPG</p>
+<p>Open Save Path: filesavedirectory</p>
+<p>capturethe relevant informationnumberthe relevant information: </p>
+<blockquote>
+<div><p>LeNum = (LeMax - LeMin) / LeStep + 1;</p>
+<p>SeNum = (SeMax - SeMin) / SeStep + 1;</p>
+<p>wdr: TotalNum = LeNum * SeNum;</p>
+<p>linear: TotalNum = LeNum</p>
+</div></blockquote>
+</section>
+<section id="id37">
+<h3><span class="section-number">3.4.6. </span>Continuous Raw Tool<a class="headerlink" href="3_Interface_and_Function_Description.html#id37" title="Permalink to this heading">¶</a></h3>
+<p>intoolbarselectExtra Utilities -&gt; Continuous Raw, Continuous Raw Toolas followsFigureas shown.</p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/image65.png"><img alt="_images/image65.png" src="_images/image65.png" style="width: 5.58281in; height: 3.3054in;" /></a>
+</figure>
+<p>Preview, prethe relevant informationcurrentframe</p>
+<p>Capture: clickcapture, willcaptureyuvanddisplayinthe relevant informationwindow; </p>
+<p>ROI, the relevant informationrawset</p>
+<p>Frames: capturerawthe relevant informationnumber; </p>
+<p>Width/Height: currentframeofthe relevant informationhigh; </p>
+<p>CropX/CropY/CropW/CropH: setcapturerawofsize, position; </p>
+<p>Capture: the relevant informationcaptureraw;</p>
+<p>Save, saveset</p>
+<p>Open Save Path: selectsavepath; </p>
+<p>Save Location: selectsaveposition, selectlocal, rawfilesaveinpcthe relevant information, selectsd card, rawfilesaveinboard side; </p>
+<p>capturefileas followsFigureas shown: </p>
+<figure class="align-default">
+<a class="reference internal image-reference" href="_images/image66.png"><img alt="_images/image66.png" src="_images/image66.png" style="width: 6.26806in; height: 1.47014in;" /></a>
+</figure>
+<p>the relevant informationofrawFigurethe relevant informationthroughthe relevant informationof, sizethe relevant informationmethodas follows: </p>
+<ol class="arabic simple">
+<li><p>the relevant informationraw</p></li>
+</ol>
+<p>Size = (width * 6 / 8 + 15) / 16 * height * frame;</p>
+<p><strong>ifWidth &gt; 2304, the relevant informationmodeistile, Widthneedthe relevant informationabove8; </strong></p>
+<ol class="arabic simple" start="2">
+<li><p>roi raw</p></li>
+</ol>
+<p>Size = (CropW * 6 / 8 + 15) / 16 * CropH * frame;</p>
+<p><strong>ifWidth &gt; 2304, andCropW &gt; 1536, the relevant informationmodeistile, CropWneedthe relevant informationabove8; </strong></p>
+</section>
+</section>
+<section id="id38">
+<h2><span class="section-number">3.5. </span>Detailed Parameter Description<a class="headerlink" href="3_Interface_and_Function_Description.html#id38" title="Permalink to this heading">¶</a></h2>
+<p>usingunderthe relevant informationintool interfaceabovethe relevant informationmoduleParametercorrespondingSDKofAPIfunctionreferenceofDescription, asTableas shown.</p>
+<span id="topapi"></span><table class="colwidths-given docutils align-default" id="id63">
+<caption><span class="caption-number">Table 3.2 </span><span class="caption-text">TOPsetcorrespondingAPI</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id63" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Functionmodule</p></th>
+<th class="head"><p>corresponding SDK API</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Mode Handle</p></td>
+<td><p>N/A</p></td>
+</tr>
+<tr class="row-odd"><td><p>Bypass Setting</p></td>
+<td><p>CVI_ISP_SetModuleControl</p>
+<p>CVI_ISP_GetModuleControl</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>Fmw State</p></td>
+<td><p>CVI_ISP_SetFMWState</p>
+<p>CVI_ISP_GetFMWState</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>CTRL Param</p></td>
+<td><p>CVI_ISP_SetCtrlParam</p>
+<p>CVI_ISP_GetCtrlParam</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>MOD Param</p></td>
+<td><p>CVI_ISP_SetModParam</p>
+<p>CVI_ISP_GetModParam</p>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-given docutils align-default" id="id64">
+<caption><span class="caption-number">Table 3.3 </span><span class="caption-text">PubAttrsetcorrespondingAPI</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id64" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Functionmodule</p></th>
+<th class="head"><p>corresponding SDK API</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>PubAttr</p></td>
+<td><p>CVI_ISP_SetPubAttr</p>
+<p>CVI_ISP_GetPubAttr</p>
+</td>
+</tr>
+</tbody>
+</table>
+<span id="ispinfoapi"></span><table class="colwidths-given docutils align-default" id="id65">
+<caption><span class="caption-number">Table 3.4 </span><span class="caption-text">ISPInfosetcorrespondingAPI</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id65" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Functionmodule</p></th>
+<th class="head"><p>corresponding SDK API</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ISPInfo</p></td>
+<td><p>CVI_ISP_QueryInnerStateInfo</p></td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-given docutils align-default" id="id66">
+<caption><span class="caption-number">Table 3.5 </span><span class="caption-text">ExposureAttrsetcorrespondingAPI</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id66" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Functionmodule</p></th>
+<th class="head"><p>corresponding SDK API</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ExposureAttr</p></td>
+<td><p>CVI_ISP_SetExposureAttr</p>
+<p>CVI_ISP_GetExposureAttr</p>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-given docutils align-default" id="id67">
+<caption><span class="caption-number">Table 3.6 </span><span class="caption-text">WDRExposureAttrsetcorrespondingAPI</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id67" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Functionmodule</p></th>
+<th class="head"><p>corresponding SDK API</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>WDRExposureAttr</p></td>
+<td><p>CVI_ISP_SetWDRExposureAttr</p>
+<p>CVI_ISP_GetWDRExposureAttr</p>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-given docutils align-default" id="id68">
+<caption><span class="caption-number">Table 3.7 </span><span class="caption-text">ExposureInfosetcorrespondingAPI</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id68" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Functionmodule</p></th>
+<th class="head"><p>corresponding SDK API</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ExposureInfo</p></td>
+<td><p>CVI_ISP_QueryExposureInfo</p></td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-given docutils align-default" id="id69">
+<caption><span class="caption-number">Table 3.8 </span><span class="caption-text">AERoutesetcorrespondingAPI</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id69" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Functionmodule</p></th>
+<th class="head"><p>corresponding SDK API</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AERoute</p></td>
+<td><p>CVI_ISP_SetAERouteAttr</p>
+<p>CVI_ISP_GetAERouteAttr</p>
+<p>CVI_ISP_GetAERouteAttrEx</p>
+<p>CVI_ISP_SetAERouteAttrEx</p>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-given docutils align-default" id="id70">
+<caption><span class="caption-number">Table 3.9 </span><span class="caption-text">WBAttrsetcorrespondingAPI</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id70" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Functionmodule</p></th>
+<th class="head"><p>corresponding SDK API</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>White Balance</p></td>
+<td><p>CVI_ISP_SetWBAttr</p>
+<p>CVI_ISP_GetWBAttr</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>AWBAttr</p></td>
+<td><p>CVI_ISP_SetWBAttr</p>
+<p>CVI_ISP_GetWBAttr</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>MWBAttr</p></td>
+<td><p>CVI_ISP_SetWBAttr</p>
+<p>CVI_ISP_GetWBAttr</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>AWB Calibration Data</p></td>
+<td><p>CVI_ISP_GetWBCalibration</p>
+<p>CVI_ISP_SetWBCalibration</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>AWBAttrEx</p></td>
+<td><p>CVI_ISP_GetAWBAttrEx</p>
+<p>CVI_ISP_SetAWBAttrEx</p>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-given docutils align-default" id="id71">
+<caption><span class="caption-number">Table 3.10 </span><span class="caption-text">WBInfosetcorrespondingAPI</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id71" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Functionmodule</p></th>
+<th class="head"><p>corresponding SDK API</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>WBInfo</p></td>
+<td><p>CVI_ISP_QueryWBInfo</p></td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-given docutils align-default" id="id72">
+<caption><span class="caption-number">Table 3.11 </span><span class="caption-text">CCMsetcorrespondingAPI</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id72" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Functionmodule</p></th>
+<th class="head"><p>corresponding SDK API</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CCM</p></td>
+<td><p>CVI_ISP_SetCCMAttr</p>
+<p>CVI_ISP_GetCCMAttr</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>ColorToneAttr</p></td>
+<td><p>CVI_ISP_GetColorToneAttr</p>
+<p>CVI_ISP_SetColorToneAttr</p>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-given docutils align-default" id="id73">
+<caption><span class="caption-number">Table 3.12 </span><span class="caption-text">DemosaicsetcorrespondingAPI</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id73" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Functionmodule</p></th>
+<th class="head"><p>corresponding SDK API</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Demosaic</p></td>
+<td><p>CVI_ISP_SetDemosaicAttr</p>
+<p>CVI_ISP_GetDemosaicAttr</p>
+<p>CVI_ISP_SetDemosaicDemoireAttr</p>
+<p>CVI_ISP_GetDemosaicDemoireAttr</p>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-given docutils align-default" id="id74">
+<caption><span class="caption-number">Table 3.13 </span><span class="caption-text">3DNRsetcorrespondingAPI</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id74" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Functionmodule</p></th>
+<th class="head"><p>corresponding SDK API</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>3DNR</p></td>
+<td><p>CVI_ISP_SetTNRAttr</p>
+<p>CVI_ISP_GetTNRAttr</p>
+<p>CVI_ISP_SetTNRMvAttr</p>
+<p>CVI_ISP_GetTNRMvAttr</p>
+<p>CVI_ISP_SetTNRPsAttr</p>
+<p>CVI_ISP_GetTNRPsAttr</p>
+<p>CVI_ISP_SetTNRNrAttr</p>
+<p>CVI_ISP_GetTNRNrAttr</p>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-given docutils align-default" id="id75">
+<caption><span class="caption-number">Table 3.14 </span><span class="caption-text">DRCsetcorrespondingAPI</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id75" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Functionmodule</p></th>
+<th class="head"><p>corresponding SDK API</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>DRC</p></td>
+<td><p>CVI_ISP_SetDRCAttr</p>
+<p>CVI_ISP_GetDRCAttr</p>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-given docutils align-default" id="id76">
+<caption><span class="caption-number">Table 3.15 </span><span class="caption-text">CrosstalksetcorrespondingAPI</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id76" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Functionmodule</p></th>
+<th class="head"><p>corresponding SDK API</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Crosstalk</p></td>
+<td><p>CVI_ISP_GetCrosstalkAttr</p>
+<p>CVI_ISP_SetCrosstalkAttr</p>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-given docutils align-default" id="id77">
+<caption><span class="caption-number">Table 3.16 </span><span class="caption-text">ShadingsetcorrespondingAPI</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id77" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Functionmodule</p></th>
+<th class="head"><p>corresponding SDK API</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Shading Attr</p></td>
+<td><p>CVI_ISP_SetMeshShadingAttr</p>
+<p>CVI_ISP_GetMeshShadingAttr</p>
+<p>CVI_ISP_SetRadialShadingAttr</p>
+<p>CVI_ISP_GetRadialShadingAttr</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Shading Lut Attr</p></td>
+<td><p>CVI_ISP_SetMeshShadingGainLutAttr</p>
+<p>CVI_ISP_GetMeshShadingGainLutAttr</p>
+<p>CVI_ISP_SetRadialShadingGainLutAttr</p>
+<p>CVI_ISP_GetRadialShadingGainLutAttr</p>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-given docutils align-default" id="id78">
+<caption><span class="caption-number">Table 3.17 </span><span class="caption-text">DPCsetcorrespondingAPI</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id78" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Functionmodule</p></th>
+<th class="head"><p>corresponding SDK API</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Dynamic Attribute</p></td>
+<td><p>CVI_ISP_GetDPDynamicAttr</p>
+<p>CVI_ISP_SetDPDynamicAttr</p>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-given docutils align-default" id="id79">
+<caption><span class="caption-number">Table 3.18 </span><span class="caption-text">CNR setcorrespondingAPI</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id79" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Functionmodule</p></th>
+<th class="head"><p>corresponding SDK API</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CNR Attr</p></td>
+<td><p>CVI_ISP_SetCNRAttr</p>
+<p>CVI_ISP_GetCNRAttr</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>CNR FILTER Attr</p></td>
+<td><p>CVI_ISP_SetCNRFilterAttr</p>
+<p>CVI_ISP_GetCNRFilterAttr</p>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-given docutils align-default" id="id80">
+<caption><span class="caption-number">Table 3.19 </span><span class="caption-text">DCI setcorrespondingAPI</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id80" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Functionmodule</p></th>
+<th class="head"><p>corresponding SDK API</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>DCI</p></td>
+<td><p>CVI_ISP_SetDCIAttr</p>
+<p>CVI_ISP_GetDCIAttr</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>DCI AUTO GAMMA ATTR</p></td>
+<td><p>CVI_ISP_SetDciAutoGammaAttr</p>
+<p>CVI_ISP_GetDciAutoGammaAttr</p>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-given docutils align-default" id="id81">
+<caption><span class="caption-number">Table 3.20 </span><span class="caption-text">Gamma setcorrespondingAPI</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id81" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Functionmodule</p></th>
+<th class="head"><p>corresponding SDK API</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Gamma</p></td>
+<td><p>CVI_ISP_SetGammaAttr</p>
+<p>CVI_ISP_GetGammaAttr</p>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-given docutils align-default" id="id82">
+<caption><span class="caption-number">Table 3.21 </span><span class="caption-text">FSHDR setcorrespondingAPI</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id82" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Functionmodule</p></th>
+<th class="head"><p>corresponding SDK API</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>FSHDR</p></td>
+<td><p>CVI_ISP_SetFSHDRAttr</p>
+<p>CVI_ISP_GetFSHDRAttr</p>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-given docutils align-default" id="id83">
+<caption><span class="caption-number">Table 3.22 </span><span class="caption-text">LUT 3DsetcorrespondingAPI</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id83" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Functionmodule</p></th>
+<th class="head"><p>corresponding sDK API</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>LUT 3D</p></td>
+<td><p>CVI_ISP_SetClutAttr</p>
+<p>CVI_ISP_GetClutAttr</p>
+<p>CVI_ISP_SetClutHslAttr</p>
+<p>CVI_ISP_GetClutHslAttr</p>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-given docutils align-default" id="id84">
+<caption><span class="caption-number">Table 3.23 </span><span class="caption-text">Y SharpensetcorrespondingAPI</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id84" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Functionmodule</p></th>
+<th class="head"><p>corresponding SDK API</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Sharpen</p></td>
+<td><p>CVI_ISP_GetSharpenAttr</p>
+<p>CVI_ISP_SetSharpenAttr</p>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-given docutils align-default" id="id85">
+<caption><span class="caption-number">Table 3.24 </span><span class="caption-text">BLCsetcorrespondingAPI</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id85" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Functionmodule</p></th>
+<th class="head"><p>corresponding SDK API</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Black Level</p></td>
+<td><p>CVI_ISP_GetBlackLevelAttr</p>
+<p>CVI_ISP_SetBlackLevelAttr</p>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-given docutils align-default" id="id86">
+<caption><span class="caption-number">Table 3.25 </span><span class="caption-text">BNRsetcorrespondingAPI</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id86" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Functionmodule</p></th>
+<th class="head"><p>corresponding SDK API</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>BNR</p></td>
+<td><p>CVI_ISP_SetBNRAttr</p>
+<p>CVI_ISP_GetBNRAttr</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Filter</p></td>
+<td><p>CVI_ISP_SetBNRFilterAttr</p>
+<p>CVI_ISP_GetBNRFilterAttr</p>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-given docutils align-default" id="id87">
+<caption><span class="caption-number">Table 3.26 </span><span class="caption-text">SaturationsetcorrespondingAPI</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id87" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Functionmodule</p></th>
+<th class="head"><p>corresponding SDK API</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Saturation</p></td>
+<td><p>CVI_ISP_GetSaturationAttr</p>
+<p>CVI_ISP_SetSaturationAttr</p>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-given docutils align-default" id="id88">
+<caption><span class="caption-number">Table 3.27 </span><span class="caption-text">Statistics ConfigsetcorrespondingAPI</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id88" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Functionmodule</p></th>
+<th class="head"><p>corresponding SDK API</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AE/AF/AWB Config</p></td>
+<td><p>CVI_ISP_GetStatisticsConfig</p>
+<p>CVI_ISP_SetStatisticsConfig</p>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-given docutils align-default" id="id89">
+<caption><span class="caption-number">Table 3.28 </span><span class="caption-text">LDCsetcorrespondingAPI</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id89" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Functionmodule</p></th>
+<th class="head"><p>corresponding SDK API</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VI LDC</p></td>
+<td><p>CVI_VI_GetChnLDCAttr</p>
+<p>CVI_VI_SetChnLDCAttr</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>VPSS LDC</p></td>
+<td><p>CVI_VPSS_GetChnLDCAttr</p>
+<p>CVI_VPSS_SetChnLDCAttr</p>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-given docutils align-default" id="id90">
+<caption><span class="caption-number">Table 3.29 </span><span class="caption-text">Mono setcorrespondingAPI</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id90" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Functionmodule</p></th>
+<th class="head"><p>corresponding SDK API</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Mono</p></td>
+<td><p>CVI_ISP_GetMonoAttr</p>
+<p>CVI_ISP_SetMonoAttr</p>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-given docutils align-default" id="id91">
+<caption><span class="caption-number">Table 3.30 </span><span class="caption-text">Y Contrast setcorrespondingAPI</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id91" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Functionmodule</p></th>
+<th class="head"><p>corresponding SDK API</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>YContrast Attr</p></td>
+<td><p>CVI_ISP_GetYContrastAttr</p>
+<p>CVI_ISP_SetYContrastAttr</p>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-given docutils align-default" id="id92">
+<caption><span class="caption-number">Table 3.31 </span><span class="caption-text">Vpss Adjustment setcorrespondingAPI</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id92" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Functionmodule</p></th>
+<th class="head"><p>corresponding SDK API</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>VPSS Adjustment</p></td>
+<td><p>CVI_VPSS_GetGrpProcAmp</p>
+<p>CVI_VPSS_SetGrpProcAmp</p>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-given docutils align-default" id="id93">
+<caption><span class="caption-number">Table 3.32 </span><span class="caption-text">Noise Profile setcorrespondingAPI</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id93" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Functionmodule</p></th>
+<th class="head"><p>corresponding SDK API</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>NoiseProfile</p></td>
+<td><p>CVI_ISP_GetNoiseProfileAttr</p>
+<p>CVI_ISP_SetNoiseProfileAttr</p>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-given docutils align-default" id="id94">
+<caption><span class="caption-number">Table 3.33 </span><span class="caption-text">PFR setcorrespondingAPI</span><a class="headerlink" href="3_Interface_and_Function_Description.html#id94" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Functionmodule</p></th>
+<th class="head"><p>corresponding SDK API</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>PFR</p></td>
+<td><p>CVI_ISP_SetPFRAttr</p>
+<p>CVI_ISP_GetPFRAttr</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="2_Overview.html" class="btn btn-neutral float-left" title="2. Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="4_Tool_Application_Reference.html" class="btn btn-neutral float-right" title="4. Tool Application Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Go to the official website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="Go to the documentation center"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Top of page"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Bottom of page"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR code for this page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

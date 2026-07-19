@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV184X Sensor Debugging Guide &mdash; Sensor_Debugging_Guide master documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="12. Color, Noise Reduction, and Other Corrections" href="12_Color_Noise_Reduction_and_Other_Corrections.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Sensor_Debugging_Guide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Introduction_to_Sensor_Drivers.html">2. SensorDriverIntroduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Confirm_Specifications.html">3. Confirm Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_Image_Output_Debugging.html">4. Image Output Debugging(Linuxthe corresponding content)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_Image_Output_Debugging.html">5. Image Output Debugging(Aliosthe corresponding content)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_Image_Output_Verification.html">6. ImageOutput Verification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_Basic_Functions_of_ISP.html">7. ISP Basic Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_Complete_the_AE_Configuration_Function.html">8. Complete the AE Configuration Function</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_Complete_Other_Functions.html">9. Complete Other Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_AE_Related_Verification.html">10. AERelatedVerification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_Common_Problem.html">11. FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_Color_Noise_Reduction_and_Other_Corrections.html">12. Color, Noise Reduction, and Other Corrections</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="13_Debugging_Tool.html#">13. Debugging Tool</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="13_Debugging_Tool.html#id2">13.1. the corresponding contentFunction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="13_Debugging_Tool.html#dump-raw">13.2. Dump RAW</a></li>
+<li class="toctree-l2"><a class="reference internal" href="13_Debugging_Tool.html#dump-yuv">13.3. Dump YUV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="13_Debugging_Tool.html#set-flip-mirror">13.4. Set flip/mirror</a></li>
+<li class="toctree-l2"><a class="reference internal" href="13_Debugging_Tool.html#wdrlinear">13.5. WDRthe corresponding contentLinearswitch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="13_Debugging_Tool.html#ae">13.6. AERelatedVerification</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Sensor_Debugging_Guide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">13. </span>Debugging Tool</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/13_Debugging_Tool.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">13. </span>Debugging Tool<a class="headerlink" href="13_Debugging_Tool.html#id1" title="Permalink to this heading">¶</a></h1>
+<p>Linux：</p>
+<p>sensorthe corresponding contentDebugging Toolusesensor_test，</p>
+<p>sensorConfigurationFilethe corresponding content/mnt/data/sensor_cfg.ini。</p>
+<p>the corresponding contentmiddlewareContentsthroughCommand git apply sensor_test.patchthe corresponding content，the corresponding contentgeneratesensor_test the corresponding contentuse。</p>
+<p>Alios：</p>
+<p>sensor_test the corresponding contentdefaultthe corresponding contentperipherals_testthe corresponding contentsolutionthe corresponding content，the corresponding contentsolutionthe corresponding content，the corresponding contentPathsolutions/peripherals_test/sensor_test/sensor_test.c</p>
+<section id="id2">
+<h2><span class="section-number">13.1. </span>the corresponding contentFunction<a class="headerlink" href="13_Debugging_Tool.html#id2" title="Permalink to this heading">¶</a></h2>
+<p>sensor_testdefaultthe corresponding contentFigurethe corresponding content5the corresponding contentFunction：</p>
+<ol class="arabic simple">
+<li><p>dump sensor rawFigure</p></li>
+<li><p>dump sensor yuvFigure</p></li>
+<li><p>SetsensorOutputImageflip/mirror</p></li>
+<li><p>the corresponding contentsensorDriverSupportedlinearthe corresponding contentwdrmode，canusethe corresponding contentoptionthe corresponding contentsensor modeswitch</p></li>
+<li><p>AEtuningFunction</p></li>
+</ol>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/image2.png"><img alt="_images/image2.png" src="_images/image2.png" style="width: 80%;" /></a>
+</figure>
+</section>
+<section id="dump-raw">
+<h2><span class="section-number">13.2. </span>Dump RAW<a class="headerlink" href="13_Debugging_Tool.html#dump-raw" title="Permalink to this heading">¶</a></h2>
+<p>the corresponding content <a class="reference internal" href="6_Image_Output_Verification.html#dump-raw"><span class="std std-ref">Dump RAW</span></a></p>
+</section>
+<section id="dump-yuv">
+<h2><span class="section-number">13.3. </span>Dump YUV<a class="headerlink" href="13_Debugging_Tool.html#dump-yuv" title="Permalink to this heading">¶</a></h2>
+<p>the corresponding content <a class="reference internal" href="6_Image_Output_Verification.html#dump-yuv"><span class="std std-ref">Dump YUV</span></a></p>
+</section>
+<section id="set-flip-mirror">
+<h2><span class="section-number">13.4. </span>Set flip/mirror<a class="headerlink" href="13_Debugging_Tool.html#set-flip-mirror" title="Permalink to this heading">¶</a></h2>
+<p>the corresponding contentsensorthe corresponding content/the corresponding contentFunction。</p>
+<p>Runsensor_test，Input3select”set chn flip/mirror”，the corresponding contentpromptchn(0~1): Inputdev（0Tablethe corresponding contentvi pipe0，Controlthe corresponding content0the corresponding contentImage，1Tablethe corresponding contentvi pipe1）the corresponding contentControlthe corresponding contentflip/mirror。</p>
+<p>Note：Functionthe corresponding content，needverifydump yuvFigurethe corresponding contentColorthe corresponding contentexpected。</p>
+</section>
+<section id="wdrlinear">
+<h2><span class="section-number">13.5. </span>WDRthe corresponding contentLinearswitch<a class="headerlink" href="13_Debugging_Tool.html#wdrlinear" title="Permalink to this heading">¶</a></h2>
+<p>the corresponding contentsensorthe corresponding contentwide dynamic rangemodethe corresponding contentlinearmodeswitchFunction。</p>
+<p>Runsensor_test，Input4select” linear hdr switch”，
+the corresponding content” Please select sensor input mode (0:linear/1:wdr) :”Input0the corresponding contentlinear；1the corresponding contentWDR;</p>
+<div class="admonition attention">
+<p class="admonition-title">Note</p>
+<p>1、the corresponding contentFunctionthe corresponding contentsensorSupportedlinearthe corresponding contentwdrthe corresponding contentmode</p>
+<p>2、the corresponding contentsensorConfigurationthe corresponding contentsensor_test.cthe corresponding contentmodifythe corresponding contentsensorConfiguration，the corresponding contentas followsFigure</p>
+</div>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/Debugg003.png"><img alt="_images/Debugg003.png" src="_images/Debugg003.png" style="width: 80%;" /></a>
+</figure>
+</section>
+<section id="ae">
+<h2><span class="section-number">13.6. </span>AERelatedVerification<a class="headerlink" href="13_Debugging_Tool.html#ae" title="Permalink to this heading">¶</a></h2>
+<p>the corresponding content <a class="reference internal" href="10_AE_Related_Verification.html#ae"><span class="std std-ref">AERelatedVerification</span></a></p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="12_Color_Noise_Reduction_and_Other_Corrections.html" class="btn btn-neutral float-left" title="12. Color, Noise Reduction, and Other Corrections" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Go to the official website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="the corresponding contentdocumentationthe corresponding content"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Top of page"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Bottom of page"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR Code for This Page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

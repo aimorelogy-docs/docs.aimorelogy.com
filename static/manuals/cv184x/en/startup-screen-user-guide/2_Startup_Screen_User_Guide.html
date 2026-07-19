@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2. Startup Screen User Guide &mdash; StartupScreenUserGuide master Documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="1. Disclaimer" href="1_disclaimer.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> StartupScreenUserGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="2_Startup_Screen_User_Guide.html#">2. Startup Screen User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Startup_Screen_User_Guide.html#uboot">3. uboot</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_Startup_Screen_User_Guide.html#id2">3.1. ubootCommands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Startup_Screen_User_Guide.html#id3">3.2. ubootFunction-Related Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Startup_Screen_User_Guide.html#id4">3.3. ubootCommand Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Startup_Screen_User_Guide.html#id5">3.4. Use and Startup Screen</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_Startup_Screen_User_Guide.html#id6">3.4.1. Prepare the Startup Image</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2_Startup_Screen_User_Guide.html#id7">3.5. Precautions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="2_Startup_Screen_User_Guide.html#alios">4. alios</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_Startup_Screen_User_Guide.html#id8">4.1. Enable the AliOS Startup Screen</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_Startup_Screen_User_Guide.html#id9">4.1.1. Prepare the Startup Image</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2_Startup_Screen_User_Guide.html#id10">4.2. aliosStartup Screen Principle</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">StartupScreenUserGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">2. </span>Startup Screen User Guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/2_Startup_Screen_User_Guide.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">2. </span>Startup Screen User Guide<a class="headerlink" href="2_Startup_Screen_User_Guide.html#id1" title="Permalink to this heading">¶</a></h1>
+<p>This guide explains how to display the startup screen in U-Boot and AliOS.</p>
+</section>
+<section id="uboot">
+<h1><span class="section-number">3. </span>uboot<a class="headerlink" href="2_Startup_Screen_User_Guide.html#uboot" title="Permalink to this heading">¶</a></h1>
+<p>ubootThe following functions are provided:</p>
+<ul class="simple">
+<li><p>Provides control of the VO device in the boot environment, including different VO interfaces and timings.</p></li>
+<li><p>Provides control of the VL video layer in the boot environment.</p></li>
+<li><p>Provides background-color configuration for the VO device in the boot environment.</p></li>
+<li><p>The default format of the VL video layer is YUV420 PLANAR.</p></li>
+</ul>
+<section id="id2">
+<h2><span class="section-number">3.1. </span>ubootCommands<a class="headerlink" href="2_Startup_Screen_User_Guide.html#id2" title="Permalink to this heading">¶</a></h2>
+<ul>
+<li><dl>
+<dt><strong>startvo： VODevice</strong></dt><dd><p>Parameters: device number, interface type, and timing.</p>
+<img alt="_images/image1.png" src="_images/image1.png" />
+<ul class="simple">
+<li><p>&lt;dev&gt; Device number; see Figure 1-1</p></li>
+<li><p>&lt;intf-type&gt; Interface type; see Figure 1-1</p></li>
+<li><p>&lt;timing&gt; Timing</p></li>
+</ul>
+<p>&lt;&gt; MIPI_TX、LVDS、I80notRefer toTiming ， before driver SettingsTiming</p>
+<p>The standard timings on CV184X are as follows:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span><span class="p">(</span><span class="mi">1080</span><span class="n">P24</span><span class="p">),</span><span class="w">  </span><span class="mi">3</span><span class="p">(</span><span class="mi">1080</span><span class="n">P25</span><span class="p">),</span><span class="w">  </span><span class="mi">4</span><span class="p">(</span><span class="mi">1080</span><span class="n">P30</span><span class="p">),</span><span class="w">  </span><span class="mi">5</span><span class="p">(</span><span class="mi">720</span><span class="n">P50</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w">  </span><span class="mi">6</span><span class="p">(</span><span class="mi">720</span><span class="n">P60</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"></span>
+<span class="mi">7</span><span class="p">(</span><span class="mi">1080</span><span class="n">P50</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w">  </span><span class="mi">8</span><span class="p">(</span><span class="mi">1080</span><span class="n">P60</span><span class="p">),</span><span class="w">  </span><span class="mi">9</span><span class="p">(</span><span class="mi">576</span><span class="n">P50</span><span class="p">),</span><span class="w">  </span><span class="mi">10</span><span class="p">(</span><span class="mi">480</span><span class="n">P60</span><span class="p">),</span><span class="w">  </span><span class="mi">11</span><span class="p">(</span><span class="mi">800</span><span class="n">x600</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>stopvo：DisableVODevice</strong></dt><dd><p>Parameter: device number</p>
+<img alt="_images/image2.png" src="_images/image2.png" />
+<ul class="simple">
+<li><p>&lt;dev&gt; Device number; see Figure 1-1</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>startvl： VLVideo Layer</strong></dt><dd><p>Parameters: video layer number, image file address, video address, image file size, and VO alignment</p>
+<img alt="_images/image3.png" src="_images/image3.png" />
+<ul class="simple">
+<li><p>&lt;layer&gt; Video layer number; see Figure 1-1</p></li>
+<li><p>&lt;addr_in&gt; Image File Address</p></li>
+<li><p>&lt;addr_out&gt; Video Address</p></li>
+<li><p>&lt;size&gt; Image File Size</p></li>
+<li><p>&lt;alignment&gt; VOAlignment</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><strong>stopvl：DisableVLVideo Layer</strong></dt><dd><p>Parameter: video layer number</p>
+<img alt="_images/image4.png" src="_images/image4.png" />
+<ul class="simple">
+<li><p>&lt;layer&gt; Video layer number; see Figure 1-1</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><strong>setvobg：SettingsVODeviceBackground Color</strong></dt><dd><p>Parameters: device number and background color</p>
+<ul class="simple">
+<li><p>&lt;dev&gt; Device number; see Figure 1-1</p></li>
+<li><p>&lt;bgcolor&gt; Background Color (10bit RGBarrangement: bit[29:20] is R, bit[19:10] is G, and bit[9:0] is B)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><cite>Figure 1-1</cite></p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Processor Type</p></th>
+<th class="head"><p>Device</p></th>
+<th class="head"><p>Video Layer</p></th>
+<th class="head"><p>Graphics Layer</p></th>
+<th class="head"><p>Interface Category</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CV184X</p></td>
+<td><p>[0]</p></td>
+<td><p>[0]</p></td>
+<td><p>[0]</p></td>
+<td><p>64(BT.1120), 1024(LCD_18BIT), 2048(LCD_24BIT), 4096(LCD_30BIT), 8192(MIPI_TX), 65536(I80)</p></td>
+</tr>
+</tbody>
+</table>
+<p><cite>Figure 1-2</cite></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Processor Type</p></th>
+<th class="head"><p>Maximum Video Layer Resolution</p></th>
+<th class="head"><p>Maximum Graphics Layer Resolution</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CV184X</p></td>
+<td><p>1920x1080</p></td>
+<td><p>1920x1080</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id3">
+<h2><span class="section-number">3.2. </span>ubootFunction-Related Code<a class="headerlink" href="2_Startup_Screen_User_Guide.html#id3" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cmd/Makefile</span>
+<span class="go">cmd/cvi_vo.c</span>
+<span class="go">drivers/video/Makefile</span>
+<span class="go">drivers/video/cvitek/ (contains the following subdirectories)</span>
+<span class="go">include/cvitek/cvi_disp.h</span>
+<span class="go">include/cvitek/cvi_mipi.h</span>
+<span class="go">include/cvitek/cvi_lvds.h</span>
+<span class="go">include/cvitek/cvi_i80.h</span>
+<span class="go">include/cvitek/cvi_panels/ (contains the following subdirectories)</span>
+</pre></div>
+</div>
+</section>
+<section id="id4">
+<h2><span class="section-number">3.3. </span>ubootCommand Example<a class="headerlink" href="2_Startup_Screen_User_Guide.html#id4" title="Permalink to this heading">¶</a></h2>
+<p>followingwithCV184XProcessorOperation，ConfigurationDeviceDHDofTimingMIPI_TX 720*1080&#64;60Outputas an example。</p>
+<p>&lt;&gt;  DDR Figure Addressnot ，Please Processor UseDDRAddress。</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Load the JPEG file into memory</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">fatload mmc 1:1 0x84080000 logo.jpg</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Decode JPEG into memory (cvi_jpeg jpg_buf_addr dest_buf_addr jpg_size)</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cvi_jpeg 0x84080000 0x82080000 0x80000</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>DHD0Device </p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">startvo 0 8192 0  (MIPI_TX)</span>
+<span class="go">startvo 0 1024 0  (single-link 6-bit LVDS)</span>
+<span class="go">startvo 0 2048 0  (single-link 8-bit LVDS)</span>
+<span class="go">startvo 0 4096 0  ( 10bit LVDS， notSupport)</span>
+<span class="go">startvo 0 65536 0  (I80)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>VLVideo Layer </p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">startvl 0 0x84080000 0x82080000 0x80000 16</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>SettingsVOBackground Colorblack</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">setvobg 0 0x00000000</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>VLVideo LayerDisable</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Stopvl 0</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>DHD0DeviceDisable</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Stopvo 0</span>
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="id5">
+<h2><span class="section-number">3.4. </span>Use and Startup Screen<a class="headerlink" href="2_Startup_Screen_User_Guide.html#id5" title="Permalink to this heading">¶</a></h2>
+<section id="id6">
+<h3><span class="section-number">3.4.1. </span>Prepare the Startup Image<a class="headerlink" href="2_Startup_Screen_User_Guide.html#id6" title="Permalink to this heading">¶</a></h3>
+<p>SDK Provide  <code class="docutils literal notranslate"><span class="pre">build/tools/common/bootlogo/process_images.py</span></code> Tools，can convert the original image to the format required by the SDK <code class="docutils literal notranslate"><span class="pre">logo.jpg</span></code> format (raw MJPEG stream).</p>
+<p><strong>Install dependencies:</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">apt install ffmpeg python3-pil</span>
+</pre></div>
+</div>
+<p><strong>Usage examples:</strong></p>
+<p>Single image (U-Boot supports only one image), portrait 720x1280 rotated by 90 degrees:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">python build/tools/common/bootlogo/process_images.py \</span>
+<span class="go">    -i my_logo.png -o bootlogo/ -r 720 1280 --rotate 90</span>
+</pre></div>
+</div>
+<p>Single image, no rotation, using the original image resolution:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">python build/tools/common/bootlogo/process_images.py \</span>
+<span class="go">    -i my_logo.png -o bootlogo/</span>
+</pre></div>
+</div>
+<p>Parameter description:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-i</span></code>  InputFigure Path（Support jpg/png）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-o</span></code>  OutputContents（Default beforeContents，Generate logo.jpg）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-r</span></code>  OutputResolution WIDTH HEIGHT（not withInputFigure is ）</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--rotate</span></code>  Rotation angle: 0/90/180/270</p></li>
+</ul>
+<p>Generate <code class="docutils literal notranslate"><span class="pre">logo.jpg</span></code> Then continue with the following configuration steps.</p>
+<ol class="arabic">
+<li><p>will Figure  logo.jpg (I80 Need toBMP FigureFile)Copy under the directory bootlogo/logo.jpg。</p></li>
+<li><p>inbuild/boards/cv184x/cv184x_wevb/u-boot/cv184x_defconfigConfigurationCONFIG_BOOTLOGOisy。</p></li>
+<li><p>IfneedUsereset、power、backligtFunction，needinbuild/boards/default/dts/cv184x/cv184x_base.dtsiinofvoNodeAddgpioRelatedInformationIf：</p>
+<blockquote>
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">reset-gpio = &lt;&amp;porte 2 GPIO_ACTIVE_LOW&gt;;</span>
+<span class="go">pwm-gpio = &lt;&amp;porte 0 GPIO_ACTIVE_HIGH&gt;;</span>
+<span class="go">power-ct-gpio = &lt;&amp;porte 1 GPIO_ACTIVE_HIGH&gt;;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Build UsemenuconfiginSDK optionsinEnablePack BOOTLOGO， Configuration willlogo.jpgPackagetoBurningFile。</p></li>
+<li><p>Useunder CommandsBuildBSP。</p>
+<blockquote>
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">source build/envsetup_soc.sh</span>
+<span class="go">defconfig cv184x_wevb</span>
+<span class="go">menuconfig</span>
+<span class="go">Build_all</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+</section>
+</section>
+<section id="id7">
+<h2><span class="section-number">3.5. </span>Precautions<a class="headerlink" href="2_Startup_Screen_User_Guide.html#id7" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>ConfigurationStartup Screen，ThroughBT.1120/656Interface ， ProcessorofDriverneed PortingImplementation。</p></li>
+<li><p>IfStartup ScreenUseof MIPI_TX、LVDSorI80Interface ，If notSupportofmipi_dsi、lvdsor i80 panel，canRefer tou-boot-2021.10/include/cvitek/cvi_panels ofheaders，Add ofheader。 u-boot-2021.10/include/cvitek/cvi_panels/cvi_panels.h panelModify can not ofmipi_dsi、lvdsori80 panel。</p></li>
+<li><p>Use and Startup Screen ，need  CV184x_asic.dtsi Configuration Memory (Defaultis0x82080000)，andEnsureu-boot/include/configs/CV184x-asic.hinof LOGO_RESERVED_ADDR Settingsis Memory 。</p></li>
+</ul>
+</section>
+</section>
+<section id="alios">
+<h1><span class="section-number">4. </span>alios<a class="headerlink" href="2_Startup_Screen_User_Guide.html#alios" title="Permalink to this heading">¶</a></h1>
+<ul class="simple">
+<li><p>aliosStartup Screen before SupportMIPI_DSIInterface，Provide linux ofmipi_tx_xxInterface(canRefer toScreen_Docking_Guide.pdfofMIPI_DSIChapter )。UserThroughinsolutionin InterfaceImplementationVODeviceofInitialize。</p></li>
+</ul>
+<section id="id8">
+<h2><span class="section-number">4.1. </span>Enable the AliOS Startup Screen<a class="headerlink" href="2_Startup_Screen_User_Guide.html#id8" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>incvi_alios/components/cvi_mmf_sdk/cvi_middleware/cvi_panelunderAddpanelofheader，canRefer toScreen_Docking_Guide.pdforalreadySupportpanelImplementationcombo_dev_cfg_setc.DataStructure。</p></li>
+<li><p>incvi_alios/components/cvi_mmf_sdk/cvi_middleware/cvi_panel/dsi_panels.hinImplementation panelofpanel_desc_sStructure 。</p></li>
+<li><p>incvi_alios/solutions/normboot/package_yamls/package.yaml.turnkeyinAddconfigOptionand If：</p>
+<blockquote>
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">CONFIG_PANEL_HX8394: 1  //Other screens can be added</span>
+<span class="go">CONFIG_RTOS_INIT_MEDIA: 1</span>
+<span class="go">CONFIG_SUPPORT_VO: 1</span>
+<span class="go">CONFIG_ALIOSLOGO: 1</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>incvi_alios/solutions/normboot/customization/cv1842hp_gc8613/pipeline/custom_moduleparam.cinModifyConfigurationIf：</p>
+<blockquote>
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">.alios_sys_mode = 0,</span>
+<span class="go">.alios_vi_mode = 0,</span>
+<span class="go">.alios_vpss_mode = 0,</span>
+<span class="go">.alios_venc_mode = 0,</span>
+<span class="go">.alios_vo_mode = 1,</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>incvi_alios/solutions/normboot/customization/cv1842hp_gc8613/pipeline/custom_voparam.cinModifyConfigurationIf：</p>
+<blockquote>
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">.u8Bindmode = false,</span>
+
+<span class="go">//Other screens can be added</span>
+<span class="gp">#</span><span class="k">if</span> <span class="o">(</span><span class="nv">CONFIG_PANEL_HX8394</span> <span class="o">==</span> <span class="m">1</span> <span class="o">||</span> <span class="nv">CONFIG_PANEL_ILI9488</span> <span class="o">==</span> <span class="m">1</span> <span class="o">||</span> <span class="nv">CONFIG_PANEL_OTA7290B</span> <span class="o">==</span> <span class="m">1</span><span class="o">)</span>
+<span class="go">    .u8VoCnt = 1,</span>
+<span class="gp">#</span><span class="k">else</span>
+<span class="go">    .u8VoCnt = 0,</span>
+<span class="gp">#</span>endif
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>IfneedUsereset、power、backligtFunction，needincvi_alios/solutions/normboot/customization/cv1842hp_gc8613/src/custom_platform.cinPLATFORM_PanelInit()Interface AddgpioRelatedInformationIf：</p>
+<blockquote>
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">#</span><span class="k">if</span> <span class="o">(</span>!defined<span class="o">(</span>CONFIG_SUPPORT_VO<span class="o">)</span> <span class="o">||</span> <span class="o">(</span>CONFIG_SUPPORT_VO<span class="o">))</span>
+<span class="gp">#</span><span class="k">if</span> CONFIG_PANEL_HX8394
+<span class="go">    u8 pw_port, pw_pin, bl_port, bl_pin, rst_port, rst_pin;</span>
+<span class="go">    pw_port = 4;</span>
+<span class="go">    pw_pin = 1;</span>
+<span class="go">    bl_port = 4;</span>
+<span class="go">    bl_pin = 0;</span>
+<span class="go">    rst_port = 4;</span>
+<span class="go">    rst_pin = 2;</span>
+<span class="go">    _GPIOSetValue(pw_port, pw_pin, 1);</span>
+<span class="go">    _GPIOSetValue(bl_port, bl_pin, 1);</span>
+<span class="go">    _GPIOSetValue(rst_port, rst_pin, 1);</span>
+<span class="go">    udelay(20 * 1000);</span>
+<span class="go">    _GPIOSetValue(rst_port, rst_pin, 0);</span>
+<span class="go">    udelay(20 * 1000);</span>
+<span class="go">    _GPIOSetValue(rst_port, rst_pin, 1);</span>
+<span class="go">    udelay(20 * 1000);</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+<section id="id9">
+<h3><span class="section-number">4.1.1. </span>Prepare the Startup Image<a class="headerlink" href="2_Startup_Screen_User_Guide.html#id9" title="Permalink to this heading">¶</a></h3>
+<p>SDK Provide  <code class="docutils literal notranslate"><span class="pre">build/tools/common/bootlogo/process_images.py</span></code> Tools Generate <code class="docutils literal notranslate"><span class="pre">logo.jpg</span></code>。</p>
+<p><strong>Install dependencies:</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">apt install ffmpeg python3-pil</span>
+</pre></div>
+</div>
+<p><strong>Usage examples:</strong></p>
+<p>Single image:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">python build/tools/common/bootlogo/process_images.py \</span>
+<span class="go">    -i my_logo.png -o bootlogo/ -r 720 1280 --rotate 90</span>
+</pre></div>
+</div>
+<p>Multiple images (AliOS supports animated logos and plays multiple JPEGs in sequence):</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">python build/tools/common/bootlogo/process_images.py \</span>
+<span class="go">    -i ./frames/ -o bootlogo/ -r 720 1280 --rotate 90 -f 15</span>
+</pre></div>
+</div>
+<p>Parameter description:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-i</span></code>  InputFigure orFile Path</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-o</span></code>  OutputContents</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-r</span></code>  OutputResolution WIDTH HEIGHT</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--rotate</span></code>  Rotation angle: 0/90/180/270</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-f</span></code>   （fps）， Figure ModeValid，Default 10</p></li>
+</ul>
+<p><strong> ： mustSettings ``CONFIG_RTOS_LOGO_SIZE``</strong>，This value must be greater than the actual <code class="docutils literal notranslate"><span class="pre">logo.jpg</span></code> FileofSize， Memorynot Release。</p>
+<p>Generate <code class="docutils literal notranslate"><span class="pre">logo.jpg</span></code> Then continue with the following configuration steps.</p>
+<ol class="arabic" start="7">
+<li><p>will Figure  logo.jpg Copy under the directory bootlogo/logo.jpg，BuildSDK，Build UsemenuconfiginSDK optionsinEnablePack BOOTLOGO，Commandas follows：</p>
+<blockquote>
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">source build/envsetup_soc.sh</span>
+<span class="go">defconfig cv184x_wevb</span>
+<span class="go">menuconfig</span>
+<span class="go">Build_all</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+</section>
+</section>
+<section id="id10">
+<h2><span class="section-number">4.2. </span>aliosStartup Screen Principle<a class="headerlink" href="2_Startup_Screen_User_Guide.html#id10" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic simple">
+<li><p>will Figure  logo.jpg Copy $BOOTLOGO_PATH，BuildSDK。</p></li>
+<li><p>incvi_alios/components/cvi_platform/media/src/media_logo.cCodein， VDEC_STREAM_SStructure ，and pu8Bufetc. MacroCVIMMAP_RTOS_LOGO_ADDR， Address logo.jpgData。</p></li>
+<li><p> CVI_VB_Init()InitializeVB。</p></li>
+<li><p>InitializeVDECDevice(canRefer toMediaProcessingSoftwareDevelopmentReference_zh.pdf Chapter)。</p></li>
+<li><p>Call CVI_VDEC_SendStream() to send JPEG data to VDEC for decoding.</p></li>
+<li><p> CVI_VDEC_GetFrame()Get CompleteofVIDEO_FRAME_INFO_SStructure 。</p></li>
+<li><p> CVI_VO_SendLogoFromIon() ， Interface before SupportNV21 。</p></li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="1_disclaimer.html" class="btn btn-neutral float-left" title="1. Disclaimer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Go to Official Website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="Go to Documentation Center"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Back to top"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Go to bottom"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR code for this page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

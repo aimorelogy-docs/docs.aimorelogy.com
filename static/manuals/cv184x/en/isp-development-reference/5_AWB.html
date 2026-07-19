@@ -1,0 +1,2002 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5. AWB &mdash; ISPDevelopmentReference master documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="6. AF" href="6_AF.html" />
+    <link rel="prev" title="4. AE" href="4_AE.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> ISPDevelopmentReference
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Preface.html">2. Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_System_Control.html">3. System Control</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_AE.html">4. AE</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="5_AWB.html#">5. AWB</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="5_AWB.html#id1">5.1. Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_AWB.html#id2">5.2. Key Concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_AWB.html#id3">5.3. Functional Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_AWB.html#api">5.4. API Reference</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="5_AWB.html#id5">5.4.1. AWBlibrary interface</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="5_AWB.html#cvi-awb-register">5.4.1.1. CVI_AWB_Register</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_AWB.html#cvi-awb-unregister">5.4.1.2. CVI_AWB_UnRegister</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_AWB.html#cvi-awb-sensorregcallback">5.4.1.3. CVI_AWB_SensorRegCallBack</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_AWB.html#cvi-awb-sensorunregcallback">5.4.1.4. CVI_AWB_SensorUnRegCallBack</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="5_AWB.html#id6">5.4.2. AWB control module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="5_AWB.html#cvi-isp-setwbattr">5.4.2.1. CVI_ISP_SetWBAttr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_AWB.html#cvi-isp-getwbattr">5.4.2.2. CVI_ISP_GetWBAttr</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_AWB.html#cvi-isp-setawbattrex">5.4.2.3. CVI_ISP_SetAWBAttrEx</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_AWB.html#cvi-isp-getawbattrex">5.4.2.4. CVI_ISP_GetAWBAttrEx</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_AWB.html#cvi-isp-querywbinfo">5.4.2.5. CVI_ISP_QueryWBInfo</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_AWB.html#cvi-isp-setawblogpath">5.4.2.6. CVI_ISP_SetAWBLogPath</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_AWB.html#cvi-isp-setawblogname">5.4.2.7. CVI_ISP_SetAWBLogName</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_AWB.html#cvi-isp-getgrayworldawbinfo">5.4.2.8. CVI_ISP_GetGrayWorldAwbInfo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="5_AWB.html#id7">5.5. Data Types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="5_AWB.html#register">5.5.1. Register</a></li>
+<li class="toctree-l3"><a class="reference internal" href="5_AWB.html#wb">5.5.2. WB</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="5_AWB.html#isp-mwb-attr-s">5.5.2.1. ISP_MWB_ATTR_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_AWB.html#isp-awb-ct-limit-attr-s">5.5.2.2. ISP_AWB_CT_LIMIT_ATTR_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_AWB.html#isp-awb-alg-e">5.5.2.3. ISP_AWB_ALG_E</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_AWB.html#isp-awb-attr-s">5.5.2.4. ISP_AWB_ATTR_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_AWB.html#isp-awb-alg-type-e">5.5.2.5. ISP_AWB_ALG_TYPE_E</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_AWB.html#isp-awb-cbcr-track-attr-s">5.5.2.6. ISP_AWB_CBCR_TRACK_ATTR_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_AWB.html#isp-awb-lum-histgram-attr-s">5.5.2.7. ISP_AWB_LUM_HISTGRAM_ATTR_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_AWB.html#isp-wb-attr-s">5.5.2.8. ISP_WB_ATTR_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_AWB.html#isp-awb-attr-ex-s">5.5.2.9. ISP_AWB_ATTR_EX_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_AWB.html#isp-awb-extra-lightsource-info-s">5.5.2.10. ISP_AWB_EXTRA_LIGHTSOURCE_INFO_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_AWB.html#isp-awb-in-out-attr-s">5.5.2.11. ISP_AWB_IN_OUT_ATTR_S</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_AWB.html#isp-awb-multi-ls-type-e">5.5.2.12. ISP_AWB_MULTI_LS_TYPE_E</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_AWB.html#isp-awb-indoor-outdoor-status-e">5.5.2.13. ISP_AWB_INDOOR_OUTDOOR_STATUS_E</a></li>
+<li class="toctree-l4"><a class="reference internal" href="5_AWB.html#isp-wb-info-s">5.5.2.14. ISP_WB_INFO_S</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="6_AF.html">6. AF</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_IMP.html">7. IMP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_BlackLevel.html">8. BLC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_DPC.html">9. DPC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_LSC.html">10. LSC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_RLSC.html">11. RLSC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_CCM.html">12. CCM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_Noise_Profile.html">13. Noise profile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_BNR.html">14. BNR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="15_CNR.html">15. CNR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="16_TNR.html">16. TNR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="17_Crosstalk.html">17. Crosstalk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="18_Demosaic.html">18. DEMOSAIC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="19_Sharpen.html">19. SHARPEN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="20_PreSharpen.html">20. PRESHARPEN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21_RGB_Gamma.html">21. RGBGAMMA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="22_DCI.html">22. DCI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="23_LDCI.html">23. LDCI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="24_ColorTone.html">24. ColorTone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="25_Saturation.html">25. Saturation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="26_PFR.html">26. PFR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="27_FSHDR.html">27. FSHDR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="28_DRC.html">28. DRC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="29_Mono.html">29. MONO</a></li>
+<li class="toctree-l1"><a class="reference internal" href="30_YCONTRAST.html">30. YCONTRAST</a></li>
+<li class="toctree-l1"><a class="reference internal" href="31_CA.html">31. CA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="32_CA2.html">32. CA2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="33_CLUT.html">33. CLUT</a></li>
+<li class="toctree-l1"><a class="reference internal" href="34_CSC.html">34. CSC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="35_VC.html">35. VC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="36_Statistical_Information.html">36. Statistical Information</a></li>
+<li class="toctree-l1"><a class="reference internal" href="37_Query_Internal_Status_Messages.html">37. Query Internal Status Messages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="38_Debug.html">38. Debug</a></li>
+<li class="toctree-l1"><a class="reference internal" href="39_Error_Code.html">39. Error Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="40_3A_Development_User_Guide_Overview.html">40. 3A Development Guide Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="41_3A_Development_User_Guide.html">41. 3A Developer User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="42_Developer_Guide.html">42. Developer Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="43_Appendix.html">43. Appendix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="44_Abbreviations.html">44. Abbreviations</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ISPDevelopmentReference</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">5. </span>AWB</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/5_AWB.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="awb">
+<h1><span class="section-number">5. </span>AWB<a class="headerlink" href="5_AWB.html#awb" title="Permalink to this heading">¶</a></h1>
+<section id="id1">
+<h2><span class="section-number">5.1. </span>Overview<a class="headerlink" href="5_AWB.html#id1" title="Permalink to this heading">¶</a></h2>
+<p>color temperaturewithcanseelight spectrumbecomepartchangeandchange, inlowcolor temperaturelight sourceunder, whitecolorobjectbiasred, inheightcolor temperaturelight sourceunder, whitecolorobjectbiasblue. human visioncanaccording tolargebrain memorydetermine, recognitionobject actualcolor,  AWB algorithmfunctionisdecreaselowoutsideboundarylight sourceforobjectactualcolor affects, makeobtainwecapture colorinformationrotatechangeisinidealdaylightlight sourceunder Nonecolor castinformation</p>
+</section>
+<section id="id2">
+<h2><span class="section-number">5.2. </span>Key Concepts<a class="headerlink" href="5_AWB.html#id2" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>color temperature: color temperatureisaccording toabsoluteforblackbodytoDefine  ,  light source radiationincanseeregionandabsoluteforblackbody radiationcompleteallrelativeat the same time, thiswhenblackbody temperaturedegreethennamethislight source color temperature. </p></li>
+<li><p>white balance:  indifferentcolor temperature light sourceunder, whitecolorinpasssensedevicein responsewillbiasblueorbiasred. white balancealgorithmthroughAdjustR, G, B threecolorchannel strength, makewhitecoloractualappearscurrent. </p></li>
+</ul>
+</section>
+<section id="id3">
+<h2><span class="section-number">5.3. </span>Functional Description<a class="headerlink" href="5_AWB.html#id3" title="Permalink to this heading">¶</a></h2>
+<p>AWB modulehavehardware  WB informationsystemstatisticalmoduleand AWB strategyControlalgorithm firmware twopartconsists of. </p>
+<p>ISP  WB informationsystemstatisticalmoduledetermine sensor output each pixelwhetherfullsufficientusersettings white pointcondition, calculateallfullsufficientcondition pixel  R,  G,  B threecolorchannelaveragevalue. </p>
+<p>itssupportwillimagepartbecome M*N (M line N column) region, systemstatisticaleachregion  R,  G,  B averagevalueandparameterandsystemstatistical white pointnumber, alsosupportoutputwhole imageimage  R,  G,  B averagevalueandparameterandsystemstatistical white pointnumber. </p>
+<p>AWB Operating Principlesuch as <a class="reference internal" href="5_AWB.html#id4"><span class="std std-numref">Figure 5.1</span></a> as shown</p>
+<figure class="align-center" id="id4">
+<img alt="_images/AWB002.png" src="_images/AWB002.png" />
+<figcaption>
+<p><span class="caption-number">Figure 5.1 </span><span class="caption-text">AWB Operating PrincipleFigure</span><a class="headerlink" href="5_AWB.html#id4" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="api">
+<h2><span class="section-number">5.4. </span>API Reference<a class="headerlink" href="5_AWB.html#api" title="Permalink to this heading">¶</a></h2>
+<section id="id5">
+<h3><span class="section-number">5.4.1. </span>AWBlibrary interface<a class="headerlink" href="5_AWB.html#id5" title="Permalink to this heading">¶</a></h3>
+<p>all AWB library interfaceallonlyisfor CVI AWB library, ifcustomeruserownimplement AWB library, notneed tomanagethissomeinterface, at the same timealsocannotusethissomeinterface. </p>
+<ul class="simple">
+<li><p><a class="reference internal" href="5_AWB.html#cvi-awb-register">CVI_AWB_Register</a> : to ISP Register AWB library. </p></li>
+<li><p><a class="reference internal" href="5_AWB.html#cvi-awb-unregister">CVI_AWB_UnRegister</a> : to ISP Unregister AWB library. </p></li>
+<li><p><a class="reference internal" href="5_AWB.html#cvi-awb-sensorregcallback">CVI_AWB_SensorRegCallBack</a> : sensor registration callback interface provided by the AWB library</p></li>
+<li><p><a class="reference internal" href="5_AWB.html#cvi-awb-sensorunregcallback">CVI_AWB_SensorUnRegCallBack</a> : sensor unregistration callback interface provided by the AWB library</p></li>
+</ul>
+<section id="cvi-awb-register">
+<h4><span class="section-number">5.4.1.1. </span>CVI_AWB_Register<a class="headerlink" href="5_AWB.html#cvi-awb-register" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>to ISP Register AWB library. </p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_AWB_Register</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ALG_LIB_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstAwbLib</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe No.</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstAwbLib</p></td>
+<td><p>AWB algorithm librarystructure pointer</p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success. </p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure,See <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">Error Code</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header File: cvi_awb.h</p></li>
+<li><p>Library File: libawb.a</p></li>
+</ul>
+<p>[Note]</p>
+<ul class="simple">
+<li><p>theinterfacecall ISP libraryprovide  AWB Registercallback interface CVI_ISP_AWBLibRegCallBack , to implement AWB to ISP libraryRegister function. </p></li>
+<li><p>This interface does not support multiprocess operation. </p></li>
+</ul>
+<p>[Example]</p>
+<p>None. </p>
+<p>[Related Topics]</p>
+<p>None. </p>
+</section>
+<section id="cvi-awb-unregister">
+<h4><span class="section-number">5.4.1.2. </span>CVI_AWB_UnRegister<a class="headerlink" href="5_AWB.html#cvi-awb-unregister" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>to ISP unregister AWB library. </p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_AWB_UnRegister</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ALG_LIB_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstAwbLib</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe No.</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstAwbLib</p></td>
+<td><p>AWB algorithm librarystructure pointer</p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success. </p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure, See <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">Error Code</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header File: cvi_awb.h</p></li>
+<li><p>Library File: libawb.a</p></li>
+</ul>
+<p>[Note]</p>
+<ul class="simple">
+<li><p>theinterfacecall ISP libraryprovide  AWB unregistercallback interface CVI_ISP_AWBLibUnRegCallBack , to implement AWB to ISP libraryunregister function. </p></li>
+<li><p>This interface does not support multiprocess operation. </p></li>
+<li><p>This interface is not currently supported on the dual-system SDK   linux side. </p></li>
+</ul>
+<p>[Example]</p>
+<p>None. </p>
+<p>[Related Topics]</p>
+<p>None. </p>
+</section>
+<section id="cvi-awb-sensorregcallback">
+<h4><span class="section-number">5.4.1.3. </span>CVI_AWB_SensorRegCallBack<a class="headerlink" href="5_AWB.html#cvi-awb-sensorregcallback" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>sensor registration callback interface provided by the AWB library. </p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_AWB_SensorRegCallBack</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ALG_LIB_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstAwbLib</span><span class="p">,</span><span class="w"> </span><span class="n">ISP_SNS_ATTR_INFO_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstSnsAttrInfo</span><span class="p">,</span><span class="w"> </span><span class="n">AWB_SENSOR_REGISTER_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstRegister</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe No.</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstAeLib</p></td>
+<td><p>AWB algorithm librarystructure pointer</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-even"><td><p>pstSnsAttrInfo</p></td>
+<td><p>to AWB Register  Sensor  attribute</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstRegister</p></td>
+<td><p>Sensor Registerstructure pointer</p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success. </p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure, See <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">Error Code</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header File: cvi_awb.h</p></li>
+<li><p>Library File: libawb.a</p></li>
+</ul>
+<p>[Note]</p>
+<ul class="simple">
+<li><p>SensorId is sensor libraryincustom value, mainlyuseincalibrateforto ISP Register  sensor andto 3A Register  sensor whetherissameone sensor. </p></li>
+<li><p>AWB through sensor     Register onesystemcolumncallback interface, Getdifferencetransform Initializeparameternumber, andControlsensor. </p></li>
+<li><p>This interface does not support multiprocess operation. </p></li>
+</ul>
+<figure class="align-center" id="awb-sensor">
+<img alt="_images/AWB004.png" src="_images/AWB004.png" />
+<figcaption>
+<p><span class="caption-number">Figure 5.2 </span><span class="caption-text">AWB libraryand sensor libraryinterval interface</span><a class="headerlink" href="5_AWB.html#awb-sensor" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>[Example]</p>
+<p>None. </p>
+<p>[Related Topics]</p>
+<p>None. </p>
+</section>
+<section id="cvi-awb-sensorunregcallback">
+<h4><span class="section-number">5.4.1.4. </span>CVI_AWB_SensorUnRegCallBack<a class="headerlink" href="5_AWB.html#cvi-awb-sensorunregcallback" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>AWB libraryprovide  sensor unregister callback interface. </p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_AWB_SensorUnRegCallBack</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ALG_LIB_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstAwbLib</span><span class="p">,</span><span class="w"> </span><span class="n">SENSOR_ID</span><span class="w"> </span><span class="n">SensorId</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe No.</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstAwbLib</p></td>
+<td><p>AWB algorithm librarystructure pointer</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-even"><td><p>SensorId</p></td>
+<td><p>to AWB unregister  Sensor   Id</p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success. </p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure, See <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">Error Code</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header File: cvi_awb.h</p></li>
+<li><p>Library File: libawb.a</p></li>
+</ul>
+<p>[Note]</p>
+<ul class="simple">
+<li><p>SensorId is sensor libraryincustom value, mainlyuseincalibrateforto ISP Register      sensor andto 3A Register  sensor whetherissameone sensor. </p></li>
+<li><p>This interface does not support multiprocess operation. </p></li>
+</ul>
+<p>[Example]</p>
+<p>None. </p>
+<p>[Related Topics]</p>
+<p>None. </p>
+</section>
+</section>
+<section id="id6">
+<h3><span class="section-number">5.4.2. </span>AWB control module<a class="headerlink" href="5_AWB.html#id6" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="5_AWB.html#cvi-isp-setwbattr">CVI_ISP_SetWBAttr</a> : Setwhite balanceattribute. </p></li>
+<li><p><a class="reference internal" href="5_AWB.html#cvi-isp-getwbattr">CVI_ISP_GetWBAttr</a> : Getwhite balanceattribute. </p></li>
+<li><p><a class="reference internal" href="5_AWB.html#cvi-isp-setawbattrex">CVI_ISP_SetAWBAttrEx</a> : Setwhite balanceextensionattribute. </p></li>
+<li><p><a class="reference internal" href="5_AWB.html#cvi-isp-getawbattrex">CVI_ISP_GetAWBAttrEx</a> : Getwhite balanceextensionattribute. </p></li>
+<li><p><a class="reference internal" href="5_AWB.html#cvi-isp-querywbinfo">CVI_ISP_QueryWBINfo</a> : Getcurrentwhite balancegainsystemnumber, detectioncolor temperature, saturationvalue, colorcorrectionmatrixsystemnumber. </p></li>
+<li><p><a class="reference internal" href="5_AWB.html#cvi-isp-setawblogpath">CVI_ISP_SetAWBLogPath</a> : useCVI Awb lib when,storeAWB Debuglog path. </p></li>
+<li><p><a class="reference internal" href="5_AWB.html#cvi-isp-setawblogname">CVI_ISP_SetAWBLogName</a> : useCVI Awb lib when,storeAWB Debuglog name. </p></li>
+<li><p><a class="reference internal" href="5_AWB.html#cvi-isp-getgrayworldawbinfo">CVI_ISP_GetGrayWorldAwbInfo</a> : GetgrayworldboundaryWBinformation. </p></li>
+</ul>
+<section id="cvi-isp-setwbattr">
+<h4><span class="section-number">5.4.2.1. </span>CVI_ISP_SetWBAttr<a class="headerlink" href="5_AWB.html#cvi-isp-setwbattr" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>Setwhite balanceattribute. </p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_SetWBAttr</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ISP_WB_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstWBAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe No.</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstWBAttr</p></td>
+<td><p>white balanceattributestructure pointer</p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success. </p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure, See <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">Error Code</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header File: cvi_awb.h</p></li>
+<li><p>Library File: libawb.a</p></li>
+</ul>
+<p>[Note]</p>
+<ul class="simple">
+<li><p>white balanceControltypeisautomaticwhen,  AWB algorithmautomaticAdjustwhite balancesystemnumber. </p></li>
+<li><p>white balanceControltypeismanualwhen,  AWB algorithminvalid, needselflinesettings Rgain,  Ggain,      Bgain. </p></li>
+<li><p>environmentcolor temperature, illuminancewillaffectswhite point partdistributionrange, CVI AWB     algorithminRunprocessin, willaccording toenvironmentparameternumberautomaticrefreshnew AWB Byaer     domainstatistical information white pointparameternumber. userwantin CVI AWB algorithmRunwhenmodify AWBsystemstatisticalparameternumber, need tocall CVI_ISP_SetWBAttrinterface, Disablesystemstatisticalparameternumberautomaticrefreshnewfunction. userDisablesystemstatisticalparameternumberautomaticrefreshnewfunction, to    ISP receivetoconfigurationandresponse, have 2frame delaywhen. becausethis, userSetafterneed toetc.pending 2framewhenintervalagainmodify AWB systemstatisticalparameternumber. </p></li>
+</ul>
+<p>[Example]</p>
+<p>None. </p>
+<p>[Related Topics]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="5_AWB.html#cvi-isp-getwbattr">CVI_ISP_GetWBAttr</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-getwbattr">
+<h4><span class="section-number">5.4.2.2. </span>CVI_ISP_GetWBAttr<a class="headerlink" href="5_AWB.html#cvi-isp-getwbattr" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>Getwhite balanceattribute. </p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_GetWBAttr</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ISP_WB_ATTR_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstWBAttr</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe No.</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstWBAttr</p></td>
+<td><p>white balanceattributestructure pointer</p></td>
+<td><p>output</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success. </p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure, See <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">Error Code</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header File: cvi_awb.h</p></li>
+<li><p>Library File: libawb.a</p></li>
+</ul>
+<p>[Note]</p>
+<p>None. </p>
+<p>[Example]</p>
+<p>None. </p>
+<p>[Related Topics]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="5_AWB.html#cvi-isp-setwbattr">CVI_ISP_SetWBAttr</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-setawbattrex">
+<h4><span class="section-number">5.4.2.3. </span>CVI_ISP_SetAWBAttrEx<a class="headerlink" href="5_AWB.html#cvi-isp-setawbattrex" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>Setwhite balanceextensionattribute. </p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_SetAWBAttrEx</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">ISP_AWB_ATTR_EX_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstAWBAttrEx</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe No.</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>PstAWBAttrEx</p></td>
+<td><p>extensionwhite balanceattributestructure pointer</p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success. </p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure, See <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">Error Code</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header File: cvi_awb.h</p></li>
+<li><p>Library File: libawb.a</p></li>
+</ul>
+<p>[Note]</p>
+<ul class="simple">
+<li><p>when CVI_ISP_SetWBAttr interfaceMembers pstWBAttr-&gt;enAlgType is AWB_ALG_ADVANCEwhen, thisinterfaceonly thenvalid. </p></li>
+</ul>
+<p>[Example]</p>
+<p>None. </p>
+<p>[Related Topics]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="5_AWB.html#cvi-isp-getawbattrex">CVI_ISP_GetAWBAttrEx</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-getawbattrex">
+<h4><span class="section-number">5.4.2.4. </span>CVI_ISP_GetAWBAttrEx<a class="headerlink" href="5_AWB.html#cvi-isp-getawbattrex" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>Getwhite balanceextensionattribute. </p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_GetAWBAttrEx</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ISP_AWB_ATTR_EX_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstAWBAttrEx</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe No.</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>pstAWBAttrEx</p></td>
+<td><p>extendReturnextendwhite balanceattributestructure pointer</p></td>
+<td><p>output</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success. </p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure, See <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">Error Code</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header File: cvi_awb.h</p></li>
+<li><p>Library File: libawb.a</p></li>
+</ul>
+<p>[Note]</p>
+<p>None. </p>
+<p>[Example]</p>
+<p>None. </p>
+<p>[Related Topics]</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="5_AWB.html#cvi-isp-setawbattrex">CVI_ISP_SetAWBAttrEx</a></p></li>
+</ul>
+</section>
+<section id="cvi-isp-querywbinfo">
+<h4><span class="section-number">5.4.2.5. </span>CVI_ISP_QueryWBInfo<a class="headerlink" href="5_AWB.html#cvi-isp-querywbinfo" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>Getcurrentwhite balancegainsystemnumber, detectioncolor temperature, saturationvalue, colorcorrectionmatrixsystemnumber. </p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_QueryWBInfo</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">ISP_WB_INFO_S</span><span class="w"> </span><span class="o">*</span><span class="n">pstWBInfo</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipe No.</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>PstWBInfo</p></td>
+<td><p>colorrelatedstatusparameternumber</p></td>
+<td><p>output</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success. </p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure, See <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">Error Code</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header File: cvi_awb.h</p></li>
+<li><p>Library File: libawb.a</p></li>
+</ul>
+<p>[Note]</p>
+<p>None. </p>
+<p>[Example]</p>
+<p>None. </p>
+<p>[Related Topics]</p>
+<p>None. </p>
+</section>
+<section id="cvi-isp-setawblogpath">
+<h4><span class="section-number">5.4.2.6. </span>CVI_ISP_SetAWBLogPath<a class="headerlink" href="5_AWB.html#cvi-isp-setawblogpath" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>useCVI Awb lib when, storeAWB Debuglog path. </p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">CVI_ISP_SetAWBLogPath</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">szPath</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>szPath</p></td>
+<td><p>Debuglogpath</p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success. </p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure, See <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">Error Code</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header File: cvi_awb.h</p></li>
+<li><p>Library File: libawb.a</p></li>
+</ul>
+<p>[Note]</p>
+<ul class="simple">
+<li><p>Defaultpathis /var/log</p></li>
+</ul>
+<p>[Example]</p>
+<p>None. </p>
+<p>[Related Topics]</p>
+<p>None. </p>
+</section>
+<section id="cvi-isp-setawblogname">
+<h4><span class="section-number">5.4.2.7. </span>CVI_ISP_SetAWBLogName<a class="headerlink" href="5_AWB.html#cvi-isp-setawblogname" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>useCVI Awb lib when,storeAWB Debuglog filename. </p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">CVI_ISP_SetAWBLogName</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">szName</span><span class="p">)</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>szName</p></td>
+<td><p>documentcomponentname</p></td>
+<td><p>Input</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success. </p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure, See <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">Error Code</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header File: cvi_awb.h</p></li>
+<li><p>Library File: libawb.a</p></li>
+</ul>
+<p>[Note]</p>
+<ul class="simple">
+<li><p>presetdocumentcomponentnameisAwbLog0.txt</p></li>
+</ul>
+<p>[Example]</p>
+<p>None. </p>
+<p>[Related Topics]</p>
+<p>None. </p>
+</section>
+<section id="cvi-isp-getgrayworldawbinfo">
+<h4><span class="section-number">5.4.2.8. </span>CVI_ISP_GetGrayWorldAwbInfo<a class="headerlink" href="5_AWB.html#cvi-isp-getgrayworldawbinfo" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>GetgraydegreeworldboundaryWBinformation. </p>
+<p>[Syntax]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="n">CVI_S32</span><span class="w"> </span><span class="nf">CVI_ISP_GetGrayWorldAwbInfo</span><span class="p">(</span><span class="n">VI_PIPE</span><span class="w"> </span><span class="n">ViPipe</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_U16</span><span class="w"> </span><span class="o">*</span><span class="n">pRgain</span><span class="p">,</span><span class="w"> </span><span class="n">CVI_U16</span><span class="w"> </span><span class="o">*</span><span class="n">pBgain</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Parameters]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 50%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter Name</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Input/Output</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ViPipe</p></td>
+<td><p>ViPipeNo.</p></td>
+<td><p>Input</p></td>
+</tr>
+<tr class="row-odd"><td><p>pRgain</p></td>
+<td><p>Rchannel gain</p></td>
+<td><p>output</p></td>
+</tr>
+<tr class="row-even"><td><p>pBgain</p></td>
+<td><p>Bchannel gain</p></td>
+<td><p>output</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Return Value]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Return Value</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Success. </p></td>
+</tr>
+<tr class="row-odd"><td><p>Non-zero</p></td>
+<td><p>Failure, See <a class="reference internal" href="39_Error_Code.html#id1"><span class="std std-ref">Error Code</span></a>. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Requirements]</p>
+<ul class="simple">
+<li><p>Header File: cvi_awb.h</p></li>
+<li><p>Library File: libawb.a</p></li>
+</ul>
+<p>[Note]</p>
+<p>None. </p>
+<p>[Example]</p>
+<p>None. </p>
+<p>[Related Topics]</p>
+<p>None. </p>
+</section>
+</section>
+</section>
+<section id="id7">
+<h2><span class="section-number">5.5. </span>Data Types<a class="headerlink" href="5_AWB.html#id7" title="Permalink to this heading">¶</a></h2>
+<section id="register">
+<h3><span class="section-number">5.5.1. </span>Register<a class="headerlink" href="5_AWB.html#register" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>AWB_SENSOR_REGISTER_S : Define  sensor Registerstructure. </p></li>
+<li><p>AWB_SENSOR_EXP_FUNC_S : Define  sensor callback functionstructure. </p></li>
+<li><p>AWB_SENSOR_DEFAULT_S : Define  AWB algorithm library Initializeparameternumberstructure. </p></li>
+<li><p>AWB_SPEC_SENSOR_DEFAULT_S : Define  SPECAWB algorithm Initializeparameternumberstructure. </p></li>
+<li><p>AWB_AGC_TABLE_S :  Define saturationInitializeparameternumberstructure. </p></li>
+<li><p>AWB_CCM_TAB_S :  Define differentunder the color temperatureautomaticcolorcorrectionmatrixsystemnumber. </p></li>
+<li><p>AWB_CCM_S :  Define  CCM colorcorrectionmatrixattribute. </p></li>
+</ul>
+</section>
+<section id="wb">
+<h3><span class="section-number">5.5.2. </span>WB<a class="headerlink" href="5_AWB.html#wb" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference internal" href="5_AWB.html#isp-awb-attr-s">ISP_AWB_ATTR_S</a> : Define  ISP automaticwhite balanceattribute. </p></li>
+<li><p><a class="reference internal" href="5_AWB.html#isp-awb-cbcr-track-attr-s">ISP_AWB_CBCR_TRACK_ATTR_S</a> :  Define  Bayer domainstatistical information linkmoveparameternumber. </p></li>
+<li><p><a class="reference internal" href="5_AWB.html#isp-awb-lum-histgram-attr-s">ISP_AWB_LUM_HISTGRAM_ATTR_S</a> :  Define white balance brightnesshistogramFiguresystemstatisticalparameternumber. </p></li>
+<li><p><a class="reference internal" href="5_AWB.html#isp-awb-alg-e">ISP_AWB_ALG_E</a> : Define white balance calculatemethodattribute. </p></li>
+<li><p><a class="reference internal" href="5_AWB.html#isp-awb-ct-limit-attr-s">ISP_AWB_CT_LIMIT_ATTR_S</a> : Define white balancegainrangelimitattribute. </p></li>
+<li><p><a class="reference internal" href="5_AWB.html#isp-mwb-attr-s">ISP_MWB_ATTR_S</a> : Define  ISP manualwhite balanceattribute. </p></li>
+<li><p><a class="reference internal" href="5_AWB.html#isp-wb-attr-s">ISP_WB_ATTR_S</a> : Define white balanceattribute. </p></li>
+<li><p><a class="reference internal" href="5_AWB.html#isp-awb-alg-type-e">ISP_AWB_ALG_TYPE_E</a> : Define AWBalgorithmattribute. </p></li>
+<li><p><a class="reference internal" href="5_AWB.html#isp-awb-attr-ex-s">ISP_AWB_ATTR_EX_S</a> : Automatic Definitionwhite balanceextensionattribute. </p></li>
+<li><p><a class="reference internal" href="5_AWB.html#isp-awb-extra-lightsource-info-s">ISP_AWB_EXTRA_LIGHTSOURCE_INFO_S</a> : Define independentlight sourcepoint information. </p></li>
+<li><p><a class="reference internal" href="5_AWB.html#isp-awb-in-out-attr-s">ISP_AWB_IN_OUT_ATTR_S</a> : forsceneoperationindoorinsideoutside determineset. </p></li>
+<li><p><a class="reference internal" href="5_AWB.html#isp-awb-multi-ls-type-e">ISP_AWB_MULTI_LS_TYPE_E</a> : Define blendlight sourceunder  AWB strategytype. </p></li>
+<li><p><a class="reference internal" href="5_AWB.html#isp-awb-indoor-outdoor-status-e">ISP_AWB_INDOOR_OUTDOOR_STATUS_E</a> : Define AWBindoorinsideindooroutsidestatus. </p></li>
+<li><p><a class="reference internal" href="5_AWB.html#isp-wb-info-s">ISP_WB_INFO_S</a> : Define white balance, saturation, colorcorrectioninformation. </p></li>
+</ul>
+<section id="isp-mwb-attr-s">
+<h4><span class="section-number">5.5.2.1. </span>ISP_MWB_ATTR_S<a class="headerlink" href="5_AWB.html#isp-mwb-attr-s" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>Manual DefinitionWB</p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_MWB_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16Rgain</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16Grgain</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16Gbgain</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16Bgain</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_MWB_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>u16Rgain</p></td>
+<td><p>MWB when R channel gain</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16Grgain</p></td>
+<td><p>MWB when Gr channel gain</p></td>
+</tr>
+<tr class="row-even"><td><p>u16Grgain</p></td>
+<td><p>MWB when Gb channel gain</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16Bgain</p></td>
+<td><p>MWB when B channel gain</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<ul class="simple">
+<li><p>RGBchannel gainonexis0x400</p></li>
+</ul>
+<p>[Related Data Types and Interfaces]</p>
+<p>None. </p>
+</section>
+<section id="isp-awb-ct-limit-attr-s">
+<h4><span class="section-number">5.5.2.2. </span>ISP_AWB_CT_LIMIT_ATTR_S<a class="headerlink" href="5_AWB.html#isp-awb-ct-limit-attr-s" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>Define white balancegainrangelimitattribute</p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_AWB_CT_LIMIT_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bEnable</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">ISP_OP_TYPE_E</span><span class="w"> </span><span class="n">enOpType</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16HighRgLimit</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16HighBgLimit</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16LowRgLimit</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16LowBgLimit</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_AWB_CT_LIMIT_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>bEnable</p></td>
+<td><p>white balancegainrangelimitopenclose</p></td>
+</tr>
+<tr class="row-odd"><td><p>enOpType</p></td>
+<td><p>automaticormanualsettingsselfflatbalancegainrange</p></td>
+</tr>
+<tr class="row-even"><td><p>u16HighRgLimit</p></td>
+<td><p>manual modeunderheightunder the color temperature maximumRgain</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16HighBgLimit</p></td>
+<td><p>manual modeunderheightunder the color temperature minimumBgain</p></td>
+</tr>
+<tr class="row-even"><td><p>u16LowRgLimit</p></td>
+<td><p>manual modeunderlowunder the color temperature minimumRgain</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16LowBgLimit</p></td>
+<td><p>manual modeunderlowunder the color temperature maximumBgain</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<ul class="simple">
+<li><p>automatic modeunderAWBalgorithmwillowncalculateonunderlimitgainvalue,whenswitchismanual modewhen,willuseondescribefourR.B gain limitvalue</p></li>
+<li><p>onexgainis0x400</p></li>
+</ul>
+<p>[Related Data Types and Interfaces]</p>
+<p>None. </p>
+</section>
+<section id="isp-awb-alg-e">
+<h4><span class="section-number">5.5.2.3. </span>ISP_AWB_ALG_E<a class="headerlink" href="5_AWB.html#isp-awb-alg-e" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>Define AWB algorithmtypeother</p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_ISP_AWB_ALG_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">ALG_AWB</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">ALG_AWB_SPEC</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">ALG_BUTT</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_AWB_ALG_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AWB</p></td>
+<td><p>Generally AWB algorithmReturn</p></td>
+</tr>
+<tr class="row-odd"><td><p>ALG_AWB_SPEC</p></td>
+<td><p>basein machine learning   AWB   algorithm, currentlynot supported. </p></td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<p>None. </p>
+<p>[Related Data Types and Interfaces]</p>
+<p>None. </p>
+</section>
+<section id="isp-awb-attr-s">
+<h4><span class="section-number">5.5.2.4. </span>ISP_AWB_ATTR_S<a class="headerlink" href="5_AWB.html#isp-awb-attr-s" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>Automatic DefinitionWBattribute</p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_AWB_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bEnable</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16RefColorTemp</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">au16StaticWB</span><span class="p">[</span><span class="n">ISP_BAYER_CHN_NUM</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_S32</span><span class="w"> </span><span class="n">as32CurvePara</span><span class="p">[</span><span class="n">AWB_CURVE_PARA_NUM</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="n">ISP_AWB_ALG_TYPE_E</span><span class="w"> </span><span class="n">enAlgType</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8RGStrength</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8BGStrength</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16Speed</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16ZoneSel</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16HighColorTemp</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16LowColorTemp</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">ISP_AWB_CT_LIMIT_ATTR_S</span><span class="w"> </span><span class="n">stCTLimit</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bShiftLimitEn</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16ShiftLimit</span><span class="p">[</span><span class="n">AWB_CURVE_BOUND_NUM</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bGainNormEn</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bNaturalCastEn</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">ISP_AWB_CBCR_TRACK_ATTR_S</span><span class="w"> </span><span class="n">stCbCrTrack</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">ISP_AWB_LUM_HISTGRAM_ATTR_S</span><span class="w"> </span><span class="n">stLumaHist</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bAWBZoneWtEn</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">au8ZoneWt</span><span class="p">[</span><span class="n">AWB_ZONE_ORIG_ROW</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">AWB_ZONE_ORIG_COLUMN</span><span class="p">];</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_AWB_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>bEnable</p></td>
+<td><p>automaticwhite balancealgorithmopenclose</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16RefColorTemp</p></td>
+<td><p>static  white balance light sourcecolor temperaturevalue,Recommended:5000Klampsource</p></td>
+</tr>
+<tr class="row-even"><td><p>au16StaticWB</p></td>
+<td><p>staticwhite balancesystemnumber, byAWB calibrationprovided by the tool. Return</p>
+<p>Value Range: [0, 0x3FFF]. </p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>as32CurvePara</p></td>
+<td><p>CurvePara[0-2] Planckcurvesystemnumber, byAWB
+calibrationprovided by the tool. PlanckcurvedrawwhitecolorblockReturn
+indifferentcolor temperature standardlight sourceunder colortablecurrent. 
+CurvePara[3-5] color temperaturecurvesystemnumber, byAWBcalibrationprovided by the tool. color temperaturecurvedraw draw
+whitecolorblock colortablecurrentandcolor temperature correspondingclosesystem. </p></td>
+</tr>
+<tr class="row-even"><td><p>enAlgType</p></td>
+<td><p>AWBalgorithmtypeotherselect, AWB_ALG_LOWCOST,AWB_ALG_ADVANCEtwokind
+ISP_AWB_ATTR_EX_S extensionattributeonlyhaveinAWB_ALG_ADVANCEonly thenhaveoperationuse</p></td>
+</tr>
+<tr class="row-odd"><td><p>u8RGStrength</p></td>
+<td><p>automaticwhite balanceRchannelcalibratestrength. </p>
+<p>Value Range: [0, 255]</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>u8BGStrength</p></td>
+<td><p>automaticwhite balanceBchannelcalibratestrength. </p>
+<p>Value Range: [0, 255]</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>u16Speed</p></td>
+<td><p>automaticwhite balancealgorithmconvergencespeed. </p>
+<p>Value Range: [0, 4095]</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>u16ZoneSel</p></td>
+<td><p>parameternumber  is0or255when,captureusenearsimilargrayworldboundary white balancecalculate method,othervaluethenisperformparttypefilterselect,raiseincreaseprecision</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16HighColorTemp</p></td>
+<td><p>automaticwhite balancealgorithm color temperatureupper limit. </p>
+<p>Value Range: [8000, 10000]</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>u16LowColorTemp</p></td>
+<td><p>automaticwhite balancealgorithm under the color temperaturelimit. </p>
+<p>Value Range: [0x0, u8HighColorTemp)</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>stCTLimit</p></td>
+<td><p>manualorautomaticlimitwhite balancegainvalue</p></td>
+</tr>
+<tr class="row-even"><td><p>bShiftLimitEn</p></td>
+<td><p>AWBexceedthroughtypewhite pointrangegainmapmap backwhite pointrange openclose</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16ShiftLimit</p></td>
+<td><p>AWB calculatewhite pointrangeparameternumber</p></td>
+</tr>
+<tr class="row-even"><td><p>bGainNormEn</p></td>
+<td><p>for RGB   channel gainperformReturn   limit, canimprovelowcolor temperature, lowilluminancescene   signalnoiseratio,presetopenenable</p></td>
+</tr>
+<tr class="row-odd"><td><p>bNaturalCastEn</p></td>
+<td><p>lowunder the color temperatureAWBstyle preferencegoodopenclose. presetDisable</p></td>
+</tr>
+<tr class="row-even"><td><p>stCbCrTrack</p></td>
+<td><p>AWBsystemstatisticalrangeandISO continuousmoveparameternumber</p></td>
+</tr>
+<tr class="row-odd"><td><p>stLumaHist</p></td>
+<td><p>AWBbrightnessandweightparameternumber</p></td>
+</tr>
+<tr class="row-even"><td><p>bAWBZoneWtEn</p></td>
+<td><p>imagepartregionweightopenclose,presetisDisable</p></td>
+</tr>
+<tr class="row-odd"><td><p>au8ZoneWt</p></td>
+<td><p>32x32imageweight,Value Range[0,0xFF]      (Not implemented yet)Return</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<p>None. </p>
+<p>[Related Data Types and Interfaces]</p>
+<p>None. </p>
+</section>
+<section id="isp-awb-alg-type-e">
+<h4><span class="section-number">5.5.2.5. </span>ISP_AWB_ALG_TYPE_E<a class="headerlink" href="5_AWB.html#isp-awb-alg-type-e" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>Define AWBalgorithmattribute</p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_ISP_AWB_ALG_TYPE_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">AWB_ALG_LOWCOST</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">AWB_ALG_ADVANCE</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">AWB_ALG_BUTT</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_AWB_ALG_TYPE_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AWB_ALG_LOWCOST</p></td>
+<td><p>simpleeasylowoperationamount AWBalgorithm</p></td>
+</tr>
+<tr class="row-odd"><td><p>AWB_ALG_ADVANCE</p></td>
+<td><p>enterextended level  extendAWBalgorithm,andISP_AWB_ATTR_EX_Srelated</p></td>
+</tr>
+<tr class="row-even"><td><p>AWB_ALG_BUTT</p></td>
+<td><p>invalidsettingsvalueReturn</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<p>None. </p>
+<p>[Related Data Types and Interfaces]</p>
+<blockquote>
+<div><p><a class="reference internal" href="5_AWB.html#isp-awb-attr-ex-s">ISP_AWB_ATTR_EX_S</a></p>
+</div></blockquote>
+</section>
+<section id="isp-awb-cbcr-track-attr-s">
+<h4><span class="section-number">5.5.2.6. </span>ISP_AWB_CBCR_TRACK_ATTR_S<a class="headerlink" href="5_AWB.html#isp-awb-cbcr-track-attr-s" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>Define AWBsystemstatisticalrangeandISO continuousmoveparameternumber</p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_AWB_CBCR_TRACK_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bEnable</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">au16CrMax</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">au16CrMin</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">au16CbMax</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">au16CbMin</span><span class="p">[</span><span class="n">ISP_AUTO_ISO_STRENGTH_NUM</span><span class="p">];</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_AWB_CBCR_TRACK_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>bEnable</p></td>
+<td><p>AWBsystemstatisticalrangeandISO continuousmoveopenclose</p></td>
+</tr>
+<tr class="row-odd"><td><p>au16CrMax</p></td>
+<td><p>differentISOunderR/Gmaximum value</p></td>
+</tr>
+<tr class="row-even"><td><p>au16CrMin</p></td>
+<td><p>differentISOunderR/Gminimum value</p></td>
+</tr>
+<tr class="row-odd"><td><p>au16CbMax</p></td>
+<td><p>differentISOunderB/Gmaximum value</p></td>
+</tr>
+<tr class="row-even"><td><p>au16CbMin</p></td>
+<td><p>differentISOunderB/Gminimum value</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<ul class="simple">
+<li><p>recommendedinlowunder the color temperaturecalibrationCrMax(R/G),CbMin(B/G)</p></li>
+</ul>
+<p>[Related Data Types and Interfaces]</p>
+<p>None. </p>
+</section>
+<section id="isp-awb-lum-histgram-attr-s">
+<h4><span class="section-number">5.5.2.7. </span>ISP_AWB_LUM_HISTGRAM_ATTR_S<a class="headerlink" href="5_AWB.html#isp-awb-lum-histgram-attr-s" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>Define AWBbrightnessandweightparameternumber</p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_AWB_LUM_HISTGRAM_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bEnable</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">ISP_OP_TYPE_E</span><span class="w"> </span><span class="n">enOpType</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">au8HistThresh</span><span class="p">[</span><span class="n">AWB_LUM_HIST_NUM</span><span class="p">];</span><span class="w"></span>
+<span class="w">    </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">au16HistWt</span><span class="p">[</span><span class="n">AWB_LUM_HIST_NUM</span><span class="p">];</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_AWB_LUM_HISTGRAM_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>macro definitionsuch asunder</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#define AWB_LUM_HIST_NUM (6)</span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>bEnable</p></td>
+<td><p>differentbrightnesswhetheropenenableweight,presetopenenable</p></td>
+</tr>
+<tr class="row-odd"><td><p>enOpType</p></td>
+<td><p>automatic mode:AWBautomaticpartmatchweight</p>
+<p>manual mode:usercanselflinesettingsbrightnessparttypeandweight</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>au8HistThresh</p></td>
+<td><p>brightnessparttype threshold(manual modeundervalid)</p></td>
+</tr>
+<tr class="row-odd"><td><p>au16HistWt</p></td>
+<td><p>brightnessparttype weight(manual modeundervalid)</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<ul class="simple">
+<li><p>au8HistThresh[0] fixedis0,au8HistThresh[5]fixedis255.</p></li>
+<li><p>au8HistThresh[i+1]mustlargeinau8HistThresh[i]; </p></li>
+<li><p>au16HistWt weightrangeis32~512</p></li>
+</ul>
+<p>[Related Data Types and Interfaces]</p>
+<p>None. </p>
+</section>
+<section id="isp-wb-attr-s">
+<h4><span class="section-number">5.5.2.8. </span>ISP_WB_ATTR_S<a class="headerlink" href="5_AWB.html#isp-wb-attr-s" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>Define white balanceattribute</p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_WB_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bByPass</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8AWBRunInterval</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">ISP_OP_TYPE_E</span><span class="w"> </span><span class="n">enOpType</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">ISP_MWB_ATTR_S</span><span class="w"> </span><span class="n">stManual</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">ISP_AWB_ATTR_S</span><span class="w"> </span><span class="n">stAuto</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">ISP_AWB_ALG_E</span><span class="w"> </span><span class="n">enAlgType</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U8</span><span class="w">  </span><span class="n">u8DebugMode</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_WB_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>bByPass</p></td>
+<td><p>white balancemoduleBypassEnable, Default Value   CVI_FALSE. Return</p></td>
+</tr>
+<tr class="row-odd"><td><p>u8AWBRunInterval</p></td>
+<td><p>white balancemoduleworkoperationfrequency. </p>
+<p>Value Range: [0x1,  0xFF]</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>enOpType</p></td>
+<td><p>automaticwhite balanceandmanualwhite balanceswitch. </p></td>
+</tr>
+<tr class="row-odd"><td><p>stManual</p></td>
+<td><p>manual parameters</p></td>
+</tr>
+<tr class="row-even"><td><p>stAuto</p></td>
+<td><p>automatic parameters</p></td>
+</tr>
+<tr class="row-odd"><td><p>enAlgType</p></td>
+<td><p>AWB algorithmtypeotherReturn</p></td>
+</tr>
+<tr class="row-even"><td><p>u8DebugMode</p></td>
+<td><p>Debug whenuse, Generallynotneedsettings</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<ul class="simple">
+<li><p>bByPassisTRUEwhen,WBotherparameternumbersettingsnottakes effect,RGBchannel gainfixedisonex0x400</p></li>
+<li><p>u8AWBRunIntervalThe default value is6,indicateseach6frameexecutelineonetimeAWB,canaccording toRequirementsincreasethisvalues,makeAWBRunfrequencydecreaselow</p></li>
+</ul>
+<p>[Related Data Types and Interfaces]</p>
+<p>None. </p>
+</section>
+<section id="isp-awb-attr-ex-s">
+<h4><span class="section-number">5.5.2.9. </span>ISP_AWB_ATTR_EX_S<a class="headerlink" href="5_AWB.html#isp-awb-attr-ex-s" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>Automatic Definitionwhite balanceextensionattribute</p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_AWB_ATTR_EX_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8Tolerance</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8ZoneRadius</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16CurveLLimit</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16CurveRLimit</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bExtraLightEn</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">ISP_AWB_EXTRA_LIGHTSOURCE_INFO_S</span><span class="w"> </span><span class="n">stLightInfo</span><span class="p">[</span><span class="n">AWB_LS_NUM</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="n">ISP_AWB_IN_OUT_ATTR_S</span><span class="w"> </span><span class="n">stInOrOut</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bMultiLightSourceEn</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">ISP_AWB_MULTI_LS_TYPE_E</span><span class="w"> </span><span class="n">enMultiLSType</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16MultiLSScaler</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">au16MultiCTBin</span><span class="p">[</span><span class="n">AWB_CT_BIN_NUM</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">au16MultiCTWt</span><span class="p">[</span><span class="n">AWB_CT_BIN_NUM</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bFineTunEn</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">u8FineTunStrength</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="c1">//AWB Algo 6</span>
+<span class="w">  </span><span class="k">struct</span> <span class="nc">ST_ISP_AWB_INTERFERNCE_S</span><span class="w"> </span><span class="n">stInterfernce</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">struct</span> <span class="nc">ST_ISP_AWB_SKIN_S</span><span class="w"> </span><span class="n">stSkin</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">struct</span> <span class="nc">ST_ISP_AWB_SKY_S</span><span class="w"> </span><span class="n">stSky</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">struct</span> <span class="nc">ST_ISP_AWB_GRASS_S</span><span class="w"> </span><span class="n">stGrass</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">struct</span> <span class="nc">ST_ISP_AWB_CT_WGT_S</span><span class="w"> </span><span class="n">stCtLv</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">struct</span> <span class="nc">ST_ISP_AWB_SHIFT_LV_S</span><span class="w"> </span><span class="n">stShiftLv</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="k">struct</span> <span class="nc">ST_ISP_AWB_REGION_S</span><span class="w"> </span><span class="n">stRegion</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U8</span><span class="w"> </span><span class="n">adjBgainMode</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_AWB_ATTR_EX_S</span><span class="p">;</span><span class="w"></span>
+
+<span class="c1">// 宏定义如下：</span>
+<span class="cp">#define AWB_CT_BIN_NUM    (8)</span>
+<span class="cp">#define AWB_LS_NUM  (4)</span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>u8Tolerance</p></td>
+<td><p>AWBAdjust biasdifferenceReturn  range, errordifferenceinthisrangeinsidewhen,AWBnotperformAdjust</p></td>
+</tr>
+<tr class="row-odd"><td><p>u8ZoneRadius</p></td>
+<td><p>AWBsystemstatisticalvaluepartregion largesmall. thethe smaller the value,AWB   precisionthe moreheight,butwilldecreaselow AWB algorithmstableproperty</p></td>
+</tr>
+<tr class="row-even"><td><p>u16CurveLLimit</p></td>
+<td><p>AWBcolor temperaturecurveReturn     leftedgeboundarylimit(R/G,B/G),</p>
+<p>Value Range: [0x0, 0x200]</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>u16CurveRLimit</p></td>
+<td><p>AWBcolor temperaturecurve rightedgeboundarylimit(R/G,B/G),range: [0x200, 0x3FF]</p></td>
+</tr>
+<tr class="row-even"><td><p>bExtraLightEn</p></td>
+<td><p>whetheropenenableindependentlight source</p></td>
+</tr>
+<tr class="row-odd"><td><p>stLightInfo</p></td>
+<td><p>AWBcalculatewhenwhetherconsidercolor           temperaturecurveoutside independentlight sourcepoint,mostmultiplefourindependentpoint</p></td>
+</tr>
+<tr class="row-even"><td><p>stInOrOut</p></td>
+<td><p>AWBforsceneperformindoorinsideoutsidedetermine parameternumber</p></td>
+</tr>
+<tr class="row-odd"><td><p>bMultiLightSourceEn</p></td>
+<td><p>AWBdetectioncurrentsceneReturn  scenewhetherisblendlight source,toAdjustsaturationorCCM</p></td>
+</tr>
+<tr class="row-even"><td><p>enMultiLSType</p></td>
+<td><p>AdjustsaturationorisCCM</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16MultiLSScaler</p></td>
+<td><p>whenblendlight sourceunderAdjustsaturationorCCM strength</p></td>
+</tr>
+<tr class="row-even"><td><p>au16MultiCTBin</p></td>
+<td><p>color temperaturepartsegmentparameternumber,mustispassincreaseordercolumn</p></td>
+</tr>
+<tr class="row-odd"><td><p>au16MultiCTWt</p></td>
+<td><p>color temperaturepartsegmentweight,range: [0x0, 0x400]</p></td>
+</tr>
+<tr class="row-even"><td><p>bFineTunEn</p></td>
+<td><p>AWBspecialcolordetectionopenclose, For exampleskincolor</p></td>
+</tr>
+<tr class="row-odd"><td><p>u8FineTunStrength</p></td>
+<td><p>skincolor, blueetc.specialcolordetection strength</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<ul class="simple">
+<li><p>ISP_AWB_ATTR_EX_S extensionattributeonlyhavein pstWBAttr-&gt;enAlgType isAWB_ALG_ADVANCEonly thenhaveoperationuse</p></li>
+<li><p>u8ToleranceisAWB sensitivedegreeparameternumber,valueis0when,AWBparameternumberwillreal-timemorenew,valueratiorelativelylargewhen,environmentcolor temperatureslightslightchangewhenandnotwillmorenewAWBparameternumber,imagewilllightslight color cast,recommendeduseroutsideis0,indoorinsideSetis2</p></li>
+<li><p>u16CurveLLimit value&lt;512,mainlyisexcludegreenobject, u16CurveRLimitvalue&gt;512,isexcludebiaspurplecolorregion</p></li>
+<li><p>bMultiLightSourceEn openenableafter,AWBwilldeterminescenewhetherismixlight source,inthisform sceneunderwilldecreaselowsaturationorisCCM,usingreducelesscolor cast</p></li>
+<li><p>WDRmodeunderwillautomaticDisablemixlight sourcedetectionfunction</p></li>
+</ul>
+<p>[Related Data Types and Interfaces]</p>
+<p>None. </p>
+</section>
+<section id="isp-awb-extra-lightsource-info-s">
+<h4><span class="section-number">5.5.2.10. </span>ISP_AWB_EXTRA_LIGHTSOURCE_INFO_S<a class="headerlink" href="5_AWB.html#isp-awb-extra-lightsource-info-s" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>Define independentlight sourcepoint parameternumber</p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_AWB_EXTRA_LIGHTSOURCE_INFO_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16WhiteRgain</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16WhiteBgain</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16ExpQuant</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U8</span><span class="w">  </span><span class="n">u8LightStatus</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U8</span><span class="w">  </span><span class="n">u8Radius</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_AWB_EXTRA_LIGHTSOURCE_INFO_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>u16WhiteRgain</p></td>
+<td><p>speciallight sourcepoint Rchannel gain</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16WhiteBgain</p></td>
+<td><p>speciallight sourcepoint Bchannel gain</p></td>
+</tr>
+<tr class="row-even"><td><p>u16ExpQuant</p></td>
+<td><p>according tooutsideinbrightnessperformdetermine. </p>
+<p>ExpQuant isopenenable brightnesslimitvalue For example</p>
+<p>ExpQuant = 6, indicatesLV6usingunderReturn   openenablethisWBlight sourcepoint(Generallynight sceneisLV6usingunder)</p>
+<p>ExpQuant =106 indicatesLV6usingonopenenable</p>
+<p>ExpQuant =112 indicatesLV12usingonopenenable(LV12Generallyisuseroutside)</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>u8LightStatus</p></td>
+<td><p>speciallight sourcepoint kindtype,</p>
+<p>0:No operation</p>
+<p>1:include the light-source point in the return value</p>
+<p>2:remove calculations near the light-source point</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>u8Radius</p></td>
+<td><p>speciallight sourcepoint regionlargesmall,</p>
+<p>Value Range: [0x0, 0xFF]</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<p>None. </p>
+<p>[Related Data Types and Interfaces]</p>
+<p>None. </p>
+</section>
+<section id="isp-awb-in-out-attr-s">
+<h4><span class="section-number">5.5.2.11. </span>ISP_AWB_IN_OUT_ATTR_S<a class="headerlink" href="5_AWB.html#isp-awb-in-out-attr-s" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>Define AWBforsceneperformuseroutsideindoorinsidedetermine parameternumber</p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_AWB_IN_OUT_ATTR_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bEnable</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">ISP_OP_TYPE_E</span><span class="w"> </span><span class="n">enOpType</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">ISP_AWB_INDOOR_OUTDOOR_STATUS_E</span><span class="w"> </span><span class="n">enOutdoorStatus</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32OutThresh</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16LowStart</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16LowStop</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16HighStart</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16HighStop</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_BOOL</span><span class="w"> </span><span class="n">bGreenEnhanceEn</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U</span><span class="w"> </span><span class="n">u8OutShiftLimit</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_AWB_IN_OUT_ATTR_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>bEnable</p></td>
+<td><p>determinesceneisindoorinsideindooroutside openclose</p></td>
+</tr>
+<tr class="row-odd"><td><p>enOpType</p></td>
+<td><p>determineindoorinsideindooroutside(automaticormanual)</p></td>
+</tr>
+<tr class="row-even"><td><p>enOutdoorStatus</p></td>
+<td><p>indoorinsideorindooroutsidemode(manual modeunder)</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32OutThresh</p></td>
+<td><p>determinesetindoorinsideindooroutside threshold,           brightnesssmallinwhen,thendeterminesetisindoorinside,useroutsideLVlargemultipleexceedthrough  15</p></td>
+</tr>
+<tr class="row-even"><td><p>u16LowStart</p></td>
+<td><p>willlowcolor temperature weightReturn   againstretchlow,lowcolor temperatureregion startpoint,Recommended:5000K</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16LowStop</p></td>
+<td><p>willlowcolor temperature weightReturn stretchlow,lowcolor temperatureregion terminatepoint,Recommended:4500K,</p>
+<p>Value Range: (0,u16LowStart)</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>u16HighStart</p></td>
+<td><p>will    heightcolor temperature weightstretchlow,heightcolor temperatureregion startpoint,  Recommended:6500K,</p>
+<p>Value Range: (u16LowStart, 0xFFFF]</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>u16HighStop</p></td>
+<td><p>willheightcolor temperature weightReturn stretchlow,heightcolor temperatureregion terminatepoint,Recommended:8000K,</p>
+<p>Value Range: (u16HighStart, 0xFFFF]</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>bGreenEnhanceEn</p></td>
+<td><p>in    greenvegetationsceneunder,forgreenchannelincrease openclose</p></td>
+</tr>
+<tr class="row-odd"><td><p>u8OutShiftLimit</p></td>
+<td><p>whendetermineset   isuseroutsidescenewhen,AWBalgorithm white pointrangelimit</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<ul class="simple">
+<li><p>useroutsidebrightnesslargemultipleLVlargein15theusingu32OutThresh Recommended:largein15</p></li>
+<li><p>fourparameternumber Value Rangerequire: u16LowStop&lt;u16LowStart&lt;u16HighStart&lt;u16HighStop</p></li>
+</ul>
+<p>[Related Data Types and Interfaces]</p>
+<p>such asunderFigure, u16LowStopis3800K, u16LowStartis5000K</p>
+<p>u16HighStartis6200K, u16HighStopis7200K</p>
+<p>Generallyweightis32,indooroutsidecolor temperaturemostheightweightis256</p>
+<figure class="align-center">
+<img alt="_images/AWB003.png" src="_images/AWB003.png" />
+</figure>
+</section>
+<section id="isp-awb-multi-ls-type-e">
+<h4><span class="section-number">5.5.2.12. </span>ISP_AWB_MULTI_LS_TYPE_E<a class="headerlink" href="5_AWB.html#isp-awb-multi-ls-type-e" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>Define mixlight sourceunderAWB strategy</p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_ISP_AWB_MULTI_LS_TYPE_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">AWB_MULTI_LS_SAT</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">AWB_MULTI_LS_CCM</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">AWB_MULTI_LS_BUTT</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_AWB_MULTI_LS_TYPE_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AWB_MULTI_LS_SAT</p></td>
+<td><p>blendlight sourceunderAdjustsaturation</p></td>
+</tr>
+<tr class="row-odd"><td><p>AWB_MULTI_LS_CCM</p></td>
+<td><p>blendlight sourceunderAdjustCCM</p></td>
+</tr>
+<tr class="row-even"><td><p>AWB_MULTI_LS_BUTT</p></td>
+<td><p>invalid</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<p>None. </p>
+<p>[Related Data Types and Interfaces]</p>
+<p>None. </p>
+</section>
+<section id="isp-awb-indoor-outdoor-status-e">
+<h4><span class="section-number">5.5.2.13. </span>ISP_AWB_INDOOR_OUTDOOR_STATUS_E<a class="headerlink" href="5_AWB.html#isp-awb-indoor-outdoor-status-e" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>Define AWBindoorinsideindooroutsidestatus</p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">enum</span><span class="w"> </span><span class="n">_ISP_AWB_INDOOR_OUTDOOR_STATUS_E</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">AWB_INDOOR_MODE</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">AWB_OUTDOOR_MODE</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="n">AWB_INDOOR_OUTDOOR_BUTT</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_AWB_INDOOR_OUTDOOR_STATUS_E</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>AWB_INDOOR_MODE</p></td>
+<td><p>indoorinsidemode</p></td>
+</tr>
+<tr class="row-odd"><td><p>AWB_OUTDOOR_MODE</p></td>
+<td><p>indooroutsidemode</p></td>
+</tr>
+<tr class="row-even"><td><p>AWB_INDOOR_OUTDOOR_BUTT</p></td>
+<td><p>invalid</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<p>None. </p>
+<p>[Related Data Types and Interfaces]</p>
+<p>None. </p>
+</section>
+<section id="isp-wb-info-s">
+<h4><span class="section-number">5.5.2.14. </span>ISP_WB_INFO_S<a class="headerlink" href="5_AWB.html#isp-wb-info-s" title="Permalink to this heading">¶</a></h4>
+<p>[Description]</p>
+<p>Define white balance, saturation, colorcorrectioninformation</p>
+<p>[Definition]</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">typedef</span><span class="w"> </span><span class="k">struct</span> <span class="nc">_ISP_WB_INFO_S</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16Rgain</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16Grgain</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16Gbgain</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16Bgain</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16Saturation</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16ColorTemp</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">au16CCM</span><span class="p">[</span><span class="n">CCM_MATRIX_SIZE</span><span class="p">];</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16LS0CT</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16LS1CT</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16LS0Area</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16LS1Area</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U8</span><span class="w">  </span><span class="n">u8MultiDegree</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U16</span><span class="w"> </span><span class="n">u16ActiveShift</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_U32</span><span class="w"> </span><span class="n">u32FirstStableTime</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">ISP_AWB_INDOOR_OUTDOOR_STATUS_E</span><span class="w"> </span><span class="n">enInOutStatus</span><span class="p">;</span><span class="w"></span>
+<span class="w">  </span><span class="n">CVI_S16</span><span class="w"> </span><span class="n">s16Bv</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="n">ISP_WB_INFO_S</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>[Members]</p>
+<table class="colwidths-given longtable docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 67%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Member Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>u16Rgain</p></td>
+<td><p>currentRchannel gainvalue</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16Grgain</p></td>
+<td><p>currentGrchannel gainvalue</p></td>
+</tr>
+<tr class="row-even"><td><p>u16Gbgain</p></td>
+<td><p>currentGbchannel gainvalue</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16Bgain</p></td>
+<td><p>currentBchannel gainvalue</p></td>
+</tr>
+<tr class="row-even"><td><p>u16Saturation</p></td>
+<td><p>currentlysaturationReturn</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16ColorTemp</p></td>
+<td><p>currentlypushcalculate color temperaturevalue</p></td>
+</tr>
+<tr class="row-even"><td><p>au16CCM</p></td>
+<td><p>current   colorcorrectionmatrix, 10bitfractional precision. bit  15 issymbolNo.position, 0 indicatespositivenumber, 1    indicatesnegativenumber, For example0x8010table         show-16</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16LS0CT</p></td>
+<td><p>mixlight sourcescene mainlight sourcecolor temperature</p></td>
+</tr>
+<tr class="row-even"><td><p>u16LS1CT</p></td>
+<td><p>mixlight sourcescene timelight sourcecolor temperature</p></td>
+</tr>
+<tr class="row-odd"><td><p>u16LS0Area</p></td>
+<td><p>mixlight sourcescene mainlight sourcearea</p></td>
+</tr>
+<tr class="row-even"><td><p>u16LS1Area</p></td>
+<td><p>mixlight sourcescene timelight sourcearea</p></td>
+</tr>
+<tr class="row-odd"><td><p>u8MultiDegree</p></td>
+<td><p>currentlysceneismixlight source machinerate</p></td>
+</tr>
+<tr class="row-even"><td><p>u16ActiveShift</p></td>
+<td><p>currentlywhite balancerange limitvalue</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32FirstStableTime</p></td>
+<td><p>firsttimeAWBconvergencestable wheninterval,usingframenumberas the unit</p></td>
+</tr>
+<tr class="row-even"><td><p>ISP_AWB_INDOOR_OUTDOOR_STATUS_E</p></td>
+<td><p>indoorinsideindooroutsidedetectionresult</p></td>
+</tr>
+<tr class="row-odd"><td><p>s16Bv</p></td>
+<td><p>currentenvironment bvvalueReturn</p></td>
+</tr>
+</tbody>
+</table>
+<p>[Precautions]</p>
+<p>None. </p>
+<p>[Related Data Types and Interfaces]</p>
+<p>None. </p>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="4_AE.html" class="btn btn-neutral float-left" title="4. AE" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="6_AF.html" class="btn btn-neutral float-right" title="6. AF" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Go to official website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="Go to Documentation Center"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Top of page"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Bottom of page"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR code for this page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

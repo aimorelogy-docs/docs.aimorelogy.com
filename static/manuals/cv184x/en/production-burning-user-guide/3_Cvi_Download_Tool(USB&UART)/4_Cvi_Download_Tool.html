@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3.4. cviDownloadTool Tools &mdash; ProductionBurningUserGuide master Documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="../_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/qrious.js"></script>
+    <script src="../_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3.5. cviDownloadTool Tools" href="5_Cvi_Download_Cmd.html" />
+    <link rel="prev" title="3.3. Uninstall the USB driver (USBBurning)" href="3_Uninstalling_The_USB_Driver.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> ProductionBurningUserGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../2_Overview.html">2. Overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../3_Cvi_Download_Tool(USB&amp;UART).html">3. USB Burning/UART Burning</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="1_Overview.html">3.1. Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Installing_The_USB_Driver.html">3.2. Install the USB driver (USBBurning)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_Uninstalling_The_USB_Driver.html">3.3. Uninstall the USB driver (USBBurning)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="4_Cvi_Download_Tool.html#">3.4. cviDownloadTool Tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="4_Cvi_Download_Tool.html#id1">3.4.1. cviDownloadToolToolsIntroduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_Cvi_Download_Tool.html#id2">3.4.2. cviDownloadTool Use </a><ul>
+<li class="toctree-l4"><a class="reference internal" href="4_Cvi_Download_Tool.html#id3">3.4.2.1. Burning Tool Operation Flow</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="5_Cvi_Download_Cmd.html">3.5. cviDownloadTool Tools</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../4_SD.html">4. SD Card Burning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../5_TFTP.html">5. TFTPBurning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../6_Burner.html">6. Burning with a Programmer</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ProductionBurningUserGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../3_Cvi_Download_Tool(USB&amp;UART).html"><span class="section-number">3. </span>USB Burning/UART Burning</a> &raquo;</li>
+      <li><span class="section-number">3.4. </span>cviDownloadTool Tools</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="../_sources/3_Cvi_Download_Tool(USB&amp;UART)/4_Cvi_Download_Tool.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cvidownloadtool">
+<h1><span class="section-number">3.4. </span>cviDownloadTool Tools<a class="headerlink" href="4_Cvi_Download_Tool.html#cvidownloadtool" title="Permalink to this heading">¶</a></h1>
+<section id="id1">
+<h2><span class="section-number">3.4.1. </span>cviDownloadToolToolsIntroduction<a class="headerlink" href="4_Cvi_Download_Tool.html#id1" title="Permalink to this heading">¶</a></h2>
+<p>cviDownloadToolTools can Burning Tool，
+Support Burning， SupportU-BootBurning（needDevice Support）
+ CanSupport8 Device Burning。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>ThroughUSB Burning Need to followingCondition:</p>
+<ul class="simple">
+<li><p>PC USBInterfaceand ofUSB2.0 </p></li>
+<li><p> must System ，Canon or System </p></li>
+</ul>
+<p>withonCondition must ， USBBurningFlow</p>
+</div>
+</section>
+<section id="id2">
+<h2><span class="section-number">3.4.2. </span>cviDownloadTool Use <a class="headerlink" href="4_Cvi_Download_Tool.html#id2" title="Permalink to this heading">¶</a></h2>
+<section id="id3">
+<h3><span class="section-number">3.4.2.1. </span>Burning Tool Operation Flow<a class="headerlink" href="4_Cvi_Download_Tool.html#id3" title="Permalink to this heading">¶</a></h3>
+<p><strong>Steps1.1</strong></p>
+<p>EnableBurning Tool， to 。</p>
+<figure class="align-default" id="id6">
+<a class="reference internal image-reference" href="../_images/cviDow000.png"><img alt="../_images/cviDow000.png" src="../_images/cviDow000.png" style="width: 6.11in; height: 2.75in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 3.4 </span><span class="caption-text"> Burning Tool </span><a class="headerlink" href="4_Cvi_Download_Tool.html#id6" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<hr class="docutils" />
+<p><strong>Steps1.2</strong></p>
+<p>Click Settings-&gt;Language  Language Selection。</p>
+<figure class="align-default" id="id7">
+<a class="reference internal image-reference" href="../_images/cviDow001.png"><img alt="../_images/cviDow001.png" src="../_images/cviDow001.png" style="width: 6.11in; height: 2.75in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 3.5 </span><span class="caption-text"> Burning ToolLanguage Selection</span><a class="headerlink" href="4_Cvi_Download_Tool.html#id7" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<hr class="docutils" />
+<p><strong>Steps1.3</strong></p>
+<p>ConfigurationBurning Tool </p>
+<p>UserinBurningbeforeof Steps Enable Settings  ， Burningofneed Configuration。
+EnableBurning Tool on ofMenu ， Select Settings-&gt;Option，ConfigurationBurning needof Configuration 。</p>
+<figure class="align-default" id="id8">
+<a class="reference internal image-reference" href="../_images/cviDow002.png"><img alt="../_images/cviDow002.png" src="../_images/cviDow002.png" style="width: 6.11in; height: 2.75in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 3.6 </span><span class="caption-text">Settingsbutton</span><a class="headerlink" href="4_Cvi_Download_Tool.html#id8" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id9">
+<a class="reference internal image-reference" href="../_images/cviDow003.png"><img alt="../_images/cviDow003.png" src="../_images/cviDow003.png" style="width: 5.60in; height: 7.72in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 3.7 </span><span class="caption-text">Settings </span><a class="headerlink" href="4_Cvi_Download_Tool.html#id9" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<ul>
+<li><p>SettingsOption</p>
+<ul>
+<li><dl class="simple">
+<dt>BurningMethod:</dt><dd><ul class="simple">
+<li><p>UARTBurning： UseUART Burning。</p></li>
+<li><p>USBBurning： UseUSB Burning。</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>UbootBurning: If ，Use ofU-Boot Burning， ThroughUSB LoadImageFileofU-Boot Burning。</p></li>
+<li><p> Mode: If ，inBurning Data and 。</p></li>
+<li><p>RawFileBurning: IfInputofImageFilenot File ，need 。</p></li>
+<li><p>SNInformation: Burning Readsn ，andinBurning to in。</p></li>
+<li><p>gptPartitionBurning:  Option，Burning IncludegptPartition。</p></li>
+<li><p> Type: needBurningDevice of Type， Image offipFileinInclude ， Usefipinof 。</p></li>
+<li><p>vendorPartitionInformation: InputValueisPartitionunder ，If Value ，Burning Read ofvendorPartitionValueand to in。</p></li>
+<li><p>Unpack Options:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Use DefinitionUnpackTools:  ， can DefinitionUnpackTools。</p></li>
+<li><p>UnpackTools: Select DefinitionofUnpackTools， Tools mustisexeFile， CanThroughCommand LineExecutemethod Unpack。</p></li>
+<li><p>Unpack Parameters: UnpackToolsofCommand Line ，Use[IMAGE]and[DESTDIR] isCommand LineinofImagePathandPurposePath，If <cite>-unpack [IMAGE] [DESTDIR]</cite>。</p></li>
+<li><p>File : Image ArchiveofFile after 。</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>BurningFileSelect： in DefinitionPartition Tableonof FilenotNeed to Burning。</p></li>
+<li><p>Burning : in after， Burning UseofCommand Line 。</p></li>
+<li><p> Burning: IfneedBurningof Need to underBurning BurningMode， need Option。</p></li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p> not Deviceof Hardware Environment Support Option ，Do not Option， can SuccessBurning。</p>
+</div>
+<hr class="docutils" />
+<p><strong>Steps1.4</strong></p>
+<p>Click   button， toNeed to BurningofFileSystemConfigurationxmlFile，orImageFileof 。</p>
+<figure class="align-default" id="id10">
+<a class="reference internal image-reference" href="../_images/cviDow004.png"><img alt="../_images/cviDow004.png" src="../_images/cviDow004.png" style="width: 6.11in; height: 2.75in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 3.8 </span><span class="caption-text">Click   button</span><a class="headerlink" href="4_Cvi_Download_Tool.html#id10" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>IfSelectof ，inExtract before under the directory incviBurnUnpackDirFile ，If in will Delete，withDelete ofImageFile！</p>
+<p> File fromImageinExtract of File，Pleasein BurningFirmwareFileof inPath in File 。</p>
+<p>PleaseEnsureImage ArchiveFileofContent xmloryamlFile， beforeTools xmloryamlFileofPath isBurningPath。</p>
+<p>Ifunder the directory must inxmlandyamlFile，Please ExtractImage ，andClick   button inxmloryamlFile。</p>
+</div>
+<hr class="docutils" />
+<p><strong>Steps1.5</strong></p>
+<p> Fileafter，ClickConfirm， If <a class="reference internal" href="4_Cvi_Download_Tool.html#id4"><span class="std std-numref">Figure 3.9</span></a> ，
+Table in Need to Burning ofFilewithand ofAttribute，
+UserCanThrough ，Indicates FilenotNeed to Burning。</p>
+<figure class="align-default" id="id4">
+<a class="reference internal image-reference" href="../_images/cviDow005.png"><img alt="../_images/cviDow005.png" src="../_images/cviDow005.png" style="width: 6.11in; height: 2.75in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 3.9 </span><span class="caption-text">SelectNeed tounder ofFile</span><a class="headerlink" href="4_Cvi_Download_Tool.html#id4" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<hr class="docutils" />
+<p><strong>Steps1.6</strong></p>
+<p>Click  Burning button， Burning 。</p>
+<p> already Status，Can Burning。</p>
+<figure class="align-default" id="id11">
+<a class="reference internal image-reference" href="../_images/cviDow006.png"><img alt="../_images/cviDow006.png" src="../_images/cviDow006.png" style="width: 6.11in; height: 2.75in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 3.10 </span><span class="caption-text">Click  Burning button</span><a class="headerlink" href="4_Cvi_Download_Tool.html#id11" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>CanThroughunder ofbutton Burning Tool beforeofStatus。</p>
+<figure class="align-default" id="id12">
+<a class="reference internal image-reference" href="../_images/cviDow007.png"><img alt="../_images/cviDow007.png" src="../_images/cviDow007.png" style="width: 6.50in; height: 4.55in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 3.11 </span><span class="caption-text">Click  Burning button</span><a class="headerlink" href="4_Cvi_Download_Tool.html#id12" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<hr class="docutils" />
+<p><strong>Steps1.7</strong></p>
+<dl class="simple">
+<dt> Status after:</dt><dd><ul class="simple">
+<li><p>UARTBurning： UART ， Progress after，Deviceon can Burning。</p></li>
+<li><p>USBBurning：CanwillDevice toUSB HUBinand ，BurningProgram 。</p></li>
+</ul>
+</dd>
+</dl>
+<p> in of before ofUSBDevice，and inon of ofUSBPort。</p>
+<p>Burning afterProgress beforeDeviceofBurningProgress。</p>
+<figure class="align-default" id="id13">
+<a class="reference internal image-reference" href="../_images/cviDow008.png"><img alt="../_images/cviDow008.png" src="../_images/cviDow008.png" style="width: 6.50in; height: 4.55in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 3.12 </span><span class="caption-text"> USBDevice Burning</span><a class="headerlink" href="4_Cvi_Download_Tool.html#id13" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p> ：USBPortofCorrespondence：</p>
+<blockquote>
+<div><p>willUSBInterface after，The software automatically detects the insertedUSBDeviceandis ，No need toUserSettings。</p>
+<p>in and after， in ofBoard Port 。</p>
+<p> of ， from 、fromon underof inSoftware on。</p>
+<p>USB Port ，for example Port：4,1in，</p>
+<p>4Indicates beforeHUBof ，</p>
+<p>1Indicates HUBonofUSB </p>
+<p>（ HUBon of and ofcan not ， with ofHUB is ）。</p>
+<p> Userin USB afteris ，with 。</p>
+<p> inMass Production CanThroughSoftware ofUSB PortandActual ， View ofStatus。</p>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>is USB Port Read，Please willUSB HUB after 。</p>
+<p>Do not will USB HUB after willHUB ， Operationcan ReadUSBPort。</p>
+</div>
+<hr class="docutils" />
+<p><strong>Steps1.8</strong></p>
+<p>BurningSuccess：</p>
+<blockquote>
+<div><p>BurningCompleteafterStatus “  x BurningComplete.” ，Figure as followsFigure 。</p>
+<p>BurningSuccessafter need Device， after ofDevice can ofBurning。</p>
+</div></blockquote>
+<figure class="align-default" id="id14">
+<a class="reference internal image-reference" href="../_images/cviDow009.png"><img alt="../_images/cviDow009.png" src="../_images/cviDow009.png" style="width: 6.50in; height: 4.55in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 3.13 </span><span class="caption-text">BurningSuccess</span><a class="headerlink" href="4_Cvi_Download_Tool.html#id14" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>BurningFailure：</p>
+<blockquote>
+<div><p>IfBurning in BurningFailureof ， BurningFailureofBoard Figure “⊗”，
+ “  x BurningFailure，Please andClickResetbutton.”，</p>
+<p>If <a class="reference internal" href="4_Cvi_Download_Tool.html#id5"><span class="std std-numref">Figure 3.14</span></a>。 canClick“Reset”button again BurningProgram。</p>
+</div></blockquote>
+<figure class="align-default" id="id5">
+<a class="reference internal image-reference" href="../_images/cviDow010.png"><img alt="../_images/cviDow010.png" src="../_images/cviDow010.png" style="width: 6.50in; height: 4.55in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 3.14 </span><span class="caption-text">BurningFailure</span><a class="headerlink" href="4_Cvi_Download_Tool.html#id5" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Reset:</p>
+<blockquote>
+<div><p> of  Reset button，Click Reset buttoncanwill ofBurningProgramReset，
+again Status， will BurningSuccessof Need towillDevice 、 、 again 、 ，
+BurningProgram again Burning。</p>
+</div></blockquote>
+<figure class="align-default" id="id15">
+<a class="reference internal image-reference" href="../_images/cviDow011.png"><img alt="../_images/cviDow011.png" src="../_images/cviDow011.png" style="width: 6.50in; height: 4.55in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 3.15 </span><span class="caption-text">Reset button</span><a class="headerlink" href="4_Cvi_Download_Tool.html#id15" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="3_Uninstalling_The_USB_Driver.html" class="btn btn-neutral float-left" title="3.3. Uninstall the USB driver (USBBurning)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="5_Cvi_Download_Cmd.html" class="btn btn-neutral float-right" title="3.5. cviDownloadTool Tools" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Go to Official Website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="Go to Documentation Center"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Back to top"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Go to bottom"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR code for this page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

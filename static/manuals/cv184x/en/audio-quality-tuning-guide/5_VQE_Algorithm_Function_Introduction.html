@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5. VQE Algorithm Function Introduction &mdash; AudioQualityTuningGuide master Documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="6. Block Diagram:" href="6_Block_Diagram.html" />
+    <link rel="prev" title="4. FAQ" href="4_FAQ.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> AudioQualityTuningGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Introduction.html">2. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Echo_Cancellation_Debugging.html">3. Echo Cancellation Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_FAQ.html">4. FAQ</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="5_VQE_Algorithm_Function_Introduction.html#">5. VQE Algorithm Function Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="5_VQE_Algorithm_Function_Introduction.html#id1">5.1. Voice Quality Enhancement (VQE)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_VQE_Algorithm_Function_Introduction.html#aec-aes-acoustic-echo-cancellation-acoustic-echo-suppression">5.2. AEC/AES (Acoustic Echo Cancellation/Acoustic Echo Suppression)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_VQE_Algorithm_Function_Introduction.html#nr-noise-reduction">5.3. NR (Noise Reduction)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_VQE_Algorithm_Function_Introduction.html#agc-automatic-gain-control">5.4. AGC (Automatic Gain Control)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_VQE_Algorithm_Function_Introduction.html#notch-filter">5.5. Notch Filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_VQE_Algorithm_Function_Introduction.html#dg-digital-gain">5.6. DG (Digital Gain)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_VQE_Algorithm_Function_Introduction.html#delay">5.7. Delay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_VQE_Algorithm_Function_Introduction.html#equalizer">5.8. Equalizer</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="6_Block_Diagram.html">6. Block Diagram:</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">AudioQualityTuningGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">5. </span>VQE Algorithm Function Introduction</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/5_VQE_Algorithm_Function_Introduction.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="vqe">
+<h1><span class="section-number">5. </span>VQE Algorithm Function Introduction<a class="headerlink" href="5_VQE_Algorithm_Function_Introduction.html#vqe" title="Permalink to this headline">¶</a></h1>
+<section id="id1">
+<h2><span class="section-number">5.1. </span>Voice Quality Enhancement (VQE)<a class="headerlink" href="5_VQE_Algorithm_Function_Introduction.html#id1" title="Permalink to this headline">¶</a></h2>
+<p>For speechsignalprocessing (SSP) algorithm, When near-endspeechsignalsuffertofromfar-endechointerferenceorisnear-endstationary noiseinterferencewhen, can usingSSPinalgorithmfunctiontosuppressiontheseinterference, therebyimprovespeechsignalquality. SSPinprovide a solutionsolution, includinglinenessechocancellation (AEC) , non-linenessechosuppression (AES) , speechnoise reduction (NR) , Automatic Gain Control (AGC
+) , ...etc.function. SSPalgorithmsupport8kHzand16kHzsampling rate, mono, 16bitssamplinglengthspeechsignal. inconnectundertopagewillIntroductioneachalgorithmfunctionandtheuseparameter. </p>
+<p>Parameterspara_fun_configcorrespondingtofile cvi_comm_aio.h inu32OpenMask, can controlmicrophonepathSSPalgorithmfunction, Parameterspara_spk_fun_configcan controlspeakerpathSSPalgorithmfunction, eachbitscorrespondingalgorithmfunctionas followsTable described. </p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>para_fun_config</p></th>
+<th class="head"><p>Description(microphone path)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Bit 0</p></td>
+<td><div class="line-block">
+<div class="line">0:Disable AEC</div>
+<div class="line">1:Enable AEC</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Bit 1</p></td>
+<td><div class="line-block">
+<div class="line">0:Disable AES</div>
+<div class="line">1:Enable AES</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Bit 2</p></td>
+<td><div class="line-block">
+<div class="line">0:Disable NR</div>
+<div class="line">1:Enable NR</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Bit 3</p></td>
+<td><div class="line-block">
+<div class="line">0:Disable AGC</div>
+<div class="line">1:Enable AGC</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Bit 4</p></td>
+<td><div class="line-block">
+<div class="line">0:Disable Notch Filter</div>
+<div class="line">1:Enable Notch Filter</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Bit 5</p></td>
+<td><div class="line-block">
+<div class="line">0:Disable DC Filter</div>
+<div class="line">1:Enable DC Filter</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>Bit 6</p></td>
+<td><div class="line-block">
+<div class="line">0:Disable DG</div>
+<div class="line">1:Enable DG</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Bit 7</p></td>
+<td><div class="line-block">
+<div class="line">0:Disable Delay</div>
+<div class="line">1:Enable Delay</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>para_spk_fun_config</p></th>
+<th class="head"><p>Description (speaker path)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Bit 0</p></td>
+<td><div class="line-block">
+<div class="line">0:Disable AGC</div>
+<div class="line">1:Enable AGC</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Bit 1</p></td>
+<td><div class="line-block">
+<div class="line">0:Disable EQ</div>
+<div class="line">1:Enable EQ</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Table: para_fun_config/para_spk_fun_config Parameter Description</p>
+</section>
+<section id="aec-aes-acoustic-echo-cancellation-acoustic-echo-suppression">
+<h2><span class="section-number">5.2. </span>AEC/AES (Acoustic Echo Cancellation/Acoustic Echo Suppression)<a class="headerlink" href="5_VQE_Algorithm_Function_Introduction.html#aec-aes-acoustic-echo-cancellation-acoustic-echo-suppression" title="Permalink to this headline">¶</a></h2>
+<p>anyfull-duplextalksystemarchitectureallstoreinwithechointerference. echocancellationdevicecancancellationthroughnear-endacousticpath
+couplingbackmicrophonespeakeroutputecho. usingtheprovide a solutionsolution, linenessselfsuitableshouldfiltermodule
+ (AEC) combine withnon-linenessechosuppressionmodule (AES) canvalidlysuppressionecho, fromandimprovespeechtalkquality. </p>
+<a class="reference internal image-reference" href="_images/VQEAlg002.png"><img alt="Chart Description automatically generated" src="_images/VQEAlg002.png" style="width: 4.80556in; height: 2.77778in;" /></a>
+<p>Figure: AEC+AESperformance before and after processing</p>
+<p>Four adjustable parameters are provided for tuning AEC/AES performance:</p>
+<p><strong>para_aec_init_filter_len/para_aec_filter_len</strong>: selfsuitableshouldfilterlength. according tonotsameprototypeechotailtimeadjustappropriatefilterlength. If selectlongerlength, willcauserelativelyhighMIPSandpower consumption. </p>
+<p><strong>para_aec_init_filter_len</strong>: onlyused to onestartappearechowhentuning. </p>
+<p><strong>para_aes_std_thrd</strong>: residual echo detection threshold. valuesetlargerwhen, near-endspeechqualitybetterbutresidual echorelativelymultiple. conversely, valuesetsmallerwhen, near-endspeechqualityworsebutresidual echoless. </p>
+<p><strong>para_aes_supp_coeff</strong>: residual echo suppression strength. valuesetlarger, forresidual echosuppressionstrengthlarger, butat the same timealsowill affectnear-endspeechwithtoexceedmultipleaudio detailsloss/damage. </p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>AEC/AESParameters</p></td>
+<td><p>Adjustable Range</p></td>
+<td><p>Description</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>para_aec_init_filter_len/para_aec_filter_len</strong></p></td>
+<td><p>1 - 13</p></td>
+<td><div class="line-block">
+<div class="line">8kHzsampling rate: [1,13]corresponding[20ms,260ms]</div>
+<div class="line">16kHzsampling rate: [1,13]corresponding[10ms,130ms]</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>para_aes_std_thrd</strong></p></td>
+<td><p>0 - 39</p></td>
+<td><div class="line-block">
+<div class="line">0: residual echodeterminethresholdminimum</div>
+<div class="line">39: residual echodeterminethresholdmaximum</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p><strong>para_aes_supp_coeff</strong></p></td>
+<td><p>0 - 100</p></td>
+<td><div class="line-block">
+<div class="line">0: residual echosuppressionstrengthminimum</div>
+<div class="line">100: residual echosuppressionstrengthmaximum</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Table: AEC/AES Parameter Description</p>
+</section>
+<section id="nr-noise-reduction">
+<h2><span class="section-number">5.3. </span>NR (Noise Reduction)<a class="headerlink" href="5_VQE_Algorithm_Function_Introduction.html#nr-noise-reduction" title="Permalink to this headline">¶</a></h2>
+<p>NRmodulecansuppressionsurroundingenvironmentstationary noise, for examplefannoise, air conditionernoise, 
+enginenoise, white/pinknoise, ...etc.etc.. relying onproprietaryspeechintelligentSpeech VADalgorithm, 
+NRcanretainspeechsignal, at the same timealsocanvalidlysuppressionstationary noise, 
+fromandimprovespeechtalkquality. </p>
+<img alt="_images/VQEAlg003.png" class="align-center" src="_images/VQEAlg003.png" />
+<p>Figure: NRperformance before and after processing</p>
+<p>Three adjustable parameters are provided for tuning NR performance:</p>
+<p><strong>para_nr_init_sile_time:**initial silence duration. CODEC may produce meaningless random noise when powered on,  **para_nr_init_sile_time</strong> can willthissegmentsignalsetbecomesilence. </p>
+<p><strong>para_nr_snr_coeff:</strong> signal-to-Noise Ratio (SNR) withtracking coefficientnumber. If parametervaluelarger, 
+thenNRwillhavehasrelativelyhighnoise reductioncapability, butspeechsignalmaywillmore likelydistortion. mutualreversely​​, parametervaluesmaller, 
+thenNRwillsuppressionlessnoisesignal, butwillhavehasbetterspeechqualityperformance. underTable isbased onnotsameSNRenvironmentunder, 
+thisparameterappropriateadjustrange, ineachtypeSNRcaseunder, parametervaluelarger, forstationary noisesuppressionstrengththenlarger. </p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>NRParameters</p></td>
+<td><p>Adjustable Range</p></td>
+<td><p>Description</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>para_nr_init_sile_time</strong></p></td>
+<td><p>0 - 250</p></td>
+<td><div class="line-block">
+<div class="line">corresponding0sto5s, </div>
+<div class="line">eachstep20ms</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Table: NR Parameter Description</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Surrounding SNR Environment</p></td>
+<td><p>Adjustment Range</p></td>
+<td><p>Description</p></td>
+</tr>
+<tr class="row-even"><td><p>Low</p></td>
+<td><p>0 - 3</p></td>
+<td><div class="line-block">
+<div class="line">0: innoise reductionin noise reductionnotaggressive</div>
+<div class="line">3: innoise reductionmost aggressive in noise reduction</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p>Medium</p></td>
+<td><p>4 - 10</p></td>
+<td><div class="line-block">
+<div class="line">4: innoise reductionin noise reductionnotaggressive</div>
+<div class="line">10: innoise reductionmost aggressive in noise reduction</div>
+</div>
+</td>
+</tr>
+<tr class="row-even"><td><p>High</p></td>
+<td><p>11 - 25</p></td>
+<td><div class="line-block">
+<div class="line">11: innoise reductionin noise reductionnotaggressive</div>
+<div class="line">25: innoise reductionmost aggressive in noise reduction</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Table: para_nr_snr_coeffParameter Description</p>
+</section>
+<section id="agc-automatic-gain-control">
+<h2><span class="section-number">5.4. </span>AGC (Automatic Gain Control)<a class="headerlink" href="5_VQE_Algorithm_Function_Introduction.html#agc-automatic-gain-control" title="Permalink to this headline">¶</a></h2>
+<p>AGCmodulecanautomaticwilloutput leveladjusttopresetrange, withprovidemorecomfortable listening experience. 
+If input signallower than"Target Low", thenAGCwillwilloutput leveltoward"Target Low"adjust. 
+anotheroneaspect, If input signalhigher than"Target High", thenAGCwillwilloutput leveltoward"Target High"adjust. </p>
+<img alt="_images/VQEAlg004.png" class="align-center" src="_images/VQEAlg004.png" />
+<p>Figure: AGCadjustsignallevel</p>
+<img alt="_images/VQEAlg005.png" class="align-center" src="_images/VQEAlg005.png" />
+<p>Figure: AGCperformance before and after processing</p>
+<p>providefouritemadjustableparameter, used to tuningmicrophonepathAGCperformance, ittheyrespectivelyis: </p>
+<p><strong>para_agc_max_gain:</strong> thisparameterissignalcanbeplacelargemaximumgain. </p>
+<p><strong>para_agc_target_high:</strong> thisparameterisAGCwillwillreach"Target High"horizontal. 
+For higher than <strong>para_agc_target_high**input signal, AGCwillwillitsconvergenceto **para_agc_target_high</strong>. </p>
+<p><strong>para_agc_target_low:</strong> thisparameterisAGCwillwillreach"Target Low"horizontal. 
+For lower than <strong>para_agc_target_low**input signal, AGCwillwillitsconvergenceto **para_agc_target_low</strong>. 
+If inreach <strong>para_agc_target_low**beforethenalreadyreach **para_agc_max_gain</strong> , 
+thenAGConlywillconvergenceto <strong>para_agc_max_gain</strong> . </p>
+<p><strong>para_agc_vad_ena:</strong> Speech-activated AGC function. enablethisfunctionandat the same timeopen
+enableNRandAEC/AESfunctionwhen, canmakeAGCavoidplacelargeresidual backgroundstationary noiseandresidualback
+sound, withobtainobtainbettereffect. </p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>AGCParameters</p></td>
+<td><p>Adjustable Range</p></td>
+<td><p>Description</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>para_agc_max_gain</strong></p></td>
+<td><p>0 - 6</p></td>
+<td><div class="line-block">
+<div class="line">[0,6]corresponding</div>
+<div class="line">maximumraiserisegainis[6dB,42dB], eachstep6dB</div>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>para_agc_target_high</strong></p></td>
+<td><p>0 - 36</p></td>
+<td><p>0to36corresponding0dBto-36dB</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>para_agc_target_low</strong></p></td>
+<td><p>0 - 72</p></td>
+<td><p>0to72corresponding0dBto-72dB</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>para_agc_vad_ena</strong></p></td>
+<td><p>0 - 1</p></td>
+<td><div class="line-block">
+<div class="line">0: Disable Speech-activated AGC function</div>
+<div class="line">1: Enable Speech-activated AGC function</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Table: microphonepathAGC Parameter Description</p>
+<p><strong>para_spk_agc_max_gain, para_spk_agc_target_high, para_spk_agc_target_low</strong>
+these threeparameterused to tuningspeakerpathAGCperformance, itsparameterdefinitionandtuningrangewithmicrophonepathAGCsame. </p>
+</section>
+<section id="notch-filter">
+<h2><span class="section-number">5.5. </span>Notch Filter<a class="headerlink" href="5_VQE_Algorithm_Function_Introduction.html#notch-filter" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Notch FilterParameters</p></td>
+<td><p>Adjustable Range</p></td>
+<td><p>Description</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>para_notch_freq</strong></p></td>
+<td><p>0 - 1</p></td>
+<td><div class="line-block">
+<div class="line">0: notch frequency is 1kHz</div>
+<div class="line">1: notch frequency is 4kHz</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dg-digital-gain">
+<h2><span class="section-number">5.6. </span>DG (Digital Gain)<a class="headerlink" href="5_VQE_Algorithm_Function_Introduction.html#dg-digital-gain" title="Permalink to this headline">¶</a></h2>
+<p>thisfunctionhashelpreduceresidual echo and residual stationary noise. 
+If if the signal gain level in the microphone channel is low, enabling this function is not recommended.</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>DGParameters</p></td>
+<td><p>Adjustable Range</p></td>
+<td><p>Description</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>para_dg_target</strong></p></td>
+<td><p>1 - 12</p></td>
+<td><div class="line-block">
+<div class="line">1: least aggressive residual echo/noise suppression, but best speech quality</div>
+<div class="line">12: most aggressive residual echo/noise suppression, but poorest speech quality</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="delay">
+<h2><span class="section-number">5.7. </span>Delay<a class="headerlink" href="5_VQE_Algorithm_Function_Introduction.html#delay" title="Permalink to this headline">¶</a></h2>
+<p>thisfunctionused to delayreferencesignal, can makeAEC/AESaccelerateconvergenceonestartappearecho. 
+If alreadythroughadjustparameterpara_aec_init_filter_lenaccelerateconvergenceinitialecho, 
+thennotrecommendenablethisfunction. </p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>DelayParameters</p></td>
+<td><p>Adjustable Range</p></td>
+<td><p>Description</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>para_delay_sample</strong></p></td>
+<td><p>1 - 3000</p></td>
+<td><p>1 to 3000 corresponding to 1 to 3000 samples</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="equalizer">
+<h2><span class="section-number">5.8. </span>Equalizer<a class="headerlink" href="5_VQE_Algorithm_Function_Introduction.html#equalizer" title="Permalink to this headline">¶</a></h2>
+<p>thisfunctionisFor speechsignalperform equalizationprocessing, can alreadybytuningbandcenter frequency, </p>
+<p>gainandquality factor, adjustoutthewantneed tospeechsignalpresentfrequency response, alsocancompensate</p>
+<p>hardwareorspeakerunitthecausenotperfectfrequency response. </p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 33%" />
+<col style="width: 33%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>EqualizerParameters</p></td>
+<td><p>Adjustable Range</p></td>
+<td><p>Description</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>para_spk_eq_nband</strong></p></td>
+<td><p>1 - 5</p></td>
+<td><p>1to5corresponding1to5 bands</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>para_spk_eq_freq[]</strong></p></td>
+<td><div class="line-block">
+<div class="line">8kHz Fs: 0 - 9</div>
+<div class="line">16kHz Fs: 0 - 10</div>
+</div>
+</td>
+<td><p>Band center frequency; see the para_spk_eq_freq table</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>para_spk_eq_gain[]</strong></p></td>
+<td><p>0 - 60</p></td>
+<td><p>Band gain; see the para_spk_eq_gain table</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>para_spk_eq_qfactor[]</strong></p></td>
+<td><p>0 - 17</p></td>
+<td><div class="line-block">
+<div class="line">Band quality factor.</div>
+<div class="line">0: withpara_spk_eq_freqisincenterfrequency responsecurvelinemostsmooth, but foritsnearbyfrequencyeffect
+widest range</div>
+<div class="line">17: withpara_spk_eq_freqisincenterfrequency responsecurvelinemostsharp, but
+foritsnearbyfrequencyeffectnarrowest range</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p>[Note]:</p>
+<p>When para_spk_eq_nbandconfigureis1when, need toat the same timeconfigurethecorrespondingpara_spk_eq_freq[0], para_spk_eq_gain[0], para_spk_eq_qfactor[0]. </p>
+<p>When para_spk_eq_nbandconfigureis2when, need toat the same timeconfigurethecorrespondingpara_spk_eq_freq[0], 
+para_spk_eq_gain[0], para_spk_eq_qfactor[0] and para_spk_eq_freq[1], 
+para_spk_eq_gain[1], para_spk_eq_qfactor[1], wherearrayindex 0parameterwill affect
+shouldtofirstitemband, arrayindex 1parameterwillcorrespondingtoseconditemband. and so on. </p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>para_spk_eq_freq</strong> Parameters</p></th>
+<th class="head"><p>Corresponding center frequency (Hz)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>0</strong></p></td>
+<td><p>100</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>1</strong></p></td>
+<td><p>200</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2</strong></p></td>
+<td><p>250</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>3</strong></p></td>
+<td><p>350</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>4</strong></p></td>
+<td><p>500</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>5</strong></p></td>
+<td><p>800</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>6</strong></p></td>
+<td><p>1200</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>7</strong></p></td>
+<td><p>2500</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>8</strong></p></td>
+<td><p>3300</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>9</strong></p></td>
+<td><p>3990</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>10(</strong> only applies to a 16 kHz sampling rate <strong>)</strong></p></td>
+<td><p>7990</p></td>
+</tr>
+</tbody>
+</table>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>para_spk_eq_gain</strong> Parameters</p></th>
+<th class="head"><p>Corresponding gain (dB)</p></th>
+<th class="head"><p>para_spk_eq_gainParameters</p></th>
+<th class="head"><p>Corresponding gain (dB)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>0</strong></p></td>
+<td><p>-40</p></td>
+<td><p>31</p></td>
+<td><p>-9</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>1</strong></p></td>
+<td><p>-39</p></td>
+<td><p>32</p></td>
+<td><p>-8</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2</strong></p></td>
+<td><p>-38</p></td>
+<td><p>33</p></td>
+<td><p>-7</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>3</strong></p></td>
+<td><p>-37</p></td>
+<td><p>34</p></td>
+<td><p>-6</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>4</strong></p></td>
+<td><p>-36</p></td>
+<td><p>35</p></td>
+<td><p>-5</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>5</strong></p></td>
+<td><p>-35</p></td>
+<td><p>36</p></td>
+<td><p>-4</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>6</strong></p></td>
+<td><p>-34</p></td>
+<td><p>37</p></td>
+<td><p>-3</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>7</strong></p></td>
+<td><p>-33</p></td>
+<td><p>38</p></td>
+<td><p>-2</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>8</strong></p></td>
+<td><p>-32</p></td>
+<td><p>39</p></td>
+<td><p>-1</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>9</strong></p></td>
+<td><p>-31</p></td>
+<td><p>40</p></td>
+<td><p>+0</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>10</strong></p></td>
+<td><p>-30</p></td>
+<td><p>41</p></td>
+<td><p>+1</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>11</strong></p></td>
+<td><p>-29</p></td>
+<td><p>42</p></td>
+<td><p>+2</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>12</strong></p></td>
+<td><p>-28</p></td>
+<td><p>43</p></td>
+<td><p>+3</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>13</strong></p></td>
+<td><p>-27</p></td>
+<td><p>44</p></td>
+<td><p>+4</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>14</strong></p></td>
+<td><p>-26</p></td>
+<td><p>45</p></td>
+<td><p>+5</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>15</strong></p></td>
+<td><p>-25</p></td>
+<td><p>46</p></td>
+<td><p>+6</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>16</strong></p></td>
+<td><p>-24</p></td>
+<td><p>47</p></td>
+<td><p>+7</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>17</strong></p></td>
+<td><p>-23</p></td>
+<td><p>48</p></td>
+<td><p>+8</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>18</strong></p></td>
+<td><p>-22</p></td>
+<td><p>49</p></td>
+<td><p>+9</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>19</strong></p></td>
+<td><p>-21</p></td>
+<td><p>50</p></td>
+<td><p>+10</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>20</strong></p></td>
+<td><p>-20</p></td>
+<td><p>51</p></td>
+<td><p>+11</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>21</strong></p></td>
+<td><p>-19</p></td>
+<td><p>52</p></td>
+<td><p>+12</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>22</strong></p></td>
+<td><p>-18</p></td>
+<td><p>53</p></td>
+<td><p>+13</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>23</strong></p></td>
+<td><p>-17</p></td>
+<td><p>54</p></td>
+<td><p>+14</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>24</strong></p></td>
+<td><p>-16</p></td>
+<td><p>55</p></td>
+<td><p>+15</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>25</strong></p></td>
+<td><p>-15</p></td>
+<td><p>56</p></td>
+<td><p>+16</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>26</strong></p></td>
+<td><p>-14</p></td>
+<td><p>57</p></td>
+<td><p>+17</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>27</strong></p></td>
+<td><p>-13</p></td>
+<td><p>58</p></td>
+<td><p>+18</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>28</strong></p></td>
+<td><p>-12</p></td>
+<td><p>59</p></td>
+<td><p>+19</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>29</strong></p></td>
+<td><p>-11</p></td>
+<td><p>60</p></td>
+<td><p>+20</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>30</strong></p></td>
+<td><p>-10</p></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>VQE For  Audio Input and Audio Output twoitempathdifferencesamepoint, respectivelythrough UpVQE and DnVQE twoitemschedulinglogicto
+processingtwoitempathdata, UpVQEincludingAEC, AES, NR, AGC. DnVQEcurrentbeforenot supported. correspondingparameter
+can referenceTable header filecvi_comm_aio.h. </p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="4_FAQ.html" class="btn btn-neutral float-left" title="4. FAQ" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="6_Block_Diagram.html" class="btn btn-neutral float-right" title="6. Block Diagram:" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Visit official website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="Go to Documentation Center"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Top of page"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Bottom of page"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR Code for This Page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

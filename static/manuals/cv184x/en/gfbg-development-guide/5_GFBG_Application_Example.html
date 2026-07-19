@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5. Application Development Process &mdash; GFBGDevelopmentGuide master Documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="6. GFBG Interface Description" href="6_GFBG_Interface_Description.html" />
+    <link rel="prev" title="4. Module Loading" href="4_GFBG_Module_Loading.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> GFBGDevelopmentGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_GFBG_Overview.html">2. GFBG Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_GFBG_Function_Description.html">3. GFBG Function Description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_GFBG_Module_Loading.html">4. Module Loading</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="5_GFBG_Application_Example.html#">5. Application Development Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_GFBG_Interface_Description.html">6. GFBG Interface Description</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">GFBGDevelopmentGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">5. </span>Application Development Process</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/5_GFBG_Application_Example.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">5. </span>Application Development Process<a class="headerlink" href="5_GFBG_Application_Example.html#id1" title="Permalink to this heading">¶</a></h1>
+<p>GFBG is primarily used to display 2D graphics by directly operating physical video memory. Its core functions use efficient video-memory management and graphics overlay to provide smooth display. It meets the high-performance, low-latency display requirements of embedded systems while supporting flexible resolution and color-depth configuration.</p>
+<p>The GFBG application development process is shown below. Developers can design, develop, and debug the application step by step according to the flowchart and actual requirements. Proper video-memory allocation and parameter configuration maximize GFBG performance and provide a high-quality graphics-display experience.</p>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="_images/image5-1.png"><img alt="_images/image5-1.png" src="_images/image5-1.png" style="width: 4.76806in; height: 7.15069in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure  5.1 </span><span class="caption-text">GFBG Application Development Flowchart</span><a class="headerlink" href="5_GFBG_Application_Example.html#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>The development steps are as follows:</p>
+<ul class="simple">
+<li><p>Open the VO device through the public VO API.</p></li>
+<li><p>Call open to open the GFBG device.</p></li>
+<li><p>Call ioctl to set the GFBG display position, pixel format, screen width and height, and other parameters. See the next section for the GFBG ioctl interface.</p></li>
+<li><p>Call ioctl to obtain the physical video-memory size, stride, and other information allocated to GFBG for subsequent video-memory access.</p></li>
+<li><p>Call mmap to map the physical video memory allocated to GFBG into user space and obtain its virtual address.</p></li>
+<li><p>Operate on virtual memory to complete drawing, enable display, and, in standard mode, set the virtual display resolution to twice the panel resolution for higher display precision.</p></li>
+<li><p>Call munmap to unmap the memory</p></li>
+<li><p>Call close to close the GFBG device.</p></li>
+</ul>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="4_GFBG_Module_Loading.html" class="btn btn-neutral float-left" title="4. Module Loading" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="6_GFBG_Interface_Description.html" class="btn btn-neutral float-right" title="6. GFBG Interface Description" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Go to Official Website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="Go to Documentation Center"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Top of page"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Bottom of page"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR code for this page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

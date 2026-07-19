@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2. Introduction &mdash; AudioQualityTuningGuide master Documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="3. Echo Cancellation Debugging" href="3_Echo_Cancellation_Debugging.html" />
+    <link rel="prev" title="1. Disclaimer" href="1_disclaimer.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> AudioQualityTuningGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="2_Introduction.html#">2. Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_Introduction.html#id2">2.1. Overview</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3_Echo_Cancellation_Debugging.html">3. Echo Cancellation Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_FAQ.html">4. FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_VQE_Algorithm_Function_Introduction.html">5. VQE Algorithm Function Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_Block_Diagram.html">6. Block Diagram:</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">AudioQualityTuningGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">2. </span>Introduction</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/2_Introduction.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">2. </span>Introduction<a class="headerlink" href="2_Introduction.html#id1" title="Permalink to this headline">¶</a></h1>
+<section id="id2">
+<h2><span class="section-number">2.1. </span>Overview<a class="headerlink" href="2_Introduction.html#id2" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line">VQE(Voice Quality Enhancemen:Voice Quality Enhancement module)The module contains </div>
+<div class="line">AGC(Auto Gain Control:Automatic Gain Control),</div>
+<div class="line">ANR(Audio Noise Reduction:Audio Noise Reduction),</div>
+<div class="line">AEC(Acoustic Echo Cancelling:Acoustic Echo Cancellation)</div>
+<div class="line">The three main functions are primarily used during audio capture to provide better sound quality than microphone-only capture across different product forms and usage conditions.</div>
+<div class="line">VQE is primarily designed for speech, so it mainly supports 8 kHz and 16 kHz human voice signals.</div>
+<div class="line">This document mainly describes AEC debugging.</div>
+</div>
+<p><strong>[Purpose of Acoustic Echo Cancellation]: </strong></p>
+<a class="reference internal image-reference" href="_images/Introd002.png"><img alt="_images/Introd002.png" src="_images/Introd002.png" style="width: 6.26806in; height: 3.34514in;" /></a>
+<p>As shown in the figure, the remote app sends the voice recorded by the microphone, x(n), to Sophgo. Sophgo sends the data to VQE while playing it through the speaker.</p>
+<p>The near-end microphone sends a mixture of the recorded voice y(n) and the speaker output x’(n) propagated through the air to Sophgo. x’(n) is the echo to be cancelled.</p>
+<p>VQE input consists of the mixed x’(n) and y(n) signal plus the reference signal x(n). VQE outputs y(n) after echo cancellation and AGC/ANR processing.</p>
+<p>The Audio Input content is the content of the ain_record.pcm file.</p>
+<p>Note: Sophgo has two packages: QFN and BGA. In the QFN package, the x(n) reference signal is looped back inside the chip; in the BGA package, it is looped back outside the chip.</p>
+<p><strong>[Basic Algorithm Requirements]: </strong></p>
+<p>Recording Requirements</p>
+<ul class="simple">
+<li><p>Only 8 kHz or 16 kHz sampling rates are supported, and playback and recording parameters must match.</p></li>
+<li><p>AGC/ANR supports mono only; stereo is not supported.</p></li>
+<li><p>AEC requires stereo recording (the left channel is near-end audio captured by the microphone and the right channel is audio sent from the far end).</p></li>
+<li><p>The sampling bit depth is 16 bits (enBitwidth = AUDIO_BIT_WIDTH_16).</p></li>
+<li><p>The captured <strong>left and right channels must not be distorted</strong> (for example, clipping caused by excessive waveform amplitude, poor microphone or speaker quality, or interference in the PCB analog circuit).</p></li>
+<li><p>The near-end voice captured by the left-channel microphone must be louder than the speaker audio (far-end voice); otherwise, algorithm performance is affected.</p></li>
+<li><p><strong>The <strong>right-channel reference signal amplitude</strong> must be greater than the far-end voice in the left-channel microphone signal; otherwise, algorithm performance is affected.</p></li>
+</ul>
+<p>A normal waveform (moderate amplitude on both the microphone and reference channels, with no distortion or background-noise interference):</p>
+<img alt="_images/image2.png" src="_images/image2.png" />
+<p><strong>The waveform below is not acceptable</strong></p>
+<img alt="_images/image3.png" src="_images/image3.png" />
+<dl>
+<dt>Adjustment Method:</dt><dd><ol class="arabic simple">
+<li><p>Reduce the gain of the ADCR channel. A value of 1 is recommended for QFN; reduce it as needed for BGA.</p></li>
+<li><p>If clipping remains after Step 1, reduce the Audio Output gain.</p></li>
+</ol>
+<p>Note: The reference signal amplitude is affected by the remote side’s raw data amplitude, Audio Output gain, and ADC R gain.</p>
+</dd>
+</dl>
+<p>Hardware Requirements</p>
+<ul class="simple">
+<li><p>The board hardware has a microphone component.</p></li>
+<li><p>The board hardware has a speaker for audio playback.</p></li>
+<li><p>The board has an AEC loop: speaker audio is fed back to the recording right channel (ADC_R) without interference.</p></li>
+</ul>
+<p>System Mechanical Requirements</p>
+<ul class="simple">
+<li><p>The MIC should have a separate sealed acoustic chamber and an external shock-resistant rubber sleeve.</p></li>
+<li><p>The MIC pickup direction should preferably be opposite to the speaker direction.</p></li>
+<li><p>The speaker should have a separate acoustic chamber and rubber damping with good shock resistance.</p></li>
+<li><p>The MIC and speaker should be as far apart as possible, with an angle that minimizes acoustic coupling.</p></li>
+</ul>
+<p><strong>[Ideal Debugging Environment Requirements]</strong></p>
+<ol class="arabic simple">
+<li><p>Use the customer’s complete prototype, with the enclosure sealed as much as possible.</p></li>
+<li><p>The microphone and speaker used must be installed in the customer’s complete prototype.</p></li>
+<li><p>Tune the ADC/DAC gain levels to ensure stable mic in (capture) and ref in (playback loop).</p></li>
+<li><p>First confirm that there is no pop noise, circuit noise, or signal interruption, then capture the correct speech pattern.</p></li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="1_disclaimer.html" class="btn btn-neutral float-left" title="1. Disclaimer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="3_Echo_Cancellation_Debugging.html" class="btn btn-neutral float-right" title="3. Echo Cancellation Debugging" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Visit official website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="Go to Documentation Center"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Top of page"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Bottom of page"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR Code for This Page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

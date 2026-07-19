@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2. Ethernet Operation Guide &mdash; PeripheralDriver master Documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="3. USBOperation Guide" href="3_USB_Operation_Guide.html" />
+    <link rel="prev" title="1. Disclaimer" href="1_disclaimer.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> PeripheralDriver
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="2_Ethernet_Operation_Guide.html#">2. Ethernet Operation Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_Ethernet_Operation_Guide.html#id1">2.1. Operation Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Ethernet_Operation_Guide.html#ipv6">2.2. IPv6Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Ethernet_Operation_Guide.html#ieee-802-3x">2.3. IEEE 802.3xFlow Control</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_Ethernet_Operation_Guide.html#id2">2.3.1. Flow Control Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Ethernet_Operation_Guide.html#id3">2.3.2. Flow Control Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Ethernet_Operation_Guide.html#ethtool">2.3.3. ethtoolConfigure Flow Control Through the Interface</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3_USB_Operation_Guide.html">3. USBOperation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_SD_MMC_Card_Operation_Guide.html">4. SD/MMC Card Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_I2C_Operation_Guide.html">5. I2C Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_SPI_Operation_Guide.html">6. SPI Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_GPIO_Operation_Guide.html">7. GPIOOperation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="8_UART_Operation_Guide.html">8. UART Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="9_Watchdog_Operation_Guide.html">9. Watchdog Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_PWM_Operation_Guide.html">10. PWM Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_ADC_Operation_Guide.html">11. ADC Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_CVI_PINMUX_Operation_Guide.html">12. CVI PINMUX Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_DMA_mem_to_mem_Operation_Guide.html">13. DMA Operation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="14_Thermal_Control_Operation_Guide.html">14. Thermal Control Strategy and Test Operation Guide</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PeripheralDriver</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">2. </span>Ethernet Operation Guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/2_Ethernet_Operation_Guide.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ethernet">
+<h1><span class="section-number">2. </span>Ethernet Operation Guide<a class="headerlink" href="2_Ethernet_Operation_Guide.html#ethernet" title="Permalink to this heading">¶</a></h1>
+<section id="id1">
+<h2><span class="section-number">2.1. </span>Operation Example<a class="headerlink" href="2_Ethernet_Operation_Guide.html#id1" title="Permalink to this heading">¶</a></h2>
+<p>The Ethernet module is built into the kernel by default and does not require a separate load operation.</p>
+<p>The steps for using the Ethernet port from the kernel are as follows:</p>
+<ul>
+<li><p>Configure the IP address and subnet mask</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ifconfig eth0 xxx.xxx.xxx.xxx netmask xxx.xxx.xxx.xxx up
+</pre></div>
+</div>
+</li>
+<li><p>Set the default gateway</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>route add default gw xxx.xxx.xxx.xxx
+</pre></div>
+</div>
+</li>
+<li><p>Verify network connectivity</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ping xxx.xxx.xxx.xxx
+<span class="c1"># ping Gatewayor  IP，ConfirmNetworkcan after after  NFS/TFTP Operation</span>
+</pre></div>
+</div>
+</li>
+<li><p>Mount NFS</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mount -t nfs -o nolock xxx.xxx.xxx.xxx:/your/path /mount-dir
+</pre></div>
+</div>
+</li>
+<li><p>Use TFTP from the shell to upload and download files</p>
+<p>A TFTP service must be running on the server.</p>
+<p>Download a file:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tftp -g -r <span class="o">[</span>remote file name<span class="o">]</span> <span class="o">[</span>server ip<span class="o">]</span>
+</pre></div>
+</div>
+<p>Note: remote file name is under ofFileName，server ipisunder File inserverofipAddress (Ex：tftp -g -r test.txt 192.168.0.11)。</p>
+<p>Upload a file:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tftp -p -l <span class="o">[</span><span class="nb">local</span> file name<span class="o">]</span> <span class="o">[</span>server ip<span class="o">]</span>
+</pre></div>
+</div>
+<p>Note: local file name is on ofFileName，server ipison Fileof serverofipAddress (Ex：tftp -p -l test.txt 192.168.0.11)。</p>
+</li>
+</ul>
+<p>Note: The CV184x Ethernet module does not support TSO.</p>
+<p>Note: The NFS tool is not included in the file system by default and must be added when needed.</p>
+</section>
+<section id="ipv6">
+<h2><span class="section-number">2.2. </span>IPv6Description<a class="headerlink" href="2_Ethernet_Operation_Guide.html#ipv6" title="Permalink to this heading">¶</a></h2>
+<p>SDK inDefaultDisableIPv6Function。If IPv6，Need toModifyKernelOption。 Operationas follows：</p>
+<ol class="arabic simple">
+<li><p>CV184x  </p></li>
+</ol>
+<p>Modify</p>
+<blockquote>
+<div><p>build/boards/cv184x/{board_name}/linux/cvitek_{board_name}_defconfig。</p>
+<p>Ex: build/boards/cv184x/cv1842hp_wevb_0014a_spinor/linux/</p>
+<p>cvitek_cv1842hp_wevb_0014a_spinor_defconfig AddorModify CONFIG_IPV6=y。 afterRebuildKernelSoftware。</p>
+</div></blockquote>
+<p>IPv6 Configuration as follows：</p>
+<ul class="simple">
+<li><p>ConfigurationipAddresswithandGateway</p></li>
+</ul>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ip -6 addr add &lt;ipv6 address&gt;/ipv6 prefixlen dev &lt;port name&gt;
+
+Ex: ip -6 addr add <span class="m">2020</span>:abc:102::8888/24 dev eth0
+</pre></div>
+</div>
+</div></blockquote>
+<ul class="simple">
+<li><p>Ping ofIPv6Address</p></li>
+</ul>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ping -6 &lt;ipv6 address&gt;
+
+Ex: ping -6 <span class="m">2020</span>:abc:102::6666
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="ieee-802-3x">
+<h2><span class="section-number">2.3. </span>IEEE 802.3xFlow Control<a class="headerlink" href="2_Ethernet_Operation_Guide.html#ieee-802-3x" title="Permalink to this heading">¶</a></h2>
+<section id="id2">
+<h3><span class="section-number">2.3.1. </span>Flow Control Description<a class="headerlink" href="2_Ethernet_Operation_Guide.html#id2" title="Permalink to this heading">¶</a></h3>
+<p>CV184x EthernetSupportIEEE 802.3x DefinitionofFlow Control， Flow control withand ofFlow control method toFlow controlofPurpose。</p>
+<ul>
+<li><p> Flow control ：</p>
+<blockquote>
+<div><p>in of of in，If before of can after of ， Flow control ， not ， 。</p>
+</div></blockquote>
+</li>
+<li><p> Flow control ：</p>
+<blockquote>
+<div><p> to ofFlow control ， ofFlow control Description ，etc.to Flow control after， 。IfinWait in to ofFlow control DescriptionofFlow control is0 ， 。</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="id3">
+<h3><span class="section-number">2.3.2. </span>Flow Control Configuration<a class="headerlink" href="2_Ethernet_Operation_Guide.html#id3" title="Permalink to this heading">¶</a></h3>
+<p> Flow control FunctionDefault Disableof， ProvideSoftwareInterfaceConfiguration。</p>
+<p> Flow control FunctionofRelated FilesConfigurationinlinux/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">flow_ctrl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">FLOW_OFF</span><span class="p">;</span><span class="w"></span>
+<span class="n">module_param</span><span class="p">(</span><span class="n">flow_ctrl</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="mo">0644</span><span class="p">);</span><span class="w"></span>
+<span class="n">MODULE_PARM_DESC</span><span class="p">(</span><span class="n">flow_ctrl</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Flow control ability [on/off]&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="k">static</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">pause</span><span class="w"> </span><span class="o">=</span><span class="n">PAUSE_TIME</span><span class="p">;</span><span class="w"></span>
+<span class="n">module_param</span><span class="p">(</span><span class="n">pause</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="p">,</span><span class="w"> </span><span class="mo">0644</span><span class="p">);</span><span class="w"></span>
+<span class="n">MODULE_PARM_DESC</span><span class="p">(</span><span class="n">pause</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;Flow Control Pause Time&quot;</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>If Default Flow Control，canModifyflow_ctrl = FLOW_AUTO。</p>
+<p>If ModifyDefaultpause time，canConfiguration pause Value。</p>
+</section>
+<section id="ethtool">
+<h3><span class="section-number">2.3.3. </span>ethtoolConfigure Flow Control Through the Interface<a class="headerlink" href="2_Ethernet_Operation_Guide.html#ethtool" title="Permalink to this heading">¶</a></h3>
+<p>UserCanThrough ethtoolToolsInterface Flow ControlofEnable。</p>
+<p>ethtool -a eth0 CommandsVieweth0 Flow ControlStatus； as follows</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># ethtool -a eth0</span>
+<span class="n">Pause</span> <span class="n">parameters</span> <span class="k">for</span> <span class="n">eth0</span><span class="p">:</span>
+<span class="n">Autonegotiate</span><span class="p">:</span> <span class="n">on</span>
+<span class="n">RX</span><span class="p">:</span> <span class="n">off</span>
+<span class="n">TX</span><span class="p">:</span> <span class="n">off</span>
+</pre></div>
+</div>
+<p> in，RXFlow control Disableof，TXFlow control Disableof；UserCanThroughfollowingCommandsEnableorDisableTXFlow control：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># ethtool -A eth0 tx off（DisableTXFlow control）</span>
+<span class="c1"># ethtool -A eth0 tx on（EnableTXFlow control）</span>
+</pre></div>
+</div>
+<p>Note：ethtoolToolsDefaultnot FileSystem，Need toUserinNeed to 。</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="1_disclaimer.html" class="btn btn-neutral float-left" title="1. Disclaimer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="3_USB_Operation_Guide.html" class="btn btn-neutral float-right" title="3. USBOperation Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Go to Official Website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="Go to Documentation Center"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Back to top"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Go to bottom"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR code for this page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

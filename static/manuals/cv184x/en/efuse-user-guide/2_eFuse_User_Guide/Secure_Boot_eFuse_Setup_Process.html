@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2.2. Secure Boot eFuse Setup Process &mdash; eFuseUserGuide master Documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="../_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/js/qrious.js"></script>
+    <script src="../_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2.3. eFuse U-Boot Command Reference" href="eFuse_U-boot_Command_Reference.html" />
+    <link rel="prev" title="2.1. eFuse Overview" href="eFuse_Overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> eFuseUserGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../2_eFuse_User_Guide.html">2. eFuse User Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="eFuse_Overview.html">2.1. eFuse Overview</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="Secure_Boot_eFuse_Setup_Process.html#">2.2. Secure Boot eFuse Setup Process</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Secure_Boot_eFuse_Setup_Process.html#id1">2.2.1. View Key Contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Secure_Boot_eFuse_Setup_Process.html#id2">2.2.2. Burn the Key</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Secure_Boot_eFuse_Setup_Process.html#id3">2.2.3. Enable Secure Boot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="eFuse_U-boot_Command_Reference.html">2.3. eFuse U-Boot Command Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="eFuse_API_Reference.html">2.4. eFuse API Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Data_Types.html">2.5. Data Types</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">eFuseUserGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../2_eFuse_User_Guide.html"><span class="section-number">2. </span>eFuse User Guide</a> &raquo;</li>
+      <li><span class="section-number">2.2. </span>Secure Boot eFuse Setup Process</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="../_sources/2_eFuse_User_Guide/Secure_Boot_eFuse_Setup_Process.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="efuse">
+<h1><span class="section-number">2.2. </span>Secure Boot eFuse Setup Process<a class="headerlink" href="Secure_Boot_eFuse_Setup_Process.html#efuse" title="Permalink to this headline">¶</a></h1>
+<div class="admonition attention">
+<p class="admonition-title">Note</p>
+<p>After an eFuse bit is written as 1, it cannot be erased (it can only change from 0 to 1). Take care before writing.</p>
+<p>A locked eFuse area cannot be read or written. Take care before locking.</p>
+</div>
+<section id="id1">
+<h2><span class="section-number">2.2.1. </span>View Key Contents<a class="headerlink" href="Secure_Boot_eFuse_Setup_Process.html#id1" title="Permalink to this headline">¶</a></h2>
+<p>View the key contents on a PC:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>查看AES加解密秘钥
+<span class="go">host$ xxd -p -c 256 loader_ek.key</span>
+<span class="go">668f8b6655a89f7cb8ee5cbd6f2c914e</span>
+
+<span class="gp"># </span>获取RSA验签所需 sha256 值
+<span class="gp"># </span>执行签署脚本fipsign.py时，脚本会打印所需sha256值，如下：
+<span class="go">host$ ./fipsign.py ......</span>
+<span class="go">Host$ .......</span>
+<span class="go">Host$ INFO:root:KPUB_HASH:978bc2031b9377dadb4c7c34467ee985806a63a3ac8ee293a3f0eddcd2b789d8</span>
+<span class="go">Host$ .......</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>KPUB_HASH: The string following it is the required SHA-256 value</p></li>
+</ul>
+</section>
+<section id="id2">
+<h2><span class="section-number">2.2.2. </span>Burn the Key<a class="headerlink" href="Secure_Boot_eFuse_Setup_Process.html#id2" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Burn the loader_ek.key data to the eFuse "encryption key" area. The data is 16 bytes represented as a hexadecimal string. Skip this step if encryption is not used.</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">u-boot# efusew LOADER_EK 668f8b6655a89f7cb8ee5cbd6f2c914e</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Burn the SHA-256 value required for signature verification to the eFuse "SHA-256 digest required for signature verification" area. The data is 32 bytes represented as a hexadecimal string.</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">u-boot# efusew HASH0_PUBLIC 978bc2031b9377dadb4c7c34467ee985806a63a3ac8ee293a3f0eddcd2b789d8</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Lock the relevant key areas to prevent accidental writes</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">u-boot# efusew LOCK_LOADER_EK 01</span>
+<span class="go">u-boot# efusew LOCK_HASH0_PUBLIC 01</span>
+</pre></div>
+</div>
+</section>
+<section id="id3">
+<h2><span class="section-number">2.2.3. </span>Enable Secure Boot<a class="headerlink" href="Secure_Boot_eFuse_Setup_Process.html#id3" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Enable the signature verification flow</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">u-boot# efusew SECUREBOOT 01</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Enable the signature verification and decryption flow</p></li>
+</ol>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">u-boot# efusew SECUREBOOT 02</span>
+</pre></div>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">Note</p>
+<ol class="arabic simple">
+<li><p>Secure Boot cannot be changed after it is enabled. Verify the key and switch data before writing them.</p></li>
+<li><p>Enabling Secure Boot must match the data written to eFuse and fip.bin. For example, after enabling decryption, use a signed and encrypted FIP.bin; a signed-only FIP.bin cannot be burned or booted.</p></li>
+</ol>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="eFuse_Overview.html" class="btn btn-neutral float-left" title="2.1. eFuse Overview" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="eFuse_U-boot_Command_Reference.html" class="btn btn-neutral float-right" title="2.3. eFuse U-Boot Command Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Visit official website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="Go to Documentation Center"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Top of page"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Bottom of page"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR Code for This Page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

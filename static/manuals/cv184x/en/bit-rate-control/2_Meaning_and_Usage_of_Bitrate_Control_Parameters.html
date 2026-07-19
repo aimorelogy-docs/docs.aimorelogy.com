@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>2. Meaning and Usage of Bit Rate Control Parameters &mdash; BitRateControlApplicationNotes master Documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="3. Meaning and Usage of GOP Structure Parameters" href="3_Meaning_and_Usage_of_GOP_Structure_Parameters.html" />
+    <link rel="prev" title="1. Disclaimer" href="1_disclaimer.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> BitRateControlApplicationNotes
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="2_Meaning_and_Usage_of_Bitrate_Control_Parameters.html#">2. Meaning and Usage of Bit Rate Control Parameters</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_Meaning_and_Usage_of_Bitrate_Control_Parameters.html#cbr">2.1. CBR Parameter Description and Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Meaning_and_Usage_of_Bitrate_Control_Parameters.html#vbr">2.2. VBR Parameter Description and Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Meaning_and_Usage_of_Bitrate_Control_Parameters.html#avbr">2.3. AVBR Parameter Description and Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Meaning_and_Usage_of_Bitrate_Control_Parameters.html#id2">2.4. Macroblock-Level Bit Rate Control Parameter Description and Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Meaning_and_Usage_of_Bitrate_Control_Parameters.html#id3">2.5. Frame Dropping Parameters and Usage for Excessive Bit Rates</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3_Meaning_and_Usage_of_GOP_Structure_Parameters.html">3. Meaning and Usage of GOP Structure Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_Bitrate_Control_Topic.html">4. Bit Rate Control Topics</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">BitRateControlApplicationNotes</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">2. </span>Meaning and Usage of Bit Rate Control Parameters</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/2_Meaning_and_Usage_of_Bitrate_Control_Parameters.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">2. </span>Meaning and Usage of Bit Rate Control Parameters<a class="headerlink" href="2_Meaning_and_Usage_of_Bitrate_Control_Parameters.html#id1" title="Permalink to this headline">¶</a></h1>
+<section id="cbr">
+<h2><span class="section-number">2.1. </span>CBR Parameter Description and Usage<a class="headerlink" href="2_Meaning_and_Usage_of_Bitrate_Control_Parameters.html#cbr" title="Permalink to this headline">¶</a></h2>
+<p>CBR parameters are shown in the following table.</p>
+<table class="colwidths-given docutils align-default" style="width: 80%">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameters</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Usage Recommendation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>u32Gop</p></td>
+<td><p>I-frame interval</p></td>
+<td><p>Set it to an integer multiple of the frame rate</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32StatTime</p></td>
+<td><p>Bit rate statistics duration (unit: seconds)</p></td>
+<td><p>Set it to an integer multiple of (GOP/frame rate)</p>
+<p>A shorter statistics duration produces smaller short-term bit rate fluctuations</p>
+<p>A longer statistics duration produces larger short-term bit rate fluctuations but better image quality</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>u32BitRate</p></td>
+<td><p>Target bit rate</p></td>
+<td><p>Set it according to the application scenario. A higher target bit rate provides better image quality but requires more bandwidth</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32MaxQp</p></td>
+<td><p>Maximum QP</p></td>
+<td><p>Limits the maximum QP of a macroblock.</p>
+<p>This limits the worst image quality. Setting it too low may cause bit rate overshoot.</p>
+<p>Recommended value: [40, 51]</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>u32MinQp</p></td>
+<td><p>Minimum QP</p></td>
+<td><p>Limits the minimum QP of a macroblock.</p>
+<p>This limits the best image quality and saves bit rate when quality is sufficient. Setting it too high may result in insufficient bit rate.</p>
+<p>Recommended value: [12, 20]</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>u32MaxIQp</p></td>
+<td><p>Maximum I-frame QP</p></td>
+<td><p>Limits the maximum QP of I-frame macroblocks.</p>
+<p>For static scenes, a smaller maximum QP is recommended to improve the quality of static areas.</p>
+<p>Recommended value: [36, 44]</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>u32MinIQp</p></td>
+<td><p>Minimum I-frame QP</p></td>
+<td><p>Limits the minimum QP of I-frame macroblocks and saves bit rate when quality is sufficient.</p>
+<p>Recommended value: [16, 24]</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="vbr">
+<h2><span class="section-number">2.2. </span>VBR Parameter Description and Usage<a class="headerlink" href="2_Meaning_and_Usage_of_Bitrate_Control_Parameters.html#vbr" title="Permalink to this headline">¶</a></h2>
+<p>VBR parameters are shown in the following table.</p>
+<table class="colwidths-given docutils align-default" style="width: 80%">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameters</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Usage Recommendation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>u32Gop</p></td>
+<td><p>I-frame interval</p></td>
+<td><p>Set it to an integer multiple of the frame rate</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32StatTime</p></td>
+<td><p>Bit rate statistics duration (unit: seconds)</p></td>
+<td><p>Set it to an integer multiple of (GOP/frame rate). </p>
+<p>A shorter statistics duration produces smaller short-term bit rate fluctuations. </p>
+<p>A longer statistics duration produces larger short-term bit rate fluctuations but better image quality</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>u32MaxBitRate</p></td>
+<td><p>Maximum bit rate</p></td>
+<td><p>Set it according to the application scenario. A higher maximum bit rate provides better image quality but requires more bandwidth</p></td>
+</tr>
+<tr class="row-odd"><td><p>s32ChangePos</p></td>
+<td><p>Bit rate adjustment threshold</p></td>
+<td><p>The recommended adjustment range is [75, 90].</p>
+<p>If bit rate overshoot is important, 75 is recommended.</p>
+<p>Otherwise, 90 is sufficient.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>u32MaxQp</p></td>
+<td><p>Maximum QP</p></td>
+<td><p>Limits the maximum QP of a macroblock.</p>
+<p>This limits the worst image quality. Setting it too low may cause bit rate overshoot.</p>
+<p>Recommended value: [40, 51]</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>u32MinQp</p></td>
+<td><p>Minimum QP</p></td>
+<td><p>Limits the minimum QP of a macroblock.</p>
+<p>This limits the best image quality and saves bit rate when quality is sufficient. Setting it too high may result in insufficient bit rate.</p>
+<p>Recommended value: [12, 20]</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>u32MaxIQp</p></td>
+<td><p>Maximum I-frame QP</p></td>
+<td><p>Limits the maximum QP of I-frame macroblocks.</p>
+<p>For static scenes, a smaller maximum QP is recommended to improve the quality of static areas.</p>
+<p>Recommended value: [36, 44]</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>u32MinIQp</p></td>
+<td><p>Minimum I-frame QP</p></td>
+<td><p>Limits the minimum QP of I-frame macroblocks and saves bit rate when quality is sufficient.</p>
+<p>Recommended value: [16, 24]</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="avbr">
+<h2><span class="section-number">2.3. </span>AVBR Parameter Description and Usage<a class="headerlink" href="2_Meaning_and_Usage_of_Bitrate_Control_Parameters.html#avbr" title="Permalink to this headline">¶</a></h2>
+<p>AVBR parameters are shown in the following table.</p>
+<table class="colwidths-given docutils align-default" style="width: 80%">
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 25%" />
+<col style="width: 48%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameters</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Usage Recommendation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>u32Gop</p></td>
+<td><p>I-frame interval</p></td>
+<td><p>Set it to an integer multiple of the frame rate</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32StatTime</p></td>
+<td><p>Bit rate statistics duration (unit: seconds)</p></td>
+<td><p>Set it to an integer multiple of (GOP/frame rate). </p>
+<p>A shorter statistics duration produces smaller short-term bit rate fluctuations. </p>
+<p>A longer statistics duration produces larger short-term bit rate fluctuations but better image quality. </p>
+</td>
+</tr>
+<tr class="row-even"><td><p>u32MaxBitRate</p></td>
+<td><p>Maximum bit rate</p></td>
+<td><p>Set it according to the application scenario. A higher maximum bit rate provides better image quality but requires more bandwidth</p></td>
+</tr>
+<tr class="row-odd"><td><p>s32ChangePos</p></td>
+<td><p>Bit rate adjustment threshold</p></td>
+<td><p>The recommended adjustment range is [75, 90].</p>
+<p>If bit rate overshoot is important, 75 is recommended.</p>
+<p>Otherwise, 90 is sufficient.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>u32MaxQp</p></td>
+<td><p>Maximum QP</p></td>
+<td><p>Limits the maximum QP of a macroblock.</p>
+<p>This limits the worst image quality. Setting it too low may cause bit rate overshoot.</p>
+<p>Recommended value: [40, 51]</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>u32MinQp</p></td>
+<td><p>Minimum QP</p></td>
+<td><p>Limits the minimum QP of a macroblock.</p>
+<p>This limits the best image quality and saves bit rate when quality is sufficient. Setting it too high may result in insufficient bit rate.</p>
+<p>Recommended value: [12, 20]</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>u32MaxIQp</p></td>
+<td><p>Maximum I-frame QP</p></td>
+<td><p>Limits the maximum QP of I-frame macroblocks.</p>
+<p>For static scenes, a smaller maximum QP is recommended to improve the quality of static areas.</p>
+<p>Recommended value: [36, 44]</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>u32MinIQp</p></td>
+<td><p>Minimum I-frame QP</p></td>
+<td><p>Limits the minimum QP of I-frame macroblocks and saves bit rate when quality is sufficient.</p>
+<p>Recommended value: [16, 24]</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>s32MinStillPercent</p></td>
+<td><p>Target bit rate percentage when the scene is completely static</p></td>
+<td><p>The minimum bit rate for a static scene is the maximum bit rate multiplied by this percentage. A smaller setting produces a more significant bit rate reduction in static scenes.</p>
+<p>Recommended value: [10,  50]</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>u32MaxStillQp</p></td>
+<td><p>Maximum QP when the scene is static</p></td>
+<td><p>A smaller setting better preserves image quality in static and low-motion scenes.</p>
+<p>Recommended value: [32,  40]</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>u32MotionSensitivity</p></td>
+<td><p>Motion sensitivity</p></td>
+<td><p>Sets the sensitivity of bit rate adjustment to scene motion. A larger value makes bit rate control respond faster to motion changes.</p>
+<p>Recommended value: [12,  40]</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>s32AvbrPureStillThr</p></td>
+<td><p>Static threshold</p></td>
+<td><p>A value below the threshold is treated as completely static.</p>
+<p>Recommended value: [0,  20]</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>s32AvbrFrmLostOpen</p></td>
+<td><p>AVBR frame-drop switch</p></td>
+<td><p>Enables frame dropping for completely static images to reduce the bit rate when the image is static.</p></td>
+</tr>
+<tr class="row-odd"><td><p>s32AvbrFrmGap</p></td>
+<td><p>AVBRMaximum consecutive dropped frames. </p></td>
+<td><p>Limits the maximum consecutive dropped frames for static AVBR images.</p>
+<p>Recommended value: 1</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id2">
+<h2><span class="section-number">2.4. </span>Macroblock-Level Bit Rate Control Parameter Description and Usage<a class="headerlink" href="2_Meaning_and_Usage_of_Bitrate_Control_Parameters.html#id2" title="Permalink to this headline">¶</a></h2>
+<p>Macroblock-LevelThe bit rate control parameters are shown in the following table.</p>
+<table class="colwidths-given docutils align-default" style="width: 80%">
+<colgroup>
+<col style="width: 28%" />
+<col style="width: 25%" />
+<col style="width: 48%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameters</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Usage Recommendation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>u32RowQpDelta</p></td>
+<td><p>Macroblock-level bit rate control QP delta parameter</p></td>
+<td><p>A value greater than 0 enables macroblock-level control for bit rate stability. Recommended value: 1</p>
+<p>The adjustment effect of the row QP delta is currently not particularly obvious</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>s32FirstFrameStartQp</p></td>
+<td><p>Initial QP of the first frame</p></td>
+<td><p>Set an appropriate initial QP according to the target bit rate, resolution, and scene.</p>
+<p>Recommended value: 36</p>
+<p>The values are as follows:</p>
+<p>H.264: 1~51</p>
+<p>H.265: 1 to 51; 63 (determined internally)</p>
+</td>
+</tr>
+<tr class="row-even"><td><p>u32ThrdLv</p></td>
+<td><p>Texture macroblock-level automatic bit rate control parameter</p></td>
+<td><p>The system adaptively adjusts the threshold level for texture-level bit rate control.</p>
+<p>Default value: 2. Range: 0 to 4</p>
+<p>Controls the QP distribution range for intra-frame encoding. A smaller value reduces the difference between the maximum and minimum QP and can be used to adjust breathing and ghosting.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id3">
+<h2><span class="section-number">2.5. </span>Frame Dropping Parameters and Usage for Excessive Bit Rates<a class="headerlink" href="2_Meaning_and_Usage_of_Bitrate_Control_Parameters.html#id3" title="Permalink to this headline">¶</a></h2>
+<p>Frame Dropping for Excessive Bit RatesThe parameters are shown in the following table.</p>
+<table class="colwidths-given docutils align-default" style="width: 80%">
+<colgroup>
+<col style="width: 25%" />
+<col style="width: 25%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameters</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Usage Recommendation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>bFrmLostOpen</p></td>
+<td><p>Bit rate overshoot frame-drop switch</p></td>
+<td><p>Drops frames when the bit rate exceeds the threshold to keep interval bit rate peaks from becoming too high.</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32FrmLostBpsThr</p></td>
+<td><p>Bit rate overshoot frame-drop threshold</p></td>
+<td><p>Set it according to system capability; at least 1.2 times the bit rate is recommended</p></td>
+</tr>
+<tr class="row-even"><td><p>enFrmLostMode</p></td>
+<td><p>Frame-drop mode selection</p></td>
+<td><p>Only the frame-drop mode that encodes PSkip frames is supported</p></td>
+</tr>
+<tr class="row-odd"><td><p>u32EncFrmGaps</p></td>
+<td><p>Maximum consecutive dropped frames</p></td>
+<td><p>Limits the maximum number of consecutive dropped frames</p>
+<p>Makes images smoother while frames are dropped, but interval bit rate peaks may be higher.</p>
+<p>A value of 0 means that the number of consecutive dropped frames is unlimited</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="1_disclaimer.html" class="btn btn-neutral float-left" title="1. Disclaimer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="3_Meaning_and_Usage_of_GOP_Structure_Parameters.html" class="btn btn-neutral float-right" title="3. Meaning and Usage of GOP Structure Parameters" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Visit official website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="Go to Documentation Center"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Top of page"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Bottom of page"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR Code for This Page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV184x CIPHER API Reference &mdash; CIPHERAPIReference master Documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="1. Disclaimer" href="1_disclaimer.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html#" class="icon icon-home"> CIPHERAPIReference
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Overview.html">2. Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_API_Reference.html">3. API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_Data_Type.html">4. Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_Error_Code.html">5. Error Code</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html#">CIPHERAPIReference</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html#" class="icon icon-home"></a> &raquo;</li>
+      <li>CV184x CIPHER API Reference</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cv184x-cipher-api">
+<h1>CV184x CIPHER API Reference<a class="headerlink" href="index.html#cv184x-cipher-api" title="Permalink to this headline">¶</a></h1>
+<p><strong>Revision History</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 21%" />
+<col style="width: 64%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Revision</p></th>
+<th class="head"><p>Date</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1.2.0</p></td>
+<td><p>2022/10/19</p></td>
+<td><p>Initial</p></td>
+</tr>
+<tr class="row-odd"><td><p>1.2.1</p></td>
+<td><p>2022/11/14</p></td>
+<td><p>Review</p></td>
+</tr>
+</tbody>
+</table>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Overview.html">2. Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_Overview.html#id2">2.1. Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Overview.html#id3">2.2. Usage Flow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_Overview.html#id4">2.2.1. Single-Packet Data Encryption/Decryption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Overview.html#id5">2.2.2. Multi-Packet Data Encryption/Decryption</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Overview.html#hash">2.2.3. HASH Calculation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Overview.html#hmac-note-sw">2.2.4. HMAC Calculation (NOTE SW)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Overview.html#id6">2.2.5. Generate Random Numbers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Overview.html#rsa-note-sw">2.2.6. RSA Encryption/Decryption Procedure (NOTE SW)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Overview.html#rsa">2.2.7. RSA Signing and Signature Verification Procedure</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3_API_Reference.html">3. API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="3_API_Reference.html#cvi-unf-cipher-init">3.1. CVI_UNF_CIPHER_Init</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_API_Reference.html#cvi-unf-cipher-deinit">3.2. CVI_UNF_CIPHER_Deinit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_API_Reference.html#cvi-unf-cipher-open">3.3. CVI_UNF_CIPHER_Open</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_API_Reference.html#cvi-unf-cipher-close">3.4. CVI_UNF_CIPHER_Close</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_API_Reference.html#cvi-unf-cipher-createhandle">3.5. CVI_UNF_CIPHER_CreateHandle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_API_Reference.html#cvi-unf-cipher-destroyhandle">3.6. CVI_UNF_CIPHER_DestroyHandle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_API_Reference.html#cvi-unf-cipher-confighandle">3.7. CVI_UNF_CIPHER_ConfigHandle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_API_Reference.html#cvi-unf-cipher-confighandleex">3.8. CVI_UNF_CIPHER_ConfigHandleEx</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_API_Reference.html#cvi-unf-cipher-gethandleconfig">3.9. CVI_UNF_CIPHER_GetHandleConfig</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_API_Reference.html#cvi-unf-cipher-encrypt">3.10. CVI_UNF_CIPHER_Encrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_API_Reference.html#cvi-unf-cipher-decrypt">3.11. CVI_UNF_CIPHER_Decrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_API_Reference.html#cvi-unf-cipher-encryptvir">3.12. CVI_UNF_CIPHER_EncryptVir</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_API_Reference.html#cvi-unf-cipher-decryptvir">3.13. CVI_UNF_CIPHER_DecryptVir</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_API_Reference.html#cvi-unf-cipher-encryptmulti">3.14. CVI_UNF_CIPHER_EncryptMulti</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_API_Reference.html#cvi-unf-cipher-decryptmulti">3.15. CVI_UNF_CIPHER_DecryptMulti</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_API_Reference.html#cvi-unf-cipher-hashinit">3.16. CVI_UNF_CIPHER_HashInit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_API_Reference.html#cvi-unf-cipher-hashupdate">3.17. CVI_UNF_CIPHER_HashUpdate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_API_Reference.html#cvi-unf-cipher-hashfinal">3.18. CVI_UNF_CIPHER_HashFinal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_API_Reference.html#cvi-unf-cipher-getrandomnumber">3.19. CVI_UNF_CIPHER_GetRandomNumber</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_API_Reference.html#cvi-unf-cipher-gettag">3.20. CVI_UNF_CIPHER_GetTag</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_API_Reference.html#cvi-unf-cipher-rsapublicencrypt">3.21. CVI_UNF_CIPHER_RsaPublicEncrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_API_Reference.html#cvi-unf-cipher-rsaprivatedecrypt">3.22. CVI_UNF_CIPHER_RsaPrivateDecrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_API_Reference.html#cvi-unf-cipher-rsapublicdecrypt">3.23. CVI_UNF_CIPHER_RsaPublicDecrypt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_API_Reference.html#cvi-unf-cipher-rsasign">3.24. CVI_UNF_CIPHER_RsaSign</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_API_Reference.html#cvi-unf-cipher-rsaverify">3.25. CVI_UNF_CIPHER_RsaVerify</a></li>
+<li class="toctree-l2"><a class="reference internal" href="3_API_Reference.html#cvi-unf-cipher-kladencryptkey">3.26. CVI_UNF_CIPHER_KladEncryptKey</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="4_Data_Type.html">4. Data Types</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_Error_Code.html">5. Error Code</a></li>
+</ul>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="1_disclaimer.html" class="btn btn-neutral float-right" title="1. Disclaimer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Visit official website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="Go to Documentation Center"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Top of page"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Bottom of page"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR Code for This Page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

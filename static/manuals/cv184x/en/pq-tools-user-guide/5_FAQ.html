@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5. FAQ &mdash; PQToolsUserGuide master documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="4. Tool Application Reference" href="4_Tool_Application_Reference.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> PQToolsUserGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">directory</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Overview.html">2. Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Interface_and_Function_Description.html">3. Interface and Function Description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_Tool_Application_Reference.html">4. Tool Application Reference</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="5_FAQ.html#">5. FAQ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="5_FAQ.html#id1">5.1. Why does the tool report a version mismatch when opening a tuning data file?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="5_FAQ.html#soc">5.2. Why does the tool report an SoC mismatch when connecting to a board?</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">PQToolsUserGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">5. </span>FAQ</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/5_FAQ.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="faq">
+<h1><span class="section-number">5. </span>FAQ<a class="headerlink" href="5_FAQ.html#faq" title="Permalink to this heading">¶</a></h1>
+<section id="id1">
+<h2><span class="section-number">5.1. </span>Why does the tool report a version mismatch when opening a tuning data file?<a class="headerlink" href="5_FAQ.html#id1" title="Permalink to this heading">¶</a></h2>
+<p>When the tool opens a tuning data file, it checks the version information in the file. An example is shown below:</p>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="_images/fi1.png"><img alt="_images/fi1.png" src="_images/fi1.png" style="width: 2.60417in; height: 2.41957in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 5.1 </span><span class="caption-text">Version information in the tuning data file</span><a class="headerlink" href="5_FAQ.html#id2" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>If the version information in the tuning data file does not match the tool version, one of the following three messages is displayed:</p>
+<ol class="arabic simple">
+<li><p>If the file does not contain version information, the following message is displayed.</p></li>
+</ol>
+<p><strong>[Recommended action] Read the default data for the current SDK version, then open the tuning data file. This includes default values for different parameters while retaining the tuning data in the file.</strong></p>
+<figure class="align-default" id="id3">
+<a class="reference internal image-reference" href="_images/fi2.png"><img alt="_images/fi2.png" src="_images/fi2.png" style="width: 3.76042in; height: 1.10865in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 5.2 </span><span class="caption-text">Message shown when version information is missing</span><a class="headerlink" href="5_FAQ.html#id3" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="2">
+<li><p>If the SoC information in the file does not match the tuning tool, the following message is displayed.</p></li>
+</ol>
+<p><strong>[recommendprocesswaythe relevant information]verifyfileandtuningtoolthe relevant informationofSoCwhetherthe relevant information.</strong></p>
+<figure class="align-default" id="id4">
+<a class="reference internal image-reference" href="_images/fi3.png"><img alt="_images/fi3.png" src="_images/fi3.png" style="width: 2.34375in; height: 1.49148in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 5.3 </span><span class="caption-text">SoC mismatch message</span><a class="headerlink" href="5_FAQ.html#id4" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<ol class="arabic simple" start="3">
+<li><p>If the parameter version information in the file does not match, the following message is displayed.</p></li>
+</ol>
+<p><strong>[Recommended action] Read the default data for the current SDK version, then open the tuning data file. This includes default values for different parameters while retaining the tuning data in the file.</strong></p>
+<figure class="align-default" id="id5">
+<a class="reference internal image-reference" href="_images/fi4.png"><img alt="_images/fi4.png" src="_images/fi4.png" style="width: 3.26042in; height: 1.82505in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 5.4 </span><span class="caption-text">Parameter version mismatch message</span><a class="headerlink" href="5_FAQ.html#id5" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="soc">
+<h2><span class="section-number">5.2. </span>Why does the tool report an SoC mismatch when connecting to a board?<a class="headerlink" href="5_FAQ.html#soc" title="Permalink to this heading">¶</a></h2>
+<p>When the tool connects to a board, it verifies whether the board SoC matches the tool. If they do not match, the following error is displayed and the connection is interrupted.</p>
+<figure class="align-default" id="id6">
+<a class="reference internal image-reference" href="_images/fi5.png"><img alt="_images/fi5.png" src="_images/fi5.png" style="width: 2.90625in; height: 1.4592in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 5.5 </span><span class="caption-text">SoC mismatch message</span><a class="headerlink" href="5_FAQ.html#id6" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+<p><strong>[Recommended action] Verify that the SoC shown in the upper-left corner of the tool matches the board.</strong></p>
+<figure class="align-default" id="id7">
+<a class="reference internal image-reference" href="_images/fi6.png"><img alt="_images/fi6.png" src="_images/fi6.png" style="width: 4.42845in; height: 2.47917in;" /></a>
+<figcaption>
+<p><span class="caption-number">Figure 5.6 </span><span class="caption-text">Tool SoC information</span><a class="headerlink" href="5_FAQ.html#id7" title="Permalink to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="4_Tool_Application_Reference.html" class="btn btn-neutral float-left" title="4. Tool Application Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Go to the official website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="Go to the documentation center"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Top of page"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Bottom of page"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR code for this page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

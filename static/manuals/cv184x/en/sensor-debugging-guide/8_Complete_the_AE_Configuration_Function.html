@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV184X Sensor Debugging Guide &mdash; Sensor_Debugging_Guide master documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="9. Complete Other Functions" href="9_Complete_Other_Functions.html" />
+    <link rel="prev" title="7. ISP Basic Functions" href="7_Basic_Functions_of_ISP.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Sensor_Debugging_Guide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Introduction_to_Sensor_Drivers.html">2. SensorDriverIntroduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_Confirm_Specifications.html">3. Confirm Specifications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_Image_Output_Debugging.html">4. Image Output Debugging(Linuxthe corresponding content)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_Image_Output_Debugging.html">5. Image Output Debugging(Aliosthe corresponding content)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_Image_Output_Verification.html">6. ImageOutput Verification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_Basic_Functions_of_ISP.html">7. ISP Basic Functions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="8_Complete_the_AE_Configuration_Function.html#">8. Complete the AE Configuration Function</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="8_Complete_the_AE_Configuration_Function.html#id1">8.1. Development Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="8_Complete_the_AE_Configuration_Function.html#id2">8.2. Precautions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="9_Complete_Other_Functions.html">9. Complete Other Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="10_AE_Related_Verification.html">10. AERelatedVerification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="11_Common_Problem.html">11. FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="12_Color_Noise_Reduction_and_Other_Corrections.html">12. Color, Noise Reduction, and Other Corrections</a></li>
+<li class="toctree-l1"><a class="reference internal" href="13_Debugging_Tool.html">13. Debugging Tool</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Sensor_Debugging_Guide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">8. </span>Complete the AE Configuration Function</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/8_Complete_the_AE_Configuration_Function.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ae">
+<h1><span class="section-number">8. </span>Complete the AE Configuration Function<a class="headerlink" href="8_Complete_the_AE_Configuration_Function.html#ae" title="Permalink to this heading">¶</a></h1>
+<p>SensorDriverFunctionthe corresponding contentoperation callbacksthe corresponding content。</p>
+<p>the corresponding contentsectionthe corresponding contentusethe corresponding contentSensor datasheetthe corresponding contentDescriptionAE Callbacksthe corresponding contentBasicFunction。</p>
+<section id="id1">
+<h2><span class="section-number">8.1. </span>Development Flow<a class="headerlink" href="8_Complete_the_AE_Configuration_Function.html#id1" title="Permalink to this heading">¶</a></h2>
+<p>the corresponding contentAEBasicFunctioncallbacks</p>
+<ol class="arabic simple">
+<li><p>pfn_cmos_get_ae_default</p></li>
+<li><p>pfn_cmos_fps_set</p></li>
+<li><p>pfn_cmos_inttime_update</p></li>
+<li><p>pfn_cmos_gains_update</p></li>
+<li><p>pfn_cmos_again_calc_table</p></li>
+<li><p>pfn_cmos_dgain_calc_table</p></li>
+<li><p>pfn_cmos_get_inttime_max</p></li>
+</ol>
+</section>
+<section id="id2">
+<h2><span class="section-number">8.2. </span>Precautions<a class="headerlink" href="8_Complete_the_AE_Configuration_Function.html#id2" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>pfn_cmos_get_ae_default： the corresponding contentAEthe corresponding contentRelatedthe corresponding contentsensorData。</p></li>
+</ul>
+<p>needthe corresponding content AE the corresponding content linear modethe corresponding contentExposurethe corresponding content，linear/ WDRmodethe corresponding content/the corresponding contentGainthe corresponding contentMinimum ValueandGainthe corresponding contentType，
+the corresponding contentGainthe corresponding contentYesthe corresponding content : 0db , 6db, 12db the corresponding contentselect，the corresponding content DB the corresponding content，
+the corresponding contentlinear，Exposurethe corresponding content frame the corresponding content，the corresponding content frame the corresponding content frame the corresponding content。</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>u32FullLinesStd : the corresponding content, the corresponding contentFramethe corresponding contentTimethe corresponding contentlinethe corresponding content.</p></li>
+<li><p>u32MaxAgain: the corresponding contentAGain the corresponding content.</p></li>
+<li><p>u32MinAgain: the corresponding contentAGain the corresponding content.</p></li>
+<li><p>u32MaxDgain: the corresponding contentDGain the corresponding content.</p></li>
+<li><p>u32MinDgain: the corresponding contentDGain the corresponding content.</p></li>
+<li><p>u32MaxIntTime: linearmodethe corresponding contentExposurethe corresponding content.</p></li>
+<li><p>u32MinIntTimeTarget: linearmodethe corresponding contentExposurethe corresponding content.</p></li>
+<li><p>u32AEResponseFrame: AEthe corresponding contentTime(unit: frame)</p></li>
+</ul>
+</div></blockquote>
+<p>mainlyYesthe corresponding contentsensor specthe corresponding contentRelatedAEthe corresponding content，IncludesFullLinesStd,FullLinesMax, IntTimethe corresponding contentmax、minandstep, gainthe corresponding contentmaxthe corresponding contentminandstepthe corresponding content。Notethe corresponding contentverifythe corresponding contentintTimethe corresponding contentgainthe corresponding contentAccuType:</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/image18.png"><img alt="_images/image18.png" src="_images/image18.png" style="width: 80%;" /></a>
+</figure>
+<p>the corresponding contentintTimethe corresponding contentregisterYesthe corresponding contentlinearthe corresponding content,
+AccuTypeConfigurationthe corresponding contentAE_ACCURACY_LINEAR;</p>
+<p>gainthe corresponding contentAE_ACCURACY_TABLE,Tablethe corresponding contentgain tablethe corresponding content，
+the corresponding contentIntroductionpfn_cmos_again_calc_table/pfn_cmos_dgain_calc_table。</p>
+<p>the corresponding contentsensorthe corresponding contentgainthe corresponding content，the corresponding contentsoi_F35the corresponding content,the corresponding contentdgainthe corresponding contentadjustment，the corresponding content1x, 2x, 3x, 4xthe corresponding content4the corresponding content。</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/Comple003.png"><img alt="_images/Comple003.png" src="_images/Comple003.png" style="width: 80%;" /></a>
+</figure>
+<ul class="simple">
+<li><p>pfn_cmos_fps_set： the corresponding contentsensorFramethe corresponding content。</p></li>
+</ul>
+<p>defaultthe corresponding contentSensorOutputmodethe corresponding contentFramethe corresponding content。SensorDriverincreaseOutputthe corresponding contentBlankingthe corresponding contentFramethe corresponding contenteffect。</p>
+<p>Notethe corresponding contentOutputthe corresponding content，the corresponding contentSensorthe corresponding contentExposurerangethe corresponding content，SensorDriverthe corresponding content。</p>
+<p>For example, the corresponding contentFPS=30, the corresponding contentFPS the corresponding content30.the corresponding contentadjustframe ratethe corresponding contentmethodYesthe corresponding contentincreasesensorOutputthe corresponding contentfull lines.</p>
+<p>For example, the corresponding contentFPS=30the corresponding content, full lines = 1125. FPS=25the corresponding contentfull lines = 1125*30/25 = 1350。</p>
+<ul class="simple">
+<li><p>pfn_cmos_inttime_update： the corresponding contentSensorthe corresponding contentExposureTimethe corresponding contentExposurethe corresponding content AE。</p></li>
+</ul>
+<p>InputParameterthe corresponding content，the corresponding contentWDRmodethe corresponding contentTablethe corresponding contentFramethe corresponding contentFramethe corresponding contentExposurethe corresponding content，Unitthe corresponding contentOutputthe corresponding content。</p>
+<p>For example，the corresponding contentu32IntTime[0]=8，u32IntTime[[1]=1000，the corresponding contentTablethe corresponding contentFrameExposurethe corresponding content8the corresponding contentTime，the corresponding contentFramethe corresponding content1000the corresponding contentTime。</p>
+<p>the corresponding contentlinearmode，the corresponding content[0]the corresponding contentTableExposurethe corresponding content，the corresponding content[1]Nonethe corresponding content。Notethe corresponding contentWDRmode，
+adjustSensorthe corresponding contentFrameExposurethe corresponding contentneedthe corresponding contentCropinformationthe corresponding contentmipi-rxthe corresponding content。</p>
+<ul class="simple">
+<li><p>pfn_cmos_gains_update： the corresponding contentSensorthe corresponding contentGainthe corresponding content。</p></li>
+</ul>
+<p>InputParameterthe corresponding contentpu32Againthe corresponding contentpu32Dgainthe corresponding content。</p>
+<p>the corresponding contentWDRmode，pu32Again[0]the corresponding contentTablethe corresponding contentFramethe corresponding contentGainthe corresponding content，pu32Again[[1]the corresponding contentTablethe corresponding contentFramethe corresponding contentGainthe corresponding content；</p>
+<p>pu32Dgain[0]the corresponding contentTablethe corresponding contentFramethe corresponding contentGainthe corresponding content，pu32Dgain[[1]the corresponding contentTablethe corresponding contentFramethe corresponding contentGainthe corresponding content。</p>
+<p>valuethe corresponding contentSensorthe corresponding content，the corresponding contentpfn_cmos_again_calc_tablethe corresponding contentpfn_cmos_dgain_calc_tablethe corresponding contentGainthe corresponding content。</p>
+<p>the corresponding contentlinearmode，the corresponding contentpu32Again[0]the corresponding contentpu32Dgain[0]the corresponding content。</p>
+<p>the corresponding contentpfn_cmos_again_calc_tablethe corresponding contentpfn_cmos_dgain_calc_tablethe corresponding contentGainthe corresponding content。</p>
+<p>the corresponding contentlinearmode，the corresponding contentpu32Again[0]the corresponding contentpu32Dgain[0]the corresponding content。</p>
+<p>the corresponding contentWDR modethe corresponding content：</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>pu32Again[0]: the corresponding contentFramethe corresponding contentAgainConfiguration.</p></li>
+<li><p>pu32Again[1]: the corresponding contentFramethe corresponding contentAgainConfiguration.</p></li>
+<li><p>pu32Dgain[0]: the corresponding contentFramethe corresponding contentDgainConfiguration.</p></li>
+<li><p>pu32Dgain[1]: the corresponding contentFramethe corresponding contentDgainConfiguration.</p></li>
+<li><p>Gains updatethe corresponding content3the corresponding contentmode： SHARE, WDR_2F, ONLY_LEF, Setthe corresponding contentpfnSetInit.</p></li>
+<li><p>SHARE: the corresponding contentFramethe corresponding contentGainConfiguration (Sony, OV).</p></li>
+<li><p>WDR_2F: the corresponding contentFramethe corresponding contentGainConfiguration (Sony, OV).</p></li>
+<li><p>ONLY_LEF: the corresponding contentFrameGainthe corresponding contentConfiguration (SOI).</p></li>
+</ul>
+</div></blockquote>
+<ul>
+<li><p>pfn_cmos_again_calc_table： Inputthe corresponding content1024the corresponding contentGainthe corresponding content，SensorDriverthe corresponding contentTablethe corresponding contentInputthe corresponding contentGainthe corresponding content，Outputthe corresponding contentSensorthe corresponding content。</p>
+<ul>
+<li><p>pu32AgainLin: AEthe corresponding content1024-basedthe corresponding contentAgain.</p>
+<p>SensorDriverthe corresponding contentgain tablethe corresponding content, the corresponding content1024-based Again.</p>
+<p>Againthe corresponding contentrangethe corresponding contentpfn_cmos_get_ae_default</p>
+</li>
+<li><p>pu32AgainDb: the corresponding contentSensor Again register Configuration.</p></li>
+</ul>
+</li>
+<li><p>pfn_cmos_dgain_calc_table： Inputthe corresponding content1024the corresponding contentGainthe corresponding content，SensorDriverthe corresponding contentTablethe corresponding contentInputthe corresponding contentGainthe corresponding content，Outputthe corresponding contentSensorthe corresponding content。</p>
+<ul>
+<li><p>pu32DgainLin: AEthe corresponding content1024-basedthe corresponding contentDgain.</p>
+<p>SensorDriverthe corresponding contentgain tablethe corresponding content, the corresponding content1024-based Dgain.</p>
+<p>Dgainthe corresponding contentrangethe corresponding contentpfn_cmos_get_ae_default</p>
+</li>
+<li><p>pu32DgainDb: the corresponding contentSensor Dgain register Configuration.</p>
+<p>the corresponding contentsensor Dgainadjustthe corresponding content(1X, 2X, 4X…),</p>
+<p>pfn_cmos_get_ae_default the corresponding contentstDgainAccu.enAccuTypethe corresponding contentAE_ACCURACY_DB.</p>
+</li>
+</ul>
+</li>
+<li><p>pfn_cmos_get_inttime_max： the corresponding contentWDRmode，the corresponding contentcurrentthe corresponding contentExposurethe corresponding contentFramethe corresponding contentExposurethe corresponding contentrange。</p>
+<p>SONY DOL, F35 HDR-wo VC, OV HDR-DT, Smartsens SC200AI the corresponding contentYesthe corresponding contentblankingthe corresponding contentFrameExposure。</p>
+<p>the corresponding contentsensor (OS08A20, F35) the corresponding contentFix L2S distance,
+the corresponding contentFrameExposurethe corresponding content, the corresponding contentadjustthe corresponding contentFrameExposurethe corresponding content, L2S distance
+the corresponding content, ISP crop size the corresponding contentConfiguration.</p>
+<ul class="simple">
+<li><p>u16ManRatioEnable: Manual Ratio Enable, the corresponding content1</p></li>
+<li><p>au32Ratio[0] : 2 frame HDRthe corresponding content, the corresponding contentFrameExposure*64/the corresponding contentFrameExposurethe corresponding content</p></li>
+<li><p>au32IntTimeMax[0] : the corresponding contentFramethe corresponding contentExposurethe corresponding content(Unit:the corresponding contentHTime)</p></li>
+<li><p>au32IntTimeMax[1] : the corresponding contentFramethe corresponding contentExposurethe corresponding content(Unit:the corresponding contentHTime)</p></li>
+<li><p>au32IntTimeMin[0] : the corresponding contentFramethe corresponding contentExposurethe corresponding content(Unit:the corresponding contentHTime)</p></li>
+<li><p>au32IntTimeMin[1] : the corresponding contentFramethe corresponding contentExposurethe corresponding content(Unit:the corresponding contentHTime)</p></li>
+<li><p>pu32LFMaxIntTime[0] : NA</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="7_Basic_Functions_of_ISP.html" class="btn btn-neutral float-left" title="7. ISP Basic Functions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="9_Complete_Other_Functions.html" class="btn btn-neutral float-right" title="9. Complete Other Functions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Go to the official website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="the corresponding contentdocumentationthe corresponding content"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Top of page"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Bottom of page"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR Code for This Page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

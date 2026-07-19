@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4. Module Loading &mdash; GFBGDevelopmentGuide master Documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="5. Application Development Process" href="5_GFBG_Application_Example.html" />
+    <link rel="prev" title="3. GFBG Function Description" href="3_GFBG_Function_Description.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> GFBGDevelopmentGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_GFBG_Overview.html">2. GFBG Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_GFBG_Function_Description.html">3. GFBG Function Description</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="4_GFBG_Module_Loading.html#">4. Module Loading</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="4_GFBG_Module_Loading.html#id2">4.1. Principle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_GFBG_Module_Loading.html#id3">4.2. Parameter Settings</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="4_GFBG_Module_Loading.html#video">4.2.1. Parametersvideo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_GFBG_Module_Loading.html#id4">4.2.2. Relationship Between Physical Video Memory and Virtual Memory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_GFBG_Module_Loading.html#id5">4.2.3. Default Parameter Values</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="5_GFBG_Application_Example.html">5. Application Development Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_GFBG_Interface_Description.html">6. GFBG Interface Description</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">GFBGDevelopmentGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">4. </span>Module Loading</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/4_GFBG_Module_Loading.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">4. </span>Module Loading<a class="headerlink" href="4_GFBG_Module_Loading.html#id1" title="Permalink to this heading">¶</a></h1>
+<section id="id2">
+<h2><span class="section-number">4.1. </span>Principle<a class="headerlink" href="4_GFBG_Module_Loading.html#id2" title="Permalink to this heading">¶</a></h2>
+<p>a certainsome Linux Framebuffer driver (if versa) not supportedinrunduringchangeresolution, color depth, timingetc.displayattribute. 
+forthis, Linux systemprovidea type ofmechanism, allowininkernelbootorModule Loadingwhen, throughparameterwillcorrespondingoptionpassgive Linux Framebuffer. 
+throughthistypemechanism, usercaninsystembootbefore, presetfirstconfiguredisplayrelatedparameter, withmeet specificapplicationrequirement. 
+canininkernelloaderinconfigureinkernelbootparameter, for examplespecifiedresolution, refreshrateorcolor depthetc.. 
+need toNoteis, GFBG driverinloadwhenonlycansetphysical video memorysize, notallowsetitsitoption. 
+therefore, inuse GFBG driverwhen, userneed toaccording toactualrequirementraisebeforeplanningvideo memorysize, andinModule Loadingwhencorrectpassparameter. 
+thismeansuserneed toinsystemdesignstepsegmentfully considerapplicationscenerequirement, for exampleiswhetherneed tosupporthighresolutiondisplayormultiplelayeroverlayaddgraphicalrendering. 
+throughreasonableplanningvideo memorysize, canensuresysteminrunwhencanmeetperformanceandfunctionneed torequest, at the same timeavoidbecause ofvideo memorynotsufficientcausedisplayabnormalityorperformanceunderreduce. </p>
+</section>
+<section id="id3">
+<h2><span class="section-number">4.2. </span>Parameter Settings<a class="headerlink" href="4_GFBG_Module_Loading.html#id3" title="Permalink to this heading">¶</a></h2>
+<p>GFBG can configureitsmanage overlaygraphicallayerphysical video memorysize. physical video memorysizedetermine GFBG can usemaximumphysical video memoryandsystemcan setvirtualresolution. 
+inload GFBG driverwhenthroughparameterpasssetphysical video memorysize, physical video memorysizeonealreadysetthennotwillchangechange. 
+thismeansuserinconfigurevideo memorysizewhenneed tofully considerapplicationactualrequirement, for exampleiswhetherneed tosupporthighresolutiondisplaycontentorresetcomplexgraphicaloverlayaddeffect. 
+video memorysizesetdirectlyconnecteffecttosystemdisplaycapabilityandperformance, thereforerecommenduserinconfigurewhenaccording tospecificapplicationsceneperform testandverification. 
+thisoutside, reasonablevideo memoryplanningnotonlycanimprovesystemstability, alsocanavoidresourcewaste, fromandoptimizesystementirebodyperformance. </p>
+<section id="video">
+<h3><span class="section-number">4.2.1. </span>Parametersvideo<a class="headerlink" href="4_GFBG_Module_Loading.html#video" title="Permalink to this heading">¶</a></h3>
+<p>video="gfbg:vram0_size:xxx, vram1_size:xxx, ..."</p>
+<ul class="simple">
+<li><p>gfbg: meansload GFBG driver. </p></li>
+<li><p>vram0_size: means GFBG managegraphicallayer0physical video memorysize, CV184X onlyhasgraphicallayer0, only supports vram0_size. </p></li>
+<li><p>vram1_size: means GFBG managegraphicallayer1physical video memorysize. </p></li>
+<li><p>xxx: meansphysical video memorysize, unitis KB. </p></li>
+<li><p>If layernotconfigurephysical video memorysize, currentbeforedriverdefaultallocateis8100KB. </p></li>
+</ul>
+</section>
+<section id="id4">
+<h3><span class="section-number">4.2.2. </span>Relationship Between Physical Video Memory and Virtual Memory<a class="headerlink" href="4_GFBG_Module_Loading.html#id4" title="Permalink to this heading">¶</a></h3>
+<p>For GFBGstandardmode, vramn_size andvirtualresolutionrelationshipas follows: 
+vramn_size * 1024 &gt;= xres_virtual * yres_virtual * bpp;
+wherexres_virtual * yres_virtual isvirtualresolution, bpp iseachpixeltheoccupybytesnumber. </p>
+</section>
+<section id="id5">
+<h3><span class="section-number">4.2.3. </span>Default Parameter Values<a class="headerlink" href="4_GFBG_Module_Loading.html#id5" title="Permalink to this heading">¶</a></h3>
+<p>CV184X GFBG driverdefaultparameteris: 
+video="gfbg:vram0_size:8100", that is, 1080presolution, 32bitscolor depthneed tominimumvideo memory. 
+userneed tofromglobal perspectiveoutsendconfigure GFBG need tomanage overlaygraphicallayer, andiseachoverlayaddgraphicallayerallocateappropriatevideo memory. </p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="3_GFBG_Function_Description.html" class="btn btn-neutral float-left" title="3. GFBG Function Description" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="5_GFBG_Application_Example.html" class="btn btn-neutral float-right" title="5. Application Development Process" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Go to Official Website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="Go to Documentation Center"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Top of page"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Bottom of page"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR code for this page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

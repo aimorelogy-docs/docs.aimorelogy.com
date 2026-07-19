@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CV184X SDK Compilation and Usage Guide &mdash; SDKCompilationandUsageGuide master documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="3. Burning Instructions" href="3_Burning_Instructions.html" />
+    <link rel="prev" title="1. Disclaimer" href="1_disclaimer.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> SDKCompilationandUsageGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#">2. Build the CVITEK Software Compilation Environment</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#linux">2.1. Linux servicethe corresponding content</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#virtualboxvmubuntu">2.1.1. the corresponding contentVirtualBoxVMinstallUbuntu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#ubuntu">2.1.2. Ubuntu the corresponding content</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#ssh-server">2.1.3. installSSH Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#samba-server">2.1.4. installSamba Server</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#id1">2.2. the corresponding contentCompilation Environment</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#docker">2.2.1. use Docker the corresponding content</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#github">2.3. Configurationgithubthe corresponding content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#sdk">2.4. Get SDK the corresponding content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#id3">2.5. Filethe corresponding content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#id4">2.6. the corresponding content</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#id5">2.6.1. environmentthe corresponding contentDescription</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#id6">2.6.2. SDK the corresponding content</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#id7">2.7. Build Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#id8">2.7.1. Single-System or Dual-System Build Configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#id9">2.7.2. Toolchain Switching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#id10">2.7.3. modifyPartition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#id11">2.7.4. Memory Mapping Configuration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#id12">2.7.4.1. memorythe corresponding content</a></li>
+<li class="toctree-l4"><a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#id13">2.7.4.2. memorythe corresponding contentmodify</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="3_Burning_Instructions.html">3. Burning Instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="4_EVB_Interface_Description.html">4. EVB Interface Description</a></li>
+<li class="toctree-l1"><a class="reference internal" href="5_Root_File_System.html">5. Root File System(rootfs)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="6_Accelerate_Development_with_NFS.html">6. Accelerate Development with NFS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="7_SD_Boot_Guide.html">7. SD Boot User Guide</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SDKCompilationandUsageGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">2. </span>Build the CVITEK Software Compilation Environment</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/2_Build_CVITEK_Software_Compilation_Environment.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="cvitek">
+<h1><span class="section-number">2. </span>Build the CVITEK Software Compilation Environment<a class="headerlink" href="2_Build_CVITEK_Software_Compilation_Environment.html#cvitek" title="Permalink to this heading">¶</a></h1>
+<section id="linux">
+<h2><span class="section-number">2.1. </span>Linux servicethe corresponding content<a class="headerlink" href="2_Build_CVITEK_Software_Compilation_Environment.html#linux" title="Permalink to this heading">¶</a></h2>
+<p>the corresponding contentselectuse：</p>
+<ul class="simple">
+<li><p>Ubuntu OScomputer</p></li>
+<li><p>Windows OScomputer + Virtualbox VM (the corresponding contentRunUbuntu)</p></li>
+</ul>
+<p>the corresponding content，the corresponding contentinstallthe corresponding contentUbuntu 20.04 LTSVersion。</p>
+<p>Virtualbox VM the corresponding content: <a class="reference external" href="https://www.virtualbox.org/wiki/Downloads">https://www.virtualbox.org/wiki/Downloads</a></p>
+<p>Ubuntu 20.04 LTSthe corresponding content: <a class="reference external" href="https://releases.ubuntu.com/focal/ubuntu-20.04.6-desktop-amd64.iso">https://releases.ubuntu.com/focal/ubuntu-20.04.6-desktop-amd64.iso</a></p>
+<section id="virtualboxvmubuntu">
+<h3><span class="section-number">2.1.1. </span>the corresponding contentVirtualBoxVMinstallUbuntu<a class="headerlink" href="2_Build_CVITEK_Software_Compilation_Environment.html#virtualboxvmubuntu" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>the corresponding contentVM，the corresponding content</p></li>
+</ul>
+<img alt="_images/image1.png" src="_images/image1.png" />
+<ul class="simple">
+<li><p>the corresponding content8GBthe corresponding contentVMuse。</p></li>
+</ul>
+<img alt="_images/image2.png" src="_images/image2.png" />
+<ul class="simple">
+<li><p>the corresponding content200GBthe corresponding contentspace，the corresponding contentSDKthe corresponding content。</p></li>
+</ul>
+<img alt="_images/image3.png" src="_images/image3.png" />
+</section>
+<section id="ubuntu">
+<h3><span class="section-number">2.1.2. </span>Ubuntu the corresponding content<a class="headerlink" href="2_Build_CVITEK_Software_Compilation_Environment.html#ubuntu" title="Permalink to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>the corresponding contentneedthe corresponding contentinstallthe corresponding contentISOthe corresponding content</p></li>
+</ul>
+<img alt="_images/image4.png" src="_images/image4.png" />
+<ul class="simple">
+<li><p>the corresponding contentinstall</p></li>
+</ul>
+<img alt="_images/image5.png" src="_images/image5.png" />
+<ul class="simple">
+<li><p>the corresponding contentVirtualBox Host-only Ethernet Adapterthe corresponding contentHostthe corresponding contentVirtualBoxthe corresponding content（the corresponding contentserviceandthe corresponding content）</p></li>
+</ul>
+<img alt="_images/image6.png" src="_images/image6.png" />
+</section>
+<section id="ssh-server">
+<h3><span class="section-number">2.1.3. </span>installSSH Server<a class="headerlink" href="2_Build_CVITEK_Software_Compilation_Environment.html#ssh-server" title="Permalink to this heading">¶</a></h3>
+<p>SSH Serverinstall</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo apt-get install ssh</span>
+<span class="go">sudo apt-get install openssh-server</span>
+</pre></div>
+</div>
+<p>installthe corresponding contentcanmodifythe corresponding content ssh the corresponding content, the corresponding contentport、the corresponding content、rootthe corresponding content</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">vim /etc/ssh/sshd_config</span>
+
+<span class="go">Port 22</span>
+
+<span class="go">PasswordAuthentication yes</span>
+
+<span class="go">PermitRootLogin yes -&gt; YesNothe corresponding content root the corresponding content</span>
+</pre></div>
+</div>
+<p>modifythe corresponding contentSSH</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo /etc/init.d/ssh restart</span>
+</pre></div>
+</div>
+</section>
+<section id="samba-server">
+<h3><span class="section-number">2.1.4. </span>installSamba Server<a class="headerlink" href="2_Build_CVITEK_Software_Compilation_Environment.html#samba-server" title="Permalink to this heading">¶</a></h3>
+<p>Ubuntu VBneedinstallSambathe corresponding content，the corresponding contentHost PCthe corresponding content。</p>
+<p>installSambathe corresponding content，the corresponding contentifconfigGetIP Address，the corresponding contentinstallthe corresponding contentnet-toolSupported，needinstallnet-tool</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo apt install net-tools</span>
+<span class="go">sudo apt-get install samba samba-common</span>
+</pre></div>
+</div>
+<p>the corresponding contentsamba the corresponding content</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo smbpasswd -a cvitek</span>
+</pre></div>
+</div>
+<p>modify/etc/samba/smb.conf，increasethe corresponding contentContent</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">[cvitek]</span>
+<span class="go">path = /home/cvitek</span>
+<span class="go">writable = yes</span>
+<span class="go">browseable= yes</span>
+<span class="go">valid users = cvitek</span>
+</pre></div>
+</div>
+<p>startsamba server</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo service smbd restart</span>
+</pre></div>
+</div>
+<p>WINDOW PCthe corresponding contentconnectionSamba server （&lt;Server IP&gt;）</p>
+<a class="reference internal image-reference" href="_images/image7.png"><img alt="_images/image7.png" src="_images/image7.png" style="width: 2.77006in; height: 0.69236in;" /></a>
+<p>the corresponding content <a class="reference internal" href="2_Build_CVITEK_Software_Compilation_Environment.html#id1"><span class="std std-ref">2.2.</span></a> installCVITEK Build Environmentthe corresponding content。</p>
+</section>
+</section>
+<section id="id1">
+<span id="id2"></span><h2><span class="section-number">2.2. </span>the corresponding contentCompilation Environment<a class="headerlink" href="2_Build_CVITEK_Software_Compilation_Environment.html#id1" title="Permalink to this heading">¶</a></h2>
+<p>the corresponding contentSDKthe corresponding content，Ubuntuneedinstallthe corresponding content：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">sudo apt-get update</span>
+<span class="go">sudo apt-get install -y build-essential</span>
+<span class="go">sudo apt-get install -y ninja-build</span>
+<span class="go">sudo apt-get install -y automake</span>
+<span class="go">sudo apt-get install -y autoconf</span>
+<span class="go">sudo apt-get install -y libtool</span>
+<span class="go">sudo apt-get install -y wget</span>
+<span class="go">sudo apt-get install -y curl</span>
+<span class="go">sudo apt-get install -y git</span>
+<span class="go">sudo apt-get install -y gcc</span>
+<span class="go">sudo apt-get install -y libssl-dev</span>
+<span class="go">sudo apt-get install -y bc</span>
+<span class="go">sudo apt-get install -y slib</span>
+<span class="go">sudo apt-get install -y squashfs-tools</span>
+<span class="go">sudo apt-get install -y android-sdk-libsparse-utils</span>
+<span class="go">sudo apt-get install -y android-sdk-ext4-utils</span>
+<span class="go">sudo apt-get install -y jq</span>
+<span class="go">sudo apt-get install -y cmake</span>
+<span class="go">sudo apt-get install -y python3-distutils</span>
+<span class="go">sudo apt-get install -y tclsh</span>
+<span class="go">sudo apt-get install -y scons</span>
+<span class="go">sudo apt-get install -y parallel</span>
+<span class="go">sudo apt-get install -y ssh-client</span>
+<span class="go">sudo apt-get install -y tree</span>
+<span class="go">sudo apt-get install -y python3-dev</span>
+<span class="go">sudo apt-get install -y python3-pip</span>
+<span class="go">sudo apt-get install -y device-tree-compiler</span>
+<span class="go">sudo apt-get install -y libssl-dev</span>
+<span class="go">sudo apt-get install -y ssh</span>
+<span class="go">sudo apt-get install -y cpio</span>
+<span class="go">sudo apt-get install -y squashfs-tools</span>
+<span class="go">sudo apt-get install -y fakeroot</span>
+<span class="go">sudo apt-get install -y libncurses5</span>
+<span class="go">sudo apt-get install -y flex</span>
+<span class="go">sudo apt-get install -y bison</span>
+<span class="go">sudo apt-get install -y pkg-config</span>
+<span class="go">sudo pip3 install -U yoctools</span>
+</pre></div>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">Note</p>
+<p>NoteCheck python CommandYesNothe corresponding content，ifthe corresponding content，needCreatethe corresponding contentconnectionthe corresponding content python3 Command。</p>
+<p>sudo ln -s /usr/bin/python3 /usr/bin/python</p>
+</div>
+<section id="docker">
+<h3><span class="section-number">2.2.1. </span>use Docker the corresponding content<a class="headerlink" href="2_Build_CVITEK_Software_Compilation_Environment.html#docker" title="Permalink to this heading">¶</a></h3>
+<p>canthe corresponding content SDK the corresponding contentdockerthe corresponding content，the corresponding contentRunthe corresponding contentCommand，ifthe corresponding contentCompilation Environmentthe corresponding content，canusethe corresponding content。</p>
+<ol class="arabic">
+<li><p>the corresponding content Dockerfile，the corresponding contentContentSavethe corresponding contentFile cvitek-linux-Dockerfile</p>
+<div class="highlight-dockerfile notranslate"><div class="highlight"><pre><span></span><span class="c"># the corresponding contentuse ubuntu:20.04</span>
+<span class="k">FROM</span> <span class="s">ubuntu:20.04</span>
+
+<span class="k">ENV</span> <span class="nv">DEBIAN_FRONTEND</span><span class="o">=</span>noninteractive
+<span class="k">ENV</span> <span class="nv">TZ</span><span class="o">=</span>Asia/Shanghai
+
+<span class="c"># installthe corresponding content</span>
+<span class="k">RUN</span> apt-get update <span class="se">\</span>
+      <span class="o">&amp;&amp;</span> apt-get install -y <span class="se">\</span>
+      pkg-config
+
+<span class="k">RUN</span> <span class="nv">DEBIAN_FRONTEND</span><span class="o">=</span>noninteractive apt-get install -y <span class="se">\</span>
+      build-essential <span class="se">\</span>
+      ninja-build <span class="se">\</span>
+      automake <span class="se">\</span>
+      autoconf <span class="se">\</span>
+      libtool <span class="se">\</span>
+      wget <span class="se">\</span>
+      curl <span class="se">\</span>
+      git <span class="se">\</span>
+      gcc <span class="se">\</span>
+      libssl-dev <span class="se">\</span>
+      bc <span class="se">\</span>
+      slib <span class="se">\</span>
+      squashfs-tools <span class="se">\</span>
+      android-sdk-libsparse-utils <span class="se">\</span>
+      android-sdk-ext4-utils <span class="se">\</span>
+      jq <span class="se">\</span>
+      cmake <span class="se">\</span>
+      python3-distutils <span class="se">\</span>
+      tclsh <span class="se">\</span>
+      scons <span class="se">\</span>
+      parallel <span class="se">\</span>
+      ssh-client <span class="se">\</span>
+      tree <span class="se">\</span>
+      python3-dev <span class="se">\</span>
+      python3-pip <span class="se">\</span>
+      device-tree-compiler <span class="se">\</span>
+      libssl-dev <span class="se">\</span>
+      ssh <span class="se">\</span>
+      cpio <span class="se">\</span>
+      squashfs-tools <span class="se">\</span>
+      fakeroot <span class="se">\</span>
+      libncurses5 <span class="se">\</span>
+      flex <span class="se">\</span>
+      bison <span class="se">\</span>
+      rsync <span class="se">\</span>
+      <span class="o">&amp;&amp;</span> apt-get clean <span class="se">\</span>
+      <span class="o">&amp;&amp;</span> rm -rf /var/lib/apt/lists/*
+
+<span class="c"># the corresponding content yoctools，the corresponding content alios need</span>
+<span class="k">RUN</span> ln -s /usr/bin/python3 /usr/bin/python
+<span class="k">RUN</span> pip3 install yoctools -U
+
+<span class="c"># Setthe corresponding contentContents</span>
+<span class="k">WORKDIR</span><span class="s"> /cvitek-sdk</span>
+
+<span class="c"># Setthe corresponding content</span>
+<span class="k">VOLUME</span> <span class="p">[</span><span class="s2">&quot;/cvitek-sdk&quot;</span><span class="p">]</span>
+
+<span class="k">CMD</span> <span class="p">[</span><span class="s2">&quot;/bin/bash&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p>the corresponding contentgeneratedockerthe corresponding content</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker build -t cvitek-linux -f cvitek-linux-Dockerfile .
+</pre></div>
+</div>
+</li>
+<li><p>Get SDK the corresponding contentFilethe corresponding content <cite>/data/xxx/SDK/</cite> the corresponding content（the corresponding contentDescription），startthe corresponding content：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>docker run -it --name cvitek-linux <span class="se">\</span>
+   -v /data/xxx/SDK:/cvitek-sdk <span class="se">\</span>
+   cvitek-linux
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+</section>
+<section id="github">
+<h2><span class="section-number">2.3. </span>Configurationgithubthe corresponding content<a class="headerlink" href="2_Build_CVITEK_Software_Compilation_Environment.html#github" title="Permalink to this heading">¶</a></h2>
+<p>the corresponding contentgithubthe corresponding content，the corresponding contentConfigurationthe corresponding contentssh key，the corresponding contentneedthe corresponding contentgithubthe corresponding content</p>
+<ol class="arabic">
+<li><p>Setthe corresponding content</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git config --global user.name <span class="s2">&quot;your_name&quot;</span>
+
+git config --global user.email <span class="s2">&quot;your_email@example.com&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Configurationthe corresponding content</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ssh-keygen -t ed25519 -C <span class="s2">&quot;your_email@example.com&quot;</span>
+
+cat ~/.ssh/id_ed25519.pub
+</pre></div>
+</div>
+</li>
+</ol>
+<p>3.the corresponding contentgithub</p>
+<a class="reference internal image-reference" href="_images/image7-1.png"><img alt="_images/image7-1.png" src="_images/image7-1.png" style="width: 6.27083in; height: 2.69444in;" /></a>
+<p>4.VerificationsshYesNoConfigurationSuccess</p>
+<blockquote>
+<div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ssh -T git@github.com
+</pre></div>
+</div>
+</div></blockquote>
+</section>
+<section id="sdk">
+<h2><span class="section-number">2.4. </span>Get SDK the corresponding content<a class="headerlink" href="2_Build_CVITEK_Software_Compilation_Environment.html#sdk" title="Permalink to this heading">¶</a></h2>
+<ol class="arabic">
+<li><p>usegitthe corresponding contentgithubthe corresponding contentSDKthe corresponding content，the corresponding content：<a class="reference external" href="https://github.com/sophgo/sophpi">https://github.com/sophgo/sophpi</a></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git clone -b sg200x-evb git@github.com:sophgo/sophpi.git
+
+./sophpi/scripts/repo_clone.sh --gitclone sophpi/scripts/subtree_cv184x-v6.x.xml
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="id3">
+<h2><span class="section-number">2.5. </span>Filethe corresponding content<a class="headerlink" href="2_Build_CVITEK_Software_Compilation_Environment.html#id3" title="Permalink to this heading">¶</a></h2>
+<p>SDKFilethe corresponding contentDescriptionas follows:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>top
+├── build                         ## the corresponding content
+|     └── media
+|        └── SensorSupportList    ## sensor Driver
+├── fsbl                          ## First Stage Boot Loader
+├── host-tools                    ## the corresponding contenttoolthe corresponding content
+├── isp_tuning                    ## isp tuningtool
+├── linux_5.10                    ## linuxthe corresponding content
+├── cvi_mpi                       ## the corresponding contentispthe corresponding content
+├── osal                          ## operationSystemthe corresponding content
+├── osdrv                         ## kernel space Driver
+├── oss                           ## the corresponding content
+├── ramdisk                       ## ram disk
+├── u-boot-2021.10                ## uboot
+├── libsophon                     ## tputhe corresponding contenttpuDriver
+├── cvi_rtsp                      ## the corresponding contenthalthe corresponding content
+├── buildroot-2021.05             ## Buildroot
+├── isp-tool-daemon               ## ispDebugging Tool
+├── cvi_alios                     ## AliOS
+├── freertos                      ## FreeRTOS
+├── rt-thread                     ## RT-Thread
+└── tdl_sdk                       ## AI Models SDK
+</pre></div>
+</div>
+</section>
+<section id="id4">
+<h2><span class="section-number">2.6. </span>the corresponding content<a class="headerlink" href="2_Build_CVITEK_Software_Compilation_Environment.html#id4" title="Permalink to this heading">¶</a></h2>
+<section id="id5">
+<h3><span class="section-number">2.6.1. </span>environmentthe corresponding contentDescription<a class="headerlink" href="2_Build_CVITEK_Software_Compilation_Environment.html#id5" title="Permalink to this heading">¶</a></h3>
+<p>the corresponding contentmainlyYesthe corresponding contentSetthe corresponding contentenvironmentthe corresponding content：$CHIP, $BOARD, $DUAL_OS</p>
+<p><strong>$CHIP</strong> the corresponding contentYesneedthe corresponding contentUserthe corresponding content SOC the corresponding contentSet。</p>
+<p><strong>$BOARD</strong> the corresponding contentYesthe corresponding content EVB, the corresponding contentDriver，the corresponding contentSet。</p>
+<p><strong>$DUAL_OS</strong> the corresponding contentYesthe corresponding contentUserneedthe corresponding content EVB Runthe corresponding contentSystemthe corresponding contentSystem，the corresponding content EVB the corresponding contentdefaultthe corresponding contentConfiguration，canthrough menuconfig Commandswitch。the corresponding contentSystemthe corresponding contentDescriptionthe corresponding content the corresponding contentSystemthe corresponding contentSystemthe corresponding content。</p>
+</section>
+<section id="id6">
+<h3><span class="section-number">2.6.2. </span>SDK the corresponding content<a class="headerlink" href="2_Build_CVITEK_Software_Compilation_Environment.html#id6" title="Permalink to this heading">¶</a></h3>
+<p>the corresponding contentdockerenvironmentthe corresponding content</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> build/envsetup_soc.sh <span class="c1"># Initializeenvironment</span>
+
+defconfig cv1842hp_wevb_0014a_spinor <span class="c1"># the corresponding content，cv184xthe corresponding contentSupportedthe corresponding contentEVBthe corresponding contentConfigurationthe corresponding content $CHIP_$BOARD</span>
+
+clean_all <span class="c1"># the corresponding contentFile</span>
+
+build_all <span class="c1"># the corresponding content</span>
+</pre></div>
+</div>
+<p>the corresponding contentsource CommandInitializeenvironmentthe corresponding content，canthroughexport Commandthe corresponding contentSetas followsenvironmentthe corresponding content：</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">ENABLE_BOOTLOGO</span><span class="o">=</span>y <span class="c1"># Configurationlogo.jpgthe corresponding contentenvironmentthe corresponding content</span>
+<span class="nb">export</span> <span class="nv">TPU_REL</span><span class="o">=</span><span class="m">1</span> <span class="c1"># the corresponding contenttdl_sdk SDKthe corresponding content</span>
+</pre></div>
+</div>
+<p>the corresponding content install/soc_$CHIP_$BOARD the corresponding content。</p>
+<p>the corresponding content：</p>
+<p>the corresponding content：needthe corresponding contentSupportedthe corresponding content</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$ clean_uboot <span class="o">&amp;&amp;</span> build_uboot <span class="c1"># the corresponding contentuboot，the corresponding contentfip.binthe corresponding contentfip_spl.bin</span>
+
+$ clean_kernel <span class="o">&amp;&amp;</span> build_kernel <span class="c1"># the corresponding contentkernel，the corresponding contentboot.spinor</span>
+
+$ clean_osdrv <span class="o">&amp;&amp;</span> build_osdrv <span class="o">&amp;&amp;</span> pack_rootfs <span class="c1"># the corresponding contentosdrv，generatethe corresponding contentsystem/*，the corresponding contentrootfs.spinor</span>
+
+$ clean_middleware <span class="o">&amp;&amp;</span> build_middleware <span class="o">&amp;&amp;</span> pack_rootfs <span class="c1"># the corresponding contentcvi_mpi(cvi_test / sample_dsi)，generatethe corresponding contentsystem/*，the corresponding contentrootfs.spinor</span>
+
+$ clean_libsophon <span class="o">&amp;&amp;</span> build_libsophon <span class="c1"># the corresponding contentlibsophon，generatethe corresponding contentlibsophon/build/*</span>
+
+$ clean_tdl_sdk <span class="o">&amp;&amp;</span> build_tdl_sdk <span class="c1"># the corresponding contenttdl_sdk</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>the corresponding content cvi_mpi：build_middleware the corresponding contentSensor driver（the corresponding contentcvi_mpi/component/isp/ the corresponding content）andsample application（the corresponding contentcvi_mpi/sample/the corresponding content）the corresponding content</p></li>
+<li><p>the corresponding contentFile System：pack_rootfsthe corresponding contentdriverandapplicationthe corresponding contentBurningthe corresponding content。</p></li>
+</ul>
+</section>
+</section>
+<section id="id7">
+<h2><span class="section-number">2.7. </span>Build Configuration<a class="headerlink" href="2_Build_CVITEK_Software_Compilation_Environment.html#id7" title="Permalink to this heading">¶</a></h2>
+<p>Initializeafterward，the corresponding contentPathas follows，the corresponding contentcv1842hp_wevb_0014a_spinorthe corresponding content</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cat build/boards/cv184x/cv1842hp_wevb_0014a_spinor/cv1842hp_wevb_0014a_spinor_defconfig
+<span class="go">CONFIG_CHIP_cv1842hp=y</span>
+<span class="go">CONFIG_BOARD_wevb_0014a_spinor=y</span>
+<span class="go">CONFIG_DDR_CFG_ddr3_2133_x16=y</span>
+<span class="go">CONFIG_ARCH=&quot;arm&quot;</span>
+<span class="go">CONFIG_CC_OPTIMIZE_FOR_SIZE=y</span>
+<span class="go">CONFIG_KERNEL_ENTRY_HACK=y</span>
+<span class="go">CONFIG_TOOLCHAIN_MUSL_ARM=y</span>
+<span class="go">CONFIG_FLASH_SIZE_SHRINK=y</span>
+<span class="go">CONFIG_BOOT_IMAGE_SINGLE_DTB=y</span>
+<span class="go">CONFIG_STORAGE_TYPE_spinor=y</span>
+<span class="go">......</span>
+<span class="go">CONFIG_DUAL_OS=y</span>
+<span class="go">CONFIG_ENABLE_ALIOS=y</span>
+<span class="go">CONFIG_RTOS_BUILD_IN_FIP=n</span>
+<span class="gp"># </span>Memory Map Configuration
+<span class="go">CONFIG_DRAM_SIZE=0x10000000</span>
+<span class="go">......</span>
+<span class="gp">#</span>
+<span class="gp"># </span>Partition Configuration
+<span class="gp">#</span>
+<span class="go">CONFIG_PARTITION_COUNT=8</span>
+<span class="go">......</span>
+</pre></div>
+</div>
+<p>canthroughdefconfigthe corresponding contentCV184xthe corresponding contentSupportedthe corresponding contentEVB the corresponding content，thenthe corresponding contentEVB。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>defconfig cv184x
+<span class="go">* cv184x * the avaliable cvitek EVB boards</span>
+<span class="go">cv184x - cv184x_fpga [FPGA]</span>
+<span class="go">         cv184x_palladium [PALLADIUM]</span>
+<span class="go">         cv184x_palladium_c906 [PALLADIUM_c906]</span>
+<span class="go">cv1841c - cv1841c_wevb_0015a_emmc [CA53 + EMMC + QFN SIP 128MB]</span>
+<span class="go">         cv1841c_wevb_0015a_spinand [CA53 + SPINAND + QFN SIP 128MB]</span>
+<span class="go">         cv1841c_wevb_0015a_spinor [CA53 + SPINOR + QFN SIP 128MB]</span>
+<span class="go">cv1842cp - cv1842cp_wevb_0015a_spinand [CA53 + SPINAND + QFN SIP 256MB]</span>
+<span class="go">         cv1842cp_wevb_0015a_spinor [CA53 + SPINOR + QFN SIP 256MB]</span>
+<span class="go">cv1842hp - cv1842hp_wevb_0014a_emmc [CA53 + EMMC + BGA SIP 256MB]</span>
+<span class="go">         cv1842hp_wevb_0014a_spinand [CA53 + SPINAND + BGA SIP 256MB]</span>
+<span class="go">         cv1842hp_wevb_0014a_spinor [CA53 + SPINOR + BGA SIP 256MB]</span>
+<span class="go">cv1843hp - cv1843hp_wevb_0014a_emmc [CA53 + EMMC + BGA SIP 512MB]</span>
+</pre></div>
+</div>
+<p>the corresponding contentIntroductionthe corresponding contentBuild Configuration。</p>
+<ul class="simple">
+<li><p>usecommand line - setconfig the corresponding content</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>setconfig <span class="nv">ARCH</span><span class="o">=</span>arm
+<span class="gp">$ </span>setconfig <span class="nv">CROSS_COMPILE_KERNEL</span><span class="o">=</span>arm-none-linux-musleabihf-
+<span class="gp">$ </span>setconfig <span class="nv">TOOLCHAIN_MUSL_ARM</span><span class="o">=</span>y
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>the corresponding contentMenuconfigthe corresponding content</p></li>
+</ul>
+<p>Initializeafterward，the corresponding contentmenuconfigthe corresponding contentpage，the corresponding contentselectthe corresponding contentSDKthe corresponding content，containCHIP，EVBthe corresponding content，DUAL_OSthe corresponding content。</p>
+<img alt="_images/image12.png" src="_images/image12.png" />
+<p>Configurationthe corresponding contentcanthe corresponding content[Enter] [Space] [ESC] the corresponding contentSet/returnthe corresponding content</p>
+<p>Configurationthe corresponding content, the corresponding content[S]the corresponding contentConfigurationFile, the corresponding content[Q]the corresponding contentFigurethe corresponding contentInterface</p>
+<p>(orthe corresponding content ESC, the corresponding contentautomaticthe corresponding contentYesNoneedthe corresponding contentFigurethe corresponding content)</p>
+<p>the corresponding contentIC （the corresponding contentcv1842cpthe corresponding content）</p>
+<img alt="_images/image13.png" src="_images/image13.png" />
+<p>EVB the corresponding contentselect，the corresponding contentEVBthe corresponding contentimageAdaptationthe corresponding contentDDRandFlash Size。（the corresponding contentEVBthe corresponding contentDDRthe corresponding contentDDR3，Flashthe corresponding content16MBthe corresponding contentSPINOR Flash）</p>
+<img alt="_images/image14.png" src="_images/image14.png" />
+<p>the corresponding contentselectthe corresponding content（the corresponding content./build/.config），the corresponding contentcompleteSDKthe corresponding content。</p>
+<section id="id8">
+<h3><span class="section-number">2.7.1. </span>Single-System or Dual-System Build Configuration<a class="headerlink" href="2_Build_CVITEK_Software_Compilation_Environment.html#id8" title="Permalink to this heading">¶</a></h3>
+<p>CV184X the corresponding contentYesthe corresponding contentProcessor，the corresponding contentYesthe corresponding contentARMArchitecturethe corresponding contentProcessor，the corresponding contentYesthe corresponding contentRISC-VArchitecturethe corresponding contentProcessor。</p>
+<p>the corresponding contentSystemYesthe corresponding contentFunctionRequirementsthe corresponding content，mainlythe corresponding contentusethe corresponding content。
+- the corresponding contentSystemConfigurationthe corresponding content，the corresponding contentRun Linux System，the corresponding contentRun FreeRTOS the corresponding content RT-Thread System（v6.3.0afterwarddefaultYesRT-Thread）。
+- the corresponding contentSystemConfigurationthe corresponding content，the corresponding contentRun Linux System，the corresponding contentRun AliOS System。</p>
+<p>through setconfig Commandthe corresponding content，the corresponding contentSystemthe corresponding content：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>select RT-Thread System
+<span class="gp">$ </span>setconfig <span class="nv">DUAL_OS</span><span class="o">=</span>n <span class="nv">RTOS_COMPRESS_ORIG</span><span class="o">=</span>y
+<span class="go">Run setconfig function</span>
+<span class="go">Loaded configuration &#39;.config&#39;</span>
+<span class="go">Configuration saved to &#39;.confi&#39;</span>
+<span class="go">...</span>
+<span class="gp"># </span>select FreeRTOS System
+<span class="gp">$ </span>setconfig <span class="nv">DUAL_OS</span><span class="o">=</span>n <span class="nv">ENABLE_FREERTOS</span><span class="o">=</span>y
+<span class="go">Run setconfig function</span>
+<span class="go">Loaded configuration &#39;.config&#39;</span>
+<span class="go">Configuration saved to &#39;.confi&#39;</span>
+<span class="go">...</span>
+</pre></div>
+</div>
+<p>the corresponding contentSystemthe corresponding content：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>default AliOS System
+<span class="gp">$ </span>setconfig <span class="nv">DUAL_OS</span><span class="o">=</span>y
+<span class="go">Run setconfig function</span>
+<span class="go">Loaded configuration &#39;.config&#39;</span>
+<span class="go">Configuration saved to &#39;.confi&#39;</span>
+<span class="go">...</span>
+</pre></div>
+</div>
+<p>the corresponding content menuconfig Commandthe corresponding contentmenuthe corresponding contentselect，the corresponding contentSystemthe corresponding content：</p>
+<img alt="_images/image15.png" src="_images/image15.png" />
+<img alt="_images/image15-1.png" src="_images/image15-1.png" />
+<p>the corresponding contentSystemthe corresponding content：</p>
+<img alt="_images/image16.png" src="_images/image16.png" />
+</section>
+<section id="id9">
+<h3><span class="section-number">2.7.2. </span>Toolchain Switching<a class="headerlink" href="2_Build_CVITEK_Software_Compilation_Environment.html#id9" title="Permalink to this heading">¶</a></h3>
+<p>CV184x the corresponding contentArchthe corresponding contenttoolthe corresponding content：</p>
+<table class="colwidths-given docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 10%" />
+<col style="width: 50%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Arch</p></th>
+<th class="head"><p>Libc</p></th>
+<th class="head"><p>Toolchain</p></th>
+<th class="head"><p>Target Platform</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Arm</p></td>
+<td><p>glibc</p></td>
+<td><p>arm-gnu-toolchain-11.3.rel1-x86_64-arm-none-linux-gnueabihf</p></td>
+<td><p>arm-none-linux-gnueabihf</p></td>
+</tr>
+<tr class="row-odd"><td><p>Arm</p></td>
+<td><p>musl</p></td>
+<td><p>arm-gnu-toolchain-11.3.rel1-x86_64-arm-none-linux-musleabihf</p></td>
+<td><p>arm-none-linux-musleabihf</p></td>
+</tr>
+<tr class="row-even"><td><p>Aarch64</p></td>
+<td><p>glibc</p></td>
+<td><p>arm-gnu-toolchain-11.3.rel1-x86_64-aarch64-none-linux-gnu</p></td>
+<td><p>aarch64-none-linux-gnu</p></td>
+</tr>
+</tbody>
+</table>
+<p>Linuxthe corresponding contentcanthroughConfigurationas followsthe corresponding content，the corresponding contentswitchthe corresponding contenttoolthe corresponding content：</p>
+<ul class="simple">
+<li><p>arm glibc</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>setconfig <span class="nv">ARCH</span><span class="o">=</span>arm
+<span class="gp">$ </span>setconfig <span class="nv">CROSS_COMPILE_KERNEL</span><span class="o">=</span>arm-none-linux-gnueabihf-
+<span class="gp">$ </span>setconfig <span class="nv">TOOLCHAIN_GLIBC_ARM</span><span class="o">=</span>y
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>arm musl</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>setconfig <span class="nv">ARCH</span><span class="o">=</span>arm
+<span class="gp">$ </span>setconfig <span class="nv">CROSS_COMPILE_KERNEL</span><span class="o">=</span>arm-none-linux-musleabihf-
+<span class="gp">$ </span>setconfig <span class="nv">TOOLCHAIN_MUSL_ARM</span><span class="o">=</span>y
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>aarch64 glibc</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>setconfig <span class="nv">ARCH</span><span class="o">=</span>arm64
+<span class="gp">$ </span>setconfig <span class="nv">CROSS_COMPILE_KERNEL</span><span class="o">=</span>aarch64-none-linux-gnu-
+<span class="gp">$ </span>setconfig <span class="nv">TOOLCHAIN_GLIBC_ARM64</span><span class="o">=</span>y
+</pre></div>
+</div>
+<p>the corresponding contentuseImagethe corresponding contentinterfaceConfiguration。</p>
+<p>U-bootuseaarch64-none-linux-gnu-toolthe corresponding content。</p>
+<p>AliOSusethe corresponding contenttoolthe corresponding contentXuantie-900-gcc-elf-newlib-x86_64-V2.6.1</p>
+</section>
+<section id="id10">
+<h3><span class="section-number">2.7.3. </span>modifyPartition<a class="headerlink" href="2_Build_CVITEK_Software_Compilation_Environment.html#id10" title="Permalink to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">the corresponding content</span> <span class="n">CV184x</span> <span class="n">Flash</span> <span class="n">Partition ToolUser Guide</span> <span class="o">-</span> <span class="n">the corresponding content</span> <span class="n">Partitionmodify</span>
+</pre></div>
+</div>
+</section>
+<section id="id11">
+<h3><span class="section-number">2.7.4. </span>Memory Mapping Configuration<a class="headerlink" href="2_Build_CVITEK_Software_Compilation_Environment.html#id11" title="Permalink to this heading">¶</a></h3>
+<section id="id12">
+<h4><span class="section-number">2.7.4.1. </span>memorythe corresponding content<a class="headerlink" href="2_Build_CVITEK_Software_Compilation_Environment.html#id12" title="Permalink to this heading">¶</a></h4>
+<p>memorythe corresponding contentBasicthe corresponding contentas followsFigurethe corresponding content。</p>
+<ul class="simple">
+<li><p>MONITOR：ATFthe corresponding contentusememory，Includesbl31the corresponding contentbl32</p></li>
+<li><p>RTOS_SYS_TOTAL：the corresponding contentusememory，ifusealiosthe corresponding contentSystem，RTOS_SYS_TOTAL_SIZE=Sizethe corresponding contentmemory+RTOS_SYS_SIZE；usefreertos，the corresponding contentRTOS_SYS_TOTAL_SIZE=RTOS_SYS_SIZE。KERNEL：KERNELSystemmemory,KERNEL_ENTRY_HACK</p></li>
+<li><p>ION：the corresponding contentIONDriverusethe corresponding contentmemory</p></li>
+<li><p>RTOS_ION：the corresponding contentIONusethe corresponding contentmemory</p></li>
+</ul>
+<img alt="_images/image29.png" src="_images/image29.png" />
+<p>usepythonthe corresponding content（memmap.py）the corresponding contentADDRthe corresponding contentSIZE，the corresponding contentmemmap.pygeneratethe corresponding contentcvi_board_memmap.*Filethe corresponding contentlinux、u-boot、fsblthe corresponding contentuse。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cat build/boards/default/memmap/memmap.py
+<span class="go">import os</span>
+<span class="go">SIZE_1M = 0x100000</span>
+<span class="go">SIZE_1K = 1024</span>
+<span class="gp"># </span>Only attributes <span class="k">in</span> class MemoryMap are generated to .h
+<span class="go">class MemoryMap:</span>
+<span class="gp">   # </span>No prefix <span class="s2">&quot;CVIMMAP_&quot;</span> <span class="k">for</span> the items <span class="k">in</span> _no_prefix<span class="o">[]</span>
+<span class="go">   _no_prefix = [</span>
+<span class="go">      &quot;CONFIG_SYS_TEXT_BASE&quot;  # u-boot&#39;s CONFIG_SYS_TEXT_BASE is used without CPP.</span>
+<span class="go">   ]</span>
+<span class="go">   DRAM_BASE = 0x80000000</span>
+<span class="go">   DRAM_SIZE = 510 * SIZE_1M</span>
+<span class="go">......</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>cvi_board_memmap.h</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cat build/output/cv1842hp_wevb_0014a_spinor/cvi_board_memmap.h
+<span class="gp">#</span>ifndef __BOARD_MMAP__a149c034__
+<span class="gp">#</span>define __BOARD_MMAP__a149c034__
+<span class="gp">#</span>define CONFIG_SYS_TEXT_BASE 0x83800000  /* offset <span class="m">56</span>.0MiB */
+<span class="go">......</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>cvi_board_memmap.conf</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cat build/output/cv1842hp_wevb_0014a_spinor/cvi_board_memmap.conf
+<span class="go">CONFIG_SYS_TEXT_BASE=0x83800000</span>
+<span class="go">CVIMMAP_ATF_SIZE=0xa0000</span>
+<span class="go">CVIMMAP_BOOTLOGO_ADDR=0x89e3e000</span>
+<span class="go">CVIMMAP_BOOTLOGO_SIZE=0x1c2000</span>
+<span class="go">......</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>cvi_board_memmap.ld</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cat build/output/cv1842hp_wevb_0014a_spinor/cvi_board_memmap.ld
+<span class="go">CONFIG_SYS_TEXT_BASE = 0x83800000;</span>
+<span class="go">CVIMMAP_ATF_SIZE = 0xa0000;</span>
+<span class="go">CVIMMAP_BOOTLOGO_ADDR = 0x89e3e000;</span>
+<span class="go">CVIMMAP_BOOTLOGO_SIZE = 0x1c2000;</span>
+<span class="go">CVIMMAP_CONFIG_SYS_INIT_SP_ADDR = 0x83500000;</span>
+<span class="go">......</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>cvi_board_memmap.txt</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cat build/output/cv1842hp_wevb_0014a_spinor/cvi_board_memmap.txt
+<span class="go">FBSL stage:</span>
+<span class="go">| Name               | Start Address | End Address | Size      | Size(M/K/B) |</span>
+<span class="go">|--------------------|---------------|-------------|-----------|-------------|</span>
+<span class="go">......</span>
+</pre></div>
+</div>
+<p>the corresponding contentEVB the corresponding contentmemorythe corresponding content，mainlythe corresponding contentSystemthe corresponding contentusethe corresponding content。</p>
+<p>the corresponding content，the corresponding contentmainlythe corresponding contentADDRthe corresponding contentSIZEthe corresponding contentSetthe corresponding content，Default Valuethe corresponding contentEVB defconfigFilethe corresponding content（v6.3.0the corresponding content，the corresponding content）。
+the corresponding contentgeneratecvi_board_memmap.*Filethe corresponding content，ReadConfigurationFilethe corresponding content。</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>cat build/boards/cv184x/cv1842hp_wevb_0014a_spinor/cv1842hp_wevb_0014a_spinor_defconfig
+<span class="go">......</span>
+<span class="go">CONFIG_DUAL_OS=y</span>
+<span class="go">CONFIG_ENABLE_ALIOS=y</span>
+<span class="go">CONFIG_RTOS_BUILD_IN_FIP=n</span>
+<span class="go">CONFIG_DRAM_SIZE=0x10000000</span>
+<span class="go">CONFIG_ION_SIZE=0x4B00000</span>
+<span class="go">CONFIG_RTOS_SYS_SIZE=0x400000</span>
+<span class="go">CONFIG_RTOS_ION_SIZE=0x6000000</span>
+<span class="go">......</span>
+</pre></div>
+</div>
+</section>
+<section id="id13">
+<h4><span class="section-number">2.7.4.2. </span>memorythe corresponding contentmodify<a class="headerlink" href="2_Build_CVITEK_Software_Compilation_Environment.html#id13" title="Permalink to this heading">¶</a></h4>
+<p>throughmenuconfigFigurethe corresponding contentmenuinterfacecanmodifythe corresponding contentADDRthe corresponding contentSIZE，the corresponding contentRequirements。</p>
+<img alt="_images/image30.png" src="_images/image30.png" />
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="1_disclaimer.html" class="btn btn-neutral float-left" title="1. Disclaimer" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="3_Burning_Instructions.html" class="btn btn-neutral float-right" title="3. Burning Instructions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Go to the official website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="the corresponding contentdocumentationthe corresponding content"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Top of page"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Bottom of page"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR Code for This Page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

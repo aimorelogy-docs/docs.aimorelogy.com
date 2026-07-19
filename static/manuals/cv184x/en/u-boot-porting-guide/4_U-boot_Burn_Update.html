@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>4. U-boot Burning and Updating &mdash; U-bootPortingDevelopmentGuide master Documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" /><link rel="stylesheet" href="_static/css/nav.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <script src="_static/js/qrious.js"></script>
+    <script src="_static/js/nav.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="3. U-boot Porting" href="3_U-boot_Transplant.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> U-bootPortingDevelopmentGuide
+          </a>
+              <div class="version">
+                master
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="1_disclaimer.html">1. Disclaimer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="2_Function_Overview.html">2. Function Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="3_U-boot_Transplant.html">3. U-boot Porting</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="4_U-boot_Burn_Update.html#">4. U-boot Burning and Updating</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="4_U-boot_Burn_Update.html#id1">4.1. Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_U-boot_Burn_Update.html#bootromu-boot">4.2. Burn U-Boot Using the bootrom Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="4_U-boot_Burn_Update.html#flash-u-boot">4.3. Flash  U-Boot Burning and Updating</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="4_U-boot_Burn_Update.html#spi-nor-flash">4.3.1. SPI NOR Flash Burning and Updating</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_U-boot_Burn_Update.html#spi-nand-flash">4.3.2. SPI NAND Flash Burning and Updating</a></li>
+<li class="toctree-l3"><a class="reference internal" href="4_U-boot_Burn_Update.html#emmc">4.3.3. eMMC Burning and Updating</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">U-bootPortingDevelopmentGuide</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><span class="section-number">4. </span>U-boot Burning and Updating</li>
+      <li class="wy-breadcrumbs-aside">
+            <!-- <a href="_sources/4_U-boot_Burn_Update.rst.txt" rel="nofollow"> View page source</a> -->
+            <a href="https://developer.sophon.cn/document/index.html" rel="nofollow">Back to Documentation Center</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="u-boot">
+<h1><span class="section-number">4. </span>U-boot Burning and Updating<a class="headerlink" href="4_U-boot_Burn_Update.html#u-boot" title="Permalink to this heading">¶</a></h1>
+<section id="id1">
+<h2><span class="section-number">4.1. </span>Overview<a class="headerlink" href="4_U-boot_Burn_Update.html#id1" title="Permalink to this heading">¶</a></h2>
+<p>U-boot Burning and UpdatingBurning and updating U-Boot requires burning the entire fip.bin (bootloader + U-Boot). The bootloader contains different DDR initialization parameters, which can be configured through the SDK menuconfig when selecting an EVB.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>See CV184X SDK Build User Guide – Chapter 2  CVITEKSoftwareBuild （Build Settings）
+</pre></div>
+</div>
+</section>
+<section id="bootromu-boot">
+<h2><span class="section-number">4.2. </span>Burn U-Boot Using the bootrom Tool<a class="headerlink" href="4_U-boot_Burn_Update.html#bootromu-boot" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SeeCvitekBare Burnand Bare Burn Use _v1</span><span class="mf">.2.1</span><span class="o">.</span><span class="n">docx</span>
+</pre></div>
+</div>
+</section>
+<section id="flash-u-boot">
+<h2><span class="section-number">4.3. </span>Flash  U-Boot Burning and Updating<a class="headerlink" href="4_U-boot_Burn_Update.html#flash-u-boot" title="Permalink to this heading">¶</a></h2>
+<section id="spi-nor-flash">
+<h3><span class="section-number">4.3.1. </span>SPI NOR Flash Burning and Updating<a class="headerlink" href="4_U-boot_Burn_Update.html#spi-nor-flash" title="Permalink to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SeeCvitekBare Burnand Bare Burn Use _v1</span><span class="mf">.2.1</span><span class="o">.</span><span class="n">docx</span>
+</pre></div>
+</div>
+</section>
+<section id="spi-nand-flash">
+<h3><span class="section-number">4.3.2. </span>SPI NAND Flash Burning and Updating<a class="headerlink" href="4_U-boot_Burn_Update.html#spi-nand-flash" title="Permalink to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SeeCvitekBare Burnand Bare Burn Use _v1</span><span class="mf">.2.1</span><span class="o">.</span><span class="n">docx</span>
+</pre></div>
+</div>
+</section>
+<section id="emmc">
+<h3><span class="section-number">4.3.3. </span>eMMC Burning and Updating<a class="headerlink" href="4_U-boot_Burn_Update.html#emmc" title="Permalink to this heading">¶</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SeeCvitekBare Burnand Bare Burn Use _v1</span><span class="mf">.2.1</span><span class="o">.</span><span class="n">docx</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="3_U-boot_Transplant.html" class="btn btn-neutral float-left" title="3. U-boot Porting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, CVITEK.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+
+    <ul id="scroll" class="bgt fds">
+      <li><a class="scroll-home ms fo" href="https://www.sophgo.com/" rel="home" title="Go to Official Website"><i class="be be-home"></i></a></li>
+      <li><a class="scroll-home ms fo" href="https://developer.sophon.cn/document/index.html" rel="file" title="Go to Documentation Center"><i class="be be-file"></i></a></li>
+      <li><a class="scroll-h ms fo" title="Back to top"><i class="be be-arrowup"></i></a></li>
+      <li><a class="scroll-b ms fo" title="Go to bottom"><i class="be be-arrowdown"></i></a></li>
+      <li class="qrshow">
+        <a class="qrurl ms fo"><i class="be be-qr-code"></i></a>
+        <span class="qrurl-box yy bk fd" style="display: none;">
+          <img id="qrious">
+          <p>QR code for this page</p>
+          <span class="arrow-right"></span>
+        </span>
+      </li>
+    </ul>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
