@@ -11,4 +11,4 @@ description: 在 Ovis 上部署自定义 AI 模型。
 
 ## 模型指南
 
-- [YOLOv5](./custom-ai-model-deployment/yolov5.md)
+- [YOLOv8n](./custom-ai-model-deployment/yolov8n.md)

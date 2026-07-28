@@ -43,7 +43,7 @@ const sidebars = {
                     id: 'products/ovis/secondary-development/custom-ai-model-deployment',
                   },
                   items: [
-                    'products/ovis/secondary-development/custom-ai-model-deployment/yolov5',
+                    'products/ovis/secondary-development/custom-ai-model-deployment/yolov8n',
                   ],
                 },
               ],

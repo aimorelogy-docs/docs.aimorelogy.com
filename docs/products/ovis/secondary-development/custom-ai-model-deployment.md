@@ -11,4 +11,4 @@ Use the following guides to deploy custom AI models on Ovis.
 
 ## Model Guides
 
-- [YOLOv5](./custom-ai-model-deployment/yolov5.md)
+- [YOLOv8n](./custom-ai-model-deployment/yolov8n.md)

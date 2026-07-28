@@ -1,11 +1,11 @@
 :root {
-  --ifm-color-primary: #4d7500;
-  --ifm-color-primary-dark: #456900;
-  --ifm-color-primary-darker: #416300;
-  --ifm-color-primary-darkest: #355200;
-  --ifm-color-primary-light: #558100;
-  --ifm-color-primary-lighter: #598700;
-  --ifm-color-primary-lightest: #659900;
+  --ifm-color-primary: #4f4398;
+  --ifm-color-primary-dark: #473c89;
+  --ifm-color-primary-darker: #433981;
+  --ifm-color-primary-darkest: #372f6a;
+  --ifm-color-primary-light: #5b4dae;
+  --ifm-color-primary-lighter: #6052b7;
+  --ifm-color-primary-lightest: #7669c2;
   --ifm-background-color: #ffffff;
   --ifm-background-surface-color: #f5f6f2;
   --ifm-font-family-base: Inter, ui-sans-serif, system-ui, -apple-system,
@@ -16,23 +16,24 @@
   --ifm-navbar-height: 4rem;
   --ifm-global-radius: 4px;
   --ifm-code-font-size: 92%;
-  --doc-accent: #b7f000;
+  --doc-accent: #4f4398;
   --doc-ink: #10120e;
   --doc-border: #dfe3d8;
 }
 
 [data-theme='dark'] {
-  --ifm-color-primary: #b7f000;
-  --ifm-color-primary-dark: #a5d800;
-  --ifm-color-primary-darker: #9ccc00;
-  --ifm-color-primary-darkest: #80a800;
-  --ifm-color-primary-light: #c4ff0a;
-  --ifm-color-primary-lighter: #c8ff17;
-  --ifm-color-primary-lightest: #d3ff42;
+  --ifm-color-primary: #a79fdf;
+  --ifm-color-primary-dark: #968fc9;
+  --ifm-color-primary-darker: #8e88be;
+  --ifm-color-primary-darkest: #756f9d;
+  --ifm-color-primary-light: #b6afe6;
+  --ifm-color-primary-lighter: #bbb5e9;
+  --ifm-color-primary-lightest: #d0ccf0;
   --ifm-background-color: #10120e;
   --ifm-background-surface-color: #181b15;
   --doc-ink: #f4f6ef;
   --doc-border: #353a2f;
+  --doc-accent: #a79fdf;
 }
 
 html {
@@ -61,6 +62,14 @@ body {
   height: 100%;
   object-fit: contain;
   width: 100%;
+}
+
+[data-theme='dark'] .navbar__logo img {
+  filter: brightness(0) invert(1);
+}
+
+[data-theme='dark'] .navbar-sidebar__brand .navbar__logo img {
+  filter: brightness(0) invert(1) !important;
 }
 
 .navbar__title {
