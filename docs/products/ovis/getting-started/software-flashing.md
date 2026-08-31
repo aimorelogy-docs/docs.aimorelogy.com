@@ -67,10 +67,10 @@ Run the following command from the directory that contains `usb_dl.exe`:
 
 After the command starts and waits for the device, trigger a device reset using either method:
 
-- Press the **REBOOT** button on OVIS.
+- Enter `REBOOT` in the serial console.
 - Disconnect and reconnect the USB cable.
 
-The reset allows the flashing tool to detect the device and begin writing the firmware. Keep the USB connection stable until the command reports that flashing has completed. If the device does not restart automatically after a successful write, restart it once.
+The reset allows the flashing tool to detect the device and begin writing the firmware. Keep the USB connection stable until the command reports that flashing has completed. If the device does not restart automatically after a successful write, enter `REBOOT` in the serial console or disconnect and reconnect the USB cable once.
 
 ## Method 2: UART flashing
 
@@ -100,14 +100,14 @@ Open PowerShell in the directory that contains `uart_dl.exe`. Replace the exampl
 .\uart_dl.exe -c cv184x -i "D:\firmware\rawimages" -p COM3
 ```
 
-Keep quotation marks around a firmware path that contains spaces. After the command starts and waits for the device, press **REBOOT** or restart the device so the tool can establish the UART connection. Do not disconnect the UART connection or device power before the command finishes.
+Keep quotation marks around a firmware path that contains spaces. After the command starts and waits for the device, enter `REBOOT` in the serial console or disconnect and reconnect the USB cable so the tool can establish the UART connection. Do not disconnect the UART connection or device power before the command finishes.
 
 ## Troubleshooting
 
 ### USB flashing does not start
 
 - Confirm that the cable supports data transfer and is connected securely.
-- Start `usb_dl.exe` before pressing **REBOOT** or reconnecting the USB cable.
+- Start `usb_dl.exe` before entering `REBOOT` in the serial console or reconnecting the USB cable.
 - Check that the Windows USB flashing driver supplied with the flashing tools is installed correctly.
 - Confirm that `rom` is beside `usb_dl.exe` and contains the extracted firmware contents directly.
 
