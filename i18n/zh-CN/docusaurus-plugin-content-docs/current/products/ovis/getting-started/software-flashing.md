@@ -24,6 +24,17 @@ OVIS 支持通过 USB 和 UART 两种方式烧录固件。日常烧录请使用 
 - `aimorelogy_ovis_firmware.zip` 固件包。
 - USB 烧录使用 `usb_dl.exe`，UART 烧录使用 `uart_dl.exe`。
 
+### 下载烧录工具
+
+<div className="flashing-tool-downloads">
+  <a className="button button--primary" href="/downloads/ovis/flashing-tools/usb_dl.exe" download="usb_dl.exe">
+    下载 USB 烧录工具（288 KiB）
+  </a>
+  <a className="button button--secondary button--outline" href="/downloads/ovis/flashing-tools/uart_dl.exe" download="uart_dl.exe">
+    下载 UART 烧录工具（524 KiB）
+  </a>
+</div>
+
 下文命令使用 PowerShell 语法。请在对应烧录工具所在目录中打开 PowerShell。
 
 ## 方式一：USB 烧录（推荐）

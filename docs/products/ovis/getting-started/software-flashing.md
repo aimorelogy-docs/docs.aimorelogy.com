@@ -24,6 +24,17 @@ Prepare the following:
 - The `aimorelogy_ovis_firmware.zip` firmware package.
 - `usb_dl.exe` for USB flashing or `uart_dl.exe` for UART flashing.
 
+### Download the flashing tools
+
+<div className="flashing-tool-downloads">
+  <a className="button button--primary" href="/downloads/ovis/flashing-tools/usb_dl.exe" download="usb_dl.exe">
+    Download USB tool (288 KiB)
+  </a>
+  <a className="button button--secondary button--outline" href="/downloads/ovis/flashing-tools/uart_dl.exe" download="uart_dl.exe">
+    Download UART tool (524 KiB)
+  </a>
+</div>
+
 The commands below use PowerShell syntax. Open PowerShell in the directory that contains the selected flashing tool.
 
 ## Method 1: USB flashing (recommended)
