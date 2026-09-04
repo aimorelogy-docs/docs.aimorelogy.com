@@ -56,6 +56,20 @@ python yolov8_export.py \
   --img-size 640 640
 ```
 
+:::tip
+
+For a `1080p` video stream, consider using a `384 x 640` model input size. This reduces redundant computation and can improve inference speed:
+
+```bash
+python yolov8_export.py \
+  --weights ./best.pt \
+  --img-size 384 640
+```
+
+When using this size, also change `--input_shapes` and the model dimensions in all subsequent conversion steps to `384 x 640`.
+
+:::
+
 The Ovis script changes the YOLOv8 detection head to produce six raw output branches. The device-side YOLOv8 decoder expects this output contract. Do not replace it with an export that embeds decoding or NMS.
 
 The command prints the saved ONNX path. The remaining examples assume the file is `best.onnx`.

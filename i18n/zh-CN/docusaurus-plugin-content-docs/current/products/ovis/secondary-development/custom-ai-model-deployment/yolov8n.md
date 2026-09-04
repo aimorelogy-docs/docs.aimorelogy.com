@@ -56,6 +56,20 @@ python yolov8_export.py \
   --img-size 640 640
 ```
 
+:::tip
+
+如果输入为 `1080p` 视频流，建议将模型输入尺寸设为 `384 x 640`，以减少冗余计算并提高推理速度：
+
+```bash
+python yolov8_export.py \
+  --weights ./best.pt \
+  --img-size 384 640
+```
+
+使用该尺寸时，还需要将后续转换步骤中的 `--input_shapes` 和模型尺寸同步调整为 `384 x 640`。
+
+:::
+
 Ovis 脚本会调整 YOLOv8 检测头，输出六个未经解码的分支。设备端 YOLOv8 后处理按这组输出工作，请勿换成包含解码或 NMS 的导出方式。
 
 命令结束时会打印 ONNX 文件的保存路径。后文假设文件名为 `best.onnx`。
