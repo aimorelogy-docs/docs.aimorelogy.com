@@ -46,7 +46,7 @@ The core board integrates the CV1842H-P SoC and 2 Gb NAND flash, with a USB conn
 
 The sensor board uses the SC235HAI image sensor and provides UART and Ethernet connectors, plus two 50-pin board-to-board connectors.
 
-![Ovis sensor board front and back with the SC235HAI sensor, UART, Ethernet, and board-to-board connectors marked](/img/products/ovis/overview/ovis-sensor-interfaces.jpg)
+![Ovis sensor board front and back with the SC235HAI sensor, UART, Ethernet, and board-to-board connectors marked](/img/products/ovis/overview/ovis-sensor-interfaces.png)
 
 ### CVBS Output Board
 

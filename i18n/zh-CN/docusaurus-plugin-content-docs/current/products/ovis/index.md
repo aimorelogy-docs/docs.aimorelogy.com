@@ -46,7 +46,7 @@ Ovis 是爱谋科技推出的紧凑型 AI 视觉摄像头模组，搭载 CVITEK 
 
 传感器板采用 SC235HAI 图像传感器，提供 UART、以太网接口及两个 50 Pin 板对板连接器。
 
-![Ovis 传感器板正反面标注：SC235HAI 传感器、UART、以太网和板对板连接器](/img/products/ovis/overview/ovis-sensor-interfaces.jpg)
+![Ovis 传感器板正反面标注：SC235HAI 传感器、UART、以太网和板对板连接器](/img/products/ovis/overview/ovis-sensor-interfaces.png)
 
 ### CVBS 输出板
 
