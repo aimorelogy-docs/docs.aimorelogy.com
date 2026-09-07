@@ -11,6 +11,8 @@ OVIS Web 用于搜索、初始化和配置连接到电脑的 OVIS 设备。网�
 
 [打开 OVIS Web](https://ovis.aimorelogy.com)
 
+OVIS Web 已开源，源代码可在 [OVIS Web GitHub 仓库](https://github.com/aimorelogy-ovis/ovis.web.github.io)中获取。
+
 ## 使用前准备
 
 准备以下环境：

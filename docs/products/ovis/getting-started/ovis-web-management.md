@@ -11,6 +11,8 @@ OVIS Web discovers, initializes, and configures OVIS devices connected to your c
 
 [Open OVIS Web](https://ovis.aimorelogy.com)
 
+OVIS Web is open source. The source code is available in the [OVIS Web GitHub repository](https://github.com/aimorelogy-ovis/ovis.web.github.io).
+
 ## Before you start
 
 Prepare the following:
