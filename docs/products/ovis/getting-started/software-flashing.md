@@ -11,7 +11,7 @@ OVIS supports firmware flashing from Windows over USB or UART. Use USB for routi
 
 :::warning
 
-Flashing replaces the firmware stored on the device. Use an official `aimorelogy_ovis_firmware.zip` package, keep the device connected to stable power, and do not close the terminal or disconnect the cable while data is being written.
+Flashing replaces the firmware stored on the device. Use an official firmware package that matches your hardware variant, keep the device connected to stable power, and do not close the terminal or disconnect the cable while data is being written.
 
 :::
 
@@ -21,8 +21,21 @@ Prepare the following:
 
 - A Windows computer.
 - An OVIS device and a data-capable USB cable.
-- The `aimorelogy_ovis_firmware.zip` firmware package.
+- An official firmware package matching your Standard or CVBS hardware variant.
 - `usb_dl.exe` for USB flashing or `uart_dl.exe` for UART flashing.
+
+### Download the firmware
+
+Download a prebuilt firmware package from [OVIS SDK Releases](https://github.com/aimorelogy-ovis/aimorelogy-ovis-sdk/releases). After extracting it, you can flash it directly using the USB or UART procedure below; compiling the SDK is not required.
+
+Choose the package in the release's **Assets** that matches your hardware:
+
+| Firmware Filename Pattern | Hardware Variant |
+| --- | --- |
+| `ovis_standard_firmware_*.zip` | Standard |
+| `ovis_cvbs_firmware_*.zip` | CVBS |
+
+`*` represents the version in the filename. The automatically generated **Source code** archives are not firmware packages.
 
 ### Download the flashing tools
 
@@ -64,7 +77,7 @@ The driver only needs to be installed once on each computer. If it is already in
 
 ### Prepare the firmware directory
 
-Place `usb_dl.exe` in a working directory. Create a folder named `rom` beside it, extract `aimorelogy_ovis_firmware.zip`, and copy all extracted files and directories into `rom`.
+Place `usb_dl.exe` in a working directory. Create a folder named `rom` beside it, extract the downloaded firmware package, and copy all extracted files and directories into `rom`.
 
 The resulting layout should follow this structure:
 
@@ -105,7 +118,7 @@ Close any serial terminal that is using the same COM port before starting the fl
 
 ### Prepare the firmware directory
 
-Extract `aimorelogy_ovis_firmware.zip` and locate its `rawimages` directory. UART flashing uses the extracted `rawimages` path rather than the `rom` directory used by the USB procedure.
+Extract the downloaded firmware package and locate its `rawimages` directory. UART flashing uses the extracted `rawimages` path rather than the `rom` directory used by the USB procedure.
 
 For example:
 
@@ -140,4 +153,4 @@ Keep quotation marks around a firmware path that contains spaces. After the comm
 
 ### The tool rejects the firmware directory
 
-Use the directory required by the selected method: `rom` for USB, and the extracted `rawimages` directory for UART. Do not mix these directory layouts or pass `aimorelogy_ovis_firmware.zip` directly to either command.
+Use the directory required by the selected method: `rom` for USB, and the extracted `rawimages` directory for UART. Do not mix these directory layouts or pass the firmware ZIP file directly to either command.

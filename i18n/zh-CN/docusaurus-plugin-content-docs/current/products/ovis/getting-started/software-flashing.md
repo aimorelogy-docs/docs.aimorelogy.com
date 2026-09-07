@@ -11,7 +11,7 @@ OVIS 支持通过 USB 和 UART 两种方式烧录固件。日常烧录请使用 
 
 :::warning
 
-烧录会覆盖设备中已有的固件。请使用官方提供的 `aimorelogy_ovis_firmware.zip`，保持设备供电稳定。写入完成前，不要关闭终端或断开线缆。
+烧录会覆盖设备中已有的固件。请使用与硬件版本匹配的官方固件包，保持设备供电稳定。写入完成前，不要关闭终端或断开线缆。
 
 :::
 
@@ -21,8 +21,21 @@ OVIS 支持通过 USB 和 UART 两种方式烧录固件。日常烧录请使用 
 
 - 一台 Windows 电脑。
 - OVIS 设备和一根支持数据传输的 USB 线。
-- `aimorelogy_ovis_firmware.zip` 固件包。
+- 与 Standard 或 CVBS 硬件版本匹配的官方固件包。
 - USB 烧录使用 `usb_dl.exe`，UART 烧录使用 `uart_dl.exe`。
+
+### 下载固件包
+
+前往 [OVIS SDK Releases](https://github.com/aimorelogy-ovis/aimorelogy-ovis-sdk/releases) 下载已编译好的固件包。解压后即可按照下文的 USB 或 UART 步骤直接烧录，无需自行编译 SDK。
+
+在发布版本的 **Assets** 中，根据硬件版本选择对应的固件包：
+
+| 固件文件名格式 | 硬件版本 |
+| --- | --- |
+| `ovis_standard_firmware_*.zip` | Standard（标准版） |
+| `ovis_cvbs_firmware_*.zip` | CVBS 版 |
+
+`*` 表示文件名中的版本号。自动生成的 **Source code** 源码压缩包不是可烧录的固件包。
 
 ### 下载烧录工具
 
@@ -64,7 +77,7 @@ USB 烧录速度明显快于 UART，建议优先使用。
 
 ### 准备固件目录
 
-将 `usb_dl.exe` 放入烧录工作目录，并在同级目录新建名为 `rom` 的文件夹。解压 `aimorelogy_ovis_firmware.zip`，把解压得到的全部文件和目录复制到 `rom` 中。
+将 `usb_dl.exe` 放入烧录工作目录，并在同级目录新建名为 `rom` 的文件夹。解压下载的固件包，把解压得到的全部文件和目录复制到 `rom` 中。
 
 整理后的目录结构如下：
 
@@ -105,7 +118,7 @@ USB 烧录无法使用时，可以改用 UART。UART 传输完整固件需要较
 
 ### 准备固件目录
 
-解压 `aimorelogy_ovis_firmware.zip`，找到其中的 `rawimages` 目录。UART 命令使用 `rawimages` 的实际路径，不使用 USB 烧录步骤中的 `rom` 目录。
+解压下载的固件包，找到其中的 `rawimages` 目录。UART 命令使用 `rawimages` 的实际路径，不使用 USB 烧录步骤中的 `rom` 目录。
 
 例如：
 
@@ -140,4 +153,4 @@ D:\firmware\rawimages
 
 ### 烧录工具提示固件目录无效
 
-USB 烧录使用 `rom`，UART 烧录使用固件包解压后的 `rawimages` 目录。请勿混用两种目录结构，也不要把 `aimorelogy_ovis_firmware.zip` 直接传给烧录命令。
+USB 烧录使用 `rom`，UART 烧录使用固件包解压后的 `rawimages` 目录。请勿混用两种目录结构，也不要把固件 ZIP 压缩包直接传给烧录命令。
