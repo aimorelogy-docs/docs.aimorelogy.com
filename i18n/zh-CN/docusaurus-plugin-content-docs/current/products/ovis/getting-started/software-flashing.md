@@ -41,6 +41,27 @@ OVIS 支持通过 USB 和 UART 两种方式烧录固件。日常烧录请使用 
 
 USB 烧录速度明显快于 UART，建议优先使用。
 
+### 安装 USB 驱动
+
+首次在 Windows 电脑上进行 USB 烧录前，需要安装 USB 下载驱动。以下步骤以 Windows 10 为例。
+
+<div className="flashing-tool-downloads">
+  <a className="button button--primary" href="/downloads/ovis/drivers/CviUsbDownloadInstallDriver.zip" download="CviUsbDownloadInstallDriver.zip">
+    下载 USB 驱动（571 KiB）
+  </a>
+</div>
+
+1. 下载并解压 `CviUsbDownloadInstallDriver.zip`。
+2. 双击运行 `CviUsbDownloadInstallDriver.exe`。
+3. 按照安装向导点击“下一步”，直至提示安装完成。
+4. 返回本页，继续准备固件目录并执行烧录。
+
+:::note
+
+同一台电脑只需安装一次驱动。驱动已经安装时，请跳过本节，不要重复运行安装程序。
+
+:::
+
 ### 准备固件目录
 
 将 `usb_dl.exe` 放入烧录工作目录，并在同级目录新建名为 `rom` 的文件夹。解压 `aimorelogy_ovis_firmware.zip`，把解压得到的全部文件和目录复制到 `rom` 中。

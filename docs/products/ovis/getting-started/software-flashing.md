@@ -41,6 +41,27 @@ The commands below use PowerShell syntax. Open PowerShell in the directory that 
 
 USB is the recommended method because it is substantially faster than UART.
 
+### Install the USB driver
+
+Install the USB download driver before flashing from a Windows computer for the first time. The following procedure uses Windows 10 as an example.
+
+<div className="flashing-tool-downloads">
+  <a className="button button--primary" href="/downloads/ovis/drivers/CviUsbDownloadInstallDriver.zip" download="CviUsbDownloadInstallDriver.zip">
+    Download USB driver (571 KiB)
+  </a>
+</div>
+
+1. Download and extract `CviUsbDownloadInstallDriver.zip`.
+2. Double-click `CviUsbDownloadInstallDriver.exe`.
+3. Select **Next** in the installation wizard until the installation completes.
+4. Return to this page and continue with the firmware directory preparation below.
+
+:::note
+
+The driver only needs to be installed once on each computer. If it is already installed, skip this section and do not run the installer again.
+
+:::
+
 ### Prepare the firmware directory
 
 Place `usb_dl.exe` in a working directory. Create a folder named `rom` beside it, extract `aimorelogy_ovis_firmware.zip`, and copy all extracted files and directories into `rom`.
