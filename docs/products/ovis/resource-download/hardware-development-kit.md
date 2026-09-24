@@ -15,7 +15,7 @@ The [Ovis HDK repository](https://github.com/aimorelogy-ovis/aimorelogy-ovis-hdk
 
 | File | Description | Link |
 | --- | --- | --- |
-| OVIS_CORE_v1_2_SCH.pdf | Ovis Core V1.2 schematic, showing the core board circuits and electrical connections. | [Download PDF](https://raw.githubusercontent.com/aimorelogy-ovis/aimorelogy-ovis-hdk/main/ovis_core/OVIS_CORE_v1_2_SCH.pdf) |
+| OVIS_CORE_v1_3_SCH.pdf | Ovis Core V1.3 schematic, showing the core board circuits and electrical connections. | [Download PDF](https://raw.githubusercontent.com/aimorelogy-ovis/aimorelogy-ovis-hdk/main/ovis_core/OVIS_CORE_v1_3_SCH.pdf) |
 | OVIS_CORE_v1_2_ASS.pdf | Ovis Core V1.2 assembly drawing, showing component locations and reference designators. | [Download PDF](https://raw.githubusercontent.com/aimorelogy-ovis/aimorelogy-ovis-hdk/main/ovis_core/OVIS_CORE_v1_2_ASS.pdf) |
 | PinFunction.xlsx | Pin function table for checking interface signal definitions during carrier board design. | [Download XLSX](https://raw.githubusercontent.com/aimorelogy-ovis/aimorelogy-ovis-hdk/main/ovis_core/PinFunction.xlsx) |
 | OVIS_CONTENT.dra | Ovis PCB footprint library file for carrier board design. Software version: Cadence Allegro 17.4. | [Download DRA](https://raw.githubusercontent.com/aimorelogy-ovis/aimorelogy-ovis-hdk/main/ovis_core/OVIS_CONTENT.dra) |

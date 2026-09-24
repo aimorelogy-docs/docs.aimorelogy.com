@@ -15,7 +15,7 @@ description: 获取 Ovis 硬件原理图、装配图、引脚定义及载板设�
 
 | 文件 | 说明 | 链接 |
 | --- | --- | --- |
-| OVIS_CORE_v1_2_SCH.pdf | Ovis Core V1.2 核心板原理图，用于查看核心板电路及电气连接。 | [下载 PDF](https://raw.githubusercontent.com/aimorelogy-ovis/aimorelogy-ovis-hdk/main/ovis_core/OVIS_CORE_v1_2_SCH.pdf) |
+| OVIS_CORE_v1_3_SCH.pdf | Ovis Core V1.3 核心板原理图，用于查看核心板电路及电气连接。 | [下载 PDF](https://raw.githubusercontent.com/aimorelogy-ovis/aimorelogy-ovis-hdk/main/ovis_core/OVIS_CORE_v1_3_SCH.pdf) |
 | OVIS_CORE_v1_2_ASS.pdf | Ovis Core V1.2 核心板装配图，用于查看元器件位置及位号。 | [下载 PDF](https://raw.githubusercontent.com/aimorelogy-ovis/aimorelogy-ovis-hdk/main/ovis_core/OVIS_CORE_v1_2_ASS.pdf) |
 | PinFunction.xlsx | 引脚功能表，用于在载板设计时核对接口信号定义。 | [下载 XLSX](https://raw.githubusercontent.com/aimorelogy-ovis/aimorelogy-ovis-hdk/main/ovis_core/PinFunction.xlsx) |
 | OVIS_CONTENT.dra | Ovis PCB 封装库文件，用于载板设计。软件版本：Cadence Allegro 17.4。 | [下载 DRA](https://raw.githubusercontent.com/aimorelogy-ovis/aimorelogy-ovis-hdk/main/ovis_core/OVIS_CONTENT.dra) |
